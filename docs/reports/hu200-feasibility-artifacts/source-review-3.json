@@ -1,0 +1,297 @@
+{
+  "base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+  "branch": "feature/hu200-slumbot-preparation",
+  "checkout": "/Users/dberweger/Local/deepcfr-hu200-slumbot",
+  "core_review": "No additional blocker found in distinct HU200 v1 native/Python identity, keys, fresh pilot/resume lineage, exports, independent accumulator audit, inference, registry, mismatch rejection or unchanged linear CFR opponent-sampled menu/card recipe. HU20/HU100/released defaults remain unchanged. Native and training/inference mathematics are unchanged since round 1; HU200 catalog format registration and the Slumbot admission docstring added since round 1 were reviewed and the current/average registry paths independently verified. Core source is unchanged since round 2.",
+  "findings": [],
+  "limitations": [
+    "No real M1 pilot, machine admission/resource measurement, research ownership change or real machine lock acquisition. Controller/Guard scenarios mock host/processes and use temporary fixture locks only.",
+    "Tests include tiny bounded deterministic training correctness fixtures; no training campaign, 1M/20M/100M pilot, 1B/10B run, M4/paid computation, live Slumbot request, model release, merge, commit or external comment.",
+    "Existing native release binary only; no rebuild or independent source-to-binary attestation. Hash matches prior review and native source is unchanged since its build/review.",
+    "No broad full-suite or Rust-suite rerun; round 1/2 broad core/HU20/HU100/released and Rust results are prior evidence, not round 3 executions. Retained 1000-hand/7432-decision parity and external prefix sweep were not rerun in this round; focused parity and offline external fixtures were.",
+    "Real 60-minute feasibility, actual sampling gaps/family memory peaks, archive destination/upload acceptance and full live Slumbot lifecycle remain unmeasured. Clear is a correctness verdict for the reviewed bounded pilot source, not strength, live-play, release or merge qualification.",
+    "No research archival/upload/copy/cleanup performed. All tracked/source files left unchanged. The requested ignored JSON receipt is the sole retained review write."
+  ],
+  "open_blockers": 0,
+  "pr": {
+    "external_comments_written": false,
+    "head": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+    "linked_to_thread": true,
+    "number": 216,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216"
+  },
+  "prior_findings_disposition": [
+    {
+      "evidence": "Native exit 3 and soft/kernel receipts stop the endpoint loop. Required export/audit and archive remain; optional smoke is skipped. Existing controller fixture and coupled actual Guard/controller fixtures pass.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Training soft/time stop still permits smoke"
+    },
+    {
+      "evidence": "Archive can consume the 600-second reserve after the science failure latch, under the original baseline and deadline. Archive refusal/exception produce explicit closeout status. Focused regression fixtures pass.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Archive reserve/failure/exception handling"
+    },
+    {
+      "evidence": "Kernel peak >=4 GiB latches failed before command acceptance. Kernel hard regression passes; no further science permitted.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Kernel hard RSS ignored"
+    },
+    {
+      "evidence": "Both sampled and kernel >=3 GiB soft peaks latch Guard.soft_stopped for every operation. Coupled actual Guard/controller mocks at snapshot/train/export/audit block new training and smoke and retain partial accounting. Mandatory preservation and archive still use original swap, pressure, AC, disk and deadline guards.",
+      "round": 2,
+      "status": "resolved",
+      "title": "Export/audit soft RSS allows subsequent science"
+    },
+    {
+      "evidence": "Exact source compares immutable event tuples directly. Unmodified smoke_worker completes all 320 hands with legal action validation, conservation, full action/event/settlement replay and deterministic policy action reproduction.",
+      "round": 2,
+      "status": "resolved",
+      "title": "Smoke canonical dataclass event comparison fails"
+    }
+  ],
+  "read_guidance": [
+    "AGENTS.md",
+    "ROADMAP.md",
+    "docs/rules.md",
+    "docs/artifact-storage.md",
+    "docs/development.md",
+    "docs/hu200-feasibility.md",
+    "docs/hu200-slumbot-readiness.md",
+    "docs/reports/hu200-feasibility-artifacts/source-review-1.json",
+    "docs/reports/hu200-feasibility-artifacts/source-review-2.json"
+  ],
+  "recommendation": "No open correctness blocker prevents the already authorized bounded M1-only feasibility pilot on this exact source with unchanged admission/resource/time guards. This review does not authorize dependent live play, extended/paid/M4 training, release or merge.",
+  "reviewed_at_utc": "2026-10-09T10:55:18.848Z",
+  "scope": "Independent correctness review round 3 before dependent HU200 training; read-only source and bounded correctness fixtures only.",
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "status": "clear",
+  "validation": {
+    "additional_guard_fixtures": {
+      "additional_checks": {
+        "actual_nodes_not_target_retained": true,
+        "archive_original_deadline_enforced": true,
+        "preservation_keeps_swap_pressure_ac_disk_guards": true,
+        "terminal_new_science_blocked": true
+      },
+      "coupled_actual_guard_controller": [
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "archive"
+          ],
+          "peak_type": "sampled",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "source-snapshot",
+          "stop_reason": "RuntimeError('Terminal guard latch; no further science')"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "archive"
+          ],
+          "peak_type": "kernel",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "source-snapshot",
+          "stop_reason": "RuntimeError('Terminal guard latch; no further science')"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "sampled",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "train-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "kernel",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "train-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "sampled",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "export-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "kernel",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "export-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "sampled",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "audit-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "archive"
+          ],
+          "peak_type": "kernel",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "audit-1000000",
+          "stop_reason": "native capacity/time/soft stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "train-20000000",
+            "export-20000000",
+            "audit-20000000",
+            "train-100000000",
+            "export-100000000",
+            "audit-100000000",
+            "smoke",
+            "archive"
+          ],
+          "peak_type": "sampled",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "smoke",
+          "stop_reason": "smoke soft resource stop"
+        },
+        {
+          "archive_status": "complete",
+          "operations": [
+            "source-snapshot",
+            "train-1000000",
+            "export-1000000",
+            "audit-1000000",
+            "train-20000000",
+            "export-20000000",
+            "audit-20000000",
+            "train-100000000",
+            "export-100000000",
+            "audit-100000000",
+            "smoke",
+            "archive"
+          ],
+          "peak_type": "kernel",
+          "science_status": "partial",
+          "soft_stopped": true,
+          "stage": "smoke",
+          "stop_reason": "smoke soft resource stop"
+        }
+      ]
+    },
+    "additional_synthetic_identity_fixture": {
+      "exact_audit_worker": {
+        "nodes": 1,
+        "status": "verified"
+      },
+      "registry": [
+        {
+          "format": "holdem-hu200-native-reopening-blueprint-v1",
+          "hash_verified_snapshot": true,
+          "hu100_hu20_unequal_scenarios_rejected": true,
+          "legal_hu200_inference": true
+        },
+        {
+          "format": "holdem-hu200-stored-cfr-average-research-v1",
+          "hash_verified_snapshot": true,
+          "hu100_hu20_unequal_scenarios_rejected": true,
+          "legal_hu200_inference": true
+        }
+      ],
+      "training_performed": false
+    },
+    "artifact_guard": {
+      "command": "python -m scripts.check_repository_artifacts --revision HEAD",
+      "status": "passed",
+      "tracked_files": 2991
+    },
+    "diff_check": {
+      "command": "git diff --check 6e18043317817080fd38f400c5366fbf18fc6b53 HEAD",
+      "status": "passed"
+    },
+    "python": {
+      "command": "python -m pytest -q tests/test_hu200_feasibility.py tests/test_native_hu200.py tests/test_native_hu100_preparation.py tests/test_external_slumbot.py",
+      "executable": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "passed": 55,
+      "scope": "Focused guard/controller/smoke, fixed-game privacy/identity, bounded native/Python fixture train/resume/export/audit/parity and offline Slumbot unit fixtures.",
+      "seconds": 4.73,
+      "skipped": 0
+    },
+    "source_identity": {
+      "core_source_unchanged_since_round2": true,
+      "head_and_live_pr_match": true,
+      "native_release_binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+      "native_source_unchanged_since_round1": true,
+      "pilot_script_sha256": "02984f81956ddb36653b86d7fad12916f82c62a0db1f4f7148221cf31bfc5b90",
+      "pilot_tests_sha256": "48ced16fe1060643a4eda42e68a272c609aa441076911ae5cd298ea5626a9e12",
+      "tracked_and_nonignored_worktree_clean": true
+    },
+    "source_review_checks": [
+      "Fresh seed 2026100905; stack 200; one native root/seat; linear CFR opponent-sampled average; no HU100 resume/relabel in controller.",
+      "Single original monotonic 3600-second deadline and swap baseline retained through all operations; 600-second closeout and measured final-save/tool reserve.",
+      "Admission quote scales entries/nodes conservatively with 110 bytes/entry plus 100MB, soft memory capacity, 1GiB available margin, disk floor and 2x time scaling; clean partials retain actual node counts.",
+      "Complete train/export/audit receipt set before next endpoint admission; audit exceptions do not advance accepted checkpoint.",
+      "Archive includes source snapshot, pinned runtime, local qualification and prior review evidence with local member readback; archive failures/refusals remain explicit.",
+      "Smoke is fixed 32 swapped-seat blocks for each of five opponents, independent private action streams, 200BB resets, descriptive block intervals and no selection or strength gate."
+    ]
+  }
+}

@@ -75,6 +75,7 @@ pub fn equity_schema(game: Game) -> &'static str {
     match game {
         Game::Hu20 => "hu20-native-reopening-ordered-history-equity-k50-v1",
         Game::Hu100 => "hu100-native-reopening-ordered-history-equity-k50-v1",
+        Game::Hu200 => "hu200-native-reopening-ordered-history-equity-k50-v1",
     }
 }
 

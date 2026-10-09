@@ -1,0 +1,11 @@
+{
+  "primary_summary_sha256": "12151fd9c5c2526c1af5e1faf5dd9f7df176e931b9f4e0a2b0d06d1e816d5bb2",
+  "frozen_plan_sha256": "980ab42d976a175d6e8e6b78a7ce462a5b91688bedbb52ae8c94669641b4ad22",
+  "raw_inputs": {
+    "20000000": "03de4f3ed29591ab940aa8d47adb131842868fee6ab694665a4a5238419f8939",
+    "100000000": "015c0acee1f59592585a63be849125cd330901207127663d5f7f3d498d7abbd9"
+  },
+  "scope": "Post-closeout exploratory tabulation of all sealed outcomes; no new evaluation or inference",
+  "conditional_payoffs_are_not_causal": true,
+  "representative_rule": "lowest predeclared coordinate SHA per category/sign; exact coordinates deduplicated"
+}

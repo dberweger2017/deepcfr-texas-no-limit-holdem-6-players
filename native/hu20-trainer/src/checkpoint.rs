@@ -40,6 +40,7 @@ pub fn header_game(h: &Value) -> Result<Game, String> {
     let game = match h["config"]["game"].as_str() {
         Some(crate::trainer::GAME) => Game::Hu20,
         Some("hu100-native-reopening-100bb-52card-no-ante-rake-v1") => Game::Hu100,
+        Some("hu200-native-reopening-200bb-52card-no-ante-rake-v1") => Game::Hu200,
         _ => return Err("unsupported native game".into()),
     };
     let (descriptor, tables) = header_cards(h)?;
@@ -175,7 +176,7 @@ mod tests {
 
     #[test]
     fn both_games_resume_exactly_and_reject_cross_game() {
-        for game in [Game::Hu20, Game::Hu100] {
+        for game in [Game::Hu20, Game::Hu100, Game::Hu200] {
             let mut trainer = Trainer::new(123, 1);
             trainer.game = game;
             trainer.average = AverageRule::OpponentSampled;

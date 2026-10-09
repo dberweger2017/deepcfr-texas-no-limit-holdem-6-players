@@ -1,0 +1,700 @@
+{
+  "blocks": 2048,
+  "counts": {
+    "actions": 155954,
+    "decisions": 71482,
+    "hands": 40960
+  },
+  "gains": {
+    "check_call": {
+      "bb_per_100": -22.13134765625,
+      "blocks": 2048,
+      "confidence": 0.99,
+      "family": 5,
+      "interval": [
+        -63.74541842945541,
+        19.482723116955412
+      ],
+      "reason": null
+    },
+    "loose_aggressive": {
+      "bb_per_100": 278.57666015625,
+      "blocks": 2048,
+      "confidence": 0.99,
+      "family": 5,
+      "interval": [
+        77.12048336154203,
+        480.03283695095797
+      ],
+      "reason": null
+    },
+    "pot_pressure": {
+      "bb_per_100": 133.50830078125,
+      "blocks": 2048,
+      "confidence": 0.99,
+      "family": 5,
+      "interval": [
+        -5.425568241406523,
+        272.4421698039065
+      ],
+      "reason": null
+    },
+    "random": {
+      "bb_per_100": 86.2060546875,
+      "blocks": 2048,
+      "confidence": 0.99,
+      "family": 5,
+      "interval": [
+        -55.96201626966305,
+        228.37412564466305
+      ],
+      "reason": null
+    },
+    "tight_aggressive": {
+      "bb_per_100": -28.0517578125,
+      "blocks": 2048,
+      "confidence": 0.99,
+      "family": 5,
+      "interval": [
+        -127.05803978922724,
+        70.95452416422724
+      ],
+      "reason": null
+    }
+  },
+  "panels": [
+    {
+      "absolute": {
+        "bb_per_100": 45.8740234375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -153.98888871377164,
+          245.73693558877164
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 243,
+        "final_zero_stack_losses": 243,
+        "final_zero_stack_net_chips": -4860000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 1071,
+        "large_pot_losses": 790,
+        "large_pot_net_chips": -65300,
+        "large_pot_wins": 259,
+        "stackoff_flop_call": 115,
+        "stackoff_flop_raise": 1,
+        "stackoff_hands": 514,
+        "stackoff_losses": 243,
+        "stackoff_net_chips": 106000,
+        "stackoff_preflop_call": 348,
+        "stackoff_river_call": 9,
+        "stackoff_river_raise": 2,
+        "stackoff_turn_call": 39,
+        "stackoff_wins": 249
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 56.45751953125,
+          "hands": 2360,
+          "losses": 914,
+          "net_bb": 2312.5,
+          "wins": 1443
+        },
+        "ever-unsupported": {
+          "contribution_bb_per_100": -21.7529296875,
+          "hands": 1041,
+          "losses": 776,
+          "net_bb": -891.0,
+          "wins": 243
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 8.31298828125,
+          "hands": 681,
+          "losses": 0,
+          "net_bb": 340.5,
+          "wins": 681
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": 3.3447265625,
+          "hands": 9,
+          "losses": 2,
+          "net_bb": 137.0,
+          "wins": 7
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": -0.48828125,
+          "hands": 5,
+          "losses": 3,
+          "net_bb": -20.0,
+          "wins": 2
+        }
+      },
+      "hands": 4096,
+      "opponent": "random",
+      "target": 20000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": 92.08984375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          61.178075163310886,
+          123.0016123366891
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "large_pot_hands": 100,
+        "large_pot_losses": 33,
+        "large_pot_net_chips": 143100,
+        "large_pot_wins": 65
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 80.908203125,
+          "hands": 4037,
+          "losses": 2241,
+          "net_bb": 3314.0,
+          "wins": 1675
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": 10.3515625,
+          "hands": 49,
+          "losses": 11,
+          "net_bb": 424.0,
+          "wins": 37
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": 0.830078125,
+          "hands": 10,
+          "losses": 2,
+          "net_bb": 34.0,
+          "wins": 8
+        }
+      },
+      "hands": 4096,
+      "opponent": "check_call",
+      "target": 20000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": 5.0537109375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -67.59410998302188,
+          77.70153185802188
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 31,
+        "final_zero_stack_losses": 31,
+        "final_zero_stack_net_chips": -620000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 92,
+        "large_pot_losses": 50,
+        "large_pot_net_chips": -190500,
+        "large_pot_wins": 39,
+        "stackoff_flop_call": 2,
+        "stackoff_flop_raise": 16,
+        "stackoff_hands": 62,
+        "stackoff_losses": 31,
+        "stackoff_net_chips": -111400,
+        "stackoff_preflop_call": 5,
+        "stackoff_preflop_raise": 18,
+        "stackoff_river_call": 3,
+        "stackoff_river_raise": 8,
+        "stackoff_turn_call": 7,
+        "stackoff_turn_raise": 3,
+        "stackoff_wins": 29
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -16.6259765625,
+          "hands": 2231,
+          "losses": 822,
+          "net_bb": -681.0,
+          "wins": 1403
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 22.5830078125,
+          "hands": 1850,
+          "losses": 0,
+          "net_bb": 925.0,
+          "wins": 1850
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": 1.7822265625,
+          "hands": 9,
+          "losses": 3,
+          "net_bb": 73.0,
+          "wins": 5
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": -2.685546875,
+          "hands": 6,
+          "losses": 3,
+          "net_bb": -110.0,
+          "wins": 3
+        }
+      },
+      "hands": 4096,
+      "opponent": "tight_aggressive",
+      "target": 20000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": -475.9765625,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -627.5532996719692,
+          -324.39982532803083
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 171,
+        "final_zero_stack_losses": 171,
+        "final_zero_stack_net_chips": -3420000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 526,
+        "large_pot_losses": 336,
+        "large_pot_net_chips": -2101100,
+        "large_pot_wins": 172,
+        "stackoff_flop_call": 8,
+        "stackoff_flop_raise": 35,
+        "stackoff_hands": 307,
+        "stackoff_losses": 171,
+        "stackoff_net_chips": -1186900,
+        "stackoff_preflop_call": 47,
+        "stackoff_preflop_raise": 74,
+        "stackoff_river_call": 30,
+        "stackoff_river_raise": 61,
+        "stackoff_turn_call": 17,
+        "stackoff_turn_raise": 35,
+        "stackoff_wins": 121
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -441.89453125,
+          "hands": 2887,
+          "losses": 1432,
+          "net_bb": -18100.0,
+          "wins": 1427
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 13.671875,
+          "hands": 1120,
+          "losses": 0,
+          "net_bb": 560.0,
+          "wins": 1120
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": -19.7265625,
+          "hands": 69,
+          "losses": 40,
+          "net_bb": -808.0,
+          "wins": 29
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": -28.02734375,
+          "hands": 20,
+          "losses": 14,
+          "net_bb": -1148.0,
+          "wins": 6
+        }
+      },
+      "hands": 4096,
+      "opponent": "loose_aggressive",
+      "target": 20000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": -404.77294921875,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -516.8888474560671,
+          -292.65705098143286
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 88,
+        "final_zero_stack_losses": 88,
+        "final_zero_stack_net_chips": -1760000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 277,
+        "large_pot_losses": 202,
+        "large_pot_net_chips": -1859700,
+        "large_pot_wins": 72,
+        "stackoff_flop_call": 9,
+        "stackoff_flop_raise": 19,
+        "stackoff_hands": 130,
+        "stackoff_losses": 88,
+        "stackoff_net_chips": -1088300,
+        "stackoff_preflop_call": 22,
+        "stackoff_preflop_raise": 26,
+        "stackoff_river_call": 17,
+        "stackoff_river_raise": 7,
+        "stackoff_turn_call": 15,
+        "stackoff_turn_raise": 15,
+        "stackoff_wins": 39
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 30.87158203125,
+          "hands": 1880,
+          "losses": 647,
+          "net_bb": 1264.5,
+          "wins": 1233
+        },
+        "ever-unsupported": {
+          "contribution_bb_per_100": -449.0234375,
+          "hands": 552,
+          "losses": 351,
+          "net_bb": -18392.0,
+          "wins": 198
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 20.263671875,
+          "hands": 1660,
+          "losses": 0,
+          "net_bb": 830.0,
+          "wins": 1660
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": -8.9599609375,
+          "hands": 3,
+          "losses": 2,
+          "net_bb": -367.0,
+          "wins": 1
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": 2.0751953125,
+          "hands": 1,
+          "losses": 0,
+          "net_bb": 85.0,
+          "wins": 1
+        }
+      },
+      "hands": 4096,
+      "opponent": "pot_pressure",
+      "target": 20000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": 132.080078125,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -64.3617768935334,
+          328.5219331435334
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 232,
+        "final_zero_stack_losses": 232,
+        "final_zero_stack_net_chips": -4640000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 1052,
+        "large_pot_losses": 756,
+        "large_pot_net_chips": 311900,
+        "large_pot_wins": 270,
+        "stackoff_flop_call": 114,
+        "stackoff_flop_raise": 1,
+        "stackoff_hands": 510,
+        "stackoff_losses": 232,
+        "stackoff_net_chips": 421500,
+        "stackoff_preflop_call": 339,
+        "stackoff_preflop_raise": 2,
+        "stackoff_river_call": 9,
+        "stackoff_river_raise": 4,
+        "stackoff_turn_call": 41,
+        "stackoff_wins": 254
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 70.42236328125,
+          "hands": 2392,
+          "losses": 1020,
+          "net_bb": 2884.5,
+          "wins": 1369
+        },
+        "ever-unsupported": {
+          "contribution_bb_per_100": 54.5166015625,
+          "hands": 1021,
+          "losses": 749,
+          "net_bb": 2233.0,
+          "wins": 248
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 8.31298828125,
+          "hands": 681,
+          "losses": 0,
+          "net_bb": 340.5,
+          "wins": 681
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": -1.171875,
+          "hands": 2,
+          "losses": 1,
+          "net_bb": -48.0,
+          "wins": 1
+        }
+      },
+      "hands": 4096,
+      "opponent": "random",
+      "target": 100000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": 69.95849609375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          43.64793825628148,
+          96.26905393121852
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "large_pot_hands": 68,
+        "large_pot_losses": 26,
+        "large_pot_net_chips": 61200,
+        "large_pot_wins": 39
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 67.17529296875,
+          "hands": 4088,
+          "losses": 2313,
+          "net_bb": 2751.5,
+          "wins": 1655
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": 0.732421875,
+          "hands": 6,
+          "losses": 0,
+          "net_bb": 30.0,
+          "wins": 6
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": 2.05078125,
+          "hands": 2,
+          "losses": 0,
+          "net_bb": 84.0,
+          "wins": 2
+        }
+      },
+      "hands": 4096,
+      "opponent": "check_call",
+      "target": 100000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": -22.998046875,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -94.63236889627507,
+          48.63627514627507
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 33,
+        "final_zero_stack_losses": 33,
+        "final_zero_stack_net_chips": -660000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 76,
+        "large_pot_losses": 47,
+        "large_pot_net_chips": -272900,
+        "large_pot_wins": 27,
+        "stackoff_flop_call": 1,
+        "stackoff_flop_raise": 11,
+        "stackoff_hands": 59,
+        "stackoff_losses": 33,
+        "stackoff_net_chips": -196800,
+        "stackoff_preflop_call": 9,
+        "stackoff_preflop_raise": 15,
+        "stackoff_river_call": 2,
+        "stackoff_river_raise": 8,
+        "stackoff_turn_call": 3,
+        "stackoff_turn_raise": 10,
+        "stackoff_wins": 24
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -45.60546875,
+          "hands": 2245,
+          "losses": 984,
+          "net_bb": -1868.0,
+          "wins": 1255
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 22.5830078125,
+          "hands": 1850,
+          "losses": 0,
+          "net_bb": 925.0,
+          "wins": 1850
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": 0.0244140625,
+          "hands": 1,
+          "losses": 0,
+          "net_bb": 1.0,
+          "wins": 1
+        }
+      },
+      "hands": 4096,
+      "opponent": "tight_aggressive",
+      "target": 100000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": -197.39990234375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -325.82381011738914,
+          -68.97599457011088
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 119,
+        "final_zero_stack_losses": 119,
+        "final_zero_stack_net_chips": -2380000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 356,
+        "large_pot_losses": 209,
+        "large_pot_net_chips": -832100,
+        "large_pot_wins": 133,
+        "stackoff_flop_call": 8,
+        "stackoff_flop_raise": 31,
+        "stackoff_hands": 230,
+        "stackoff_losses": 119,
+        "stackoff_net_chips": -469600,
+        "stackoff_preflop_call": 38,
+        "stackoff_preflop_raise": 46,
+        "stackoff_river_call": 15,
+        "stackoff_river_raise": 45,
+        "stackoff_turn_call": 16,
+        "stackoff_turn_raise": 31,
+        "stackoff_wins": 99
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -216.66259765625,
+          "hands": 2959,
+          "losses": 1630,
+          "net_bb": -8874.5,
+          "wins": 1307
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 13.671875,
+          "hands": 1120,
+          "losses": 0,
+          "net_bb": 560.0,
+          "wins": 1120
+        },
+        "supported-missing": {
+          "contribution_bb_per_100": 17.48046875,
+          "hands": 10,
+          "losses": 2,
+          "net_bb": 716.0,
+          "wins": 8
+        },
+        "zero-mass-no-missing": {
+          "contribution_bb_per_100": -11.8896484375,
+          "hands": 7,
+          "losses": 5,
+          "net_bb": -487.0,
+          "wins": 2
+        }
+      },
+      "hands": 4096,
+      "opponent": "loose_aggressive",
+      "target": 100000000
+    },
+    {
+      "absolute": {
+        "bb_per_100": -271.2646484375,
+        "blocks": 2048,
+        "confidence": 0.95,
+        "family": 1,
+        "interval": [
+          -375.8510506503053,
+          -166.67824622469473
+        ],
+        "reason": null
+      },
+      "behavior": {
+        "final_zero_stack_hands": 67,
+        "final_zero_stack_losses": 67,
+        "final_zero_stack_net_chips": -1340000,
+        "final_zero_stack_wins": 0,
+        "large_pot_hands": 229,
+        "large_pot_losses": 159,
+        "large_pot_net_chips": -1288300,
+        "large_pot_wins": 67,
+        "stackoff_flop_call": 10,
+        "stackoff_flop_raise": 17,
+        "stackoff_hands": 111,
+        "stackoff_losses": 67,
+        "stackoff_net_chips": -627200,
+        "stackoff_preflop_call": 19,
+        "stackoff_preflop_raise": 20,
+        "stackoff_river_call": 10,
+        "stackoff_river_raise": 12,
+        "stackoff_turn_call": 8,
+        "stackoff_turn_raise": 15,
+        "stackoff_wins": 42
+      },
+      "exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 18.5791015625,
+          "hands": 1893,
+          "losses": 803,
+          "net_bb": 761.0,
+          "wins": 1089
+        },
+        "ever-unsupported": {
+          "contribution_bb_per_100": -310.107421875,
+          "hands": 543,
+          "losses": 325,
+          "net_bb": -12702.0,
+          "wins": 215
+        },
+        "no-decision": {
+          "contribution_bb_per_100": 20.263671875,
+          "hands": 1660,
+          "losses": 0,
+          "net_bb": 830.0,
+          "wins": 1660
+        }
+      },
+      "hands": 4096,
+      "opponent": "pot_pressure",
+      "target": 100000000
+    }
+  ],
+  "plan_sha256": "93b7e5f07d3a90ada35a9071df0b12dddb961554d4778b2aeab4a0b2f987412f",
+  "status": "verified"
+}

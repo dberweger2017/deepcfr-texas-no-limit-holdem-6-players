@@ -1,0 +1,279 @@
+{
+  "no_live_match": true,
+  "records": [
+    {
+      "audit": {
+        "failure": null,
+        "finished": 1791543392.113528,
+        "kernel_command_peak_rss_bytes": 54165504,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 81018880,
+        "returncode": 0,
+        "seconds": 13.367337374947965,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "export": {
+        "failure": null,
+        "finished": 1791543378.701195,
+        "kernel_command_peak_rss_bytes": 12812288,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 39731200,
+        "returncode": 0,
+        "seconds": 6.962519417051226,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "target": 1000000,
+      "telemetry": {
+        "audit_status": "unaudited",
+        "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+        "checkpoint_bytes": 16171067,
+        "checkpoint_sha256": "c413072a81c28f1968a90cf03eba9b7ba65a586f34ec0af43351ff988fec0fb9",
+        "completed_nodes": 1001231,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            13955,
+            52670,
+            144534,
+            346573
+          ],
+          "entries": 502315,
+          "positive_average_mass_keys": 331085,
+          "traverser_visits": 192918,
+          "traverser_visits_by_street": [
+            4756,
+            18286,
+            49691,
+            120185
+          ],
+          "visits_histogram": {
+            "0": 320901,
+            "1": 173748,
+            "10-99": 63,
+            "100+": 0,
+            "2-9": 7603
+          },
+          "zero_average_mass_keys": 171230
+        },
+        "elapsed_seconds_including_writes": 2.400225875,
+        "entries_per_completed_node": 0.5016974104876897,
+        "iteration": 436,
+        "new_entries": 502315,
+        "nodes_per_second_including_writes": 417140.32434551604,
+        "nodes_since_previous_save": 1001231,
+        "overshoot_nodes": 1231,
+        "path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-1000000.gz",
+        "process_rss_bytes_after_save": 56147968,
+        "recent_nodes_per_second_including_writes": 417140.32434551604,
+        "requested_nodes": 1000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791543371.420485,
+        "write_seconds": 1.936998583,
+        "write_started": 1791543369.483541
+      },
+      "train": {
+        "failure": null,
+        "finished": 1791543371.692818,
+        "kernel_command_peak_rss_bytes": 56246272,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 81461248,
+        "returncode": 0,
+        "seconds": 2.6889059159439057,
+        "soft_stop_requested": false,
+        "status": "complete"
+      }
+    },
+    {
+      "audit": {
+        "failure": null,
+        "finished": 1791543692.098902,
+        "kernel_command_peak_rss_bytes": 54198272,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 83394560,
+        "returncode": 0,
+        "seconds": 170.52549354196526,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "export": {
+        "failure": null,
+        "finished": 1791543521.5342562,
+        "kernel_command_peak_rss_bytes": 12894208,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 42205184,
+        "returncode": 0,
+        "seconds": 89.74289316684008,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "target": 20000000,
+      "telemetry": {
+        "audit_status": "unaudited",
+        "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+        "checkpoint_bytes": 227595997,
+        "checkpoint_sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217",
+        "completed_nodes": 20002716,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            279186,
+            1034051,
+            2814777,
+            6964067
+          ],
+          "entries": 6521284,
+          "positive_average_mass_keys": 4304310,
+          "traverser_visits": 3909507,
+          "traverser_visits_by_street": [
+            97307,
+            372177,
+            991048,
+            2448975
+          ],
+          "visits_histogram": {
+            "0": 3803827,
+            "1": 2242504,
+            "10-99": 18343,
+            "100+": 175,
+            "2-9": 456435
+          },
+          "zero_average_mass_keys": 2216974
+        },
+        "elapsed_seconds_including_writes": 37.789587625,
+        "entries_per_completed_node": 0.3260199264939821,
+        "iteration": 9154,
+        "new_entries": 6018969,
+        "nodes_per_second_including_writes": 502823.29589194607,
+        "nodes_since_previous_save": 19001485,
+        "overshoot_nodes": 2716,
+        "path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-20000000.gz",
+        "process_rss_bytes_after_save": 561037312,
+        "recent_nodes_per_second_including_writes": 502823.29589194607,
+        "requested_nodes": 20000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791543430.599611,
+        "write_seconds": 26.952684833,
+        "write_started": 1791543403.647693
+      },
+      "train": {
+        "failure": null,
+        "finished": 1791543431.7532248,
+        "kernel_command_peak_rss_bytes": 561135616,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 590364672,
+        "returncode": 0,
+        "seconds": 39.58364295819774,
+        "soft_stop_requested": false,
+        "status": "complete"
+      }
+    },
+    {
+      "audit": {
+        "failure": null,
+        "finished": 1791544677.080392,
+        "kernel_command_peak_rss_bytes": 54280192,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 78970880,
+        "returncode": 0,
+        "seconds": 539.2986295409501,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "export": {
+        "failure": null,
+        "finished": 1791544137.7534752,
+        "kernel_command_peak_rss_bytes": 12943360,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 37748736,
+        "returncode": 0,
+        "seconds": 289.0711294999346,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "target": 100000000,
+      "telemetry": {
+        "audit_status": "unaudited",
+        "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+        "checkpoint_bytes": 762445567,
+        "checkpoint_sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641",
+        "completed_nodes": 100000034,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            1435378,
+            4921638,
+            13728423,
+            35225631
+          ],
+          "entries": 20575288,
+          "positive_average_mass_keys": 13613304,
+          "traverser_visits": 19785372,
+          "traverser_visits_by_street": [
+            508827,
+            1758136,
+            4913707,
+            12604702
+          ],
+          "visits_histogram": {
+            "0": 10980042,
+            "1": 6879854,
+            "10-99": 212546,
+            "100+": 4127,
+            "2-9": 2498719
+          },
+          "zero_average_mass_keys": 6961984
+        },
+        "elapsed_seconds_including_writes": 143.510514834,
+        "entries_per_completed_node": 0.20575281004404458,
+        "iteration": 52136,
+        "new_entries": 14054004,
+        "nodes_per_second_including_writes": 557431.7539905258,
+        "nodes_since_previous_save": 79997318,
+        "overshoot_nodes": 34,
+        "path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-100000000.gz",
+        "process_rss_bytes_after_save": 1706672128,
+        "recent_nodes_per_second_including_writes": 557431.7539905258,
+        "requested_nodes": 100000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791543844.201179,
+        "write_seconds": 89.720141209,
+        "write_started": 1791543754.482271
+      },
+      "train": {
+        "failure": null,
+        "finished": 1791543848.644628,
+        "kernel_command_peak_rss_bytes": 1787904000,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 1817280512,
+        "returncode": 0,
+        "seconds": 156.38584562484175,
+        "soft_stop_requested": false,
+        "status": "complete"
+      }
+    }
+  ],
+  "seconds": 1424.7783812920097,
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "status": "complete",
+  "stop_reason": null
+}

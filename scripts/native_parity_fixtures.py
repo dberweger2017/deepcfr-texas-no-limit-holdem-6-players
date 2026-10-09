@@ -12,7 +12,7 @@ from pathlib import Path
 from random import Random
 
 from src.blueprint import equity_buckets
-from src.blueprint.abstraction import (HU20_EQUITY_SCHEMA, HU20_UNCAPPED_SCHEMA, HU100_EQUITY_SCHEMA, HU100_SCHEMA,
+from src.blueprint.abstraction import (HU20_EQUITY_SCHEMA, HU20_UNCAPPED_SCHEMA, HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU200_EQUITY_SCHEMA,
                                        choices, information_key)
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -21,8 +21,8 @@ DECK = tuple(rank + suit for rank in "23456789TJQKA" for suit in "cdhs")
 
 
 def record(seed, off_menu, passive, stack_bb=20, equity=False):
-    if stack_bb not in (20, 100):
-        raise ValueError("stack must be 20 or 100 BB")
+    if stack_bb not in (20, 100, 200):
+        raise ValueError("stack must be 20, 100 or 200 BB")
     rng = Random(seed)
     deck = list(DECK)
     rng.shuffle(deck)
@@ -38,7 +38,8 @@ def record(seed, off_menu, passive, stack_bb=20, equity=False):
             "kinds": [k.value for k in legal.kinds], "call": legal.call_amount,
             "min_raise_to": legal.min_raise_to, "max_raise_to": legal.max_raise_to,
             "menu": [[c.name, c.action.raise_to] for c in menu],
-            "key": information_key(view, menu, schema=(HU100_EQUITY_SCHEMA if equity else HU100_SCHEMA) if stack_bb == 100
+            "key": information_key(view, menu, schema=(HU200_EQUITY_SCHEMA if equity else HU200_SCHEMA) if stack_bb == 200 else
+                                   (HU100_EQUITY_SCHEMA if equity else HU100_SCHEMA) if stack_bb == 100
                                    else HU20_EQUITY_SCHEMA if equity else HU20_UNCAPPED_SCHEMA),
         })
         quiet = [c for c in menu if c.name in ("check", "call")]
@@ -55,7 +56,7 @@ def record(seed, off_menu, passive, stack_bb=20, equity=False):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--stack-bb", type=int, choices=(20, 100), default=20)
+    p.add_argument("--stack-bb", type=int, choices=(20, 100, 200), default=20)
     p.add_argument("--hands", type=int, default=20000)
     p.add_argument("--seed", type=int, default=202610050100)
     p.add_argument("--off-menu", type=float, default=0.15)

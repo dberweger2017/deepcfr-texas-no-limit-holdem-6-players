@@ -1,0 +1,914 @@
+[
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 2045,
+      "mean": 0.5856560717196414,
+      "median": 0.5,
+      "minimum": 0.16666666666666666,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 2045,
+      "mean": 2.232762836185819,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 6.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 2064,
+      "mean": 0.752422480620155,
+      "median": 1.0,
+      "minimum": 0.5,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 2064,
+      "mean": 2.50484496124031,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 3.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "street": "river",
+    "raise_ratio": {
+      "n": 2245,
+      "mean": 0.5319369321596493,
+      "median": 0.25,
+      "minimum": 0.018518518518518517,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 2245,
+      "mean": 5.493095768374165,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 54.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 2147,
+      "mean": 0.6016470009832842,
+      "median": 0.5,
+      "minimum": 0.05555555555555555,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 2147,
+      "mean": 3.775966464834653,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 18.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 862,
+      "mean": 0.6253115064019936,
+      "median": 0.5,
+      "minimum": 0.003703703703703704,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 862,
+      "mean": 11.02784222737819,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1869,
+      "mean": 0.7426100971669012,
+      "median": 1.0,
+      "minimum": 0.24074074074074073,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 1869,
+      "mean": 16.442482611021937,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "street": "river",
+    "raise_ratio": {
+      "n": 484,
+      "mean": 0.5989632489863039,
+      "median": 0.6111111111111112,
+      "minimum": 0.003703703703703704,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 484,
+      "mean": 41.743801652892564,
+      "median": 10.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "street": "stackoff",
+    "score": {
+      "n": 307,
+      "mean": 0.504029781293625,
+      "median": 0.475,
+      "minimum": 0.08499999999999999,
+      "maximum": 1.0
+    },
+    "committed_before_bb": {
+      "n": 307,
+      "mean": 62.009771986970684,
+      "median": 45.0,
+      "minimum": 15.0,
+      "maximum": 180.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 654,
+      "mean": 0.6226231678704378,
+      "median": 0.7345679012345679,
+      "minimum": 0.003676470588235294,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 654,
+      "mean": 21.619266055045873,
+      "median": 4.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 484,
+      "mean": 0.6364275436414235,
+      "median": 0.5,
+      "minimum": 0.005208333333333333,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 484,
+      "mean": 14.274793388429751,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1371,
+      "mean": 0.7251329780635813,
+      "median": 0.5,
+      "minimum": 0.01020408163265306,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 1371,
+      "mean": 12.087527352297593,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "street": "river",
+    "raise_ratio": {
+      "n": 104,
+      "mean": 0.6148380939222335,
+      "median": 0.5,
+      "minimum": 0.002551020408163265,
+      "maximum": 1.2857142857142858
+    },
+    "raise_to_bb": {
+      "n": 104,
+      "mean": 38.88461538461539,
+      "median": 8.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "street": "stackoff",
+    "score": {
+      "n": 130,
+      "mean": 0.4310934065934066,
+      "median": 0.4357142857142857,
+      "minimum": 0.075,
+      "maximum": 1.0
+    },
+    "committed_before_bb": {
+      "n": 130,
+      "mean": 81.29230769230769,
+      "median": 84.0,
+      "minimum": 12.0,
+      "maximum": 196.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 249,
+      "mean": 0.6567469675508466,
+      "median": 0.5,
+      "minimum": 0.004310344827586207,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 249,
+      "mean": 22.481927710843372,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 554,
+      "mean": 0.6171135429201765,
+      "median": 0.5,
+      "minimum": 0.015625,
+      "maximum": 1.5
+    },
+    "raise_to_bb": {
+      "n": 554,
+      "mean": 4.225631768953068,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 150.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1627,
+      "mean": 0.7248104896537595,
+      "median": 0.5,
+      "minimum": 0.125,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 1627,
+      "mean": 3.494161032575292,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 75.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "street": "river",
+    "raise_ratio": {
+      "n": 103,
+      "mean": 0.514363656839385,
+      "median": 0.25,
+      "minimum": 0.027777777777777776,
+      "maximum": 1.1666666666666667
+    },
+    "raise_to_bb": {
+      "n": 103,
+      "mean": 10.310679611650485,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 188.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "street": "stackoff",
+    "score": {
+      "n": 514,
+      "mean": 0.40157309616453585,
+      "median": 0.4,
+      "minimum": 0.075,
+      "maximum": 0.9657142857142857
+    },
+    "committed_before_bb": {
+      "n": 514,
+      "mean": 3.517509727626459,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 135.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 233,
+      "mean": 0.582751720144424,
+      "median": 0.5,
+      "minimum": 0.041666666666666664,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 233,
+      "mean": 6.021459227467811,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 90.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 344,
+      "mean": 0.6881883433821419,
+      "median": 0.5,
+      "minimum": 0.006172839506172839,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 344,
+      "mean": 11.80813953488372,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1105,
+      "mean": 0.7449136919725154,
+      "median": 1.0,
+      "minimum": 0.24074074074074073,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 1105,
+      "mean": 7.685067873303168,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "street": "river",
+    "raise_ratio": {
+      "n": 74,
+      "mean": 0.7350308641975308,
+      "median": 1.0,
+      "minimum": 0.0030864197530864196,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 74,
+      "mean": 30.013513513513512,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 197.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "street": "stackoff",
+    "score": {
+      "n": 62,
+      "mean": 0.4952188940092166,
+      "median": 0.4571428571428572,
+      "minimum": 0.15,
+      "maximum": 0.9942857142857143
+    },
+    "committed_before_bb": {
+      "n": 62,
+      "mean": 57.645161290322584,
+      "median": 45.0,
+      "minimum": 15.0,
+      "maximum": 140.0
+    }
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 206,
+      "mean": 0.7056707505008476,
+      "median": 1.0,
+      "minimum": 0.003703703703703704,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 206,
+      "mean": 9.03883495145631,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 198.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 1973,
+      "mean": 0.5864588612941375,
+      "median": 0.5,
+      "minimum": 0.16666666666666666,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 1973,
+      "mean": 1.994931576279777,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 6.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1735,
+      "mean": 0.7340057636887608,
+      "median": 0.5,
+      "minimum": 0.5,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 1735,
+      "mean": 2.468011527377522,
+      "median": 2.0,
+      "minimum": 2.0,
+      "maximum": 3.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "street": "river",
+    "raise_ratio": {
+      "n": 1852,
+      "mean": 0.4868339104300227,
+      "median": 0.25,
+      "minimum": 0.018518518518518517,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 1852,
+      "mean": 4.7381209503239745,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 54.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 1884,
+      "mean": 0.5530638122198632,
+      "median": 0.5,
+      "minimum": 0.05555555555555555,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 1884,
+      "mean": 3.011146496815287,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 18.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 869,
+      "mean": 0.5789616275270284,
+      "median": 0.5,
+      "minimum": 0.005555555555555556,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 869,
+      "mean": 9.996547756041426,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1465,
+      "mean": 0.7353094846837737,
+      "median": 0.5,
+      "minimum": 0.16666666666666666,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 1465,
+      "mean": 14.072354948805462,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "street": "river",
+    "raise_ratio": {
+      "n": 437,
+      "mean": 0.5102933351885984,
+      "median": 0.3333333333333333,
+      "minimum": 0.003703703703703704,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 437,
+      "mean": 32.81464530892448,
+      "median": 4.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "street": "stackoff",
+    "score": {
+      "n": 230,
+      "mean": 0.5632204968944099,
+      "median": 0.5,
+      "minimum": 0.18,
+      "maximum": 1.0
+    },
+    "committed_before_bb": {
+      "n": 230,
+      "mean": 61.665217391304346,
+      "median": 50.0,
+      "minimum": 15.0,
+      "maximum": 180.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 540,
+      "mean": 0.5693616611741206,
+      "median": 0.5,
+      "minimum": 0.006172839506172839,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 540,
+      "mean": 20.242592592592594,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 479,
+      "mean": 0.5963913357618622,
+      "median": 0.5,
+      "minimum": 0.005208333333333333,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 479,
+      "mean": 12.304801670146137,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1153,
+      "mean": 0.721158989759535,
+      "median": 0.5,
+      "minimum": 0.01020408163265306,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 1153,
+      "mean": 11.236773633998265,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "street": "river",
+    "raise_ratio": {
+      "n": 115,
+      "mean": 0.6010706528988407,
+      "median": 0.5,
+      "minimum": 0.002551020408163265,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 115,
+      "mean": 37.165217391304346,
+      "median": 6.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "street": "stackoff",
+    "score": {
+      "n": 111,
+      "mean": 0.45214929214929217,
+      "median": 0.45,
+      "minimum": 0.075,
+      "maximum": 1.0
+    },
+    "committed_before_bb": {
+      "n": 111,
+      "mean": 71.58558558558559,
+      "median": 60.0,
+      "minimum": 12.0,
+      "maximum": 196.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 224,
+      "mean": 0.6401503858414458,
+      "median": 0.5,
+      "minimum": 0.0026041666666666665,
+      "maximum": 1.5833333333333333
+    },
+    "raise_to_bb": {
+      "n": 224,
+      "mean": 22.388392857142858,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 580,
+      "mean": 0.5611254105090312,
+      "median": 0.5,
+      "minimum": 0.016666666666666666,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 580,
+      "mean": 3.5448275862068965,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 172.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 1408,
+      "mean": 0.7150410353535354,
+      "median": 0.5,
+      "minimum": 0.08333333333333333,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 1408,
+      "mean": 3.9005681818181817,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "street": "river",
+    "raise_ratio": {
+      "n": 85,
+      "mean": 0.46619767351385,
+      "median": 0.2,
+      "minimum": 0.015625,
+      "maximum": 1.880952380952381
+    },
+    "raise_to_bb": {
+      "n": 85,
+      "mean": 15.882352941176471,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 197.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "street": "stackoff",
+    "score": {
+      "n": 510,
+      "mean": 0.4098095238095238,
+      "median": 0.4,
+      "minimum": 0.075,
+      "maximum": 1.0
+    },
+    "committed_before_bb": {
+      "n": 510,
+      "mean": 3.292156862745098,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 84.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 235,
+      "mean": 0.48404696406824066,
+      "median": 0.25,
+      "minimum": 0.016666666666666666,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 235,
+      "mean": 4.127659574468085,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 56.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "street": "flop",
+    "raise_ratio": {
+      "n": 337,
+      "mean": 0.5938381507125325,
+      "median": 0.5,
+      "minimum": 0.018518518518518517,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 337,
+      "mean": 7.905044510385757,
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "street": "preflop",
+    "raise_ratio": {
+      "n": 964,
+      "mean": 0.7486168741355463,
+      "median": 1.0,
+      "minimum": 0.16666666666666666,
+      "maximum": 1.7222222222222223
+    },
+    "raise_to_bb": {
+      "n": 964,
+      "mean": 8.049792531120332,
+      "median": 3.0,
+      "minimum": 2.0,
+      "maximum": 200.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "street": "river",
+    "raise_ratio": {
+      "n": 67,
+      "mean": 0.6458537580519136,
+      "median": 0.5,
+      "minimum": 0.018518518518518517,
+      "maximum": 1.0
+    },
+    "raise_to_bb": {
+      "n": 67,
+      "mean": 25.776119402985074,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 197.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "street": "stackoff",
+    "score": {
+      "n": 59,
+      "mean": 0.5821065375302663,
+      "median": 0.53,
+      "minimum": 0.175,
+      "maximum": 0.9657142857142857
+    },
+    "committed_before_bb": {
+      "n": 59,
+      "mean": 59.96610169491525,
+      "median": 45.0,
+      "minimum": 15.0,
+      "maximum": 162.0
+    }
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "street": "turn",
+    "raise_ratio": {
+      "n": 178,
+      "mean": 0.6495018627509265,
+      "median": 0.5,
+      "minimum": 0.006172839506172839,
+      "maximum": 1.3518518518518519
+    },
+    "raise_to_bb": {
+      "n": 178,
+      "mean": 18.1123595505618,
+      "median": 2.0,
+      "minimum": 1.0,
+      "maximum": 199.0
+    }
+  }
+]

@@ -1,0 +1,158 @@
+{
+  "timing": {
+    "20000000": {
+      "actions": 1322,
+      "all_actions_reproduced": true,
+      "all_events_replayed": true,
+      "fixtures_sha256": "bf7f618fd1dff346dad41dad736b2b602e595f731f27db97d699a24807facf22",
+      "hands": 320,
+      "hands_sha256": "4a6653b41c5d9daf19f6dd1cf142f1d3c48a37aa670f91b6810b2de01729e343",
+      "model_load_seconds": 35.74626487493515,
+      "opponents": {
+        "check_call": {
+          "blocks": 32,
+          "seconds": 0.12126445909962058
+        },
+        "loose_aggressive": {
+          "blocks": 32,
+          "seconds": 0.06596954190172255
+        },
+        "pot_pressure": {
+          "blocks": 32,
+          "seconds": 0.05933100008405745
+        },
+        "random": {
+          "blocks": 32,
+          "seconds": 0.05994166689924896
+        },
+        "tight_aggressive": {
+          "blocks": 32,
+          "seconds": 0.03962337481789291
+        }
+      },
+      "plan_sha256": "6f7a121681487474324f46742f853a555bf9b3b63222a4da884ea15b12cb35e2",
+      "play_replay_seconds": 0.3467213329859078,
+      "stage": "timing",
+      "status": "complete",
+      "support_search_seconds": 0.016240160446614027,
+      "support_signatures": 26,
+      "target": 20000000
+    },
+    "100000000": {
+      "actions": 1251,
+      "all_actions_reproduced": true,
+      "all_events_replayed": true,
+      "fixtures_sha256": "b516166e8305ef474282b69251c3ebeba6cd26086443e9fbf1fc8bba17262d81",
+      "hands": 320,
+      "hands_sha256": "1069734b337fc37ec1670e6e130c5acdd50e49ce2844a657ddd9d101589d3cec",
+      "model_load_seconds": 113.45025541703217,
+      "opponents": {
+        "check_call": {
+          "blocks": 32,
+          "seconds": 0.1273890419397503
+        },
+        "loose_aggressive": {
+          "blocks": 32,
+          "seconds": 0.059588874923065305
+        },
+        "pot_pressure": {
+          "blocks": 32,
+          "seconds": 0.04819216695614159
+        },
+        "random": {
+          "blocks": 32,
+          "seconds": 0.06657475000247359
+        },
+        "tight_aggressive": {
+          "blocks": 32,
+          "seconds": 0.04134166589938104
+        }
+      },
+      "plan_sha256": "6f7a121681487474324f46742f853a555bf9b3b63222a4da884ea15b12cb35e2",
+      "play_replay_seconds": 0.34420362510718405,
+      "stage": "timing",
+      "status": "complete",
+      "support_search_seconds": 0.0079462097492069,
+      "support_signatures": 19,
+      "target": 100000000
+    }
+  },
+  "final": {
+    "20000000": {
+      "actions": 79663,
+      "all_actions_reproduced": true,
+      "all_events_replayed": true,
+      "fixtures_sha256": "3d9d41911163494d9bc9dc9b63619ba32ad5b82af5e0bb1fce469d9aaa1f57b9",
+      "hands": 20480,
+      "hands_sha256": "03de4f3ed29591ab940aa8d47adb131842868fee6ab694665a4a5238419f8939",
+      "model_load_seconds": 35.83784033404663,
+      "opponents": {
+        "check_call": {
+          "blocks": 2048,
+          "seconds": 7.593537959037349
+        },
+        "loose_aggressive": {
+          "blocks": 2048,
+          "seconds": 4.1665132499765605
+        },
+        "pot_pressure": {
+          "blocks": 2048,
+          "seconds": 3.0229900830890983
+        },
+        "random": {
+          "blocks": 2048,
+          "seconds": 3.4353557089343667
+        },
+        "tight_aggressive": {
+          "blocks": 2048,
+          "seconds": 2.503764250082895
+        }
+      },
+      "plan_sha256": "93b7e5f07d3a90ada35a9071df0b12dddb961554d4778b2aeab4a0b2f987412f",
+      "play_replay_seconds": 20.723992333048955,
+      "stage": "final",
+      "status": "complete",
+      "support_search_seconds": 0.30348465288989246,
+      "support_signatures": 387,
+      "target": 20000000
+    },
+    "100000000": {
+      "actions": 76291,
+      "all_actions_reproduced": true,
+      "all_events_replayed": true,
+      "fixtures_sha256": "d04687f6eb651a086dff89409a61cb25a137d74c44194f430496f3d36e554264",
+      "hands": 20480,
+      "hands_sha256": "015c0acee1f59592585a63be849125cd330901207127663d5f7f3d498d7abbd9",
+      "model_load_seconds": 114.95223612501286,
+      "opponents": {
+        "check_call": {
+          "blocks": 2048,
+          "seconds": 7.309096249984577
+        },
+        "loose_aggressive": {
+          "blocks": 2048,
+          "seconds": 3.9671029162127525
+        },
+        "pot_pressure": {
+          "blocks": 2048,
+          "seconds": 2.9496747499797493
+        },
+        "random": {
+          "blocks": 2048,
+          "seconds": 3.390221959212795
+        },
+        "tight_aggressive": {
+          "blocks": 2048,
+          "seconds": 2.4658018751069903
+        }
+      },
+      "plan_sha256": "93b7e5f07d3a90ada35a9071df0b12dddb961554d4778b2aeab4a0b2f987412f",
+      "play_replay_seconds": 20.085129499901086,
+      "stage": "final",
+      "status": "complete",
+      "support_search_seconds": 0.28069328935816884,
+      "support_signatures": 369,
+      "target": 100000000
+    }
+  }
+}

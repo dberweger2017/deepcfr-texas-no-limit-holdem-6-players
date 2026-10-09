@@ -1,0 +1,241 @@
+{
+  "binary_path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/native/hu20-trainer/target/release/hu20-trainer",
+  "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+  "blocks": 2048,
+  "final_root": 2026100906,
+  "input_verification_seconds": 0.39066749997437,
+  "models": [
+    {
+      "actual_nodes": 20002716,
+      "audit": {
+        "all_nodes_verified": 6521284,
+        "average_sha256": "0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270",
+        "checkpoint_sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217",
+        "counts": {
+          "entries": 6521284,
+          "positive_mass": 4304310,
+          "zero_mass": 2216974
+        },
+        "current_sha256": "92c41810afc8fe53c121def320114fc575e9b149ecc0d0e99eaf70635d8b0ba7",
+        "maximum_tv": 1.0,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.20126468230053987
+      },
+      "entries": 6521284,
+      "files": {
+        "average": {
+          "bytes": 155600064,
+          "path": "HU200-20000000.gz.average.gz",
+          "sha256": "0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270"
+        },
+        "checkpoint": {
+          "bytes": 227595997,
+          "path": "HU200-20000000.gz",
+          "sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217"
+        },
+        "current": {
+          "bytes": 158531649,
+          "path": "HU200-20000000.gz.current.gz",
+          "sha256": "92c41810afc8fe53c121def320114fc575e9b149ecc0d0e99eaf70635d8b0ba7"
+        }
+      },
+      "header": {
+        "checkpoint_header": {
+          "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+          "average_rule": "opponent-sampled",
+          "checkpoint_format": "jsonl-v2",
+          "config": {
+            "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+            "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+            "max_entries": 10033949,
+            "max_nodes": 1000000000,
+            "max_seconds": 900.0,
+            "raise_cap": null,
+            "roots_per_seat": 1,
+            "seed": 2026100905
+          },
+          "format": "holdem-hu200-native-reopening-blueprint-v1",
+          "identity": {
+            "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+            "big_blind": 100,
+            "card_descriptor": "legacy-postflop-descriptor-v1",
+            "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+            "players": 2,
+            "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+            "small_blind": 50,
+            "stacks": [
+              20000,
+              20000
+            ]
+          },
+          "iteration": 9154,
+          "kind": "training",
+          "native_state": {
+            "completed_nodes": 20002716,
+            "coverage_start": [
+              0,
+              0,
+              0
+            ],
+            "decisions_by_street": [
+              279186,
+              1034051,
+              2814777,
+              6964067
+            ],
+            "traverser_visits_by_street": [
+              97307,
+              372177,
+              991048,
+              2448975
+            ],
+            "version": 1
+          },
+          "table": {
+            "big_blind": 100,
+            "button": 0,
+            "chip_unit": "0.01",
+            "player_ids": [
+              "player-0",
+              "player-1"
+            ],
+            "small_blind": 50,
+            "stacks": [
+              20000,
+              20000
+            ]
+          }
+        },
+        "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "kind": "diagnostic-inference",
+        "source_checkpoint_sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217",
+        "zero_mass_rule": "uniform in retained menu; reported separately from missing keys"
+      },
+      "iteration": 9154,
+      "path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-20000000.gz.average.gz",
+      "sha256": "0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270",
+      "target": 20000000
+    },
+    {
+      "actual_nodes": 100000034,
+      "audit": {
+        "all_nodes_verified": 20575288,
+        "average_sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b",
+        "checkpoint_sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641",
+        "counts": {
+          "entries": 20575288,
+          "positive_mass": 13613304,
+          "zero_mass": 6961984
+        },
+        "current_sha256": "9229d04e0e9d4d4eedc6f3d507804e2ea7013119d26b7acbafaa506dcd7cea88",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.21693728792575834
+      },
+      "entries": 20575288,
+      "files": {
+        "average": {
+          "bytes": 510277592,
+          "path": "HU200-100000000.gz.average.gz",
+          "sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b"
+        },
+        "checkpoint": {
+          "bytes": 762445567,
+          "path": "HU200-100000000.gz",
+          "sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641"
+        },
+        "current": {
+          "bytes": 503817680,
+          "path": "HU200-100000000.gz.current.gz",
+          "sha256": "9229d04e0e9d4d4eedc6f3d507804e2ea7013119d26b7acbafaa506dcd7cea88"
+        }
+      },
+      "header": {
+        "checkpoint_header": {
+          "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+          "average_rule": "opponent-sampled",
+          "checkpoint_format": "jsonl-v2",
+          "config": {
+            "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+            "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+            "max_entries": 28374777,
+            "max_nodes": 1000000000,
+            "max_seconds": 900.0,
+            "raise_cap": null,
+            "roots_per_seat": 1,
+            "seed": 2026100905
+          },
+          "format": "holdem-hu200-native-reopening-blueprint-v1",
+          "identity": {
+            "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+            "big_blind": 100,
+            "card_descriptor": "legacy-postflop-descriptor-v1",
+            "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+            "players": 2,
+            "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+            "small_blind": 50,
+            "stacks": [
+              20000,
+              20000
+            ]
+          },
+          "iteration": 52136,
+          "kind": "training",
+          "native_state": {
+            "completed_nodes": 100000034,
+            "coverage_start": [
+              0,
+              0,
+              0
+            ],
+            "decisions_by_street": [
+              1435378,
+              4921638,
+              13728423,
+              35225631
+            ],
+            "traverser_visits_by_street": [
+              508827,
+              1758136,
+              4913707,
+              12604702
+            ],
+            "version": 1
+          },
+          "table": {
+            "big_blind": 100,
+            "button": 0,
+            "chip_unit": "0.01",
+            "player_ids": [
+              "player-0",
+              "player-1"
+            ],
+            "small_blind": 50,
+            "stacks": [
+              20000,
+              20000
+            ]
+          }
+        },
+        "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "kind": "diagnostic-inference",
+        "source_checkpoint_sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641",
+        "zero_mass_rule": "uniform in retained menu; reported separately from missing keys"
+      },
+      "iteration": 52136,
+      "path": "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-100000000.gz.average.gz",
+      "sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b",
+      "target": 100000000
+    }
+  ],
+  "primary_family": 5,
+  "protocol_sha256": "d3affb536a0706c895cb1130479ba51fd913232135d805ffc1f40060bd27f1d9",
+  "sample_frozen_at": 1791547924.3166878,
+  "source": "57d9705de423e70370ba59243d9f398b62104207",
+  "target_blocks": 2048,
+  "timing_root": 2026100907
+}

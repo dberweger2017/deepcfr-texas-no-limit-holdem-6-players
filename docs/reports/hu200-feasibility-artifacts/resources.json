@@ -1,0 +1,312 @@
+{
+  "maximum_command_kernel_peak_bytes": 2109702144,
+  "maximum_sampled_family_bytes": 1817280512,
+  "maximum_swap_growth_bytes": 0,
+  "maximum_within_operation_sample_gap_seconds": 0.5897231101989746,
+  "minimum_disk_free_bytes": 27056529408,
+  "operations": [
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5637819766998291,
+      "maximum_swap_bytes": 1589116928,
+      "minimum_available_bytes": 6052085760,
+      "minimum_disk_free_bytes": 28151365632,
+      "minimum_free_percent": 68,
+      "minimum_swap_bytes": 1589116928,
+      "name": "archive",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791544801.755027,
+        "kernel_command_peak_rss_bytes": 44269568,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 91684864,
+        "returncode": 0,
+        "seconds": 8.602210916113108,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 16
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5380067825317383,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6028836864,
+      "minimum_disk_free_bytes": 34209013760,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "audit-1000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543392.113528,
+        "kernel_command_peak_rss_bytes": 54165504,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 81018880,
+        "returncode": 0,
+        "seconds": 13.367337374947965,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 25
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5635130405426025,
+      "maximum_swap_bytes": 1589116928,
+      "minimum_available_bytes": 5756190720,
+      "minimum_disk_free_bytes": 28489019392,
+      "minimum_free_percent": 66,
+      "minimum_swap_bytes": 1589116928,
+      "name": "audit-100000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791544677.080392,
+        "kernel_command_peak_rss_bytes": 54280192,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 78970880,
+        "returncode": 0,
+        "seconds": 539.2986295409501,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 1009
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5442349910736084,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6083313664,
+      "minimum_disk_free_bytes": 32696750080,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "audit-20000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543692.098902,
+        "kernel_command_peak_rss_bytes": 54198272,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 83394560,
+        "returncode": 0,
+        "seconds": 170.52549354196526,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 319
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5381238460540771,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6039355392,
+      "minimum_disk_free_bytes": 34185609216,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "export-1000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543378.701195,
+        "kernel_command_peak_rss_bytes": 12812288,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 39731200,
+        "returncode": 0,
+        "seconds": 6.962519417051226,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 13
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5457909107208252,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 5512151040,
+      "minimum_disk_free_bytes": 27056529408,
+      "minimum_free_percent": 65,
+      "minimum_swap_bytes": 1588791869,
+      "name": "export-100000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791544137.7534752,
+        "kernel_command_peak_rss_bytes": 12943360,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 37748736,
+        "returncode": 0,
+        "seconds": 289.0711294999346,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 541
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5374629497528076,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6055870464,
+      "minimum_disk_free_bytes": 32232865792,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "export-20000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543521.5342562,
+        "kernel_command_peak_rss_bytes": 12894208,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 42205184,
+        "returncode": 0,
+        "seconds": 89.74289316684008,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 168
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5471031665802002,
+      "maximum_swap_bytes": 1589116928,
+      "minimum_available_bytes": 5707972608,
+      "minimum_disk_free_bytes": 30581915648,
+      "minimum_free_percent": 68,
+      "minimum_swap_bytes": 1589116928,
+      "name": "smoke",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791544793.105227,
+        "kernel_command_peak_rss_bytes": 2109702144,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 1692303360,
+        "returncode": 0,
+        "seconds": 115.98205458302982,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 217
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": null,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6263422976,
+      "minimum_disk_free_bytes": 34326532096,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "source-snapshot",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543368.9576142,
+        "kernel_command_peak_rss_bytes": 9519104,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 26329088,
+        "returncode": 0,
+        "seconds": 0.5402638749219477,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 1
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5376272201538086,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6124404736,
+      "minimum_disk_free_bytes": 34311200768,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "train-1000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543371.692818,
+        "kernel_command_peak_rss_bytes": 56246272,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 81461248,
+        "returncode": 0,
+        "seconds": 2.6889059159439057,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 5
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.5897231101989746,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 5867782144,
+      "minimum_disk_free_bytes": 32594452480,
+      "minimum_free_percent": 70,
+      "minimum_swap_bytes": 1597180477,
+      "name": "train-100000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543848.644628,
+        "kernel_command_peak_rss_bytes": 1787904000,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 1817280512,
+        "returncode": 0,
+        "seconds": 156.38584562484175,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 292
+    },
+    {
+      "all_ac": true,
+      "maximum_sample_gap_seconds": 0.543565034866333,
+      "maximum_swap_bytes": 1597180477,
+      "minimum_available_bytes": 6036078592,
+      "minimum_disk_free_bytes": 34028486656,
+      "minimum_free_percent": 72,
+      "minimum_swap_bytes": 1597180477,
+      "name": "train-20000000",
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791543431.7532248,
+        "kernel_command_peak_rss_bytes": 561135616,
+        "kernel_soft_limit_exceeded": false,
+        "peak_family_rss_bytes": 590364672,
+        "returncode": 0,
+        "seconds": 39.58364295819774,
+        "soft_stop_requested": false,
+        "status": "complete"
+      },
+      "samples": 74
+    }
+  ],
+  "post_closeout_disk_free_bytes": 28195278848,
+  "sample_count": 2680,
+  "scope": "owned parent and recursive children sampled RSS; separate kernel maximum is one command, not full family; sampling can miss brief peaks"
+}

@@ -1,0 +1,49 @@
+{
+  "native_build": {
+    "commands": [
+      "cargo test --manifest-path native/hu20-trainer/Cargo.toml",
+      "cargo build --release --manifest-path native/hu20-trainer/Cargo.toml"
+    ],
+    "rust_tests_passed": 12,
+    "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+    "native_source_unchanged_since_initial_build": true
+  },
+  "local_python_runs": [
+    {
+      "source": "4a66618",
+      "passed": 129,
+      "seconds": 62.91,
+      "scope": "native HU20/HU100/HU200 parity, exports, averages, external fixtures, streaming and compact readers"
+    },
+    {
+      "source": "4a66618",
+      "passed": 69,
+      "seconds": 21.1,
+      "scope": "bench, HU100 baseline/action translation, blueprint HU20 and lookup compatibility"
+    },
+    {
+      "source": "02e4dde",
+      "passed": 55,
+      "seconds": 4.74,
+      "scope": "corrected pilot guards, actual 320-hand synthetic smoke fixture, HU20/HU100/HU200 preparation, HU200 recovery and external fixtures"
+    }
+  ],
+  "end_to_end": {
+    "check_game": {
+      "players": 6,
+      "hands": 20,
+      "passed": true
+    },
+    "check_session": {
+      "hands": 30,
+      "passed": true
+    }
+  },
+  "parity": {
+    "hands": 1000,
+    "decisions": 7432,
+    "mismatched_hands": 0,
+    "sha256": "82b876a00f2abb6c53fb07d22274bb6fcf3985784fdd231331da6da7e35b7d1c"
+  },
+  "limitations": "This summarizes observed local tool outputs; full raw build/test logs were not retained. Independent review receipts retain their own exact tests and limitations. No campaign or strength result."
+}

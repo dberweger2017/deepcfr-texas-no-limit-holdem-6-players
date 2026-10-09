@@ -1,0 +1,28 @@
+{
+  "current_disk_admitted": false,
+  "current_disk_free_bytes": 28195266560,
+  "disk_required_bytes": 12423652624,
+  "entry_ceiling": 28374777,
+  "forecast_family_bytes": 3221225470,
+  "limitation": "linear node-to-entry bound capped by memory; capacity stop may precede endpoint",
+  "live_proposal": {
+    "hands": 20,
+    "latency_unmeasured": true,
+    "load_and_closeout_reserve_seconds": 600,
+    "max_requests": 1020,
+    "timeout_seconds": 10,
+    "total_cap_seconds": 1800,
+    "transport_window_seconds": 1200
+  },
+  "load_upper_bound_seconds": 115.98205458302982,
+  "minimum_available_bytes": 4294967294,
+  "minimum_disk_free_bytes": 29066650897,
+  "operation": "prospective next pilot, not authorization",
+  "optional_smoke_quoted": false,
+  "parent_checkpoint_sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641",
+  "proposed_cap_seconds": 3600,
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "target": 200000000,
+  "tool_save_reserve_seconds": 3132.2217784307777,
+  "upper_seconds": 3298.8915704093097
+}

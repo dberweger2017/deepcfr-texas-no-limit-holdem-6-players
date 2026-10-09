@@ -1,0 +1,174 @@
+{
+  "base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+  "branch": "feature/hu200-slumbot-preparation",
+  "checkout": "/Users/dberweger/Local/deepcfr-hu200-slumbot",
+  "core_identity_review": "No additional blocker found in distinct v1 HU200 game/key, resume, export, accumulator audit, inference, registry or mismatch rejection; HU20/HU100/released regression fixtures pass.",
+  "findings": [
+    {
+      "blocking": true,
+      "detail": "Sampled RSS >=3 GiB is acted on only when train=True. A non-training command that samples 3.5 GiB returns complete with soft_stop_requested=False and failed=False. A kernel-proven 3.5 GiB export sets kernel_soft_limit_exceeded=True but the controller tests only the training receipt, allowing the 20M and 100M training endpoints and smoke after that export. This violates the fixed 3 GiB entire-family soft limit and terminal science-off rule; the native training fixes do not cover tool-stage breaches.",
+      "lines": [
+        109,
+        113,
+        137,
+        285,
+        287,
+        292,
+        301
+      ],
+      "path": "scripts/run_hu200_feasibility.py",
+      "priority": "P1",
+      "requested_resolution": "Record sampled and kernel soft breaches for all science operations and enforce a terminal no-new-training/no-smoke decision after required preservation/export/audit. Keep archive admission under the original fixed baseline, deadline and host guards. Add a controller regression with an export or audit soft peak, not only a training soft peak.",
+      "title": "Soft RSS breaches in export/audit do not latch subsequent science off",
+      "verification": {
+        "controller_kernel_soft_export_operations": [
+          "source-snapshot",
+          "train-1000000",
+          "export-1000000",
+          "audit-1000000",
+          "train-20000000",
+          "export-20000000",
+          "audit-20000000",
+          "train-100000000",
+          "export-100000000",
+          "audit-100000000",
+          "smoke",
+          "archive"
+        ],
+        "controller_science_status": "complete",
+        "guard_kernel_soft_export": {
+          "failed": false,
+          "kernel_command_peak_rss_bytes": 3758096384,
+          "kernel_soft_limit_exceeded": true,
+          "status": "complete",
+          "subsequent_train_status": "complete"
+        },
+        "guard_sampled_soft_export": {
+          "failed": false,
+          "peak_family_rss_bytes": 3758096384,
+          "soft_stop_requested": false,
+          "status": "complete"
+        }
+      }
+    },
+    {
+      "blocking": false,
+      "detail": "canonical() is json.dumps without a dataclass encoder. Hand.events contains HandStarted and other frozen event dataclasses; canonical(replay.events) raises TypeError before the first raw hand is written or smoke.json is produced. A synthetic audited HU200 average reproduces the failure without any training. The run controller preserves it as a partial and still attempts archive, but this optional authorized check cannot complete.",
+      "lines": [
+        201
+      ],
+      "path": "scripts/run_hu200_feasibility.py",
+      "priority": "P2",
+      "requested_resolution": "Compare deterministic event objects directly or serialize each event with the established event/dataclass representation before canonicalization. Add an actual smoke-worker fixture; keep the smoke optional and do not call the patched diagnostic a validation of unmodified source.",
+      "title": "Optional smoke always fails on its first event replay comparison",
+      "verification": {
+        "diagnostic_only_in_memory_serialization_bypass": {
+          "hands": 320,
+          "replay": "all actions, events and settlements",
+          "reproduction": "all selected actions",
+          "status": "verified"
+        },
+        "stage": "first completed hand, event/settlement replay comparison",
+        "unmodified_smoke": "TypeError: Object of type HandStarted is not JSON serializable"
+      }
+    }
+  ],
+  "limitations": [
+    "No real M1 pilot/admission, host guard exercise, process ownership change, training campaign, model research retrieval/archive/upload, live Slumbot call, paid compute, commit, release, merge or external comment.",
+    "The named existing tests include bounded deterministic trainer fixtures; these were run only as correctness tests. Additional mock reproductions spawned no real research workers and took no machine research lock.",
+    "Used existing native binaries; no rebuild or source-to-binary attestation. The release binary matches round1 SHA256 and native source is unchanged since round1. The preferred debug executable was absent, so Python preparation tests used their documented release fallback.",
+    "The 1000-hand retained parity fixture was rechecked with native parity. Round1 external Slumbot prefix replay across those 7432 decisions was not rerun; this review reran the external adapter unit fixtures instead.",
+    "Deadline/save/tool forecasts and archive admission reviewed in source and mocked fixtures; actual 60-minute feasibility, sampled family peaks/gaps, destination free space and archive/cloud acceptance remain unmeasured.",
+    "The optional smoke failed on unmodified source. A separate 320-hand run with an in-memory event serialization bypass exposed no further smoke failure but does not clear the P2 on exact source.",
+    "No full project test suite or CI approval claimed. All source and tracked files were left unchanged; this ignored JSON receipt is the only retained review write."
+  ],
+  "pr": {
+    "external_comments_written": false,
+    "head": "c214237bc1ade63ec22ca736d900cb61488d53de",
+    "number": 216,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216"
+  },
+  "prior_review_source": "4a66618a81e537ddcccca373b3134c882afd5b78",
+  "read_guidance": [
+    "AGENTS.md",
+    "ROADMAP.md",
+    "docs/rules.md",
+    "docs/artifact-storage.md",
+    "docs/development.md",
+    "docs/hu200-feasibility.md",
+    "docs/hu200-slumbot-readiness.md",
+    "docs/reports/hu200-feasibility-artifacts/source-review-1.json"
+  ],
+  "recommendation": "Do not start dependent HU200 pilot training until P1 non-training soft-limit handling is fixed and independently reviewed on a new exact source. Fix the P2 before exercising the optional smoke, or explicitly omit that optional check.",
+  "reviewed_at_utc": "2026-10-09T10:46:54.700601+00:00",
+  "round1_disposition": [
+    {
+      "evidence": "Controller tests cover train/export/audit/archive order without smoke after terminal native stop. Remaining non-training soft gap is a separate P1 above.",
+      "status": "resolved_for_training_receipts",
+      "title": "Training exit3/soft stop still allowed optional smoke"
+    },
+    {
+      "evidence": "Archive is admitted at 599 seconds even with failed=True under fresh unchanged host guards; archive errors/None are recorded by fixed closeout finally. Original baseline/deadline is retained.",
+      "status": "resolved",
+      "title": "Archive reserve, failure-latch and exception closeout"
+    },
+    {
+      "evidence": "Mocked 5 GiB kernel command peak produces failed receipt and latches failure before returning; no subsequent science is admitted.",
+      "status": "resolved",
+      "title": "Kernel hard peak not enforced"
+    }
+  ],
+  "scope": "Independent HU200 correctness review round 2 before dependent training; read-only source review and fixture-only validation",
+  "source": "c214237bc1ade63ec22ca736d900cb61488d53de",
+  "status": "blocked",
+  "validation": {
+    "additional_synthetic_fixture": {
+      "constructed_from": "tests.test_native_hu100_preparation.fixture(200), one deterministic Python node",
+      "current_and_average_hu200_registry_admission": true,
+      "current_and_average_snapshot_sha256_verified": true,
+      "hu100_scenario_rejected_for_both": true,
+      "native_export_and_independent_audit": "verified",
+      "training_performed": false,
+      "unmodified_smoke": "failed; see P2 finding"
+    },
+    "artifact_guard": {
+      "command": "python -m scripts.check_repository_artifacts --revision c214237bc1ade63ec22ca736d900cb61488d53de",
+      "status": "passed",
+      "tracked_files": 2990
+    },
+    "diff_check": {
+      "command": "git diff --check 6e18043317817080fd38f400c5366fbf18fc6b53 c214237",
+      "status": "passed"
+    },
+    "native_parity": {
+      "command": "native/hu20-trainer/target/release/hu20-trainer parity results/hu200-preparation/parity.jsonl",
+      "decisions": 7432,
+      "fixture_sha256": "82b876a00f2abb6c53fb07d22274bb6fcf3985784fdd231331da6da7e35b7d1c",
+      "hands": 1000,
+      "mismatched_hands": 0
+    },
+    "native_release_binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+    "python": {
+      "command": "python -m pytest -q tests/test_hu200_feasibility.py tests/test_native_hu200.py tests/test_native_hu100_preparation.py tests/test_native_trainer_parity.py tests/test_external_slumbot.py tests/diagnostics/test_cfr_average.py tests/test_native_hu_recovery_equivalence.py tests/test_native_hu_save_stop.py tests/test_hu_export_capacity.py tests/test_blueprint.py tests/test_blueprint_hu20.py tests/test_blueprint_lookup.py tests/test_v04_release.py tests/test_v042_bundle.py",
+      "executable": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "passed": 128,
+      "seconds": 63.62,
+      "skipped": 0
+    },
+    "rust": {
+      "binary_sha256": "f379bba18e936afe9634d7d3fa90796d618e340cb752b468fafde6576b8ab278",
+      "command": "native/hu20-trainer/target/debug/deps/hu20_trainer-14efedc66184edd1 --test-threads=1",
+      "passed": 12,
+      "rebuilt": false,
+      "seconds": 2.18
+    },
+    "source_identity": {
+      "head_and_live_pr_match": true,
+      "native_source_unchanged_since_round1": true,
+      "pilot_script_sha256": "d66f7465180c3a17439105ce43bd23b1c8f1b2b6499c50066482c1e0bcc62bdc",
+      "pilot_tests_sha256": "a2951402920f67ee59b0310dd7e86369713706d40f3f43c7fff29b4df7e8aa72",
+      "tracked_and_nonignored_worktree_clean": true
+    }
+  }
+}

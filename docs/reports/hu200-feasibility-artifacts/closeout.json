@@ -1,0 +1,10 @@
+{
+  "archive_failure": null,
+  "archive_status": "complete",
+  "guard_failed": false,
+  "originals_retained": true,
+  "seconds": 1433.4273444998544,
+  "soft_stopped": false,
+  "within_cap": true,
+  "workers_exited": true
+}

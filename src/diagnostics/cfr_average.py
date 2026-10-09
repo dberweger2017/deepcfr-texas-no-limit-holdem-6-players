@@ -15,7 +15,7 @@ from src.blueprint.streaming import current_rows, disk_index, insert_unique
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Table
 from src.blueprint.average import (
-    FORMAT, HU100_FORMAT, EXTRACTIONS, ZERO_MASS_RULES, average_rule, checked_header,
+    FORMAT, HU100_FORMAT, format_for_schema, EXTRACTIONS, ZERO_MASS_RULES, average_rule, checked_header,
     checked_row, zero_mass_rule,
 )
 from src.blueprint.solver import regret_match
@@ -47,7 +47,7 @@ def extract(checkpoint, spec, output, *, expected_schema=HU20_UNCAPPED_SCHEMA, z
         with disk_index() as seen, gzip_open(checkpoint,'rt') as source, temporary.open('xb') as raw:
             header=json.loads(source.readline());checked_header(header,spec,expected_schema=expected_schema)
             rule=average_rule(header)
-            export_format = HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT
+            export_format = format_for_schema(expected_schema)
             metadata={'format':export_format,'kind':'diagnostic-inference','extraction':EXTRACTIONS[rule],
                 'source_checkpoint_sha256':spec['checkpoint_sha256'],'checkpoint_header':header,
                 'zero_mass_rule':ZERO_MASS_RULES[zero_mass]}
@@ -76,7 +76,7 @@ def audit(checkpoint, current_path, average_path, spec, average_sha, *, expected
     with disk_index() as expected, gzip_open(checkpoint,'rt') as raw,gzip_open(average_path,'rt') as exported:
         header=json.loads(raw.readline());checked_header(header,spec,expected_schema=expected_schema)
         metadata=json.loads(exported.readline());rule=average_rule(header);zero_mass=zero_mass_rule(metadata)
-        if (metadata.get('format')!=(HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT) or metadata.get('kind')!='diagnostic-inference'
+        if (metadata.get('format')!=(format_for_schema(expected_schema)) or metadata.get('kind')!='diagnostic-inference'
             or metadata.get('extraction')!=EXTRACTIONS[rule] or metadata.get('checkpoint_header')!=header
             or metadata.get('source_checkpoint_sha256')!=spec['checkpoint_sha256']):raise ValueError('Extraction lineage differs')
         for original,emitted in zip_longest(raw,exported):
