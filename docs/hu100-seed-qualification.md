@@ -18,7 +18,9 @@ claiming cloud acceptance. A completed scientific stage alone does not pass.
 The October 8 22:00 UTC check found an unresolved archive stop. The October 9
 05:46 UTC refresh confirms that local archive/failure and evidence closeout
 are now resolved, with cloud upload verification explicitly handed to the owner;
-final CI at `fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27` is still pending.
+that snapshot preceded final CI. All exact-head checks subsequently passed
+and #207 merged as `6e68bc9` on October 9. Its prerequisite is now clear,
+with the owner upload-verification handoff preserved.
 The new campaign also fails its current model-only disk planning reference.
 Read-only host checks and Git preparation do not establish campaign admission.
 

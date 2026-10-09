@@ -6,7 +6,10 @@ The requested three-lineage qualification has **not started**. The October 9
 05:46 UTC [readiness refresh](hu100-seed-qualification-artifacts/readiness-20261009.json)
 supersedes the initial blocker: #207's archive-failure and end evidence closeout
 are resolved; upload acceptance is explicitly handed to the owner, and only
-final exact-head CI remains pending on that dependency. The M4's fresh disk
+final exact-head CI was pending at that snapshot. All checks subsequently
+passed and #207 merged at `6e68bc9`; current main is integrated into this PR,
+with all upstream science/source/evidence retained. The dependency prerequisite
+is now clear; the owner upload-verification handoff remains unchanged. The M4's fresh disk
 planning reference now refuses dependent work.
 
 Current M4: **23.841 GiB free**, normal pressure, 87% system-free, AC,
@@ -89,7 +92,7 @@ Recommendation now: **retain the prospective v0.5 recipe as unqualified**.
 #207's single-seed loose-aggressive and pot-translation gains remain promising;
 its tight gain was inconclusive. Whether either effect repeats across seeds is
 unanswered. Preserve #207's completed closeout and pending owner upload handoff,
-require its final CI, then admit this campaign only after enough free space,
+admit this campaign only after enough free space,
 fresh exclusive/stable-host evidence and the full six-hour time/disk quote.
 No other PR cleanup or synced eviction funds this campaign. This PR grants
 no automatic launch, release, recipe change, deeper training or merge.

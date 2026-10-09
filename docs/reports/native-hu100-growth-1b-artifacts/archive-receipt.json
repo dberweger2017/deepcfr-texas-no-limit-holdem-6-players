@@ -1,0 +1,15 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+  "archive_source": "211cfdc590d77da1f8f4bf4440d38a858dafa26b",
+  "bytes": 20517119304,
+  "cloud_acceptance": "pending",
+  "finished": 1791523447.9084659,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+  "members_verified": 948,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "status": "locally-verified"
+}

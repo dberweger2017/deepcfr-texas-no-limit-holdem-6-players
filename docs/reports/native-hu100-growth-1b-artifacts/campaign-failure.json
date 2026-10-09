@@ -1,0 +1,5 @@
+{
+  "at": 1791496020.3822238,
+  "failure": "RuntimeError('Guard breach: swap growth')",
+  "operation": "archive"
+}

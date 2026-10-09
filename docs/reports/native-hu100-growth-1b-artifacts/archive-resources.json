@@ -1,0 +1,185 @@
+{
+  "attempts": [
+    {
+      "all_ac": true,
+      "all_samples": "retained in ignored originals; original and pack retry streams archived",
+      "max_swap_growth_bytes": 869667962.8800001,
+      "max_total_swap_bytes": 1460603453.44,
+      "min_disk_free_bytes": 48769605632,
+      "min_system_free_percent": 80,
+      "name": "archive",
+      "peak_family_rss_bytes": 79888384,
+      "pressure_levels": [
+        1
+      ],
+      "receipt": null,
+      "sample_count": 72
+    },
+    {
+      "all_ac": true,
+      "all_samples": "retained in ignored originals; original and pack retry streams archived",
+      "max_swap_growth_bytes": 1093014650.88,
+      "max_total_swap_bytes": 1683950141.44,
+      "min_disk_free_bytes": 25566179328,
+      "min_system_free_percent": 85,
+      "name": "archive-retry",
+      "peak_family_rss_bytes": 105889792,
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "child_alive_after_cleanup": false,
+        "cleanup_error": null,
+        "command": [
+          "/Users/dberweger/Local/hu100-1b-growth-20261008/.venv/bin/python",
+          "-m",
+          "scripts.archive_native_hu100_growth_1b",
+          "--pack"
+        ],
+        "deadline": null,
+        "failure": null,
+        "finished": 1791523447.932632,
+        "kernel_command_peak_rss_bytes": 89047040,
+        "name": "archive-retry",
+        "peak_family_rss_bytes": 105889792,
+        "returncode": 0,
+        "samples": 602,
+        "sampling_target_seconds": 0.2,
+        "seconds": 120.41695427894592,
+        "soft_stop_requested": false,
+        "started": 1791523327.515679,
+        "status": "complete",
+        "swap_growth_limit_bytes": 2409064509.44
+      },
+      "sample_count": 602
+    },
+    {
+      "all_ac": true,
+      "all_samples": "retained in ignored originals; original and pack retry streams archived",
+      "max_swap_growth_bytes": 1036391546.8800001,
+      "max_total_swap_bytes": 1627327037.44,
+      "min_disk_free_bytes": 25567891456,
+      "min_system_free_percent": 87,
+      "name": "archive-upload",
+      "peak_family_rss_bytes": 33898496,
+      "pressure_levels": [
+        1
+      ],
+      "receipt": null,
+      "sample_count": 25
+    }
+  ],
+  "cleanup": "No originals or synced files deleted; no campaign/upload-wait process remains; native Drive upload left running.",
+  "final_resource_snapshot": {
+    "ac": true,
+    "at": 1791523886.0128288,
+    "disk_free_bytes": 25563873280,
+    "family_rss_bytes": 31457280,
+    "free_percent": 88,
+    "pressure_level": 1,
+    "swap_bytes": 1610549821.44,
+    "swap_growth_bytes": 1019614330.8800001,
+    "system_used_bytes": 8752431104
+  },
+  "final_single_native_status_receipt": {
+    "absolute_swap_ceiling_bytes": 3000000000,
+    "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+    "failure": null,
+    "finished": 1791523886.0808,
+    "native_status": {
+      "actual_drive_id": null,
+      "at": 1791523886.080579,
+      "bytes": 20517119304,
+      "cloud_acceptance": "delegated to owner; not claimed",
+      "is_uploaded": false,
+      "is_uploading": true,
+      "name": "hu100-1b-campaign-M4-retry-20261009.zip",
+      "originals_retained": true,
+      "owner_instruction": "You just have to start the drive upload, don\u2019t wait for it to finish I will delete the originals as soon as it\u2019s uploaded not before making sure the hashes match",
+      "raw_receipt": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/operations/archive-upload-status/native.txt",
+      "reported_uploading_error": false,
+      "status": "upload-pending",
+      "unresolved_conflict_versions": {
+        "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+        "at": 1791523886.080571,
+        "bytes": 20517119304,
+        "exists": true,
+        "mtime_ns": 1791523425446288979,
+        "nil": false,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "unresolved_count": 0
+      }
+    },
+    "samples": 1,
+    "seconds": 0.08955502510070801,
+    "snapshot_only": true,
+    "started": 1791523885.991245,
+    "status": "complete",
+    "swap_growth_limit_bytes": 2409064509.44
+  },
+  "original_baseline_preserved": {
+    "at": 1791488199.460446,
+    "disk_floor_bytes": 16642998272,
+    "hard_family_bytes": 8589934592,
+    "host": {
+      "ac": true,
+      "disk_free_bytes": 37773828096,
+      "free_percent": 82,
+      "pressure_level": 1,
+      "swap_bytes": 590935490.56,
+      "system_used_bytes": 8629682176
+    },
+    "soft_family_bytes": 6442450944,
+    "source": "9da625f9b376dcf02420680a2d4cb68bf4bd1b2c",
+    "swap_growth_bytes": 536870912
+  },
+  "original_failure_preserved": {
+    "at": 1791496020.3822238,
+    "failure": "RuntimeError('Guard breach: swap growth')",
+    "operation": "archive"
+  },
+  "owner_upload_handoff": {
+    "actual_drive_id": null,
+    "at": 1791523886.080579,
+    "bytes": 20517119304,
+    "cloud_acceptance": "delegated to owner; not claimed",
+    "is_uploaded": false,
+    "is_uploading": true,
+    "name": "hu100-1b-campaign-M4-retry-20261009.zip",
+    "originals_retained": true,
+    "owner_instruction": "You just have to start the drive upload, don\u2019t wait for it to finish I will delete the originals as soon as it\u2019s uploaded not before making sure the hashes match",
+    "raw_receipt": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/operations/archive-upload-status/native.txt",
+    "reported_uploading_error": false,
+    "status": "upload-pending",
+    "unresolved_conflict_versions": {
+      "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+      "at": 1791523886.080571,
+      "bytes": 20517119304,
+      "exists": true,
+      "mtime_ns": 1791523425446288979,
+      "nil": false,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+      "unresolved_count": 0
+    }
+  },
+  "scope": "Archive closeout only; science resources remain separately scoped to 37 completed operations.",
+  "upload_waiter_stop": {
+    "at": 1791523702.84942,
+    "native_acceptance_exists": false,
+    "owned_processes_stopped": [
+      {
+        "command": [
+          "/opt/homebrew/Cellar/python@3.11/3.11.14_3/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+          "-m",
+          "scripts.archive_native_hu100_growth_1b",
+          "--native-upload"
+        ],
+        "create_time": 1791523578.269732,
+        "pid": 52574
+      }
+    ],
+    "reason": "Independent evidence review found undocumented conflict-field inference; replace with supported NSFileVersion query.",
+    "status": "stopped-before-acceptance"
+  },
+  "validation": "12 focused campaign tests passed on M4 (including cleanup, archive-only scope, absolute swap, documented conflicts and pending status)."
+}
