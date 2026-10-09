@@ -90,9 +90,9 @@ system free, 3/4GiB family soft/hard ceilings, original-baseline +512MiB swap an
 gaps and kernel command peaks. Soft/time/resource/information/action/accounting/
 reproduction errors latch off science and preserve failures/partials. Archive
 only if remaining resources/time permit; no silent readmission or scientific
-restart. Default **15.5GiB disk floor**; a proposed evaluation-only **12GiB**
-exception requires the owner's pending answer and must be recorded before launch.
-No deletion or offloading is part of resolving admission.
+restart. The owner confirmed retaining the **15.5GiB disk floor** before launch;
+admission waits for the owner to restore headroom. No deletion or offloading
+is part of this task.
 
 ## Verification and outputs
 

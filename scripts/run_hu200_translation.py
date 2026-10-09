@@ -56,6 +56,9 @@ class Guard:
         directory=self.out/'operations'/name;directory.mkdir(parents=True,exist_ok=False)
         write(directory/'intent.json',dict(command=list(map(str,command)),admission=admission))
         begun=monotonic();peak=0;failure=None;child=None
+        original={sig:signal.getsignal(sig) for sig in (signal.SIGINT,signal.SIGTERM)}
+        def interrupt(signum,frame):raise RuntimeError(f'Supervisor interrupted by signal {signum}')
+        for sig in original:signal.signal(sig,interrupt)
         try:
             with (directory/'log.txt').open('x') as log,(directory/'resources.jsonl').open('x') as samples:
                 child=subprocess.Popen(['/usr/bin/time','-l',*map(str,command)],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
@@ -81,6 +84,7 @@ class Guard:
                 except (ProcessLookupError,subprocess.TimeoutExpired):
                     try:os.killpg(child.pid,signal.SIGKILL);child.wait(timeout=5)
                     except ProcessLookupError:pass
+            for sig,handler in original.items():signal.signal(sig,handler)
             text=(directory/'log.txt').read_text() if (directory/'log.txt').exists() else ''
             kernel=re.search(r'(\d+)\s+maximum resident set size',text);kernel_peak=int(kernel[1]) if kernel else None
             if kernel_peak is not None and kernel_peak>=SOFT:
@@ -164,7 +168,8 @@ def seal(root,destination):
         cloud_acceptance_claimed=False,originals_retained=True,models_and_runtime_reused_without_copy=True))
 
 
-def run(root,destination,disk_floor):
+def run(root,destination):
+    disk_floor=DEFAULT_DISK_FLOOR
     with LOCK.open('a+') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         if root.exists():raise FileExistsError(root)
@@ -198,7 +203,8 @@ def run(root,destination,disk_floor):
                 'scripts','src','tests/test_hu100_action_translation.py','tests/test_hu200_action_translation.py',
                 'tests/test_hu200_translation_campaign.py','docs/hu200-action-translation.md',
                 'docs/reports/hu200-action-translation-artifacts','docs/reports/hu200-feasibility-artifacts/model-index.json',
-                'requirements-dev.txt','requirements.txt'])
+                'requirements-dev.txt','requirements-monitoring.txt','requirements.txt',
+                'configs/arena/hu100-learning-curves-v1.json'])
             tick=monotonic();m=indexed_model()
             if file_hash(BINARY)!=BINARY_SHA:raise ValueError('Pinned native runtime differs')
             plan=dict(source=source,model=m,final_root=FINAL_ROOT,timing_root=TIMING_ROOT,target_blocks=2048,
@@ -246,9 +252,8 @@ def run(root,destination,disk_floor):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=('run','archive'))
     p.add_argument('--out',type=Path,required=True);p.add_argument('--destination',type=Path,required=True)
-    p.add_argument('--disk-floor-gib',type=float,choices=(15.5,12.),default=15.5)
     a=p.parse_args()
-    if a.command=='run':run(a.out,a.destination,int(a.disk_floor_gib*GIB))
+    if a.command=='run':run(a.out,a.destination)
     else:seal(a.out,a.destination)
 
 

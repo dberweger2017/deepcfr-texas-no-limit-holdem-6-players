@@ -94,3 +94,32 @@ def test_archive_preserves_failure_partial_and_restoration_history(tmp_path):
         assert z.read('partial')==b'partial' and 'operations/archive/live' not in z.namelist()
     assert not receipt['cloud_acceptance_claimed']
     with pytest.raises(FileExistsError):seal(root,archive)
+
+
+def test_sigterm_stops_owned_child_and_preserves_failed_receipt(tmp_path):
+    import subprocess
+    import sys
+    import psutil
+    code='''
+from pathlib import Path
+import os,signal,threading,sys
+from time import monotonic
+from scripts import run_hu200_translation as r
+root=Path(sys.argv[1]);root.mkdir()
+s=dict(pressure=1,free_percent=60,swap_bytes=0,disk_free_bytes=100*r.GIB,ac=True)
+r.host=lambda _:s
+g=r.Guard(root,monotonic(),s,15.5*r.GIB)
+threading.Timer(.3,lambda:os.kill(os.getpid(),signal.SIGTERM)).start()
+try:
+    g.run('fixture',[sys.executable,'-c',"import os,time,pathlib;pathlib.Path('"+str(root/'pid')+"').write_text(str(os.getpid()));time.sleep(30)"])
+except RuntimeError as e:
+    assert 'Supervisor interrupted' in str(e)
+    assert g.failed
+else:raise AssertionError('SIGTERM failed to interrupt')
+'''
+    result=subprocess.run([sys.executable,'-c',code,str(tmp_path/'run')],capture_output=True,text=True,timeout=10)
+    assert result.returncode==0,result.stderr
+    receipt=json.loads((tmp_path/'run/operations/fixture/receipt.json').read_text())
+    assert receipt['status']=='failed' and 'Supervisor interrupted' in receipt['failure']
+    pid=int((tmp_path/'run/pid').read_text())
+    assert not psutil.pid_exists(pid) or psutil.Process(pid).status()==psutil.STATUS_ZOMBIE
