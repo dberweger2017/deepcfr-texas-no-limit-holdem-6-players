@@ -33,8 +33,7 @@ entry, serialization and SHA256 audits. Targets permit only the first complete
 iteration at/past 39,438,279 and 1B total nodes; no entry-cap or soft stop occurred.
 [Audited model pins](hu100-independent-stages-artifacts/model-index.json).
 
-Final root 2026100911013 is physically disjoint from all 18 listed prior/calibration
-roots. All models share identical paired physical deals and private streams;
+Final root 2026100911013 is physically disjoint from the other 17 listed roots. All models share identical paired physical deals and private streams;
 each block swaps seats. Freeze hashes bind sample, models, comparisons and
 schedule before any final hand. No winnings or variance were inspected for
 sample selection. [Freeze](hu100-independent-stages-artifacts/frozen-final.json),
@@ -107,7 +106,7 @@ model identities, probabilities, lookup classes, settlements and visit bands.
 Pot uniform fallback falls21.00%→4.34%,21.88%→4.15%,21.28%→4.23% for the three
 seeds (conditional observed decision rates; on/off paths can differ). No
 translation bound was reached; maximum reported states65, below the fixed512
-limit. Native positive-mass river coverage against pot remains40.32–42.48%,
+limit. Terminal/off native positive-mass river coverage against pot remains40.32–42.48%,
 versus essentially100% on tight/loose; random river coverage is84.09–86.10%.
 Global terminal zero-average-mass fractions remain about 32%; mean traverser
 visits/key about 4.8. These diagnostics are not convergence or exploitability
@@ -205,7 +204,10 @@ hardlink aliases:15,801,035,296 bytes, SHA256
 Manifest SHA256 `53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad`.
 [Local receipt](hu100-independent-stages-artifacts/archive-receipt.json) and
 [asset/member pins](hu100-independent-stages-artifacts/model-index.json).
-**Native/cloud upload acceptance and final evidence review are pending.**
+The primary archive is [accepted in Research-Cloud](https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view).
+[Native uploaded/no-pending/no-conflicts](hu100-independent-stages-artifacts/native-upload-status.json)
+and [independent cloud ID/name/size/parent confirmation](hu100-independent-stages-artifacts/cloud-acceptance.json) agree.
+[Independent scientific/local archive review](hu100-independent-stages-artifacts/science-evidence-review.json) passes.
 The late complete guard stream, archive lifecycle, upload evidence and final
 report/review will be sealed as M1 metadata in the same confirmed PR215 folder.
 Remote bytes have not been downloaded/verified. All originals remain; no
@@ -218,4 +220,4 @@ fixed lineages; whether translated pot-pressure play becomes winning in absolute
 terms; and how sparse pot/late-history coverage relates to those weaknesses.
 Any additional sample or training is a separately authorized experiment, not
 continuation of this frozen campaign. Focused source qualification38 tests pass;
-final independent evidence review and exact-head CI remain pending.
+Final metadata storage review and exact-head CI remain pending.

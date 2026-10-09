@@ -28,7 +28,9 @@ charged370.968s adjacent-stream gap remain preserved. No whole-clock continuous
 sampling claim; scientific stages/packing have observed coverage. A harmless
 read-only empty-telemetry probe failure is preserved separately.
 
-**Locally verified primary archive, native upload currently pending:**
+**Accepted primary archive:**
+[hu100-independent-stages-M4-20261009.zip](https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view),
+ID `1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9`:
 `hu100-independent-stages-M4-20261009.zip`, **15,801,035,296bytes**, whole SHA256
 `b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc`.
 Embedded `ARCHIVE-MANIFEST.json` SHA256
@@ -37,8 +39,9 @@ Embedded `ARCHIVE-MANIFEST.json` SHA256
 Confirmed Research-Cloud [PR215 folder](https://drive.google.com/drive/folders/1hsyFliTReRUZE69hmXAotdzLwIjJpYLU),
 ID `1hsyFliTReRUZE69hmXAotdzLwIjJpYLU`, parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`;
 native destination `~/Local/Research-Cloud/PR-215-HU100-independent-stages/`.
-Native uploaded/no-pending/no-conflicts and independent cloud archive ID/name/
-size/parent acceptance are not yet claimed. Remote bytes not downloaded/verified.
+[Native uploaded/no-pending/no-conflicts](docs/reports/hu100-independent-stages-artifacts/native-upload-status.json)
+and [independent cloud ID/name/size/parent confirmation](docs/reports/hu100-independent-stages-artifacts/cloud-acceptance.json) agree.
+Remote bytes not downloaded/verified.
 [Local receipt](docs/reports/hu100-independent-stages-artifacts/archive-receipt.json),
 [required asset identities](docs/reports/hu100-independent-stages-artifacts/model-index.json)
 name all12 new checkpoint/current/average members, their canonical alias members,

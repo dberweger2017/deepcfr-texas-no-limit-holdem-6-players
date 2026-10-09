@@ -1,0 +1,46 @@
+{
+  "actual_drive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+  "after": {
+    "ac": true,
+    "at": 1791550878.586477,
+    "disk_free_bytes": 69524770816,
+    "family_rss_bytes": 46039040,
+    "free_percent": 88,
+    "pressure_level": 1,
+    "swap_bytes": 1736441856.0,
+    "swap_growth_bytes": 307033538.55999994,
+    "system_used_bytes": 5841158144
+  },
+  "before": {
+    "ac": true,
+    "at": 1791550878.504929,
+    "disk_free_bytes": 69524770816,
+    "family_rss_bytes": 46170112,
+    "free_percent": 88,
+    "pressure_level": 1,
+    "swap_bytes": 1736441856.0,
+    "swap_growth_bytes": 307033538.55999994,
+    "system_used_bytes": 5842599936
+  },
+  "bytes": 15801035296,
+  "deadline": 1791563673.0945432,
+  "is_trashed": 0,
+  "is_uploaded": 1,
+  "is_uploading": 0,
+  "original_baseline_retained": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-215-HU100-independent-stages/hu100-independent-stages-M4-20261009.zip",
+  "remote_bytes_verified": false,
+  "scope": "read-only post-campaign native metadata; original guards checked before/after; no full-clock continuous claim",
+  "sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+  "status": "native-uploaded",
+  "unresolved_conflict_versions": {
+    "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+    "at": 1791550878.565661,
+    "bytes": 15801035296,
+    "exists": true,
+    "mtime_ns": 1791549659290409449,
+    "nil": false,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-215-HU100-independent-stages/hu100-independent-stages-M4-20261009.zip",
+    "unresolved_count": 0
+  }
+}
