@@ -227,6 +227,30 @@ guarantee, model/raw scan, new research computation, copy or cleanup is claimed.
 
 ## Continuous resource guards and closeout
 
+October 9 launch authorization: the owner explicitly requested starting while
+they finish freeing the remaining roughly 5 GB. Fresh read-only M4 inventory
+at 08:11 UTC records 114,199,179,264 bytes free (106.36 GiB), normal pressure,
+86% system free, AC and no visible scientific worker. This permits the bounded
+timing/recovery pilots under continuous guards, not a waiver of the 15.5 GiB
+floor or measured main-training admission. The runner will publish a measured
+quote, then wait for a source/hash-bound admission marker and newly sufficient
+disk. Waiting consumes the same six-hour clock. Failure to admit within that
+budget preserves and archives the pilot/partial evidence without retry.
+
+Execution adapter: `scripts.run_hu100_seed_qualification` uses the pinned #207
+native binary only after both native source trees match its frozen scientific
+source. The new continuously guarded controller starts its absolute clock
+before model/archive retrieval. A separate 20K-node fixture verifies exact
+split/resume checkpoint equality; seed 2026100901's 1M-node cost pilot is its
+retained progress, resumed to 39.4M and 1B. Both early/terminal new saves get
+current/average export and full audit. Source/environment/binary and original
+stable admission are retained. Operation launch checks preserve measured tool
+and play allowances plus a 1,800-second local-closeout reserve; native training
+receives a complete-iteration stop request before its reserved recovery window.
+The active monitoring stream is archived through a fixed prefix snapshot;
+later archive resources/readback/upload and independent review are separate
+lifecycle receipts. No model or raw outcome is inspected for pilot admission.
+
 M4 only, 10 cores/16 GiB/AC, one worker family, sequential execution. Require
 at least 8 GiB system memory headroom at fresh admission. Preserve #207's
 6 GiB soft training ceiling, entry ceiling **57,658,644** from
