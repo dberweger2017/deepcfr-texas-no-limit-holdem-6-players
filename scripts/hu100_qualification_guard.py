@@ -187,9 +187,16 @@ class Campaign:
                 self.peak = max(self.peak, last['family_rss_bytes'])
                 if violation(last, self.swap0, last['family_rss_bytes']):
                     raise ValueError('Original stream contains a resource breach')
-        sample = inherited.host()
-        if violation(sample, self.swap0, 0) or sample['free_percent']*16*GIB/100 < 8*GIB:
-            raise RuntimeError('Preparation readmission current resources refused against original baseline')
+        tick = monotonic()
+        with (out / 'stable-readmission.jsonl').open('x') as stream:
+            for _ in range(301):
+                sample = inherited.host()
+                self.check()
+                stream.write(json.dumps({'at':time(), **sample})+'\n'); stream.flush()
+                if violation(sample, self.swap0, 0) or sample['free_percent']*16*GIB/100 < 8*GIB:
+                    raise RuntimeError('Preparation readmission current resources refused against original baseline')
+                tick += .2
+                sleep(max(0,tick-monotonic()))
         self.check()
         put(out / 'preparation-readmission.json', {'source':source, 'at':time(),
             'original_source':baseline['source'], 'started':self.started, 'deadline':self.deadline,
@@ -248,7 +255,7 @@ class Campaign:
                     self.peak = max(self.peak, rss)
                     self.count += 1
                     stream.write(json.dumps({'at': now, 'family_rss_bytes': rss,
-                        'swap_growth_bytes': sample['swap_bytes'] - self.swap0, **sample}) + '\n')
+                        'swap_growth_bytes': sample['swap_bytes'] - self.swap0, 'source':self.source, 'deadline':self.deadline, **sample}) + '\n')
                     stream.flush()
                     reason = violation(sample, self.swap0, rss)
                     if now >= self.deadline or monotonic() >= self.monotonic_deadline:

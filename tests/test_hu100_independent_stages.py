@@ -54,3 +54,40 @@ def test_quote_separates_fixed_cost_and_never_uses_winnings():
     assert b['play_replay_reproduction_seconds']-a['play_replay_reproduction_seconds'] == 3*9*4096
     for m in measurements: m['winnings']=99999
     assert stages.evaluation_quote(4096,measurements,models) == a
+
+
+def test_preparation_readmission_keeps_original_failure_clock_and_baseline(tmp_path, monkeypatch):
+    from scripts import hu100_qualification_guard as guard
+    from time import time
+    root=tmp_path/'root';out=root/'results/run';op=out/'operations/prepare'
+    op.mkdir(parents=True);(root/'planning').mkdir()
+    (tmp_path/'Local').mkdir()
+    monkeypatch.setattr(guard.Path,'home',lambda:tmp_path)
+    monkeypatch.setattr(guard,'sleep',lambda _:None)
+    sample={'pressure_level':1,'free_percent':86,'swap_bytes':1_000_000_000,
+        'ac':True,'disk_free_bytes':120*guard.GIB}
+    monkeypatch.setattr(guard.inherited,'host',lambda:sample)
+    source='dd19995d27950ef6a6b73bef5ec84c970310089f'
+    failure={'source':source,'failure':"prepare: RuntimeError('prepare exited 1')"}
+    baseline={'source':source,'started':time()-100,'deadline':time()+21000,'cap_seconds':21600,
+        'host':sample,'swap_growth_limit_bytes':guard.SWAP_GROWTH,
+        'soft_family_bytes':guard.inherited.FAMILY_SOFT,'hard_family_bytes':guard.inherited.FAMILY_HARD,
+        'disk_floor_bytes':guard.inherited.DISK_FLOOR}
+    for p,v in ((out/'campaign-failure.json',failure),(out/'baseline.json',baseline),
+        (op/'receipt.json',{'source':source,'returncode':1,'child_alive_after_cleanup':False,'cleanup_error':None}),
+        (op/'intent.json',{'command':['python','-m','scripts.run_hu100_independent_stages','prepare']}),
+        (root/'planning/launch.json',{'controller_pid':2147483647})):
+        p.write_text(json.dumps(v))
+    (op/'worker.log').write_text('ValueError: Native source compatibility differs\n')
+    (out/'continuous-resources.jsonl').write_text(json.dumps({'at':time()-80,'family_rss_bytes':0,**sample})+'\n')
+    original=(out/'campaign-failure.json').read_bytes()
+    c=guard.Campaign.resume_preparation(root,out,'new-reviewed-source')
+    try:
+        assert c.started==baseline['started'] and c.deadline==baseline['deadline']
+        assert c.swap0==sample['swap_bytes']
+        assert (out/'campaign-failure.json').read_bytes()==original
+    finally:
+        c.finish()
+    assert len((out/'stable-readmission.jsonl').read_text().splitlines())==301
+    (out/'training').mkdir()
+    with pytest.raises(ValueError):guard.Campaign.resume_preparation(root,out,'new-source')
