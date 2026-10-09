@@ -163,3 +163,18 @@ def test_archive_excludes_live_stream_and_token_and_preserves_dependency(tmp_pat
         assert data['model_dependency']['model'] == verifier.MODEL
         assert data['model_dependency']['provenance'] == verifier.PROVENANCE
     assert receipt['members'] == 2 and receipt['originals_retained']
+
+
+def test_retained_retrieval_checks_input_and_copy_without_new_zip(prepared, tmp_path, monkeypatch):
+    from scripts import retrieve_v050_candidate as retriever
+    source, _ = prepared
+    monkeypatch.setattr(retriever, 'RETAINED_SOURCE', source)
+    monkeypatch.setattr(retriever, 'MODEL', verifier.MODEL)
+    result = retriever.retrieve_retained(source, tmp_path / 'restored')
+    assert (tmp_path / 'restored' / verifier.ASSET_NAME).read_bytes() == source.read_bytes()
+    assert result['archive_audit'] == 'existing accepted PR207 receipt; no fresh whole-ZIP verification'
+    with pytest.raises(ValueError, match='Preserve'):
+        retriever.retrieve_retained(source, tmp_path / 'restored')
+    other = tmp_path / 'other.gz'; other.write_bytes(source.read_bytes())
+    with pytest.raises(ValueError, match='indexed'):
+        retriever.retrieve_retained(other, tmp_path / 'wrong')

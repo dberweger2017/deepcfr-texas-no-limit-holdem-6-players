@@ -22,7 +22,11 @@ python3.11 -m venv .venv
 Download #207's existing [accepted archive](https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view)
 from [its canonical folder](https://drive.google.com/drive/folders/1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS)
 to a fresh ignored nonsynced location if it is not already allocated locally.
-Do not duplicate it in Research-Cloud. The whole ZIP is 20,517,119,304 bytes,
+Do not duplicate it in Research-Cloud. If it is cloud-offloaded, allow time for
+hydration; the readiness run instead reused the fully allocated indexed M4
+original via `--retained /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz`.
+That route checks model bytes/header before and after copy and relies on existing
+accepted archive provenance; it does not claim a fresh whole-ZIP audit. The whole ZIP is 20,517,119,304 bytes,
 SHA256 `ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf`.
 The retrieval command checks the whole ZIP, embedded `ARCHIVE-MANIFEST.json`
 SHA256 `609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58`,

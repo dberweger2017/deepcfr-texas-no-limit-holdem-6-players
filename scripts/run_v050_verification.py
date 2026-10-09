@@ -30,7 +30,7 @@ def archive(out, cloud, source):
     # explicit exclusions prevent creating a duplicate inference archive.
     paths = [p for p in out.rglob('*') if p.is_file() and p.name != 'access.token'
              and p.suffix not in ('.sqlite-wal', '.sqlite-shm')
-             and p.name not in ('resources.jsonl', 'archive.log')]
+             and p.name not in ('resources.jsonl', 'resources-resumed.jsonl', 'archive.log')]
     records = [{'path': str(p.relative_to(out)), 'bytes': p.stat().st_size,
                 'sha256': sha(p), 'original': str(p.resolve()), 'mtime_ns': p.stat().st_mtime_ns} for p in sorted(paths)]
     manifest = {'source': source, 'kind': 'candidate-integration-evidence-no-model',
@@ -71,6 +71,53 @@ class Verification:
         for sig in self.handlers: signal.signal(sig, self.interrupt)
         self.resource_log = out / 'resources.jsonl'
         self.thread = None; self.samples = []; self.peak = 0
+
+    @classmethod
+    def resume_preparation(cls, out, old_pid):
+        """Resume only the documented offloaded-archive setup, never failed play."""
+        old_source = '50f78d53b38cb9d0dd0478ca9cbf3c4181fc6a78'
+        failure = json.loads((out / 'failure.json').read_text())
+        baseline = json.loads((out / 'baseline.json').read_text())
+        summary = json.loads((out / 'resources-summary.json').read_text())
+        if (failure != {'at': failure.get('at'), 'error': "RuntimeError('Verification supervisor interrupted')", 'source': old_source}
+                or summary['failure'] != 'Verification supervisor interrupted'
+                or baseline['cap_seconds'] != 3600 or psutil.pid_exists(old_pid)
+                or old_pid != 58545 or not (out / 'retrieval.log').exists()
+                or any((out / name).exists() for name in ('package.log', 'pilot', 'main', 'admission.json', 'preparation-readmission.json'))
+                or Path('models/v050-retrieved').exists() or Path('models/v050-candidate').exists()):
+            raise ValueError('Inactive blocked-retrieval preparation proof differs')
+        self = object.__new__(cls)
+        self.out = out; self.started = baseline['started']; self.deadline = baseline['deadline']
+        self.tick_start = monotonic() - (time() - self.started)
+        self.lock = (Path.home() / 'Local/.hu100-m4-research.lock').open('a+')
+        fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        self.stop = threading.Event(); self.failure = None; self.child = None
+        self.handlers = {s: signal.getsignal(s) for s in (signal.SIGTERM, signal.SIGINT)}
+        for sig in self.handlers: signal.signal(sig, self.interrupt)
+        self.resource_log = out / 'resources-resumed.jsonl'
+        self.thread = None; self.samples = []; self.peak = summary['peak_family_rss_bytes']
+        self.baseline = baseline['host']; resource.OUT = out
+        with (out / 'resources.jsonl').open() as stream:
+            for row in stream:
+                sample = json.loads(row)
+                if (resource.limits(sample, self.baseline['swap_bytes'], sample['family_rss_bytes'])
+                        or sample['family_rss_bytes'] >= resource.FAMILY_SOFT
+                        or sample['swap_bytes'] > 3000000000):
+                    raise ValueError('Original stream contains a real guard breach')
+        self.check()
+        put(out / 'preparation-readmission.json', {'original_source': old_source,
+            'source': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+            'original_started': self.started, 'original_deadline': self.deadline,
+            'baseline_sha256': sha(out / 'baseline.json'), 'failure_sha256': sha(out / 'failure.json'),
+            'old_controller_pid': old_pid, 'old_controller_alive': False,
+            'monitoring_gap_seconds': time() - summary['finished'],
+            'gap_policy': 'no model/runtime work; elapsed repair charged to original deadline',
+            'reason': 'accepted canonical ZIP now dataless; use hash-verified indexed nonsynced original',
+            'retained_input': '/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz',
+            'no_budget_baseline_or_guard_reset': True, 'prior_completed_hands': 0})
+        self.resumed = True
+        self.thread = threading.Thread(target=self.monitor, daemon=True); self.thread.start()
+        return self
 
     def admit(self):
         out = self.out
@@ -155,7 +202,7 @@ class Verification:
                   'max_swap_growth_bytes': max((s['swap_bytes'] - self.baseline['swap_bytes'] for s in self.samples), default=0),
                   'min_free_disk_bytes': min((s['disk_free_bytes'] for s in self.samples), default=0),
                   'target_cadence_seconds': .2}
-        put(self.out / 'resources-summary.json', result)
+        put(self.out / ('resources-summary-resumed.json' if getattr(self, 'resumed', False) else 'resources-summary.json'), result)
         for sig, handler in self.handlers.items(): signal.signal(sig, handler)
         fcntl.flock(self.lock, fcntl.LOCK_UN); self.lock.close()
         return result
@@ -165,23 +212,25 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--cloud', type=Path, required=True)
+    parser.add_argument('--resume-blocked-retrieval', type=int, metavar='OLD_PID')
     args = parser.parse_args()
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
-    guard = Verification(args.out)
+    guard = Verification.resume_preparation(args.out, args.resume_blocked_retrieval) if args.resume_blocked_retrieval else Verification(args.out)
     root = Path.cwd(); bundle = root / 'models/v050-candidate'
     common = [sys.executable, '-m', 'scripts.smoke_v050_release']
     try:
-        guard.admit()
+        if not args.resume_blocked_retrieval: guard.admit()
         guard.stable_admission()
-        put(args.out / 'source.json', {'commit': source})
-        subprocess.run(['git', 'archive', '-o', str(args.out / 'source.tar'), source,
+        put(args.out / ('source-resumed.json' if args.resume_blocked_retrieval else 'source.json'), {'commit': source})
+        subprocess.run(['git', 'archive', '-o', str(args.out / ('source-resumed.tar' if args.resume_blocked_retrieval else 'source.tar')), source,
             'AGENTS.md', 'ROADMAP.md', 'readme.md', 'requirements-play.txt', 'requirements-monitoring.txt',
             'src', 'scripts', 'tests', 'configs', 'apps', 'native', '.github',
             'docs/releases/v0.5.0', 'docs/development.md', 'docs/artifact-storage.md',
             'docs/rules.md', 'docs/observations.md'], check=True)
-        guard.run('retrieval', [sys.executable, '-m', 'scripts.retrieve_v050_candidate',
-            '--archive', str(Path.home() / 'Local/Research-Cloud/PR-207-hu100-1b' / PROVENANCE['archive_name']),
-            '--out', 'models/v050-retrieved'])
+        retrieval = ['--retained', '/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz'] if args.resume_blocked_retrieval else [
+            '--archive', str(Path.home() / 'Local/Research-Cloud/PR-207-hu100-1b' / PROVENANCE['archive_name'])]
+        guard.run('retrieval-retained' if args.resume_blocked_retrieval else 'retrieval', [sys.executable,
+            '-m', 'scripts.retrieve_v050_candidate', *retrieval, '--out', 'models/v050-retrieved'])
         guard.run('package', [sys.executable, '-m', 'scripts.build_v050_bundle', '--source',
             str(root / 'models/v050-retrieved' / ASSET_NAME), '--out', str(bundle), '--source-sha', source])
         guard.run('standalone', [sys.executable, str(bundle / 'verify_v050_bundle.py'), str(bundle), '--expect-source', source])
@@ -212,12 +261,14 @@ def main():
         guard.check()
         # Freeze the stream snapshot; the live final closeout stream and compact
         # terminal receipts remain indexed alongside ZIP, never falsely sealed.
+        if args.resume_blocked_retrieval:
+            (args.out / 'resources-initial-closed.jsonl').write_bytes((args.out / 'resources.jsonl').read_bytes())
         (args.out / 'resources-prearchive.jsonl').write_bytes(guard.resource_log.read_bytes())
         guard.run('archive', [sys.executable, '-m', 'scripts.archive_v050_evidence', '--out', str(args.out),
                              '--cloud', str(args.cloud), '--source', source])
         guard.check()
     except BaseException as error:
-        put(args.out / 'failure.json', {'error': repr(error), 'at': time(), 'source': source})
+        put(args.out / ('failure-resumed.json' if args.resume_blocked_retrieval else 'failure.json'), {'error': repr(error), 'at': time(), 'source': source})
         raise
     finally:
         print(json.dumps(guard.finish()))

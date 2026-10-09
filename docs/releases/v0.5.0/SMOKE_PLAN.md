@@ -52,3 +52,20 @@ review with final-head checks are required. Evidence ZIP excludes model bytes,
 references canonical #207 archive and packaged-member digest, retains full
 source, package metadata, raw journals/HTTP/browser/resource/failure receipts,
 and is locally member-verified before Research-Cloud upload-pending handoff.
+
+## Preparation-only retained-input repair under the same clock
+
+The existing accepted #207 ZIP is now dataless/cloud-offloaded. Initial whole-ZIP
+read was interrupted at356.21s, before model extraction, packaging or any pilot/
+main hand. No actual guard breached:68.26MB family peak, zero swap growth. The
+source at50f78d53 and its interruption/closed stream remain untouched evidence.
+The canonical nonsynced #207 terminal average remains fully allocated at its
+indexed path. A narrowly gated readmission checks the exact setup failure,
+zero-model/zero-hands state, dead controller58545, exclusive lock and original
+prior guard stream. The original start/deadline/baseline stay fixed; idle repair
+and a fresh60s stability check are charged to that deadline. No guard waiver,
+clock reset or hand rerun. The new source and disclosed idle monitoring gap are
+recorded. Retained-input restoration validates full model hash/header before
+and after copy; it relies on indexed accepted archive provenance and makes no
+new whole-ZIP audit or no-hydration claim. Future archive retrieval instructions
+remain valid, but hydration time must be budgeted when that ZIP is offloaded.
