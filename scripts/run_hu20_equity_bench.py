@@ -25,7 +25,7 @@ OUT = ROOT / 'results/equity-bench'
 POOL = Path.home() / 'Local/hu20-board-pooling-20261004'
 PLAN = ROOT / 'configs/diagnostics/hu20-board-pooling.json'
 BINARY = ROOT / 'native/hu20-trainer/target/release/hu20-trainer'
-LOCK = POOL / 'pooling-v2-mac'
+LOCK = POOL / 'pooling-engineering-05-mac'
 SEED = 202610050001
 
 
