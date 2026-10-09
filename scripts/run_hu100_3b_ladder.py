@@ -217,6 +217,7 @@ def freeze(a_seconds):
     existing=sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file())
     indexed=read(OUT/'indexed-models.json')
     duplicate_models=0
+    indexed_inodes=set()
     for target,old in indexed.items():
         row=next(m for m in read(ROOT/'docs/reports/native-hu100-growth-1b-artifacts/model-index.json')['models'] if m['spec']['sha256']==old['sha256'])
         for name in ('checkpoint','average','current'):
@@ -225,7 +226,17 @@ def freeze(a_seconds):
             if path.stat().st_size!=pin['bytes'] or file_hash(path)!=pin['sha256']:
                 raise ValueError('Indexed duplicate bytes changed before archive exclusion')
             duplicate_models+=pin['bytes']
-    base_archive=existing-duplicate_models
+            st=path.stat();indexed_inodes.add((st.st_dev,st.st_ino))
+    # Linked arena snapshots share already verified training bytes. The ZIP
+    # omits indexed models and stores each new model once. Count actual inode
+    # ownership here; equal bytes on different inodes remain conservative.
+    seen=set();base_archive=0
+    for path in OUT.rglob('*'):
+        if not path.is_file() or path.is_symlink() or path.name in ('source.tar','scoring-source.tar','executed-source.tar'):
+            continue
+        st=path.stat();inode=(st.st_dev,st.st_ino)
+        if inode in indexed_inodes or inode in seen:continue
+        seen.add(inode);base_archive+=st.st_size
     available=shutil.disk_usage(OUT).free
     disk_floor=16*1024**3
     overhead=1024**3  # fixed science metadata/guard logs and their archive copies
@@ -266,7 +277,8 @@ def freeze(a_seconds):
         'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False,
         'storage':{'available_bytes':available,'required_additional_free_bytes':disk(blocks,len(rungs))+(0 if skip_secondary else 2*sec_raw),
             'disk_floor_bytes':disk_floor,'existing_original_bytes':existing,'archive_original_reserve_bytes':base_archive,
-            'hash_verified_indexed_model_bytes_excluded_from_zip':duplicate_models,'raw_bytes_per_block_per_rung':raw_per_block,
+            'hash_verified_indexed_model_bytes_excluded_from_zip':duplicate_models,
+            'archive_reserve_basis':'unique local inodes; hash-verified indexed model inodes and full historical-source snapshots excluded; different-inode equal bytes conservatively retained','raw_bytes_per_block_per_rung':raw_per_block,
             'raw_and_archive_copies':2,'overhead_bytes':overhead,'final_workspace_bytes':2048*blocks,'pilot_peak_family_bytes':peak},
         'full_pair_pilot_family_peaks':{r:read(OUT/'guards/operations'/('direct-pilot-'+r)/'receipt.json')['peak_family_rss_bytes'] for r in all_pairs}})
 

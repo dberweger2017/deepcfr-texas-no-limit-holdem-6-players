@@ -64,6 +64,11 @@ Post measured train/save/export/audit/direct/secondary time and storage quote
 on this PR before final play. One independent source review before final run;
 one end evidence review. ZIP research in `~/Local/Research-Cloud/PR-<n>-hu100-3b-ladder/`
 with member hashes, failures and provenance; index required restoration.
+ZIP storage admission counts model hardlinks once and excludes hash-verified
+indexed model aliases. Historical Git payloads are restored by their exact
+pinned blobs instead of being recopied in source snapshots. All original
+working files remain retained.
+
 No models in Git, cleanup of other PR files, paid compute, tag, publication
 or release; v0.5.0 remains the owner's decision. Merge on green checks and
 no open findings; update roadmap on landing.
