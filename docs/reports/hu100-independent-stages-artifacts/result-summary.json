@@ -1154,7 +1154,7 @@
       }
     }
   ],
-  "qualification_conclusion": "not established: seed2026100902 tight growth adjusted interval crosses zero; experiment training/evaluation completed; both research bundles accepted; final storage review pending",
+  "qualification_conclusion": "not established: seed2026100902 tight growth adjusted interval crosses zero; experiment training/evaluation completed; both research bundles accepted; scientific/integration/storage reviews pass",
   "raw_result_sha256": "90d7379a1242c19b1e85566b081c219872f7903f51a0c52cfa5e10876445b980",
   "recipe_qualification": "pending archive acceptance and independent evidence review even if scientific gates pass",
   "repetition": {

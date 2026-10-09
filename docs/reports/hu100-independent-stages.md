@@ -233,4 +233,8 @@ fixed lineages; whether translated pot-pressure play becomes winning in absolute
 terms; and how sparse pot/late-history coverage relates to those weaknesses.
 Any additional sample or training is a separately authorized experiment, not
 continuation of this frozen campaign. Focused source qualification38 tests pass;
-Final metadata storage review and exact-head CI remain pending.
+[Final storage/evidence review](hu100-independent-stages-artifacts/final-storage-review.json)
+passes with no blockers. The main integration preserves HU100 behavior; all
+38 focused post-merge regressions pass (19.66s). Exact final-head host CI is checked
+before marking the PR ready for owner review; its final statuses remain on the PR.
+The PR stays unmerged.

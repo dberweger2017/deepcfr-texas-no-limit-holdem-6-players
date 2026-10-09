@@ -49,7 +49,8 @@ byte counts/SHA256s, old #207 averages, #211 partial, native binary/source and
 strict result. Actual new averages are canonical snapshot members; **do not
 assume `zipfile -e` recreates training aliases**. Restore with the pinned helper.
 
-After downloading this archive into a fresh ignored nonsynced root, this command
+Using the project Python 3.11 environment, after downloading this archive into
+a fresh ignored nonsynced root, this command
 verifies whole/manifest/member hashes and restores all canonical bytes plus
 aliases without overwrite or automatic science:
 
@@ -103,7 +104,10 @@ M4/M1 `~/Local/hu100-independent-seed-stages-20261009`, ignored coordinator,
 all PR207/PR211 original models/failures, PR207 native/environment dependencies,
 sharedGit and other agents' inputs. All originals remain; this open PR and its
 future inputs are protected even after upload acceptance. No cleanup or force
-execution/offloading. Final storage/evidence review and exact-head CI pending.
+execution/offloading. [Final storage/evidence review](docs/reports/hu100-independent-stages-artifacts/final-storage-review.json)
+passes with no blockers. Scientific and integration reviews pass; 38 focused
+post-merge regressions pass. Exact final-head host CI is checked before ready
+status; final statuses remain on PR215. Leave reviewed PR215 unmerged.
 
 ## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
 
