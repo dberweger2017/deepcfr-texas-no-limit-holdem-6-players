@@ -42,8 +42,10 @@ stack ratio five gives a conservative planning SD 1,665. Thus ceil((1.96 *
 1665 / 5)^2)=426,006, rounded to **524,288 blocks/rung** when measured costs
 fit the overnight quote. Actual half-width is reported; no outcome-based
 extension. If costs require a smaller sample, freeze the largest power of two
-admitted by the measured ten-hour budget, report the projected precision
-limitation prospectively, and retain the terminal checkpoint unchanged.
+admitted by disk and whole-family memory, report the projected precision
+limitation prospectively, and retain the terminal checkpoint unchanged. The ten-hour
+threshold reduces scope: it never cancels the required primary. Its full measured
+time quote, including replay/reproduction, becomes its own frozen deadline.
 Improvement requires the primary interval lower bound >0. Other rungs are
 nominal descriptive 95%; a three-comparison Bonferroni interval may be reported
 as context, without changing the sole primary decision or selecting a rung.

@@ -2,6 +2,8 @@
 import argparse
 from dataclasses import asdict
 import gc
+import gzip
+from collections import Counter,defaultdict
 import json
 from math import ceil, log2
 from pathlib import Path
@@ -16,7 +18,7 @@ from scripts.evaluate_native_hu100_baseline import execute, make_plan as scripte
 from scripts.audit_native_hu100_baseline import audit
 from scripts.run_hu100_independent_stages import LinkedRegistry
 from scripts.run_hu100_seed_qualification import PRIOR_ROOTS
-from scripts.report_native_hu100_learning_curves import frozen_schedule
+from scripts.report_native_hu100_learning_curves import frozen_schedule, interval
 from src.arena.schedule import build_schedule, digest
 from src.blueprint.action_translation import TranslationOptions
 from src.policies.files import file_hash
@@ -103,6 +105,53 @@ def config(model,blocks):
     return settings
 
 
+def reached_visits(run,registry,model):
+    """Count both exact-key and selected translation-witness support."""
+    rows=[]
+    saved=registry.models[model['name']]
+    for opponent in config(model,4096)['opponents']:
+        groups=defaultdict(Counter)
+        with gzip.open(run/opponent/'decisions.jsonl.gz','rt') as stream:
+            for line in stream:
+                d=json.loads(line)
+                if d['arm']!='candidate' or d['logical_player']!=0:continue
+                for kind,key in (('exact',d['key']),('selected',d['translation']['selected_key'])):
+                    known=saved.entries.get(key) if key is not None else None
+                    n=saved.visits.get(key,0) if known is not None else None
+                    band='missing' if n is None else '0' if n==0 else '1-9' if n<10 else '10-99' if n<100 else '100+'
+                    groups[kind+'/'+d['street']][band]+=1
+        for group,bands in groups.items():rows.append({'opponent':opponent,'key_kind_street':group,'decisions':sum(bands.values()),'bands':dict(bands)})
+    return rows
+
+
+def secondary_readout(base,blocks):
+    values={};coverage=[];uniform={}
+    for label in ('terminal','1b'):
+        if read(base/(label+'-replay.json'))['status']!='verified' or not read(base/(label+'-reproduction')/'complete.json')['reproduced_all_hands_and_decisions']:
+            raise ValueError('Unverified scripted final')
+        for opponent in config(read(OUT/'pairs.json')['terminal-vs-1b'][0],blocks)['opponents']:
+            coords={};baseline=[]
+            with (base/label/opponent/'hands.jsonl').open() as stream:
+                for line in stream:
+                    row=json.loads(line)
+                    if row['arm']=='baseline':baseline.append(row);continue
+                    coord=row['block'],row['rotation']
+                    if coord in coords or row['status']!='completed':raise ValueError('Foreign scripted coordinate')
+                    coords[coord]=row['candidate_chips']
+            if set(coords)!={(b,r) for b in range(blocks) for r in (0,1)}:raise ValueError('Missing scripted block')
+            if opponent in uniform and uniform[opponent]!=baseline:raise ValueError('Paired uniform reference differs')
+            uniform[opponent]=baseline
+            values[label,opponent]=[(coords[b,0]+coords[b,1])/2 for b in range(blocks)]
+            for row in read(base/label/opponent/'report.json')['diagnostics']:
+                if row['arm']=='candidate' and row['logical_player']==0:coverage.append({'label':label,'opponent':opponent,**row})
+    opponents=config(read(OUT/'pairs.json')['terminal-vs-1b'][0],blocks)['opponents']
+    put(base/'summary.json',{'status':'verified','descriptive':True,'blocks_per_opponent':blocks,
+        'contrasts':{o:interval([a-b for a,b in zip(values['terminal',o],values['1b',o],strict=True)]) for o in opponents},
+        'absolute':{label:{o:interval(values[label,o]) for o in opponents} for label in ('terminal','1b')},
+        'coverage':coverage,'visits':{label:read(base/(label+'-visits.json')) for label in ('terminal','1b')},
+        'all_final_hands_replayed_and_reproduced':True,'translation':asdict(TranslationOptions())})
+
+
 def secondary(pilot=False):
     models=read(OUT/'pairs.json')['terminal-vs-1b']
     blocks=32 if pilot else 4096
@@ -118,11 +167,13 @@ def secondary(pilot=False):
         execute(cfg,base/label,blocks,root,revision,registry=registry)
         checked=audit(base/label,base/(label+'-replay.json'))
         execute(cfg,base/(label+'-reproduction'),blocks,root,revision,registry=registry,reproduce=base/label)
+        put(base/(label+'-visits.json'),reached_visits(base/label,registry,model))
         measurements.append({'label':label,'load_seconds':load_seconds,'variable_and_fixed_seconds':perf_counter()-tick,
             'primary':read(base/label/'costs.json'),'reproduction':read(base/(label+'-reproduction')/'costs.json'),
             'replay_seconds':checked['seconds'],'blocks':blocks,'entries':model['entries']})
         del registry;gc.collect()
     put(base/'costs.json',{'measurements':measurements,'outcomes_inspected_for_quote':False})
+    if not pilot:secondary_readout(base,blocks)
 
 
 def freshness(blocks):
@@ -181,15 +232,16 @@ def freeze(a_seconds):
     def quote(n,rungs):return 2*rungs*(fixed+slope*n)
     def disk(n,rungs):return base_archive+2*raw_per_block*n*rungs+overhead+disk_floor
     peak=max(read(OUT/'guards/operations'/('direct-pilot-'+r)/'receipt.json')['peak_family_rss_bytes'] for r in all_pairs)
-    def fits(n,rungs):return a_seconds+training+quote(n,rungs)+1800<=36000 and disk(n,rungs)<=available and peak+2048*n<7*1024**3
+    def hardware_fits(n,rungs):return disk(n,rungs)<=available and peak+2048*n<7*1024**3
+    def descriptive_fits(n,rungs):return hardware_fits(n,rungs) and a_seconds+training+quote(n,rungs)+1800<=36000
     blocks=524288
     rungs=['terminal-vs-1b']+[r for r in ('2b-vs-1b','1b-vs-500m') if r in all_pairs]
     # Preserve the target primary before dropping precision or selecting results.
-    while len(rungs)>1 and not fits(blocks,len(rungs)):
+    while len(rungs)>1 and not descriptive_fits(blocks,len(rungs)):
         rungs.pop()
-    while blocks>=32 and not fits(blocks,len(rungs)):
+    while blocks>=32 and not hardware_fits(blocks,len(rungs)):
         blocks//=2
-    if blocks<32:raise ValueError('Primary cannot fit measured time/storage reserve')
+    if blocks<32:raise ValueError('Primary cannot fit measured storage/memory reserve')
     sec=read(OUT/'secondary-pilot/costs.json')
     sec_seconds=sec_raw=0
     for m in sec['measurements']:
@@ -208,7 +260,7 @@ def freeze(a_seconds):
         'primary':'terminal-vs-1b','decision':'paired Student-t 95% lower >0',
         'direct_quote_seconds':quote(blocks,len(rungs)),'secondary_quote_seconds':sec_seconds,
         'skip_secondary':skip_secondary,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,
-        'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; primary priority; no pilot winnings/variance',
+        'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; hardware/disk-admitted primary;10h scope threshold for descriptive/secondary; no pilot winnings/variance',
         'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False,
         'storage':{'available_bytes':available,'required_additional_free_bytes':disk(blocks,len(rungs))+(0 if skip_secondary else 2*sec_raw),
             'disk_floor_bytes':disk_floor,'existing_original_bytes':existing,'archive_original_reserve_bytes':base_archive,
