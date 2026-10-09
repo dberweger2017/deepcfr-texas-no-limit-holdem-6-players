@@ -181,6 +181,13 @@ restarted. Do not claim sparse covered learning or unsupported histories have
 been fixed. No training, live Slumbot, release or automatic adoption follows.
 
 Independent final evidence review and final checks are recorded in
-[review](hu200-action-translation-artifacts/evidence-review.json). PR218 remains
-unmerged and is presented for review as a preserved, resource-stopped attempt;
-the original playing-comparison goal remains incomplete.
+[review](hu200-action-translation-artifacts/evidence-review.json). The initial
+handoff presented PR218 unmerged as a preserved, resource-stopped attempt.
+The owner subsequently requested merge. All five checks passed on reviewed head
+`14de46b215e2f34b2beb320902d679868999f415`; [CI run](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37957947013)
+and independent final reconciliation had no open findings. PR218 merged at
+`31cf2490144581992d0d334d5132daeebfa7918d` on October 9, 2026, 18:29:15 UTC.
+This owner-authorized merge supersedes the earlier unmerged handoff. The original
+playing-comparison goal remains incomplete, translation stays experimental and
+off by default, and archive upload acceptance/cleanup remains a pending handoff.
+No new experiment or archive modification accompanies merge.
