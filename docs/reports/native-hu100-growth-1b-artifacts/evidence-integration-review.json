@@ -1,0 +1,24 @@
+{
+  "at": 1791524454.132981,
+  "checks": [
+    "All campaign science/source/test/protocol/report/model/native status/archive receipt bytes unchanged by merge from233a683.",
+    "Original independent end review receipt retained byte-for-byte in ignored root and tracked compact copy; report change since223f44a is only review-link disposition.",
+    "PR207 RESULTS_INDEX section/restore commands equal original reviewed section byte-for-byte; all current-main index preserved byte-for-byte prefix.",
+    "All upstream files except deliberately combined ROADMAP/RESULTS_INDEX match main Git blobs; #208diagnosis and #209storage report/index/roadmap entries retained.",
+    "ROADMAP conflict preserves upstream turn diagnosis/storage entry, HU1001B growth entry and October9date.",
+    "Native trainer diff against current main empty; clean checkout/whitespace check; owner pending upload handoff unchanged."
+  ],
+  "findings": [],
+  "integrated_main": "5b105325dd5899bace345f8d4a874d6d52865af1",
+  "limits": [
+    "Drive acceptance remains pending per explicit owner no-wait instruction; no files deleted.",
+    "Final exact-head checks/merge remain coordinator responsibility."
+  ],
+  "original_review_sha256": "77a963b7ba64fe8a3334cf96e3755a40c11e4722014eac621fc2f6de6a312e33",
+  "prior_reviewed_revision": "223f44ad927c3ad4c8fbf754558a1a4e483af44b",
+  "reviewed_revision": "2cf5c280ce149731135ee3d9916d96177e56a220",
+  "reviewer": "same independent Codex evidence_review agent; bounded integration continuation",
+  "scope": "Routine current-main merge and final report review-link integration only; no new scientific/source review or raw recount.",
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "status": "passed"
+}

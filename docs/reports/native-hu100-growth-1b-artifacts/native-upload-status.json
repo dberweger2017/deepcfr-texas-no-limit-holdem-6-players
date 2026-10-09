@@ -1,0 +1,24 @@
+{
+  "actual_drive_id": null,
+  "at": 1791523886.080579,
+  "bytes": 20517119304,
+  "cloud_acceptance": "delegated to owner; not claimed",
+  "is_uploaded": false,
+  "is_uploading": true,
+  "name": "hu100-1b-campaign-M4-retry-20261009.zip",
+  "originals_retained": true,
+  "owner_instruction": "You just have to start the drive upload, don\u2019t wait for it to finish I will delete the originals as soon as it\u2019s uploaded not before making sure the hashes match",
+  "raw_receipt": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/operations/archive-upload-status/native.txt",
+  "reported_uploading_error": false,
+  "status": "upload-pending",
+  "unresolved_conflict_versions": {
+    "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+    "at": 1791523886.080571,
+    "bytes": 20517119304,
+    "exists": true,
+    "mtime_ns": 1791523425446288979,
+    "nil": false,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+    "unresolved_count": 0
+  }
+}

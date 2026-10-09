@@ -1,0 +1,279 @@
+{
+  "all_saves_exported_and_audited": true,
+  "entry_ceiling": 57658644,
+  "finished": 1791493811.2025568,
+  "fresh_from_seed": true,
+  "main_operation": {
+    "command": [
+      "/Users/dberweger/Local/hu100-1b-growth-20261008/native/hu20-trainer/target/release/hu20-trainer",
+      "train",
+      "--stack-bb",
+      "100",
+      "--seed",
+      "2026100601",
+      "--roots-per-seat",
+      "1",
+      "--average-rule",
+      "opponent-sampled",
+      "--nodes",
+      "1000000000",
+      "--max-entries",
+      "57658644",
+      "--milestones",
+      "100000000,250000000,500000000",
+      "--telemetry",
+      "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/telemetry.jsonl",
+      "--stop-file",
+      "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/stop.json",
+      "--out",
+      "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/{nodes}/checkpoint.gz"
+    ],
+    "deadline": null,
+    "failure": null,
+    "finished": 1791490330.2229838,
+    "kernel_command_peak_rss_bytes": 3789930496,
+    "name": "main-train",
+    "peak_family_rss_bytes": 3825827840,
+    "returncode": 0,
+    "samples": 4614,
+    "sampling_target_seconds": 0.2,
+    "seconds": 922.7726049423218,
+    "soft_stop_requested": false,
+    "started": 1791489407.450379,
+    "status": "complete"
+  },
+  "saves": [
+    {
+      "audit_status": "verified",
+      "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+      "checkpoint_bytes": 516364002,
+      "checkpoint_sha256": "2b3a09871183247523dd5413c8b39253e9742ac001d39476cd67916e48162bae",
+      "completed_nodes": 100001959,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          1862075,
+          5641340,
+          14511180,
+          33636501
+        ],
+        "entries": 13291612,
+        "positive_average_mass_keys": 8924604,
+        "traverser_visits": 20135794,
+        "traverser_visits_by_street": [
+          658000,
+          1996384,
+          5258719,
+          12222691
+        ],
+        "visits_histogram": {
+          "0": 6445671,
+          "1": 4311986,
+          "10-99": 308726,
+          "100+": 8394,
+          "2-9": 2216835
+        },
+        "zero_average_mass_keys": 4367008
+      },
+      "elapsed_seconds_including_writes": 87.905515458,
+      "entries_per_completed_node": 0.13291351622421715,
+      "forecast_family_bytes": 1562077320,
+      "iteration": 82474,
+      "new_entries": 13291612,
+      "nodes_per_second_including_writes": 1137607.333043619,
+      "nodes_since_previous_save": 100001959,
+      "overshoot_nodes": 1959,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/checkpoint.gz",
+      "process_rss_bytes_after_save": 1136902144,
+      "recent_nodes_per_second_excluding_save": 2161000.4484371445,
+      "recent_nodes_per_second_including_writes": 1137607.333043619,
+      "requested_nodes": 100000000,
+      "sampled_family_peak_since_previous_save_bytes": 1172160512,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791489495.361553,
+      "write_seconds": 41.629745792,
+      "write_started": 1791489453.731682
+    },
+    {
+      "audit_status": "verified",
+      "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+      "checkpoint_bytes": 877459108,
+      "checkpoint_sha256": "be9f13a29d6a89445e48661ae0f30ab875f46e63c035578eb22b1cb92ac28595",
+      "completed_nodes": 250000540,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          4290888,
+          13256340,
+          35862251,
+          85864316
+        ],
+        "entries": 21552330,
+        "positive_average_mass_keys": 14554378,
+        "traverser_visits": 50308710,
+        "traverser_visits_by_street": [
+          1480962,
+          4592174,
+          12933604,
+          31301970
+        ],
+        "visits_histogram": {
+          "0": 9619718,
+          "1": 6726696,
+          "10-99": 870980,
+          "100+": 33807,
+          "2-9": 4301129
+        },
+        "zero_average_mass_keys": 6997952
+      },
+      "elapsed_seconds_including_writes": 241.21692275,
+      "entries_per_completed_node": 0.08620913378827101,
+      "forecast_family_bytes": 2470756300,
+      "iteration": 215159,
+      "new_entries": 8260718,
+      "nodes_per_second_including_writes": 1036413.7687765108,
+      "nodes_since_previous_save": 149998581,
+      "overshoot_nodes": 540,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/checkpoint.gz",
+      "process_rss_bytes_after_save": 1880817664,
+      "recent_nodes_per_second_excluding_save": 1839385.6343919144,
+      "recent_nodes_per_second_including_writes": 978391.5212147891,
+      "requested_nodes": 250000000,
+      "sampled_family_peak_since_previous_save_bytes": 1916682240,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791489648.637958,
+      "write_seconds": 71.763210875,
+      "write_started": 1791489576.875936
+    },
+    {
+      "audit_status": "verified",
+      "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+      "checkpoint_bytes": 1266489098,
+      "checkpoint_sha256": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+      "completed_nodes": 500000323,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          8037505,
+          25394670,
+          71177921,
+          174522794
+        ],
+        "entries": 30027422,
+        "positive_average_mass_keys": 20320423,
+        "traverser_visits": 100138463,
+        "traverser_visits_by_street": [
+          2704818,
+          8637584,
+          25407410,
+          63388651
+        ],
+        "visits_histogram": {
+          "0": 12501142,
+          "1": 9063559,
+          "10-99": 1710950,
+          "100+": 91951,
+          "2-9": 6659820
+        },
+        "zero_average_mass_keys": 9706999
+      },
+      "elapsed_seconds_including_writes": 484.926791333,
+      "entries_per_completed_node": 0.060054805204595836,
+      "forecast_family_bytes": 3403016420,
+      "iteration": 441628,
+      "new_entries": 8475092,
+      "nodes_per_second_including_writes": 1031084.1387533258,
+      "nodes_since_previous_save": 249999783,
+      "overshoot_nodes": 323,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/checkpoint.gz",
+      "process_rss_bytes_after_save": 2900344832,
+      "recent_nodes_per_second_excluding_save": 1777145.4501932263,
+      "recent_nodes_per_second_including_writes": 1025809.0263376342,
+      "requested_nodes": 500000000,
+      "sampled_family_peak_since_previous_save_bytes": 2936242176,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791489892.346096,
+      "write_seconds": 103.034954792,
+      "write_started": 1791489789.31187
+    },
+    {
+      "audit_status": "verified",
+      "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+      "checkpoint_bytes": 1789504352,
+      "checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+      "completed_nodes": 1000002065,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          15143140,
+          49225112,
+          142065121,
+          353560026
+        ],
+        "entries": 41010014,
+        "positive_average_mass_keys": 27797076,
+        "traverser_visits": 198776484,
+        "traverser_visits_by_street": [
+          4982671,
+          16391503,
+          49974879,
+          127427431
+        ],
+        "visits_histogram": {
+          "0": 15870724,
+          "1": 11919786,
+          "10-99": 3120300,
+          "100+": 228682,
+          "2-9": 9870522
+        },
+        "zero_average_mass_keys": 13212938
+      },
+      "elapsed_seconds_including_writes": 916.01517025,
+      "entries_per_completed_node": 0.041009929314495965,
+      "forecast_family_bytes": 4611101540,
+      "iteration": 885307,
+      "new_entries": 10982592,
+      "nodes_per_second_including_writes": 1091687.2312574019,
+      "nodes_since_previous_save": 500001742,
+      "overshoot_nodes": 2065,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/checkpoint.gz",
+      "process_rss_bytes_after_save": 3789176832,
+      "recent_nodes_per_second_excluding_save": 1742094.3517272691,
+      "recent_nodes_per_second_including_writes": 1159859.0137273644,
+      "requested_nodes": 1000000000,
+      "sampled_family_peak_since_previous_save_bytes": 3824779264,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791490323.431426,
+      "write_seconds": 144.076517875,
+      "write_started": 1791490179.355927
+    }
+  ],
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "status": "target-complete",
+  "terminal_entries": 41010014,
+  "terminal_nodes": 1000002065
+}
