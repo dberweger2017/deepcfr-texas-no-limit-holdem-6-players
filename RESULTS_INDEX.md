@@ -4,7 +4,16 @@
 `feature/hu100-seed-qualification`, [prospective protocol](docs/hu100-seed-qualification.md),
 [blocked preflight report](docs/reports/hu100-seed-qualification.md) and
 [compact live status receipt](docs/reports/hu100-seed-qualification-artifacts/preflight.json).
-No campaign computation started: live #207 is open/draft with unresolved archive
+**October 9 05:46 UTC refresh:** [readiness/disk reference](docs/reports/hu100-seed-qualification-artifacts/readiness-20261009.json)
+confirms #207's separately reviewed local archive/failure/evidence closeout
+resolved, upload acceptance owner-delegated and final dependency CI pending.
+Fresh M4 free disk is 23.841 GiB; saved model originals plus one archive copy
+at #207's reference sizes and the fixed floor require 32.865 GiB, **9.024 GiB
+short before inputs/raw evaluation/reproduction/partials/headroom**. This is
+not a full quote or a guaranteed lower bound for new seeds. No dependent
+computation, model/ZIP read, copy or cleanup started; all prior evidence stays.
+
+Historical initial refusal: #207 was open/draft with unresolved archive
 swap stop and no accepted archive/final evidence closeout. Its fixed science
 remains in its [PR/report](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207).
 The incomplete M4 synced ZIP remains 3,354,661,317 bytes/mtime 1791496020;
@@ -18,7 +27,8 @@ this new campaign's fixed admission baseline; #207's historical stop persists.
 No new models/raw research payloads/archives were created; archive IDs, accepted
 member paths/hashes, upload evidence and retrieval commands for this campaign
 are **not yet available**. Do not use #207's partial ZIP as a restoration source.
-Measured quote and execution remain gated on its separate closeout; the new PR
+Measured full quote and execution remain gated on disk capacity, final
+dependency CI and fresh stable/exclusive admission; the new PR
 stays unmerged, without an automatic launch or release recommendation.
 
 ## PR208 HU20 turn-search stackoff diagnosis — October 8, 2026

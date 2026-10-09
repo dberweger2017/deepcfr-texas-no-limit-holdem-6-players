@@ -1,13 +1,38 @@
-# HU100 qualification preparation: launch blocked by #207 closeout
+# HU100 qualification preparation: disk admission refused
 
 [PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211) · draft, unmerged.
 
-The requested three-lineage qualification has **not started**. Live GitHub
-checks at October 8 22:01 UTC (October 9 locally) find #204–#206 merged,
+The requested three-lineage qualification has **not started**. The October 9
+05:46 UTC [readiness refresh](hu100-seed-qualification-artifacts/readiness-20261009.json)
+supersedes the initial blocker: #207's archive-failure and end evidence closeout
+are resolved; upload acceptance is explicitly handed to the owner, and only
+final exact-head CI remains pending on that dependency. The M4's fresh disk
+planning reference now refuses dependent work.
+
+Current M4: **23.841 GiB free**, normal pressure, 87% system-free, AC,
+1,447.94 MiB total swap and no visible research process. These are reconnaissance
+snapshots, not exclusive stable-host admission or a new fixed swap baseline.
+At #207's measured early+terminal checkpoint/current/average sizes, the two
+new seeds need **8.683 GiB originals**; with an archive copy and the fixed
+15.5 GiB floor, the model-only reference requires **32.865 GiB free**.
+That is **9.024 GiB more than available**, excluding restored input copies,
+arena snapshots, raw hands/full reproduction, pilot/partials and seed-size
+headroom. Fresh seeds may differ in size; this reference is not a guaranteed
+lower bound and cannot replace the full measured time/disk quote.
+
+The latest dependency receipts verify #207's 20,517,119,304-byte retry ZIP,
+all 948 member size/SHA256 readbacks, retained original failure/partial and
+passing independent science/end/integration reviews. Its packing/readback
+took 120.42 seconds. Cloud ID/metadata and remote-byte acceptance remain
+owner-delegated and are not claimed. We performed no model/ZIP read, copy,
+retrieval, build, pilot, training, final play or cleanup in this refresh.
+
+The following initial preflight remains a historical record. Live GitHub
+checks at October 8 22:01 UTC (October 9 locally) found #204–#206 merged,
 but #207 open/draft with its archive guard failure unresolved. Its scientific
 report records successful fixed 1B training and full final replay/reproduction;
-there is no accepted archive or final independent evidence closeout. This fails
-the owner's explicit prerequisite for the new campaign.
+there was no accepted archive or final independent evidence closeout then.
+That initial owner's-prerequisite refusal is superseded by the refresh above.
 
 [Prospective protocol](../hu100-seed-qualification.md) freezes existing seed
 2026100601 and fresh seeds 2026100901/2026100902, sequential unchanged-recipe
@@ -63,7 +88,8 @@ Final-head CI status and the amendment review remain on PR211.
 Recommendation now: **retain the prospective v0.5 recipe as unqualified**.
 #207's single-seed loose-aggressive and pot-translation gains remain promising;
 its tight gain was inconclusive. Whether either effect repeats across seeds is
-unanswered. Close #207's separately reviewed archive-only failure and evidence
-record first, preserving its original guard/baseline and partial ZIP, then
-recheck M4 availability and measure the new six-hour admission. This PR grants
+unanswered. Preserve #207's completed closeout and pending owner upload handoff,
+require its final CI, then admit this campaign only after enough free space,
+fresh exclusive/stable-host evidence and the full six-hour time/disk quote.
+No other PR cleanup or synced eviction funds this campaign. This PR grants
 no automatic launch, release, recipe change, deeper training or merge.

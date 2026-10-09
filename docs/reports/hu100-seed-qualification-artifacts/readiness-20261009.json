@@ -1,0 +1,261 @@
+{
+  "captured_at_utc": "2026-10-09T05:46:33.710711+00:00",
+  "status": "disk-quote-refused-before-campaign",
+  "owning_pr": 211,
+  "dependency_207": {
+    "body": "HU100 was badly undertrained at 39.4M nodes. Fresh unchanged-recipe training on the free **M4 (10 cores, 16 GB)** reached **1,000,002,065 nodes / 41,010,014 entries**, followed by a fixed paired comparison with the exact parent.\n\nThe campaign uses #206's compact table and **110 B/entry + 100 MB**, with a 57,658,644-entry ceiling, 6 GiB soft / 8 GiB hard family limits, and pressure, swap, disk and AC guards. Every 100M, 250M, 500M and 1B checkpoint receives streaming exports and a full audit. Both specified SHA256 gates pass. Native trainer source, old campaign scripts, recipe, menus and abstractions are unchanged.\n\nBefore final play, the timing-only pilot froze **2,048 swapped-seat blocks per opponent and policy** on fresh roots checked against every prior HU100 schedule. Only terminal minus parent against tight and loose aggressive opponents forms the primary family, with 97.5% intervals each. Terminal translation on minus off against pot_pressure is a separate 95% secondary. Other opponents and checkpoints are descriptive. There was no extension, pooling or checkpoint selection.\n\nLoose-aggressive gain **+214.39 [122.28, 306.51] BB/100** improves; tight **+37.05 [\u221215.00, 89.10]** is inconclusive. Separate pot translation gain **+62.45 [17.15, 107.76]** improves; translation-off pot still loses. All **143,360 distinct final hands / 957,490 stored actions** replay and reproduce. Main training and saves took 15.38 minutes at 3.56 GiB sampled family peak, below the 4.29 GiB terminal forecast. Exports and audits took about 58 minutes; final play, replay and reproduction took 31.48 minutes. The measured **5h19 upper campaign quote** and final-stage 8,703-second allowance were posted before final play. Independent source and end evidence reviews pass with no open findings. Original qualification passed 70 Python and 11 Rust tests; all 12 final focused campaign tests pass.\n\nAfter science completed, the first archive attempt breached the original 512 MiB swap-growth guard. Cleanup then raised PermissionError and suppressed its receipt. The failure logs, fixed baseline and latch, all originals and the 3,354,661,317-byte synced partial remain preserved. The owner authorized an archive-only retry allowing 3 GB swap. The repair conservatively capped **total swap at 3,000,000,000 bytes**, kept every other guard, restricted readmission to archive operations, and repaired receipt cleanup. The new exclusive ZIP passes **all 948 member size/SHA256 readbacks** in 120.42 seconds: **20,517,119,304 bytes**, SHA256 **ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf**. Maximum total swap was 1.684 GB; minimum disk was 23.81 GiB.\n\nEnd review caught an unsupported inference from an absent native conflict field. The repaired single status check uses the documented Foundation file-version API, verifies zero unresolved versions and checks reported upload errors. The owner then explicitly instructed **start the Drive upload without waiting; they will verify upload and hashes before deleting originals**. Native status confirms upload started. **Cloud archive ID/metadata acceptance and remote-byte verification remain pending and are not claimed.** All originals remain, with no campaign waiter, agent deletion, synced eviction or other-PR cleanup.\n\n[Protocol and measured budgets](docs/native-hu100-growth-1b.md), [report](docs/reports/native-hu100-growth-1b.md), [archive, hashes and restoration index](RESULTS_INDEX.md#pr207-hu100-1b-verified-science-and-local-archive-owner-upload-handoff--october-9). This is one seed and a scripted pool, with no general-strength, external benchmark, policy-default, release or tag claim. ROADMAP records the result. Merge only after the final exact-head checks pass with no open findings.",
+    "comments": [
+      {
+        "id": "IC_kwDOOABkQc8AAAABacgzpA",
+        "author": {
+          "login": "dberweger2017"
+        },
+        "authorAssociation": "OWNER",
+        "body": "Resolved by owner-authorized archive-only recovery and the end evidence review. The original +829.38MiB>512MiB swap stop, cleanupPermissionError, fixed baseline/latch and3,354,661,317-byte failed syncedpartial remain preserved. No scientific rerun or samplechange.\n\nNew exclusive M4 ZIP:20,517,119,304bytes; all948members verify bysize/SHA256; packing120.42s. Total swap stayed below the conservative3,000,000,000byte cap, all otherguards passed. WholeSHA256 `ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf`, manifestSHA256 `609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58`.\n\nReview's unsupported conflict-field inference is repaired with documented FoundationNSFileVersion lookup: existing exact ZIP/stablepath,size,mtime, non-nil count0; reported upload errors separately rejected.12focusedtests pass. Native snapshot truthfully records upload inprogress. Owner explicitly directed **startupload, do notwait; they will verifyupload/hashes beforedeletingoriginals**. Final cloudacceptance is delegated/pending and notclaimed. All originals retained; no backgroundcampaignwaiter or cleanup.\n\n**SOMA:** record the completed independent evidence review and merge only after the final exact-head checks are green. The original archive issue and conflict-verification finding have no unresolved correctness objections; pending upload is an explicit owner handoff.",
+        "createdAt": "2026-10-08T21:48:31Z",
+        "includesCreatedEdit": true,
+        "isMinimized": false,
+        "minimizedReason": "",
+        "reactionGroups": [],
+        "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207#issuecomment-6069695396",
+        "viewerDidAuthor": true
+      },
+      {
+        "id": "IC_kwDOOABkQc8AAAABahmJww",
+        "author": {
+          "login": "dberweger2017"
+        },
+        "authorAssociation": "OWNER",
+        "body": "Resolved by merge commit `2cf5c280ce149731135ee3d9916d96177e56a220`: current main `5b105325dd5899bace345f8d4a874d6d52865af1` is integrated. The existing end reviewer independently cleared the integration with no findings: every upstream source/evidence path is preserved, the PR207 index and restoration commands are unchanged, and all reviewed HU100 science/source/native/status/report bytes remain unchanged. The roadmap keeps upstream storage/stackoff diagnosis and the campaign's short result. Artifact and whitespace checks pass; native trainer diff against current main is empty. Integration receipt is committed separately; no raw/model/archive rescan, science rerun, upload wait or deletion.\n\n**SOMA:** merge after the final exact-head checks pass, with both original closeout and integration findings resolved.",
+        "createdAt": "2026-10-09T05:38:44Z",
+        "includesCreatedEdit": true,
+        "isMinimized": false,
+        "minimizedReason": "",
+        "reactionGroups": [],
+        "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207#issuecomment-6075025859",
+        "viewerDidAuthor": true
+      }
+    ],
+    "headRefOid": "fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27",
+    "isDraft": false,
+    "state": "OPEN",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-09T05:42:39Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37889817638/job/113688095646",
+        "name": "scope",
+        "startedAt": "2026-10-09T05:42:29Z",
+        "status": "COMPLETED",
+        "workflowName": "Tests"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37889817638/job/113688144869",
+        "name": "full (0)",
+        "startedAt": "2026-10-09T05:42:41Z",
+        "status": "IN_PROGRESS",
+        "workflowName": "Tests"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37889817638/job/113688144866",
+        "name": "full (1)",
+        "startedAt": "2026-10-09T05:42:41Z",
+        "status": "IN_PROGRESS",
+        "workflowName": "Tests"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-09T05:41:57Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.gitguardian.com",
+        "name": "GitGuardian Security Checks",
+        "startedAt": "2026-10-09T05:41:55Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "updatedAt": "2026-10-09T05:41:52Z"
+  },
+  "dependency_evidence": {
+    "evidence-review.json": {
+      "archive": {
+        "bytes": 20517119304,
+        "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+        "members_verified_by_execution": 948,
+        "remote_bytes_downloaded": false,
+        "review_repeated_full_scan": false,
+        "sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+        "status": "locally-verified; native upload pending/owner acceptance"
+      },
+      "at": 1791524198.239054,
+      "checks": [
+        "Read AGENTS, ROADMAP workflow, storage contract, protocol, final report/index. Superseded brief's no-closeout-breach statement corrected.",
+        "Independently parsed all245760 stored final chip/event rows:143360 distinct evaluations,957490 actions; exactly2048 blocks/both swapped seats/arm/opponent; no missing, duplicate or failed coordinates; zero-sum chips, HU100 stacks/blinds; exact same uniform reference in all6 panels.",
+        "Independently calculated Student-t intervals from paired swapped-seat block chip means using sample standard deviation. All5 untranslated learning curves and terminal absolute results match reported digits. Only2 terminal-parent primaries at97.5%; separate pot translation secondary95%; no extensions/pooling/selection.",
+        "Regenerated13 distinct historical/current frozen schedules (62000 physical deal seeds), pairwise disjoint. All final schedule/private stream maps and frozen model/source/clean manifests match.",
+        "Every final independent replay and deterministic reproduction completion receipt checked, including translated terminal. Five fully audited checkpoints/current/averages agree with native saves/indexed paths/sizes/hash bindings.",
+        "Recounted raw target-decision lookup classifications; all coverage groups match. Visit-band sums/missing counts and known-street denominator arithmetic agree; table zero-visit/positive-mass/mean-visit figures match audited counts.",
+        "Independently recomputed37 scientific aggregates from hashed resource streams; scientific guards all passed. Fresh seed command, entry ceiling, save forecast/NPS math, owner Start now admission and pre-play posted frozen budget checked.",
+        "Read only small embedded manifest: manifest hash,948 unique ZIP member names and all15 model size/hash bindings match. Source/runtime/environment/scientific evidence and original failure/admission/logs/externalpartial provenance retained.",
+        "Original archive +829.38MiB swap-growth breach and cleanup PermissionError retained. Exclusive owner-authorized retry preserves baseline/latch and blocks science; independently checked602 clean retry samples below3GB total/unchangedotherguards.",
+        "Cleanup/readmission and final one-shot native-status repair reviewed. Real Foundation non-nil count0/stable exact path-size-mtime receipt and native uploading1/uploaded0/no-reported-error verified; no cloud ID/acceptance claimed.12 focused tests pass in5.21s.",
+        "Restoration checks whole ZIP, embedded manifest and selected model size/SHA with disk floor/exclusive extraction. Native trainer diff since base empty; artifact/whitespace checks passed; later lifecycle receipts compact inGit."
+      ],
+      "findings": [],
+      "host": "M4 via ssh m4; M1 coordination only",
+      "independent_primary_intervals": {
+        "loose_aggressive": {
+          "alpha": 0.025,
+          "bb_per_100": 214.39208984375,
+          "blocks": 2048,
+          "conclusion": "improvement",
+          "interval": [
+            122.27783869172742,
+            306.5063409957726
+          ]
+        },
+        "tight_aggressive": {
+          "alpha": 0.025,
+          "bb_per_100": 37.04833984375,
+          "blocks": 2048,
+          "conclusion": "inconclusive",
+          "interval": [
+            -15.002561380092615,
+            89.09924106759262
+          ]
+        }
+      },
+      "independent_secondary": {
+        "alpha": 0.05,
+        "bb_per_100": 62.451171875,
+        "blocks": 2048,
+        "interval": [
+          17.14539269517774,
+          107.75695105482225
+        ],
+        "opponent": "pot_pressure"
+      },
+      "limits": [
+        "Owner explicitly instructed no upload-completion wait and will verify upload/hashes before deleting originals; cloud ID/name/size/parent acceptance pending, clearly disclosed rather than claimed. All originals/partials retained.",
+        "One training seed/scripted pool; no external benchmark, independent seeds, exploitability/generalstrength/release claim.",
+        "Reviewer did not train/play/fullmodelaudit/pack/delete/commit/push/merge. Final exact-head CI/merge remain coordinator responsibility; later review/upload receipts outside frozenZIP."
+      ],
+      "resolved_findings": [
+        {
+          "file": "scripts/archive_native_hu100_growth_1b.py",
+          "finding": "Unsupported absent FileProvider hasUnresolvedConflicts property inferred false.",
+          "resolution": "Supported Foundation NSFileVersion.unresolvedConflictVersionsOfItemAtURL now verifies actual non-nil count0 on stable exactZIP; upload errors rejected; truthful single pending handoff retained.",
+          "severity": "medium"
+        }
+      ],
+      "reviewed_file_sha256": {
+        "RESULTS_INDEX.md": "a1369a938c7448dc97ec44a8f94d3227d4e3d27b9af1de8dd4443b53abfb0b2f",
+        "ROADMAP.md": "0520a2e81fd8799ef3bb1e2d707edbdefdf5ab2423efb16a03d536716708f0a1",
+        "docs/native-hu100-growth-1b.md": "33c97d7592133eff2425586c43d9286f5ea7d202230301a02cb5a614b0d00638",
+        "docs/reports/native-hu100-growth-1b.md": "f7623ee2f59713826920ebad32ed0b171c26840f77ae61c135c77cbb94503086",
+        "scripts/archive_native_hu100_growth_1b.py": "99338335fcfbdfb37667029fe4b09bb3cad0553c0ab3d58ce135c5c4c29098ea",
+        "scripts/run_native_hu100_growth_1b.py": "2b2ebfa33e626e91b625b0d628c208672ad038a396ae9263f1c4babb06baceb9",
+        "tests/test_native_hu100_growth_1b.py": "27dd34625357086075f5f53ac5db3edbacb8b9b4e707e1bb5a95c2bdedd1503f"
+      },
+      "reviewed_revision": "223f44ad927c3ad4c8fbf754558a1a4e483af44b",
+      "reviewer": "independent Codex evidence_review agent",
+      "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+      "status": "passed"
+    },
+    "evidence-integration-review.json": {
+      "at": 1791524454.132981,
+      "checks": [
+        "All campaign science/source/test/protocol/report/model/native status/archive receipt bytes unchanged by merge from233a683.",
+        "Original independent end review receipt retained byte-for-byte in ignored root and tracked compact copy; report change since223f44a is only review-link disposition.",
+        "PR207 RESULTS_INDEX section/restore commands equal original reviewed section byte-for-byte; all current-main index preserved byte-for-byte prefix.",
+        "All upstream files except deliberately combined ROADMAP/RESULTS_INDEX match main Git blobs; #208diagnosis and #209storage report/index/roadmap entries retained.",
+        "ROADMAP conflict preserves upstream turn diagnosis/storage entry, HU1001B growth entry and October9date.",
+        "Native trainer diff against current main empty; clean checkout/whitespace check; owner pending upload handoff unchanged."
+      ],
+      "findings": [],
+      "integrated_main": "5b105325dd5899bace345f8d4a874d6d52865af1",
+      "limits": [
+        "Drive acceptance remains pending per explicit owner no-wait instruction; no files deleted.",
+        "Final exact-head checks/merge remain coordinator responsibility."
+      ],
+      "original_review_sha256": "77a963b7ba64fe8a3334cf96e3755a40c11e4722014eac621fc2f6de6a312e33",
+      "prior_reviewed_revision": "223f44ad927c3ad4c8fbf754558a1a4e483af44b",
+      "reviewed_revision": "2cf5c280ce149731135ee3d9916d96177e56a220",
+      "reviewer": "same independent Codex evidence_review agent; bounded integration continuation",
+      "scope": "Routine current-main merge and final report review-link integration only; no new scientific/source review or raw recount.",
+      "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+      "status": "passed"
+    },
+    "archive-receipt.json": {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+      "archive_source": "211cfdc590d77da1f8f4bf4440d38a858dafa26b",
+      "bytes": 20517119304,
+      "cloud_acceptance": "pending",
+      "finished": 1791523447.9084659,
+      "manifest_member": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+      "members_verified": 948,
+      "originals_retained": true,
+      "remote_bytes_downloaded": false,
+      "sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+      "status": "locally-verified"
+    },
+    "native-upload-status.json": {
+      "actual_drive_id": null,
+      "at": 1791523886.080579,
+      "bytes": 20517119304,
+      "cloud_acceptance": "delegated to owner; not claimed",
+      "is_uploaded": false,
+      "is_uploading": true,
+      "name": "hu100-1b-campaign-M4-retry-20261009.zip",
+      "originals_retained": true,
+      "owner_instruction": "You just have to start the drive upload, don\u2019t wait for it to finish I will delete the originals as soon as it\u2019s uploaded not before making sure the hashes match",
+      "raw_receipt": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/operations/archive-upload-status/native.txt",
+      "reported_uploading_error": false,
+      "status": "upload-pending",
+      "unresolved_conflict_versions": {
+        "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+        "at": 1791523886.080571,
+        "bytes": 20517119304,
+        "exists": true,
+        "mtime_ns": 1791523425446288979,
+        "nil": false,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "unresolved_count": 0
+      }
+    }
+  },
+  "dependency_disposition": "scientific/archive-failure/evidence closeout resolved; native upload acceptance explicitly owner-delegated; final CI pending",
+  "host_command": "date -u; hostname; uptime; sysctl hw.memsize hw.physicalcpu kern.memorystatus_vm_pressure_level vm.swapusage; memory_pressure -Q; df -k /Users/dberweger/Local; pmset -g batt; ps -axo pid,ppid,%cpu,rss,etime,command | egrep \"[p]ython|[h]u20-trainer|[h]u100|[c]argo|[a]rena|[a]rchive|[p]acker|[r]esearch\"; true",
+  "host_stdout": "Fri Oct  9 05:46:33 UTC 2026\ndberwegerch-m4.local\n 7:46  up 4 days, 21:57, 1 user, load averages: 1.79 1.60 1.64\nhw.memsize: 17179869184\nhw.physicalcpu: 10\nkern.memorystatus_vm_pressure_level: 1\nvm.swapusage: total = 2048.00M  used = 1447.94M  free = 600.06M  (encrypted)\nThe system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 87%\nFilesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 411278416  24999852    95% 2987290 249998520    1%   /System/Volumes/Data\nNow drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true\n",
+  "host_stderr": "",
+  "host_returncode": 0,
+  "disk_quote": {
+    "measured_free_bytes": 25599848448,
+    "disk_floor_bytes": 16642998272,
+    "usable_bytes": 8956850176,
+    "reference_early_set_bytes": 665193414,
+    "reference_terminal_set_bytes": 3996276196,
+    "two_seed_model_originals_reference_bytes": 9322939220,
+    "model_originals_plus_archive_reference_bytes": 18645878440,
+    "minimum_reference_free_originals_only_bytes": 25965937492,
+    "minimum_reference_free_with_model_archives_bytes": 35288876712,
+    "deficit_model_archive_reference_bytes": 9689028264,
+    "basis": "PR207 exact same-recipe measured saved checkpoint/current/average sizes; gzip assets retained and copied into owning archive",
+    "caveat": "planning reference, not a guaranteed lower bound for independent seeds or a complete quote; excludes required input restoration, arena snapshots, raw evaluation/reproduction, pilot/partial/reserve and additional seed-size headroom",
+    "full_time_disk_quote_admitted": false
+  },
+  "campaign_computation_started": false,
+  "new_baseline_established": false,
+  "exclusive_lock_acquired": false,
+  "no_other_evidence_actions": true,
+  "swap_growth_limit_new_campaign_bytes": 3000000000
+}

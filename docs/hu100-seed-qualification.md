@@ -10,19 +10,25 @@ This protocol is preparation, not a launch receipt or a completed experiment.
 ## Prerequisite gate
 
 Before any pilot, model retrieval, build or training, confirm #207's scientific,
-archive-failure and evidence closeout. Read its current PR/comments and accepted
-archive/member/native-upload/cloud-metadata receipts and final independent
-evidence review. A completed scientific stage alone does not pass this gate.
-The October 8 22:00 UTC check found #207 open/draft, with its archive swap stop
-unresolved and final evidence review absent. Therefore this campaign is blocked.
+archive-failure and evidence closeout. Read its current PR/comments, local
+archive/member receipts, native upload disposition, final independent evidence
+review and exact-head CI. Record cloud acceptance truthfully; an explicit owner
+upload-verification handoff may resolve that administrative prerequisite without
+claiming cloud acceptance. A completed scientific stage alone does not pass.
+The October 8 22:00 UTC check found an unresolved archive stop. The October 9
+05:46 UTC refresh confirms that local archive/failure and evidence closeout
+are now resolved, with cloud upload verification explicitly handed to the owner;
+final CI at `fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27` is still pending.
+The new campaign also fails its current model-only disk planning reference.
 Read-only host checks and Git preparation do not establish campaign admission.
 
 Preserve `~/Local/hu100-1b-growth-20261008/` and the incomplete synced ZIP
 `~/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip`.
-Do not restart #207 or retry its archive admission. Its owner-approved
+Do not restart #207 or perform another archive retry. Its original
 [archive-only SOMA](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207#issuecomment-6069695396)
-requires a separately reviewed closeout preserving the original baseline/guard.
-This new campaign does not perform that closeout or reset #207's failure.
+was subsequently resolved by its own separately authorized and reviewed
+archive-only closeout, retaining the original baseline/failure/partial.
+This new campaign did not perform that closeout or reset #207's failure.
 
 After closeout resolves, confirm the M4 is free through process inventory,
 active-run/owner inspection and an exclusive research lock. No competing
@@ -63,7 +69,9 @@ Existing early average SHA256:
 (1,173,264,021 bytes). Existing terminal recovery SHA256:
 `cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec`.
 These are scientific model-index pins, not acceptance of #207's partial ZIP.
-Use accepted closeout restoration pointers once available, with whole archive,
+Use the reviewed locally verified retry ZIP/restoration pointers in #207's
+current index, or accepted cloud pointers after the owner's verification,
+with whole archive,
 embedded manifest and selected-member size/SHA256 verification into a fresh
 ignored nonsynced directory. Check current owning-PR status before copying.
 
@@ -182,10 +190,22 @@ unbudgeted recovery. At expiry terminate owned remaining computation.
 
 #207's recorded costs are planning references, not a new admitted quote:
 15.38 min training/four saves, 57.96 min four export/audit sets, 31.48 min
-2,048-block final play/replay/reproduction/report. That archive failed, so
-there is **no successful measured full-pack/readback rate** to inherit. Two
-fresh early+terminal save sets and nine policy panels need fresh measurements.
+2,048-block final play/replay/reproduction/report. Its separately reviewed
+retry packed/read back 20,517,119,304 bytes and 948 members in 120.42 seconds;
+this is a measured planning reference, not this campaign's archive admission.
+Two fresh early+terminal save sets and nine policy panels need fresh measurements.
 Do not announce six-hour feasibility before those measurements pass.
+
+October 9 05:46 UTC disk reconnaissance: **23.841 GiB free /8.341 GiB above
+the 15.5 GiB floor**. #207's measured early checkpoint/current/average set is
+665,193,414 bytes and terminal set 3,996,276,196 bytes. Two fresh seeds at
+those reference sizes need **8.683 GiB originals**; originals plus one archive
+copy need **17.366 GiB**, or **32.865 GiB free** including the floor. Current
+shortfall is **9.024 GiB before** required restored inputs, arena snapshots,
+raw play/reproduction, pilot/partials and seed-size headroom. This is a model-only
+planning reference, not a guaranteed lower bound for fresh seeds or a full
+quote. It refuses dependent computation; do not assume smaller fresh models
+to pass admission. Preserve other PR evidence and do no cleanup to fund it.
 
 ## Continuous resource guards and closeout
 
