@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 9, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **October 9 storage cleanup:** **6.035 GB M4 /1.086 GB M1** measured batch free-space gain; immediate **31.619 GB /35.481 GB free**. Archived merged-run local copies/traces removed; open #210–#213 dependencies, entire #207 root, canonical inputs/checkpoints, Git and synced archives preserved. [Receipt/restoration](docs/artifacts/storage-vacuum-20261009.md).
+
 - **HU100 1B growth ([#207](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207)):** unchanged-recipe M4 training reaches 1,000,002,065 nodes; loose gains +214.39 [122.28,306.51] BB/100, tight is inconclusive (97.5% primaries). Separate pot translation +62.45 [17.15,107.76] (95%); off pot still loses. All final hands replay/reproduce; local archive verified, upload acceptance handed to the owner by request. [Report](docs/reports/native-hu100-growth-1b.md). No default, release or automatic follow-on.
 
 - **October 8 storage cleanup:** owner-requested merged evidence cleanup reclaimed **23.884 GB on M4 /1.059 GB on M1** during removal batches; canonical Drive archives and active HU100/turn-search/bucket inputs remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261008.md). No unattended cleanup.

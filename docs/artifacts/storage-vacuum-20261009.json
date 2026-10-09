@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-09",
+  "receipt": {
+    "url": "https://drive.google.com/file/d/1KJU6cRbeHcuBv6asxGcMxZIQv79znWcx/view?usp=drivesdk",
+    "id": "1KJU6cRbeHcuBv6asxGcMxZIQv79znWcx",
+    "bytes": 539270,
+    "sha256": "3d3803b1d60dcd66ea726b257758b8e2a47517e132995e911f224627729b8dfe",
+    "upload_metadata_accepted": true
+  },
+  "machines": {
+    "m1": {
+      "machine": "m1",
+      "df_before": "Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 419299180  33588476    93% 4141374 335884760    1%   /System/Volumes/Data\n",
+      "df_after": "Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 418238520  34649136    93% 4141333 346491360    1%   /System/Volumes/Data\n",
+      "removed_count": 41,
+      "allocated_removed": 1097609216,
+      "logical_removed": 1097530743,
+      "measured_free_gain_bytes": 1086115840,
+      "by_pr_logical_bytes": {
+        "208": 231244566,
+        "165": 866286177
+      }
+    },
+    "m4": {
+      "machine": "m4",
+      "df_before": "Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 411293804  24984464    95% 2987326 249844640    1%   /System/Volumes/Data\n",
+      "df_after": "Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 405399928  30878340    93% 2986935 308783400    1%   /System/Volumes/Data\n",
+      "removed_count": 392,
+      "allocated_removed": 6035841024,
+      "logical_removed": 6014143529,
+      "measured_free_gain_bytes": 6035329024,
+      "by_pr_logical_bytes": {
+        "200": 1816380820,
+        "203": 1556470604,
+        "204": 2163101361,
+        "197": 478190744
+      }
+    }
+  },
+  "protected": [
+    "All open PR210/211/212/213 roots and dependencies",
+    "Entire PR207 root and synced partial, required preservation by PR211",
+    "Canonical recovery checkpoints/models, retrieved/prepared/active inputs, source/build/Git; only sealed inactive pilot copies and per-panel exports are eligible",
+    "All synced folders"
+  ],
+  "method": "Trust confirmed Drive upload; existing manifests, size/stat/modification history and current PR/cloud/native metadata; no archive download or archive/member payload hash re-audit"
+}
