@@ -1,0 +1,157 @@
+{
+  "package_source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "runtime_and_packaged_documents_unchanged": true,
+  "reviewed_later_changes": "verification closeout tooling, tests and readiness/evidence reports",
+  "files": [
+    {
+      "path": "apps/poker-web/app.js",
+      "sha256": "f058524d12aea98ed58a0331cca13f3ca0ca249f9ed4f564d67f680a443c83c9",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "apps/poker-web/index.html",
+      "sha256": "ff7761d38b35014bfeb5051899f2980b60983c6f0ec178dcd77da8f19e3bfaed",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "apps/poker-web/playback.js",
+      "sha256": "3cef3bf0b89e966cadd7924cffeeb552e2e580454d006d1cc3d2813152cd0281",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "apps/poker-web/spectator.js",
+      "sha256": "bc84a3c791824672b8590fd809793e68a602b94b82059203c17b42b0866e21c7",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "apps/poker-web/style.css",
+      "sha256": "ca85a031bd40b33f6d3ccbedb6297e33d51a59c364edd7e3679b21ebc47acd8d",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/__init__.py",
+      "sha256": "0e3e9df4c3ccf119d70a457db6181d0fb24bbc9140b122819c31de638e7cd0f9",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/configuration.py",
+      "sha256": "6f2d7bfa1b41b38acbdf639f47104d402fde6286b0635ed7e72f63bd35adac89",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/play_audit.py",
+      "sha256": "5db67256bf0a7a5f753e8ccbc2faa727f897a0586c4aae63bd7ccc56c84e0586",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/server.py",
+      "sha256": "888a1f46f69418d28531b0481ba25b4b8c6dd0f075a8322752571931c5118ed4",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/service.py",
+      "sha256": "88d5756fc476c1a0557bb3e57bc7a8da3bdc5cf9697f6126ae25bd65659d7992",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/shield.py",
+      "sha256": "afc56d9b1b47cad9c53ab790e745161ccdf358be613d14a062e93f561719f631",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/spectator.py",
+      "sha256": "ef51517f95be0e327c87f6d04b4aa446283abd4f6023e5918588844c81990010",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/spectator_audit.py",
+      "sha256": "58d94166ab015a6baea9bdeb2c17dc09c113c5bf17113d13e83f14c61bff9eda",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/uniform_random.py",
+      "sha256": "56289aa976c06ff37192bf222aacd367a9c68041d0983a32582cf4e6ebb88b96",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/play_api/versions.py",
+      "sha256": "545290856d98705318a7fce96a40ad2cf891b147abc3cd70c0bcc7fb7e6fa489",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/__init__.py",
+      "sha256": "091026cb40305d2646f5c927d2129cf1c360bf0e2704146e6ad547e5bf497436",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/files.py",
+      "sha256": "b6f8612a0e62211f2dad600f75da03fbd423c715f3fe275f06c86359005990e4",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/hu100_research.py",
+      "sha256": "9e6b2e62c5d8c9e489a9c7d04b7012747e46e5a3e3f9aaeaa526758973fd1402",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/v040.py",
+      "sha256": "664f75237a82ec33ee7dbcb7c291d0bba8170c1abe8472c97e81485d6011602d",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/v041.py",
+      "sha256": "b2ecfa6cc96f8a57e28910e0a17eb0ce5403f18ebc231a45546478f868332dd5",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/v042.py",
+      "sha256": "4435ec5a3d3adf4b527cfcef92dd822820d545c9ff7b6fd8be451f4a67eeaaf2",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/v050_bundle.py",
+      "sha256": "fa746cb22c4fc4c927e2ce6edef3ac4708cb0725c75eaf49dc6a363e35e4d731",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "src/policies/v050_candidate.py",
+      "sha256": "5103b77781ee27c7a9c928a9ec0a77361dbe30f1c33236ad8a0a403325c0a7cb",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "scripts/build_v050_bundle.py",
+      "sha256": "689cb65b89dfe97794cb9d4c642410343152e43bdad24550eb53aa0b7bc3c77b",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "scripts/retrieve_v050_candidate.py",
+      "sha256": "677e7f333da6d9a78c666f745c473430b2fd59f500eb7c0ae5464ef28823d664",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "scripts/verify_v050_bundle.py",
+      "sha256": "f5ea9648f651c7fb1ab76e50dcd6cf923b256c0b5e6a03b177ac1371bf057065",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "docs/releases/v0.5.0/MODEL_CARD.md",
+      "sha256": "58f2409bb7534094d052a09fdc5633db65e9baa27b62eeb976e4aad324e657cb",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "docs/releases/v0.5.0/RELEASE_NOTES.md",
+      "sha256": "20cddde5d0aa26c7ad214dd054c7114417265ff15ddc0a513f1612852b9a420e",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "docs/releases/v0.5.0/INSTALL.md",
+      "sha256": "5f7394f627b053f65f895a22e1c85edc53ee468f714dc8adab919b122a022b8e",
+      "unchanged_since_package_source": true
+    },
+    {
+      "path": "requirements-play.txt",
+      "sha256": "bfda42df31dc85f761d21929dc21f9fe64cbecddc651884fd202291d9f10cea9",
+      "unchanged_since_package_source": true
+    }
+  ]
+}

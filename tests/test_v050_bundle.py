@@ -192,3 +192,15 @@ def test_browser_completion_waits_for_complete_remote_copy(tmp_path, monkeypatch
     path.write_text('{partial')
     with pytest.raises(TimeoutError, match='Browser allowance'):
         smoke.browser_receipt(path, 0)
+
+
+def test_archive_process_receipt_does_not_collide_with_archive_identity(tmp_path):
+    import sys
+    from scripts.run_v050_verification import Verification
+    out = tmp_path / 'evidence'; out.mkdir(); (out / 'report.txt').write_text('evidence')
+    guard = object.__new__(Verification)
+    guard.out = out; guard.child = None; guard.check = lambda: None
+    guard.run('archive-process', [sys.executable, '-m', 'scripts.archive_v050_evidence',
+        '--out', str(out), '--cloud', str(tmp_path / 'cloud'), '--source', 'a' * 40])
+    assert json.loads((out / 'archive-receipt.json').read_text())['status'] == 'locally-verified-upload-pending'
+    assert json.loads((out / 'archive-process-receipt.json').read_text())['owned_process_group_alive'] is False

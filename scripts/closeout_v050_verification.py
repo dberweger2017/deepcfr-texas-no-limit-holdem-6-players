@@ -77,7 +77,7 @@ def main():
         for name in ('resources.jsonl', 'resources-resumed.jsonl'):
             (out / (name.replace('.jsonl', '-closed.jsonl'))).write_bytes((out / name).read_bytes())
         (out / 'resources-closeout-prearchive.jsonl').write_bytes(guard.resource_log.read_bytes())
-        guard.run('archive', [sys.executable, '-m', 'scripts.archive_v050_evidence',
+        guard.run('archive-process', [sys.executable, '-m', 'scripts.archive_v050_evidence',
             '--out', str(out), '--cloud', str(args.cloud), '--source', SOURCE])
         guard.check()
     except BaseException as error:

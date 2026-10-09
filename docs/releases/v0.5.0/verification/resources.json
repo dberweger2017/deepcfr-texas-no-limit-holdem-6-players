@@ -1,0 +1,56 @@
+{
+  "adjacent_observation_gaps_seconds": [
+    263.61746287345886,
+    255.75026679039001
+  ],
+  "archive_verify_elapsed_seconds": 2300.6719736629166,
+  "continuous_whole_clock_monitoring_claim": false,
+  "guard_violations": 0,
+  "hard_cap_seconds": 3600,
+  "idle_repairs_charged_to_original_deadline": true,
+  "local_sidecar_handoff_elapsed_seconds": 2547.0902490615845,
+  "max_swap_growth_bytes": 0.0,
+  "max_total_swap_bytes": 1635778560.0,
+  "min_free_disk_bytes": 65329295360,
+  "min_free_percent": 77,
+  "original_baseline": {
+    "ac": true,
+    "disk_free_bytes": 68863033344,
+    "free_percent": 87,
+    "pressure_level": 1,
+    "swap_bytes": 1635778560.0,
+    "system_used_bytes": 9075556352
+  },
+  "peak_family_rss_bytes": 4601659392,
+  "samples": 8908,
+  "status": "all_observed_guards_passed",
+  "streams": [
+    {
+      "bytes": 360134,
+      "first": 1791562120.9008372,
+      "last": 1791562476.949253,
+      "max_within_stream_gap_seconds": 0.24162983894348145,
+      "name": "resources.jsonl",
+      "samples": 1781,
+      "sha256": "c4a3d0d22b43be62bc30afdd5e9dd2c66a012b8f235f617603c399f0c61c3398"
+    },
+    {
+      "bytes": 1211291,
+      "first": 1791562740.566716,
+      "last": 1791563930.415693,
+      "max_within_stream_gap_seconds": 0.3397181034088135,
+      "name": "resources-resumed.jsonl",
+      "samples": 5950,
+      "sha256": "9fab63552cd0d30de4068e839ca946a59c1a10733716ede0b03320bb44983ba0"
+    },
+    {
+      "bytes": 238938,
+      "first": 1791564186.1659598,
+      "last": 1791564421.3773508,
+      "max_within_stream_gap_seconds": 0.31670093536376953,
+      "name": "resources-closeout.jsonl",
+      "samples": 1177,
+      "sha256": "4e7ba26046720e2db663f913db71163c91148aa91e9969e51783ef8a7ba2c0fa"
+    }
+  ]
+}

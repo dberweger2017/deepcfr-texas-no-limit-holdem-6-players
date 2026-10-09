@@ -1,0 +1,32 @@
+{
+  "status": "passed-with-declared-procedural-deviation",
+  "completed_at": "2026-10-09T16:38:35Z",
+  "human_session": "Gwmmste3VILywRwYuVLxcc6d",
+  "spectator_session": "jZGX5XEDbgE82mRTvgC0fgEm",
+  "complete_hands": 2,
+  "partial_hands": 1,
+  "checks": [
+    "candidate SHA256 and translation512/128 displayed",
+    "100BB blinds/legal range",
+    "opponent cards hidden in human mode",
+    "manual550chip raise accepted and pot accounting",
+    "completed history and reload recovered same human session/result",
+    "spectator Step/Play/Pause",
+    "independent bot perspectives/decision probabilities/legal bounds",
+    "spectator saved7-decision history"
+  ],
+  "deviation": "Extra Step after first spectator hand finished started one additional spectator hand and made one decision. Left paused/incomplete, journal retained for independent replay. No replacement hands or strength evaluation.",
+  "tool_errors": [
+    "Initial connection refused before M4 server ready",
+    "Stale free-radio reference created empty restricted session; no hand dealt",
+    "Read-only state evaluation raced asynchronous create response",
+    "Unsupported exact locator attribute corrected"
+  ],
+  "runtime_console_errors": [],
+  "recording": "browser/recording.mp4",
+  "screenshots": [
+    "browser/human.png",
+    "browser/spectator.png"
+  ],
+  "trace": "browser/trace.json"
+}

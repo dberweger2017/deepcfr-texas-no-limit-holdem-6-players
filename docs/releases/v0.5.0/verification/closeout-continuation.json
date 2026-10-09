@@ -1,0 +1,14 @@
+{
+  "closeout_source": "bbc95f09cfad263d842c4d81cb34708aee800ae5",
+  "monitoring_gap_seconds": 255.6924021244049,
+  "no_new_hands": true,
+  "no_server_restart_or_model_copy": true,
+  "original_baseline_preserved": true,
+  "original_deadline": 1791565720.846294,
+  "original_failure_sha256": "81e597a3ff97a73e6abfdafc3adedb703932c9ef25528af51538749e1f730608",
+  "original_started": 1791562120.846294,
+  "quote_seconds": 645.5930630840594,
+  "reason": "remote browser acknowledgment exposed empty file before copy completed",
+  "source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "started": 1791564186.108207
+}

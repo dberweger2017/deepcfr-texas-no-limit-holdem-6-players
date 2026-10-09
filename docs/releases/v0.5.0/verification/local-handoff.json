@@ -1,0 +1,22 @@
+{
+  "status": "local-evidence-and-sidecars-staged-owner-handoff",
+  "finished": 1791564667.936543,
+  "original_started": 1791562120.846294,
+  "original_deadline": 1791565720.846294,
+  "elapsed_seconds": 2547.0902490615845,
+  "owned_processes_closed": true,
+  "exclusive_lock_available": true,
+  "host": {
+    "pressure_level": 1,
+    "free_percent": 83,
+    "swap_bytes": 1417674752.0,
+    "ac": true,
+    "disk_free_bytes": 65479983104,
+    "system_used_bytes": 8109522944
+  },
+  "originals_retained": true,
+  "upload_acceptance": "pending owner or later agent",
+  "no_delete_or_rearchive_model": true,
+  "native_acceptance_not_checked": true,
+  "read_only_handoff_probe_error": "First probe omitted resource.OUT, raised missing results/hu100-1b; corrected to verification root, no model/runtime/cleanup effect"
+}

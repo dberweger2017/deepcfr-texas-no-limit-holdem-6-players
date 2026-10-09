@@ -1,0 +1,78 @@
+{
+  "archive_review_scope": "Implementation and local successful member-readback receipt; no remote download/reverification.",
+  "browser_deviation": "Two planned complete hands met; additional started spectator hand/one decision exceeds intended start count. Retain and audit; not wholly protocol-conformant, no strength extension/replacement, owner review of disclosed deviation.",
+  "closeout_repair": {
+    "finding": "Scope source-closeout snapshot to candidate implementation instead of entire retained repository",
+    "no_new_runtime_hands": true,
+    "no_server_or_model_copy": true,
+    "original_clock_baseline_preserved": true,
+    "resolved_before_execution": true,
+    "reviewed": true,
+    "source": "bbc95f09cfad263d842c4d81cb34708aee800ae5"
+  },
+  "final_naming_repair": {
+    "controller_normal_completion_claimed": false,
+    "fix": "archive-process worker label and live-log exclusion",
+    "issue": "controller process receipt collided with archive child identity receipt after ZIP locally verified",
+    "meaningful_subprocess_regression_passed": true,
+    "post_seal_sidecars_staged_and_hashed": true,
+    "resolved": true,
+    "zip_immutable_not_rerun": true
+  },
+  "independent_static_recount": {
+    "actions": 109,
+    "bot_decisions": 72,
+    "cached_bot_advance_ack_equal": true,
+    "completed_human": 13,
+    "completed_spectator": 9,
+    "cross_pid_human_ack_equal": true,
+    "empty_restricted_sessions": 1,
+    "expected_incompatibility_400s": 2,
+    "http_records": 129,
+    "human_private_response_exclusion": "passed",
+    "legal_observation_menu_sampling_event_reset_settlement_accounting": "passed",
+    "partial_spectator_hands": 1,
+    "policy_loaded": false,
+    "restart_pids": [
+      75159,
+      78839
+    ],
+    "sqlite_integrity": "passed"
+  },
+  "initial_findings": [
+    "installation/source instructions",
+    "standalone report links",
+    "builder clean source binding",
+    "required human visibility",
+    "fresh-service inference rejection",
+    "controlled signals and owned-group cleanup",
+    "admission failure receipts",
+    "measure pilot replay before admission",
+    "pending-decision restart",
+    "256MiB evidence bound and child closure"
+  ],
+  "post_run_review": "Clear: fresh M4 policy/journal replay, independent HTTP/static engine/SQLite/browser/guards/source binding and successful local ZIP member-readback receipt; no unresolved correctness or scientific findings. Final-head CI remains required.",
+  "pre_run_source": "50f78d53b38cb9d0dd0478ca9cbf3c4181fc6a78",
+  "preparation_readmission": {
+    "baseline_reset": false,
+    "clear_to_resume": true,
+    "deadline_reset": false,
+    "guard_waiver": false,
+    "prior_completed_hands": 0,
+    "reason": "original accepted ZIP became dataless; indexed original remains allocated",
+    "review": "exact interruption/source, dead58545, no package/pilot/main, original guards/clock, exclusive lock, separately retained source/resource streams, model hash/header before/aftercopy, no fresh ZIP audit claim"
+  },
+  "repaired_package_source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "resolution": "all corrected before any retained-model runtime hand;117 focused tests at initial source",
+  "reviewer": "Independent Codex child candidate_review",
+  "scientific_gate_mapping": {
+    "additional_science_required_for_opt_in_usability": false,
+    "cross_depth_superiority_claim_supported": false,
+    "external_hu100_reference_required": false,
+    "pr215_overall_recipe_qualified": false,
+    "pr218_dependency": false,
+    "specific_translation_contrast_supported_all_three_seeds": true,
+    "translated_pot_profitability_established": false,
+    "v08_profitability_requirement_unchanged": true
+  }
+}

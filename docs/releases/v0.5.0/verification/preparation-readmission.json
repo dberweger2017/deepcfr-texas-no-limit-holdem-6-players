@@ -1,0 +1,16 @@
+{
+  "baseline_sha256": "9932d3d21de1e5f89752620ea83f4ac3970f30eab4cef6c334755591858ea4a4",
+  "failure_sha256": "15c7185fda038adca016f0f3f219dc24287da1a8041975db278fb912de527580",
+  "gap_policy": "no model/runtime work; elapsed repair charged to original deadline",
+  "monitoring_gap_seconds": 263.49449396133423,
+  "no_budget_baseline_or_guard_reset": true,
+  "old_controller_alive": false,
+  "old_controller_pid": 58545,
+  "original_deadline": 1791565720.846294,
+  "original_source": "50f78d53b38cb9d0dd0478ca9cbf3c4181fc6a78",
+  "original_started": 1791562120.846294,
+  "prior_completed_hands": 0,
+  "reason": "accepted canonical ZIP now dataless; use hash-verified indexed nonsynced original",
+  "retained_input": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz",
+  "source": "155356b9dc656ecdb217beba166d5ee5f4d44c34"
+}

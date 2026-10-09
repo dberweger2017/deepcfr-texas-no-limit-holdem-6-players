@@ -1,0 +1,37 @@
+{
+  "manifest_bytes": 1981,
+  "manifest_sha256": "d75824d4ac938fccbed65322265a7e7a3470e5e9ed990b92c14013b38a255c65",
+  "sidecars": [
+    {
+      "bytes": 481,
+      "mtime_ns": 1791564551054584424,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/post-seal-sidecars/archive-receipt.json",
+      "sha256": "2abaa694137ea5b30637c551a3e45666fa21eb7c091365d482e799a405cc893d"
+    },
+    {
+      "bytes": 1609,
+      "mtime_ns": 1791564551057888587,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/post-seal-sidecars/closeout-operation.log",
+      "sha256": "595d998eabb82a127fbac7a2800229d99e25630fb7c5b2d43f102a01f2296fff"
+    },
+    {
+      "bytes": 135,
+      "mtime_ns": 1791564551054834549,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/post-seal-sidecars/failure-closeout.json",
+      "sha256": "219dc788090a906624751c85cbf2fe073e97195cf422de0cba48a487c2b027e0"
+    },
+    {
+      "bytes": 238938,
+      "mtime_ns": 1791564551055400965,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/post-seal-sidecars/resources-closeout.jsonl",
+      "sha256": "4e7ba26046720e2db663f913db71163c91148aa91e9969e51783ef8a7ba2c0fa"
+    },
+    {
+      "bytes": 372,
+      "mtime_ns": 1791564551055073841,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/post-seal-sidecars/resources-summary-closeout.json",
+      "sha256": "bb23802017a84ae114faf9288ad386c6d203df51098845ca9dec93838ff6d5ba"
+    }
+  ],
+  "status": "local-sidecars-readback-verified"
+}

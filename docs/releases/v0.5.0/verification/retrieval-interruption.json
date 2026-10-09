@@ -1,0 +1,20 @@
+{
+  "stage": "preparation-only whole archive read",
+  "original_controller_pid": 58545,
+  "old_source": "50f78d53b38cb9d0dd0478ca9cbf3c4181fc6a78",
+  "stop_elapsed_seconds": 356.208541583037,
+  "reason": "Existing accepted20.5GBZIP was dataless; read blocked on hydration. Use fully allocated indexed1.17GBoriginal instead under same deadline.",
+  "zip_flags_observed": "compressed,dataless",
+  "zip_bytes": 20517119304,
+  "zip_allocated_512_byte_blocks_at_16_14_21_UTC": 2105720,
+  "retained_input": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz",
+  "retained_input_bytes": 1173264021,
+  "retained_input_allocated_512_byte_blocks": 2291536,
+  "prior_model_copy_package_pilot_main_hands": 0,
+  "actual_guard_breach": false,
+  "new_whole_zip_verification": false,
+  "initial_hydration_may_continue_by_file_provider": true,
+  "no_delete_evict_or_force_offload": true,
+  "original_started": 1791562120.846294,
+  "original_deadline": 1791565720.846294
+}

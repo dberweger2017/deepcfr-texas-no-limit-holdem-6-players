@@ -1,0 +1,28 @@
+{
+  "brand": "Apple M4",
+  "cap_seconds": 3600,
+  "deadline": 1791565720.846294,
+  "guards": {
+    "disk_floor_bytes": 16642998272,
+    "family_hard_bytes": 8589934592,
+    "family_soft_bytes": 6442450944,
+    "swap_growth_bytes": 536870912,
+    "total_swap_bytes": 3000000000
+  },
+  "host": {
+    "ac": true,
+    "disk_free_bytes": 68863033344,
+    "free_percent": 87,
+    "pressure_level": 1,
+    "swap_bytes": 1635778560.0,
+    "system_used_bytes": 9075556352
+  },
+  "original_full_baseline_sha256": "9932d3d21de1e5f89752620ea83f4ac3970f30eab4cef6c334755591858ea4a4",
+  "process_inventory_receipt": {
+    "bytes": 157233,
+    "included_in_compact_git_receipt": false,
+    "raw_archive_member": "baseline.json",
+    "sha256": "795a4f984785c50d8a50b56bb285c9a951d2425f6609011dcb497bc5564d37de"
+  },
+  "started": 1791562120.846294
+}

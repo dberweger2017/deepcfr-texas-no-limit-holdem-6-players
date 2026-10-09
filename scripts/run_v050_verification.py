@@ -30,7 +30,7 @@ def archive(out, cloud, source):
     # explicit exclusions prevent creating a duplicate inference archive.
     paths = [p for p in out.rglob('*') if p.is_file() and p.name != 'access.token'
              and p.suffix not in ('.sqlite-wal', '.sqlite-shm')
-             and p.name not in ('resources.jsonl', 'resources-resumed.jsonl', 'resources-closeout.jsonl', 'archive.log')]
+             and p.name not in ('resources.jsonl', 'resources-resumed.jsonl', 'resources-closeout.jsonl', 'archive.log', 'archive-process.log')]
     records = [{'path': str(p.relative_to(out)), 'bytes': p.stat().st_size,
                 'sha256': sha(p), 'original': str(p.resolve()), 'mtime_ns': p.stat().st_mtime_ns} for p in sorted(paths)]
     manifest = {'source': source, 'kind': 'candidate-integration-evidence-no-model',
@@ -264,7 +264,7 @@ def main():
         if args.resume_blocked_retrieval:
             (args.out / 'resources-initial-closed.jsonl').write_bytes((args.out / 'resources.jsonl').read_bytes())
         (args.out / 'resources-prearchive.jsonl').write_bytes(guard.resource_log.read_bytes())
-        guard.run('archive', [sys.executable, '-m', 'scripts.archive_v050_evidence', '--out', str(args.out),
+        guard.run('archive-process', [sys.executable, '-m', 'scripts.archive_v050_evidence', '--out', str(args.out),
                              '--cloud', str(args.cloud), '--source', source])
         guard.check()
     except BaseException as error:

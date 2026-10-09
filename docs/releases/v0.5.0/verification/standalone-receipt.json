@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/Users/dberweger/Local/v050-readiness-20261009/.venv/bin/python",
+    "/Users/dberweger/Local/v050-readiness-20261009/models/v050-candidate/verify_v050_bundle.py",
+    "/Users/dberweger/Local/v050-readiness-20261009/models/v050-candidate",
+    "--expect-source",
+    "155356b9dc656ecdb217beba166d5ee5f4d44c34"
+  ],
+  "owned_process_group_alive": false,
+  "seconds": 0.913693374954164,
+  "status": "complete"
+}

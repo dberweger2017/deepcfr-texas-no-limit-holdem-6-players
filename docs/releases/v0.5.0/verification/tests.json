@@ -1,0 +1,15 @@
+{
+  "artifact_check": "All implementation/repair staged checks passed; final staged/revision check required before handoff",
+  "ci": "Final-head CI must pass before review handoff; authoritative check runs linked on PR220",
+  "commands": [
+    "python -m pytest -q tests/test_v050_bundle.py tests/play_ui tests/test_v042_bundle.py tests/test_hu100_action_translation.py tests/test_policy_boundary.py tests/test_v04_release.py tests/test_engine_integration.py tests/test_sessions.py tests/test_hand_observations.py tests/test_observations.py"
+  ],
+  "focused_packaging_runtime_translation": 120,
+  "focused_rules_information_policy_session": 89,
+  "release_defaults": "v0.4.2; catalog order v0.4.2/v0.4.1/v0.4.0 unchanged",
+  "retained_model_computation_on_m1": false,
+  "seconds": 11.03,
+  "small_fixture": "HTTP driver completes restricted/free/spectator and independent replay before retained computation",
+  "status": "passed",
+  "total_focused_passed": 209
+}

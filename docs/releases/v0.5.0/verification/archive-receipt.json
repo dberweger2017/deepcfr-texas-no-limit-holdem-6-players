@@ -1,0 +1,11 @@
+{
+  "bytes": 11582798,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "e60e4befe3dbf0fff4395bc246be1fc9b8b18039d52373bc75a38da9e23d8852",
+  "members": 61,
+  "originals_retained": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/v050-readiness-M4-20261009.zip",
+  "remote_bytes_downloaded": false,
+  "sha256": "a5df66f6cdde85d7659cc62b4152bc198ee4de0ae57ae19470813fea245e7903",
+  "status": "locally-verified-upload-pending"
+}

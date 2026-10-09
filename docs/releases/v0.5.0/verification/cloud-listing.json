@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-09T16:49:15Z",
+  "folder_id": "1vmo9C77ItKIF66CHCFvaGuFXV3jQezd3",
+  "request": "List direct children of designated PR220 folder",
+  "files": [
+    {
+      "id": "124UdJjb1y903atEATSiiLrXsn4KfQBXQ",
+      "title": "post-seal-sidecars",
+      "mime_type": "application/vnd.google-apps.folder",
+      "size": null,
+      "url": "https://drive.google.com/drive/folders/124UdJjb1y903atEATSiiLrXsn4KfQBXQ",
+      "display_url": "https://drive.google.com/drive/folders/124UdJjb1y903atEATSiiLrXsn4KfQBXQ",
+      "file_or_folder": "folder",
+      "created_time": "2026-10-09T16:49:11.050Z",
+      "modified_time": "2026-10-09T16:49:11.057Z",
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": false,
+      "permissions": null,
+      "source_visibility_status": "not_shared",
+      "can_download": true,
+      "can_list_children": true
+    },
+    {
+      "id": "1l46JTqm6Ue1F-wmrJpwX2BVmNi3nsh_E",
+      "title": "v050-readiness-M4-20261009.zip",
+      "mime_type": "application/zip",
+      "size": "11582798",
+      "url": "https://drive.google.com/file/d/1l46JTqm6Ue1F-wmrJpwX2BVmNi3nsh_E/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1l46JTqm6Ue1F-wmrJpwX2BVmNi3nsh_E/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": "2026-10-09T16:47:01.202Z",
+      "modified_time": "2026-10-09T16:47:01.398Z",
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": false,
+      "permissions": null,
+      "source_visibility_status": "not_shared",
+      "can_download": true,
+      "can_list_children": false
+    }
+  ],
+  "native_upload_no_pending_no_conflicts_confirmed": false,
+  "remote_evidence_bytes_downloaded": false,
+  "status": "cloud-metadata-visible-native-acceptance-pending"
+}

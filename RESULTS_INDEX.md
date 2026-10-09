@@ -1,3 +1,123 @@
+## PR220 v0.5.0 HU100 candidate readiness — unmerged review handoff, October9
+
+[PR220](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/220),
+`feature/v050-release-readiness`, from current-main9b7163c. Candidate/runtime
+source155356b9dc656ecdb217beba166d5ee5f4d44c34; reviewed audit/archive-only
+closeout sourcebbc95f09cfad263d842c4d81cb34708aee800ae5. Final PR head carries
+readiness reports and reviewed verification-tool repairs; unchanged packaged
+runtime/assets are [hash-bound](docs/releases/v0.5.0/verification/source-binding.json).
+[Readiness and owner decisions](docs/releases/v0.5.0/READINESS.md),
+[plan/deviations](docs/releases/v0.5.0/SMOKE_PLAN.md),
+[review](docs/releases/v0.5.0/verification/review.json).
+Usable HU100/internal-scripted scope; #215 FAILED overall qualification and
+unproven translated pot profitability remain unchanged. #218 HU200 independent.
+No tag/release/Latest/default/publication approval, merge or new strength run.
+
+M4 pilot3/main20/browser2 complete hands plus1 paused spectator partial decision:
+independent fresh policy/journal audits and independent raw/static/browser review
+pass. 209 focused tests; staged/revision artifact and exact final PR head CI must
+pass before review handoff. Original60-minute clock16:08:40UTC: ZIP/member
+readback finishes38.34min; local sidecar handoff42.45min. 8,908 observed samples,
+zero actual guard breaches,4.29GiB peak RSS; idle repair gaps263.62/255.75s
+are disclosed/charged, not whole-clock continuous monitoring. M1/#218 untouched.
+
+**Locally verified evidence, upload acceptance pending:**
+[v050-readiness-M4-20261009.zip](https://drive.google.com/file/d/1l46JTqm6Ue1F-wmrJpwX2BVmNi3nsh_E/view),
+Drive ID `1l46JTqm6Ue1F-wmrJpwX2BVmNi3nsh_E`, **11,582,798bytes**,
+SHA256 `a5df66f6cdde85d7659cc62b4152bc198ee4de0ae57ae19470813fea245e7903`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`e60e4befe3dbf0fff4395bc246be1fc9b8b18039d52373bc75a38da9e23d8852`, **61members**, each size/SHA256 locally readback-verified.
+[Archive receipt](docs/releases/v0.5.0/verification/archive-receipt.json).
+Designated [PR220 folder](https://drive.google.com/drive/folders/1vmo9C77ItKIF66CHCFvaGuFXV3jQezd3),
+ID `1vmo9C77ItKIF66CHCFvaGuFXV3jQezd3`, Research-Cloud parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`;
+native destination `~/Local/Research-Cloud/PR-220-v050-release-readiness/`.
+A single immediate [direct-folder cloud listing](docs/releases/v0.5.0/verification/cloud-listing.json)
+shows exact archive ID/name/size in the requested folder. **Native uploaded/no-pending/
+no-conflicts acceptance remains unchecked; upload-pending cleanup handoff remains.**
+No remote evidence-ZIP download/readback claim. Initial #207 dataless read initiated
+hydration without completing fresh whole-ZIP verification. No upload wait/deletion.
+
+**Post-seal lifecycle sidecars:** same native folder, `post-seal-sidecars/`,
+[Drive subfolder](https://drive.google.com/drive/folders/124UdJjb1y903atEATSiiLrXsn4KfQBXQ),
+ID `124UdJjb1y903atEATSiiLrXsn4KfQBXQ`.
+[Size/hash/restoration paths](docs/releases/v0.5.0/verification/sidecars.json),
+[local staged readback](docs/releases/v0.5.0/verification/sidecar-readback.json).
+Root `SIDECAR-MANIFEST.json`: 1981bytes, SHA256
+`d75824d4ac938fccbed65322265a7e7a3470e5e9ed990b92c14013b38a255c65`. Sidecars retain archive-receipt.json, failure-closeout.json,
+resources-summary-closeout.json, full resources-closeout.jsonl and closeout-operation.log.
+Root `LOCAL-HANDOFF.json` matches [receipt](docs/releases/v0.5.0/verification/local-handoff.json).
+After ZIP integrity passed, a controller/child receipt-name collision failed
+bookkeeping; normal controller completion is not claimed. Reviewed distinct
+archive-process naming plus real subprocess regression fixes it. ZIP remains
+immutable; no archive/model/replay rerun. Sidecars/native acceptance are pending
+owner/later-agent review, not part of the immutable ZIP manifest.
+
+**Preserved failures/partials:** initial offloaded #207 whole-ZIP interruption;
+source-bound same-clock retained-input repair; extra browser start/one decision;
+SCP completion file exposed empty→JSONDecodeError; reviewed audit/archive-only
+continuation; post-seal receipt collision and corrected read-only final resource
+probe. Initial/main/source/guard logs and private deal/sampling journals are in
+ZIP or explicitly indexed sidecars. No failed play rerun or selected outcome.
+
+**Required model dependency, not duplicated in this ZIP/Git:** original #207
+seed2026100601 1B average,1,173,264,021bytes, SHA256
+`47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`.
+Canonical allocated M4 path
+`~/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz`.
+Existing [accepted #207 archive](https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view),
+member `research/training/1000000000/average.gz`;
+whole/manifest/checkpoint hashes and restoration provenance are in
+[preparation manifest](docs/releases/v0.5.0/PREPARATION_MANIFEST.json) and
+[actual retrieval receipt](docs/releases/v0.5.0/verification/retrieval.json).
+Use [reproducible retrieval/package/install commands](docs/releases/v0.5.0/INSTALL.md)
+at exact package source155356b. Translation512states/128events is identity-bound.
+Keep canonical #207 input, candidate/retrieved copies and open PR220 root
+`~/Local/v050-readiness-20261009/`; do not treat them as cleanup candidates.
+
+For evidence restoration, download the ZIP to a fresh ignored nonsynced root;
+verify whole/manifest/member identities before use (no automatic relaunch):
+
+```sh
+python3.11 - <<'PYRESTORE'
+import hashlib,json,shutil
+from pathlib import Path
+from zipfile import ZipFile
+archive=Path('results/retrieved/pr220/v050-readiness-M4-20261009.zip')
+destination=Path('results/retrieved/pr220/restored-evidence')
+def digest(p):
+    h=hashlib.sha256()
+    with p.open('rb') as f:
+        while chunk:=f.read(1024**2): h.update(chunk)
+    return h.hexdigest()
+assert digest(archive)=='a5df66f6cdde85d7659cc62b4152bc198ee4de0ae57ae19470813fea245e7903'
+destination.mkdir(parents=True,exist_ok=False)
+with ZipFile(archive) as z:
+    raw=z.read('ARCHIVE-MANIFEST.json')
+    assert hashlib.sha256(raw).hexdigest()=='e60e4befe3dbf0fff4395bc246be1fc9b8b18039d52373bc75a38da9e23d8852'
+    for member in json.loads(raw)['members']:
+        target=destination/member['path']
+        assert target.resolve().is_relative_to(destination.resolve())
+        target.parent.mkdir(parents=True,exist_ok=True)
+        with z.open(member['path']) as source,target.open('xb') as out:
+            shutil.copyfileobj(source,out)
+        assert target.stat().st_size==member['bytes'] and digest(target)==member['sha256']
+    (destination/'ARCHIVE-MANIFEST.json').write_bytes(raw)
+print(destination)
+PYRESTORE
+```
+
+Restore sidecars separately from their Drive subfolder into a fresh ignored path
+preserving recorded relative names; verify SIDECAR-MANIFEST's pinned digest, then
+each sidecar's byte count/SHA256 from the linked compact manifest. Evidence restores
+journals/sources/environment/metadata, not the model; restore that independent #207
+member with its pinned helper. Candidate package can be reproduced from source155
+and exact model bytes; frozen/readiness sources are deliberately distinct.
+
+Owner/later agent completes native/cloud sidecar upload acceptance and dependency
+review. Originals, synced archives, active inputs and shared Git are retained;
+no cleanup deletion is authorized by this open PR handoff.
+
 ## PR215 HU100 independent stages — science complete, October 9
 
 [PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215),
