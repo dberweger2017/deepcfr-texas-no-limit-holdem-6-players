@@ -118,6 +118,14 @@ Owner/later agent completes native/cloud sidecar upload acceptance and dependenc
 review. Originals, synced archives, active inputs and shared Git are retained;
 no cleanup deletion is authorized by this open PR handoff.
 
+## M1 inactive worktree retirement — October 9, 2026
+
+Owner-authorized cleanup retired **57 worktrees** unused for 24 hours after active/open-PR, process, thread and dependency review. **17.428 GB measured removal-batch reclamation /30.323 GB free** immediately afterward. Source commits and branches remain in shared Git. [Receipt and accepted archives](docs/artifacts/m1-worktree-cleanup-20261009.md) · [compact restoration locators](docs/artifacts/m1-worktree-cleanup-20261009-locators.md) · [complete path/member/stat receipt](https://drive.google.com/file/d/1J1OsjpghvHUmhxSEnmdkpnzqChKSCNmb/view?usp=drivesdk) (7,561,003 bytes, SHA256 `edf33765bf1ac80faec1da8419bfbca79dca5c642078aa935c431b3e94d41379`).
+
+Twelve merged-PR evidence roots are now retired with current native/cloud upload acceptance. New immutable snapshots preserve previously unarchived PR193 spectator and PR174 Luna-versus-Shield evidence, PR199 publication copies, and late metadata for #105/#109/#112/#166/#188/#190/#200/#201/#202. PR190/PR202 primary members reuse existing confirmed archives and manifests; changed/late records are sealed separately. Their archived failures, private journals, input/model locators and restore commands remain available through the receipt. Expired local test tokens and disposable isolated browser state are excluded; the original Luna agent rollout outside the worktree is untouched. The PR174 snapshot includes its exact model copy, independently of the historical PR171 local locator.
+
+All new archive/member bytes passed local readback; native uploaded/not-uploading/no-conflict/not-trashed status and independent cloud ID/name/size/parent/private permissions match. Confirmed Drive uploads were trusted without remote downloads or repeated old archive/member audits. Active/recent/dirty roots, #218 and its dependencies, maintained configuration/runtime references, shared Git and synced files remain protected. Two otherwise old roots remain for maintained dependencies. Earlier campaign statements that local roots were retained or upload acceptance was pending are dated history; this receipt is the current cleanup/restore record for the selected paths. No unattended cleanup was scheduled.
+
 ## PR215 HU100 independent stages — science complete, October 9
 
 [PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215),
