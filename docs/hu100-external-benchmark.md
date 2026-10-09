@@ -1,5 +1,12 @@
 # External heads-up benchmark readiness
 
+**Owner update, October 9, 2026:** the [roadmap](../ROADMAP.md#release-milestones)
+now separates v0.5.0 (HU100, internally evaluated) from v0.5.5 (HU200, tested
+against Slumbot). This supersedes the recommendation below to wait for 100BB
+external access. The original assessment and protocol evidence are retained;
+HU200 support, a correctly trained policy and full-hand qualification remain
+follow-up work, and benchmark acceptance criteria remain undecided.
+
 **Recommendation: keep 100BB and seek a confirmed 100BB Slumbot endpoint or a
 maintainer-supplied frozen 100BB opponent before evaluating.** Slumbot is the
 strongest practical first access candidate among the interfaces checked, but its

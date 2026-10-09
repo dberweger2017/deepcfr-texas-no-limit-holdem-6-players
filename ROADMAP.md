@@ -12,7 +12,7 @@ The full history of plans, protocols and results is in [docs/roadmap-history.md]
 
 ## Release milestones
 
-Patch releases improve the current heads-up 20 BB game; minor releases move to deeper stacks and more players. The [readme](readme.md#release-plan) has the short version.
+The v0.4.x releases improve heads-up 20 BB; v0.5 starts at 100 BB and adds 200 BB for the v0.5.5 external benchmark. Later minor releases add players. The [readme](readme.md#limits-and-release-plan) has the short version.
 
 | Release | What it means |
 |---|---|
@@ -20,7 +20,8 @@ Patch releases improve the current heads-up 20 BB game; minor releases move to d
 | **v0.4.1** (released, `v0.4.1`) | The 1B-node linear-CFR opponent-sampled average, seed 2026100601; it beats v0.4.0 in a fresh direct match and passes the arena rule. [Release comparison](docs/reports/v0.4.1-release.md). v0.4.0 stays available. |
 | **v0.4.2** (released, `v0.4.2`, current) | The same recipe at 10B nodes, fixed seed 2026100601. Direct gain +3.50 [+1.63, +5.37] BB/100; all four gates pass, fresh LBR narrowly. [Verified publication record](docs/releases/v0.4.2/PUBLICATION.md). v0.4.0/v0.4.1 stay available. |
 | **v0.4.x** (now) | The Pluribus recipe on heads-up 20 BB: average-policy play, a native trainer, a better training procedure or card abstraction, turn/river search, then flop search, in the order the evidence supports. Each patch must beat its predecessor in a paired arena without severe scenario regressions. |
-| **v0.5** | Heads-up 100 BB, with a first benchmark against an established heads-up bot. **Still to decide (owner):** which external opponent, and the benchmark acceptance criteria. |
+| **v0.5 / v0.5.0** | Heads-up 100 BB, validated through internal checks and scripted-opponent evaluations, without an established external benchmark: no suitable free public 100 BB opponent model or API has been verified. No externally established strength claim. |
+| **v0.5.5** | Heads-up 200 BB with a policy trained and validated at that depth, tested against Slumbot at its public API's 200 BB stacks. Publish results and uncertainty; these do not establish HU100 strength. **Still to decide (owner):** benchmark acceptance criteria, informed by an exploratory run before fresh confirmation. |
 | **v0.6** | Three players: multiway blueprint and search. |
 | **v0.7** | Four and five players: a blueprint for each table size. |
 | **v0.8** | Six players at 100 BB with basic playing strength: reliable profit against the existing scripted opponent pool (no rake). Confirmed on fresh held-out deals with at least two training seeds, fixed final checkpoints, and a 95% interval above zero for each seed; evaluation size and any multiple-comparison adjustment are declared beforehand. Requires a usable train/resume/export/evaluate workflow, correct rules, legal observations and verified recovery. |
@@ -72,7 +73,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 *Updated October 9, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **HU100 local runtime ([#212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/212)):** explicit hash-pinned terminal research play, fixed 100BB resets/accounting, recorded off-by-default translation and durable human/spectator replay. All 80 retained-model hands pass legal-information, settlement and process-recovery audits; independent review is clear. Released defaults are preserved. [Guide and receipts](docs/hu100-local-play.md).
-- **External benchmark preparation ([#213](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/213)), merged:** public-information adapter boundaries, compatibility rejection, protocol fixtures and replayable logs are ready. External benchmark execution and its compatible 100BB access/terminal qualification will be handled in a new follow-up PR. [Assessment and proposed evaluation](docs/hu100-external-benchmark.md).
+- **External benchmark preparation ([#213](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/213)), merged:** public-information adapter boundaries, compatibility rejection, protocol fixtures and replayable logs are ready. Owner-approved milestone split: v0.5.0 keeps HU100 internal evaluation; v0.5.5 adds a correctly trained HU200 policy and Slumbot evaluation. HU200 support, training and full-hand external qualification remain follow-up work. [Assessment and proposed evaluation](docs/hu100-external-benchmark.md).
 
 - **October 9 storage cleanup:** **6.035 GB M4 /1.086 GB M1** measured batch free-space gain; immediate **31.619 GB /35.481 GB free**. Archived merged-run local copies/traces removed; open #210–#213 dependencies, entire #207 root, canonical inputs/checkpoints, Git and synced archives preserved. [Receipt/restoration](docs/artifacts/storage-vacuum-20261009.md).
 
