@@ -27,3 +27,28 @@ def test_trained_projection_keeps_v1_and_uses_versioned_scalar_payload():
     assert expected!=factored_key(template,['equity-bucket',7])
     assert '65535' not in output['pool_keys']['eq50-fit0'][table]
     assert set(output['pool_keys'])=={'v1','eq50-fit0'}
+
+
+def test_guard_kills_nested_session_after_parent_is_reaped(tmp_path):
+    import subprocess
+    import sys
+    import time
+    import psutil
+    from scripts.overnight_research_guard import remember_descendants, stop_owned
+    pidfile=tmp_path/'pid'
+    code="import subprocess,sys,time; p=subprocess.Popen([sys.executable,'-c','import time;time.sleep(60)'],start_new_session=True);open(sys.argv[1],'w').write(str(p.pid));time.sleep(60)"
+    outer=subprocess.Popen([sys.executable,'-c',code,str(pidfile)],start_new_session=True)
+    known={}
+    try:
+        end=time.monotonic()+5
+        while not pidfile.exists() and time.monotonic()<end:time.sleep(.01)
+        assert pidfile.exists()
+        remember_descendants(known)
+        nested=int(pidfile.read_text())
+        assert nested in known
+        outer.terminate();outer.wait(timeout=5)
+        stop_owned(outer,known)
+        assert not psutil.pid_exists(nested) or psutil.Process(nested).status()==psutil.STATUS_ZOMBIE
+    finally:
+        if outer.poll() is None:outer.kill();outer.wait()
+        stop_owned(outer,known)
