@@ -1,0 +1,68 @@
+{
+  "audit": {
+    "all_nodes_verified": 41047344,
+    "average_sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924",
+    "checkpoint_sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4",
+    "counts": {
+      "entries": 41047344,
+      "positive_mass": 27834571,
+      "zero_mass": 13212773
+    },
+    "current_sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345",
+    "maximum_tv": 1.0000000000000002,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.25886459388415595
+  },
+  "entries": 41047344,
+  "files": {
+    "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/terminal/average.gz": {
+      "bytes": 1174323849,
+      "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+    },
+    "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/terminal/checkpoint.gz": {
+      "bytes": 1790689153,
+      "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+    },
+    "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/terminal/current.gz": {
+      "bytes": 1034504511,
+      "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+    }
+  },
+  "hu20_reference_checked": false,
+  "iteration": 902142,
+  "mean_traverser_visits_per_key": 4.839191373746375,
+  "native_state": {
+    "completed_nodes": 1000001141,
+    "coverage_start": [
+      0,
+      0,
+      0
+    ],
+    "decisions_by_street": [
+      15254578,
+      49171874,
+      142040580,
+      353646492
+    ],
+    "traverser_visits_by_street": [
+      5021544,
+      16330369,
+      49903501,
+      127380539
+    ],
+    "version": 1
+  },
+  "positive_average_mass_keys": 27834571,
+  "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+  "stack_bb": 100,
+  "status": "verified",
+  "visits_histogram": {
+    "0": 15907246,
+    "1": 11939660,
+    "10-99": 3115449,
+    "100+": 227894,
+    "2-9": 9857095
+  },
+  "zero_average_mass_keys": 13212773
+}

@@ -14,10 +14,11 @@ binding refusal and370.914s idle monitoring gap remain preserved, charged to
 that clock. No scientific retry or guard waiver.
 
 Cost-only32/512-block calibration and exact actual #211 partial compatibility
-pass. Seed2026100901 early39,439,801 nodes is fully audited; its1,000,000,506-node
-terminal audit passed. Seed2026100902 passed separate admission and began
-at11:24UTC; its endpoints and final evaluation are pending.
-Qualification remains incomplete. New archive/member/upload acceptance is not
+pass. Both new lineages have fully audited early/terminal recovery/current/average
+files: seed2026100901 at39,439,801 /1,000,000,506 nodes; seed2026100902 at
+39,440,603 /1,000,001,141 nodes. Final evaluation is running at the cost-only
+frozen4,096 blocks/opponent, root2026100911013. Qualification remains incomplete
+until final results and evidence closeout. New archive/member/upload acceptance is not
 available yet; do not treat this progress entry as cloud acceptance.
 Input restoration remains the accepted PR207/PR211 indexes below, with local
 size/SHA256/full-audit provenance and no old archive hydration. Exact resumed

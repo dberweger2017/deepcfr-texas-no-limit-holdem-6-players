@@ -77,16 +77,21 @@ training gate; its later quote cannot retrospectively refuse useful training.
 [Admission](hu100-independent-stages-artifacts/training-admission-2026100901.json).
 The protocol requires retaining early39,438,279 and terminal1B total-node
 checkpoints for both fresh seeds, allowing complete-iteration overshoots, with
-full exports/audits. Seed2026100901 has reached1,000,000,506 nodes; its terminal
-audit passed, verifying all40,752,103 entries and recovery/current/average hashes.
-Its early endpoint is fully audited. Seed2026100902 passed separate admission
-and started at11:24UTC. These are progress observations, not completed
-qualification results.
+full exports/audits. Both fresh lineages now retain fully audited early and1B recovery/current/average
+files: seed2026100901 at39,439,801 /1,000,000,506 nodes; seed2026100902 at
+39,440,603 /1,000,001,141 nodes. The unchanged complete-iteration targets and
+entry ceiling were respected. Training completion alone does not qualify the recipe.
 
 ## Remaining work
 
-Training and final evaluation admission/results are pending. Recipe qualification
-remains incomplete. No final sample/final hands/effect estimates exist yet.
+Final evaluation is running at the cost-only frozen **4,096 blocks/opponent**,
+root2026100911013, with the fixed six-contrast growth and separate three-contrast
+translation families. The8,192 quote4.879h plus0.5h closeout exceeds4.522h remaining;
+4,096 quote2.706h plus0.5h closeout passes, as does47.44GiB required against85.00GiB
+free. No final payoff/effect estimates have been inspected. All endpoint audits
+passed; recipe qualification still awaits final evaluation and evidence closeout.
+[Admission](hu100-independent-stages-artifacts/evaluation-admission.json),
+[frozen comparisons](hu100-independent-stages-artifacts/frozen-comparisons.json).
 Research evidence, failures and originals stay in the M4 ignored working root;
 accepted Research-Cloud archive/alias restoration receipts will be indexed at
 closeout. No remote-byte/archive-upload claim, cleanup, release, paid compute,
