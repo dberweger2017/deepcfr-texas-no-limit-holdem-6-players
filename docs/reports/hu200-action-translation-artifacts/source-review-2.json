@@ -1,0 +1,55 @@
+{
+  "base_commit": "72fe8908f0a2a9b010ae86c3e522fd3aba86429d",
+  "checks": [
+    "21 focused tests pass: HU100 translator, HU200 translator and campaign/controller tests",
+    "Eight synthetic nonuniform-policy pot-pressure hands fully reproduce actions, probabilities, deterministic telemetry, all events and accounting; three selected translations pass independent engine witness replay",
+    "Freshness check confirms timing/final and all enumerated HU100/HU200 prior deal seeds are disjoint",
+    "Two-seat rotation, identical off/on deal and private-action streams, paired block arithmetic and Student-t confidence formulas reviewed",
+    "Model identity/hash/index, unchanged action menu and uniform fallback, authoritative current legal actions, public-only policy input and RNG boundaries reviewed",
+    "Calibration reader consumes costs and evidence sizes only; common sample is frozen before final outcomes; fixed loading is separate and conservative native/replay scaling is explicit",
+    "60-minute clock and 600-second local closeout reserve, ownership lock/process/PR checks, resource latches and failure/partial preservation reviewed",
+    "Archive verifies every member and manifest plus ZIP SHA256, preserves original paths/mtime, reuses existing model restoration and explicitly hands off upload-pending without deletion"
+  ],
+  "dependent_experiment_clear": true,
+  "files_sha256": {
+    "configs/arena/hu100-learning-curves-v1.json": "0bf1c2c8ebbedfb5c79a518315fbdadf4555e6377a2118e3f1977354a1991b30",
+    "docs/hu200-action-translation.md": "7ff34e8cbceb51fecb90a72f7e68eca598ff966e5bca69f0c0d0c2731b9656d1",
+    "docs/reports/hu200-feasibility-artifacts/model-index.json": "4dd490992470e17976cc4dea2a07a592ba01610b4f7b1f0688343eb8ef672d20",
+    "requirements-monitoring.txt": "7fb4de3bad5409b922af1ffd22bd7d9b7c14eda47f456c4345c7258fecfe8062",
+    "scripts/evaluate_hu200_diagnosis.py": "a6166af437490e6a55be093a60260ff8e729ac9def0a984561490a22e89129c8",
+    "scripts/evaluate_hu200_translation.py": "64820baea42de4da4562a4dd047c51bdb0855d798e40e6c93c5a1e82c0a24acd",
+    "scripts/run_hu200_diagnosis.py": "1395add141fdb2a655e610e13a2a771120b6ef8fb8d0429f3cd2405486ccfca4",
+    "scripts/run_hu200_feasibility.py": "02984f81956ddb36653b86d7fad12916f82c62a0db1f4f7148221cf31bfc5b90",
+    "scripts/run_hu200_translation.py": "e6a73f0683fad7e64b7fc8c28389167fdb8057f4b4c0b5eab1c27cf737229d9f",
+    "src/blueprint/action_translation.py": "408c9c38bf95201d0d733945e6578d02262b42ba0787bf75372654f881814a4a",
+    "src/blueprint/average.py": "a431e11136348f8874cac6b5c2671a9a8dc1479fe71a8a1783be83e8d3e135cc",
+    "tests/test_hu100_action_translation.py": "632a6bc62de6d7d2bbbd82a4a19a79b60d3f04d12250b4bfec4890a5c77bfd1b",
+    "tests/test_hu200_action_translation.py": "6981c3ab96b032e67fbe3236061c0bffa2bb38a675ee65f56b39d6c862956a06",
+    "tests/test_hu200_translation_campaign.py": "3e41bcde0713a7e67b50052d699cb977d826ff64217a705076041bcad8a8e2f4"
+  },
+  "findings": [],
+  "host": "dberweger-m1",
+  "launch_constraints": [
+    "Owner retained 15.5 GiB disk floor; launch requires current M1 resource admission and committed clean reviewed source",
+    "No real model loaded by reviewer; no calibration, training, final evaluation or M4 access",
+    "Final raw-evidence and result review remains required after science"
+  ],
+  "prior_findings": [
+    {
+      "finding": "SIGTERM bypassed cleanup of detached science process group",
+      "resolution": "Guard now installs SIGINT/SIGTERM exception handlers, terminates the owned process group and restores handlers; real SIGTERM subprocess regression passes",
+      "status": "resolved"
+    },
+    {
+      "finding": "Source snapshot omitted requirements-monitoring.txt and required freshness config",
+      "resolution": "Both dependency pins and configs/arena/hu100-learning-curves-v1.json are included in the source snapshot",
+      "status": "resolved"
+    }
+  ],
+  "reviewed_at": "2026-10-09T13:49:56.328697+00:00",
+  "reviewer": "independent Codex translator_review",
+  "round": 2,
+  "scope": "Pre-experiment translator, evaluator, controller and prospective protocol; no scientific outcomes reviewed",
+  "small_test_setup_note": "Initial supplementary synthetic fixture covered every exact key and therefore produced zero translations; fixture construction was corrected by excluding exact keys. This was a small synthetic test setup issue, not science or an implementation failure.",
+  "status": "passed"
+}
