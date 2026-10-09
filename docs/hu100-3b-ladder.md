@@ -74,3 +74,12 @@ working files remain retained.
 No models in Git, cleanup of other PR files, paid compute, tag, publication
 or release; v0.5.0 remains the owner's decision. Merge on green checks and
 no open findings; update roadmap on landing.
+
+## Stage ordering and monitor qualification
+
+A stopped during its scoring pilot and closed with an accepted partial ZIP;
+no A science is retried. B remains independent. Before B starts, its reviewed
+guard derives owned ancestry from macOS `ps`, creation-verifies retained
+orphans and their new children, and fails closed on unreadable owned PIDs.
+It preserves every resource threshold; prior campaigns’ default guard is
+unchanged. All11 focused source/guard tests pass (2 optional native skips).

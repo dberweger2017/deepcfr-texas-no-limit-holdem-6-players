@@ -1,1 +1,12 @@
-{"status":"clear","reviewer":"independent review_stage_b","reviewed_commit":"10e1637","validation":"8passed2skipped clean-source direct/compact/independent suite","resolved":"disk archive scaling;primary priority;bounded sorted buffer loader;no redundant schedule document;sequential fresh/local gates and quote posting","budget_interpretation":"reviewed correction:10h threshold reduces scope, required primary retains full measured deadline","trainer_source_changed":false}
+{
+  "status": "clear",
+  "reviewer": "independent review_stage_b",
+  "reviewed_commit": "124f24f",
+  "validation": "11passed2skipped M4 source/guard/direct/compact/independent suite",
+  "resolved": "disk archive scaling;primary priority;bounded sorted buffer loader;no redundant schedule document;sequential fresh/local gates and quote posting",
+  "budget_interpretation": "reviewed correction:10h threshold reduces scope, required primary retains full measured deadline",
+  "trainer_source_changed": false,
+  "guard_resolution": "explicit owned ancestry, creation-verified orphans/new children, PID reuse rejection; own AccessDenied fail-closes",
+  "stage_a": "stopped-unclassified; no scientific retry; accepted partial ZIP before B starts",
+  "quote_accounting": "resume loads plus all completed preparation/calibration time; hardlink model archive reserve once"
+}
