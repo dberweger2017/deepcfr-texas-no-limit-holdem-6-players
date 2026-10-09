@@ -12,7 +12,9 @@ The [research history](research-history.md) indexes completed experiments.
   policy readers, compact storage and turn/river search. `average.py` owns the
   stored-average reader and its validation; `compact_policy.py` owns storage.
 - `src/policies/`: released v0.4.0/v0.4.1/v0.4.2 artifact pins, verification and loading.
-  Adding a model here or to the web catalog still requires release authorization.
+  Adding a released model here or to the web catalog still requires release authorization.
+  `hu100_research.py` is an explicit research-only pin; [local HU100 play](hu100-local-play.md)
+  records its retrieval gate, fixed table and off-by-default translation option.
 - `src/play_api/` and `apps/poker-web/`: durable local sessions, HTTP and the table.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.

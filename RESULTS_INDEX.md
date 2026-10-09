@@ -4,6 +4,84 @@ Owner-requested cleanup removed **392 M4 paths /6.014 GB logical** and **41 M1 p
 
 [Cleanup/restoration guide](docs/artifacts/storage-vacuum-20261009.md) · [compact measurements](docs/artifacts/storage-vacuum-20261009.json) · [full exact-path/member/hash restoration receipt](https://drive.google.com/file/d/1KJU6cRbeHcuBv6asxGcMxZIQv79znWcx/view?usp=drivesdk). Current native uploaded/no-pending/no-conflicts/exact-size and independent cloud ID/name/size/parent agree for all eight canonical archives. Existing manifests, recorded sizes/stat/modification history and provenance were used without archive downloads or repeated payload hash audits. Receipt upload/metadata readback accepted. Historical retention notes are superseded only for these exact paths; no synced deletion/offloading, process interruption or unattended cleanup.
 
+## PR212 retained HU100 terminal average retrieval — October 9, 2026
+
+[PR212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/212)
+remains open and unmerged. #207's reviewed head is now
+`fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27`, ready for merge after CI; its repaired
+closeout supersedes the earlier fixture snapshot's retrieval blocker below.
+Connected Drive confirms [retry ZIP `1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj`](https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view)
+in [folder `1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS`](https://drive.google.com/drive/folders/1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS),
+matching name `hu100-1b-campaign-M4-retry-20261009.zip`, **20,517,119,304 bytes**.
+Current M4 Foundation status is uploaded=true/uploading=false, no reported upload
+error, non-nil zero unresolved NSFileVersion conflicts. Whole archive SHA256
+`ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf`
+and embedded `ARCHIVE-MANIFEST.json` SHA256
+`609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58`
+were freshly verified read-only before streaming selected member
+`research/training/1000000000/average.gz` to M1. **Remote cloud bytes were not
+separately downloaded**; native acceptance and independent cloud metadata checks
+are distinct from the existing canonical archive's byte/member verification.
+
+The selected **1,173,264,021-byte** model verifies SHA256
+`47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`
+at `/Users/dberweger/Local/hu100-local-runtime/models/retrieved/pr207-20261009/average.gz`.
+Retrieval helper, remote verification log and resource receipt are retained at
+`/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/`.
+Exact command from that worktree:
+`/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python results/hu100-retained-smoke/retrieve_pr207.py`.
+The helper performs read-only SSH streaming from the fully allocated canonical
+M4 Research-Cloud ZIP, checks archive/manifest/member pins, creates a fresh ignored
+target and enforces total swap <3,000,000,000 bytes and a 15.5-GiB M1 disk floor.
+It is retained for archival provenance; future retrieval may instead download the
+same pinned Drive ZIP and verify those hashes before extracting the named member.
+No original, synced partial or other campaign dependency was changed. No cleanup
+or forced offloading is authorized. Runtime evidence and these active dependencies
+remain protected while PR212 is open; runtime archive closeout remains pending.
+
+Retained runtime source `8f90697c` (full revision in the
+[compact verification receipt](docs/reports/hu100-runtime-retained-verification.json))
+passes **80 complete 100BB hands** through HTTP: 20 human-seat plus 20 spectator
+per translation setting. Four new successful HTTP workers per setting recovered
+durable state; two lost-reply retries were identical across different PIDs.
+Both settings cover off-menu 550 raises and all-in calls, with eight translated
+witnesses in the enabled human-seat run. Translation-disabled human hands have
+no all-in calls; the spectator provides that coverage. Policy-reproducing journal
+audits and independent evidence review pass, with no open findings. Of 593 HTTP
+responses, 589 succeeded and four were expected identity/configuration rejections.
+Load took 230.97 seconds with warmed filesystem cache; one validated compact
+model was inherited by workers, so this is not separate cold-CLI-start evidence.
+Sampled summed fork RSS peak 2.554 GB (shared pages may be counted twice), maximum
+total swap 1.606 GB, minimum disk 34.696 GB; all guards passed. A missing declared
+psutil dependency and a pre-hand helper lookup defect are preserved in the same
+ignored root with the stopped-load receipt; no retained hand failed. Model,
+raw HTTP/private journals, helpers, resource samples and failures remain indexed
+by path/size/SHA256 in the compact receipt. Final run and workers are stopped.
+
+## PR212 HU100 local-runtime fixture verification — October 9, 2026
+
+[PR212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/212)
+is open; retain its isolated worktree and dependencies. Source branch
+`feature/hu100-local-runtime`, implementation base `a2ee720a81070f2b6b7b7c711bb5732e84aad8cf`
+plus the reviewed final protocol/validation changes. The completed local browser
+fixture at `/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/`
+retains generated miniature averages, its server helper and human/spectator SQLite
+journals. [Compact receipt](docs/reports/hu100-runtime-fixture-verification.json)
+records every file's bytes/SHA256 and independent replay of two complete 100BB
+hands. It includes the initial Host rejection and corrected loopback navigation;
+no hand failed. The fixture server is stopped.
+
+This is test-fixture evidence, not retained #207 model qualification, training or
+a benchmark campaign. No research binary/database is committed. Archive closeout
+and an actual Research-Cloud folder/archive ID are pending while this PR remains
+open; no upload, retrieval or deletion is claimed. Preserve the local root until
+its owning PR permits closeout under `docs/artifact-storage.md`. The owner-approved
+swap cap is 3 GB. At this earlier fixture snapshot #207 was draft/open at
+`f0ff3c1ffc4f0002a0c7ab22751d212aa76cdda3`;
+its unaccepted partial archive is not a retrieval source and M4 remains untouched.
+The exact required policy pin and gated follow-up are in
+[the local-play guide](docs/hu100-local-play.md).
+
 ## PR208 HU20 turn-search stackoff diagnosis — October 8, 2026
 
 [PR208](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208) · [report](docs/reports/hu20-search-stackoff-diagnosis.md). Final recorded-hand diagnosis on M1; scientific implementation/review `84b1048de1c68678451235859e4027877b771d55`, fresh main base `9da625f`, later #209 metadata integrated. All 3,072 selective hands /9,552 decisions replay exactly; nine original-request-matched offline solves reproduce recorded probabilities with error 0.0. Joint −10.35 BB/100, 13-panel adjusted interval [−22.99,+2.29]: plausible regression, not established. No large opposing late bets occur. Re-solves expose mis-modeled value callers and future folds, alongside heterogeneous missed-value/runout contributions. No new arena/sweep/training/default/native-trainer change or M4 use. One independent review clears all scientific calculations; ten focused tests pass. Fresh unchanged-search 1,024-block confirmation is [quoted on PR](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208#issuecomment-6068694013) at 8–12 M1 hours, hard 12-hour cap, awaiting owner chat go; not run or scheduled.
