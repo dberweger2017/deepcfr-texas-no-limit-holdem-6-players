@@ -1,6 +1,7 @@
 """Strict per-seed paired inference after full HU100 replay and reproduction."""
 from collections import Counter, defaultdict
 import gzip
+import hashlib
 import json
 from math import isclose
 from pathlib import Path
@@ -10,7 +11,7 @@ from scripts.evaluate_native_hu100_baseline import OPPONENTS
 from scripts.hu100_qualification_guard import read, put
 from scripts.report_native_hu100_learning_curves import frozen_schedule, interval
 from scripts.run_hu100_seed_qualification import OUT, SEEDS, config
-from src.arena.schedule import canonical, digest
+from src.arena.schedule import canonical
 from src.policies.files import file_hash
 
 
@@ -46,7 +47,7 @@ def report(out=OUT):
         raise ValueError('Frozen paired schedule changed')
     source = freeze['source']
     baseline = {}
-    values, hand_rows, coverage, translations, visits = {}, {}, [], [], []
+    values, hand_digests, coverage, translations, visits = {}, {}, [], [], []
     hands_replayed = actions_replayed = 0
     for seed in SEEDS:
         for label in ('early', 'terminal', 'terminal-on'):
@@ -70,7 +71,6 @@ def report(out=OUT):
                     if path.stat().st_size != pin['bytes'] or file_hash(path) != pin['sha256']:
                         raise ValueError('Changed bound arm artifact: ' + str(path))
             selected_keys = set()
-            arm_decisions = {}
             for opponent in OPPONENTS:
                 panel = run / opponent
                 manifest = read(panel / 'manifest.json')
@@ -78,22 +78,24 @@ def report(out=OUT):
                     raise ValueError('Source/model manifest differs')
                 if canonical(read(panel / 'schedule.json')['blocks']) != canonical(expected['panels'][opponent]['blocks']):
                     raise ValueError('Physical schedule differs')
-                rows = [json.loads(s) for s in (panel / 'hands.jsonl').read_text().splitlines()]
-                reference = [r for r in rows if r['arm'] == 'baseline']
+                coords = {}
+                reference_hash, candidate_hash = hashlib.sha256(), hashlib.sha256()
+                with (panel / 'hands.jsonl').open() as rows:
+                    for line in rows:
+                        row = json.loads(line)
+                        if row['arm'] == 'baseline':
+                            reference_hash.update(canonical(row).encode() + b'\n')
+                            continue
+                        coord = row['block'], row['rotation']
+                        if row['status'] != 'completed' or coord in coords:
+                            raise ValueError('Failed/duplicate final hand')
+                        coords[coord] = row['candidate_chips']
+                        candidate_hash.update(canonical(row).encode() + b'\n')
+                reference = reference_hash.hexdigest()
                 if opponent not in baseline:
                     baseline[opponent] = reference
                 elif reference != baseline[opponent]:
                     raise ValueError('Uniform reference not reused exactly')
-                coords = {}
-                candidates = []
-                for row in rows:
-                    if row['arm'] != 'candidate':
-                        continue
-                    coord = row['block'], row['rotation']
-                    if row['status'] != 'completed' or coord in coords:
-                        raise ValueError('Failed/duplicate final hand')
-                    coords[coord] = row['candidate_chips']
-                    candidates.append(row)
                 if set(coords) != {(b, r) for b in range(blocks) for r in (0, 1)}:
                     raise ValueError('Incomplete final paired coordinates')
                 series = [(coords[b, 0] + coords[b, 1])/2 for b in range(blocks)]
@@ -101,27 +103,35 @@ def report(out=OUT):
                 if not isclose(interval(series)['bb_per_100'], recorded['scenarios'][opponent]['comparison']['candidate']['bb_per_100'], abs_tol=1e-8):
                     raise ValueError('Independent chip mean differs')
                 values[seed, label, opponent] = series
-                hand_rows[seed, label, opponent] = candidates
+                hand_digests[seed, label, opponent] = candidate_hash.hexdigest()
                 for row in recorded['diagnostics']:
                     if row['arm'] == 'candidate' and row['logical_player'] == 0:
                         coverage.append({'seed': seed, 'option': label, 'opponent': opponent, **row})
-                decisions = [d for d in traces(panel / 'decisions.jsonl.gz') if d['arm'] == 'candidate' and d['logical_player'] == 0]
-                arm_decisions[opponent] = decisions
-                selected_keys.update(d['key'] for d in decisions)
-                groups = defaultdict(list)
-                for d in decisions:
-                    groups[d['street']].append(d['translation'])
-                for street, telemetry in groups.items():
-                    counts = Counter(d['mode'] for d in telemetry)
-                    distances = [d['distance'] for d in telemetry if d['mode'] == 'translated']
+                groups = {}
+                for d in traces(panel / 'decisions.jsonl.gz'):
+                    if d['arm'] != 'candidate' or d['logical_player'] != 0:
+                        continue
+                    selected_keys.add(d['key'])
+                    g = groups.setdefault(d['street'], {'count': 0, 'modes': Counter(), 'distance_sum': 0,
+                        'distance_count': 0, 'distance_max': None, 'states_max': 0, 'bounds': 0, 'lookup_sum': 0})
+                    t = d['translation']
+                    g['count'] += 1
+                    g['modes'][t['mode']] += 1
+                    g['states_max'] = max(g['states_max'], t['states'])
+                    g['bounds'] += t['bound_reached']
+                    g['lookup_sum'] += t['lookup_seconds']
+                    if t['mode'] == 'translated':
+                        g['distance_count'] += 1
+                        g['distance_sum'] += t['distance']
+                        g['distance_max'] = max(g['distance_max'] or 0, t['distance'])
+                for street, g in groups.items():
+                    counts = g['modes']
                     translations.append({'seed': seed, 'option': label, 'opponent': opponent, 'street': street,
-                        'decisions': len(telemetry), 'counts': dict(counts),
-                        'rates': {mode: counts[mode]/len(telemetry) for mode in ('exact', 'translated', 'uniform')},
-                        'distance_mean': sum(distances)/len(distances) if distances else None,
-                        'distance_max': max(distances) if distances else None,
-                        'states_max': max(d['states'] for d in telemetry),
-                        'bounds_reached': sum(d['bound_reached'] for d in telemetry),
-                        'lookup_mean_ms': 1000*sum(d['lookup_seconds'] for d in telemetry)/len(telemetry)})
+                        'decisions': g['count'], 'counts': dict(counts),
+                        'rates': {mode: counts[mode]/g['count'] for mode in ('exact', 'translated', 'uniform')},
+                        'distance_mean': g['distance_sum']/g['distance_count'] if g['distance_count'] else None,
+                        'distance_max': g['distance_max'], 'states_max': g['states_max'],
+                        'bounds_reached': g['bounds'], 'lookup_mean_ms': 1000*g['lookup_sum']/g['count']})
             table = {}
             with gzip.open(model['path'], 'rt') as f:
                 next(f)
@@ -131,9 +141,11 @@ def report(out=OUT):
                         table[row[0]] = (row[3], row[4])
             if file_hash(Path(model['path'])) != model['sha256']:
                 raise ValueError('Visit-band model changed')
-            for opponent, decisions in arm_decisions.items():
+            for opponent in OPPONENTS:
                 groups = defaultdict(Counter)
-                for d in decisions:
+                for d in traces(run / opponent / 'decisions.jsonl.gz'):
+                    if d['arm'] != 'candidate' or d['logical_player'] != 0:
+                        continue
                     known = table.get(d['key'])
                     lookup = 'missing-key' if known is None else 'positive-mass-known-key' if known[0] > 0 else 'zero-mass'
                     if lookup != d['lookup']:
@@ -152,7 +164,7 @@ def report(out=OUT):
             growth[opponent] = effect([a-b for a, b in zip(terminal, early, strict=True)], .05/6 if opponent in ('tight_aggressive', 'loose_aggressive') else .05)
             translation[opponent] = effect([a-b for a, b in zip(on, terminal, strict=True)], .05/3 if opponent == 'pot_pressure' else .05)
             absolute[opponent] = {label: interval(values[seed, label, opponent]) for label in ('early', 'terminal', 'terminal-on')}
-            controls[opponent] = hand_rows[seed, 'terminal', opponent] == hand_rows[seed, 'terminal-on', opponent]
+            controls[opponent] = hand_digests[seed, 'terminal', opponent] == hand_digests[seed, 'terminal-on', opponent]
             if opponent in ('check_call', 'tight_aggressive', 'loose_aggressive') and not controls[opponent]:
                 raise ValueError('On-menu action/event/settlement control changed')
         flag = translation['random']['descriptive_95']['interval'][1] < -20
@@ -179,7 +191,7 @@ def report(out=OUT):
         'statistical_families': 'growth six Bonferroni contrasts; translation three separately adjusted contrasts, not union FWER .05',
         'science_supports_benchmark_preparation': scientific,
         'recipe_qualification': 'pending archive acceptance and independent evidence review even if scientific gates pass',
-        'uniform_reference_baseline_sha256': {op: digest(rows) for op, rows in baseline.items()}}
+        'uniform_reference_baseline_sha256': baseline}
     put(out / 'result.json', result)
     return result
 

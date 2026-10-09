@@ -16,7 +16,7 @@ from zipfile import ZipFile, ZIP_DEFLATED, ZIP_STORED
 from scripts.hu100_qualification_guard import Campaign, CapacityStop, GIB, put, read
 from scripts.native_hu100_model_metadata import audited_average_spec
 from scripts.report_native_hu100_learning_curves import frozen_schedule
-from scripts.run_hu100_action_translation import PRIOR_ROOTS
+from scripts.run_hu100_action_translation import PRIOR_ROOTS, PILOT_ROOT as TRANSLATION_PILOT, FINAL_ROOT as TRANSLATION_FINAL
 from src.blueprint.average import TranslationOptions
 from src.policies.files import file_hash
 
@@ -86,28 +86,31 @@ def spec(folder):
 
 
 def retrieve():
-    if OLD_ZIP.stat().st_size != 20_517_119_304 or file_hash(OLD_ZIP) != ARCHIVE_SHA:
-        raise ValueError('Indexed #207 archive changed')
-    with ZipFile(OLD_ZIP) as z:
-        raw = z.read('ARCHIVE-MANIFEST.json')
-        if hashlib.sha256(raw).hexdigest() != MANIFEST_SHA:
-            raise ValueError('Indexed manifest changed')
-        manifest = json.loads(raw)
-        members = {m['path']: m for m in manifest['members']}
-        restored = []
-        for label, prefix in (('early', 'research/gate'), ('terminal', 'research/training/1000000000')):
-            folder = OUT / 'inputs' / label
-            folder.mkdir(parents=True)
-            for name in ('average.gz', 'audit.json'):
-                member = prefix + '/' + name
-                expected = members[member]
-                path = folder / name
-                with z.open(member) as src, path.open('xb') as dst:
-                    shutil.copyfileobj(src, dst, 1024**2)
-                if path.stat().st_size != expected['bytes'] or file_hash(path) != expected['sha256']:
-                    raise ValueError('Restored member differs: ' + member)
-                restored.append({'path': str(path), 'member': member, **expected})
-            put(folder / 'spec.json', spec(folder))
+    # Prefer fully local retained originals. A Drive placeholder would require
+    # hydrating an otherwise unnecessary 20.5-GB archive to copy only 1.37 GB.
+    # Pin every copied byte to the merged scientific index, independently of
+    # filesystem metadata; keep archive pointers for eventual restoration.
+    index_path = ROOT / 'docs/reports/native-hu100-growth-1b-artifacts/model-index.json'
+    index = read(index_path)
+    restored = []
+    for label, nodes in (('early', EARLY), ('terminal', 1_000_002_065)):
+        record = next(m for m in index['models'] if m['audit']['native_state']['completed_nodes'] == nodes)
+        audit = record['audit']
+        original = next(Path(p) for p in audit['files'] if Path(p).name == 'average.gz')
+        expected = audit['files'][str(original)]
+        if original.stat().st_size != expected['bytes']:
+            raise ValueError('Retained original byte size changed')
+        folder = OUT / 'inputs' / label
+        folder.mkdir(parents=True)
+        path = folder / 'average.gz'
+        with original.open('rb') as src, path.open('xb') as dst:
+            shutil.copyfileobj(src, dst, 1024**2)
+        if path.stat().st_size != expected['bytes'] or file_hash(path) != expected['sha256']:
+            raise ValueError('Retained original copy differs from merged model index')
+        put(folder / 'audit.json', audit)
+        put(folder / 'spec.json', spec(folder))
+        restored.append({'path': str(path), 'original_path': str(original),
+            'member': record['archive_members']['average'], **expected})
     BINARY.parent.mkdir()
     shutil.copy2(OLD_ROOT / 'native/hu20-trainer/target/release/hu20-trainer', BINARY)
     if file_hash(BINARY) != BINARY_SHA:
@@ -127,13 +130,16 @@ def retrieve():
         'native_binary_sha256': BINARY_SHA, 'binary_origin_source': frozen})
     put(OUT / 'retrieval.json', {'archive': str(OLD_ZIP), 'archive_sha256': ARCHIVE_SHA,
         'manifest_sha256': MANIFEST_SHA, 'members': restored,
+        'read_scope': 'retained original averages copied and independently size/SHA256 checked; no archive read, hydration or fresh whole/member rehash',
+        'index_sha256': file_hash(index_path),
         'owning_pr_207_status': 'MERGED, live check before retrieval',
         'cloud_acceptance': 'owner handoff; local verified archive used',
         'originals_unchanged': True})
 
 
 def freshness(settings):
-    roots = dict(PRIOR_ROOTS + [(2026100810011, 16), (2026100810012, 2048),
+    roots = dict(PRIOR_ROOTS + [(TRANSLATION_PILOT, 16), (TRANSLATION_FINAL, 2048),
+        (2026100810011, 16), (2026100810012, 2048),
         (PILOT_ROOT, 16), (FINAL_ROOT, 8192)])
     previous = {}
     for root, blocks in roots.items():
@@ -196,8 +202,15 @@ def quote(campaign):
     elapsed = time() - campaign.started
     for blocks in (8192, 4096):
         play_seconds = 3 * (loads + scalable * blocks / 16 * 3)
-        total = elapsed + train_seconds + save_seconds + tool_seconds + play_seconds + CLOSEOUT
         disk_plan = next(x for x in planning['quotes'] if x['blocks'] == blocks)
+        old_scan_entries = sum(x['audit']['entries'] for x in read(ROOT / 'docs/reports/native-hu100-growth-1b-artifacts/model-index.json')['models'])
+        new_scan_entries = 3*math.ceil(7_643_261*1.1) + 2*41_010_014 + 4*ENTRY_CAP
+        old_report_seconds = next(x['seconds'] for x in old_ops if x['name'] == 'strict-report')
+        reporting_seconds = 3*old_report_seconds*max(new_scan_entries/old_scan_entries, blocks/2048*9/6)
+        archival_seconds = 2*120.41695427894592*disk_plan['archive_copy_forecast_bytes']/20_517_119_304
+        if archival_seconds > CLOSEOUT:
+            raise CapacityStop('Measured archive projection exceeds local-closeout reserve')
+        total = elapsed + train_seconds + save_seconds + tool_seconds + play_seconds + reporting_seconds + CLOSEOUT
         # Current free already excludes retained pilot inputs/snapshots. Credit
         # only these new campaign bytes, never an expected owner cleanup.
         retained = sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file())
@@ -209,6 +222,8 @@ def quote(campaign):
             'timing_pass': total <= 21_600, 'disk_pass': free >= required_remaining,
             'training_seconds': train_seconds, 'saves_seconds': save_seconds,
             'export_audit_seconds': tool_seconds, 'play_replay_reproduction_seconds': play_seconds,
+            'strict_report_seconds': reporting_seconds,
+            'projected_archive_seconds_at_2x_207_bytes': archival_seconds,
             'local_closeout_reserve_seconds': CLOSEOUT})
     put(OUT / 'measured-quote.json', {'source': campaign.source, 'at': time(),
         'choices': choices, 'pilot_outcomes_inspected': False,
@@ -216,6 +231,8 @@ def quote(campaign):
         'training_quote_factor': 'max(6x fresh nonsave pilot, 2x #207 train/save per seed)',
         'save_tools_factor': '2x maximum measured seconds/entry, at frozen entry ceiling',
         'evaluation_factor': '3x fixed loads plus block-scaled play/replay/reproduction',
+        'report_factor': '3x #207 strict-report time times max(scanned entries ratio, blocks*arm count ratio)',
+        'archive_factor': '2x #207 measured full packing/readback at projected archive byte ratio; 1800s reserve must cover it',
         'disk_basis': 'reviewed 110/130 GiB complete quote, credit retained new bytes only',
         'deadline': campaign.deadline})
     return choices
@@ -236,6 +253,14 @@ def pack():
                 raise ValueError('Monitor prefix snapshot truncated')
             dst.write(data)
             remaining -= len(data)
+    with snap.open('r+b') as f:
+        size = f.seek(0, os.SEEK_END)
+        f.seek(max(0, size - 4096))
+        tail = f.read()
+        newline = tail.rfind(b'\n')
+        if newline < 0:
+            raise ValueError('No complete resource snapshot row')
+        f.truncate(size - len(tail) + newline + 1)
     for path in sorted(OUT.rglob('*')):
         rel = path.relative_to(OUT)
         if not path.is_file() or rel.as_posix() == 'continuous-resources.jsonl' or rel.parts[:2] == ('operations', 'archive'):
@@ -324,12 +349,19 @@ def main_campaign():
         blocks = admission['blocks']
         selected = next(x for x in choices if x['blocks'] == blocks)
         free = shutil.disk_usage(OUT).free
+        feasible = [x for x in choices if x['timing_pass'] and free >= x['remaining_required_free_bytes']
+            and campaign.remaining() >= x['remaining_cost_seconds']]
+        if not feasible:
+            raise CapacityStop('Fresh final time/disk admission refused')
+        if blocks != feasible[0]['blocks']:
+            raise ValueError('Admission must select highest affordable predeclared count')
         if not selected['timing_pass'] or free < selected['remaining_required_free_bytes']:
             raise CapacityStop('Fresh final time/disk admission refused')
         if campaign.remaining() < selected['remaining_cost_seconds']:
             raise CapacityStop('Waiting consumed quoted main budget')
         campaign.tool_quote = selected['export_audit_seconds']/4
         campaign.panel_quote = selected['play_replay_reproduction_seconds']/9
+        campaign.report_quote = selected['strict_report_seconds']
         put(OUT / 'frozen-comparisons.json', {'source': revision, 'blocks': blocks,
             'seeds': SEEDS, 'early_target': EARLY, 'terminal_target': TERMINAL,
             'growth_alpha': .05/6, 'translation_alpha': .05/3, 'practical_lower_bb100': 10,

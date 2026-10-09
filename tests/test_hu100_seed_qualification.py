@@ -1,7 +1,8 @@
 """Critical campaign guard, predeclared inference and storage admission checks."""
 import json
-from pathlib import Path
-from types import SimpleNamespace
+import os
+import subprocess
+import sys
 
 import pytest
 
@@ -24,11 +25,35 @@ def test_new_growth_limit_keeps_fixed_baseline_and_inherited_other_guards():
     assert guard.inherited.SWAP_GROWTH == 512*1024**2
 
 
+def test_cleanup_kills_owned_descendant_after_direct_wrapper_exits(tmp_path):
+    marker = tmp_path/'child-ready'
+    code = '''import os,signal,time,sys
+pid=os.fork()
+if pid:
+    while not os.path.exists(sys.argv[1]): time.sleep(.01)
+    sys.exit(0)
+signal.signal(signal.SIGTERM,signal.SIG_IGN)
+open(sys.argv[1],"w").write(str(os.getpid()))
+while True: time.sleep(.1)
+'''
+    child = subprocess.Popen([sys.executable, '-c', code, str(marker)], start_new_session=True)
+    try:
+        child.wait(timeout=5)
+        assert child.poll() == 0
+        assert guard.group_members(child.pid)
+        guard.stop_group(child)
+        assert guard.group_members(child.pid) == []
+    finally:
+        if guard.group_members(child.pid):
+            os.killpg(child.pid, 9)
+
+
 def test_absolute_budget_and_closeout_reserve_refuse_child_before_start(tmp_path):
     c = object.__new__(guard.Campaign)
     c.out = tmp_path
     c.remaining = lambda: 1900
     c.tool_quote, c.panel_quote = 200, 300
+    c.report_quote = 100
     with pytest.raises(guard.CapacityStop):
         c.run('terminal-export', ['must-not-launch'])
     with pytest.raises(guard.CapacityStop):
@@ -66,4 +91,6 @@ def test_freshness_compares_physical_deals_including_207_and_new_roots(tmp_path,
     r = json.loads((tmp_path/'freshness.json').read_text())
     assert r['all_pairwise_disjoint']
     assert str(2026100810012) in r['roots']
+    assert str(2026100820521) in r['roots']
+    assert str(2026100820512) in r['roots']
     assert str(campaign.FINAL_ROOT) in r['roots']

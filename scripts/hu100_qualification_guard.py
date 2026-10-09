@@ -33,6 +33,41 @@ def violation(sample, baseline, rss):
     return inherited.limits(sample, baseline, rss, swap_limit=SWAP_GROWTH)
 
 
+def group_members(pgid):
+    members = []
+    for process in psutil.process_iter(['pid', 'uids', 'status']):
+        try:
+            if os.getpgid(process.pid) == pgid and process.info['status'] != psutil.STATUS_ZOMBIE:
+                if process.info['uids'].effective != os.geteuid():
+                    raise RuntimeError('Owned group contains a different effective UID')
+                members.append(process.pid)
+        except (ProcessLookupError, psutil.NoSuchProcess):
+            pass
+    return members
+
+
+def stop_group(child):
+    """Escalate the retained session even after its direct wrapper exits."""
+    if group_members(child.pid):
+        try:
+            os.killpg(child.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        # Owned commands have no graceful science-retry behavior. Escalation
+        # bounds shutdown and never depends on whether the time wrapper exited.
+        if group_members(child.pid):
+            try:
+                os.killpg(child.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+    child.wait(timeout=5)
+    end = monotonic() + 5
+    while group_members(child.pid) and monotonic() < end:
+        sleep(.05)
+    if group_members(child.pid):
+        raise RuntimeError('Owned process group survived SIGKILL')
+
+
 class Campaign:
     """Hold ownership and sample idle work, tools and archival work alike."""
 
@@ -47,6 +82,7 @@ class Campaign:
         self.count = 0
         self.tool_quote = 0
         self.panel_quote = 0
+        self.report_quote = 0
         self.lock = (Path.home() / 'Local/.hu100-m4-research.lock').open('a+')
         fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         # This is also a one-use campaign: releasing the host lock never grants
@@ -119,7 +155,12 @@ class Campaign:
             with (self.out / 'continuous-resources.jsonl').open('x') as stream:
                 while not self.done.is_set():
                     rss = 0
-                    for p in [parent, *parent.children(recursive=True)]:
+                    family = {p.pid: p for p in [parent, *parent.children(recursive=True)]}
+                    child = self.child
+                    if child is not None:
+                        for pid in group_members(child.pid):
+                            family.setdefault(pid, psutil.Process(pid))
+                    for p in family.values():
                         try:
                             rss += p.memory_info().rss
                         except psutil.NoSuchProcess:
@@ -148,6 +189,10 @@ class Campaign:
             self.latch('Continuous guard failed: ' + repr(exc))
 
     def run(self, name, command, *, reserve=1800, quote=0, stop_file=None, accepted=(0,)):
+        if name.startswith('final-'):
+            reserve += self.report_quote
+        if name == 'strict-report':
+            quote = self.report_quote
         if not quote and (name.endswith('-export') or name.endswith('-audit')):
             quote = self.tool_quote
         if not quote and (name.endswith('-play') or name.endswith('-reproduce')):
@@ -184,16 +229,15 @@ class Campaign:
             raise
         finally:
             cleanup_error = None
-            if self.child is not None and self.child.poll() is None:
+            if self.child is not None:
                 try:
-                    self.child.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    try:
-                        os.killpg(self.child.pid, signal.SIGKILL)
-                        self.child.wait(timeout=5)
-                    except BaseException as exc:
-                        cleanup_error = repr(exc)
-            alive = self.child is not None and self.child.poll() is None
+                    survived_wrapper = self.child.poll() is not None and bool(group_members(self.child.pid))
+                    stop_group(self.child)
+                    if survived_wrapper:
+                        cleanup_error = 'Owned descendants outlived direct wrapper; killed and campaign stopped'
+                except BaseException as exc:
+                    cleanup_error = repr(exc)
+            alive = self.child is not None and bool(group_members(self.child.pid))
             self.child = None
             self.stop_file = self.stop_at = None
             log = (guard / 'worker.log').read_text()

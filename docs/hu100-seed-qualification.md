@@ -71,11 +71,15 @@ Existing early average SHA256:
 (1,173,264,021 bytes). Existing terminal recovery SHA256:
 `cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec`.
 These are scientific model-index pins, not acceptance of #207's partial ZIP.
-Use the reviewed locally verified retry ZIP/restoration pointers in #207's
-current index, or accepted cloud pointers after the owner's verification,
-with whole archive,
-embedded manifest and selected-member size/SHA256 verification into a fresh
-ignored nonsynced directory. Check current owning-PR status before copying.
+Prefer copies of #207's retained nonsynced original averages, independently
+checking their sizes/SHA256 and audit identity against the merged model index
+into a fresh ignored directory; record original and archive member provenance.
+This avoids hydrating an offloaded 20.5-GB archive for 1.37 GB of already local
+inputs. If those originals are unavailable, refuse automatic fallback and
+re-quote before archive restoration. Manual restoration uses the reviewed
+retry ZIP/current index or accepted cloud pointers, with whole archive,
+embedded manifest and selected-member size/SHA256 verification. Check current
+owning-PR status before copying. Never delete or offload either source.
 
 Every new save gets streaming current/average exports and a full integrity
 audit. Keep all recovery states and partials, actual nodes/entries/iterations,
@@ -250,6 +254,14 @@ receives a complete-iteration stop request before its reserved recovery window.
 The active monitoring stream is archived through a fixed prefix snapshot;
 later archive resources/readback/upload and independent review are separate
 lifecycle receipts. No model or raw outcome is inspected for pilot admission.
+The measured main quote separately reserves strict reporting at 3x #207's
+measured report cost, conservatively scaled by scanned entries or raw panel
+count/blocks, whichever is larger. Final operations preserve that allowance
+in addition to local archive time. The 1,800-second archive reserve must cover
+2x #207's measured packing/full-readback time at the projected byte ratio.
+Reporting streams hand/control digests and trace aggregates rather than
+retaining every nested hand/decision object in memory. Owned process-group
+cleanup is verified independently of the direct timing wrapper's exit.
 
 M4 only, 10 cores/16 GiB/AC, one worker family, sequential execution. Require
 at least 8 GiB system memory headroom at fresh admission. Preserve #207's
