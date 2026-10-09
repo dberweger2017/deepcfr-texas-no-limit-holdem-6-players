@@ -259,7 +259,10 @@ All originals remain. [Drive handoff](hu200-playing-diagnosis-artifacts/drive-ha
 Source and final evidence review were performed by the primary agent; these are
 **not independent reviewer approvals**. Resolved source findings, final diff and
 validation are recorded in [review](hu200-playing-diagnosis-artifacts/final-review.json).
-The PR remains unmerged and ready for owner review.
+The owner subsequently requested merge after review and all five green checks
+on `a05b41b`. That authorization supersedes the earlier unmerged handoff; normal
+merge checks still apply to the final metadata head. Upload acceptance and cleanup
+remain with the owner/later agent.
 
 ## Concrete hypotheses for later confirmation
 

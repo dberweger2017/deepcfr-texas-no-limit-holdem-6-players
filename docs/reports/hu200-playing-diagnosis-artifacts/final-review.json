@@ -35,5 +35,5 @@
     "Drive listing is metadata; upload acceptance remains pending with owner/later agent."
   ],
   "open_findings": [],
-  "pr_handoff": "Unmerged; owner review pending; final-head CI recorded separately in PR after push."
+  "pr_handoff": "The owner subsequently requested merge after all five green checks on a05b41b. Earlier unmerged handoff is superseded; normal final-head checks still apply. Upload acceptance/cleanup remain pending with owner/later agent."
 }
