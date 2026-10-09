@@ -164,10 +164,10 @@ def evaluate(pilot=False):
         dest.mkdir(parents=True,exist_ok=False)
         trained = policies(OUT/'runs'/f'fold-{fold}')
         request = json.loads((OUT/'prepared'/job['job']/'request.json').read_text())
-        ref = POOL/'main-06/collect'/job['job']/'solver/response.jsonl'
+        ref = json.loads((OUT/'references/main-06/collect'/job['job']/'reference.json').read_text())
         request.update(pooling_phase='lock-only',max_iterations=0,
-            reference_equilibrium_ev_chips=completion(rows(ref))['current_ev_chips'],
-            reference_response_sha256=file_hash(ref),pooling_measurements=[])
+            reference_equilibrium_ev_chips=ref['reference_ev_chips'],
+            reference_response_sha256=ref['original_response']['sha256'],pooling_measurements=[])
         for name,path in trained:
             equity = path.stem.startswith('equity.')
             transported = OUT/'transport'/f'fold-{fold}'/path.parent.name/path.name if equity else path
@@ -194,8 +194,8 @@ def report():
     freeze=json.loads((OUT/'matched-freeze.json').read_text())
     for job in jobs:
         bench=json.loads((OUT/'eval'/job['job']/'result.json').read_text())
-        collect=json.loads((POOL/'main-06/collect'/job['job']/'result.json').read_text())['metrics']
-        relock=json.loads((POOL/'main-06/relock'/job['job']/'result.json').read_text())['metrics']
+        collect=json.loads((OUT/'references/main-06/collect'/job['job']/'result.json').read_text())['metrics']
+        relock=json.loads((OUT/'references/main-06/relock'/job['job']/'result.json').read_text())['metrics']
         row={'spot':job['spot'],'fold':bench['fold'],'B':seat_mean(collect,'e_bp'),'L':seat_mean(collect,'e_root_v1'),'P':seat_mean(relock,'e_cross_v1')}
         for m in bench['metrics']:
             name=m['metric']
