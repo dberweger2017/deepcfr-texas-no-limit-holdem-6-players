@@ -1,5 +1,6 @@
 {
-  "archive_status": "unaccepted partial; archive member names are planned, not restoration pointers",
+  "archive_receipt": "archive-receipt.json",
+  "archive_status": "948 members locally verified in new retry ZIP; Drive upload started, final cloud acceptance delegated to owner and not claimed",
   "models": [
     {
       "archive_members": {
@@ -432,5 +433,6 @@
       }
     }
   ],
-  "source": "bd0e7a417064f736091dc2b667954b50becb4b69"
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "upload_handoff_receipt": "native-upload-status.json"
 }

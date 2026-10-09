@@ -207,8 +207,8 @@ def test_cleanup_permission_error_keeps_primary_failure_and_writes_receipt(tmp_p
     assert campaign.read(tmp_path/"campaign-failure.json")["operation"]=="fixture"
 
 
-@pytest.mark.parametrize("conflict",[False,True])
-def test_upload_acceptance_requires_native_completion_and_all_guards(tmp_path,monkeypatch,conflict):
+@pytest.mark.parametrize("case",["success","pending","conflict","upload_error","swap"])
+def test_upload_acceptance_requires_native_completion_conflict_query_and_guards(tmp_path,monkeypatch,case):
     from scripts import archive_native_hu100_growth_1b as archive
     monkeypatch.setattr(campaign,"OUT",tmp_path)
     monkeypatch.setattr(archive,"DEST",tmp_path/"native.zip")
@@ -217,21 +217,27 @@ def test_upload_acceptance_requires_native_completion_and_all_guards(tmp_path,mo
     put(tmp_path/"operations/archive-retry/receipt.json",{"status":"complete"})
     put(tmp_path/"archive-receipt.json",{"archive":str(archive.DEST),"bytes":3,"sha256":"0"*64})
     put(tmp_path/"baseline.json",{"host":{"swap_bytes":0}})
-    good={"pressure_level":1,"free_percent":80,"swap_bytes":0,"ac":True,
-          "disk_free_bytes":campaign.DISK_FLOOR+1,"system_used_bytes":0}
-    samples=iter([good,{**good,"swap_bytes":3_000_000_001}])
-    monkeypatch.setattr(campaign,"host",lambda:next(samples))
+    sample={"pressure_level":1,"free_percent":80,"swap_bytes":3_000_000_001 if case=="swap" else 0,
+            "ac":True,"disk_free_bytes":campaign.DISK_FLOOR+1,"system_used_bytes":0}
+    monkeypatch.setattr(campaign,"host",lambda:sample)
     def output(args,**kwargs):
         if args[0]=="xattr":return "actual-drive-id"
-        return "isUploaded = 1; isUploading = 0; documentSize = 3; hasUnresolvedConflicts = "+str(int(conflict))+";"
+        if args[0]=="/usr/bin/osascript":
+            return json.dumps({"api":"NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+                               "exists":True,"nil":False,"unresolved_count":1 if case=="conflict" else 0})
+        return ("isUploaded = 0; isUploading = 1; documentSize = 3;" if case=="pending" else "isUploaded = 1; isUploading = 0; documentSize = 3;")+(
+            " uploadingError = error;" if case=="upload_error" else "")
     monkeypatch.setattr(archive.subprocess,"check_output",output)
-    monkeypatch.setattr(archive,"sleep",lambda _:None)
-    if conflict:
-        with pytest.raises(RuntimeError,match="swap growth"):
-            archive.native_upload()
-        assert not (tmp_path/"native-upload.json").exists()
-        assert campaign.read(tmp_path/"operations/archive-upload/receipt.json")["status"]=="failed"
+    if case not in ("success","pending"):
+        with pytest.raises((RuntimeError,ValueError)):
+            archive.native_status()
+        assert not (tmp_path/"native-upload-status.json").exists()
+        assert campaign.read(tmp_path/"operations/archive-upload-status/receipt.json")["status"]=="failed"
     else:
-        archive.native_upload()
-        assert campaign.read(tmp_path/"native-upload.json")["actual_drive_id"]=="actual-drive-id"
-        assert campaign.read(tmp_path/"operations/archive-upload/receipt.json")["status"]=="complete"
+        archive.native_status()
+        native=campaign.read(tmp_path/"native-upload-status.json")
+        assert native["actual_drive_id"]==("actual-drive-id" if case=="success" else None)
+        assert native["status"]==("native-uploaded" if case=="success" else "upload-pending")
+        assert native["unresolved_conflict_versions"]["unresolved_count"]==0
+        assert not native["reported_uploading_error"]
+        assert campaign.read(tmp_path/"operations/archive-upload-status/receipt.json")["status"]=="complete"

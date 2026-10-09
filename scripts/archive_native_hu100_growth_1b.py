@@ -6,7 +6,7 @@ import sys
 import os
 import re
 import subprocess
-from time import time, sleep
+from time import time
 
 import psutil
 import urllib.request
@@ -123,8 +123,33 @@ def pack():
 
 
 
-def native_upload():
-    """Keep closeout guards active while the native provider uploads the ZIP."""
+
+def archive_conflicts(archive):
+    """Query the documented Foundation API, rather than an absent provider field."""
+    before=DEST.stat()
+    script='''function run(argv) {
+        ObjC.import("Foundation");
+        const url = $.NSURL.fileURLWithPath(argv[0]);
+        const versions = $.NSFileVersion.unresolvedConflictVersionsOfItemAtURL(url);
+        return JSON.stringify({
+            api: "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+            exists: Boolean($.NSFileManager.defaultManager.fileExistsAtPath(argv[0])),
+            nil: versions.isNil(),
+            unresolved_count: versions.isNil() ? null : Number(versions.count)
+        });
+    }'''
+    result=json.loads(subprocess.check_output(["/usr/bin/osascript","-l","JavaScript","-e",script,str(DEST)],
+                                             text=True,timeout=20))
+    after=DEST.stat()
+    if (not result["exists"] or result["nil"] or not isinstance(result["unresolved_count"],int)
+        or before.st_size != archive["bytes"] or after.st_size != before.st_size
+        or after.st_mtime_ns != before.st_mtime_ns):
+        raise ValueError("Native archive conflict query/path could not be verified")
+    return {**result,"at":time(),"path":str(DEST),"bytes":after.st_size,"mtime_ns":after.st_mtime_ns}
+
+
+def native_status():
+    """Record one guarded native snapshot; the owner will accept the upload."""
     swap_limit=admitted_swap_limit(OPERATION, COMMAND, READMISSION)
     if campaign.read(campaign.OUT/"operations"/OPERATION/"receipt.json")["status"] != "complete":
         raise ValueError("Successful local archive operation required")
@@ -132,40 +157,44 @@ def native_upload():
     if archive["archive"] != str(DEST) or archive["bytes"] != DEST.stat().st_size:
         raise ValueError("Verified native archive path/size differs")
     swap0=campaign.read(campaign.OUT/"baseline.json")["host"]["swap_bytes"]
-    started=time(); count=0; peak=0; failure=None; native=None
-    directory=campaign.OUT/"operations/archive-upload"; directory.mkdir()
+    started=time(); failure=None; native=None
+    directory=campaign.OUT/"operations/archive-upload-status"; directory.mkdir()
     try:
-        with (directory/"resources.jsonl").open("x") as stream:
-            while True:
-                parent=psutil.Process(os.getpid());rss=0
-                for process in [parent,*parent.children(recursive=True)]:
-                    try:
-                        rss+=process.memory_info().rss
-                    except psutil.NoSuchProcess:
-                        pass
-                sample=campaign.host();peak=max(peak,rss);count+=1
-                stream.write(json.dumps({"at":time(),"family_rss_bytes":rss,
-                    "swap_growth_bytes":sample["swap_bytes"]-swap0,**sample})+"\n");stream.flush()
-                breach=campaign.limits(sample,swap0,rss,swap_limit=swap_limit)
-                if breach or rss >= campaign.FAMILY_SOFT:
-                    raise RuntimeError("Archive upload guard breach: "+str(breach or "soft family RSS"))
-                raw=subprocess.check_output(["fileproviderctl","evaluate",str(DEST)],text=True,timeout=20)
-                (directory/"native-latest.txt").write_text(raw)
-                def flag(key):
-                    found=re.search(r"\b"+key+r"\s*=\s*(\d+)\s*;",raw)
-                    return int(found[1]) if found else None
-                size=flag("documentSize")
-                uploaded=flag("isUploaded");uploading=flag("isUploading")
-                conflicts=flag("hasUnresolvedConflicts")
-                if uploaded==1 and uploading==0 and conflicts in (None,0) and size==archive["bytes"]:
-                    actual_id=subprocess.check_output(["xattr","-p","com.google.drivefs.item-id#S",str(DEST)],text=True).strip()
-                    native={"actual_drive_id":actual_id,"is_uploaded":True,"is_uploading":False,
-                            "has_unresolved_conflicts":False,"conflict_property":conflicts,
-                            "conflict_property_note":"Provider omits its default false property when no conflict exists",
-                            "bytes":size,"name":DEST.name,"at":time(),"raw_receipt":str(directory/"native-latest.txt")}
-                    campaign.write(campaign.OUT/"native-upload.json",native)
-                    break
-                sleep(5)
+        parent=psutil.Process(os.getpid());rss=0
+        for process in [parent,*parent.children(recursive=True)]:
+            try:
+                rss+=process.memory_info().rss
+            except psutil.NoSuchProcess:
+                pass
+        sample=campaign.host()
+        campaign.write(directory/"resource-snapshot.json",{"at":time(),"family_rss_bytes":rss,
+                       "swap_growth_bytes":sample["swap_bytes"]-swap0,**sample})
+        breach=campaign.limits(sample,swap0,rss,swap_limit=swap_limit)
+        if breach or rss >= campaign.FAMILY_SOFT:
+            raise RuntimeError("Archive upload guard breach: "+str(breach or "soft family RSS"))
+        raw=subprocess.check_output(["fileproviderctl","evaluate",str(DEST)],text=True,timeout=20)
+        (directory/"native.txt").write_text(raw)
+        def flag(key):
+            found=re.search(r"\b"+key+r"\s*=\s*(\d+)\s*;",raw)
+            return int(found[1]) if found else None
+        if re.search(r"\buploadingError\s*=",raw):
+            raise RuntimeError("Native provider reported uploadingError")
+        uploaded=flag("isUploaded"); uploading=flag("isUploading");size=flag("documentSize")
+        if uploaded not in (0,1) or uploading not in (0,1) or size != archive["bytes"]:
+            raise ValueError("Native upload state/path/size unreadable")
+        conflicts=archive_conflicts(archive)
+        if conflicts["unresolved_count"] != 0:
+            raise ValueError("Unresolved archive file versions")
+        actual_id=None
+        if uploaded==1 and uploading==0:
+            actual_id=subprocess.check_output(["xattr","-p","com.google.drivefs.item-id#S",str(DEST)],text=True).strip()
+        native={"status":"native-uploaded" if uploaded==1 and uploading==0 else "upload-pending",
+                "actual_drive_id":actual_id,"is_uploaded":bool(uploaded),"is_uploading":bool(uploading),
+                "unresolved_conflict_versions":conflicts,"reported_uploading_error":False,
+                "bytes":size,"name":DEST.name,"at":time(),"raw_receipt":str(directory/"native.txt"),
+                "owner_instruction":"You just have to start the drive upload, don’t wait for it to finish I will delete the originals as soon as it’s uploaded not before making sure the hashes match",
+                "cloud_acceptance":"delegated to owner; not claimed","originals_retained":True}
+        campaign.write(campaign.OUT/"native-upload-status.json",native)
     except BaseException as exc:
         failure=repr(exc)
         campaign.write(directory/"failure.json",{"failure":failure,"at":time()})
@@ -173,16 +202,16 @@ def native_upload():
     finally:
         campaign.write(directory/"receipt.json",{"status":"failed" if failure else "complete",
             "failure":failure,"started":started,"finished":time(),"seconds":time()-started,
-            "samples":count,"sampling_target_seconds":5,"peak_family_rss_bytes":peak,
+            "samples":1,"snapshot_only":True,
             "swap_growth_limit_bytes":swap_limit,"absolute_swap_ceiling_bytes":3_000_000_000,
-            "archive_sha256":archive["sha256"],"native_upload":native})
+            "archive_sha256":archive["sha256"],"native_status":native})
 
 
 def main():
     if sys.argv[1:] == ["--pack"]:
         pack()
-    elif sys.argv[1:] == ["--native-upload"]:
-        native_upload()
+    elif sys.argv[1:] == ["--native-status"]:
+        native_status()
     elif not sys.argv[1:]:
         campaign.clean_source()
         try:

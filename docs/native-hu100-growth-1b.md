@@ -148,3 +148,14 @@ hashing. Charging three full-size reads plus two conservative writes estimates
 separately; no fixed timeout substitutes for the resource guards. Mutable current
 archive lifecycle, cloud acceptance and the final evidence review remain compact
 Git receipts. The original scientific source stays bd0e7a417064f736091dc2b667954b50becb4b69.
+
+## Owner upload handoff — October 9
+
+After the retry ZIP passed all 948 member checks, the owner explicitly instructed:
+“You just have to start the drive upload, don’t wait for it to finish I will delete
+the originals as soon as it’s uploaded not before making sure the hashes match”.
+The task therefore closes with native upload started and final cloud acceptance
+pending for the owner. Record local ZIP/member hashes and a single guarded native
+status snapshot; retain all originals and partials. No agent deletion or background
+campaign waiter follows. The existing storage contract's upload-acceptance wait is
+superseded only for this owner-directed handoff, not represented as satisfied.
