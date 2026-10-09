@@ -1,4 +1,4 @@
-"""Loopback-only HTTP entrypoint for the local HU20 table."""
+"""Loopback-only HTTP entrypoint for fixed HU20 and explicit HU100 research tables."""
 
 import argparse
 import hmac
@@ -135,7 +135,8 @@ def handler_for(service, token, port):
                     self._send(200, service.benchmark_result(match[1]))
                 elif match := BENCHMARK_EXPORT.fullmatch(path):
                     report = service.benchmark_result(match[1])
-                    self._send(200, report, download_name=f'hu20-benchmark-{report["benchmarkId"]}.json')
+                    stack_bb = report['table']['stack'] // report['table']['big_blind']
+                    self._send(200, report, download_name=f'hu{stack_bb}-benchmark-{report["benchmarkId"]}.json')
                 elif match := DIAGNOSTICS.fullmatch(path):
                     self._send(200, service.diagnostics(match[1], match[2]))
                 else:
