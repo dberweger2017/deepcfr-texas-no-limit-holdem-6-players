@@ -1,0 +1,85 @@
+{
+  "archive": {
+    "bytes": 20517119304,
+    "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+    "members_verified_by_execution": 948,
+    "remote_bytes_downloaded": false,
+    "review_repeated_full_scan": false,
+    "sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+    "status": "locally-verified; native upload pending/owner acceptance"
+  },
+  "at": 1791524198.239054,
+  "checks": [
+    "Read AGENTS, ROADMAP workflow, storage contract, protocol, final report/index. Superseded brief's no-closeout-breach statement corrected.",
+    "Independently parsed all245760 stored final chip/event rows:143360 distinct evaluations,957490 actions; exactly2048 blocks/both swapped seats/arm/opponent; no missing, duplicate or failed coordinates; zero-sum chips, HU100 stacks/blinds; exact same uniform reference in all6 panels.",
+    "Independently calculated Student-t intervals from paired swapped-seat block chip means using sample standard deviation. All5 untranslated learning curves and terminal absolute results match reported digits. Only2 terminal-parent primaries at97.5%; separate pot translation secondary95%; no extensions/pooling/selection.",
+    "Regenerated13 distinct historical/current frozen schedules (62000 physical deal seeds), pairwise disjoint. All final schedule/private stream maps and frozen model/source/clean manifests match.",
+    "Every final independent replay and deterministic reproduction completion receipt checked, including translated terminal. Five fully audited checkpoints/current/averages agree with native saves/indexed paths/sizes/hash bindings.",
+    "Recounted raw target-decision lookup classifications; all coverage groups match. Visit-band sums/missing counts and known-street denominator arithmetic agree; table zero-visit/positive-mass/mean-visit figures match audited counts.",
+    "Independently recomputed37 scientific aggregates from hashed resource streams; scientific guards all passed. Fresh seed command, entry ceiling, save forecast/NPS math, owner Start now admission and pre-play posted frozen budget checked.",
+    "Read only small embedded manifest: manifest hash,948 unique ZIP member names and all15 model size/hash bindings match. Source/runtime/environment/scientific evidence and original failure/admission/logs/externalpartial provenance retained.",
+    "Original archive +829.38MiB swap-growth breach and cleanup PermissionError retained. Exclusive owner-authorized retry preserves baseline/latch and blocks science; independently checked602 clean retry samples below3GB total/unchangedotherguards.",
+    "Cleanup/readmission and final one-shot native-status repair reviewed. Real Foundation non-nil count0/stable exact path-size-mtime receipt and native uploading1/uploaded0/no-reported-error verified; no cloud ID/acceptance claimed.12 focused tests pass in5.21s.",
+    "Restoration checks whole ZIP, embedded manifest and selected model size/SHA with disk floor/exclusive extraction. Native trainer diff since base empty; artifact/whitespace checks passed; later lifecycle receipts compact inGit."
+  ],
+  "findings": [],
+  "host": "M4 via ssh m4; M1 coordination only",
+  "independent_primary_intervals": {
+    "loose_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 214.39208984375,
+      "blocks": 2048,
+      "conclusion": "improvement",
+      "interval": [
+        122.27783869172742,
+        306.5063409957726
+      ]
+    },
+    "tight_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 37.04833984375,
+      "blocks": 2048,
+      "conclusion": "inconclusive",
+      "interval": [
+        -15.002561380092615,
+        89.09924106759262
+      ]
+    }
+  },
+  "independent_secondary": {
+    "alpha": 0.05,
+    "bb_per_100": 62.451171875,
+    "blocks": 2048,
+    "interval": [
+      17.14539269517774,
+      107.75695105482225
+    ],
+    "opponent": "pot_pressure"
+  },
+  "limits": [
+    "Owner explicitly instructed no upload-completion wait and will verify upload/hashes before deleting originals; cloud ID/name/size/parent acceptance pending, clearly disclosed rather than claimed. All originals/partials retained.",
+    "One training seed/scripted pool; no external benchmark, independent seeds, exploitability/generalstrength/release claim.",
+    "Reviewer did not train/play/fullmodelaudit/pack/delete/commit/push/merge. Final exact-head CI/merge remain coordinator responsibility; later review/upload receipts outside frozenZIP."
+  ],
+  "resolved_findings": [
+    {
+      "file": "scripts/archive_native_hu100_growth_1b.py",
+      "finding": "Unsupported absent FileProvider hasUnresolvedConflicts property inferred false.",
+      "resolution": "Supported Foundation NSFileVersion.unresolvedConflictVersionsOfItemAtURL now verifies actual non-nil count0 on stable exactZIP; upload errors rejected; truthful single pending handoff retained.",
+      "severity": "medium"
+    }
+  ],
+  "reviewed_file_sha256": {
+    "RESULTS_INDEX.md": "a1369a938c7448dc97ec44a8f94d3227d4e3d27b9af1de8dd4443b53abfb0b2f",
+    "ROADMAP.md": "0520a2e81fd8799ef3bb1e2d707edbdefdf5ab2423efb16a03d536716708f0a1",
+    "docs/native-hu100-growth-1b.md": "33c97d7592133eff2425586c43d9286f5ea7d202230301a02cb5a614b0d00638",
+    "docs/reports/native-hu100-growth-1b.md": "f7623ee2f59713826920ebad32ed0b171c26840f77ae61c135c77cbb94503086",
+    "scripts/archive_native_hu100_growth_1b.py": "99338335fcfbdfb37667029fe4b09bb3cad0553c0ab3d58ce135c5c4c29098ea",
+    "scripts/run_native_hu100_growth_1b.py": "2b2ebfa33e626e91b625b0d628c208672ad038a396ae9263f1c4babb06baceb9",
+    "tests/test_native_hu100_growth_1b.py": "27dd34625357086075f5f53ac5db3edbacb8b9b4e707e1bb5a95c2bdedd1503f"
+  },
+  "reviewed_revision": "223f44ad927c3ad4c8fbf754558a1a4e483af44b",
+  "reviewer": "independent Codex evidence_review agent",
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "status": "passed"
+}

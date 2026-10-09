@@ -98,7 +98,7 @@ Reached known late-street decisions become much denser. Pot missing/zero coverag
 
 ## Review, retained failures and limits
 
-Qualification passed **70 Python tests**, **11 Rust tests**, the release build and staged repository artifact guard. One independent source review cleared the exact execution source before final play. The end reviewer independently recounted all fixed chip rows, paired intervals, schedules, coverage, audits, reproduction and resource receipts. Final review disposition is recorded separately; green final-head checks are required before merge. Upload acceptance is explicitly handed to the owner.
+Qualification passed **70 Python tests**, **11 Rust tests**, the release build and staged repository artifact guard. One independent source review cleared the exact execution source before final play. The end reviewer independently recounted all fixed chip rows, paired intervals, schedules, coverage, audits, reproduction and resource receipts. The [end evidence receipt](native-hu100-growth-1b-artifacts/evidence-review.json) passes at 223f44ad927c3ad4c8fbf754558a1a4e483af44b with no open findings; green final-head checks are required before merge. Upload acceptance is explicitly handed to the owner.
 
 Preserved preparation failures: duplicate prior roots refused setup before pilot hands; an initial excessive storage forecast scaled fixed model snapshots by blocks; locked HTTPS keychain required the existing SSH push path. Corrected and successful receipts remain separately identifiable. No numerical/exactness/information/action/accounting error, scientific-phase guard breach, failed final hand or scientific retry occurred. The later original archive-only guard breach and owner-authorized recovery are disclosed below.
 
