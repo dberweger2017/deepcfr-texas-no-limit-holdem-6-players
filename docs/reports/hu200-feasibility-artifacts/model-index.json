@@ -1,0 +1,141 @@
+{
+  "archive": {
+    "bytes": 2414034193,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60",
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-216-HU200-Slumbot-feasibility/HU200-M1-feasibility-20261009.zip",
+    "sha256": "643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574"
+  },
+  "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+  "models": [
+    {
+      "actual_nodes": 1001231,
+      "audit": {
+        "all_nodes_verified": 502315,
+        "average_sha256": "b84c061258a3e7df692a8a258c832decc7b3f8992ff7f52a07f27eb872a29208",
+        "checkpoint_sha256": "c413072a81c28f1968a90cf03eba9b7ba65a586f34ec0af43351ff988fec0fb9",
+        "counts": {
+          "entries": 502315,
+          "positive_mass": 331085,
+          "zero_mass": 171230
+        },
+        "current_sha256": "70be313e84ce6cf9060e12b0f9c22062afb3e245eb6cb1553f5d1d3f5b04c59d",
+        "maximum_tv": 1.0,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.18449504710278058
+      },
+      "entries": 502315,
+      "files": {
+        "average": {
+          "bytes": 11544752,
+          "path": "HU200-1000000.gz.average.gz",
+          "sha256": "b84c061258a3e7df692a8a258c832decc7b3f8992ff7f52a07f27eb872a29208"
+        },
+        "checkpoint": {
+          "bytes": 16171067,
+          "path": "HU200-1000000.gz",
+          "sha256": "c413072a81c28f1968a90cf03eba9b7ba65a586f34ec0af43351ff988fec0fb9"
+        },
+        "current": {
+          "bytes": 12281122,
+          "path": "HU200-1000000.gz.current.gz",
+          "sha256": "70be313e84ce6cf9060e12b0f9c22062afb3e245eb6cb1553f5d1d3f5b04c59d"
+        }
+      },
+      "iteration": 436,
+      "target": 1000000
+    },
+    {
+      "actual_nodes": 20002716,
+      "audit": {
+        "all_nodes_verified": 6521284,
+        "average_sha256": "0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270",
+        "checkpoint_sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217",
+        "counts": {
+          "entries": 6521284,
+          "positive_mass": 4304310,
+          "zero_mass": 2216974
+        },
+        "current_sha256": "92c41810afc8fe53c121def320114fc575e9b149ecc0d0e99eaf70635d8b0ba7",
+        "maximum_tv": 1.0,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.20126468230053987
+      },
+      "entries": 6521284,
+      "files": {
+        "average": {
+          "bytes": 155600064,
+          "path": "HU200-20000000.gz.average.gz",
+          "sha256": "0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270"
+        },
+        "checkpoint": {
+          "bytes": 227595997,
+          "path": "HU200-20000000.gz",
+          "sha256": "d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217"
+        },
+        "current": {
+          "bytes": 158531649,
+          "path": "HU200-20000000.gz.current.gz",
+          "sha256": "92c41810afc8fe53c121def320114fc575e9b149ecc0d0e99eaf70635d8b0ba7"
+        }
+      },
+      "iteration": 9154,
+      "target": 20000000
+    },
+    {
+      "actual_nodes": 100000034,
+      "audit": {
+        "all_nodes_verified": 20575288,
+        "average_sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b",
+        "checkpoint_sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641",
+        "counts": {
+          "entries": 20575288,
+          "positive_mass": 13613304,
+          "zero_mass": 6961984
+        },
+        "current_sha256": "9229d04e0e9d4d4eedc6f3d507804e2ea7013119d26b7acbafaa506dcd7cea88",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.21693728792575834
+      },
+      "entries": 20575288,
+      "files": {
+        "average": {
+          "bytes": 510277592,
+          "path": "HU200-100000000.gz.average.gz",
+          "sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b"
+        },
+        "checkpoint": {
+          "bytes": 762445567,
+          "path": "HU200-100000000.gz",
+          "sha256": "dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641"
+        },
+        "current": {
+          "bytes": 503817680,
+          "path": "HU200-100000000.gz.current.gz",
+          "sha256": "9229d04e0e9d4d4eedc6f3d507804e2ea7013119d26b7acbafaa506dcd7cea88"
+        }
+      },
+      "iteration": 52136,
+      "target": 100000000
+    }
+  ],
+  "restore_dependencies": [
+    {
+      "bytes": 686080,
+      "path": "source.tar",
+      "sha256": "a72061e3b658888bbc611e0edd94afca0b559540065fa9030d6441578f450073"
+    },
+    {
+      "bytes": 1351680,
+      "path": "runtime/hu20-trainer",
+      "sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878"
+    }
+  ],
+  "schema": "hu200-native-reopening-ordered-history-card-v1",
+  "seed": 2026100905,
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9"
+}

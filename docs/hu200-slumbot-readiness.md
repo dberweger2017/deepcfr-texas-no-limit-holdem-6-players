@@ -29,11 +29,15 @@ owner approval and a reviewed measured budget. Predeclare translation off, one
 hash-pinned audited HU200 average, maximum **1,020 requests** (20 `new_hand` plus
 at most 50 actions/hand), one in-flight request, **10-second timeout**, no retries,
 **30-minute total cap** including load, journal replay/accounting and closeout.
+The M1 load-plus-320-hand replay smoke took 115.98s with a 1.96GiB kernel
+command peak; load alone was not timed. Reserve **600s for model load and final
+replay/closeout**, leaving at most **1,200s for transport** under the 30-minute cap.
+This is a conservative proposal, not measured live throughput.
 The timeout worst-case is 10,200s, so reaching the request cap cannot be promised
 within 30 minutes; stop at either bound and keep the partial. Network latency and
 terminal semantics are unmeasured. The #213 0.675s new-hand connectivity check is
 not a per-hand quote. Use this small pilot to measure latency, requests/hand,
-model-load/RSS, raw-log growth and failure rates before quoting any larger run.
+isolated model-load/RSS, raw-log growth and failure rates before quoting any larger run.
 M1 memory/swap/disk/AC/pressure guards should remain tied to fresh admission.
 
 Only after this qualification should the owner settle acceptance criteria and

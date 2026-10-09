@@ -1,0 +1,28 @@
+{
+  "bytes": 2414034193,
+  "local_member_readback": "all 447 member sizes and SHA256 matched",
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60",
+  "operation": {
+    "failure": null,
+    "finished": 1791544801.755027,
+    "kernel_command_peak_rss_bytes": 44269568,
+    "kernel_soft_limit_exceeded": false,
+    "peak_family_rss_bytes": 91684864,
+    "returncode": 0,
+    "seconds": 8.602210916113108,
+    "soft_stop_requested": false,
+    "status": "complete"
+  },
+  "owning_pr": {
+    "number": 216,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216"
+  },
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-216-HU200-Slumbot-feasibility/HU200-M1-feasibility-20261009.zip",
+  "post_archive_receipts": "archive operation, closeout, upload acceptance and final evidence review are compact Git lifecycle records; not members of the completed science ZIP",
+  "remote_bytes_downloaded": false,
+  "sha256": "643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574",
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "verified_members": 447
+}

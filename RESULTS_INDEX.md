@@ -1784,3 +1784,69 @@ with ZipFile(archive) as z:
 print("Verified the local/downloaded ZIP and each selected model member")
 PY
 ~~~
+
+## PR216 HU200 M1 feasibility — October 9, 2026
+
+Final bounded scientific run, source **02e4ddebf37674d2fa32cb494d440347fd5b59a9**, fresh HU200 seed **2026100905**, isolated M1 root `/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009`, branch `feature/hu200-slumbot-preparation`, base `6e18043317817080fd38f400c5366fbf18fc6b53`. [PR216](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216) remains open/unmerged; this user explicitly authorized archival of its own open evidence. Live status was checked before qualification copies, archive creation and report receipt copies. [Report](docs/reports/hu200-feasibility.md), [model/dependency index](docs/reports/hu200-feasibility-artifacts/model-index.json), [resources](docs/reports/hu200-feasibility-artifacts/resources.json).
+
+Fresh 200BB training retains **20,002,716** and **100,000,034** actual-node endpoints, plus the 1,001,231-node admission measurement. All nine checkpoint/current/average files fully audit; 320 fixed offline scripted hands replay/reproduce. Local computation including source snapshot, training/save/export/audit/smoke/archive/readback/closeout ends in **1,433.43s /23.89min** under the single 60-minute clock. No resource breach, stop, failed pilot operation or retry. Review rounds 1/2's source defects and their corrections are retained; round 3 cleared exact source before training. These are single-seed feasibility records, not strength or Slumbot qualification. M4 untouched; no release/live/paid/1B/10B campaign.
+
+Actual Research-Cloud [PR-216-HU200-Slumbot-feasibility folder](https://drive.google.com/drive/folders/1kYRrnIdXkx3hm_2YcUZENTxh65KPTquh), parent **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**. Archive **HU200-M1-feasibility-20261009.zip**, archive cloud ID pending, **2,414,034,193 bytes**, whole SHA256 **643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574**. Embedded **ARCHIVE-MANIFEST.json**, SHA256 **33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60**. All **447 member files** passed local size/SHA256 readback. [Local archive receipt](docs/reports/hu200-feasibility-artifacts/archive-receipt.json). The ZIP includes raw stage logs/resources, smoke actions/seeds, qualification/parity/review fixtures, source snapshot and runtime. Post-archive operation/closeout/upload/final-review lifecycle receipts remain compact Git records; no second evidence ZIP was produced.
+
+**Upload acceptance pending:** initial native status isUploaded=0 /isUploading=1. No actual archive Drive ID, cloud name/size/parent acceptance or remote byte verification is claimed yet. Local verification and native upload start are distinct from acceptance; all originals remain.
+
+All local originals and synced archive remain. No deletion, forced offload, M4 use or cleanup of another PR occurred. The recorded native runtime has SHA256 **c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878**; restore its `runtime/hu20-trainer` member and selected `source.tar` snapshot using the exact member hashes in the model index. Full repository source is the pinned Git revision. Later CLI help/report integration does not relabel the execution source or archived binary. Supported reproduction environment is Python 3.11.15 with pinned pokers 0.2.0 and the archived requirement files. Do not restart training through a retrieval command.
+
+| Actual nodes | Kind | Archive member | Bytes | SHA256 |
+|---|---|---|---:|---|
+| 1001231 | average | `HU200-1000000.gz.average.gz` | 11,544,752 | `b84c061258a3e7df692a8a258c832decc7b3f8992ff7f52a07f27eb872a29208` |
+| 1001231 | checkpoint | `HU200-1000000.gz` | 16,171,067 | `c413072a81c28f1968a90cf03eba9b7ba65a586f34ec0af43351ff988fec0fb9` |
+| 1001231 | current | `HU200-1000000.gz.current.gz` | 12,281,122 | `70be313e84ce6cf9060e12b0f9c22062afb3e245eb6cb1553f5d1d3f5b04c59d` |
+| 20002716 | average | `HU200-20000000.gz.average.gz` | 155,600,064 | `0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270` |
+| 20002716 | checkpoint | `HU200-20000000.gz` | 227,595,997 | `d4ff4375eba70f48f67252452de76c9300d211e208ba78f03a9dac0e43b90217` |
+| 20002716 | current | `HU200-20000000.gz.current.gz` | 158,531,649 | `92c41810afc8fe53c121def320114fc575e9b149ecc0d0e99eaf70635d8b0ba7` |
+| 100000034 | average | `HU200-100000000.gz.average.gz` | 510,277,592 | `1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b` |
+| 100000034 | checkpoint | `HU200-100000000.gz` | 762,445,567 | `dd530f3cbdccaa3655f32433b98bfec92354e78743bfbc05df05a29bf91fd641` |
+| 100000034 | current | `HU200-100000000.gz.current.gz` | 503,817,680 | `9229d04e0e9d4d4eedc6f3d507804e2ea7013119d26b7acbafaa506dcd7cea88` |
+
+
+Restore selected model members into a fresh ignored directory. Download the linked archive into a fresh ignored path and set `PR216_ARCHIVE` accordingly, or read the existing verified Research-Cloud ZIP without creating another local ZIP. Select any target `1000000`, `20000000` or `100000000`, and comma-separated kinds `checkpoint,current,average`. This default restores only the terminal average. The command verifies the whole local/downloaded archive, embedded manifest and each selected member; it makes no remote byte claim until a remote download actually occurs.
+
+~~~sh
+pr216_restore="results/restored-pr216-$(date +%Y%m%d-%H%M%S)"
+mkdir "$pr216_restore"
+PR216_RESTORE="$pr216_restore" PR216_TARGET="100000000" PR216_KINDS="average" \
+PR216_ARCHIVE="$HOME/Local/Research-Cloud/PR-216-HU200-Slumbot-feasibility/HU200-M1-feasibility-20261009.zip" \
+python - <<'PY'
+import hashlib, json, os, shutil
+from pathlib import Path
+from zipfile import ZipFile
+root = Path(os.environ['PR216_RESTORE'])
+archive = Path(os.environ['PR216_ARCHIVE'])
+index = json.loads(Path('docs/reports/hu200-feasibility-artifacts/model-index.json').read_text())
+model = next(m for m in index['models'] if m['target'] == int(os.environ['PR216_TARGET']))
+kinds = set(os.environ['PR216_KINDS'].split(','))
+assert kinds and kinds <= {'checkpoint','current','average'}
+selected = [model['files'][k] for k in sorted(kinds)]
+assert shutil.disk_usage(root).free > sum(m['bytes'] for m in selected) + int(15.5*1024**3)
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open('rb') as f:
+        while chunk := f.read(8*1024**2): digest.update(chunk)
+    return digest.hexdigest()
+assert archive.stat().st_size == index['archive']['bytes']
+assert sha(archive) == index['archive']['sha256']
+with ZipFile(archive) as z:
+    encoded = z.read(index['archive']['manifest_path'])
+    assert hashlib.sha256(encoded).hexdigest() == index['archive']['manifest_sha256']
+    members = {m['path']:m for m in json.loads(encoded)['members']}
+    for m in selected:
+        expected = members[m['path']]
+        assert (m['bytes'],m['sha256']) == (expected['bytes'],expected['sha256'])
+        target = root/Path(m['path']).name
+        with z.open(m['path']) as source, target.open('xb') as output:
+            while chunk := source.read(8*1024**2): output.write(chunk)
+        assert target.stat().st_size == m['bytes'] and sha(target) == m['sha256']
+print('Verified archive, manifest and selected HU200 model members')
+PY
+~~~

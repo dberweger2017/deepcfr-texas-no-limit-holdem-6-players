@@ -1,0 +1,59 @@
+{
+  "endpoints": [
+    {
+      "actual_nodes": 1001231,
+      "audit_seconds": 13.367337374947965,
+      "entries": 502315,
+      "export_seconds": 6.962519417051226,
+      "native_including_save_nodes_per_second": 417140.32434551604,
+      "native_traversal_nodes_per_second": 2161424.8929011733,
+      "save_seconds": 1.936998583,
+      "stored_visit_histogram": {
+        "0": 320901,
+        "1": 173748,
+        "10-99": 63,
+        "100+": 0,
+        "2-9": 7603
+      },
+      "supervised_train_seconds": 2.6889059159439057,
+      "target": 1000000
+    },
+    {
+      "actual_nodes": 20002716,
+      "audit_seconds": 170.52549354196526,
+      "entries": 6521284,
+      "export_seconds": 89.74289316684008,
+      "native_including_save_nodes_per_second": 502823.29589194607,
+      "native_traversal_nodes_per_second": 1753405.5038333682,
+      "save_seconds": 26.952684833,
+      "stored_visit_histogram": {
+        "0": 3803827,
+        "1": 2242504,
+        "10-99": 18343,
+        "100+": 175,
+        "2-9": 456435
+      },
+      "supervised_train_seconds": 39.58364295819774,
+      "target": 20000000
+    },
+    {
+      "actual_nodes": 100000034,
+      "audit_seconds": 539.2986295409501,
+      "entries": 20575288,
+      "export_seconds": 289.0711294999346,
+      "native_including_save_nodes_per_second": 557431.7539905258,
+      "native_traversal_nodes_per_second": 1487205.100260168,
+      "save_seconds": 89.720141209,
+      "stored_visit_histogram": {
+        "0": 10980042,
+        "1": 6879854,
+        "10-99": 212546,
+        "100+": 4127,
+        "2-9": 2498719
+      },
+      "supervised_train_seconds": 156.38584562484175,
+      "target": 100000000
+    }
+  ],
+  "scope": "Native traversal excludes native save and checkpoint load; supervised train includes startup/resume, hash/diagnostics, monitoring and exit"
+}
