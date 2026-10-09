@@ -215,6 +215,11 @@ def archive_worker(out, destination):
     if pr['state']!='OPEN': raise ValueError('Expected this pilot owning open PR')
     write(out/'owning-pr-before-archive.json',pr)
     paths={str(p.relative_to(out)):p for p in out.rglob('*') if p.is_file() and 'operations/archive' not in str(p.relative_to(out))}
+    qualification=ROOT/'results/hu200-preparation'
+    for path in qualification.rglob('*'):
+        if path.is_file(): paths['qualification/'+str(path.relative_to(qualification))]=path
+    for path in (ROOT/'docs/reports/hu200-feasibility-artifacts').glob('source-review-*.json'):
+        paths['review/'+path.name]=path
     paths['runtime/hu20-trainer']=BINARY
     manifest=dict(source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),owning_pr=pr,
                   original_root=str(out),remote_bytes_downloaded=False,members=[])
