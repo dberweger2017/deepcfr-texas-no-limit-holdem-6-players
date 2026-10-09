@@ -9,14 +9,11 @@ from time import sleep
 
 import psutil
 from scripts import run_native_hu100_growth_1b as resources
+from scripts.research_process_family import owned_processes
 
 
 def remember_descendants(known):
-    for process in psutil.Process().children(recursive=True):
-        try:
-            known[process.pid] = process.create_time()
-        except psutil.NoSuchProcess:
-            pass
+    owned_processes(known)
 
 
 def stop_owned(child, known):
@@ -64,7 +61,6 @@ def main():
     original_limits, original_host = resources.limits, resources.host
     known = {}
     def host():
-        remember_descendants(known)
         return original_host()
     def limits(sample,baseline,rss,*,swap_limit=3_000_000_000):
         if sample['swap_bytes']>3_000_000_000:return '3 GB total system swap cap'
@@ -79,7 +75,8 @@ def main():
         resources.identity()
         try:
             receipt=resources.operation(a.name,a.command,stop_file=a.stop_file,accepted=(0,3) if a.accept_capacity_stop else (0,),
-                deadline=__import__('time').time()+a.seconds if a.seconds else None)
+                deadline=__import__('time').time()+a.seconds if a.seconds else None,
+                family_processes=lambda:owned_processes(known))
             remember_descendants(known)
             survivors=[]
             for pid, created in known.items():
