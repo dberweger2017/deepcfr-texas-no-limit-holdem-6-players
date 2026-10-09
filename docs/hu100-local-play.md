@@ -5,7 +5,8 @@ It is research access, not v0.5 publication, policy selection or a strength clai
 The released catalog and v0.4.2 default remain unchanged; HU20 sessions and older
 journals remain replayable.
 
-The terminal pin comes from #207 head `f0ff3c1ffc4f0002a0c7ab22751d212aa76cdda3`,
+The terminal pin comes from #207's model index, unchanged at its reviewed closeout
+head `fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27`,
 `docs/reports/native-hu100-growth-1b-artifacts/model-index.json`: 1,173,264,021 bytes,
 SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`,
 checkpoint `cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec`,
@@ -16,16 +17,23 @@ the same compact average reader as the arena. No export is regenerated.
 
 ## Retrieval gate and use
 
-As checked October 9, #207 is draft/open and closeout stopped on its original
-512 MiB swap-growth guard; its partial ZIP has no accepted archive/readback/cloud
-receipt. The owner's later 3 GB swap-cap authorization does not itself accept
-that ZIP or complete closeout. This task leaves M4 originals and the partial
-ZIP untouched. **Retained-model runtime verification is blocked until #207
-closeout permits retrieval.** Fixture qualification does not claim a real-model
-smoke check. After acceptance, use the current canonical RESULTS_INDEX entry to
-retrieve the named average into a fresh ignored nonsynced `models/` directory,
-verify archive/member SHA256 and record the Drive ID, accepted member locator,
-hash and exact retrieval command there. Do not use the planned partial-ZIP member.
+On October 9 the owner corrected the earlier closeout status: #207's repaired
+archive and independent review are complete; merge awaits CI. Its new retry ZIP
+is 20,517,119,304 bytes, SHA256
+`ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf`.
+Connected Drive confirms [the archive](https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view)
+name/size and parent `1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS`; current native Foundation
+status reports uploaded, no pending upload/error and non-nil zero unresolved
+conflicts. The terminal average was streamed read-only from the existing fully
+allocated M4 Research-Cloud ZIP into ignored M1 `models/retrieved/pr207-20261009/`.
+The whole ZIP, embedded manifest and selected member all passed SHA256 checks.
+No second archive copy was made, no remote cloud bytes were separately downloaded,
+and no original, partial ZIP or other campaign input was changed. The original
+guard/cleanup failures remain historical evidence; the failed partial ZIP remains
+an invalid restoration source. [RESULTS_INDEX](../RESULTS_INDEX.md) records the
+exact member, hashes, Drive IDs and retrieval command. For future retrieval use
+that accepted archive and a fresh ignored nonsynced directory; never overwrite
+an active model.
 
 ```sh
 python -m src.play_api.server \
@@ -73,10 +81,29 @@ both retained SQLite journals independently replay and settle at 100BB. The
 file hashes, the rejected initial localhost navigation and the corrected loopback
 URL. These are generated test fixtures, not #207 policy evidence.
 
-Follow-up real-model smoke after retrieval: run 20 human-driven complete hands
-(including exact off-menu raises and all-in calls) plus 20 spectator hands in each
-translation setting, restart at an in-progress decision, and run both independent
-journal audits. Record counts, source/model hashes, peak RSS and swap growth under
-the approved 3 GB cap. This is bounded runtime verification, not training or an
-external campaign. Keep generated traces/database in ignored results and index
-raw evidence under the owning runtime PR before archive closeout.
+Retained-model qualification now passes **80 complete 100BB hands**: 20 scripted
+human-seat hands and 20 self-play spectator hands per translation setting, through
+the actual loopback HTTP handler. Four new worker processes per setting recovered
+durable journals; two deliberately repeated advance requests returned identical
+acknowledgments across different process IDs. Both settings exercised 550-chip
+off-menu raises and all-in calls somewhere; translation-disabled human play did
+not contain an all-in call, while its spectator supplied that coverage. Eight
+translation witness receipts were retained. Incompatible table/model selection
+and changed translation identity were rejected. Independent journal modules
+regenerated policy decisions and settlements; separate review replayed all hands,
+legal observations/actions, sampling continuity and event/accounting hashes,
+and inspected all 593 HTTP responses for expected rejections and privacy.
+
+[Retained verification receipt](reports/hu100-runtime-retained-verification.json)
+records the exact model/source/helper hashes, counts, raw-file retention and
+resources: load 230.97 seconds, sampled summed family RSS 2.554 GB, maximum total
+swap 1.606 GB, minimum free disk 34.696 GB; no guard breach. The disk floor was
+15.5 GiB, summed RSS ceiling 8 GiB, total swap ceiling 3,000,000,000 bytes and wall
+cap 1,800 seconds. Loading benefited from retrieval/hash-warmed filesystem cache;
+HTTP workers inherited one immutable validated compact model rather than loading
+another copy. Summed fork RSS can count shared pages twice. Separate cold CLI
+starts are not measured by this receipt. A missing monitoring dependency and a
+pre-hand helper session-ID mistake were repaired and preserved; no retained hand
+failed. The run and all workers are stopped. No training, external campaign or
+strength inference follows from this runtime check. Keep the ignored model and
+raw evidence while PR212 remains open; archive closeout is pending.
