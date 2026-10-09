@@ -1,6 +1,10 @@
 {
   "archive": {
     "bytes": 2414034193,
+    "drive_folder_id": "1kYRrnIdXkx3hm_2YcUZENTxh65KPTquh",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1kYRrnIdXkx3hm_2YcUZENTxh65KPTquh",
+    "drive_id": "1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR",
+    "drive_url": "https://drive.google.com/file/d/1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR/view?usp=drivesdk",
     "manifest_path": "ARCHIVE-MANIFEST.json",
     "manifest_sha256": "33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60",
     "path": "/Users/dberweger/Local/Research-Cloud/PR-216-HU200-Slumbot-feasibility/HU200-M1-feasibility-20261009.zip",

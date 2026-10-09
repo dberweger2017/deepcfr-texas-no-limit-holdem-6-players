@@ -3,7 +3,8 @@
 PR216 adds a distinct, correctly trained 200BB game for v0.5.5. v0.5.0 remains
 HU100; released HU20 policies/defaults are unchanged. The isolated branch starts
 at current-main `6e18043317817080fd38f400c5366fbf18fc6b53`. No M4 input, worker or
-campaign was used, and no live match, release, paid compute or merge occurred.
+campaign was used, and no live match, release or paid compute occurred. The owner
+subsequently authorized merge after independent review and green checks.
 
 ## Correctness before training
 
@@ -103,7 +104,7 @@ live use. Larger matches and milestone acceptance remain owner decisions.
 
 All nine checkpoint/current/average files, raw resources, smoke hands, qualifications, resolved reviews, selected source snapshot and runtime are in **HU200-M1-feasibility-20261009.zip**: **2,414,034,193 bytes**, SHA256 `643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574`. All **447 members** passed local size/SHA256 readback; embedded `ARCHIVE-MANIFEST.json` SHA256 `33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60`. [Archive receipt](hu200-feasibility-artifacts/archive-receipt.json) and [model/dependency index](hu200-feasibility-artifacts/model-index.json) give exact restoration identities. The post-archive closeout/upload/final-review lifecycle records live in compact Git receipts rather than a second science ZIP.
 
-Native Drive upload is **pending** at initial post-closeout inspection (`isUploaded=0`, `isUploading=1`); an actual archive cloud ID and independent cloud acceptance are not yet claimed. No remote archive bytes were downloaded. The accepted cloud receipt must supersede this dated snapshot before handback.
+Native Drive reports **uploaded /not uploading /not paused**, stable name/size/mtime, no reported upload error and **zero unresolved conflicts** through the supported Foundation query. Independent Drive metadata confirms archive ID **1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR**, exact name/2,414,034,193-byte size and parent folder. [Upload acceptance](hu200-feasibility-artifacts/archive-upload-acceptance.json). **No remote archive bytes were downloaded or verified**; complete member/whole hashes are local verification. The owner requested upload-only handoff and will finish cleanup; the one-shot handoff check was already uploaded. No upload waiter, cleanup or monitoring remains.
 
 [RESULTS_INDEX](../../RESULTS_INDEX.md#pr216-hu200-m1-feasibility--october-9-2026) contains archive/folder IDs, model member hashes and retrieval commands. All originals remain; no deletion or forced offload occurred. Final review and PR readiness do not change the frozen scientific source.
 
@@ -115,3 +116,5 @@ build/test logs were not retained; the archive contains the candid summary and
 independent reviewers' exact validations. Execution-head full CI passed both
 shards, native builds/tests, arena reproduction, solver and end-to-end checks.
 Final-head CI and the closeout evidence review are separate handback checks.
+
+Independent closeout [round 4](hu200-feasibility-artifacts/evidence-review-4.json) is clear: 54 small tests, resource/coverage/interval/budget arithmetic, central-directory/manifest and all model/dependency pointers independently agree. Full model audits/replay were prior receipts, not repeated validation. An extra reviewer header attempt mistakenly used gzip `readline` on a current export’s single-line JSON, reaching **4,100,128,768 bytes (3.82GiB) process RSS**. The reviewer terminated its own PID (exit143), excluded the attempt and retained it in the review receipt. This post-pilot review mistake was outside the intended small-read scope and the completed pilot’s resource stream/cap; it adds no model validation. No additional audit/load is attempted.
