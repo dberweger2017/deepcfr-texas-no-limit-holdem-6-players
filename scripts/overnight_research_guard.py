@@ -38,7 +38,8 @@ def stop_owned(child, known):
         except psutil.NoSuchProcess:
             pass
     _, surviving = psutil.wait_procs(surviving, timeout=5)
-    child.wait(timeout=5)
+    if child is not None:
+        child.wait(timeout=5)
     if any(p.is_running() and p.status() != psutil.STATUS_ZOMBIE for p in surviving):
         raise RuntimeError('Owned descendant survived cleanup')
 
@@ -73,19 +74,27 @@ def main():
     with (Path.home()/'Local/.hu100-m4-research.lock').open('a+') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         resources.identity()
-        receipt=resources.operation(a.name,a.command,stop_file=a.stop_file,
-            deadline=__import__('time').time()+a.seconds if a.seconds else None)
-        remember_descendants(known)
-        survivors=[]
-        for pid, created in known.items():
-            try:
-                process=psutil.Process(pid)
-                if process.create_time()==created and process.status()!=psutil.STATUS_ZOMBIE:
-                    survivors.append(pid)
-            except psutil.NoSuchProcess:
-                pass
-        if survivors:
-            raise RuntimeError('Owned descendants outlived successful operation: '+str(survivors))
-        print(json.dumps(receipt),flush=True)
+        try:
+            receipt=resources.operation(a.name,a.command,stop_file=a.stop_file,
+                deadline=__import__('time').time()+a.seconds if a.seconds else None)
+            remember_descendants(known)
+            survivors=[]
+            for pid, created in known.items():
+                try:
+                    process=psutil.Process(pid)
+                    if process.create_time()==created and process.status()!=psutil.STATUS_ZOMBIE:
+                        survivors.append(pid)
+                except psutil.NoSuchProcess:
+                    pass
+            if survivors:
+                failure=a.out/'campaign-failure.json'
+                if not failure.exists():
+                    resources.write(failure,{'operation':a.name,'failure':'Owned descendants outlived operation','pids':survivors})
+                raise RuntimeError('Owned descendants outlived successful operation: '+str(survivors))
+            print(json.dumps(receipt),flush=True)
+        finally:
+            # Also runs if operation() raises after its direct child already
+            # exited; inherited cleanup alone cannot cover reparented workers.
+            stop_owned(None,known)
 
 if __name__=='__main__':main()
