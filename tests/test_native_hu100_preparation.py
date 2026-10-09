@@ -12,7 +12,7 @@ from src.arena.registry import PolicyRegistry, load_frozen
 from src.arena.schedule import Plan, Scenario
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, choices, information_key
 from src.blueprint.artifact import HU100_FORMAT, save_training
-from src.blueprint.average import AveragePolicy, HU100_FORMAT as AVERAGE_FORMAT
+from src.blueprint.average import AveragePolicy, HU100_FORMAT as AVERAGE_FORMAT, HU200_FORMAT as HU200_AVERAGE_FORMAT
 from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME, Node, PilotConfig
 from src.diagnostics.cfr_average import extract, audit
 from src.game.hand import Hand, Table
@@ -74,12 +74,12 @@ def test_native_and_python_exports_preserve_exact_fixture_rows(tmp_path, bb):
     assert policy.distribution(hand.observe(hand.actor))[2]
     other, _, _ = fixture(20 if bb == 100 else 100)
     with pytest.raises(ValueError): policy.distribution(other.observe(other.actor))
-    if bb == 100:
+    if bb in (100, 200):
         with pytest.raises(ValueError): AveragePolicy(average, file_hash(average))
-        cp = Checkpoint('fixture', str(average), file_hash(average), AVERAGE_FORMAT)
+        cp = Checkpoint('fixture', str(average), file_hash(average), AVERAGE_FORMAT if bb == 100 else HU200_AVERAGE_FORMAT)
         loaded = load_frozen(cp, average)
-        assert loaded.game == HU100_GAME
-        plan = Plan((Scenario('hu100', stacks=(10000,10000)),), candidate='fixture', models=(cp,))
+        assert loaded.game == (HU100_GAME if bb == 100 else HU200_GAME)
+        plan = Plan((Scenario(f'hu{bb}', stacks=(bb*100,bb*100)),), candidate='fixture', models=(cp,))
         registry = PolicyRegistry(plan)
         out = tmp_path/'snapshot'; out.mkdir(); registry.snapshot(out)
         assert file_hash(out/'models'/f'{cp.sha256}.json.gz') == cp.sha256

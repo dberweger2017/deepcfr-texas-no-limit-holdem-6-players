@@ -67,6 +67,7 @@ def quote(last, operation, target, train_seconds, tool_seconds):
                +tool_seconds*factor+last['write_seconds']*factor)+CLOSEOUT
     return dict(target=target, entry_ceiling=min(ceiling, math.floor((SOFT-100_000_000)/110)),
                 forecast_family_bytes=memory, upper_seconds=seconds,
+                tool_save_reserve_seconds=2*(tool_seconds*factor+last['write_seconds']*factor)+CLOSEOUT,
                 disk_required_bytes=ceiling*400+GIB, operation=operation,
                 limitation='linear node-to-entry bound capped by memory; capacity stop may precede endpoint')
 
@@ -79,7 +80,7 @@ class Guard:
         self.failed=False
 
     def run(self, name, command, *, train=False, allowance=None):
-        if self.failed: raise RuntimeError('Terminal guard latch; no further science')
+        if self.failed and name != 'archive': raise RuntimeError('Terminal guard latch; no further science')
         admission=host(self.out)
         problem=violation(admission,self.swap0,0)
         if problem: raise RuntimeError('Admission: '+problem)
@@ -88,12 +89,12 @@ class Guard:
                           or admission['disk_free_bytes']-allowance['disk_required_bytes']<=DISK_FLOOR
                           or self.deadline-monotonic()<allowance['upper_seconds']):
             return None
-        if self.deadline-monotonic()<=CLOSEOUT: return None
+        if self.deadline-monotonic()<=(5 if name=='archive' else CLOSEOUT): return None
         directory=self.out/'operations'/name;directory.mkdir(parents=True)
         write(directory/'intent.json',dict(command=list(map(str,command)),admission=admission,allowance=allowance))
         stop=self.out/(name+'.stop')
         if train: command=[*command,'--stop-file',str(stop)]
-        begun=monotonic();peak=0;failure=None;child=None
+        begun=monotonic();peak=0;failure=None;child=None;soft=False
         try:
             with (directory/'log.txt').open('x') as log, (directory/'resources.jsonl').open('x') as samples:
                 child=subprocess.Popen(['/usr/bin/time','-l',*map(str,command)],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
@@ -111,6 +112,7 @@ class Guard:
                     if remaining<=0: raise TimeoutError('60-minute hard deadline')
                     if train and (rss>=SOFT or remaining<=CLOSEOUT+600):
                         if not stop.exists(): write(stop,dict(reason='soft RSS or save/tool reserve',at=time()))
+                        soft=True
                     elif not train and name!='archive' and remaining<=CLOSEOUT:
                         raise TimeoutError('Tool closeout reserve exhausted')
                     sleep(.5)
@@ -128,10 +130,15 @@ class Guard:
                     except ProcessLookupError: pass
             text=(directory/'log.txt').read_text() if (directory/'log.txt').exists() else ''
             kernel=re.search(r'(\d+)\s+maximum resident set size',text)
-            receipt=dict(status='failed' if failure else 'complete',failure=failure,seconds=monotonic()-begun,
+            kernel_peak=int(kernel[1]) if kernel else None
+            if kernel_peak is not None and kernel_peak>=HARD:
+                failure=failure or 'Kernel command peak exceeded hard family RSS'
+                self.failed=True
+            receipt=dict(soft_stop_requested=soft,kernel_soft_limit_exceeded=kernel_peak is not None and kernel_peak>=SOFT,status='failed' if failure else 'complete',failure=failure,seconds=monotonic()-begun,
                          peak_family_rss_bytes=peak,kernel_command_peak_rss_bytes=int(kernel[1]) if kernel else None,
                          returncode=child.returncode if child else None,finished=time())
             write(directory/'receipt.json',receipt)
+        if failure: raise RuntimeError(failure)
         return receipt
 
 
@@ -255,12 +262,17 @@ def run(out, destination, review):
                                       soft_family_bytes=SOFT,hard_family_bytes=HARD,ownership_inventory=inventory,lock=str(LOCK)))
         records=[];stop_reason=None
         try:
+            write(out/'independent-review.json',reviewed)
+            g.run('source-snapshot',['git','archive','--format=tar','--output',out/'source.tar','HEAD',
+                  'native/hu20-trainer','native/hu20-buckets','src/blueprint','src/game','src/arena',
+                  'src/policies/files.py','src/diagnostics/cfr_average.py','scripts/run_hu200_feasibility.py',
+                  'docs/hu200-feasibility.md','requirements-dev.txt','requirements.txt'])
             allowance=None;previous=None;previous_actual=0
             for target in ENDPOINTS:
                 checkpoint=out/f'HU200-{target}.gz';telemetry=out/f'HU200-{target}.telemetry.jsonl'
                 cmd=[BINARY,'train','--stack-bb','200','--seed',str(SEED),'--average-rule','opponent-sampled','--nodes',str(target),
                      '--out',checkpoint,'--telemetry',telemetry,'--max-entries',str(allowance['entry_ceiling'] if allowance else 1_000_000),
-                     '--max-seconds',str(max(1,g.deadline-monotonic()-CLOSEOUT-600))]
+                     '--max-seconds',str(max(1,g.deadline-monotonic()-max(CLOSEOUT+600,allowance['tool_save_reserve_seconds'] if allowance else 0)))]
                 if previous:cmd += ['--resume',previous,'--resume-sha256',file_hash(previous)]
                 train=g.run(f'train-{target}',cmd,train=True,allowance=allowance)
                 if train is None:stop_reason='measured admission refused';break
@@ -272,7 +284,8 @@ def run(out, destination, review):
                 tools=export['seconds']+audit['seconds']
                 records.append(dict(target=target,telemetry=row,train=train,export=export,audit=audit))
                 previous=checkpoint
-                if train['returncode']==3:stop_reason='native capacity/time/soft stop';break
+                if train['returncode']==3 or train['soft_stop_requested'] or train['kernel_soft_limit_exceeded']:
+                    stop_reason='native capacity/time/soft stop';break
                 if target!=ENDPOINTS[-1]:
                     next_target=ENDPOINTS[ENDPOINTS.index(target)+1]
                     # Scale the recent training segment to the table's total node count.
@@ -280,16 +293,22 @@ def run(out, destination, review):
                     allowance=quote(row,'next-endpoint',next_target,train_cost,tools)
                     write(out/f'admission-{next_target}.json',allowance)
                 previous_actual=row['completed_nodes']
-            if previous and not g.failed and g.deadline-monotonic()>CLOSEOUT+180:
+            if previous and stop_reason is None and not g.failed and g.deadline-monotonic()>CLOSEOUT+180:
                 g.run('smoke',[sys.executable,'-m','scripts.run_hu200_feasibility','smoke','--out',out,'--checkpoint',str(previous)+'.average.gz'])
         except BaseException as exc:
             stop_reason=repr(exc)
         write(out/'science.json',dict(source=source,records=records,stop_reason=stop_reason,seconds=monotonic()-started,
                                      status='partial' if stop_reason else 'complete',no_live_match=True))
-        if not g.failed:
-            g.run('archive',[sys.executable,'-m','scripts.run_hu200_feasibility','archive','--out',out,'--destination',destination])
-        write(out/'closeout.json',dict(seconds=monotonic()-started,within_cap=monotonic()-started<=3600,
-                                      guard_failed=g.failed,workers_exited=True,originals_retained=True))
+        archive_status='not-started';archive_failure=None
+        try:
+            archived=g.run('archive',[sys.executable,'-m','scripts.run_hu200_feasibility','archive','--out',out,'--destination',destination])
+            archive_status='complete' if archived is not None else 'time-refused'
+        except BaseException as exc:
+            archive_status='failed';archive_failure=repr(exc)
+        finally:
+            write(out/'closeout.json',dict(seconds=monotonic()-started,within_cap=monotonic()-started<=3600,
+                  guard_failed=g.failed,workers_exited=True,originals_retained=True,
+                  archive_status=archive_status,archive_failure=archive_failure))
 
 
 def main():
