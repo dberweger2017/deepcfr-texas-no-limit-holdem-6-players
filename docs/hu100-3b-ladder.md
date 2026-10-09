@@ -56,7 +56,9 @@ per opponent. Common paired deals, fresh root 2026100922204 (pilot2203),
 private streams, coverage and reached visit bands. These are descriptive;
 no additional primary pass opportunity. If combined pilot quotes for A+B
 exceed about ten hours, complete A and B training/direct primary, skip B's
-scripted secondary (and admit descriptive rungs only if time/storage fit).
+scripted secondary (and admit descriptive rungs only if time/storage fit). The
+threshold uses the full prospective ladder plus secondary quote at the hardware-
+admitted sample; dropping descriptive rungs does not readmit the secondary.
 
 Post measured train/save/export/audit/direct/secondary time and storage quote
 on this PR before final play. One independent source review before final run;

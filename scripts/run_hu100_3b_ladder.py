@@ -253,13 +253,15 @@ def freeze(a_seconds):
         if p.is_file() and 'models' not in p.parts and p.name in ('hands.jsonl','decisions.jsonl.gz'):
             sec_raw+=p.stat().st_size*4096/32
     combined=a_seconds+training+quote(blocks,len(rungs))+sec_seconds+1800
-    skip_secondary=combined>36000 or disk(blocks,len(rungs))+2*sec_raw>available
+    full_scope_quote=a_seconds+training+quote(blocks,len(all_pairs))+sec_seconds+1800
+    skip_secondary=full_scope_quote>36000 or combined>36000 or disk(blocks,len(rungs))+2*sec_raw>available
     put(OUT/'freshness.json',freshness(blocks))
     put(OUT/'frozen-final.json',{'blocks_per_rung':blocks,'rungs':rungs,'dropped_descriptive_rungs':[r for r in all_pairs if r not in rungs],
         'root':FINAL_ROOT,'scripted_root':SCRIPT_FINAL_ROOT,'scripted_blocks':4096,
         'primary':'terminal-vs-1b','decision':'paired Student-t 95% lower >0',
         'direct_quote_seconds':quote(blocks,len(rungs)),'secondary_quote_seconds':sec_seconds,
-        'skip_secondary':skip_secondary,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,
+        'skip_secondary':skip_secondary,'requested_full_scope_quote_seconds':full_scope_quote,
+        'ten_hour_scope_threshold_exceeded':full_scope_quote>36000,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,
         'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; hardware/disk-admitted primary;10h scope threshold for descriptive/secondary; no pilot winnings/variance',
         'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False,
         'storage':{'available_bytes':available,'required_additional_free_bytes':disk(blocks,len(rungs))+(0 if skip_secondary else 2*sec_raw),
