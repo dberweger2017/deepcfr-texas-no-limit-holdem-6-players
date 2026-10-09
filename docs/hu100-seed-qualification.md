@@ -209,6 +209,22 @@ planning reference, not a guaranteed lower bound for fresh seeds or a full
 quote. It refuses dependent computation; do not assume smaller fresh models
 to pass admission. Preserve other PR evidence and do no cleanup to fund it.
 
+The subsequent [storage inventory quote](reports/hu100-seed-qualification-artifacts/storage-planning-20261009.json)
+replaces that model-only reference as the planning target: **110 GiB free for
+4,096 blocks**, **130 GiB for 8,192**. Reading only #207's ZIP directory and
+324,414-byte manifest (whose pinned SHA256 matches) measures fixed model
+snapshots separately from variable raw play/reproduction bytes. Project fresh
+terminal model sizes to the unchanged entry ceiling; allow 10% early model
+growth and 2x raw-trace size. Include retained original models/restored inputs,
+final and pilot model snapshots, all raw play/reproduction, one archive copy
+without assumed compression savings, 1 GiB pilot/build/resource/metadata reserve,
+3 GiB transient save/recovery reserve and the 15.5 GiB disk floor. Calculated
+totals 108.704/125.617 GiB round upward to 110/130. Latest measured free space
+29.448 GiB requires 80.552/100.552 GiB additional respectively. This is a
+conservative measured-inventory planning quote; the timing-only pilot still
+determines the final sample and admission. No seed-size or six-hour feasibility
+guarantee, model/raw scan, new research computation, copy or cleanup is claimed.
+
 ## Continuous resource guards and closeout
 
 M4 only, 10 cores/16 GiB/AC, one worker family, sequential execution. Require

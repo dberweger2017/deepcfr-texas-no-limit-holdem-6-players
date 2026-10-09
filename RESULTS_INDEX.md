@@ -4,6 +4,14 @@
 `feature/hu100-seed-qualification`, [prospective protocol](docs/hu100-seed-qualification.md),
 [blocked preflight report](docs/reports/hu100-seed-qualification.md) and
 [compact live status receipt](docs/reports/hu100-seed-qualification-artifacts/preflight.json).
+**Storage planning:** [full inventory estimate](docs/reports/hu100-seed-qualification-artifacts/storage-planning-20261009.json)
+requires 110 GiB free at 4,096 blocks or 130 GiB at 8,192, versus latest
+29.448 GiB free (80.552/100.552 GiB additional). Fixed snapshots and variable
+raw traces are separated; originals plus archives, reserves and the floor are
+included. ZIP directory/small manifest only read, pinned manifest SHA matches;
+no model/raw/whole ZIP scan, extraction/copy/mutation/cleanup. This is a
+conservative planning estimate, not final pilot/time admission or new evidence
+archive; it supersedes the prior model-only planning target below.
 **October 9 05:46 UTC refresh:** [readiness/disk reference](docs/reports/hu100-seed-qualification-artifacts/readiness-20261009.json)
 confirms #207's separately reviewed local archive/failure/evidence closeout
 resolved, upload acceptance owner-delegated and final dependency CI pending

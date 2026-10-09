@@ -2,6 +2,28 @@
 
 [PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211) · draft, unmerged.
 
+Latest [complete storage planning estimate](hu100-seed-qualification-artifacts/storage-planning-20261009.json):
+**110 GiB free for 4,096 blocks**, or **130 GiB for 8,192**. M4 currently
+has **29.448 GiB free**: another **80.552/100.552 GiB** is needed. This
+supersedes the earlier 32.865 GiB model-only figure as a planning target.
+
+For 4,096 blocks, forecast originals total 45.102 GiB: models/restored inputs
+13.101, fixed pilot/final/reproduction snapshots 22.544, raw play/reproduction
+8.457 and fixed pilot/build/resources/metadata reserve 1.000. One archive copy
+adds 45.102; the 15.5 GiB floor and 3 GiB transient save/recovery reserve yield
+108.704 GiB, rounded to 110. For 8,192, raw storage doubles and the same
+fixed snapshot bytes yield 125.617 GiB, rounded to 130. Snapshot bytes are
+never block-scaled. No archive-compression savings are assumed.
+
+The inventory read only #207's ZIP directory and its 324,414-byte embedded
+manifest; the pinned manifest SHA256 matches. No model/raw member contents,
+whole ZIP rehash, extraction, copy or evidence mutation. Forecast terminal
+sizes use the unchanged entry ceiling, early saves get 10% size allowance,
+and variable raw traces get 2x size allowance. These are conservative planning
+estimates from measured #207 bytes, not actual new-seed output or final pilot
+admission. No campaign started; full timing and stable/exclusive admission
+remain required once storage fits.
+
 The requested three-lineage qualification has **not started**. The October 9
 05:46 UTC [readiness refresh](hu100-seed-qualification-artifacts/readiness-20261009.json)
 supersedes the initial blocker: #207's archive-failure and end evidence closeout
