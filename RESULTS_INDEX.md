@@ -1,3 +1,37 @@
+## PR215 HU100 independent stages — active, October 9
+
+[PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215)
+is open/unmerged on `feature/hu100-independent-seed-stages` from current main
+`6e18043317817080fd38f400c5366fbf18fc6b53`.
+[Protocol](docs/hu100-independent-stages.md),
+[progress report](docs/reports/hu100-independent-stages.md).
+Scientific source `1d862d6f9ea2e5e56b23c84cac94561103b5da11`; unchanged #207
+binary `7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262`,
+actual frozen native source `bd0e7a417064f736091dc2b667954b50becb4b69`.
+Single M4 clock10:34:33–16:34:33UTC includes calibration, preparation repair and
+closeout; original baseline/guards are immutable. The preparation-only source
+binding refusal and370.914s idle monitoring gap remain preserved, charged to
+that clock. No scientific retry or guard waiver.
+
+Cost-only32/512-block calibration and exact actual #211 partial compatibility
+pass. Seed2026100901 early39,439,801 nodes is fully audited; its1,000,000,506-node
+terminal audit is pending. Seed2026100902 and final evaluation are pending.
+Qualification remains incomplete. New archive/member/upload acceptance is not
+available yet; do not treat this progress entry as cloud acceptance.
+Input restoration remains the accepted PR207/PR211 indexes below, with local
+size/SHA256/full-audit provenance and no old archive hydration. Exact resumed
+versus fresh direct2M checkpoint hash:
+`f3d7a74076e41885477e4413be3606753eddc25bcc683f4042cfc56fe3531b41`.
+
+Protected roots: M4 and M1 `~/Local/hu100-independent-seed-stages-20261009`,
+M4's ignored `results/hu100-independent-stages`, M1's ignored coordinator,
+all PR207/PR211 originals/failures, PR207 native binary/source/environment,
+shared Git and other agents' dependencies. Preserve this open PR's roots and
+all future inputs. Native archive destination will be this PR's own
+`~/Local/Research-Cloud/PR-215-HU100-independent-stages` under Research-Cloud
+folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; exact new folder/archive IDs and
+restoration pins will be recorded only after closeout acceptance. No cleanup.
+
 ## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
 
 [PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211),
