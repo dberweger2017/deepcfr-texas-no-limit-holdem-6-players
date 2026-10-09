@@ -2,6 +2,7 @@
 //! `choices(..., raise_cap=None, free_fold=False)` and
 //! `information_key(..., schema=HU20_UNCAPPED_SCHEMA)` in `src/blueprint/abstraction.py`.
 
+use crate::cards::Cards;
 use crate::game::{Action, Core, Hand, Kind, Street};
 use blake2::digest::{Update, VariableOutput};
 use blake2::Blake2bVar;
@@ -148,7 +149,7 @@ pub fn write_payload(out: &mut Vec<u8>, hand: &Hand, menu: &[Choice]) {
     let a = hand.actor.expect("a key needs a live decision") as usize;
     out.clear();
     out.extend_from_slice(b"[\"");
-    out.extend_from_slice(hand.game.schema().as_bytes());
+    out.extend_from_slice(hand.schema().as_bytes());
     out.extend_from_slice(b"\",2,");
     out.push(if (a as u8 + 2 - hand.button) % 2 == 0 { b'0' } else { b'1' });
     out.extend_from_slice(b",\"");
@@ -157,7 +158,12 @@ pub fn write_payload(out: &mut Vec<u8>, hand: &Hand, menu: &[Choice]) {
     if hand.street == Street::Preflop {
         push_preflop(out, hand.holes[a]);
     } else {
-        push_postflop(out, hand.holes[a], hand.visible_board());
+        match hand.cards {
+            Cards::V1 => push_postflop(out, hand.holes[a], hand.visible_board()),
+            Cards::Equity(tables) => {
+                out.extend_from_slice(tables.bucket(hand.holes[a], hand.visible_board()).to_string().as_bytes())
+            }
+        }
     }
     out.extend_from_slice(b",[");
     for offset in 0..2 {

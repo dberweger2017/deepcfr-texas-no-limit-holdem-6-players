@@ -161,6 +161,90 @@ pub fn hash_key(key: u128) -> u64 {
     splitmix(((key >> 64) as u64) ^ splitmix(key as u64))
 }
 
+/// One street's table file (`HU20BKT1`): street code (1 flop, 2 turn, 3 river), K, count,
+/// sorted 64-bit class hashes, then their u16 bucket ids, all little-endian.
+pub struct BucketTable {
+    pub street: u32,
+    pub k: u32,
+    hashes: Vec<u64>,
+    buckets: Vec<u16>,
+}
+
+impl BucketTable {
+    const MAGIC: &'static [u8; 8] = b"HU20BKT1";
+
+    pub fn new(street: u32, k: u32, keys: &[u128], assignment: &[u16]) -> BucketTable {
+        let mut rows: Vec<(u64, u16)> = keys.iter().map(|&key| hash_key(key)).zip(assignment.iter().copied()).collect();
+        rows.sort_unstable_by_key(|r| r.0);
+        assert!(rows.windows(2).all(|w| w[0].0 != w[1].0), "64-bit class hash collision");
+        BucketTable { street, k, hashes: rows.iter().map(|r| r.0).collect(), buckets: rows.iter().map(|r| r.1).collect() }
+    }
+
+    pub fn write(&self, path: &std::path::Path) -> std::io::Result<()> {
+        let mut out = Vec::with_capacity(24 + self.hashes.len() * 10);
+        out.extend_from_slice(Self::MAGIC);
+        out.extend_from_slice(&self.street.to_le_bytes());
+        out.extend_from_slice(&self.k.to_le_bytes());
+        out.extend_from_slice(&(self.hashes.len() as u64).to_le_bytes());
+        for h in &self.hashes {
+            out.extend_from_slice(&h.to_le_bytes());
+        }
+        for b in &self.buckets {
+            out.extend_from_slice(&b.to_le_bytes());
+        }
+        std::fs::write(path, out)
+    }
+
+    /// Reads and validates a table without holding a second copy of it.
+    pub fn read(path: &std::path::Path) -> std::io::Result<BucketTable> {
+        use std::io::{Error, ErrorKind, Read};
+        let invalid = |why: &str| Error::new(ErrorKind::InvalidData, format!("{}: {why}", path.display()));
+        let file = std::fs::File::open(path)?;
+        let size = file.metadata()?.len();
+        let mut input = std::io::BufReader::with_capacity(1 << 20, file);
+        let mut header = [0u8; 24];
+        input.read_exact(&mut header)?;
+        if &header[..8] != Self::MAGIC {
+            return Err(invalid("not an HU20 bucket table"));
+        }
+        let word = |i: usize| u32::from_le_bytes(header[i..i + 4].try_into().unwrap());
+        let (street, k) = (word(8), word(12));
+        let count = u64::from_le_bytes(header[16..24].try_into().unwrap());
+        if !(1..=3).contains(&street) || k == 0 || k > u16::MAX as u32 + 1 || size != 24 + 10 * count {
+            return Err(invalid("inconsistent header"));
+        }
+        let count = count as usize;
+        let mut hashes = Vec::with_capacity(count);
+        let mut buckets = Vec::with_capacity(count);
+        let mut chunk = vec![0u8; 1 << 16];
+        while hashes.len() < count {
+            let n = (count - hashes.len()).min(chunk.len() / 8);
+            input.read_exact(&mut chunk[..8 * n])?;
+            hashes.extend(chunk[..8 * n].chunks_exact(8).map(|b| u64::from_le_bytes(b.try_into().unwrap())));
+        }
+        while buckets.len() < count {
+            let n = (count - buckets.len()).min(chunk.len() / 2);
+            input.read_exact(&mut chunk[..2 * n])?;
+            buckets.extend(chunk[..2 * n].chunks_exact(2).map(|b| u16::from_le_bytes(b.try_into().unwrap())));
+        }
+        if !hashes.windows(2).all(|w| w[0] < w[1]) || buckets.iter().any(|&b| b as u32 >= k) {
+            return Err(invalid("unsorted hashes or bucket out of range"));
+        }
+        Ok(BucketTable { street, k, hashes, buckets })
+    }
+
+    /// The bucket of a holding on this street's board, or None if its class is absent.
+    pub fn bucket(&self, hole: &[u8], board: &[u8]) -> Option<u16> {
+        assert_eq!(board.len() as u32, self.street + 2, "board size belongs to another street's table");
+        let target = hash_key(class_key(hole, board));
+        self.hashes.binary_search(&target).ok().map(|i| self.buckets[i])
+    }
+
+    pub fn len(&self) -> usize {
+        self.hashes.len()
+    }
+}
+
 pub fn combinations(cards: &[u8], k: usize) -> Vec<Vec<u8>> {
     fn go(cards: &[u8], k: usize, start: usize, current: &mut Vec<u8>, out: &mut Vec<Vec<u8>>) {
         if current.len() == k {
@@ -530,6 +614,32 @@ mod tests {
                 x
             });
         assert_eq!(counts, expected);
+    }
+
+    #[test]
+    fn tables_round_trip_and_reject_corruption() {
+        let board = cards("2h 7c 9d Ks");
+        let holes = [cards("Ah Kh"), cards("As Kd"), cards("Qc Qd")];
+        let keys: Vec<u128> = holes.iter().map(|h| class_key(h, &board)).collect();
+        let table = BucketTable::new(2, 50, &keys, &[3, 49, 0]);
+        let path = std::env::temp_dir().join(format!("hu20-bucket-table-{}.bin", std::process::id()));
+        table.write(&path).unwrap();
+        let read = BucketTable::read(&path).unwrap();
+        assert_eq!((read.street, read.k, read.len()), (2, 50, 3));
+        for (hole, bucket) in holes.iter().zip([3, 49, 0]) {
+            assert_eq!(read.bucket(hole, &board), Some(bucket));
+        }
+        // A suit-isomorphic holding shares its class; an absent class has no bucket.
+        assert_eq!(read.bucket(&cards("Ad Kd"), &cards("2d 7c 9h Ks")), Some(3));
+        assert_eq!(read.bucket(&cards("Jc Tc"), &board), None);
+        let mut bytes = std::fs::read(&path).unwrap();
+        let last = bytes.len() - 2;
+        bytes[last] = 50; // a bucket id equal to K
+        std::fs::write(&path, &bytes).unwrap();
+        assert!(BucketTable::read(&path).is_err());
+        std::fs::write(&path, &bytes[..bytes.len() - 1]).unwrap();
+        assert!(BucketTable::read(&path).is_err());
+        std::fs::remove_file(path).unwrap();
     }
 
     #[test]

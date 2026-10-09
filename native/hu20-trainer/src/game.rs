@@ -11,6 +11,7 @@
 //! For speed the hand is mutated in place and restored with `save`/`restore`,
 //! and the key's public-history JSON is appended as events happen.
 
+use crate::cards::Cards;
 use hu20_buckets::evaluate;
 
 pub const STACK: u32 = 2000;
@@ -123,6 +124,8 @@ pub struct Legal {
 #[derive(Clone, Copy, Debug)]
 pub struct Core {
     pub game: Game,
+    /// The key's card descriptor; it changes no rule or event.
+    pub cards: Cards,
     pub button: u8,
     pub holes: [[u8; 2]; 2],
     pub board: [u8; 5],
@@ -188,6 +191,7 @@ impl Hand {
         let (sb, bb) = (button as usize, 1 - button as usize);
         let mut core = Core {
             game,
+            cards: Cards::V1,
             button,
             holes,
             board,
@@ -221,6 +225,10 @@ impl Hand {
 }
 
 impl Core {
+    pub fn schema(&self) -> &'static str {
+        self.cards.schema(self.game)
+    }
+
     pub fn finished(&self) -> bool {
         self.actor.is_none()
     }

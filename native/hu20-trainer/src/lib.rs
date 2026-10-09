@@ -2,6 +2,7 @@
 //! exact parity to the Python trainer.
 
 pub mod bench;
+pub mod cards;
 pub mod cfr;
 pub mod export;
 pub mod game;
