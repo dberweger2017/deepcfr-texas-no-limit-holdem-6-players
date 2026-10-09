@@ -75,8 +75,11 @@ plus the shared **30min closeout reserve**. Free disk97.17GiB exceeds required
 transient space and the fixed15.5GiB floor. Evaluation is not included in this
 training gate; its later quote cannot retrospectively refuse useful training.
 [Admission](hu100-independent-stages-artifacts/training-admission-2026100901.json).
-Both fresh seeds retain the fixed early39,438,279 and terminal1B total-node
-checkpoints with complete-iteration overshoots and full exports/audits.
+The protocol requires retaining early39,438,279 and terminal1B total-node
+checkpoints for both fresh seeds, allowing complete-iteration overshoots, with
+full exports/audits. Seed2026100901 has reached1,000,000,506 nodes; its terminal
+audit is running. Its early endpoint is fully audited. Seed2026100902 has not
+started. These are progress observations, not completed qualification results.
 
 ## Remaining work
 
