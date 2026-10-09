@@ -10,7 +10,7 @@ from math import fsum, isfinite
 from dataclasses import asdict
 from time import perf_counter
 
-from src.blueprint.action_translation import TranslationOptions, VERSION, translate
+from src.blueprint.action_translation import TranslationOptions, version_for_schema, translate
 from src.blueprint.abstraction import choices, information_key
 
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, STACK_BY_SCHEMA
@@ -130,11 +130,12 @@ class AveragePolicy(FrozenBlueprint):
     def configure_translation(self, options: TranslationOptions | None):
         """Explicit research option; model bytes and release defaults stay unchanged."""
         if options is not None and (not isinstance(options, TranslationOptions)
-                                    or self.abstraction != HU100_SCHEMA):
-            raise ValueError("Action translation requires HU100 and validated options")
+                                    or self.abstraction not in (HU100_SCHEMA, HU200_SCHEMA)
+                                    or self.game != {HU100_SCHEMA: HU100_GAME, HU200_SCHEMA: HU200_GAME}.get(self.abstraction)):
+            raise ValueError("Action translation requires matching HU100/HU200 game and validated options")
         self.translation = options
         if options is not None:
-            self.description['action_translation'] = {'version': VERSION, **asdict(options)}
+            self.description['action_translation'] = {'version': version_for_schema(self.abstraction), **asdict(options)}
         else:
             self.description.pop('action_translation', None)
 
@@ -152,7 +153,7 @@ class AveragePolicy(FrozenBlueprint):
                 'distance': 0., 'all_in_changes': 0, 'states': 0, 'bound_reached': False,
                 'overrides': (), 'witness_raise_to': ()}
         if not known and self.translation is not None:
-            result = translate(view, menu, self.entries, self.zero_mass, self.translation)
+            result = translate(view, menu, self.entries, self.zero_mass, self.translation, schema=self.abstraction)
             info.update(asdict(result)); info.pop('key')
             if result.key is not None:
                 saved = self.entries[result.key]

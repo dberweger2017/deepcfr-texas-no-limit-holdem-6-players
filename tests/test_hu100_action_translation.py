@@ -7,6 +7,7 @@ import pytest
 from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
 from src.blueprint.action_translation import Betting, TranslationOptions, translate
 from src.blueprint.average import AveragePolicy
+from src.blueprint.solver import HU100_GAME
 from src.game.hand import Hand, Table
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt
 from src.game.types import Action, ActionKind
@@ -19,6 +20,7 @@ def hand():
 def model(entries=(), zero=(), enabled=True):
     value = AveragePolicy.__new__(AveragePolicy)
     value.players = 2; value.raise_cap = None; value.abstraction = HU100_SCHEMA
+    value.game = HU100_GAME
     value.entries = dict(entries); value.zero_mass = set(zero); value.description = {}
     value.configure_translation(TranslationOptions() if enabled else None)
     return value

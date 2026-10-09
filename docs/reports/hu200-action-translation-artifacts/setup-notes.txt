@@ -1,0 +1,4 @@
+Preparation only, before calibration or final play:
+- First focused HU100/HU200/evaluator run: 34 passed, 2 native-build-dependent tests skipped (no binary built in new worktree; experiment uses #216 hash-pinned runtime).
+- Additional compatibility run while tracked source was uncommitted: 31 passed, 2 refused. test_small_translation_campaign_replays_and_reproduces requires committed clean source; test_interruption_preserves_records_and_finishes_only_missing_coordinates requires working files equal frozen HEAD. These are source-admission refusals, not failed scientific hands. Retest after committing implementation.
+- No calibration/final model loading, outcomes, retry or training so far.
