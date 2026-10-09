@@ -10,10 +10,20 @@ def owned_processes(known, *, root=None, parent_rows=None, process_factory=psuti
     if parent_rows is None:
         text = subprocess.check_output(['ps', '-axo', 'pid=,ppid='], text=True, timeout=10)
         parent_rows = [tuple(map(int, line.split())) for line in text.splitlines() if line.strip()]
+    retained = {}
+    for pid, expected in list(known.items()):
+        try:
+            process = process_factory(pid)
+            if process.create_time() == expected:
+                retained[pid] = process
+            else:
+                del known[pid]
+        except (psutil.NoSuchProcess, psutil.ZombieProcess):
+            known.pop(pid, None)
     children = {}
     for pid, parent in parent_rows:
         children.setdefault(parent, []).append(pid)
-    descendants, pending = set(), [root]
+    descendants, pending = set(), [root, *retained]
     while pending:
         parent = pending.pop()
         for pid in children.get(parent, ()):
