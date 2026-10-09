@@ -13,6 +13,9 @@ The [research history](research-history.md) indexes completed experiments.
   stored-average reader and its validation; `compact_policy.py` owns storage.
 - `src/policies/`: released v0.4.0/v0.4.1/v0.4.2 artifact pins, verification and loading.
   Adding a released model here or to the web catalog still requires release authorization.
+  `v050_candidate.py` accepts only the unpublished verified package with fixed
+  translation512/128; `--v050-candidate` never changes the released catalog.
+  [Preparation and install](releases/v0.5.0/READINESS.md) records its separate gate.
   `hu100_research.py` is an explicit research-only pin; [local HU100 play](hu100-local-play.md)
   records its retrieval gate, fixed table and off-by-default translation option.
 - `src/play_api/` and `apps/poker-web/`: durable local sessions, HTTP and the table.
