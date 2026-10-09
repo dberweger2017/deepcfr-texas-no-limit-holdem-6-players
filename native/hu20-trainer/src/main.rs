@@ -117,7 +117,7 @@ fn main() {
                 fresh.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
                 fresh
             };
-            let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game == hu20_trainer::game::Game::Hu100;
+            let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game != hu20_trainer::game::Game::Hu20;
             // CFR+'s floor keeps the production average weights, so exports and their bounds are unchanged.
             // DCFR reweights the average and stays bench-only.
             trainer.options.regret_floor = args.iter().position(|a| a == "--regret-floor").map(|i| args[i + 1].parse().unwrap());
@@ -255,7 +255,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl [--card-buckets DIR] | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--stack-bb 20|100] [--resume PATH --resume-sha256 HASH [--completed-nodes N]] [--recovery] [--max-entries N] [--max-seconds S] [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] [--card-buckets DIR] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] [--card-buckets DIR] --out FOLDER");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl [--card-buckets DIR] | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--stack-bb 20|100|200] [--resume PATH --resume-sha256 HASH [--completed-nodes N]] [--recovery] [--max-entries N] [--max-seconds S] [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] [--card-buckets DIR] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] [--card-buckets DIR] --out FOLDER");
             std::process::exit(2);
         }
     }

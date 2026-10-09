@@ -1,0 +1,115 @@
+{
+  "base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+  "branch": "feature/hu200-slumbot-preparation",
+  "findings": [
+    {
+      "detail": "Native return code 3 breaks endpoint loop but does not latch science off. After accepted export/audit, remaining >780 seconds starts smoke even when the stop request was a soft RSS/time breach.",
+      "lines": [
+        275,
+        283,
+        284
+      ],
+      "path": "scripts/run_hu200_feasibility.py",
+      "priority": "P1",
+      "title": "Soft/time-stop latch still permits optional smoke",
+      "verification": "In-memory mocked run returned operations train-1000000, export-1000000, audit-1000000, smoke, archive with returncode 3 and stop_requested true."
+    },
+    {
+      "detail": "Guard.run returns None for every operation including archive at <=600 seconds remaining; caller ignores archive return. Any monitored tool/resource failure sets failed and skips archival entirely. Archive exceptions occur outside the science try and bypass closeout receipt.",
+      "lines": [
+        91,
+        289,
+        290,
+        291,
+        292
+      ],
+      "path": "scripts/run_hu200_feasibility.py",
+      "priority": "P1",
+      "title": "Required archive cannot consume closeout reserve and is skipped after terminal failure",
+      "verification": "In-memory Guard.run archive admission with 599 seconds remaining and normal host returned None, did not spawn and left failed false."
+    },
+    {
+      "detail": "A command whose RSS spike is missed by sampling can report a kernel maximum above the 4 GiB hard limit yet receive a complete receipt and permit subsequent science. Receipt peak must be evaluated before accepting command success.",
+      "lines": [
+        129,
+        130,
+        131,
+        132,
+        134,
+        135
+      ],
+      "path": "scripts/run_hu200_feasibility.py",
+      "priority": "P1",
+      "title": "Recorded kernel peak does not enforce hard RSS breach",
+      "verification": "In-memory completed command with 5 GiB kernel maximum and no live sample returned complete and failed false."
+    }
+  ],
+  "limitations": [
+    "Used existing native binaries; no rebuild/source-to-binary attestation.",
+    "123 independently rerun Python tests; supplied 129-test qualification was not reproduced as an exact named suite.",
+    "No actual M1 pilot, campaign, remote network, training beyond bounded test fixtures, ownership changes, commits or external comments.",
+    "No correctness blocker found in reviewed core v1 HU200 game/key/export/resume/audit/inference changes; runner findings block dependent training."
+  ],
+  "scope": "Independent read-only correctness review before dependent HU200 pilot",
+  "source": "4a66618a81e537ddcccca373b3134c882afd5b78",
+  "status": "blocked",
+  "validation": {
+    "external_adapter_replay": {
+      "checked": [
+        "public legal bounds",
+        "pot",
+        "street",
+        "menu",
+        "canonical HU200 key"
+      ],
+      "decisions": 7432,
+      "hands": 1000,
+      "mismatches": 0,
+      "scope": "preterminal decisions from retained local fixtures, rotated to Slumbot button seat 1; no remote opponent"
+    },
+    "native_parity": {
+      "decisions": 7432,
+      "fixture": "results/hu200-preparation/parity.jsonl",
+      "fixture_sha256": "82b876a00f2abb6c53fb07d22274bb6fcf3985784fdd231331da6da7e35b7d1c",
+      "hands": 1000,
+      "mismatched_hands": 0
+    },
+    "native_release_binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+    "python": {
+      "passed": 123,
+      "runs": [
+        {
+          "files": [
+            "tests/test_native_hu200.py",
+            "tests/test_native_hu100_preparation.py",
+            "tests/test_native_trainer_parity.py",
+            "tests/test_hu200_feasibility.py",
+            "tests/test_external_slumbot.py",
+            "tests/diagnostics/test_cfr_average.py",
+            "tests/test_native_hu_recovery_equivalence.py",
+            "tests/test_native_hu_save_stop.py",
+            "tests/test_hu_export_capacity.py"
+          ],
+          "passed": 91,
+          "seconds": 60.51
+        },
+        {
+          "files": [
+            "tests/test_blueprint.py",
+            "tests/test_blueprint_hu20.py",
+            "tests/test_blueprint_lookup.py",
+            "tests/test_v04_release.py",
+            "tests/test_v042_bundle.py"
+          ],
+          "passed": 32,
+          "seconds": 3.85
+        }
+      ]
+    },
+    "rust": {
+      "binary": "native/hu20-trainer/target/debug/deps/hu20_trainer-14efedc66184edd1",
+      "passed": 12,
+      "rebuilt": false
+    }
+  }
+}

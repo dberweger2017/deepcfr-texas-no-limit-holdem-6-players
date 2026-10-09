@@ -13,14 +13,20 @@ from time import perf_counter
 from src.blueprint.action_translation import TranslationOptions, VERSION, translate
 from src.blueprint.abstraction import choices, information_key
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, STACK_BY_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema, _Player
 from src.blueprint.compact_policy import CompactBuilder
-from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME
+from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME
 from src.policies.files import file_hash
 
 FORMAT = 'holdem-hu20-stored-cfr-average-diagnostic-v1'
 HU100_FORMAT = 'holdem-hu100-stored-cfr-average-research-v1'
+HU200_FORMAT = 'holdem-hu200-stored-cfr-average-research-v1'
+
+
+def format_for_schema(schema):
+    return {HU100_SCHEMA: HU100_FORMAT, HU200_SCHEMA: HU200_FORMAT}.get(schema, FORMAT)
+
 EXTRACTION = 'normalize-lifetime-iteration-own-reach-accumulator-v1'
 # Native checkpoints may name a non-production average in their header. Its accumulator
 # sums t * policy over sampled opponent visits, so the traverser-visit bound doesn't apply.
@@ -50,10 +56,10 @@ def average_rule(header):
 
 
 def checked_header(header, spec, *, expected_schema=HU20_UNCAPPED_SCHEMA):
-    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA):
+    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA):
         raise ValueError('Unknown A/C diagnostic schema')
-    game = HU100_GAME if expected_schema == HU100_SCHEMA else HU20_UNCAPPED_GAME
-    stack = 10000 if expected_schema == HU100_SCHEMA else 2000
+    game = {HU100_SCHEMA: HU100_GAME, HU200_SCHEMA: HU200_GAME}.get(expected_schema, HU20_UNCAPPED_GAME)
+    stack = STACK_BY_SCHEMA[expected_schema]
     if (_checked_schema(header)!=expected_schema or header.get('kind')!='training'
         or type(header.get('iteration')) is not int or header['iteration']<1
         or header.get('checkpoint_format')!='jsonl-v2'
@@ -98,7 +104,7 @@ class AveragePolicy(FrozenBlueprint):
             metadata=json.loads(source.readline());header=metadata['checkpoint_header']
             checked_header(header,{'seed':header['config']['seed'],'iteration':header['iteration']},expected_schema=expected_schema)
             rule=average_rule(header);extraction=EXTRACTIONS[rule];zero_mass=zero_mass_rule(metadata)
-            if (metadata.get('format')!=(HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT) or metadata.get('kind')!='diagnostic-inference'
+            if (metadata.get('format')!=format_for_schema(expected_schema) or metadata.get('kind')!='diagnostic-inference'
                 or metadata.get('extraction')!=extraction):raise ValueError('Unknown diagnostic extraction')
             for line in source:
                 key,names,p,total,visits=json.loads(line)

@@ -1,0 +1,129 @@
+{
+  "hands": 320,
+  "model_sha256": "1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b",
+  "opponents": [
+    {
+      "bb_per_100": 664.0625,
+      "coverage": {
+        "('flop', 'missing-key')": 5,
+        "('flop', 'positive-mass')": 15,
+        "('preflop', 'missing-key')": 15,
+        "('preflop', 'positive-mass')": 56,
+        "('river', 'positive-mass')": 2,
+        "('turn', 'positive-mass')": 4
+      },
+      "descriptive_95_interval": [
+        -1156.3010036209869,
+        2484.426003620987
+      ],
+      "hands": 64,
+      "known_visit_bands": {
+        "('flop', '10+')": 15,
+        "('preflop', '10+')": 56,
+        "('river', '10+')": 2,
+        "('turn', '10+')": 4
+      },
+      "opponent": "random"
+    },
+    {
+      "bb_per_100": 40.625,
+      "coverage": {
+        "('flop', 'positive-mass')": 54,
+        "('preflop', 'positive-mass')": 64,
+        "('river', 'positive-mass')": 54,
+        "('turn', 'missing-key')": 1,
+        "('turn', 'positive-mass')": 53
+      },
+      "descriptive_95_interval": [
+        -107.01605854579418,
+        188.26605854579418
+      ],
+      "hands": 64,
+      "known_visit_bands": {
+        "('flop', '1-9')": 1,
+        "('flop', '10+')": 53,
+        "('preflop', '10+')": 64,
+        "('river', '0')": 1,
+        "('river', '1-9')": 12,
+        "('river', '10+')": 41,
+        "('turn', '1-9')": 2,
+        "('turn', '10+')": 51
+      },
+      "opponent": "check_call"
+    },
+    {
+      "bb_per_100": 360.15625,
+      "coverage": {
+        "('flop', 'positive-mass')": 10,
+        "('preflop', 'positive-mass')": 33,
+        "('river', 'positive-mass')": 5,
+        "('turn', 'positive-mass')": 4
+      },
+      "descriptive_95_interval": [
+        -275.91926960517856,
+        996.2317696051786
+      ],
+      "hands": 64,
+      "known_visit_bands": {
+        "('flop', '10+')": 10,
+        "('preflop', '10+')": 33,
+        "('river', '0')": 1,
+        "('river', '1-9')": 2,
+        "('river', '10+')": 2,
+        "('turn', '1-9')": 1,
+        "('turn', '10+')": 3
+      },
+      "opponent": "tight_aggressive"
+    },
+    {
+      "bb_per_100": -499.21875,
+      "coverage": {
+        "('flop', 'positive-mass')": 25,
+        "('preflop', 'positive-mass')": 50,
+        "('river', 'positive-mass')": 12,
+        "('turn', 'positive-mass')": 9
+      },
+      "descriptive_95_interval": [
+        -1163.8669474886192,
+        165.4294474886193
+      ],
+      "hands": 64,
+      "known_visit_bands": {
+        "('flop', '10+')": 25,
+        "('preflop', '10+')": 50,
+        "('river', '1-9')": 3,
+        "('river', '10+')": 9,
+        "('turn', '10+')": 9
+      },
+      "opponent": "loose_aggressive"
+    },
+    {
+      "bb_per_100": -104.6875,
+      "coverage": {
+        "('flop', 'missing-key')": 6,
+        "('flop', 'positive-mass')": 5,
+        "('preflop', 'missing-key')": 5,
+        "('preflop', 'positive-mass')": 37,
+        "('river', 'positive-mass')": 2,
+        "('turn', 'missing-key')": 1,
+        "('turn', 'positive-mass')": 2
+      },
+      "descriptive_95_interval": [
+        -780.3362111819674,
+        570.9612111819674
+      ],
+      "hands": 64,
+      "known_visit_bands": {
+        "('flop', '10+')": 5,
+        "('preflop', '10+')": 37,
+        "('river', '10+')": 2,
+        "('turn', '10+')": 2
+      },
+      "opponent": "pot_pressure"
+    }
+  ],
+  "replay": "all actions, events and settlements",
+  "reproduction": "all selected actions",
+  "scope": "feasibility smoke, no strength qualification",
+  "status": "verified"
+}

@@ -1,0 +1,156 @@
+{
+  "archive_integration": {
+    "acceptance_basis": "Read existing compact raw native/cloud acceptance. Native uploaded1/uploading0/paused0/unresolved conflicts0, stable size/mtime/no reported error. Independent prior cloud metadata confirms ID/name/size/parent. No current native query or independent Drive call in round5.",
+    "accepted_receipt": "docs/reports/hu200-feasibility-artifacts/archive-upload-acceptance.json",
+    "bytes": 2414034193,
+    "drive_id": "1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR",
+    "hash_limit": "Local ZIP/member hash validity relies on earlier recorded full readback and round4 manifest checks; no payload/hash sweep performed.",
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256_local_receipt": "33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60",
+    "model_and_dependency_pointers": "All 9 model member path/size/SHA256 and audit pointers agree between compact model index and RESULTS_INDEX. Source/runtime restoration pointers remain unchanged from clear round4; not read or hashed again.",
+    "name": "HU200-M1-feasibility-20261009.zip",
+    "owner_cleanup": "Originals remain per documented handoff; no review removal/offload/copy/upload.",
+    "parent_folder_id": "1kYRrnIdXkx3hm_2YcUZENTxh65KPTquh",
+    "payload_members_prior_local_readback": 447,
+    "remote_bytes_downloaded_in_round5": false,
+    "remote_bytes_verified_claimed": false,
+    "research_cloud_root_parent": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+    "whole_sha256_local_receipt": "643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574",
+    "zip_entries_including_manifest_prior_round4": 448
+  },
+  "base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+  "checkout": "/Users/dberweger/Local/deepcfr-hu200-slumbot",
+  "execution_source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "findings": [],
+  "limits": [
+    "No model/ZIP payload, header, archive manifest payload, model load/audit, full hash sweep, raw research trace or binary read.",
+    "No tests, scientific run, host guard/ownership acquisition, M4, paid compute, live HTTP, download/copy/archive/upload/status waiter or cleanup.",
+    "No commit, external comment, merge, release or nested delegation. Sole filesystem write is this ignored receipt.",
+    "Slumbot terminal/refund/disclosure/accounting/transport/service permission/rate/build identity/ambiguous POST handling remain separate reviewed work; 20-hand/1020-request/10s/30min protocol is proposed only.",
+    "No strength claim; future 200M quote and failed current disk admission unchanged. Cleanup deferred to owner."
+  ],
+  "new_owner_steering": {
+    "alignment": "Report, PR216 RESULTS_INDEX entry and ROADMAP now express conditional authorized merge; earlier round4 keep-unmerged/cloud-pending language is a preserved dated snapshot superseded by steering and accepted receipt.",
+    "interpretation": "Owner now authorizes parent to merge after required green exact-head checks and resolved independent review. Cleanup belongs to owner. Does not authorize additional compute, live play, release, deletion or upload waiting.",
+    "merge_quote": "You can merge the pr",
+    "upload_handoff_quote": "Your just need to place them to upload don\u2019t wait for that to happen I will finish the clean up"
+  },
+  "only_retained_review_write": "results/hu200-final-integration-review5.json",
+  "open_correctness_blockers": 0,
+  "original_brief": {
+    "branch_and_identity": "Separate feature branch from current main 6e18043317817080fd38f400c5366fbf18fc6b53; distinct correctly trained native/Python HU200 game identity, keys, train/recovery/export/audit/inference and mismatch rejection.",
+    "limits": "No M4, paid, 1B/10B, live-service or release authorization; final archival/index review originally ready but unmerged.",
+    "pilot": "Independent correctness review before a bounded M1-only 60-minute pilot including tools, archive and closeout; provisional 20M/100M endpoints; host ownership/resource guards; entries, visits, coverage and actual costs; optional smoke only if it fits.",
+    "preservation": "Released HU20/HU100 behavior retained; unchanged linear CFR, opponent-sampled average and v1 menu/cards. Fresh HU200 rather than HU100 relabel or resume."
+  },
+  "pr": {
+    "ci_limit": "One read-only snapshot during review; not final-green attestation. Parent owns required exact-head CI gate before merge.",
+    "ci_run_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37924921121",
+    "ci_snapshot": {
+      "GitGuardian Security Checks": "SUCCESS",
+      "full (0)": "IN_PROGRESS",
+      "full (1)": "IN_PROGRESS",
+      "scope": "SUCCESS"
+    },
+    "external_comments_written": false,
+    "linked_to_thread": true,
+    "merge_performed": false,
+    "number": 216,
+    "observed_base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+    "observed_head": "0eb311898cdf828836cc09d2b6644af6c22a2417",
+    "observed_merge_state": "UNSTABLE",
+    "observed_state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216"
+  },
+  "prior_findings_resolved_responses": [
+    {
+      "evidence": "Native exit 3 and soft/kernel receipts stop the endpoint loop. Required export/audit and archive remain; optional smoke is skipped. Existing controller fixture and coupled actual Guard/controller fixtures pass.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Training soft/time stop still permits smoke"
+    },
+    {
+      "evidence": "Archive can consume the 600-second reserve after the science failure latch, under the original baseline and deadline. Archive refusal/exception produce explicit closeout status. Focused regression fixtures pass.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Archive reserve/failure/exception handling"
+    },
+    {
+      "evidence": "Kernel peak >=4 GiB latches failed before command acceptance. Kernel hard regression passes; no further science permitted.",
+      "round": 1,
+      "status": "resolved",
+      "title": "Kernel hard RSS ignored"
+    },
+    {
+      "evidence": "Both sampled and kernel >=3 GiB soft peaks latch Guard.soft_stopped for every operation. Coupled actual Guard/controller mocks at snapshot/train/export/audit block new training and smoke and retain partial accounting. Mandatory preservation and archive still use original swap, pressure, AC, disk and deadline guards.",
+      "round": 2,
+      "status": "resolved",
+      "title": "Export/audit soft RSS allows subsequent science"
+    },
+    {
+      "evidence": "Exact source compares immutable event tuples directly. Unmodified smoke_worker completes all 320 hands with legal action validation, conservation, full action/event/settlement replay and deterministic policy action reproduction.",
+      "round": 2,
+      "status": "resolved",
+      "title": "Smoke canonical dataclass event comparison fails"
+    }
+  ],
+  "prior_review_evidence": {
+    "failed_attempt_disclosure": "Report and index disclose 4,100,128,768-byte /3.82GiB RSS, own PID terminated exit143, excluded validation, post-pilot scope. No completed header or model audit claim from this attempt.",
+    "prior_execution_only": "Round3 55 focused tests and synthetic 320-hand smoke; earlier Rust and Python qualification/parity; actual pilot full row audits and smoke replay; round4 54 small tests and independent arithmetic/archive-pointer checks. None repeated or claimed as round5 execution.",
+    "round1_source": "4a66618a81e537ddcccca373b3134c882afd5b78",
+    "round2_source": "c214237bc1ade63ec22ca736d900cb61488d53de",
+    "round3_source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+    "round3_status": "clear",
+    "round4_failed_attempt": {
+      "action": "Additional read-only nine-export header check",
+      "cause": "gzip readline on current export encountered its whole single-line JSON document and consumed substantial model data rather than a bounded header. Stopped own review Python PID 78048 with SIGTERM; process exit143.",
+      "completed_validation_claimed": false,
+      "detail": "No completed nine-header lineage validation, full model audit or new smoke claimed. This attempt was outside the intended small-read scope; retained here candidly.",
+      "observed_process_rss_bytes": 4100128768,
+      "source_or_evidence_files_changed": false,
+      "status": "terminated_and_excluded"
+    },
+    "round4_source": "ed2e877ef53b570d3f8fd17d87e18ef94a8c4411",
+    "round4_status": "clear"
+  },
+  "recommendation": "Clear for final integration correctness at exact HEAD 0eb311898cdf828836cc09d2b6644af6c22a2417. Accepted upload receipt resolves prior cloud-pending integration; no actionable new finding. Parent may perform newly owner-authorized merge only after required exact-head CI becomes green. Cleanup remains owner handoff.",
+  "remaining_parent_gate": [
+    "Required checks must finish green on exact reviewed HEAD before merge; if HEAD changes this verdict covers only the stated scope/source."
+  ],
+  "review_baseline": "ed2e877ef53b570d3f8fd17d87e18ef94a8c4411",
+  "reviewed_at_utc": "2026-10-09T11:42:07.969753+00:00",
+  "round": 5,
+  "scope": "Independent final integration review of the six compact Git-file metadata/report/receipt changes ed2e877..exact HEAD. No new core correctness execution or payload validation.",
+  "severity": "none",
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "source": "0eb311898cdf828836cc09d2b6644af6c22a2417",
+  "source_scope": {
+    "core_assurance": "Prior rounds 1-4 evidence retained for HU200 identity/key/recovery/export/audit/inference/mismatch, released compatibility, recipe, resource latches and smoke correctness. No new tests or model loads in round5.",
+    "delta_paths": [
+      "RESULTS_INDEX.md",
+      "ROADMAP.md",
+      "docs/reports/hu200-feasibility-artifacts/archive-upload-acceptance.json",
+      "docs/reports/hu200-feasibility-artifacts/evidence-review-4.json",
+      "docs/reports/hu200-feasibility-artifacts/model-index.json",
+      "docs/reports/hu200-feasibility.md"
+    ],
+    "executable_source_unchanged_since_round4": true,
+    "only_executable_delta_since_execution": "Native CLI usage string adds 200 to --stack-bb 20|100|200; reviewed diff confirms no behavior or scientific source change.",
+    "tracked_source_unchanged_by_review": true
+  },
+  "status": "clear",
+  "validation_performed": {
+    "compact_consistency": "Archive ID/name/byte counts/parent/native status fields, path/hash/manifest references, nine model table pointers, report/index linkage and failure disclosure checked from compact tracked JSON/text.",
+    "git_readonly": "Resolved exact full HEAD/baseline/execution source; checked clean tracked worktree, diff names/content and source-only CLI usage delta; git diff --check ed2e877..HEAD passed.",
+    "initial_check_note": "An initially wider all-ROADMAP local-link check hit unchanged pre-existing docs/artifacts/storage-vacuum-20261008.md missing at ed2e877 too. Scoped HU200 delta link check then passed; unrelated historical link does not constitute a new finding.",
+    "link_scope": "All local links in HU200 report, PR216 RESULTS_INDEX section and changed HU200 ROADMAP entry resolve. No external URL download or retrieval command executed.",
+    "payloads_read": false,
+    "small_json_read_only": true,
+    "tests_run": false
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "base": "6e18043317817080fd38f400c5366fbf18fc6b53",
+  "branch": "feature/hu200-slumbot-preparation",
+  "checkout": "/Users/dberweger/Local/deepcfr-hu200-slumbot",
+  "compact_receipts_read": [
+    "docs/reports/hu200-feasibility-artifacts/archive-receipt.json",
+    "docs/reports/hu200-feasibility-artifacts/baseline.json",
+    "docs/reports/hu200-feasibility-artifacts/closeout.json",
+    "docs/reports/hu200-feasibility-artifacts/costs.json",
+    "docs/reports/hu200-feasibility-artifacts/local-validation.json",
+    "docs/reports/hu200-feasibility-artifacts/model-index.json",
+    "docs/reports/hu200-feasibility-artifacts/next-budget.json",
+    "docs/reports/hu200-feasibility-artifacts/resources.json",
+    "docs/reports/hu200-feasibility-artifacts/science.json",
+    "docs/reports/hu200-feasibility-artifacts/smoke.json",
+    "docs/reports/hu200-feasibility-artifacts/source-review-1.json",
+    "docs/reports/hu200-feasibility-artifacts/source-review-2.json",
+    "docs/reports/hu200-feasibility-artifacts/source-review-3.json"
+  ],
+  "execution_source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "findings": [],
+  "limitations": [
+    "No full-project/Rust/1000-hand parity sweep rerun or source-to-binary rebuild attestation; prior results and exact-source pinned runtime remain evidence.",
+    "No training campaign, machine research lock acquisition, ownership reassignment, M4/paid/1B/10B execution, live Slumbot/service request, upload, copy/archive creation, extraction, cleanup, commit, external comment, release or merge.",
+    "No full member hash sweep, whole ZIP rehash or remote archive download; central-directory/manifest/pointer/stat checks are narrower than prior complete local readback.",
+    "Actual model full audits, actual policy smoke replay/reproduction and recorded host ownership are reviewed prior receipts; independently reproduced only named small tests, arithmetic, resource aggregation and retained-hand statistics.",
+    "Review header-read attempt was stopped after unintended substantial current-export read; see review_attempt_failure. No result from that attempt is accepted as validation."
+  ],
+  "numeric_clarifications": [
+    "447 hashed payload members plus ARCHIVE-MANIFEST.json make 448 ZIP entries; no missing member.",
+    "Strict disk admission >29,066,650,896 bytes means minimum integer 29,066,650,897; actual snapshot shortage is 871,384,337 bytes.",
+    "Next family forecast plus 1 GiB margin is 4,294,967,294 bytes, 2 bytes below 4 GiB; report correctly says approximately 4 GiB and a future pilot must retain initial >=4 GiB admission.",
+    "Pure native traversal rate excludes save/load; supervised stage durations and full tool/audit/serialization costs are separate. Serialization dominates end-to-end time.",
+    "Future 1020 requests x10s timeout =10200s exceeds the 1800s live cap; 600s load/closeout reserve leaves 1200s transport. These bounds do not promise 20 completed hands or measure network throughput; 115.982s is combined smoke/load/replay, not isolated load."
+  ],
+  "numeric_corrections": [],
+  "only_retained_review_write": "results/hu200-evidence-review-round4.json",
+  "open_blockers": [
+    {
+      "detail": "Native upload pending in the recorded snapshot; actual archive cloud ID and independent name/size/parent confirmation must be recorded by parent. Not an undisclosed defect or a cloud-accepted verdict. No new upload/status inspection performed by round4.",
+      "kind": "known_parent_handback_prerequisite",
+      "name": "Cloud acceptance integration"
+    },
+    {
+      "detail": "At the GitHub check snapshot, full (0) and full (1) were IN_PROGRESS; scope and GitGuardian SUCCESS. No final-green claim or merge approval.",
+      "kind": "parent_handback_prerequisite",
+      "name": "Exact-head CI"
+    }
+  ],
+  "open_correctness_blockers": 0,
+  "pr": {
+    "external_comments_written": false,
+    "head": "ed2e877ef53b570d3f8fd17d87e18ef94a8c4411",
+    "is_draft": true,
+    "link_confirmed_by_list_thread_pull_requests": true,
+    "linked_to_thread": true,
+    "merge_performed": false,
+    "number": 216,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/216"
+  },
+  "read_guidance": [
+    "AGENTS.md",
+    "ROADMAP.md",
+    "docs/rules.md",
+    "docs/artifact-storage.md",
+    "docs/development.md",
+    "docs/hu200-feasibility.md",
+    "docs/hu200-slumbot-readiness.md",
+    "docs/reports/hu200-feasibility.md",
+    "RESULTS_INDEX.md PR216 entry",
+    "docs/hu100-external-benchmark.md #213 lifecycle and budgets"
+  ],
+  "recommendation": "Clear for source/evidence correctness at exact HEAD; no new review defect. Parent must integrate confirmed cloud acceptance and finish exact-head CI before final ready-for-review handback. Keep PR unmerged; no follow-on compute/live/release/cleanup authorization.",
+  "review_attempt_failure": {
+    "action": "Additional read-only nine-export header check",
+    "cause": "gzip readline on current export encountered its whole single-line JSON document and consumed substantial model data rather than a bounded header. Stopped own review Python PID 78048 with SIGTERM; process exit143.",
+    "completed_validation_claimed": false,
+    "detail": "No completed nine-header lineage validation, full model audit or new smoke claimed. This attempt was outside the intended small-read scope; retained here candidly.",
+    "observed_process_rss_bytes": 4100128768,
+    "source_or_evidence_files_changed": false,
+    "status": "terminated_and_excluded"
+  },
+  "reviewed_at_utc": "2026-10-09T11:34:55.145299+00:00",
+  "round": 4,
+  "scope": "Independent final source delta, numerical/scope integrity, admission/resource evidence, restoration and storage-policy review; no dependent campaign.",
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "slumbot_remaining": "#213 prefix codec/connection does not complete terminal/fold/refund/all-in/tie/disclosure/net-winnings lifecycle, bounded HTTP transport, hidden-card-limited settlement verification, service permissions/rates/build identity or ambiguous mutating POST timeout handling. Separate owner-approved reviewed 20-hand protocol pilot proposed; larger multi-seed confirmation/acceptance remain owner decisions.",
+  "source": "ed2e877ef53b570d3f8fd17d87e18ef94a8c4411",
+  "source_review": {
+    "core": "Base-to-HEAD review found distinct HU200 native/Python game, format, schema, stack/menu identity and guarded fixed-depth inference; cross-game checkpoint/model/table rejection; fresh controller lineage; unchanged linear CFR/opponent-sampled/v1 menu recipe. HU20/HU100/released default registrations untouched.",
+    "post_clear_executable_delta": "Only native/hu20-trainer/src/main.rs CLI usage adds 200 to 20|100 stack list; no runtime behavior change. Established with git diff execution_source..HEAD excluding docs/index/roadmap.",
+    "prior_findings": "All five round1/2 findings resolved in exact current source. Guard latches sampled/kernel soft peaks for every operation; native3/soft stops block new training and smoke; kernel hard peak fails acceptance; archive can consume closeout reserve and errors/refusals leave explicit closeout; immutable event tuples compare directly.",
+    "qualification_order": "Round3 clear exact execution source precedes fresh pilot; prior core/parity/Rust and actual model audits are prior receipts, not round4 reproduction.",
+    "references": [
+      "scripts/run_hu200_feasibility.py:49",
+      "scripts/run_hu200_feasibility.py:58",
+      "scripts/run_hu200_feasibility.py:83",
+      "scripts/run_hu200_feasibility.py:138",
+      "scripts/run_hu200_feasibility.py:252",
+      "scripts/run_hu200_feasibility.py:297",
+      "scripts/run_hu200_feasibility.py:314"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "clear",
+  "validation": {
+    "actual_cap": {
+      "archive_readback_seconds": 8.602210916113108,
+      "basis": "Compared raw closeout and operation receipts; cap includes local archive/readback and excludes later administrative cloud/PR integration. Source/test/review preparation excluded by frozen protocol.",
+      "closeout_seconds": 1433.4273444998544,
+      "minutes": 23.89045574166424,
+      "within_3600": true
+    },
+    "admission_budget": {
+      "both_measured_pilot_admission_quotes_reproduced": true,
+      "disk_floor_bytes": 16642998272,
+      "entry_ceiling": 28374777,
+      "forecast_family_bytes": 3221225470,
+      "limitation": "Entry/node linear forecast is capped at soft memory capacity; endpoint is provisional and valid partial may stop first. The proposal is not run authorization.",
+      "minimum_available_bytes": 4294967294,
+      "minimum_disk_free_bytes": 29066650897,
+      "next_200M_quote_reproduced": true,
+      "optional_smoke_quoted": false,
+      "recorded_disk_admitted": false,
+      "recorded_disk_free_bytes": 28195266560,
+      "shortfall_bytes": 871384337,
+      "upper_seconds": 3298.8915704093097,
+      "working_archive_disk_reserve_bytes": 12423652624
+    },
+    "archive": {
+      "all_447_original_paths_sizes_mtime_ns_match_manifest": true,
+      "all_central_directory_names_and_sizes_match_manifest": true,
+      "all_nine_model_size_hash_pointers_match_manifest": true,
+      "blocked_review_rounds_1_2_and_clear_round3_preserved": true,
+      "both_source_runtime_size_hash_pointers_match_manifest": true,
+      "bytes": 2414034193,
+      "central_directory_entries_including_manifest": 448,
+      "cloud_accepted": false,
+      "full_member_hash_readback": "Existing local verified receipt only; not repeated in round4.",
+      "manifest_sha256_independently_verified": "33377337a080b66a4ecd4e276082782c855169f2f10cb38f0088772d655a1c60",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-216-HU200-Slumbot-feasibility/HU200-M1-feasibility-20261009.zip",
+      "payload_manifest_members": 447,
+      "postarchive_lifecycle_separate": true,
+      "qualification_members": 375,
+      "recorded_whole_sha256": "643e064ec7effd35b86251dd345d9292017d38c537f8bd90a5ca12c95df23574",
+      "remote_bytes_downloaded": false,
+      "restoration": "RESULTS_INDEX.md:1813-1851 supplies usable fresh ignored-path model restoration with archive/manifest/member SHA256 gates and disk floor. Nine exact model pointers plus source.tar/runtime dependency hashes match manifest; full repo is available at execution Git revision. Remote download locator finalization remains known cloud-pending parent work. No extraction/restoration executed.",
+      "whole_archive_rehashed_in_round4": false
+    },
+    "artifact_guard": {
+      "command": "python -m scripts.check_repository_artifacts --revision HEAD",
+      "status": "passed",
+      "tracked_files": 3003
+    },
+    "diff_check": {
+      "command": "git diff --check 6e18043317817080fd38f400c5366fbf18fc6b53 HEAD",
+      "status": "passed"
+    },
+    "endpoint_receipts": {
+      "all_three_audit_receipts_match": true,
+      "baseline_science_smoke_closeout_match_local": true,
+      "endpoints": [
+        [
+          1001231,
+          502315
+        ],
+        [
+          20002716,
+          6521284
+        ],
+        [
+          100000034,
+          20575288
+        ]
+      ],
+      "limitation": "Stored traverser visits, positive average mass and 529 actually played decisions are distinct; neither convergence nor broad history coverage follows.",
+      "positive_average_mass_terminal_keys": 13613304,
+      "scope": "Raw telemetry and saved audit JSON compared with compact science/model-index; full model audits not rerun.",
+      "stored_visit_histograms_sum_to_entries": true,
+      "terminal_stored_ten_plus_visit_keys": 216673,
+      "terminal_stored_zero_visit_keys": 10980042
+    },
+    "native_binary": {
+      "independently_hashed": true,
+      "rebuilt": false,
+      "sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+      "source_to_binary_attestation": false
+    },
+    "python": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider tests/test_hu200_feasibility.py tests/test_native_hu200.py tests/test_native_hu100_preparation.py tests/test_external_slumbot.py -k 'not actual_smoke_worker'",
+      "deselected": 1,
+      "executable": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "passed": 54,
+      "scope": "Small deterministic native/Python identity, parity, exact resume/export/audit fixtures; offline Slumbot fixtures; guard/controller mocks. Synthetic 320-hand smoke deselected; no actual pilot policy loaded by completed tests.",
+      "seconds": 4.23,
+      "skipped": 0
+    },
+    "resources": {
+      "all_samples_guard_compliant": true,
+      "limitation": "Sampled parent plus recursive-child RSS can miss brief peaks; kernel command peak has a different scope and cannot certify the exact maximum whole family. Source snapshot has one sample. Actual ownership/lock/AC/pressure are recorded prior run evidence, not reacquired/re-exercised.",
+      "maximum_command_kernel_peak_bytes": 2109702144,
+      "maximum_sampled_family_bytes": 1817280512,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_within_operation_gap_seconds": 0.5897231101989746,
+      "minimum_disk_free_bytes": 27056529408,
+      "operation_count": 12,
+      "samples": 2680,
+      "scope": "Independently reaggregated all 12 raw operation resources.jsonl files and compared local/compact receipts; not a new measured campaign."
+    },
+    "smoke_statistics": {
+      "all_five_means_and_95_block_intervals_reproduced": true,
+      "all_intervals_cross_zero": true,
+      "all_raw_final_stack_sums_40000": true,
+      "candidate_decisions": 529,
+      "known_visit_bands": {
+        "0": 2,
+        "1-9": 21,
+        "10+": 473
+      },
+      "limitation": "Replay/reproduction/legal-action claims rely on prior exact-source execution and receipts. These are offline pinned-engine checks, not live terminal verification or a strength gate.",
+      "missing": 33,
+      "opponents": [
+        {
+          "bb_per_100": 664.0625,
+          "coverage": {
+            "('flop', 'missing-key')": 5,
+            "('flop', 'positive-mass')": 15,
+            "('preflop', 'missing-key')": 15,
+            "('preflop', 'positive-mass')": 56,
+            "('river', 'positive-mass')": 2,
+            "('turn', 'positive-mass')": 4
+          },
+          "descriptive_95_interval": [
+            -1156.3010036209869,
+            2484.426003620987
+          ],
+          "hands": 64,
+          "known_visit_bands": {
+            "('flop', '10+')": 15,
+            "('preflop', '10+')": 56,
+            "('river', '10+')": 2,
+            "('turn', '10+')": 4
+          },
+          "opponent": "random"
+        },
+        {
+          "bb_per_100": 40.625,
+          "coverage": {
+            "('flop', 'positive-mass')": 54,
+            "('preflop', 'positive-mass')": 64,
+            "('river', 'positive-mass')": 54,
+            "('turn', 'missing-key')": 1,
+            "('turn', 'positive-mass')": 53
+          },
+          "descriptive_95_interval": [
+            -107.01605854579418,
+            188.26605854579418
+          ],
+          "hands": 64,
+          "known_visit_bands": {
+            "('flop', '1-9')": 1,
+            "('flop', '10+')": 53,
+            "('preflop', '10+')": 64,
+            "('river', '0')": 1,
+            "('river', '1-9')": 12,
+            "('river', '10+')": 41,
+            "('turn', '1-9')": 2,
+            "('turn', '10+')": 51
+          },
+          "opponent": "check_call"
+        },
+        {
+          "bb_per_100": 360.15625,
+          "coverage": {
+            "('flop', 'positive-mass')": 10,
+            "('preflop', 'positive-mass')": 33,
+            "('river', 'positive-mass')": 5,
+            "('turn', 'positive-mass')": 4
+          },
+          "descriptive_95_interval": [
+            -275.91926960517856,
+            996.2317696051786
+          ],
+          "hands": 64,
+          "known_visit_bands": {
+            "('flop', '10+')": 10,
+            "('preflop', '10+')": 33,
+            "('river', '0')": 1,
+            "('river', '1-9')": 2,
+            "('river', '10+')": 2,
+            "('turn', '1-9')": 1,
+            "('turn', '10+')": 3
+          },
+          "opponent": "tight_aggressive"
+        },
+        {
+          "bb_per_100": -499.21875,
+          "coverage": {
+            "('flop', 'positive-mass')": 25,
+            "('preflop', 'positive-mass')": 50,
+            "('river', 'positive-mass')": 12,
+            "('turn', 'positive-mass')": 9
+          },
+          "descriptive_95_interval": [
+            -1163.8669474886192,
+            165.4294474886193
+          ],
+          "hands": 64,
+          "known_visit_bands": {
+            "('flop', '10+')": 25,
+            "('preflop', '10+')": 50,
+            "('river', '1-9')": 3,
+            "('river', '10+')": 9,
+            "('turn', '10+')": 9
+          },
+          "opponent": "loose_aggressive"
+        },
+        {
+          "bb_per_100": -104.6875,
+          "coverage": {
+            "('flop', 'missing-key')": 6,
+            "('flop', 'positive-mass')": 5,
+            "('preflop', 'missing-key')": 5,
+            "('preflop', 'positive-mass')": 37,
+            "('river', 'positive-mass')": 2,
+            "('turn', 'missing-key')": 1,
+            "('turn', 'positive-mass')": 2
+          },
+          "descriptive_95_interval": [
+            -780.3362111819674,
+            570.9612111819674
+          ],
+          "hands": 64,
+          "known_visit_bands": {
+            "('flop', '10+')": 5,
+            "('preflop', '10+')": 37,
+            "('river', '10+')": 2,
+            "('turn', '10+')": 2
+          },
+          "opponent": "pot_pressure"
+        }
+      ],
+      "positive_mass_known": 496,
+      "schedule_complete": true,
+      "scope": "Independent statistical recomputation from 320 retained raw hand records; no new replay, policy load, reproduction or smoke."
+    }
+  }
+}

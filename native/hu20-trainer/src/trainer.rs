@@ -201,7 +201,7 @@ impl Trainer {
             "identity": crate::checkpoint::identity(self.game, self.cards.descriptor(), self.cards.tables()),
         });
         let mut header = header;
-        if recovery || self.game == Game::Hu100 {
+        if recovery || self.game != Game::Hu20 {
             header["native_state"] = json!({"version": 1, "completed_nodes": self.nodes,
                 "coverage_start": self.coverage_start, "decisions_by_street": self.decisions_by_street, "traverser_visits_by_street": self.traverser_visits_by_street});
         }

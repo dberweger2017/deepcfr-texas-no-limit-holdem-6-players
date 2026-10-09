@@ -1,6 +1,6 @@
 """Official Slumbot wire codec: 200BB, street-local bet-to, public-only parsing.
 
-This boundary deliberately cannot admit the repository's fixed HU100 policy.
+Admission requires a matching HU200 identity and rejects fixed HU100 policies.
 Terminal winnings are evaluator data; terminal responses never become policy inputs.
 """
 

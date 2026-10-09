@@ -1,0 +1,27 @@
+{
+  "binary_sha256": "c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878",
+  "closeout_reserve": 600,
+  "endpoints": [
+    1000000,
+    20000000,
+    100000000
+  ],
+  "hard_family_bytes": 4294967296,
+  "hard_seconds": 3600,
+  "host": {
+    "ac": true,
+    "at": 1791543368.386518,
+    "available_bytes": 6267584512,
+    "disk_free_bytes": 34326618112,
+    "free_percent": 72,
+    "pressure": 1,
+    "swap_bytes": 1597180477
+  },
+  "lock": "/tmp/deepcfr-m1-research.lock",
+  "ownership_inventory": [],
+  "review_sha256": "d8572f590bc2703162f4415777b383ed7185aa0364cd59df7950b94cb2f70264",
+  "seed": 2026100905,
+  "soft_family_bytes": 3221225472,
+  "source": "02e4ddebf37674d2fa32cb494d440347fd5b59a9",
+  "started": 1791543368.3989918
+}
