@@ -1,0 +1,39 @@
+{
+  "absolute_swap_ceiling_bytes": 3000000000,
+  "at": 1791523229.7657049,
+  "baseline_sha256": "99e134a762d747ea46741f67782d9a9e6b3eaa12c13c5adfb6e8183053bd099b",
+  "destination": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+  "effective_swap_growth_limit_bytes": 2409064509.44,
+  "failure_sha256": "1392c138c395c1c99ecb7f6673e6c8ab61ad4ad17592ada18d9375083b9f38ec",
+  "later_receipts": "Current archive lifecycle/upload/evidence review compact in Git, without another metadata seal",
+  "limits": "All RSS, pressure, free-memory, disk and AC guards unchanged. Original failure latch retained; no scientific rerun.",
+  "local_archive_expected_seconds": 208.62379648620382,
+  "measured_partial_hash_bytes_per_second": 2599989208.508767,
+  "measured_partial_hash_seconds": 1.290259708010126,
+  "owner_instruction": "You can use up 3 gb swap. You can try again",
+  "preserved_partial": {
+    "bytes": 3354661317,
+    "mtime_ns": 1791496020383366210,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip",
+    "sha256": "92fba1a9ab9ab720fc667850d4570a2f427f2c602dc5e2c0deac78a5ed589004",
+    "status": "unaccepted original partial, retained unchanged"
+  },
+  "scientific_complete_sha256": "f075be45c397fc9c8ea06b8fc65d32bdad62ed8b10fe358d93b2fad65643ae8c",
+  "scope": "archive-only",
+  "source_before_retry_fix": "f0ff3c1ffc4f0002a0c7ab22751d212aa76cdda3",
+  "storage": {
+    "floor_bytes": 16642998272,
+    "headroom_after_worst_case_above_floor_bytes": 8031894166,
+    "host": {
+      "ac": true,
+      "disk_free_bytes": 46349017088,
+      "free_percent": 85,
+      "pressure_level": 1,
+      "swap_bytes": 1141836349.44,
+      "system_used_bytes": 8516714496
+    },
+    "worst_case_additional_bytes": 21674124650
+  },
+  "swap_growth_bytes": 3221225472,
+  "swap_interpretation": "Up to 3 GB total swap, enforced more strictly than 3 GiB growth from the unchanged baseline"
+}

@@ -1,0 +1,906 @@
+{
+  "lbr": {
+    "aggregate": {
+      "interval": [
+        30.432537482836935,
+        48.262123975496394
+      ],
+      "mean": 39.347330729166664,
+      "n": 2048,
+      "se": 4.545758068885139,
+      "t": 8.655834765710864,
+      "two_sided_p": 9.727929662801147e-18
+    },
+    "lineages": {
+      "2026093001": {
+        "interval": [
+          33.259625041123925,
+          61.857562458876075
+        ],
+        "mean": 47.55859375,
+        "n": 2048,
+        "se": 7.2912125485209955,
+        "t": 6.5227276579184545,
+        "two_sided_p": 8.674127020817909e-11
+      },
+      "2026093002": {
+        "interval": [
+          18.435916513928973,
+          44.50353661107103
+        ],
+        "mean": 31.4697265625,
+        "n": 2048,
+        "se": 6.6460932474234236,
+        "t": 4.735071475968272,
+        "two_sided_p": 2.339898541110153e-06
+      },
+      "2026093003": {
+        "interval": [
+          25.482444764384773,
+          52.54489898561523
+        ],
+        "mean": 39.013671875,
+        "n": 2048,
+        "se": 6.899732065611325,
+        "t": 5.654374909635472,
+        "two_sided_p": 1.783446611703194e-08
+      }
+    },
+    "partitions": {
+      "action": [
+        {
+          "contribution_bb_per_100": 2.693684895833333,
+          "delta_bb": 331.0,
+          "hands": 85,
+          "label": "call"
+        },
+        {
+          "contribution_bb_per_100": 4.1015625,
+          "delta_bb": 504.0,
+          "hands": 253,
+          "label": "check"
+        },
+        {
+          "contribution_bb_per_100": 1.9612630208333333,
+          "delta_bb": 241.0,
+          "hands": 64,
+          "label": "fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 18.929036458333336,
+          "delta_bb": 2326.0,
+          "hands": 915,
+          "label": "raise"
+        },
+        {
+          "contribution_bb_per_100": 2.1728515625,
+          "delta_bb": 267.0,
+          "hands": 87,
+          "label": "rival-call"
+        },
+        {
+          "contribution_bb_per_100": 7.2021484375,
+          "delta_bb": 885.0,
+          "hands": 349,
+          "label": "rival-check"
+        },
+        {
+          "contribution_bb_per_100": -1.4892578125,
+          "delta_bb": -183.0,
+          "hands": 38,
+          "label": "rival-fold"
+        },
+        {
+          "contribution_bb_per_100": 3.7760416666666665,
+          "delta_bb": 464.0,
+          "hands": 446,
+          "label": "rival-raise"
+        }
+      ],
+      "change": [
+        {
+          "contribution_bb_per_100": 1.5380859375,
+          "delta_bb": 189.0,
+          "hands": 49,
+          "label": "call-to-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.4638671875,
+          "delta_bb": -57.0,
+          "hands": 32,
+          "label": "call-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 8.186848958333332,
+          "delta_bb": 1006.0,
+          "hands": 348,
+          "label": "check-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 1.0660807291666665,
+          "delta_bb": 131.0,
+          "hands": 42,
+          "label": "fold-to-call"
+        },
+        {
+          "contribution_bb_per_100": 0.8138020833333334,
+          "delta_bb": 100.0,
+          "hands": 7,
+          "label": "fold-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 8.015950520833332,
+          "delta_bb": 985.0,
+          "hands": 354,
+          "label": "larger-raise"
+        },
+        {
+          "contribution_bb_per_100": 1.6276041666666667,
+          "delta_bb": 200.0,
+          "hands": 43,
+          "label": "raise-to-call"
+        },
+        {
+          "contribution_bb_per_100": 4.1015625,
+          "delta_bb": 504.0,
+          "hands": 253,
+          "label": "raise-to-check"
+        },
+        {
+          "contribution_bb_per_100": 0.4231770833333333,
+          "delta_bb": 52.0,
+          "hands": 15,
+          "label": "raise-to-fold"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        },
+        {
+          "contribution_bb_per_100": 2.376302083333333,
+          "delta_bb": 292.0,
+          "hands": 174,
+          "label": "smaller-raise"
+        }
+      ],
+      "choice": [
+        {
+          "contribution_bb_per_100": 2.693684895833333,
+          "delta_bb": 331.0,
+          "hands": 85,
+          "label": "call"
+        },
+        {
+          "contribution_bb_per_100": 4.1015625,
+          "delta_bb": 504.0,
+          "hands": 253,
+          "label": "check"
+        },
+        {
+          "contribution_bb_per_100": 1.9612630208333333,
+          "delta_bb": 241.0,
+          "hands": 64,
+          "label": "fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 10.9619140625,
+          "delta_bb": 1347.0,
+          "hands": 377,
+          "label": "jam"
+        },
+        {
+          "contribution_bb_per_100": 5.021158854166666,
+          "delta_bb": 617.0,
+          "hands": 322,
+          "label": "min"
+        },
+        {
+          "contribution_bb_per_100": 2.945963541666667,
+          "delta_bb": 362.0,
+          "hands": 216,
+          "label": "pot"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        }
+      ],
+      "mechanism": [
+        {
+          "contribution_bb_per_100": 1.0823567708333335,
+          "delta_bb": 133.0,
+          "hands": 10,
+          "label": "call-large-base-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.016276041666666664,
+          "delta_bb": -2.0,
+          "hands": 32,
+          "label": "call-small-base-fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 7.6904296875,
+          "delta_bb": 945.0,
+          "hands": 360,
+          "label": "other"
+        },
+        {
+          "contribution_bb_per_100": 1.3916015625,
+          "delta_bb": 171.0,
+          "hands": 82,
+          "label": "raise-after-rival-raise"
+        },
+        {
+          "contribution_bb_per_100": 17.537434895833336,
+          "delta_bb": 2155.0,
+          "hands": 833,
+          "label": "raise-no-rival-raise"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        }
+      ],
+      "pot": [
+        {
+          "contribution_bb_per_100": 11.002604166666668,
+          "delta_bb": 1352.0,
+          "hands": 280,
+          "label": "2000+"
+        },
+        {
+          "contribution_bb_per_100": 14.200846354166666,
+          "delta_bb": 1745.0,
+          "hands": 830,
+          "label": "800-1999"
+        },
+        {
+          "contribution_bb_per_100": 2.482096354166667,
+          "delta_bb": 305.0,
+          "hands": 207,
+          "label": "<800"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        }
+      ],
+      "price": [
+        {
+          "contribution_bb_per_100": 21.638997395833336,
+          "delta_bb": 2659.0,
+          "hands": 1086,
+          "label": "0"
+        },
+        {
+          "contribution_bb_per_100": 3.7190755208333335,
+          "delta_bb": 457.0,
+          "hands": 166,
+          "label": "1-200"
+        },
+        {
+          "contribution_bb_per_100": -0.6266276041666667,
+          "delta_bb": -77.0,
+          "hands": 27,
+          "label": "201-799"
+        },
+        {
+          "contribution_bb_per_100": 2.9541015625,
+          "delta_bb": 363.0,
+          "hands": 38,
+          "label": "800+"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        }
+      ],
+      "raise_price": [
+        {
+          "contribution_bb_per_100": 6.2744140625,
+          "delta_bb": 771.0,
+          "hands": 377,
+          "label": "1-200"
+        },
+        {
+          "contribution_bb_per_100": 3.90625,
+          "delta_bb": 480.0,
+          "hands": 139,
+          "label": "201-799"
+        },
+        {
+          "contribution_bb_per_100": 8.748372395833332,
+          "delta_bb": 1075.0,
+          "hands": 399,
+          "label": "800+"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 8.756510416666668,
+          "delta_bb": 1076.0,
+          "hands": 402,
+          "label": "not-a-raise"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        }
+      ],
+      "response": [
+        {
+          "contribution_bb_per_100": 0.008138020833333332,
+          "delta_bb": 1.0,
+          "hands": 6,
+          "label": "board_only-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.06510416666666666,
+          "delta_bb": -8.0,
+          "hands": 1,
+          "label": "board_only-raise"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 4.5166015625,
+          "delta_bb": 555.0,
+          "hands": 201,
+          "label": "medium-call"
+        },
+        {
+          "contribution_bb_per_100": 1.3020833333333335,
+          "delta_bb": 160.0,
+          "hands": 41,
+          "label": "medium-fold"
+        },
+        {
+          "contribution_bb_per_100": 1.2044270833333335,
+          "delta_bb": 148.0,
+          "hands": 31,
+          "label": "medium-raise"
+        },
+        {
+          "contribution_bb_per_100": 8.756510416666668,
+          "delta_bb": 1076.0,
+          "hands": 402,
+          "label": "not-a-raise"
+        },
+        {
+          "contribution_bb_per_100": 11.661783854166668,
+          "delta_bb": 1433.0,
+          "hands": 920,
+          "label": "rival-first"
+        },
+        {
+          "contribution_bb_per_100": -0.0244140625,
+          "delta_bb": -3.0,
+          "hands": 68,
+          "label": "strong-call"
+        },
+        {
+          "contribution_bb_per_100": 0.8219401041666666,
+          "delta_bb": 101.0,
+          "hands": 13,
+          "label": "strong-fold"
+        },
+        {
+          "contribution_bb_per_100": 0.4150390625,
+          "delta_bb": 51.0,
+          "hands": 29,
+          "label": "strong-raise"
+        },
+        {
+          "contribution_bb_per_100": 4.850260416666666,
+          "delta_bb": 596.0,
+          "hands": 231,
+          "label": "weak-call"
+        },
+        {
+          "contribution_bb_per_100": 4.435221354166666,
+          "delta_bb": 545.0,
+          "hands": 229,
+          "label": "weak-fold"
+        },
+        {
+          "contribution_bb_per_100": 1.46484375,
+          "delta_bb": 180.0,
+          "hands": 65,
+          "label": "weak-raise"
+        }
+      ],
+      "street": [
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 10051,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 4.842122395833334,
+          "delta_bb": 595.0,
+          "hands": 295,
+          "label": "river"
+        },
+        {
+          "contribution_bb_per_100": 34.50520833333333,
+          "delta_bb": 4240.0,
+          "hands": 1942,
+          "label": "turn"
+        }
+      ]
+    }
+  },
+  "native-pressure": {
+    "aggregate": {
+      "interval": [
+        14.476046505015022,
+        37.167833703318315
+      ],
+      "mean": 25.821940104166668,
+      "n": 2048,
+      "se": 5.785404770692786,
+      "t": 4.463290146088528,
+      "two_sided_p": 8.50960586899729e-06
+    },
+    "lineages": {
+      "2026093001": {
+        "interval": [
+          15.783740852471002,
+          49.841259147529
+        ],
+        "mean": 32.8125,
+        "n": 2048,
+        "se": 8.68316484286959,
+        "t": 3.7788641116199524,
+        "two_sided_p": 0.0001620493468018656
+      },
+      "2026093002": {
+        "interval": [
+          17.38357540095319,
+          50.43869022404681
+        ],
+        "mean": 33.9111328125,
+        "n": 2048,
+        "se": 8.427596174867302,
+        "t": 4.023820328936673,
+        "two_sided_p": 5.934321100372197e-05
+      },
+      "2026093003": {
+        "interval": [
+          -6.135693730411166,
+          27.620068730411166
+        ],
+        "mean": 10.7421875,
+        "n": 2048,
+        "se": 8.606230415990163,
+        "t": 1.2481872992897427,
+        "two_sided_p": 0.2121052225326871
+      }
+    },
+    "partitions": {
+      "action": [
+        {
+          "contribution_bb_per_100": 13.484700520833334,
+          "delta_bb": 1657.0,
+          "hands": 927,
+          "label": "call"
+        },
+        {
+          "contribution_bb_per_100": 1.4078776041666665,
+          "delta_bb": 173.0,
+          "hands": 519,
+          "label": "check"
+        },
+        {
+          "contribution_bb_per_100": 0.6754557291666667,
+          "delta_bb": 83.0,
+          "hands": 353,
+          "label": "fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 10.25390625,
+          "delta_bb": 1260.0,
+          "hands": 1277,
+          "label": "raise"
+        }
+      ],
+      "change": [
+        {
+          "contribution_bb_per_100": -0.8463541666666666,
+          "delta_bb": -104.0,
+          "hands": 224,
+          "label": "call-to-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.7486979166666667,
+          "delta_bb": -92.0,
+          "hands": 392,
+          "label": "call-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 4.093424479166666,
+          "delta_bb": 503.0,
+          "hands": 182,
+          "label": "check-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 7.267252604166667,
+          "delta_bb": 893.0,
+          "hands": 173,
+          "label": "fold-to-call"
+        },
+        {
+          "contribution_bb_per_100": 1.123046875,
+          "delta_bb": 138.0,
+          "hands": 27,
+          "label": "fold-to-raise"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 3.125,
+          "delta_bb": 384.0,
+          "hands": 347,
+          "label": "larger-raise"
+        },
+        {
+          "contribution_bb_per_100": 6.217447916666666,
+          "delta_bb": 764.0,
+          "hands": 754,
+          "label": "raise-to-call"
+        },
+        {
+          "contribution_bb_per_100": 1.4078776041666665,
+          "delta_bb": 173.0,
+          "hands": 519,
+          "label": "raise-to-check"
+        },
+        {
+          "contribution_bb_per_100": 1.5218098958333335,
+          "delta_bb": 187.0,
+          "hands": 129,
+          "label": "raise-to-fold"
+        },
+        {
+          "contribution_bb_per_100": 2.6611328125,
+          "delta_bb": 327.0,
+          "hands": 329,
+          "label": "smaller-raise"
+        }
+      ],
+      "choice": [
+        {
+          "contribution_bb_per_100": 13.484700520833334,
+          "delta_bb": 1657.0,
+          "hands": 927,
+          "label": "call"
+        },
+        {
+          "contribution_bb_per_100": 1.4078776041666665,
+          "delta_bb": 173.0,
+          "hands": 519,
+          "label": "check"
+        },
+        {
+          "contribution_bb_per_100": 0.6754557291666667,
+          "delta_bb": 83.0,
+          "hands": 353,
+          "label": "fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 8.577473958333332,
+          "delta_bb": 1054.0,
+          "hands": 357,
+          "label": "jam"
+        },
+        {
+          "contribution_bb_per_100": 2.685546875,
+          "delta_bb": 330.0,
+          "hands": 579,
+          "label": "min"
+        },
+        {
+          "contribution_bb_per_100": -1.0091145833333335,
+          "delta_bb": -124.0,
+          "hands": 341,
+          "label": "pot"
+        }
+      ],
+      "mechanism": [
+        {
+          "contribution_bb_per_100": 0.26041666666666663,
+          "delta_bb": 32.0,
+          "hands": 1,
+          "label": "call-large-base-fold"
+        },
+        {
+          "contribution_bb_per_100": 7.0068359375,
+          "delta_bb": 861.0,
+          "hands": 172,
+          "label": "call-small-base-fold"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 8.30078125,
+          "delta_bb": 1020.0,
+          "hands": 1626,
+          "label": "other"
+        },
+        {
+          "contribution_bb_per_100": 5.069986979166666,
+          "delta_bb": 623.0,
+          "hands": 892,
+          "label": "raise-after-rival-raise"
+        },
+        {
+          "contribution_bb_per_100": 5.183919270833334,
+          "delta_bb": 637.0,
+          "hands": 385,
+          "label": "raise-no-rival-raise"
+        }
+      ],
+      "pot": [
+        {
+          "contribution_bb_per_100": 6.868489583333333,
+          "delta_bb": 844.0,
+          "hands": 317,
+          "label": "2000+"
+        },
+        {
+          "contribution_bb_per_100": 18.424479166666664,
+          "delta_bb": 2264.0,
+          "hands": 2114,
+          "label": "800-1999"
+        },
+        {
+          "contribution_bb_per_100": 0.5289713541666667,
+          "delta_bb": 65.0,
+          "hands": 645,
+          "label": "<800"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        }
+      ],
+      "price": [
+        {
+          "contribution_bb_per_100": 6.591796875,
+          "delta_bb": 810.0,
+          "hands": 904,
+          "label": "0"
+        },
+        {
+          "contribution_bb_per_100": 19.051106770833336,
+          "delta_bb": 2341.0,
+          "hands": 2168,
+          "label": "1-200"
+        },
+        {
+          "contribution_bb_per_100": -0.146484375,
+          "delta_bb": -18.0,
+          "hands": 2,
+          "label": "201-799"
+        },
+        {
+          "contribution_bb_per_100": 0.32552083333333337,
+          "delta_bb": 40.0,
+          "hands": 2,
+          "label": "800+"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        }
+      ],
+      "raise_price": [
+        {
+          "contribution_bb_per_100": 3.9225260416666665,
+          "delta_bb": 482.0,
+          "hands": 587,
+          "label": "1-200"
+        },
+        {
+          "contribution_bb_per_100": 4.052734375,
+          "delta_bb": 498.0,
+          "hands": 104,
+          "label": "201-799"
+        },
+        {
+          "contribution_bb_per_100": 2.278645833333333,
+          "delta_bb": 280.0,
+          "hands": 586,
+          "label": "800+"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 15.568033854166666,
+          "delta_bb": 1913.0,
+          "hands": 1799,
+          "label": "not-a-raise"
+        }
+      ],
+      "response": [
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 5,
+          "label": "board_only-call"
+        },
+        {
+          "contribution_bb_per_100": -0.03255208333333333,
+          "delta_bb": -4.0,
+          "hands": 2,
+          "label": "board_only-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.27669270833333337,
+          "delta_bb": -34.0,
+          "hands": 4,
+          "label": "board_only-raise"
+        },
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 1.5299479166666665,
+          "delta_bb": 188.0,
+          "hands": 98,
+          "label": "medium-call"
+        },
+        {
+          "contribution_bb_per_100": 2.058919270833333,
+          "delta_bb": 253.0,
+          "hands": 289,
+          "label": "medium-raise"
+        },
+        {
+          "contribution_bb_per_100": 15.568033854166666,
+          "delta_bb": 1913.0,
+          "hands": 1799,
+          "label": "not-a-raise"
+        },
+        {
+          "contribution_bb_per_100": -0.9358723958333334,
+          "delta_bb": -115.0,
+          "hands": 76,
+          "label": "strong-call"
+        },
+        {
+          "contribution_bb_per_100": 0.2685546875,
+          "delta_bb": 33.0,
+          "hands": 219,
+          "label": "strong-raise"
+        },
+        {
+          "contribution_bb_per_100": 4.337565104166666,
+          "delta_bb": 533.0,
+          "hands": 56,
+          "label": "weak-call"
+        },
+        {
+          "contribution_bb_per_100": 3.6783854166666665,
+          "delta_bb": 452.0,
+          "hands": 120,
+          "label": "weak-fold"
+        },
+        {
+          "contribution_bb_per_100": -0.37434895833333337,
+          "delta_bb": -46.0,
+          "hands": 408,
+          "label": "weak-raise"
+        }
+      ],
+      "street": [
+        {
+          "contribution_bb_per_100": 0.0,
+          "delta_bb": 0.0,
+          "hands": 9212,
+          "label": "identical"
+        },
+        {
+          "contribution_bb_per_100": 1.9368489583333333,
+          "delta_bb": 238.0,
+          "hands": 686,
+          "label": "river"
+        },
+        {
+          "contribution_bb_per_100": 23.885091145833336,
+          "delta_bb": 2935.0,
+          "hands": 2390,
+          "label": "turn"
+        }
+      ]
+    }
+  }
+}

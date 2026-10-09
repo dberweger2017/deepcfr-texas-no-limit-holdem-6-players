@@ -1,0 +1,13 @@
+{
+  "blocks_per_opponent": 2048,
+  "execution_budget_seconds": 8703,
+  "final_root": 2026100810012,
+  "parent_actual_nodes": 39438279,
+  "pilot_outcomes_inspected": false,
+  "pilot_root": 2026100810011,
+  "primary_family_size": 2,
+  "schedule_sha256": "c20877b2ef46ff49b52055931bbb5d225472985c63a175a2464d497faed369cf",
+  "secondary_family": "terminal translation pot_pressure only",
+  "settings_sha256": "1f516db760594225ba646d1d027f8d9c6fa163227b3931b257319aba16eca0e0",
+  "source": "bd0e7a417064f736091dc2b667954b50becb4b69"
+}

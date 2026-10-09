@@ -1,0 +1,34 @@
+{
+  "active_campaign_processes": "",
+  "archive_integrity": "unverified incomplete ZIP; no final manifest or acceptance",
+  "cleanup_error": "PermissionError: Operation not permitted from terminate_child SIGKILL, recorded in qualification/archive-launch.log",
+  "failure": {
+    "at": 1791496020.3822238,
+    "failure": "RuntimeError('Guard breach: swap growth')",
+    "operation": "archive"
+  },
+  "host": {
+    "ac": true,
+    "disk_free_bytes": 48743759872,
+    "free_percent": 87,
+    "pressure_level": 1,
+    "swap_bytes": 1452214845.44,
+    "system_used_bytes": 7420641280
+  },
+  "issue_comment_id": 6069695396,
+  "normal_archive_receipt_finalized": false,
+  "originals_retained": true,
+  "partial_archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip",
+  "partial_bytes": 3354661317,
+  "pgrep_returncode": 1,
+  "scientific_stage": {
+    "all_final_hands_replayed_and_reproduced": true,
+    "deadline": 1791502599.439832,
+    "finished": 1791495785.4069362,
+    "source": "bd0e7a417064f736091dc2b667954b50becb4b69",
+    "started": 1791493896.439832,
+    "status": "verified"
+  },
+  "status": "stopped-unaccepted-partial",
+  "synced_partial_untouched": true
+}

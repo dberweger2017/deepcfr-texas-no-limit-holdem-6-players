@@ -1,3 +1,41 @@
+## Storage vacuum — October 9, 2026
+
+Owner-requested cleanup removed **392 M4 paths /6.014 GB logical** and **41 M1 paths /1.098 GB logical**, after fresh merged-PR/upload acceptance and dependency checks. Measured removal-batch free gains **6.035 GB M4 /1.086 GB M1**; immediate free space **31.619 GB /35.481 GB**. Removed archived #197/#200/#203/#204 inactive pilot/per-panel copies and raw final/reproduction traces on M4; archived #165 inactive pilot/arena copies and #208 closeout staging/duplicate ZIP on M1. Canonical recovery/model inputs, shared Git, open #210–#213 roots/dependencies and **entire #207 root** remain protected.
+
+[Cleanup/restoration guide](docs/artifacts/storage-vacuum-20261009.md) · [compact measurements](docs/artifacts/storage-vacuum-20261009.json) · [full exact-path/member/hash restoration receipt](https://drive.google.com/file/d/1KJU6cRbeHcuBv6asxGcMxZIQv79znWcx/view?usp=drivesdk). Current native uploaded/no-pending/no-conflicts/exact-size and independent cloud ID/name/size/parent agree for all eight canonical archives. Existing manifests, recorded sizes/stat/modification history and provenance were used without archive downloads or repeated payload hash audits. Receipt upload/metadata readback accepted. Historical retention notes are superseded only for these exact paths; no synced deletion/offloading, process interruption or unattended cleanup.
+
+## PR208 HU20 turn-search stackoff diagnosis — October 8, 2026
+
+[PR208](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208) · [report](docs/reports/hu20-search-stackoff-diagnosis.md). Final recorded-hand diagnosis on M1; scientific implementation/review `84b1048de1c68678451235859e4027877b771d55`, fresh main base `9da625f`, later #209 metadata integrated. All 3,072 selective hands /9,552 decisions replay exactly; nine original-request-matched offline solves reproduce recorded probabilities with error 0.0. Joint −10.35 BB/100, 13-panel adjusted interval [−22.99,+2.29]: plausible regression, not established. No large opposing late bets occur. Re-solves expose mis-modeled value callers and future folds, alongside heterogeneous missed-value/runout contributions. No new arena/sweep/training/default/native-trainer change or M4 use. One independent review clears all scientific calculations; ten focused tests pass. Fresh unchanged-search 1,024-block confirmation is [quoted on PR](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208#issuecomment-6068694013) at 8–12 M1 hours, hard 12-hour cap, awaiting owner chat go; not run or scheduled.
+
+Accepted [Research-Cloud folder](https://drive.google.com/drive/folders/11xBCanng_d4J8Bx5f3gNKyU2nnB6pCZP), parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, native `~/Local/Research-Cloud/PR-208-hu20-search-stackoff/`. Primary [hu20-search-stackoff-diagnosis-M1-20261008.zip](https://drive.google.com/file/d/1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg/view): **38,472,050 bytes /224 member files**, SHA256 `1e98fd14cf6d5a62b05292f820b9ef2bc4b82d74b345f8da535d0cacf3c6aa71`; embedded `RESEARCH_MEMBER_HASHES.json` SHA256 `4f66b64cc0670e4cb86c17bbbc446976239eafee1671dd5275b1751defc6ea16`. Every local member and whole ZIP/native copy verifies. Current native uploaded=1/uploading=0/conflicts=0 and independent cloud ID/name/size/parent agree. **Remote derived-archive bytes were not separately downloaded.** [Archive receipt](docs/reports/hu20-search-stackoff-diagnosis/archive-receipt.json) · [separate native/cloud acceptance](docs/reports/hu20-search-stackoff-diagnosis/archive-acceptance.json).
+
+Accepted late [hu20-search-stackoff-closeout-M1-20261008.zip](https://drive.google.com/file/d/1uFiVmE1rjIQ46YpzH6bJLKWV-xcd9DmU/view), **157,012 bytes /34 payload members**, SHA256 `ef4b3685a46a89222d57fca8c36c773b58dd829f42dd74c2494767957374fd02`; embedded `RESEARCH_MEMBER_HASHES.json` SHA256 `8e6f7e3daabc6dae63b00eb8501b68ddfc5d98a0dc3048ec192e952d7d24c31d`. Same native folder; all local members/whole ZIP/native copy verify, native uploaded=1/uploading=0/conflicts=0 and independent cloud ID/name/size/parent agree, no remote bytes downloaded. [Receipt](docs/reports/hu20-search-stackoff-diagnosis/metadata-archive-receipt.json) · [acceptance](docs/reports/hu20-search-stackoff-diagnosis/metadata-archive-acceptance.json). Preserves completed main archive/copy guards and late setup failures, primary acceptance, exact-path cleanup, compact provenance/review/report/index snapshots and operational helpers. Restore by its pinned ID/hash with the same member procedure. Own metadata creation/copy guards and self-indexing acceptance remain local/checked-in closeout receipts; no science is rerun or archive rebuilt.
+
+Primary members include `analysis/{selective-hands,contrasts,summary,lbr-scope,native-pressure-scope}.json`, `offline/range-rows/`, all nine local `offline/solves/<id>/{request.json,profile.jsonl,response.jsonl,receipt.json,manifest.json}`, selected frozen `offline/requests/`, provenance, source/tests/report snapshots, independent review and all scientific failures/guard logs. No bulky original compressed arena traces, model files or nested original tarballs are duplicated. Archive/report snapshots precede final self-indexing acceptance/cleanup and final-head CI; the checked-in receipts and live PR state are authoritative.
+
+Restore primary outputs: download the pinned Drive file to a fresh ignored directory, verify `shasum -a 256 <zip>` against the hash above, then extract named members with `python -m zipfile -e <zip> <fresh-results-path>` and verify sizes/SHA256 against the embedded manifest. To re-run the scientific analysis, restore the original [PR166 ZIP](https://drive.google.com/file/d/1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ/view), 5,645,638,363 bytes /SHA256 `cac0d2a766a8d0276820662112b68bb12ffe3688b8597faa0f63d43a829b3a0e`, from folder `1iVCttvjpYo8X4jD9C3tcflLyT_Y9QBqO`. It was hydrated locally and whole-ZIP verified before any member extraction. Its native uploaded/no-pending/no-conflicts status and independent cloud metadata were freshly rechecked at closeout; no second remote payload download was used for acceptance. [Exact input/request/model provenance](docs/reports/hu20-search-stackoff-diagnosis/input-provenance.json) lists all 43 selected top-level members and nine nested original requests with bytes/hashes. Run `python -m scripts.run_hu20_search_stackoff_diagnosis restore --root results/<fresh-name> --archive <original-zip>`, then `analyze`, `retrieve` (same archive), `resolve` (pinned external binary) and `tests` with the same root. The wrapper applies nice-15, M1-only, ignored/non-synced root, 4 GiB family/pressure/reserve/swap/disk guards; AC is required unless the owner explicitly supplies the documented waiver.
+
+All models come from original ZIP member `fixed-work-bundle.tar.gz` (**563,547,890 bytes**, SHA256 `ef03a73ae1ae7d6632821e2a06436962127bb77a1a883df877d98611f929a02b`), nested members below. `retrieve` verifies the outer member; `resolve` materializes only inference files and verifies their pinned hashes. No checkpoint is needed.
+
+| Seed | Nested member | Bytes | SHA256 |
+|---|---|---:|---|
+| 2026093001 | `inputs/B-2026093001-500000000.average.jsonl.gz` | 73,289,592 | `f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa` |
+| 2026093002 | `inputs/B-2026093002-500000000.average.jsonl.gz` | 72,263,239 | `8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d` |
+| 2026093003 | `inputs/B-2026093003-500000000.average.jsonl.gz` | 71,845,946 | `c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285` |
+
+External tool remains a protected active dependency at `~/Local/hu20-fixed50-search-tool/harness/target/release/hu20-exact-flop-tool`, binary SHA256 `a172854c88e9ef17e61b30b8dce19b5570d765ed34e2ff533d8e4395b82776b1`; frozen `harness/src/main.rs` SHA256 `accb75a62abc6c8ee7c339cfd33ef6916f8e7e7b8d9752d5cdae6ab187b71e26`. The separately archived #166 fixed-work AGPL harness/source-build provenance is indexed elsewhere in this file and described in [its proposal](docs/hu20-fixed-work-arena-proposal.md); upstream stays `9d1509fe5077d019825f833eed04b16d342dfda1`. It was reused unchanged, not rebuilt or modified. Python/engine dependencies follow [development](docs/development.md).
+
+Failures preserved: initial hydration timeout and whole-ZIP hash-gate failure during hydration, then verified complete restoration; AC admission stopped before any native solve, corrected to the owner’s explicit power waiver; LBR rival-first attribution and unsupported-row floor-analysis assumptions corrected without new hands; one test-fixture error corrected; final metadata wrong-suffix lookup and copy-helper module-path failure occurred before mutation and are receipted separately. Completed native solves were reused only after their member hashes verified; no failed arena hand was rerun.
+
+[Own-extracted-copy cleanup receipt](docs/reports/hu20-search-stackoff-diagnosis/cleanup-receipt.json) records every removed absolute path, size/mtime/inode and exact restoration archive/member/hash. Under the task’s specific authorization, after the derived and original archives’ current acceptance and completed reviewer dependency clearance, only this PR’s `results/stackoff-diagnosis/{inputs,offline}/` copies were removed: **2,674,293,859 logical bytes**, measured free space **34,066,780,160→36,785,741,824 bytes**. No synced file was removed/evicted; the hydrated original PR166 ZIP, external solver, shared Git, all other PR roots and local derived/staging/guard/archive copies remain. No unattended cleanup follows.
+
+## Storage vacuum — October 8, 2026
+
+Owner-requested cleanup removed **154 M4 paths /23.868 GB logical** and **52 M1 paths /1.545 GB logical**, after fresh merged-PR/upload acceptance and dependency checks. Measured removal-batch free-space gains: **23.884 GB M4 /1.059 GB M1**; immediate free space **77.664 GB /41.343 GB**. Eight M4 completed nonsynced ZIP copies, archived PR202/PR205 outputs, and M1 archived PR201 copies/outputs were removed. All canonical synced archives, active HU100/turn-search/bucket work, recovery checkpoints, inputs, shared Git and uncertain files remain.
+
+[Cleanup/restoration guide](docs/artifacts/storage-vacuum-20261008.md) · [compact measurements](docs/artifacts/storage-vacuum-20261008.json) · [full exact-path/member/hash/Drive restoration receipt](https://drive.google.com/file/d/1I-5Z5G7l26h3g37YwUndSgGWalx3vy4_/view). Current native uploaded/no-pending/no-conflicts status and cloud ID/name/size/parent agree for all nine canonical archives. Existing manifests/provenance and original path/size/modification history were used without archive downloads or repeated payload hash audits. Receipt upload and metadata readback accepted. Historical original-retention notes are superseded only for these receipted paths; no synced deletion/offloading, research-process changes or unattended cleanup.
+
 ## PR205 HU100 inference action translation — October 8, 2026
 
 [PR205](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/205) · [protocol](docs/hu100-action-translation.md) · [report](docs/reports/hu100-action-translation.md). Frozen scientific source `809cf2d7d854037d2e7e4e21f037ec2b242024e9`; integration `f227283b3fb4ac3d7fcade21ad70f134c42630b4` only declares the exact installed psutil 7.2.2 monitoring dependency. Explicit off-by-default public-only translation; no native trainer edits, training, released default/web/HU20 changes, paid compute, release or cleanup. At fixed 2,048 blocks/opponent, pot_pressure translated minus disabled **+27.59 [−6.49,61.67] BB/100**, **inconclusive**; uniform fallback 18.87%→4.87%. Random and three on-menu controls have exactly identical hands. Source review clears; every final hand replays/reproduces under the original 1,832-second cap (287.32s actual), peak 1.537 GiB/no swap growth. Independent evidence review/final-head CI are required for merge; current PR state is authoritative.
@@ -1455,3 +1493,89 @@ Both canonical archives and the selected members were freshly rehashed, their em
 Removed 82 additional Git-reported garbage packs (33,710,801,880 bytes), each older than two minutes, unchanged and without open handles. Full Git integrity and reachable-object checks passed before and after cleanup. No valid packs, refs, primary index, active PR roots or synced payloads were deleted. Temporary pack count is zero; M1 measured about 51 GB free after both cleanups. Matching local model exclusions protect existing project checkouts on both Macs while the repository rules land; other repositories retain their prior settings.
 
 [Model cleanup receipt and original-path restoration commands](https://drive.google.com/file/d/1XgRadPHdyCnp17SUg-9t7zDIZa5P-TjB/view), [temporary-pack cleanup receipt](https://drive.google.com/file/d/11pRy40cfqt38Q781JyLO1rAsFoc_yHaa/view). [Retrieval commands and archive hashes](docs/artifacts/research-model-storage-20261006.md) show how to fetch the models into ignored `results/retrieved/pr89/` and verify them. The shared index retains the same Drive ID. This does not schedule cleanup or offload synced files.
+
+## PR207 HU100 1B: verified science and local archive; owner upload handoff — October 9
+
+Final scientific evidence, frozen source **bd0e7a417064f736091dc2b667954b50becb4b69**, fresh seed 2026100601, isolated M4 root ~/Local/hu100-1b-growth-20261008, feature/hu100-1b-growth. [PR207](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207), [report](docs/reports/native-hu100-growth-1b.md), [audited model index](docs/reports/native-hu100-growth-1b-artifacts/model-index.json).
+
+Training reached 1,000,002,065 nodes /41,010,014 entries; all five checkpoint/current/average sets audit. Fixed 143,360 distinct final hands fully replay/reproduce. Loose gain +214.39 [122.28,306.51] improves; tight +37.05 [−15.00,89.10] inconclusive, 97.5% each. Separate pot translation gain +62.45 [17.15,107.76], 95%. No model default/release change.
+
+Existing Research-Cloud [PR-207-hu100-1b folder](https://drive.google.com/drive/folders/1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS), parent **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**. New local ZIP **hu100-1b-campaign-M4-retry-20261009.zip**, **20,517,119,304 bytes**, whole SHA256 **ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf**. Embedded **ARCHIVE-MANIFEST.json**, SHA256 **609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58**. All **948 member files** read back and match size/SHA256, including the 15 required model members below. [Local verification receipt](docs/reports/native-hu100-growth-1b-artifacts/archive-receipt.json). Archive-only packing source **211cfdc590d77da1f8f4bf4440d38a858dafa26b**; scientific source remains unchanged.
+
+**Upload started; cloud acceptance is pending and delegated to the owner.** At 05:31:26 UTC, native provider reports isUploading=1 /isUploaded=0, matching ZIP name/size; supported Foundation NSFileVersion query reports zero unresolved versions, with no reported native upload error. **Actual cloud archive ID is not yet registered/claimed; independent cloud ID/name/size/parent acceptance and remote byte verification are not claimed.** [Dated native handoff](docs/reports/native-hu100-growth-1b-artifacts/native-upload-status.json). The owner explicitly instructed: “You just have to start the drive upload, don’t wait for it to finish I will delete the originals as soon as it’s uploaded not before making sure the hashes match”. All originals remain; the agent does not delete them or wait for upload. The accepted cloud restoration pointer must be recorded after the owner's upload/hash verification; current commands use the fully verified local M4 ZIP, or the same archive downloaded after acceptance.
+
+Retained failures: duplicate historical-root setup refusal before pilot hands; initial excessive storage forecast that block-scaled fixed snapshots; locked-keychain/SSH push provenance; **original archive +829.38 MiB swap-growth guard breach** and subsequent cleanup PermissionError. Original failure latch/baseline and logs are in the new ZIP. The **3,354,661,317-byte original partial** remains untouched at ~/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip, SHA256 **92fba1a9ab9ab720fc667850d4570a2f427f2c602dc5e2c0deac78a5ed589004**; external partial provenance is embedded in the new manifest. It has no accepted final manifest/upload and must not be used for restoration. Owner-authorized pack retry capped total swap at **3,000,000,000 bytes**, preserved the original baseline and all other guards, and passed in120.42s. A later read-only upload waiter was stopped before acceptance after review found an unsupported conflict-field inference; supported Foundation query and one-shot pending handoff repaired it. [Original stop](docs/reports/native-hu100-growth-1b-artifacts/archive-stop-readback.json), [archive-only resources](docs/reports/native-hu100-growth-1b-artifacts/archive-resources.json).
+
+The new ZIP retains gates, timing-only pilot, every main save/current/average, raw final/reproduction hands/decisions, runtime/source/environment/build/tests, frozen schedules, scientific resource streams and earlier failure logs. Current archive/upload/evidence-review lifecycle receipts are compact Git records; there is no extra metadata seal. All originals, shared Git, open-PR dependencies and synced partials stay intact; no cleanup or forced offload. Restoration depends on the archived native binary, scientific source and environment requirements; it does not restart the campaign.
+
+| Actual nodes | Kind | Local ZIP member | Bytes | SHA256 |
+| --- | --- | --- | --- | --- |
+| 39438279 | checkpoint | research/gate/checkpoint.gz | 283895910 | 792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416 |
+| 39438279 | current | research/gate/current.gz | 188020407 | 606e8c2caa7ebffe4b7fe7d2e11410300e8b53eb61c58fab3d89f546ab42262f |
+| 39438279 | average | research/gate/average.gz | 193277097 | ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4 |
+| 100001959 | checkpoint | research/training/100000000/checkpoint.gz | 516364002 | 2b3a09871183247523dd5413c8b39253e9742ac001d39476cd67916e48162bae |
+| 100001959 | current | research/training/100000000/current.gz | 329495095 | ec6d6af81b802f6a6eb9ca6d9baa00655e9f19ade0d9589cecd9481cf5589cd7 |
+| 100001959 | average | research/training/100000000/average.gz | 347314759 | 9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303 |
+| 250000540 | checkpoint | research/training/250000000/checkpoint.gz | 877459108 | be9f13a29d6a89445e48661ae0f30ab875f46e63c035578eb22b1cb92ac28595 |
+| 250000540 | current | research/training/250000000/current.gz | 538130483 | 229c71dcf05d0eeb23da8daad0358b16996e08392a2a4c3ffbc32b58e13a1507 |
+| 250000540 | average | research/training/250000000/average.gz | 584032704 | 77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a |
+| 500000323 | checkpoint | research/training/500000000/checkpoint.gz | 1266489098 | 35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788 |
+| 500000323 | current | research/training/500000000/current.gz | 753589994 | 24ce60451708a7b0ace7bfad7873f2f17b0b5a27af8bade73d0f175163441edb |
+| 500000323 | average | research/training/500000000/average.gz | 836277172 | f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca |
+| 1000002065 | checkpoint | research/training/1000000000/checkpoint.gz | 1789504352 | cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec |
+| 1000002065 | current | research/training/1000000000/current.gz | 1033507823 | 979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21 |
+| 1000002065 | average | research/training/1000000000/average.gz | 1173264021 | 47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9 |
+
+Restore into a new ignored path. This default selects the terminal average; set PR207_NODES and PR207_KINDS to any listed nodes/kinds (comma separated), or all of them if space permits. Read the existing verified native ZIP without creating an extra ZIP copy. After owner cloud acceptance, the same checks work on a fresh downloaded ZIP by changing PR207_ARCHIVE. Never overwrite an active model.
+
+~~~sh
+pr207_restore="results/restored-pr207-$(date +%Y%m%d-%H%M%S)"
+mkdir "$pr207_restore"
+# Change nodes/kinds to select any rows above; the script checks available space.
+PR207_RESTORE="$pr207_restore" PR207_NODES="1000002065" PR207_KINDS="average" \
+PR207_ARCHIVE="$HOME/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip" \
+.venv/bin/python - <<'PY'
+import hashlib, json, os, shutil
+from pathlib import Path
+from zipfile import ZipFile
+root = Path(os.environ["PR207_RESTORE"])
+archive = Path(os.environ["PR207_ARCHIVE"])
+nodes = {int(n) for n in os.environ["PR207_NODES"].split(",")}
+kinds = set(os.environ["PR207_KINDS"].split(","))
+index = json.loads(Path("docs/reports/native-hu100-growth-1b-artifacts/model-index.json").read_text())
+assert kinds <= {"checkpoint", "current", "average"} and kinds
+assert nodes <= {m["spec"]["actual_nodes"] for m in index["models"]} and nodes
+selected = []
+for model in index["models"]:
+    if model["spec"]["actual_nodes"] not in nodes:
+        continue
+    source_dir = Path(model["spec"]["path"]).parent
+    for kind in sorted(kinds):
+        expected = model["audit"]["files"][str(source_dir / (kind + ".gz"))]
+        selected.append((model["spec"]["actual_nodes"], kind, model["archive_members"][kind], expected))
+assert shutil.disk_usage(root).free > sum(e["bytes"] for _, _, _, e in selected) + int(15.5 * 1024**3)
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        while chunk := stream.read(8 * 1024**2):
+            digest.update(chunk)
+    return digest.hexdigest()
+assert archive.stat().st_size == 20517119304
+assert sha(archive) == "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf"
+with ZipFile(archive) as z:
+    encoded = z.read("ARCHIVE-MANIFEST.json")
+    assert hashlib.sha256(encoded).hexdigest() == "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58"
+    members = {m["path"]: m for m in json.loads(encoded)["members"]}
+    for n, kind, member, expected in selected:
+        assert members[member]["bytes"] == expected["bytes"]
+        assert members[member]["sha256"] == expected["sha256"]
+        target = root / str(n) / (kind + ".gz")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with z.open(member) as src, target.open("xb") as dst:
+            while chunk := src.read(8 * 1024**2):
+                dst.write(chunk)
+        assert target.stat().st_size == expected["bytes"]
+        assert sha(target) == expected["sha256"]
+print("Verified the local/downloaded ZIP and each selected model member")
+PY
+~~~
