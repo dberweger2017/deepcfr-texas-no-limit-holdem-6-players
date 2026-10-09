@@ -147,3 +147,61 @@ def test_three_checkpoint_curve_has_only_two_formal_parent_contrasts_and_seconda
     assert all(c["formal_label"]=="descriptive" and c["descriptive_interval"]["alpha"]==.05 for c in descriptive)
     assert result["secondary"]["translated_minus_off"]["alpha"]==.05
     assert result["unique_final_hands_including_translated_arm"]==100
+
+
+def test_archive_readmission_cannot_restart_science_or_rebaseline(tmp_path,monkeypatch):
+    from scripts import archive_native_hu100_growth_1b as archive
+    monkeypatch.setattr(campaign,"OUT",tmp_path)
+    monkeypatch.setattr(archive,"READMISSION",tmp_path/"archive-readmission.json")
+    put(tmp_path/"campaign-failure.json",{"operation":"archive"})
+    put(tmp_path/"baseline.json",{"host":{"swap_bytes":590935490.56}})
+    put(tmp_path/"evaluation/complete.json",{"status":"verified"})
+    approval={"owner_instruction":"You can use up 3 gb swap. You can try again","scope":"archive-only",
+              "swap_growth_bytes":archive.SWAP_LIMIT,"absolute_swap_ceiling_bytes":3_000_000_000,"destination":str(archive.DEST)}
+    for key,relative in (("failure_sha256","campaign-failure.json"),("baseline_sha256","baseline.json"),
+                         ("scientific_complete_sha256","evaluation/complete.json")):
+        approval[key]=file_hash(tmp_path/relative)
+    put(archive.READMISSION,approval)
+    assert archive.admitted_swap_limit("archive-retry",archive.COMMAND,archive.READMISSION)==3_000_000_000-590935490.56
+    with pytest.raises(ValueError,match="Archive-only"):
+        archive.admitted_swap_limit("main-train",archive.COMMAND,archive.READMISSION)
+    with pytest.raises(ValueError,match="Archive-only"):
+        archive.admitted_swap_limit("archive-retry",["trainer","train"],archive.READMISSION)
+    put(tmp_path/"baseline.json",{"host":{"swap_bytes":0}})
+    with pytest.raises(ValueError,match="input changed"):
+        archive.admitted_swap_limit("archive-retry",archive.COMMAND,archive.READMISSION)
+    sample={"pressure_level":1,"free_percent":70,"swap_bytes":3*campaign.GIB,
+            "ac":True,"disk_free_bytes":campaign.DISK_FLOOR+1}
+    assert campaign.limits(sample,0,0)=="swap growth"
+    assert campaign.limits(sample,0,0,swap_limit=archive.SWAP_LIMIT) is None
+    assert campaign.limits({**sample,"swap_bytes":3*campaign.GIB+1},0,0,swap_limit=archive.SWAP_LIMIT)=="swap growth"
+
+
+def test_cleanup_permission_error_keeps_primary_failure_and_writes_receipt(tmp_path,monkeypatch):
+    monkeypatch.setattr(campaign,"OUT",tmp_path)
+    monkeypatch.setattr(campaign,"identity",lambda:"source")
+    monkeypatch.setattr(campaign,"BINARY",tmp_path/"binary")
+    (tmp_path/"binary").write_bytes(b"binary")
+    put(tmp_path/"baseline.json",{"host":{"swap_bytes":0}})
+    good={"pressure_level":1,"free_percent":80,"swap_bytes":0,"ac":True,
+          "disk_free_bytes":campaign.DISK_FLOOR+1,"system_used_bytes":0}
+    samples=iter([good,{**good,"swap_bytes":campaign.SWAP_GROWTH+1}])
+    monkeypatch.setattr(campaign,"host",lambda:next(samples))
+    class Child:
+        returncode=None
+        def poll(self):
+            return self.returncode
+    child=Child()
+    monkeypatch.setattr(campaign.subprocess,"Popen",lambda *a,**k:child)
+    def cleanup(p):
+        p.returncode=-15
+        raise PermissionError("simulated post-exit cleanup")
+    monkeypatch.setattr(campaign,"terminate_child",cleanup)
+    with pytest.raises(RuntimeError,match="Guard breach: swap growth"):
+        campaign.operation("fixture",[str(tmp_path/"binary")])
+    receipt=campaign.read(tmp_path/"operations/fixture/receipt.json")
+    assert receipt["status"]=="failed"
+    assert "Guard breach: swap growth" in receipt["failure"]
+    assert "PermissionError" in receipt["cleanup_error"]
+    assert receipt["returncode"]==-15 and not receipt["child_alive_after_cleanup"]
+    assert campaign.read(tmp_path/"campaign-failure.json")["operation"]=="fixture"

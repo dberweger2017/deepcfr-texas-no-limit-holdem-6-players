@@ -121,3 +121,30 @@ training to preserve the 15.5 GiB floor. At the corrected preparation snapshot
 incorrect raw forecast scaled fixed model snapshots by blocks and is preserved
 alongside the corrected receipt; it admitted no training. A duplicate prior-root
 setup refusal also preceded every pilot hand.
+
+## Owner-authorized archive-only retry — October 9
+
+After all scientific work passed, the original ZIP packer stopped on swap growth
+829.38 MiB above the fixed 563.56 MiB baseline, exceeding 512 MiB. Cleanup raised
+PermissionError after termination and suppressed its normal receipt. The original
+failure latch, raw guard samples, traceback and 3,354,661,317-byte synced partial
+ZIP remain. No scientific operation is retried and no synced file is replaced.
+
+The owner then authorized: “You can use up 3 gb swap. You can try again”.
+The separate archive-only retry conservatively caps **total swap at 3,000,000,000
+bytes**, which is stricter than a 3 GiB growth allowance, while retaining the
+original baseline. All RSS, pressure, disk and AC guards remain unchanged.
+Readmission binds the original failure, baseline and verified scientific completion
+hashes to one exact archive command; training and final-play commands remain blocked.
+The cleanup path now writes a failed receipt even when termination raises.
+
+Measured uncompressed contents are 21.66 GB, including frozen failed-operation
+logs. Exclusive creation of a new ZIP in the same native PR207 folder leaves
+8.03 GB above the disk floor even without compression, preserving the old partial
+separately with its hash in the new manifest. The partial SHA256 took 1.29s
+(2.60 GB/s); the first attempt wrote 3.35 GB within 14.21s including manifest
+hashing. Charging three full-size reads plus two conservative writes estimates
+**209s local closeout**, or **418s with 2x headroom**. Upload completion is checked
+separately; no fixed timeout substitutes for the resource guards. Mutable current
+archive lifecycle, cloud acceptance and the final evidence review remain compact
+Git receipts. The original scientific source stays bd0e7a417064f736091dc2b667954b50becb4b69.

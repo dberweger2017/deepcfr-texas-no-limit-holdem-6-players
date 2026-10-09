@@ -61,12 +61,12 @@ def identity():
         raise ValueError("Expected 10-core M4")
     return subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
 
-def limits(sample, swap0, rss):
+def limits(sample, swap0, rss, *, swap_limit=SWAP_GROWTH):
     if rss >= FAMILY_HARD:
         return "hard whole-family RSS"
     if sample["pressure_level"] != 1 or sample["free_percent"] < 15:
         return "system pressure/headroom"
-    if sample["swap_bytes"]-swap0 > SWAP_GROWTH:
+    if sample["swap_bytes"]-swap0 > swap_limit:
         return "swap growth"
     if sample["disk_free_bytes"] <= DISK_FLOOR:
         return "disk floor"
@@ -79,11 +79,17 @@ def memory_capacity():
     # the soft complete-iteration stop and hard family ceiling.
     return math.floor((FAMILY_SOFT-100_000_000)/110)
 
-def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
+def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None, archive_readmission=None):
     OUT.mkdir(parents=True, exist_ok=True)
+    swap_limit=SWAP_GROWTH
+    if archive_readmission is not None:
+        from scripts.archive_native_hu100_growth_1b import admitted_swap_limit
+        swap_limit=admitted_swap_limit(name,command,archive_readmission)
+        if stop_file is not None or accepted != (0,) or deadline is not None:
+            raise ValueError("Archive readmission cannot change other operation settings")
     guard = OUT / "operations" / name
     guard.mkdir(parents=True)
-    if (OUT/"campaign-failure.json").exists():
+    if (OUT/"campaign-failure.json").exists() and archive_readmission is None:
         raise ValueError("Campaign is stopped after a failure; inspect retained evidence")
     admission = host()
     baseline = OUT / "baseline.json"
@@ -92,13 +98,14 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
               "soft_family_bytes":FAMILY_SOFT, "hard_family_bytes":FAMILY_HARD,
               "disk_floor_bytes":DISK_FLOOR, "swap_growth_bytes":SWAP_GROWTH})
     swap0 = read(baseline)["host"]["swap_bytes"]
-    failure = limits(admission, swap0, 0)
+    failure = limits(admission, swap0, 0, swap_limit=swap_limit)
     if failure or admission["free_percent"]*16*GIB/100 < FAMILY_SOFT+2*GIB:
         write(guard/"admission.json",admission)
         raise RuntimeError("Resource admission refused: "+str(failure or "8 GiB free required"))
     write(guard/"admission.json",admission)
     write(guard/"intent.json",{"command":list(map(str,command)),"started":time(),"source":identity(),
-          "binary_sha256":file_hash(BINARY),"deadline":deadline})
+          "binary_sha256":file_hash(BINARY),"deadline":deadline,
+          "swap_growth_limit_bytes":swap_limit,"archive_readmission":str(archive_readmission) if archive_readmission else None})
     started=time(); peak=0; count=0; child=None; failure=None; soft=False
     original={s:signal.getsignal(s) for s in (signal.SIGINT,signal.SIGTERM)}
     def interrupt(signum,frame):
@@ -120,7 +127,7 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
                 sample=host(); now=time()
                 stream.write(json.dumps({"at":now,"family_rss_bytes":rss,"swap_growth_bytes":sample["swap_bytes"]-swap0,**sample})+"\n")
                 stream.flush(); count+=1
-                violation=limits(sample,swap0,rss)
+                violation=limits(sample,swap0,rss,swap_limit=swap_limit)
                 if violation:
                     raise RuntimeError("Guard breach: "+violation)
                 if rss >= FAMILY_SOFT:
@@ -141,8 +148,18 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
             write(OUT/"campaign-failure.json",{"operation":name,"at":time(),"failure":failure})
         raise
     finally:
+        # Cleanup errors must not suppress the primary failure or its receipt.
+        cleanup_error=None; cleanup_exception=None
         if child is not None and child.poll() is None:
-            terminate_child(child)
+            try:
+                terminate_child(child)
+            except BaseException as exc:
+                cleanup_error=repr(exc); cleanup_exception=exc
+                if failure is None:
+                    failure="Cleanup failed: "+cleanup_error
+                    if not (OUT/"campaign-failure.json").exists():
+                        write(OUT/"campaign-failure.json",{"operation":name,"at":time(),"failure":failure})
+
         for s,h in original.items():
             signal.signal(s,h)
         log_path=guard/"worker.log"
@@ -151,7 +168,11 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
               "seconds":time()-started,"peak_family_rss_bytes":peak,"kernel_command_peak_rss_bytes":int(high[1]) if high else None,
               "samples":count,"sampling_target_seconds":.2,"soft_stop_requested":soft,
               "status":"failed" if failure else "complete","failure":failure,
-              "returncode":child.returncode if child else None,"deadline":deadline})
+              "returncode":child.poll() if child else None,"deadline":deadline,
+              "swap_growth_limit_bytes":swap_limit,"cleanup_error":cleanup_error,
+              "child_alive_after_cleanup":child.poll() is None if child else False})
+        if cleanup_exception is not None and not sys.exc_info()[0]:
+            raise cleanup_exception
     return read(guard/"receipt.json")
 
 def export_audit(folder, name, nodes):
