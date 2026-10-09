@@ -205,3 +205,33 @@ def test_cleanup_permission_error_keeps_primary_failure_and_writes_receipt(tmp_p
     assert "PermissionError" in receipt["cleanup_error"]
     assert receipt["returncode"]==-15 and not receipt["child_alive_after_cleanup"]
     assert campaign.read(tmp_path/"campaign-failure.json")["operation"]=="fixture"
+
+
+@pytest.mark.parametrize("conflict",[False,True])
+def test_upload_acceptance_requires_native_completion_and_all_guards(tmp_path,monkeypatch,conflict):
+    from scripts import archive_native_hu100_growth_1b as archive
+    monkeypatch.setattr(campaign,"OUT",tmp_path)
+    monkeypatch.setattr(archive,"DEST",tmp_path/"native.zip")
+    archive.DEST.write_bytes(b"zip")
+    monkeypatch.setattr(archive,"admitted_swap_limit",lambda *args:3_000_000_000)
+    put(tmp_path/"operations/archive-retry/receipt.json",{"status":"complete"})
+    put(tmp_path/"archive-receipt.json",{"archive":str(archive.DEST),"bytes":3,"sha256":"0"*64})
+    put(tmp_path/"baseline.json",{"host":{"swap_bytes":0}})
+    good={"pressure_level":1,"free_percent":80,"swap_bytes":0,"ac":True,
+          "disk_free_bytes":campaign.DISK_FLOOR+1,"system_used_bytes":0}
+    samples=iter([good,{**good,"swap_bytes":3_000_000_001}])
+    monkeypatch.setattr(campaign,"host",lambda:next(samples))
+    def output(args,**kwargs):
+        if args[0]=="xattr":return "actual-drive-id"
+        return "isUploaded = 1; isUploading = 0; documentSize = 3; hasUnresolvedConflicts = "+str(int(conflict))+";"
+    monkeypatch.setattr(archive.subprocess,"check_output",output)
+    monkeypatch.setattr(archive,"sleep",lambda _:None)
+    if conflict:
+        with pytest.raises(RuntimeError,match="swap growth"):
+            archive.native_upload()
+        assert not (tmp_path/"native-upload.json").exists()
+        assert campaign.read(tmp_path/"operations/archive-upload/receipt.json")["status"]=="failed"
+    else:
+        archive.native_upload()
+        assert campaign.read(tmp_path/"native-upload.json")["actual_drive_id"]=="actual-drive-id"
+        assert campaign.read(tmp_path/"operations/archive-upload/receipt.json")["status"]=="complete"
