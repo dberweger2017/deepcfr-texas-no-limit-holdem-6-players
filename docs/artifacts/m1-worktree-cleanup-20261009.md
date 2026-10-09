@@ -2,7 +2,7 @@
 
 Owner-requested cleanup retired **57 worktrees** unused for at least 24 hours: 45 clean source/build checkouts and 12 merged-PR evidence roots. Separate removal batches measured **17.428 GB reclaimed**; **30.323 GB free** immediately after cleanup. Concurrent research and newly created backups affect free space between batches, so these are measured removal-batch gains, not an estimate from directory sizes.
 
-[Complete path-by-path receipt](https://drive.google.com/file/d/1J1OsjpghvHUmhxSEnmdkpnzqChKSCNmb/view?usp=drivesdk) — 7,561,003 bytes, SHA256 `edf33765bf1ac80faec1da8419bfbca79dca5c642078aa935c431b3e94d41379`. [Compact source/archive locators](m1-worktree-cleanup-20261009.json) are checked into Git. The complete receipt records every removed research path, original stat, archive/member/hash, excluded ephemeral file and restore command.
+[Complete path-by-path receipt](https://drive.google.com/file/d/1J1OsjpghvHUmhxSEnmdkpnzqChKSCNmb/view?usp=drivesdk) — 7,561,003 bytes, SHA256 `edf33765bf1ac80faec1da8419bfbca79dca5c642078aa935c431b3e94d41379`. [Compact source/archive locators](m1-worktree-cleanup-20261009-locators.md) are checked into Git. The complete receipt records every removed research path, original stat, archive/member/hash, excluded ephemeral file and restore command.
 
 ## Preservation and acceptance
 
