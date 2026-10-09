@@ -1,0 +1,1188 @@
+[
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1329,
+    "seat": 0,
+    "rank": "0028ae0a8d39b76d7de8390ce6fda42dbec9b28eb505aa05819d2b3a470a5dde",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "2d70f050a7d2b8e5a3274c416c8047ff227134287c8f295639ac268263c31bb4",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1662,
+    "seat": 1,
+    "rank": "0021bf812dc1b7a72217cbe7913bfb414d4512ff20a853164702d01a2d168f24",
+    "tags": [
+      "ever-unsupported/loss",
+      "large-pot-loss",
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "6e7144d886062b6108cf9bb70ec0eb5b1dfffd4e8cc1f76395e61f8b72364b1b",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 1,
+      "street": "preflop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1179,
+    "seat": 0,
+    "rank": "014d36acd7f61ce4afee27a40c28a7113f5a2ab6e4d934887b8115e77edd5ee8",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "5e1bb86fb0622c4cc605ca2dfd7a6ed489c2affcaec51a89306d5ecfc69415a6",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1654,
+    "seat": 0,
+    "rank": "0000d752ab955be280cfef059d276c3e1a10f59cf1824d69e299a46bf06f7efc",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "72c2813c2af1e95633deb179ebe7308698f1c00a72c10dd767c26de7926b5c9b",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 320,
+    "seat": 1,
+    "rank": "002a3b75501ffcf4a6b4a3326d3deff2147863512fdd3bf507f476f8e428c7d1",
+    "tags": [
+      "ever-unsupported/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "d20d829b9e9f9a67dd291be6aefa0f3f67e8691c8ef8aea78a1acf7aafe67335",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 3,
+      "street": "preflop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1630,
+    "seat": 1,
+    "rank": "2ed6f370822a370109d24cbcc7cbf7f54d41c2bdac7a35b362eb744c99c999d6",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 15.0,
+    "hand_sha256": "b30ee480c53649d16081c248dee714179c4a0fdeb788ae36d5d9c138ca94c7ca",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1792,
+    "seat": 1,
+    "rank": "612dc5b9a21ed6fbcb6d5df811d72a7b9084903940164b5ce2562859ce9d8152",
+    "tags": [
+      "zero-mass-no-missing/loss"
+    ],
+    "net_bb": -13.0,
+    "hand_sha256": "03a69de1f841076283ce0f1351dad5200caa4c13d3c9bb0d690ebc3d26855c1f",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 507,
+    "seat": 0,
+    "rank": "d9390e5762e480ef37ff1fb92b3b19d937c106f92a832d19361920451252acb9",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -36.0,
+    "hand_sha256": "ecd9a9c68d0827914e8c9658b69bae5f9c33b95f3f26219b9bf1a655ef696d4d",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "block": 1407,
+    "seat": 0,
+    "rank": "136efff12f447311556284333c37c084281cfd56a1f02711219947694234c712",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "4383a5e35ab69d1b82da425c7d5cfbc1aae5edb2a5943a87a0c1d442d9ae02e0",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 817,
+    "seat": 1,
+    "rank": "002890ee05bd9a70e1e9102d5b380da89cbbc450492cd279944548bc05ddb898",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "fac7f3333bc6fd530d9b3e3267ebda0e91865e9047ae51f7e089ebbde135159b",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 887,
+    "seat": 1,
+    "rank": "006ba2c4207b9809e3d5a2cbadcd40c91460bdd8c4ae7b88fe22e0bd8e54b55d",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 4.0,
+    "hand_sha256": "8b94933c74ec4e4e359e2bcd8849051835eb584e357eb3bbc03115516ebe601a",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 536,
+    "seat": 0,
+    "rank": "2a23b1a37ad2cc11ebde1361e182d5d44f3c299c0ff48c4fd11d079387db7bb0",
+    "tags": [
+      "large-pot-loss"
+    ],
+    "net_bb": -54.0,
+    "hand_sha256": "5abce943e38bc7fc454b4095803560517cf4c9832ecf1f618ced9da2e18b41a7",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 1192,
+    "seat": 0,
+    "rank": "2098f922ed8a5fc87c9b183f87492599498374b7431f4b2d3f691e5085cef3b9",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -4.0,
+    "hand_sha256": "0c013652174c5f6058bfc45f44ecb7c3370751d8373a4b8d11a92f1145a3a500",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 1680,
+    "seat": 0,
+    "rank": "021edfcfe361928e113f2cd4e37ad3a7e73f03d76ce1e2bf9ea38b47bad5e2ba",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 81.0,
+    "hand_sha256": "5419d971e900725524bdbf780754731d68db606ce99b523e9af2d19a54071d1f",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 828,
+    "seat": 0,
+    "rank": "0f1a00822335450f090035ffb21f4f6b53b445285b68993f9bb8bd6c36c2463e",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 3.0,
+    "hand_sha256": "f4709ea93a159c3b24dbfc58d6021f2c8f7cb5196837222a05860d1beeb6f678",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "block": 1814,
+    "seat": 1,
+    "rank": "01a07e20648f9148962d9572fa98a9374013194ebe863b6154647e5b9b48748a",
+    "tags": [
+      "zero-mass-no-missing/loss"
+    ],
+    "net_bb": -15.0,
+    "hand_sha256": "59caebea4fcf12bfdd442e5a7a9e95043f9c6dd01c681e5544189432e474ea2c",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 94,
+    "seat": 0,
+    "rank": "000318c75104fe5f78edd66e59209ef42ee88256e9e8c094a6cf02613f6b089e",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "21b1cac8a3b1465eef9bbf05e49b97c256d23e4f65767d322b42076fae0a494a",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 899,
+    "seat": 0,
+    "rank": "001e93eec95b7f0b8204f80c68d80667472c36f46467cc5efd078e037eace7ff",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "0a503eeeaedd8435799568e10a36606726b54c7626eea470d099ce8e6b41ac02",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 1532,
+    "seat": 0,
+    "rank": "000ba3dcc9270a1f504eb3dc159b03563386a1682df92e1f0de596bc9367fd86",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "963851484e20775a7f826390c234920c96fdf5276a12fa2faae54f8774334a49",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 202,
+    "seat": 1,
+    "rank": "05fd5badc6add15f2fd1ebc152ca431446e27cbef39d4c32ca9c8a9fe081ad34",
+    "tags": [
+      "large-pot-loss"
+    ],
+    "net_bb": -82.0,
+    "hand_sha256": "a658b61198c6a964797fe05398838ea2b55a066843e29e8799503d770c5da936",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 1014,
+    "seat": 0,
+    "rank": "0ab8a073a487ffada5b8278567755d0617d773112e2807f9ce8eb03adcbcbd65",
+    "tags": [
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "837b4978b9addc29b39bc15cfe7b8c1fac7eecf90e89aa35f507d69c5745eaa7",
+    "exposure": "all-positive",
+    "stackoff": {
+      "action": "raise",
+      "decision": 4,
+      "street": "preflop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 625,
+    "seat": 1,
+    "rank": "2732b99e63c7763ed3834ddbbdef0d31795889ed08e7c5acee29e95de3f4b1c0",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "1ee288d9ef13d7eb973982947c0301fa133a9a5ca703db722592e8e1f89d8172",
+    "exposure": "supported-missing",
+    "stackoff": {
+      "action": "raise",
+      "decision": 7,
+      "street": "flop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 87,
+    "seat": 1,
+    "rank": "21d197e9755d5b0a870596058bcd334bd0717cf73459c83bfaefffa02e9f615a",
+    "tags": [
+      "zero-mass-no-missing/loss"
+    ],
+    "net_bb": -90.0,
+    "hand_sha256": "d36668206b445776976a0984fe7a38760e63b022c703c25bf683ca3740cb9f68",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 1359,
+    "seat": 1,
+    "rank": "6e68a1b2a7f5059e00a696cb5dba5eb0d0197ccc382221a95dc398a9a2c45519",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "4305259ce79a3dd602c3afb199d13f6d6491943892d18c7038f136d528b1db12",
+    "exposure": "supported-missing",
+    "stackoff": {
+      "action": "call",
+      "decision": 11,
+      "street": "river"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "block": 389,
+    "seat": 1,
+    "rank": "02f83fdd7152957cdcae01e031c1859bfd7df14aa9827835b0a425e01fecfadd",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "c471fd28660ad2e459197f51ba410f44cb2d34ad1bcd333507c38698911b100c",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 1330,
+    "seat": 0,
+    "rank": "0005cce102ccfd9dc3fbe34010c160a5b9a3dfb3c0965742e747fd122d1fb870",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "2b80e6b026b7c5818296e5c3bc97a06cd382215d48ce95a986f52a67cb59f999",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 1714,
+    "seat": 1,
+    "rank": "000bc396cedf6d2ad7f83739c52758fc819eb38c0f1321be9cc24da7df56af18",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "37319066fbdd0aee29bcda17f1ab461c1c02129dc86caccec13c8879ea28c954",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 1361,
+    "seat": 0,
+    "rank": "003d8baba25b8e41e43005fa0b65435419a0b9de2e6e2d818662b051b752e915",
+    "tags": [
+      "all-positive/loss",
+      "large-pot-loss",
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "e45a315feebc86c65f0e614d6ea56a77e490b4a4ed6face8bc1c0a4b00470e8a",
+    "exposure": "all-positive",
+    "stackoff": {
+      "action": "raise",
+      "decision": 11,
+      "street": "river"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 659,
+    "seat": 0,
+    "rank": "027a16f48775aaf48a91fac079b8a6a1ac0d89a86decc2e5f5f340ab2413223c",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "7953c93537755dcacb5087494a544535e9410eabe7b9149722b2db1469650fe5",
+    "exposure": "supported-missing",
+    "stackoff": {
+      "action": "raise",
+      "decision": 7,
+      "street": "flop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 1934,
+    "seat": 0,
+    "rank": "0cf5c37dd570ff894120fe633d742081410be5ea70a6ffa6477fa749135d25e4",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -162.0,
+    "hand_sha256": "9ff850364ca7a23e2f3e0acad9353ec6df91456fe43c3f89599229cddee8310a",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 1624,
+    "seat": 1,
+    "rank": "146d724fbc6ff639b9ae59b4fbc46e6baba27a95da780a78784a95fad699eed0",
+    "tags": [
+      "zero-mass-no-missing/loss"
+    ],
+    "net_bb": -40.0,
+    "hand_sha256": "9bcaed85526a90bad88b174c1ca14ec41649c622854f0a0513cddd8556662843",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "block": 602,
+    "seat": 0,
+    "rank": "080e0446b7e593124feb643a7893ab969ca8a194f65262c82edb44df416697bb",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 135.0,
+    "hand_sha256": "fd7fb3ad71c0e91e63212b2f108ca2eb1bd93e664a4fd93649749c49e3935936",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": {
+      "action": "raise",
+      "decision": 8,
+      "street": "flop"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 620,
+    "seat": 0,
+    "rank": "00096148db02d0ad24ca301737b7c1c3ae94ea56402a09bd807f5b1bcf03d0fb",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "1a97d2241ee3fa5b37971ea5c9edf0bfb9392f862708ca1e1495dc071ca53cdd",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 636,
+    "seat": 1,
+    "rank": "00d0133d4bf111bfe6bf3bf01a01aaf4134b0ef0f06f0ff7de4b4727aa0fe74e",
+    "tags": [
+      "ever-unsupported/loss"
+    ],
+    "net_bb": -4.0,
+    "hand_sha256": "79b66f57cbfd2deb3a2c9433a9be45447c215e5f8fa225743b7785dade9a1ef1",
+    "exposure": "ever-unsupported",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 997,
+    "seat": 1,
+    "rank": "01bdb9371ebb97e365f83ff41b3b62ea68604f569a2c5353a00bbe8e61f60d14",
+    "tags": [
+      "large-pot-loss"
+    ],
+    "net_bb": -98.0,
+    "hand_sha256": "18a91866ad4a4e4396a0b8d519583e67711e72b85d0e42859fdc61b72a175aff",
+    "exposure": "ever-unsupported",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 310,
+    "seat": 1,
+    "rank": "0003998a676abbf68e3b89f4ad1aeac2ee7c8151a4d74d7e56d113b05ad90d88",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "f462c015a8365dc53faa02d8459c71cf1c2e28f0f16aea8750e20f6facb143dd",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 1049,
+    "seat": 1,
+    "rank": "00a5c97c087eb431781321c6521cb2065c932d9b177fb958bf9399de99297727",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "c1af3fb903e37dfa6ab724e5d57ad7ef4a99994bc93ea50fa35ba75a569e3d6e",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 1985,
+    "seat": 0,
+    "rank": "00b78d3975bd3c41726d07bc489ff57535dab74cf5ca85dc5a87425bda612c51",
+    "tags": [
+      "ever-unsupported/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "5afd4e32223da7eea05cf1e831d186af1efb85e3c3640af6720c589f239cb397",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 8,
+      "street": "turn"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 1377,
+    "seat": 1,
+    "rank": "06d28c203d7fb70ed58fda7c1a3abd3358b76b0b65fdf2a7e1a1964080167dfc",
+    "tags": [
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "609cbe5a3fd98df44832b0a64c6b26ff2b4a0c97705b0e78af2f11b932ea3f0e",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 9,
+      "street": "turn"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 1298,
+    "seat": 1,
+    "rank": "83eb2590cabfd315256061e4f7c93adf23701508d17862a7d382f55956b63094",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -168.0,
+    "hand_sha256": "cd60ba19d58d97296e6f62f10eeb86984e20efe993efe398819f2f56dcf45875",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 782,
+    "seat": 0,
+    "rank": "967617f4dec771e0e99ad930dc8815e5c6e67c45ae37b6c5ed5a83aeda4de571",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "1338b3ca6992f96124d3688921f1dd093e3bbfb8fbcbf1232c1492eb94b446bb",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "block": 1613,
+    "seat": 0,
+    "rank": "7a813c96a809605f56cfe2e33e199f91379e258086628f26c90771658e7c8663",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 85.0,
+    "hand_sha256": "a8872db36dfe306239b3f1b2de5061f655726d7394fb12ed729d028331f6b1f9",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": {
+      "action": "raise",
+      "decision": 8,
+      "street": "turn"
+    },
+    "raw_hand_member": "final/20000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1654,
+    "seat": 0,
+    "rank": "0000d752ab955be280cfef059d276c3e1a10f59cf1824d69e299a46bf06f7efc",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 3.0,
+    "hand_sha256": "04d4b10ff7fc5fbda183e132ce74771e2e0a23b2ba0cfc977eac16c3127272dd",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1662,
+    "seat": 1,
+    "rank": "0021bf812dc1b7a72217cbe7913bfb414d4512ff20a853164702d01a2d168f24",
+    "tags": [
+      "ever-unsupported/loss",
+      "large-pot-loss",
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "6e7144d886062b6108cf9bb70ec0eb5b1dfffd4e8cc1f76395e61f8b72364b1b",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 1,
+      "street": "preflop"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1179,
+    "seat": 0,
+    "rank": "014d36acd7f61ce4afee27a40c28a7113f5a2ab6e4d934887b8115e77edd5ee8",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "5e1bb86fb0622c4cc605ca2dfd7a6ed489c2affcaec51a89306d5ecfc69415a6",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1326,
+    "seat": 0,
+    "rank": "007e16838ff7a330ace372f503aaa6f52d965d1b45b374baca744b93a053032f",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -1.0,
+    "hand_sha256": "8347b2f64ed4c1cf40da1c4ac002e866e0e2807dfe9f1fb0c5ae448c90afd55f",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 320,
+    "seat": 1,
+    "rank": "002a3b75501ffcf4a6b4a3326d3deff2147863512fdd3bf507f476f8e428c7d1",
+    "tags": [
+      "ever-unsupported/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "c11b89b89a83a7a3b6ce60a2a59dfe22cfc55577d419cb2701c473216a1a8dfd",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 4,
+      "street": "flop"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1100,
+    "seat": 0,
+    "rank": "faf385ba2c999cf66d9b45664b1f1cce81cadc6f592359c6e7e29ac0414ca4bc",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -81.0,
+    "hand_sha256": "4c5f85e6289fe2209424aacada9887e4659b82b176be726b01fd366f5e28ef71",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "block": 1195,
+    "seat": 1,
+    "rank": "1106acff3b5625eb5256fcc6429756e684e7c58212b7b65639d2269c3f7c6d14",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 33.0,
+    "hand_sha256": "9d59a9e4b5e8aede0c07c89a1671cd81370a1a04f6d39d068965abe08fa0282e",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "block": 817,
+    "seat": 1,
+    "rank": "002890ee05bd9a70e1e9102d5b380da89cbbc450492cd279944548bc05ddb898",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "2f90b6ef9834de707ff9c5458a6dcc777698f4c446d4ca38a4cad4dec36c02c5",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "block": 887,
+    "seat": 1,
+    "rank": "006ba2c4207b9809e3d5a2cbadcd40c91460bdd8c4ae7b88fe22e0bd8e54b55d",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 3.0,
+    "hand_sha256": "a1c9bde911b737b1b5d6f1bcf89982db4db4b4fd05941f5e428c10a461c8f3b1",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "block": 1814,
+    "seat": 1,
+    "rank": "01a07e20648f9148962d9572fa98a9374013194ebe863b6154647e5b9b48748a",
+    "tags": [
+      "large-pot-loss"
+    ],
+    "net_bb": -36.0,
+    "hand_sha256": "6289c1437b7dd80e6502dd9c144ac4af28b718f8b76c6ac801c40bc0e67de7bc",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "block": 317,
+    "seat": 0,
+    "rank": "04205104b7c5f1929ec5a09f70b3bad131b2afc59f9ca5e1562293153e50acba",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 7.0,
+    "hand_sha256": "5299a69de3a6b7078e0e3048b8f175c0b535a5af80393645965e0b4515315e24",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "block": 635,
+    "seat": 1,
+    "rank": "5ce73bb2b27be7da14ca84d9bac5ed85a0a031594cd3ecef7e18da236f7e2c89",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 81.0,
+    "hand_sha256": "e8b808bfa6c8ad6f313a8d067e84f3e98537162b10ae065e321efd957c93a906",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "block": 94,
+    "seat": 0,
+    "rank": "000318c75104fe5f78edd66e59209ef42ee88256e9e8c094a6cf02613f6b089e",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "ec7e82d9b9b11d2449aac140e0d538a796c10fce12bfe0d7c4d0840cd806edfa",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "block": 899,
+    "seat": 0,
+    "rank": "001e93eec95b7f0b8204f80c68d80667472c36f46467cc5efd078e037eace7ff",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "0a503eeeaedd8435799568e10a36606726b54c7626eea470d099ce8e6b41ac02",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "block": 517,
+    "seat": 1,
+    "rank": "002211eaaaa28fffcd97fcb7f17da85da2ee83c8b765ee10c68a0b0a53b6e675",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "df57da474c45164e2d204eea695777f5901888a302dd86f24f5f1fb045b0dfe8",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "block": 1616,
+    "seat": 0,
+    "rank": "00e64cbbaad9db6d6baa463b682b2ffd0a1b22602ab2f1061249645854d8f0fa",
+    "tags": [
+      "large-pot-loss",
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "e7949c0d45d3d753f4f34212e49b9c93cebc23ba5c41dac800fdd436ca1a65b8",
+    "exposure": "all-positive",
+    "stackoff": {
+      "action": "call",
+      "decision": 9,
+      "street": "turn"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "block": 136,
+    "seat": 0,
+    "rank": "b4ec49fcbc04ae08aa79e9a771d175461e32ba7f540eef20cd9dd579b045069b",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "a07f12f6853716c52543d3baedbad32d5de466fcc6419ca5b3993e94459c19ec",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1330,
+    "seat": 0,
+    "rank": "0005cce102ccfd9dc3fbe34010c160a5b9a3dfb3c0965742e747fd122d1fb870",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "0b70dd3fc620e2af3e0c511b38e3db8b66a8647c31a0c2794a4ff9e0b6ea86f4",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1714,
+    "seat": 1,
+    "rank": "000bc396cedf6d2ad7f83739c52758fc819eb38c0f1321be9cc24da7df56af18",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "37319066fbdd0aee29bcda17f1ab461c1c02129dc86caccec13c8879ea28c954",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 181,
+    "seat": 1,
+    "rank": "0006078d8c2a5c6d87c0358f1f5cfe7d2043cd821ff0db5c2a1d8467a1ef8c35",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "dc4a3bcde0e2e712186ca5c1348dfd80b13f78c2bdae04c8a1bf03d48a3d0f79",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1361,
+    "seat": 0,
+    "rank": "003d8baba25b8e41e43005fa0b65435419a0b9de2e6e2d818662b051b752e915",
+    "tags": [
+      "large-pot-loss"
+    ],
+    "net_bb": -135.0,
+    "hand_sha256": "f9dbde72de4fe2d03e212fc4c0262f44d8d23ff239e654c2d39868e901ed7890",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 835,
+    "seat": 1,
+    "rank": "089704a9c033925c513f015fc5748de62b45eb68412327dee6a33f68113e298b",
+    "tags": [
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "be78f5dff5fe213457982f10a2b76432ae04b55f243a16162b23afa25bc9021c",
+    "exposure": "all-positive",
+    "stackoff": {
+      "action": "call",
+      "decision": 10,
+      "street": "river"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1514,
+    "seat": 1,
+    "rank": "3b6204e7475a5b2ddfeb116efeeebe5a2bd6a5277bc7271ad44c761915cf0a75",
+    "tags": [
+      "supported-missing/win"
+    ],
+    "net_bb": 16.0,
+    "hand_sha256": "ba44afb1e3ce659b59880f731e41731f55bfca04b15aa2b68e13ae594729d117",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 873,
+    "seat": 1,
+    "rank": "0e768d9ca1589bf7902fcaf81a47164422d1145cbe1f6bdcb0aaec4792fefd6a",
+    "tags": [
+      "zero-mass-no-missing/loss"
+    ],
+    "net_bb": -135.0,
+    "hand_sha256": "9c95eddc2c81889e608dae56ec7abd0e2343366a81a932d246d6e959e04aeec5",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1840,
+    "seat": 1,
+    "rank": "1075fedfe2dd1c8d0f4f3723b5da1a46db053f6a0e75a063248711e2f211c344",
+    "tags": [
+      "zero-mass-no-missing/win"
+    ],
+    "net_bb": 81.0,
+    "hand_sha256": "1234f9863c90f8fcff421be3c4134b79f657a7d886a1dbe25e8cbcbdc784f178",
+    "exposure": "zero-mass-no-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "block": 1945,
+    "seat": 1,
+    "rank": "563897998591b8c42a8763e9aa91d10caafbd4487cae2ba57d14c4f06a8dc4b6",
+    "tags": [
+      "supported-missing/loss"
+    ],
+    "net_bb": -135.0,
+    "hand_sha256": "ad252939f78f16fff2a5d308cb21d2462dd6517887a602e1856f370d0a9cce43",
+    "exposure": "supported-missing",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 620,
+    "seat": 0,
+    "rank": "00096148db02d0ad24ca301737b7c1c3ae94ea56402a09bd807f5b1bcf03d0fb",
+    "tags": [
+      "all-positive/win"
+    ],
+    "net_bb": 1.0,
+    "hand_sha256": "595d736c40f4fb0c104b61bc5a50a500f2003b5991d89b03f476ab94880ddecc",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 1985,
+    "seat": 0,
+    "rank": "00b78d3975bd3c41726d07bc489ff57535dab74cf5ca85dc5a87425bda612c51",
+    "tags": [
+      "ever-unsupported/win"
+    ],
+    "net_bb": 200.0,
+    "hand_sha256": "aea8df66b443a635224e37cbd8587c54c7730d9717bb7ee1c104509f86c286af",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 8,
+      "street": "turn"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 1623,
+    "seat": 1,
+    "rank": "00aa9066a83c0a670df7691a3dcbc7601d5d9685ff5c97df5c7997ce6dd5932d",
+    "tags": [
+      "ever-unsupported/loss",
+      "large-pot-loss"
+    ],
+    "net_bb": -56.0,
+    "hand_sha256": "e79ea403b0525e70901839712cbc9b209369f862bed05265bc12efcf070f06c6",
+    "exposure": "ever-unsupported",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 1049,
+    "seat": 1,
+    "rank": "00a5c97c087eb431781321c6521cb2065c932d9b177fb958bf9399de99297727",
+    "tags": [
+      "all-positive/loss"
+    ],
+    "net_bb": -0.5,
+    "hand_sha256": "2ae564147bc75d2e066c0e59d0c86d7af36bd0b2bf470c24a4769b623a922852",
+    "exposure": "all-positive",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 310,
+    "seat": 1,
+    "rank": "0003998a676abbf68e3b89f4ad1aeac2ee7c8151a4d74d7e56d113b05ad90d88",
+    "tags": [
+      "no-decision/win"
+    ],
+    "net_bb": 0.5,
+    "hand_sha256": "f462c015a8365dc53faa02d8459c71cf1c2e28f0f16aea8750e20f6facb143dd",
+    "exposure": "no-decision",
+    "stackoff": null,
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "block": 1615,
+    "seat": 1,
+    "rank": "07679f8050580acfb4ad3db14b081e654b82a0b00e7011eb42ed7fbe2813c655",
+    "tags": [
+      "stackoff-loss"
+    ],
+    "net_bb": -200.0,
+    "hand_sha256": "1c42d64f7a110083253ea94ddfcc14ba33d7f11d1a60d3f05169af36a14634fd",
+    "exposure": "ever-unsupported",
+    "stackoff": {
+      "action": "call",
+      "decision": 6,
+      "street": "flop"
+    },
+    "raw_hand_member": "final/100000000/hands.jsonl.gz"
+  }
+]

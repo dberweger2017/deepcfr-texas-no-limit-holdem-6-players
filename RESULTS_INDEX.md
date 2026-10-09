@@ -1850,3 +1850,59 @@ with ZipFile(archive) as z:
 print('Verified archive, manifest and selected HU200 model members')
 PY
 ~~~
+
+## PR217 HU200 paired playing diagnosis — October 9, 2026
+
+Final fresh comparison, **unmerged [PR217](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/217)**, branch `feature/hu200-playing-diagnosis`, base `4c4e04c`, scientific source **57d9705de423e70370ba59243d9f398b62104207**. M1 root `/Users/dberweger/Local/hu200-playing-diagnosis-20261009/results/run-01`; single locked worker, final root **2026100906**, excluded timing root **2026100907**. [Protocol](docs/hu200-playing-diagnosis.md), [report](docs/reports/hu200-playing-diagnosis.md), [frozen plan/input identities](docs/reports/hu200-playing-diagnosis-artifacts/frozen-plan.json). #216's live status was confirmed **MERGED** before immutable input reads; own PR was **OPEN** before the explicitly owner-authorized archive creation. No other open root, shared Git, model or M4 dependency was copied/moved/cleaned.
+
+**2,048 fixed paired blocks/opponent /40,960 hands /155,954 actions /71,482 candidate decisions** complete; all actions/events/settlements replay and both policies' actions reproduce. Independent native full-sample actor/legal/menu/key/settlement parity has zero mismatches. Five Bonferroni primary gains: loose **+278.58 [77.12,480.03] BB/100** improves, others inconclusive. Terminal still loses to loose/pot; unsupported pot histories and sparse covered late streets remain distinct diagnostic priorities, without causal loss attribution. Source/final review is primary-agent review, not independent reviewer approval. No new training, recipe change, live service, release, retry or evaluation failure; all valid calibration/final raw evidence retained. Science includes hash/header/snapshot/calibration/evaluation/replay/primary report/local ZIP/readback/closeout in **361.63s /6.03min** under 60 minutes, no guard breach. Compact post-closeout tabulation and independent recount are administrative report work (2.08s /3.96s), with no new hands/inference. [Resources/costs](docs/reports/hu200-playing-diagnosis-artifacts/resources.json), [review](docs/reports/hu200-playing-diagnosis-artifacts/final-review.json).
+
+Archive at `/Users/dberweger/Local/Research-Cloud/PR-217-HU200-playing-diagnosis/HU200-playing-diagnosis-M1-20261009.zip`, **31,933,966 bytes**, SHA256 **d109861dda08a410c7bc356709c15f836cd3c8a4d7d55bb64153e3959ea7b8ce**. Embedded `ARCHIVE-MANIFEST.json` SHA256 **238709f951943ebc08d2888e671ad7c2a2cd405ccc02f4f8d0b0611014bfa800**; all **63 member files** locally read back for exact size/SHA256. [Local receipt](docs/reports/hu200-playing-diagnosis-artifacts/archive-receipt.json). Archive contains `source.tar`, `timing-plan.json`, `frozen-plan.json`, `timing/<target>/` and `final/<target>/hands.jsonl.gz`, `native-fixtures.jsonl`, `costs.json`, primary/coverage/representative outputs, pre-archive operation resources/logs/receipts, parent/current-PR statuses and science closeout. No failed run was replaced or omitted. Mutable archive-operation samples/logs and its final receipt/closeout are separate compact Git lifecycle records; later compact tables/recount and deduplicated representative index are reproducible from the archived raw inputs with the committed report helper.
+
+One-time Drive metadata discovers actual folder [PR-217-HU200-playing-diagnosis](https://drive.google.com/drive/folders/1yBymLKissQIjA3QVSmvyW4nzafO_Slqo), ID **1yBymLKissQIjA3QVSmvyW4nzafO_Slqo**, parent Research-Cloud **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**, and [ZIP metadata](https://drive.google.com/file/d/1SZJo6T59vTB3GdZaQEP8zS7sQwLWTJor/view?usp=drivesdk), ID **1SZJo6T59vTB3GdZaQEP8zS7sQwLWTJor**, matching name/listed size. **Upload-pending owner/later-agent handoff:** no native uploaded/no-pending/no-conflict status read and no cloud acceptance claimed; no remote ZIP bytes downloaded or verified. Local ZIP readback is local integrity only. The owner's updated instruction overrides old upload-wait requirements: no waiting, original deletion, synced-folder deletion or forced offloading. All originals remain. [Handoff](docs/reports/hu200-playing-diagnosis-artifacts/drive-handoff.json).
+
+Inputs reuse [PR216's indexed archive/model/runtime restoration](#pr216-hu200-m1-feasibility--october-9-2026), Drive archive **1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR** and its full member manifest. No duplicate model or runtime copy enters this ZIP or Git.
+
+| Input | Existing direct-read local path below `deepcfr-hu200-slumbot/` | PR216 archive member | Bytes | SHA256 |
+|---|---|---|---:|---|
+| 20M average, actual 20,002,716 | `results/hu200-pilot-20261009/HU200-20000000.gz.average.gz` | `HU200-20000000.gz.average.gz` | 155,600,064 | `0498592f16510aad41df562666a07b2728b360ba2f6f664c0b69278b4faab270` |
+| 100M average, actual 100,000,034 | `results/hu200-pilot-20261009/HU200-100000000.gz.average.gz` | `HU200-100000000.gz.average.gz` | 510,277,592 | `1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b` |
+| Native replay runtime | `native/hu20-trainer/target/release/hu20-trainer` | `runtime/hu20-trainer` | 1,351,680 | `c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878` |
+
+Use PR216's restoration command with `PR216_TARGET=20000000` then `100000000`, each `PR216_KINDS=average`, in separate fresh ignored destinations. It verifies archive, manifest and selected members. Restore the native runtime from that manifest only when needed; accepted full training audits are not repeated here. The input verification receipt/headers are in the frozen plan and original worker costs; supported environment is Python **3.11.15**, pinned pokers **0.2.0**, NumPy/SciPy and original requirements.
+
+Restore this evidence ZIP without creating a redundant ZIP copy when the indexed local Research-Cloud file is present:
+
+```sh
+PR217_ARCHIVE="$HOME/Local/Research-Cloud/PR-217-HU200-playing-diagnosis/HU200-playing-diagnosis-M1-20261009.zip" \
+PR217_RESTORE="results/restored-pr217-$(date +%Y%m%d-%H%M%S)" \
+python - <<'PY'
+import hashlib, json, os, shutil
+from pathlib import Path
+from zipfile import ZipFile
+archive=Path(os.environ['PR217_ARCHIVE']); destination=Path(os.environ['PR217_RESTORE'])
+destination.parent.mkdir(parents=True,exist_ok=True)
+def hash_file(path):
+    h=hashlib.sha256()
+    with path.open('rb') as f:
+        while chunk:=f.read(1024**2): h.update(chunk)
+    return h.hexdigest()
+assert archive.stat().st_size == 31933966
+assert hash_file(archive) == 'd109861dda08a410c7bc356709c15f836cd3c8a4d7d55bb64153e3959ea7b8ce'
+with ZipFile(archive) as z:
+    raw=z.read('ARCHIVE-MANIFEST.json')
+    assert hashlib.sha256(raw).hexdigest() == '238709f951943ebc08d2888e671ad7c2a2cd405ccc02f4f8d0b0611014bfa800'
+    members=json.loads(raw)['members']
+    assert shutil.disk_usage(destination.parent).free > sum(m['bytes'] for m in members)+int(15.5*1024**3)
+    destination.mkdir(parents=True,exist_ok=False)
+    for m in members:
+        path=destination/m['path']; assert path.resolve().is_relative_to(destination.resolve())
+        path.parent.mkdir(parents=True,exist_ok=True)
+        with z.open(m['path']) as source, path.open('xb') as target: shutil.copyfileobj(source,target)
+        assert path.stat().st_size==m['bytes'] and hash_file(path)==m['sha256']
+    (destination/'ARCHIVE-MANIFEST.json').write_bytes(raw)
+print(destination)
+PY
+```
+
+To regenerate compact exploratory tables after restoring, use the committed `python -m scripts.report_hu200_diagnosis --root RESTORED --out NEW_IGNORED_OUTPUT`; it performs an independent full raw-record/count/paired-gain recount before tabulation. The archived frozen scientific source runs `scripts.evaluate_hu200_diagnosis` workers/report and the pinned native parity command. Relocated input paths require a recorded relocated plan/new plan digest; model bytes, roots, schedule and behavioral settings must remain exact. Fresh reruns require separately admitted budgets, not this one-use controller. Review, PR administration and later upload acceptance do not modify this sealed scientific run or authorize cleanup.

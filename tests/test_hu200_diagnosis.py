@@ -107,3 +107,31 @@ def test_archive_readback_preserves_partials_and_excludes_mutable_seal(tmp_path)
         assert z.read('failure.json')==b'{"failure":"fixture"}'
         assert 'operations/archive/live-log' not in z.namelist()
     with pytest.raises(FileExistsError):seal(root,archive)
+
+
+def test_independent_report_recount_rejects_changed_primary_and_coverage(tmp_path, monkeypatch):
+    import json
+    from scripts import evaluate_hu200_diagnosis as evaluator
+    from scripts.report_hu200_diagnosis import produce
+    model=Uniform();model.description={'entries':0};model.translation=None
+    monkeypatch.setattr(evaluator,'AveragePolicy',lambda *a,**kw:model)
+    plan={'models':[{'target':n,'path':'fake','sha256':'fake','entries':0} for n in (20000000,100000000)],
+          'final_root':42,'timing_root':43,'blocks':2}
+    root=tmp_path/'run';root.mkdir()
+    (root/'frozen-plan.json').write_text(json.dumps(plan))
+    for m in plan['models']:
+        evaluator.worker(plan,'final',m['target'],root/'final'/str(m['target']))
+    evaluator.report(plan,root)
+    produce(root,tmp_path/'valid')
+    summary=json.loads((root/'summary.json').read_text())
+    summary['gains']['random']['bb_per_100']+=1
+    (root/'summary.json').write_text(json.dumps(summary))
+    with pytest.raises(ValueError,match='primary estimate'):
+        produce(root,tmp_path/'changed-primary')
+    summary['gains']['random']['bb_per_100']-=1
+    (root/'summary.json').write_text(json.dumps(summary))
+    coverage=json.loads((root/'coverage-behavior.json').read_text())
+    coverage[0]['decisions']+=1
+    (root/'coverage-behavior.json').write_text(json.dumps(coverage))
+    with pytest.raises(ValueError,match='coverage/action'):
+        produce(root,tmp_path/'changed-coverage')

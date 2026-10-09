@@ -1,0 +1,38 @@
+{
+  "review_kind": "primary-agent final source/evidence/diff review; not an independent reviewer approval",
+  "scientific_source": "57d9705de423e70370ba59243d9f398b62104207",
+  "goal": "Fresh paired HU200 20M/100M comparison with five opponents and diagnostic weaknesses, no training/live/release, unmerged PR",
+  "resolved_findings": [
+    "Terminal action chips must enter maximum pot before settlement.",
+    "Stack-off must use paid chips versus pre-action remaining stack, including winners/refunds.",
+    "A soft resource latch must block every subsequent science tool.",
+    "Deduplicate representative coordinates while retaining all predeclared category tags.",
+    "Distinguish 64 positive-mass zero-visit loose river decisions from four zero-mass positive-visit decisions.",
+    "Restoration creates its ignored parent directory before free-disk checks."
+  ],
+  "verification": {
+    "focused_tests": 28,
+    "native_preparation_hands": 10,
+    "native_preparation_decisions": 34,
+    "final_hands": 40960,
+    "final_actions": 155954,
+    "candidate_decisions": 71482,
+    "native_mismatched_hands": 0,
+    "all_candidate_and_rival_actions_reproduced": true,
+    "all_events_and_settlements_replayed": true,
+    "independent_raw_recount_primary_means_intervals_coverage_visits_support_actions": true,
+    "archive_members_locally_verified": 63,
+    "calibration_winnings_inspected": false,
+    "sample_reduction_or_optional_stopping": false,
+    "recipe_game_menu_abstraction_fallback_translation_changes": false,
+    "new_research_training_or_full_training_audit_repeat": false
+  },
+  "limits": [
+    "One training seed; inference covers deals/action streams only.",
+    "Four of five adjusted gains inconclusive; no pool-strength, plateau or Slumbot readiness claim.",
+    "Conditional losses/actions are associations, not causal effects.",
+    "Drive listing is metadata; upload acceptance remains pending with owner/later agent."
+  ],
+  "open_findings": [],
+  "pr_handoff": "Unmerged; owner review pending; final-head CI recorded separately in PR after push."
+}

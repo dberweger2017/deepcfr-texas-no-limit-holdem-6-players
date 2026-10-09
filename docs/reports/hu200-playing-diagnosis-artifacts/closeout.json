@@ -1,0 +1,11 @@
+{
+  "failure": null,
+  "hard_latched": false,
+  "originals_retained": true,
+  "ownership_released": true,
+  "seconds": 361.6251357081346,
+  "soft_latched": false,
+  "status": "complete",
+  "upload_pending": true,
+  "within_cap": true
+}

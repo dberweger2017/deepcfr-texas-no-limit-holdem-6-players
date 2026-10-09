@@ -1,0 +1,135 @@
+{
+  "samples": 669,
+  "sampled_family_peak_bytes": 2218360832,
+  "kernel_command_peak_bytes": 2176106496,
+  "max_gap_seconds": 0.6074109077453613,
+  "min_free_percent": 64,
+  "min_available_bytes": 5384880128,
+  "min_disk_free_bytes": 27695345664,
+  "max_swap_growth_bytes": 0,
+  "all_ac": true,
+  "all_normal_pressure": true,
+  "operations": {
+    "archive": {
+      "failure": null,
+      "finished": 1791548131.294462,
+      "kernel_command_peak_rss_bytes": 105103360,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 139821056,
+      "returncode": 0,
+      "seconds": 1.62387291691266,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "final-100000000": {
+      "failure": null,
+      "finished": 1791548118.595862,
+      "kernel_command_peak_rss_bytes": 2176106496,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 2218360832,
+      "returncode": 0,
+      "seconds": 136.2016761249397,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "final-20000000": {
+      "failure": null,
+      "finished": 1791547981.777673,
+      "kernel_command_peak_rss_bytes": 753369088,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 795164672,
+      "returncode": 0,
+      "seconds": 57.41658770805225,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "final-native-100000000": {
+      "failure": null,
+      "finished": 1791548119.237532,
+      "kernel_command_peak_rss_bytes": 3080192,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 42483712,
+      "returncode": 0,
+      "seconds": 0.5628877088893205,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "final-native-20000000": {
+      "failure": null,
+      "finished": 1791547982.353157,
+      "kernel_command_peak_rss_bytes": 3276800,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 41926656,
+      "returncode": 0,
+      "seconds": 0.5448853331618011,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "source-snapshot": {
+      "failure": null,
+      "finished": 1791547770.8612669,
+      "kernel_command_peak_rss_bytes": 12107776,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 97763328,
+      "returncode": 0,
+      "seconds": 0.5453994579147547,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "timing-100000000": {
+      "failure": null,
+      "finished": 1791547923.718878,
+      "kernel_command_peak_rss_bytes": 1869627392,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 1817395200,
+      "returncode": 0,
+      "seconds": 114.69533766596578,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "timing-20000000": {
+      "failure": null,
+      "finished": 1791547808.4000692,
+      "kernel_command_peak_rss_bytes": 698105856,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 798212096,
+      "returncode": 0,
+      "seconds": 37.12621316709556,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "timing-native-100000000": {
+      "failure": null,
+      "finished": 1791547924.312942,
+      "kernel_command_peak_rss_bytes": 2785280,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 40878080,
+      "returncode": 0,
+      "seconds": 0.5484475828707218,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "timing-native-20000000": {
+      "failure": null,
+      "finished": 1791547808.9768882,
+      "kernel_command_peak_rss_bytes": 2736128,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 101433344,
+      "returncode": 0,
+      "seconds": 0.5446803751401603,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    "verify-report": {
+      "failure": null,
+      "finished": 1791548128.972526,
+      "kernel_command_peak_rss_bytes": 666927104,
+      "kernel_soft_limit_exceeded": false,
+      "peak_family_rss_bytes": 709525504,
+      "returncode": 0,
+      "seconds": 9.68984020804055,
+      "soft_stop_requested": false,
+      "status": "complete"
+    }
+  }
+}
