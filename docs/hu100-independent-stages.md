@@ -122,3 +122,22 @@ Keep originals, all #207/#211 failures and active dependencies, shared Git and
 other open PR work intact. No cleanup, paid compute, changed recipe, automatic
 larger run, schedule, release or merge. Commit source and compact evidence only;
 staged repository artifact check before every commit.
+
+## Preparation gate repair under the original clock
+
+Initial source dd19995 preparation refused before any fixture, calibration,
+training or final hand. Its gate compared #207's binary source to current main's
+inactive native tree; main has the merged optional equity-bucket feature #210.
+The campaign executes the unchanged SHA-pinned #207 binary. The repair archives
+and binds that binary to its actual frozen bd0e7a native source, preserving main's
+newer native tree without executing it. It does not relax native provenance.
+
+A narrowly reviewed `--continue-preparation` path accepts only this exact failed
+preparation/source/message, zero scientific operations, dead old supervisor,
+exclusive lock, original guard-pass stream, and current guards/headroom against
+the original baseline. It retains the original failure/receipt and baseline,
+appends resources with a disclosed idle monitoring gap, and charges all elapsed
+repair time to the original six-hour deadline. Existing inputs are reverified
+without overwrite. No scientific operation is repeated, no guard is waived, and
+no other failure can use this path. A later failure gets a separate immutable
+latch. The ordinary launch remains one-use and refuses an existing campaign.

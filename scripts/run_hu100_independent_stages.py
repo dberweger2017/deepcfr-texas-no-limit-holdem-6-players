@@ -69,6 +69,14 @@ class LinkedRegistry(PolicyRegistry):
         put(output / 'snapshot-links.json', links)
 
 
+def checked_put(path, value):
+    if path.exists():
+        if read(path) != json.loads(json.dumps(value)):
+            raise ValueError('Existing preparation metadata differs: ' + str(path))
+    else:
+        put(path, value)
+
+
 def prepared():
     index = read(ROOT / 'docs/reports/native-hu100-growth-1b-artifacts/model-index.json')
     assets = []
@@ -80,26 +88,35 @@ def prepared():
         if origin.stat().st_size != pin['bytes'] or file_hash(origin) != pin['sha256']:
             raise ValueError('Merged #207 input changed')
         folder = OUT / 'inputs' / label
-        folder.mkdir(parents=True)
-        os.link(origin, folder / 'average.gz')
-        put(folder / 'audit.json', receipt)
+        folder.mkdir(parents=True, exist_ok=True)
+        average = folder / 'average.gz'
+        if not average.exists():
+            os.link(origin, average)
+        if average.stat().st_size != pin['bytes'] or file_hash(average) != pin['sha256']:
+            raise ValueError('Existing retrieved average differs')
+        checked_put(folder / 'audit.json', receipt)
         spec = audited_average_spec(folder / 'average.gz', receipt,
             checkpoint_sha256=receipt['audit']['checkpoint_sha256'], actual_nodes=nodes)
-        put(folder / 'spec.json', spec)
+        checked_put(folder / 'spec.json', spec)
         assets.append({'owning_pr': 207, 'status': 'MERGED live before retrieval', 'original': str(origin),
             'member': record['archive_members']['average'], **pin})
-    BINARY.parent.mkdir()
-    shutil.copy2(previous.OLD_ROOT / 'native/hu20-trainer/target/release/hu20-trainer', BINARY)
+    BINARY.parent.mkdir(exist_ok=True)
+    if not BINARY.exists():
+        shutil.copy2(previous.OLD_ROOT / 'native/hu20-trainer/target/release/hu20-trainer', BINARY)
     if file_hash(BINARY) != previous.BINARY_SHA:
         raise ValueError('Reviewed binary differs')
     frozen = 'bd0e7a417064f736091dc2b667954b50becb4b69'
     trees = {}
     for tree in ('native/hu20-trainer', 'native/hu20-buckets'):
         old = subprocess.check_output(['git', 'rev-parse', frozen + ':' + tree], text=True).strip()
-        new = subprocess.check_output(['git', 'rev-parse', 'HEAD:' + tree], text=True).strip()
-        if old != new:
-            raise ValueError('Native source compatibility differs')
-        trees[tree] = new
+        # The executed binary is #207's, not main's optional equity-bucket trainer.
+        trees[tree] = old
+    native_source = OUT / 'native-execution-source.tar'
+    with native_source.open('xb') as stream:
+        subprocess.run(['git','archive',frozen,'native/hu20-trainer','native/hu20-buckets'],stdout=stream,check=True)
+    put(OUT/'native-execution-source.json', {'revision':frozen,'trees':trees,
+        'source_archive_sha256':file_hash(native_source),'binary_sha256':previous.BINARY_SHA,
+        'provenance':'exact #207 frozen native source and its indexed binary; inactive current native source is not executed'})
     partial = OLD_PARTIAL / 'training/2026100901/pilot'
     pin = {'bytes': 15192117, 'sha256': '3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec'}
     path = partial / 'checkpoint.gz'
@@ -335,7 +352,7 @@ def seal():
         'cloud_acceptance': 'pending independent metadata check'})
 
 
-def campaign():
+def campaign(continue_preparation=False):
     revision = previous.source()
     review = read(ROOT / 'planning/independent-source-review.json')
     if review['source'] != revision or review['status'] != 'passed':
@@ -347,13 +364,14 @@ def campaign():
         ('hu20-trainer train', 'scripts.evaluate_native_hu100', 'scripts.run_native_hu100', 'scripts.run_hu100', 'cargo build'))]
     if competing:
         raise ValueError('Competing research: ' + repr(competing))
-    c = Campaign(ROOT, OUT, revision)
-    put(OUT / 'process-admission.json', {'inventory': inventory, 'competing': competing,
+    c = Campaign.resume_preparation(ROOT, OUT, revision) if continue_preparation else Campaign(ROOT, OUT, revision)
+    suffix = '-readmission' if continue_preparation else ''
+    put(OUT / ('process-admission' + suffix + '.json'), {'inventory': inventory, 'competing': competing,
         'exclusive_lock': str(Path.home() / 'Local/.hu100-m4-research.lock')})
-    put(OUT / 'source-review.json', review)
+    put(OUT / ('source-review' + suffix + '.json'), review)
     status = 'incomplete'
     try:
-        c.run('prepare', [sys.executable, '-m', MODULE, 'prepare'], quote=60)
+        c.run('prepare-readmission' if continue_preparation else 'prepare', [sys.executable, '-m', MODULE, 'prepare'], quote=60)
         c.run('freshness', [sys.executable, '-m', MODULE, 'freshness'], quote=60)
         # Exact resume compatibility is checked on #211's actual partial, not
         # merely on a synthetic fixture with a different seed or old loader.
@@ -462,10 +480,11 @@ def campaign():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('stage', choices=('campaign','prepare','freshness','calibration','evaluate','report','seal'))
+    p.add_argument('--continue-preparation', action='store_true')
     p.add_argument('--source'); p.add_argument('--seed',type=int); p.add_argument('--blocks',type=int)
     p.add_argument('--endpoint',choices=('early','terminal'))
     a=p.parse_args()
-    if a.stage=='campaign': campaign()
+    if a.stage=='campaign': campaign(a.continue_preparation)
     elif a.stage=='prepare': prepared()
     elif a.stage=='freshness': freshness()
     elif a.stage=='calibration': calibration(a.source)
