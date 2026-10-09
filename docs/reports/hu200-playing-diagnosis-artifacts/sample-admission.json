@@ -1,0 +1,73 @@
+{
+  "calibration_bytes": 1191516,
+  "calibration_native_seconds": 1.0931279580108821,
+  "calibration_payoffs_inspected": false,
+  "chosen": {
+    "admitted": true,
+    "blocks": 2048,
+    "fixed_load_seconds": 149.19652029196732,
+    "required_disk_bytes": 1226255872.0,
+    "scalable_calibration_seconds": 1.784052916103974,
+    "upper_seconds": 1126.7518138452433
+  },
+  "elapsed_seconds": 154.6409827079624,
+  "options": [
+    {
+      "admitted": true,
+      "blocks": 2048,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1226255872.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 1126.7518138452433
+    },
+    {
+      "admitted": true,
+      "blocks": 1024,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1149998848.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 1012.572427214589
+    },
+    {
+      "admitted": true,
+      "blocks": 512,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1111870336.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 955.4827338992618
+    },
+    {
+      "admitted": true,
+      "blocks": 256,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1092806080.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 926.9378872415982
+    },
+    {
+      "admitted": true,
+      "blocks": 128,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1083273952.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 912.6654639127664
+    },
+    {
+      "admitted": true,
+      "blocks": 64,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1078507888.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 905.5292522483505
+    },
+    {
+      "admitted": true,
+      "blocks": 32,
+      "fixed_load_seconds": 149.19652029196732,
+      "required_disk_bytes": 1076124856.0,
+      "scalable_calibration_seconds": 1.784052916103974,
+      "upper_seconds": 901.9611464161426
+    }
+  ],
+  "remaining_seconds": 3445.359016333008
+}

@@ -1,0 +1,13 @@
+{
+  "review_kind": "primary-agent source review, not an independent reviewer",
+  "scope": "protocol, evaluator, launcher, HU200 support compatibility, legal observations, paired statistics and local storage",
+  "findings_resolved": [
+    "Count terminal-action paid chips in maximum pot before settlement, so an immediate all-in runout is included.",
+    "Identify voluntary stack-off from payment equal to the pre-action remaining stack, rather than the settled winner/loser stack.",
+    "Latch every subsequent science operation after a soft RSS breach, including native parity/report tools."
+  ],
+  "open_findings": [],
+  "checks": "27 focused tests; 10-hand/34-decision native parity fixture; compileall and whitespace",
+  "no_game_policy_training_math_changes": true,
+  "no_new_research_training": true
+}

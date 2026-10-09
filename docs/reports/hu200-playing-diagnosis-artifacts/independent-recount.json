@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "counts": {
+    "hands": 40960,
+    "actions": 155954,
+    "decisions": 71482
+  },
+  "all_five_paired_primary_means_and_adjusted_intervals": true,
+  "all_ten_absolute_means": true,
+  "all_coverage_visit_support_action_counts": true
+}

@@ -1,0 +1,10 @@
+{
+  "host": "dberweger-m1 / MacBookPro17,1 / 16GiB / 8 logical CPUs",
+  "current_thread": "8fc965dd-5ffa-4b8e-9cfb-ac42cead58e1",
+  "thread_inventory_read": "2026-10-09 approximately 12:02 UTC",
+  "other_active_thread": "PR215; its worktree, inputs, process dependencies and research evidence untouched",
+  "parent_PR216": "merged; no research process held /tmp/deepcfr-m1-research.lock",
+  "branch": "feature/hu200-playing-diagnosis",
+  "base": "4c4e04c16734b399d537ea9b89232434d7207cc5",
+  "unrelated_root_checkout_and_untracked_files": "untouched"
+}

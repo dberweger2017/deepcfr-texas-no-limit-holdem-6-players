@@ -1,0 +1,108 @@
+[
+  {
+    "target": 20000000,
+    "opponent": "check_call",
+    "hands": 4096,
+    "large_pot_loss_hands": 33,
+    "large_pot_loss_net_bb": -1800.0,
+    "large_pot_loss_contribution_bb_per_100": -43.9453125,
+    "stackoff_loss_contribution_bb_per_100": 0.0
+  },
+  {
+    "target": 20000000,
+    "opponent": "loose_aggressive",
+    "hands": 4096,
+    "large_pot_loss_hands": 336,
+    "large_pot_loss_net_bb": -46758.0,
+    "stackoff_loss_hands": 171,
+    "stackoff_loss_net_bb": -34200.0,
+    "large_pot_loss_contribution_bb_per_100": -1141.552734375,
+    "stackoff_loss_contribution_bb_per_100": -834.9609375
+  },
+  {
+    "target": 20000000,
+    "opponent": "pot_pressure",
+    "hands": 4096,
+    "large_pot_loss_hands": 202,
+    "large_pot_loss_net_bb": -26663.0,
+    "stackoff_loss_hands": 88,
+    "stackoff_loss_net_bb": -17600.0,
+    "large_pot_loss_contribution_bb_per_100": -650.9521484375,
+    "stackoff_loss_contribution_bb_per_100": -429.6875
+  },
+  {
+    "target": 20000000,
+    "opponent": "random",
+    "hands": 4096,
+    "large_pot_loss_hands": 790,
+    "large_pot_loss_net_bb": -50745.0,
+    "stackoff_loss_hands": 243,
+    "stackoff_loss_net_bb": -48600.0,
+    "large_pot_loss_contribution_bb_per_100": -1238.8916015625,
+    "stackoff_loss_contribution_bb_per_100": -1186.5234375
+  },
+  {
+    "target": 20000000,
+    "opponent": "tight_aggressive",
+    "hands": 4096,
+    "large_pot_loss_hands": 50,
+    "large_pot_loss_net_bb": -7558.0,
+    "stackoff_loss_hands": 31,
+    "stackoff_loss_net_bb": -6200.0,
+    "large_pot_loss_contribution_bb_per_100": -184.521484375,
+    "stackoff_loss_contribution_bb_per_100": -151.3671875
+  },
+  {
+    "target": 100000000,
+    "opponent": "check_call",
+    "hands": 4096,
+    "large_pot_loss_hands": 26,
+    "large_pot_loss_net_bb": -1485.0,
+    "large_pot_loss_contribution_bb_per_100": -36.2548828125,
+    "stackoff_loss_contribution_bb_per_100": 0.0
+  },
+  {
+    "target": 100000000,
+    "opponent": "loose_aggressive",
+    "hands": 4096,
+    "large_pot_loss_hands": 209,
+    "large_pot_loss_net_bb": -30085.0,
+    "stackoff_loss_hands": 119,
+    "stackoff_loss_net_bb": -23800.0,
+    "large_pot_loss_contribution_bb_per_100": -734.4970703125,
+    "stackoff_loss_contribution_bb_per_100": -581.0546875
+  },
+  {
+    "target": 100000000,
+    "opponent": "pot_pressure",
+    "hands": 4096,
+    "large_pot_loss_hands": 159,
+    "large_pot_loss_net_bb": -21120.0,
+    "stackoff_loss_hands": 67,
+    "stackoff_loss_net_bb": -13400.0,
+    "large_pot_loss_contribution_bb_per_100": -515.625,
+    "stackoff_loss_contribution_bb_per_100": -327.1484375
+  },
+  {
+    "target": 100000000,
+    "opponent": "random",
+    "hands": 4096,
+    "large_pot_loss_hands": 756,
+    "large_pot_loss_net_bb": -48107.0,
+    "stackoff_loss_hands": 232,
+    "stackoff_loss_net_bb": -46400.0,
+    "large_pot_loss_contribution_bb_per_100": -1174.4873046875,
+    "stackoff_loss_contribution_bb_per_100": -1132.8125
+  },
+  {
+    "target": 100000000,
+    "opponent": "tight_aggressive",
+    "hands": 4096,
+    "large_pot_loss_hands": 47,
+    "large_pot_loss_net_bb": -7440.0,
+    "stackoff_loss_hands": 33,
+    "stackoff_loss_net_bb": -6600.0,
+    "large_pot_loss_contribution_bb_per_100": -181.640625,
+    "stackoff_loss_contribution_bb_per_100": -161.1328125
+  }
+]

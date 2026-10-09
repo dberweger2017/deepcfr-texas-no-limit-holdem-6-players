@@ -1,0 +1,25 @@
+{
+  "cap_seconds": 3600,
+  "competing_research_processes": [],
+  "host": "dberweger-m1",
+  "initial": {
+    "ac": true,
+    "at": 1791547769.6623948,
+    "available_bytes": 6468861952,
+    "disk_free_bytes": 27774005248,
+    "free_percent": 71,
+    "pressure": 1,
+    "swap_bytes": 1589116928
+  },
+  "limits": {
+    "disk_floor_bytes": 16642998272,
+    "hard_family_gib": 4,
+    "soft_family_gib": 3,
+    "swap_growth_bytes": 536870912
+  },
+  "lock": "/tmp/deepcfr-m1-research.lock",
+  "owner_pid": 94256,
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "source": "57d9705de423e70370ba59243d9f398b62104207",
+  "started_at": 1791547769.7137432
+}
