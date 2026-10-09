@@ -79,7 +79,7 @@ def memory_capacity():
     # the soft complete-iteration stop and hard family ceiling.
     return math.floor((FAMILY_SOFT-100_000_000)/110)
 
-def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None, archive_readmission=None):
+def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None, archive_readmission=None, family_processes=None):
     OUT.mkdir(parents=True, exist_ok=True)
     swap_limit=SWAP_GROWTH
     if archive_readmission is not None:
@@ -118,7 +118,7 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None, ar
             parent=psutil.Process(os.getpid()); tick=monotonic()
             while child.poll() is None:
                 rss=0
-                for p in [parent,*parent.children(recursive=True)]:
+                for p in (family_processes() if family_processes else [parent,*parent.children(recursive=True)]):
                     try:
                         rss+=p.memory_info().rss
                     except psutil.NoSuchProcess:
