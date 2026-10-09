@@ -78,9 +78,12 @@ class Guard:
         self.deadline=started+3600
         self.swap0=host(out)['swap_bytes']
         self.failed=False
+        self.soft_stopped=False
 
     def run(self, name, command, *, train=False, allowance=None):
-        if self.failed and name != 'archive': raise RuntimeError('Terminal guard latch; no further science')
+        if ((self.failed and name != 'archive')
+            or (self.soft_stopped and (train or name in ('smoke','source-snapshot')))):
+            raise RuntimeError('Terminal guard latch; no further science')
         admission=host(self.out)
         problem=violation(admission,self.swap0,0)
         if problem: raise RuntimeError('Admission: '+problem)
@@ -110,6 +113,7 @@ class Guard:
                     if problem: raise RuntimeError('Guard: '+problem)
                     remaining=self.deadline-monotonic()
                     if remaining<=0: raise TimeoutError('60-minute hard deadline')
+                    if rss>=SOFT: soft=True
                     if train and (rss>=SOFT or remaining<=CLOSEOUT+600):
                         if not stop.exists(): write(stop,dict(reason='soft RSS or save/tool reserve',at=time()))
                         soft=True
@@ -134,6 +138,8 @@ class Guard:
             if kernel_peak is not None and kernel_peak>=HARD:
                 failure=failure or 'Kernel command peak exceeded hard family RSS'
                 self.failed=True
+            if soft or (kernel_peak is not None and kernel_peak>=SOFT):
+                self.soft_stopped=True
             receipt=dict(soft_stop_requested=soft,kernel_soft_limit_exceeded=kernel_peak is not None and kernel_peak>=SOFT,status='failed' if failure else 'complete',failure=failure,seconds=monotonic()-begun,
                          peak_family_rss_bytes=peak,kernel_command_peak_rss_bytes=int(kernel[1]) if kernel else None,
                          returncode=child.returncode if child else None,finished=time())
@@ -161,7 +167,6 @@ def smoke_worker(out, checkpoint):
     from src.arena.policies import make_policy
     from src.game.hand import Hand, Table
     from src.game.types import Action, ActionKind
-    from src.arena.schedule import canonical
     model=AveragePolicy(checkpoint,file_hash(checkpoint),expected_schema=HU200_SCHEMA)
     summaries=[]
     with (out/'smoke-hands.jsonl').open('x') as raw:
@@ -198,7 +203,7 @@ def smoke_worker(out, checkpoint):
                         if (again if actor==seat else again_other).choose_action(replay.observe(actor))!=action:
                             raise ValueError('Smoke policy reproduction')
                         replay=replay.apply(action)
-                    if canonical(replay.events)!=canonical(hand.events): raise ValueError('Smoke event/settlement replay')
+                    if replay.events!=hand.events: raise ValueError('Smoke event/settlement replay')
                     raw.write(json.dumps(dict(opponent=opponent,block=block,seat=seat,seed=seed,actions=rows,final_stacks=final))+'\n')
                     chips.append(final[seat]-20000)
                 values.append(sum(chips)/2) # With 100-chip BB, chips/hand numerically equals BB/100.
@@ -289,7 +294,7 @@ def run(out, destination, review):
                 tools=export['seconds']+audit['seconds']
                 records.append(dict(target=target,telemetry=row,train=train,export=export,audit=audit))
                 previous=checkpoint
-                if train['returncode']==3 or train['soft_stop_requested'] or train['kernel_soft_limit_exceeded']:
+                if train['returncode']==3 or any(r['soft_stop_requested'] or r['kernel_soft_limit_exceeded'] for r in (train,export,audit)):
                     stop_reason='native capacity/time/soft stop';break
                 if target!=ENDPOINTS[-1]:
                     next_target=ENDPOINTS[ENDPOINTS.index(target)+1]
@@ -299,7 +304,9 @@ def run(out, destination, review):
                     write(out/f'admission-{next_target}.json',allowance)
                 previous_actual=row['completed_nodes']
             if previous and stop_reason is None and not g.failed and g.deadline-monotonic()>CLOSEOUT+180:
-                g.run('smoke',[sys.executable,'-m','scripts.run_hu200_feasibility','smoke','--out',out,'--checkpoint',str(previous)+'.average.gz'])
+                smoke=g.run('smoke',[sys.executable,'-m','scripts.run_hu200_feasibility','smoke','--out',out,'--checkpoint',str(previous)+'.average.gz'])
+                if smoke is None: stop_reason='smoke time admission refused'
+                elif smoke['soft_stop_requested'] or smoke['kernel_soft_limit_exceeded']: stop_reason='smoke soft resource stop'
         except BaseException as exc:
             stop_reason=repr(exc)
         write(out/'science.json',dict(source=source,records=records,stop_reason=stop_reason,seconds=monotonic()-started,
@@ -312,7 +319,7 @@ def run(out, destination, review):
             archive_status='failed';archive_failure=repr(exc)
         finally:
             write(out/'closeout.json',dict(seconds=monotonic()-started,within_cap=monotonic()-started<=3600,
-                  guard_failed=g.failed,workers_exited=True,originals_retained=True,
+                  guard_failed=g.failed,soft_stopped=g.soft_stopped,workers_exited=True,originals_retained=True,
                   archive_status=archive_status,archive_failure=archive_failure))
 
 

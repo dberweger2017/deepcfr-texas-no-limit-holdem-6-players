@@ -61,7 +61,7 @@ def test_kernel_soft_peak_is_returned_for_terminal_stop(tmp_path,monkeypatch):
     assert g.run('fixture',['fixture'],train=True)['kernel_soft_limit_exceeded']
 
 
-def controller_fixture(tmp_path,monkeypatch, *, archive_error=False):
+def controller_fixture(tmp_path,monkeypatch, *, archive_error=False, export_soft=False):
     import json
     out=tmp_path/'pilot';binary=tmp_path/'binary';binary.write_bytes(b'fixture')
     review=tmp_path/'review.json';review.write_text(json.dumps({'status':'clear','source':'fixture-source'}))
@@ -77,14 +77,14 @@ def controller_fixture(tmp_path,monkeypatch, *, archive_error=False):
     monkeypatch.setattr(p.subprocess,'check_output',checked)
     ops=[]
     class Guard:
-        def __init__(self,*a):self.failed=False;self.swap0=s['swap_bytes'];self.deadline=3700
+        def __init__(self,*a):self.failed=False;self.soft_stopped=False;self.swap0=s['swap_bytes'];self.deadline=3700
         def run(self,name,cmd,**kwargs):
             ops.append(name)
             if name.startswith('train'):
                 (out/'HU200-1000000.telemetry.jsonl').write_text(json.dumps({'completed_nodes':500000,'stop_requested':True}))
-                return {'returncode':3,'seconds':1,'soft_stop_requested':True,'kernel_soft_limit_exceeded':False}
+                return {'returncode':0 if export_soft else 3,'seconds':1,'soft_stop_requested':not export_soft,'kernel_soft_limit_exceeded':False}
             if name=='archive' and archive_error:raise RuntimeError('archive fixture failure')
-            return {'returncode':0,'seconds':1}
+            return {'returncode':0,'seconds':1,'soft_stop_requested':export_soft and name.startswith('export'),'kernel_soft_limit_exceeded':False}
     monkeypatch.setattr(p,'Guard',Guard)
     p.run(out,tmp_path/'archive.zip',review)
     return ops,json.loads((out/'closeout.json').read_text())
@@ -99,3 +99,34 @@ def test_soft_stop_permits_required_audit_closeout_but_no_smoke(tmp_path,monkeyp
 def test_archive_failure_still_writes_truthful_closeout(tmp_path,monkeypatch):
     ops,close=controller_fixture(tmp_path,monkeypatch,archive_error=True)
     assert close['archive_status']=='failed' and 'archive fixture failure' in close['archive_failure']
+
+
+def test_export_soft_stop_blocks_next_training_and_smoke(tmp_path,monkeypatch):
+    ops,close=controller_fixture(tmp_path,monkeypatch,export_soft=True)
+    assert ops==['source-snapshot','train-1000000','export-1000000','audit-1000000','archive']
+
+
+def test_kernel_soft_export_latches_new_science_but_permits_preservation(tmp_path,monkeypatch):
+    import pytest
+    g=guarded_fixture(tmp_path,monkeypatch,1800,kernel_peak=int(3.5*p.GIB))
+    assert g.run('export-fixture',['fixture'])['kernel_soft_limit_exceeded']
+    with pytest.raises(RuntimeError,match='Terminal guard latch'):g.run('train-next',['fixture'],train=True)
+    with pytest.raises(RuntimeError,match='Terminal guard latch'):g.run('smoke',['fixture'])
+    assert g.run('audit-fixture',['fixture'])['status']=='complete'
+    assert g.run('archive',['fixture'])['status']=='complete'
+
+
+def test_actual_smoke_worker_replays_and_reproduces_all_hands(tmp_path):
+    import json
+    from src.blueprint.artifact import save_training
+    from src.diagnostics.cfr_average import extract
+    from src.blueprint.abstraction import HU200_SCHEMA
+    from src.policies.files import file_hash
+    from tests.test_native_hu100_preparation import fixture
+    _,_,trainer=fixture(200)
+    checkpoint=tmp_path/'fixture.gz';average=tmp_path/'average.gz';save_training(trainer,checkpoint)
+    extract(checkpoint,dict(seed=123,iteration=2,checkpoint_sha256=file_hash(checkpoint)),average,expected_schema=HU200_SCHEMA)
+    p.smoke_worker(tmp_path,average)
+    result=json.loads((tmp_path/'smoke.json').read_text())
+    assert result['status']=='verified' and result['hands']==320
+    assert len((tmp_path/'smoke-hands.jsonl').read_text().splitlines())==320
