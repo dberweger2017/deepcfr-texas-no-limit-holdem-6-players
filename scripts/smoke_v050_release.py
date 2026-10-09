@@ -18,6 +18,21 @@ def put(path, value):
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
 
 
+def browser_receipt(path, seconds=600):
+    # Writers should publish with atomic rename. A remote copy can expose an
+    # empty/partial file first; only a complete JSON object acknowledges closeout.
+    until = monotonic() + seconds
+    while monotonic() < until:
+        try:
+            result = json.loads(path.read_text())
+            if isinstance(result, dict):
+                return result
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+        sleep(.2)
+    raise TimeoutError('Browser allowance exhausted')
+
+
 class Runtime:
     def __init__(self, bundle, data, out, source):
         self.bundle, self.data, self.out, self.source = bundle, data, out, source
@@ -239,12 +254,7 @@ def main():
             result['starts'] = runtime.starts; result['lost_reply_verified'] = True
             put(args.out / 'browser-ready.json', {'port': runtime.port, 'pid': runtime.process.pid,
                                                    'started': time(), 'max_seconds': 600})
-            until = monotonic() + 600
-            while not (args.out / 'browser-done.json').exists() and monotonic() < until:
-                sleep(.2)
-            if not (args.out / 'browser-done.json').exists():
-                raise TimeoutError('Browser allowance exhausted')
-            result['browser'] = json.loads((args.out / 'browser-done.json').read_text())
+            result['browser'] = browser_receipt(args.out / 'browser-done.json')
         put(args.out / 'summary.json', result)
         print(json.dumps(result))
     finally:

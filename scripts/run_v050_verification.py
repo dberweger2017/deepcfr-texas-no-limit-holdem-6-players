@@ -30,7 +30,7 @@ def archive(out, cloud, source):
     # explicit exclusions prevent creating a duplicate inference archive.
     paths = [p for p in out.rglob('*') if p.is_file() and p.name != 'access.token'
              and p.suffix not in ('.sqlite-wal', '.sqlite-shm')
-             and p.name not in ('resources.jsonl', 'resources-resumed.jsonl', 'archive.log')]
+             and p.name not in ('resources.jsonl', 'resources-resumed.jsonl', 'resources-closeout.jsonl', 'archive.log')]
     records = [{'path': str(p.relative_to(out)), 'bytes': p.stat().st_size,
                 'sha256': sha(p), 'original': str(p.resolve()), 'mtime_ns': p.stat().st_mtime_ns} for p in sorted(paths)]
     manifest = {'source': source, 'kind': 'candidate-integration-evidence-no-model',
@@ -202,7 +202,7 @@ class Verification:
                   'max_swap_growth_bytes': max((s['swap_bytes'] - self.baseline['swap_bytes'] for s in self.samples), default=0),
                   'min_free_disk_bytes': min((s['disk_free_bytes'] for s in self.samples), default=0),
                   'target_cadence_seconds': .2}
-        put(self.out / ('resources-summary-resumed.json' if getattr(self, 'resumed', False) else 'resources-summary.json'), result)
+        put(self.out / getattr(self, 'summary_name', 'resources-summary-resumed.json' if getattr(self, 'resumed', False) else 'resources-summary.json'), result)
         for sig, handler in self.handlers.items(): signal.signal(sig, handler)
         fcntl.flock(self.lock, fcntl.LOCK_UN); self.lock.close()
         return result

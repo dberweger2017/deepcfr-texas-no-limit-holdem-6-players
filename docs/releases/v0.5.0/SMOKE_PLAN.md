@@ -69,3 +69,23 @@ recorded. Retained-input restoration validates full model hash/header before
 and after copy; it relies on indexed accepted archive provenance and makes no
 new whole-ZIP audit or no-hydration claim. Future archive retrieval instructions
 remain valid, but hydration time must be budgeted when that ZIP is offloaded.
+
+## Browser completion and audit/archive-only closeout repair
+
+Both planned browser hands completed. An extra Step started a second spectator
+hand and played one decision; it remains paused/incomplete and is retained for
+audit. This exceeded the intended browser start count, although the two-complete-
+hand bound was met. It is a disclosed protocol deviation, not additional strength
+sampling or a replacement for a failed hand.
+
+The completion JSON was copied directly and became visible empty before SCP
+finished, causing a retained JSONDecodeError and stopping the driver after all
+runtime checks. Publish future browser acknowledgments using a temporary file
+and atomic rename; the repaired reader also tolerates partial JSON within the
+original browser allowance. A narrowly gated continuation runs only independent
+replay of existing journals and local archive creation. It checks the exact
+failure, dead prior owned processes, previous guard streams, completed browser
+receipt, exclusive lock and the original start/deadline/baseline; no server start,
+model copy or hand rerun. Its separate resource stream, frozen source and idle
+monitoring gap are recorded. The failure remains evidence, and the original
+60-minute budget includes repair, renewed stability admission, audit and archive.

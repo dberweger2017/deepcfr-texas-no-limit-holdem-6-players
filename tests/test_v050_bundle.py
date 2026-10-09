@@ -170,6 +170,7 @@ def test_retained_retrieval_checks_input_and_copy_without_new_zip(prepared, tmp_
     source, _ = prepared
     monkeypatch.setattr(retriever, 'RETAINED_SOURCE', source)
     monkeypatch.setattr(retriever, 'MODEL', verifier.MODEL)
+    monkeypatch.setattr(retriever.shutil, 'disk_usage', lambda _: SimpleNamespace(free=20 * 1024**3))
     result = retriever.retrieve_retained(source, tmp_path / 'restored')
     assert (tmp_path / 'restored' / verifier.ASSET_NAME).read_bytes() == source.read_bytes()
     assert result['archive_audit'] == 'existing accepted PR207 receipt; no fresh whole-ZIP verification'
@@ -178,3 +179,16 @@ def test_retained_retrieval_checks_input_and_copy_without_new_zip(prepared, tmp_
     other = tmp_path / 'other.gz'; other.write_bytes(source.read_bytes())
     with pytest.raises(ValueError, match='indexed'):
         retriever.retrieve_retained(other, tmp_path / 'wrong')
+    monkeypatch.setattr(retriever.shutil, 'disk_usage', lambda _: SimpleNamespace(free=0))
+    with pytest.raises(ValueError, match='Insufficient'):
+        retriever.retrieve_retained(source, tmp_path / 'no-space')
+
+
+def test_browser_completion_waits_for_complete_remote_copy(tmp_path, monkeypatch):
+    from scripts import smoke_v050_release as smoke
+    path = tmp_path / 'browser-done.json'; path.write_text('')
+    monkeypatch.setattr(smoke, 'sleep', lambda _: path.write_text('{"complete_hands":2}'))
+    assert smoke.browser_receipt(path, 1) == {'complete_hands': 2}
+    path.write_text('{partial')
+    with pytest.raises(TimeoutError, match='Browser allowance'):
+        smoke.browser_receipt(path, 0)
