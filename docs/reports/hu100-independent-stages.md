@@ -1,7 +1,9 @@
 # HU100 independent seeds: experiment complete; recipe unqualified
 
 [PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215)
-is open and unmerged. [Protocol](../hu100-independent-stages.md).
+completed the reviewed experiment. The owner subsequently requested merge after
+all five checks passed; the initial unmerged handoff is superseded.
+[Protocol](../hu100-independent-stages.md).
 Both predeclared fresh seeds reached audited early and 1B endpoints, and all
 three fixed lineages completed fresh paired evaluation at 4,096 blocks/opponent.
 **Overall recipe qualification is not established:** seed 2026100902's tight
@@ -237,4 +239,9 @@ continuation of this frozen campaign. Focused source qualification38 tests pass;
 passes with no blockers. The main integration preserves HU100 behavior; all
 38 focused post-merge regressions pass (19.66s). Exact final-head host CI is checked
 before marking the PR ready for owner review; its final statuses remain on the PR.
-The PR stays unmerged.
+The owner subsequently requested merge after all five checks passed on
+`4d455ea32aaab8db4f0625f790e06d14d1ba9f23`. This documentation-only authorization
+update receives fresh final-head checks before merge; the prior unmerged handoff
+is superseded. Dated review/archive snapshots retain their original instructions.
+The merge does not change recipe qualification, authorize a release, or start
+additional computation.

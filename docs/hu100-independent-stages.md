@@ -141,3 +141,12 @@ repair time to the original six-hour deadline. Existing inputs are reverified
 without overwrite. No scientific operation is repeated, no guard is waived, and
 no other failure can use this path. A later failure gets a separate immutable
 latch. The ordinary launch remains one-use and refuses an existing campaign.
+
+## Owner-authorized merge after closeout
+
+The owner subsequently requested merge after independent scientific, integration
+and storage reviews passed and all five host checks passed on
+`4d455ea32aaab8db4f0625f790e06d14d1ba9f23`. This supersedes only the initial
+unmerged delivery instruction. The documentation update receives fresh final-head
+checks before merge; branch protection remains in force. No release, changed
+recipe, additional training/evaluation or cleanup is authorized by this merge.

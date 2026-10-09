@@ -1,8 +1,10 @@
 ## PR215 HU100 independent stages — science complete, October 9
 
 [PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215),
-`feature/hu100-independent-seed-stages`, is open/unmerged from current-main base
-`6e18043317817080fd38f400c5366fbf18fc6b53`.
+`feature/hu100-independent-seed-stages`, completed from current-main base
+`6e18043317817080fd38f400c5366fbf18fc6b53`. The owner subsequently requested
+merge after the reviewed head passed all five checks; earlier unmerged handoff
+instructions are superseded. Current host status is authoritative.
 [Protocol](docs/hu100-independent-stages.md),
 [results/costs/remaining questions](docs/reports/hu100-independent-stages.md).
 Scientific source `1d862d6f9ea2e5e56b23c84cac94561103b5da11`; unchanged #207
@@ -102,12 +104,13 @@ remain in Git; archived pending statements are dated snapshots. Remote bytes
 not downloaded/verified. Protected:
 M4/M1 `~/Local/hu100-independent-seed-stages-20261009`, ignored coordinator,
 all PR207/PR211 original models/failures, PR207 native/environment dependencies,
-sharedGit and other agents' inputs. All originals remain; this open PR and its
-future inputs are protected even after upload acceptance. No cleanup or force
+sharedGit and other agents' inputs. All originals remain; this campaign and its
+future inputs are retained after upload acceptance and merge. No cleanup or force
 execution/offloading. [Final storage/evidence review](docs/reports/hu100-independent-stages-artifacts/final-storage-review.json)
 passes with no blockers. Scientific and integration reviews pass; 38 focused
 post-merge regressions pass. Exact final-head host CI is checked before ready
-status; final statuses remain on PR215. Leave reviewed PR215 unmerged.
+status; final statuses remain on PR215. The owner subsequently authorized merge; that
+instruction supersedes the initial unmerged handoff.
 
 ## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
 
