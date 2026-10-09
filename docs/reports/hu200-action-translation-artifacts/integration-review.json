@@ -1,0 +1,51 @@
+{
+  "checks": [
+    "22 focused tests passed independently before the readable-PID refinement; only the two affected SIGTERM cases rerun after refinement and both pass",
+    "Both real macOS wrapper and forced portable wrapper pass on M1; Linux always substitutes the portable fixture wrapper",
+    "Portable substitution preserves start_new_session and other Popen arguments, so real owned-process-group cleanup remains tested",
+    "SIGTERM is sent only after the actual sleeping child writes a positive integer PID; failed receipt and terminal latch are asserted, and child absence or zombie state confirms no running survivor",
+    "Production translator, average-policy, evaluator and M1-only controller SHA256 match the already cleared source-review-2.json",
+    "Sealed ZIP whole SHA256 remains 93469e766ff8227fc601aa2e618ed4323134df24718999f2b5391ab994628987",
+    "Report/setup notes and CI receipt preserve original Linux failure and distinguish local passing checks from still-required final-head CI"
+  ],
+  "findings": [],
+  "host": "dberweger-m1",
+  "limits": {
+    "final_head_CI_confirmed": false,
+    "linux_runner_executed_by_reviewer": false,
+    "no_M4_access": true,
+    "no_new_campaign_hands_or_decisions": true,
+    "no_payoffs_inspected": true,
+    "no_real_model_loaded": true,
+    "no_training": true,
+    "original_evidence_review_changed": false,
+    "scientific_goal_complete": false
+  },
+  "prior_findings_resolved": [
+    {
+      "finding": "Marker existence can precede complete PID write",
+      "response": "Waits for positive readable integer PID, handling absent/empty marker before signalling",
+      "status": "resolved"
+    },
+    {
+      "finding": "Saved CI log retrieval command was not directly runnable",
+      "response": "Exact gh run view 37939799464 --log-failed recorded",
+      "status": "resolved"
+    }
+  ],
+  "reviewed_at": "2026-10-09T16:01:30.094685+00:00",
+  "reviewed_files_sha256": {
+    "docs/reports/hu200-action-translation-artifacts/integration-ci-first-failure.json": "9ba0d21ff02d953fec0230ad4e035e291eead0305d3818811efb06cd14bcf0d8",
+    "docs/reports/hu200-action-translation-artifacts/setup-notes.txt": "c2475ca9acc463a095eda3c6144a577af8c7c5d3156293a7cd4b77a3203ccb89",
+    "docs/reports/hu200-action-translation.md": "1056dbc5872b28265769ade8ea9f4371f9c80976c0bb55205e1ab0cd773a639b",
+    "scripts/evaluate_hu200_translation.py": "64820baea42de4da4562a4dd047c51bdb0855d798e40e6c93c5a1e82c0a24acd",
+    "scripts/run_hu200_translation.py": "e6a73f0683fad7e64b7fc8c28389167fdb8057f4b4c0b5eab1c27cf737229d9f",
+    "src/blueprint/action_translation.py": "408c9c38bf95201d0d733945e6578d02262b42ba0787bf75372654f881814a4a",
+    "src/blueprint/average.py": "a431e11136348f8874cac6b5c2671a9a8dc1479fe71a8a1783be83e8d3e135cc",
+    "tests/test_hu200_translation_campaign.py": "29f93d4ce5c51fb5765ac731384d433ce00519a15fad015382f24057bfc1a4b0"
+  },
+  "reviewer": "independent Codex translator_review",
+  "scientific_source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "scope": "Post-closeout CI portability and SIGTERM cleanup test only; original source/evidence review remains authoritative",
+  "status": "passed"
+}

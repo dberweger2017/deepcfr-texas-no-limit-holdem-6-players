@@ -1,0 +1,26 @@
+{
+  "status": "upload-pending-owner-or-later-agent-handoff",
+  "scope": "One-time folder search/listing and archive metadata only; not native upload acceptance",
+  "folder": {
+    "id": "1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb",
+    "url": "https://drive.google.com/drive/folders/1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb",
+    "parent_id": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+    "name": "PR-218-HU200-action-translation"
+  },
+  "archive": {
+    "id": "1tcn_MOh7Kxb85K66kU_v2vFnRP5vagUN",
+    "url": "https://drive.google.com/file/d/1tcn_MOh7Kxb85K66kU_v2vFnRP5vagUN/view?usp=drivesdk",
+    "name": "HU200-action-translation-M1-20261009.zip",
+    "listed_bytes": 1728155,
+    "parent_ids": [
+      "1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb"
+    ]
+  },
+  "native_uploaded_no_pending_no_conflict_read": false,
+  "upload_wait": false,
+  "cloud_acceptance_claimed": false,
+  "remote_bytes_downloaded": false,
+  "local_zip_and_members_verified": true,
+  "originals_retained": true,
+  "forced_offload": false
+}

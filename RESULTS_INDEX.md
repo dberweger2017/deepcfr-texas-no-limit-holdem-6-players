@@ -2028,3 +2028,49 @@ PY
 ```
 
 To regenerate compact exploratory tables after restoring, use the committed `python -m scripts.report_hu200_diagnosis --root RESTORED --out NEW_IGNORED_OUTPUT`; it performs an independent full raw-record/count/paired-gain recount before tabulation. The archived frozen scientific source runs `scripts.evaluate_hu200_diagnosis` workers/report and the pinned native parity command. Relocated input paths require a recorded relocated plan/new plan digest; model bytes, roots, schedule and behavioral settings must remain exact. Fresh reruns require separately admitted budgets, not this one-use controller. Review, PR administration and later upload acceptance do not modify this sealed scientific run or authorize cleanup.
+
+## PR218 HU200 action translation calibration stop — October 9, 2026
+
+**Partial, terminal scientific attempt; no final comparison.** [PR218](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/218), branch `feature/hu200-action-translation`, base current main `a3358fc`, scientific source **734b4f1093c963d15a81d12b3e5de209f95ba613**. M1 worktree `/Users/dberweger/Local/hu200-action-translation-20261009`, run root `results/run-01`. #216/#217 live statuses were **MERGED** before input use; PR218 **OPEN** before explicitly owner-authorized own-evidence archival. Independent source reviews clear explicit HU200 support and unchanged HU100 translation. [Protocol](docs/hu200-action-translation.md), [report](docs/reports/hu200-action-translation.md), [authoritative final partial receipt](docs/reports/hu200-action-translation-artifacts/final-partial-summary.json).
+
+Fresh normal-pressure/AC admission passed at 15:44:44 UTC with 24.827GiB disk and 4.214GiB available RAM. The owner retained **15.5GiB** disk floor. Calibration pressure changed `1→2` at 123.48s, sampled family peak **1,629,061,120 bytes**, zero swap growth; guard killed its worker and latched science off. **439 recoverable timing-only records**: off 320/on 119 (on gzip footer interrupted), actions 1195/592, candidate decisions 557/286, native fixtures 320/118. No calibration payoffs inspected, no costs receipt, sample freeze, native parity, final hand, gain/uncertainty or performance/adoption claim. Original archive admission also refused pressure before any ZIP started. Normal-pressure archive-only continuation retained original swap/disk/time baseline and terminal science latch; no science restart or hand regeneration. Local closeout **339.77s /5.66min**, within original 60min. No training/live match/release, M4 use, other-agent root change, cleanup or deletion. Retain translation experimental; future owner-directed repeat needs idle memory headroom and fresh admission. [Failure/resources/costs](docs/reports/hu200-action-translation-artifacts/resources.json).
+
+**ZIP:** `/Users/dberweger/Local/Research-Cloud/PR-218-HU200-action-translation/HU200-action-translation-M1-20261009.zip`, **1,728,155 bytes**, SHA256 **93469e766ff8227fc601aa2e618ed4323134df24718999f2b5391ab994628987**. Embedded `ARCHIVE-MANIFEST.json`, SHA256 **d8991862c8d72466b6168dc4a3f590044c48bc6730356946db58b550f7e5d1d6**; all **27 member files** locally size/SHA256 verified, including exact interrupted bytes. Manifest records original path/bytes/mtime/SHA256. [Local receipt](docs/reports/hu200-action-translation-artifacts/archive-receipt.json).
+
+Actual folder [PR-218-HU200-action-translation](https://drive.google.com/drive/folders/1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb), ID **1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb**, parent Research-Cloud **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**. One-time folder listing discovers [ZIP metadata](https://drive.google.com/file/d/1tcn_MOh7Kxb85K66kU_v2vFnRP5vagUN/view?usp=drivesdk), ID **1tcn_MOh7Kxb85K66kU_v2vFnRP5vagUN**, matching name/listed bytes. **Upload-pending owner/later-agent handoff**: metadata is not native upload acceptance or remote-byte verification. No native uploaded/no-pending/no-conflict status read, upload waiter, cloud acceptance claim, remote ZIP download, original deletion or forced offload. Originals and sealed bytes retained. [Handoff](docs/reports/hu200-action-translation-artifacts/drive-handoff.json).
+
+Archive members: `source.tar` (reviewed source/protocol/dependencies/source reviews), `timing-plan.json` (input hashes/headers/restoration), `timing/off/` and `timing/on/hands.jsonl.gz`, `native-fixtures.jsonl`, completed off hashes, pre-archive operation resource/log/intent/receipt files, original failure/closeout, count-only partial summaries and archive-only continuation. Archived `partial-summary.json` incorrectly inferred no calibration records; archived `partial-summary-corrected.json` corrected counts but retained the inaccurate “during loading” label and ambiguously named final-zero counts. **The Git final partial receipt/report supersede both**: loading completed, 439 complete calibration records and 0 final hands; interrupted worker duration 117.40s is not isolated loading or per-hand cost. These mistaken snapshots remain preserved, not silently overwritten. Archive-operation mutable logs/final receipt, local closeout completion, final correction/report/review and Drive handoff are compact Git lifecycle receipts after sealing. No incomplete calibration is substituted for the predeclared final sample.
+
+**Inputs:** reuse [PR216's indexed archive/model/runtime restoration](#pr216-hu200-m1-feasibility--october-9-2026), Drive archive **1_DurWi5ox9jcVYsJw2fYGAhdqB-JUapR**. No duplicate model/runtime enters this ZIP or Git. Terminal average member **`HU200-100000000.gz.average.gz`**, **510,277,592 bytes**, SHA256 **1e9613547ad6721f2559e419caf296a781a914a4e92ecd4ef35f4b483c66060b**; direct local path `/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-100000000.gz.average.gz`. Runtime member **`runtime/hu20-trainer`**, **1,351,680 bytes**, SHA256 **c72e900bc6e47e1c2ae78f7b16d87afbd2e9397adb946a86149e6ab4160a6878**, direct path `/Users/dberweger/Local/deepcfr-hu200-slumbot/native/hu20-trainer/target/release/hu20-trainer`. Use PR216's exact restoration command with `PR216_TARGET=100000000` and `PR216_KINDS=average` in a fresh ignored destination; it verifies archive/manifest/selected member. Existing full training audits are reused, not repeated. Current source/tests require Python 3.11 and pinned engine/NumPy/SciPy/monitoring dependencies.
+
+Restore this exact partial evidence into a fresh ignored directory without duplicating its local ZIP:
+
+```sh
+PR218_ARCHIVE="$HOME/Local/Research-Cloud/PR-218-HU200-action-translation/HU200-action-translation-M1-20261009.zip" \
+PR218_RESTORE="results/restored-pr218-$(date +%Y%m%d-%H%M%S)" \
+python - <<'PY'
+import hashlib,json,os
+from pathlib import Path
+from zipfile import ZipFile
+archive=Path(os.environ['PR218_ARCHIVE']);dest=Path(os.environ['PR218_RESTORE'])
+def sha(path):
+    h=hashlib.sha256()
+    with path.open('rb') as f:
+        while b:=f.read(1024**2):h.update(b)
+    return h.hexdigest()
+assert archive.stat().st_size==1728155
+assert sha(archive)=='93469e766ff8227fc601aa2e618ed4323134df24718999f2b5391ab994628987'
+dest.mkdir(parents=True,exist_ok=False)
+with ZipFile(archive) as z:
+    raw=z.read('ARCHIVE-MANIFEST.json')
+    assert hashlib.sha256(raw).hexdigest()=='d8991862c8d72466b6168dc4a3f590044c48bc6730356946db58b550f7e5d1d6'
+    for m in json.loads(raw)['members']:
+        member=Path(m['path']);assert not member.is_absolute() and '..' not in member.parts
+        z.extract(m['path'],dest);path=dest/member
+        assert path.stat().st_size==m['bytes'] and sha(path)==m['sha256']
+    (dest/'ARCHIVE-MANIFEST.json').write_bytes(raw)
+print(dest)
+PY
+```
+
+The original on gzip intentionally fails its final-footer integrity check. For forensic count/hash readback only, stream `gzip.open(...,'rt')`, parse complete JSON lines until the documented EOFError, and validate each row's canonical SHA256; keep original bytes. There is no frozen final plan or complete worker cost receipt. Restoration does not authorize another experiment, missing-coordinate completion, reuse as final data or removal. Independent final review and required checks accompany the unmerged PR; the original playing-comparison goal remains incomplete.

@@ -1,0 +1,55 @@
+{
+  "absolute_results": null,
+  "actions": 0,
+  "calibration_native_fixture_rows": {
+    "off": 320,
+    "on": 118
+  },
+  "calibration_payoffs_inspected": false,
+  "calibration_retained_actions": {
+    "off": 1195,
+    "on": 592
+  },
+  "calibration_retained_decisions": {
+    "off": 557,
+    "on": 286
+  },
+  "calibration_retained_rows": {
+    "off": 320,
+    "on": 119
+  },
+  "correction": "Supersedes initial partial-summary.json and initial user status which incorrectly inferred no hands from absent worker completion. No payoff summary or final inference was generated.",
+  "coverage": null,
+  "decisions": 0,
+  "failure": "macOS pressure warning during loading; original archive admission also refused pressure",
+  "family_peak_bytes": 1629061120,
+  "final_hands": 0,
+  "final_outcomes_generated": false,
+  "hands": 0,
+  "load_completed": true,
+  "lookup_latency": null,
+  "maximum_swap_growth_bytes": 0,
+  "model_loading_limit": "No complete costs receipt;117.40-second interrupted worker duration includes loading and partial play; not an isolated load measurement",
+  "model_loading_seconds": null,
+  "on_stream_footer": "missing-after-SIGTERM;119 complete JSON records recoverable by streaming until EOFError; original bytes retained",
+  "outcomes_generated": true,
+  "outcomes_inspected": false,
+  "paired_blocks": 0,
+  "pressure_samples": {
+    "1": 218,
+    "2": 1
+  },
+  "primary": {
+    "estimate": null,
+    "interval": null,
+    "opponent": "pot_pressure",
+    "reason": "no-evaluation"
+  },
+  "recommendation": "Retain translation as experimental; no HU200 playing-gain evidence from this stopped attempt. A separately admitted outcome-blind repeat requires owner direction.",
+  "resources_samples": 219,
+  "sample_frozen": false,
+  "scientific_retry": false,
+  "source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "status": "calibration-stopped-after-partial-hands",
+  "translation_distance": null
+}

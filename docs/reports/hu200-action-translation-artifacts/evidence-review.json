@@ -1,0 +1,138 @@
+{
+  "archive": {
+    "all_original_paths_bytes_mtimes_and_hashes_match": true,
+    "bytes": 1728155,
+    "manifest_sha256": "d8991862c8d72466b6168dc4a3f590044c48bc6730356946db58b550f7e5d1d6",
+    "model_runtime_duplicates": 0,
+    "original_archive_refusal_and_reporting_corrections_preserved": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-218-HU200-action-translation/HU200-action-translation-M1-20261009.zip",
+    "sha256": "93469e766ff8227fc601aa2e618ed4323134df24718999f2b5391ab994628987",
+    "source_snapshot_required_restore_dependencies_present": true,
+    "verified_members": 27
+  },
+  "drive_handoff": {
+    "archive_id": "1tcn_MOh7Kxb85K66kU_v2vFnRP5vagUN",
+    "folder_id": "1LrrpXK2BWB52WNOUYICBg6ctOuc3K3sb",
+    "independent_cloud_listing_by_reviewer": false,
+    "originals_retained": true,
+    "recorded_metadata_name_size_parent_match_local_receipt": true,
+    "remote_bytes_downloaded": false,
+    "upload_acceptance_claimed": false,
+    "upload_wait": false
+  },
+  "findings": [],
+  "host": "dberweger-m1",
+  "input_provenance": [
+    "Timing plan and scientific source match the independent source-review hashes and frozen protocol SHA256",
+    "Indexed fixed 100M model/header/source-checkpoint/audit identity and existing PR216 archive/member restoration match the timing plan",
+    "Parent PR216/217 live MERGED checks precede input use; owning PR218 OPEN check precedes explicitly authorized own-evidence archival",
+    "Reviewer did not reload the real model or repeat its original hash gate; no other PR roots or M4 were accessed"
+  ],
+  "outcome_boundary": {
+    "calibration_payoff_values_inspected_or_summarized": false,
+    "final_evaluation_started": false,
+    "final_sample_frozen": false,
+    "native_parity_run": false,
+    "no_M4_access": true,
+    "no_extra_policy_decisions_or_hands_generated": true,
+    "no_real_model_loaded": true,
+    "no_training": true,
+    "playing_gain_uncertainty_absolute_results_and_final_telemetry_available": false
+  },
+  "owning_pr": 218,
+  "partial_recount": {
+    "independently_replayed_translated_witnesses_in_partial": 0,
+    "off": {
+      "actions": 1195,
+      "candidate_decisions": 557,
+      "fixtures_sha256": "676a98ef6cd658c3d84903ee4435992e1b8043c6719cebcb440210e2bdd91749",
+      "gzip_footer_present": true,
+      "hands_sha256": "8a6ce273d1c85ef5211720b0baed497ec456284b6d1d8efc06d6382f7cd09a5b",
+      "native_fixture_rows": 320,
+      "rows": 320
+    },
+    "on": {
+      "actions": 592,
+      "candidate_decisions": 286,
+      "fixtures_sha256": "26b7620a26429d07791018018664eb4b10cb5395c5b7f729ceff749048879a2c",
+      "gzip_footer_present": false,
+      "hands_sha256": "24aad873f93f47a2e30aea7e679029c5da60182ef53b9b3d3d22ea86e0aec6c2",
+      "native_fixture_rows": 118,
+      "rows": 119
+    },
+    "total_actions": 1787,
+    "total_candidate_decisions": 843,
+    "total_rows": 439,
+    "truncated_terminal_json_record": false
+  },
+  "prior_findings_resolved": [
+    {
+      "finding": "First corrected summary still said pressure occurred during loading and ambiguously named final zero counts",
+      "response": "Sealed snapshots remain unchanged; authoritative final-partial-summary.json, report and index explicitly state loading completed, 439 calibration records and zero final hands",
+      "status": "resolved"
+    }
+  ],
+  "raw_checks": [
+    "Every recoverable row canonical SHA256, frozen timing coordinate and labelled deal/candidate/rival seed verified",
+    "Every retained action replayed through the real engine on its original recorded deal; public observation replay, legal bounds, menus, keys, candidate decision coordinates/probabilities/telemetry/action, all events and terminal accounting match",
+    "All 438 retained native fixture rows match their corresponding Python prefixes, private deck fixtures, actions, decision fields and terminal stacks; no native parity binary invoked",
+    "Recorded uniform probabilities normalize correctly; exact/translated modes and known flags are consistent; actual real-model probabilities and policy RNG reproduction were checked by the instrumented original worker before row flush, not independently rerun by this reviewer"
+  ],
+  "readiness": {
+    "final_required_checks_and_ready_state_remain_parent_responsibility": true,
+    "original_playing_comparison_goal_complete": false,
+    "pr_open_unmerged_confirmed": true,
+    "reviewable_as_preserved_resource_stopped_attempt": true,
+    "scientific_restart_authorized": false
+  },
+  "recommendation": "Retain translation as experimental and off by default. This terminal resource-stopped calibration establishes no HU200 playing gain, loss, final fallback reduction or adoption case. A new experiment requires separately declared fresh data/budget and owner-directed admission.",
+  "resources": {
+    "campaign_workers_active": 0,
+    "closeout_elapsed_from_original_anchor_seconds": 339.77082419395447,
+    "kernel_peak_unavailable_for_stopped_timing": true,
+    "maximum_within_operation_gap_seconds": 0.582737922668457,
+    "operation_samples": 221,
+    "original_clock_swap_disk_baseline_retained": true,
+    "owner_process_dead": true,
+    "pressure_samples": {
+      "1": 220,
+      "2": 1
+    },
+    "research_lock_released": true,
+    "sampled_peak_family_rss_bytes": 1629061120,
+    "science_latch_terminal": true,
+    "science_samples": 219,
+    "swap_growth_bytes": 0
+  },
+  "reviewed_at": "2026-10-09T15:57:49.291456+00:00",
+  "reviewed_files_sha256": {
+    "RESULTS_INDEX.md": "6be7c2051b1480d9c08b515581af34a463653255053b0f1e2d609e904531ef1d",
+    "ROADMAP.md": "696f2f58914be4b0cff94581938a98c12b8ef2f31ce01c0600c4d17fbe07b1ec",
+    "docs/hu200-action-translation.md": "7ff34e8cbceb51fecb90a72f7e68eca598ff966e5bca69f0c0d0c2731b9656d1",
+    "docs/reports/hu200-action-translation-artifacts/archive-admission-refusal.json": "94ded4adb4ec6adca20d49752a085993a14076cf51a94aea0bd0148a2fa61c19",
+    "docs/reports/hu200-action-translation-artifacts/archive-only-continuation.json": "d74dc9bf843a824e5266ff02a1083e53aa0a2341c8cbdbf8ecf3b01c78ced01d",
+    "docs/reports/hu200-action-translation-artifacts/archive-receipt.json": "2c11e5eb195e16e548249184ed69071d1c3ceafe54002b20170e67f3c6656fcd",
+    "docs/reports/hu200-action-translation-artifacts/baseline.json": "117b9b633d487c88bcce0928808d8c147f2fcd4579fc5d6d62d379cf806c52d8",
+    "docs/reports/hu200-action-translation-artifacts/closeout.json": "64d6d70658ea87b9a57e89bb4451910b4daa6ac271fba28b8c7ad39b2d2db753",
+    "docs/reports/hu200-action-translation-artifacts/costs.json": "893c8ba6f2aa078d509a0b4e2ecab8142ad0741aadea4c36966955dfc577fbde",
+    "docs/reports/hu200-action-translation-artifacts/drive-handoff.json": "b1bc1d087d5257f64a0cafd5e7273833ba029777b0a9d5ea62dcffabef82db96",
+    "docs/reports/hu200-action-translation-artifacts/failure.json": "6e7ed245efc2b01d5138404d2962326370fa9ed2d802966608585b958115311f",
+    "docs/reports/hu200-action-translation-artifacts/final-partial-summary.json": "9ce00bc8850814f2f0f836bb621e978f0061933bbb3c1c53084c55d42a7c899a",
+    "docs/reports/hu200-action-translation-artifacts/freshness.json": "77231a05cc0a4d77d3df7c636d12f7db5ee8702067b60a759fc088caa1d638c9",
+    "docs/reports/hu200-action-translation-artifacts/local-closeout-completed.json": "7c7392fef831f879b55a7d668145bb133ae2b5252ba6126f44c8ea56446272c4",
+    "docs/reports/hu200-action-translation-artifacts/ownership-summary.json": "a668df63a7a8da39327d04a143c8917c45084d04fe59e8ac7811d379cb6d1b91",
+    "docs/reports/hu200-action-translation-artifacts/owning-pr-before-archive.json": "e99046cba67f59a648697a1ab165bf643a0da27e82f60335db5a4b2a58645bb1",
+    "docs/reports/hu200-action-translation-artifacts/parent-216-live-status.json": "c1d318d34282f63f033c2df01b1e6c1c375fab00923a8882b87069ca0ac56b4a",
+    "docs/reports/hu200-action-translation-artifacts/parent-217-live-status.json": "355e89853cda89f0a3912e22cb509eb1aff933063dedc75d2efbe97021961440",
+    "docs/reports/hu200-action-translation-artifacts/partial-summary-corrected.json": "6bd0606952f49a1d2b42d25a12d1d1743d27390b30c8aabd6040654810021219",
+    "docs/reports/hu200-action-translation-artifacts/provenance.json": "5e3c456d0491ef43f50f415b2809d7f59ae9448bebad0315c6e13b4a41dc0c56",
+    "docs/reports/hu200-action-translation-artifacts/resources.json": "d821add31d4dad55e42c3163bbb9b8bede83cbd0b7d92d533c1819977b38faf1",
+    "docs/reports/hu200-action-translation-artifacts/science-closeout.json": "c0015a08a9b02414ab89cac96042b63e2344d185b72bf10fb6ba5324654e73ab",
+    "docs/reports/hu200-action-translation-artifacts/source-review-1.json": "4117d5fad4d85f21272a52611e188e9f062f66c9015b97b392e20d89df54b512",
+    "docs/reports/hu200-action-translation-artifacts/source-review-2.json": "18ed9636d8a94f7ce303381463ff9a01400190fc6c0e38f841e56f419a610b63",
+    "docs/reports/hu200-action-translation.md": "b454405f39e2570aabf4d1874b03968e76bafebba476af0da97febdd899b87d6"
+  },
+  "reviewer": "independent Codex translator_review",
+  "scientific_source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "status": "passed-for-preserved-partial-closeout"
+}

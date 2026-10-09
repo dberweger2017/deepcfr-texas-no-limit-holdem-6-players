@@ -1,4 +1,4 @@
-"""Bounded public-only witnesses for HU100 off-menu inference.
+"""Bounded public-only witnesses for HU100/HU200 off-menu inference.
 
 No simulator, hidden-world sampling or policy RNG is used here. Witnesses change
 past raise labels only; the caller supplies the real current action menu.
@@ -8,11 +8,20 @@ from fractions import Fraction
 from heapq import heappop, heappush
 from itertools import count
 
-from src.blueprint.abstraction import HU100_SCHEMA, Choice, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA, Choice, choices, information_key
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, Observation
 from src.game.types import Action, ActionKind, LegalActions, Player, Street, pots_for
 
 VERSION = "hu100-public-menu-translation-v1"
+HU200_VERSION = "hu200-public-menu-translation-v1"
+
+
+def version_for_schema(schema: str) -> str:
+    if schema == HU100_SCHEMA:
+        return VERSION
+    if schema == HU200_SCHEMA:
+        return HU200_VERSION
+    raise ValueError("Action translation requires an explicit HU100/HU200 schema")
 
 
 @dataclass(frozen=True, slots=True)
@@ -133,8 +142,11 @@ class TranslationResult:
 
 
 def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
-              options: TranslationOptions) -> TranslationResult:
+              options: TranslationOptions, *, schema: str = HU100_SCHEMA) -> TranslationResult:
     """Nearest positive-mass witness within a deterministic work bound."""
+    version_for_schema(schema)
+    # Validate game identity even when a work bound or on-menu path returns early.
+    information_key(view, menu, schema=schema)
     empty = TranslationResult(None, 0., 0, 0, False)
     if len(view.history) > options.max_events:
         return replace(empty, bound_reached=True)
@@ -182,7 +194,7 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
                 continue
             if tuple(c.name for c in state.menu(view)) != target_names:
                 continue
-            key = information_key(view, menu, schema=HU100_SCHEMA,
+            key = information_key(view, menu, schema=schema,
                                   history_label_overrides=dict(overrides))
             saved = entries.get(key)
             if saved is not None and key not in zero_mass and saved[0] == target_names:

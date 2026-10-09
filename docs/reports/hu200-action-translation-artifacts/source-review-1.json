@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "reviewer": "independent Codex translator_review",
+  "host": "dberweger-m1",
+  "findings": [],
+  "tests": [
+    "14 focused HU100/HU200 tests passed",
+    "912 comparisons against main HU100 translator identical; 22 positive witnesses",
+    "Independent four-street engine witnesses at HU100/HU200 and both buttons; exact Fraction minimum distances and insertion-order invariance"
+  ],
+  "files": {
+    "src/blueprint/action_translation.py": "408c9c38bf95201d0d733945e6578d02262b42ba0787bf75372654f881814a4a",
+    "src/blueprint/average.py": "a431e11136348f8874cac6b5c2671a9a8dc1479fe71a8a1783be83e8d3e135cc",
+    "tests/test_hu100_action_translation.py": "632a6bc62de6d7d2bbbd82a4a19a79b60d3f04d12250b4bfec4890a5c77bfd1b",
+    "tests/test_hu200_action_translation.py": "6981c3ab96b032e67fbe3236061c0bffa2bb38a675ee65f56b39d6c862956a06"
+  },
+  "scope": "Translator only; evaluator/controller and science require separate review",
+  "no_real_model_loaded": true,
+  "no_training": true
+}
