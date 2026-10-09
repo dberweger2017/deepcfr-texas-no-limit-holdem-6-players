@@ -10,10 +10,10 @@ import pytest
 from src.arena.catalog import Checkpoint
 from src.arena.registry import PolicyRegistry, load_frozen
 from src.arena.schedule import Plan, Scenario
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, choices, information_key
 from src.blueprint.artifact import HU100_FORMAT, save_training
 from src.blueprint.average import AveragePolicy, HU100_FORMAT as AVERAGE_FORMAT
-from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, HU100_GAME, Node, PilotConfig
+from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME, Node, PilotConfig
 from src.diagnostics.cfr_average import extract, audit
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -25,7 +25,7 @@ if not BINARY.exists():
 
 
 def fixture(bb):
-    schema, game = (HU100_SCHEMA, HU100_GAME) if bb == 100 else (HU20_UNCAPPED_SCHEMA, HU20_UNCAPPED_GAME)
+    schema, game = {20: (HU20_UNCAPPED_SCHEMA, HU20_UNCAPPED_GAME), 100: (HU100_SCHEMA, HU100_GAME), 200: (HU200_SCHEMA, HU200_GAME)}[bb]
     table = Table(('player-0', 'player-1'), (bb * 100,) * 2)
     hand = Hand.start(table, hand_id='fixture', seed=3)
     view = hand.observe(hand.actor)
@@ -56,7 +56,7 @@ def test_game_keys_are_disjoint_and_hidden_cards_do_not_enter_hu100_key():
     assert information_key(x, choices(x, raise_cap=None, free_fold=False), schema=HU100_SCHEMA) == information_key(y, choices(y, raise_cap=None, free_fold=False), schema=HU100_SCHEMA)
 
 
-@pytest.mark.parametrize('bb', [20, 100])
+@pytest.mark.parametrize('bb', [20, 100, 200])
 def test_native_and_python_exports_preserve_exact_fixture_rows(tmp_path, bb):
     if not BINARY.exists(): pytest.skip('build the native trainer')
     hand, menu, trainer = fixture(bb)
@@ -87,7 +87,7 @@ def test_native_and_python_exports_preserve_exact_fixture_rows(tmp_path, bb):
             PolicyRegistry(replace(plan, scenarios=(Scenario('wrong', stacks=(2000,2000)),)))
 
 
-@pytest.mark.parametrize('bb', [20, 100])
+@pytest.mark.parametrize('bb', [20, 100, 200])
 def test_tiny_native_rules_menu_key_parity(tmp_path, bb):
     if not BINARY.exists(): pytest.skip('build the native trainer')
     from scripts.native_parity_fixtures import record
@@ -98,12 +98,12 @@ def test_tiny_native_rules_menu_key_parity(tmp_path, bb):
     assert result.returncode == 0, result.stderr
 
 
-@pytest.mark.parametrize('bb', [20,100])
+@pytest.mark.parametrize('bb', [20,100,200])
 def test_explicit_refund_short_allin_and_split_parity(tmp_path, bb):
     if not BINARY.exists(): pytest.skip('build the native trainer')
     deck = list('2c 3d 4h 5s Tc Jd Qh Ks Ac'.split())
     deck += [r+s for r in '23456789TJQKA' for s in 'cdhs' if r+s not in deck]
-    schema = HU100_SCHEMA if bb == 100 else HU20_UNCAPPED_SCHEMA
+    schema = {20: HU20_UNCAPPED_SCHEMA, 100: HU100_SCHEMA, 200: HU200_SCHEMA}[bb]
     stack = bb * 100
     raise_ = lambda n: Action(ActionKind.RAISE, n)
     call, check, fold = (Action(k) for k in (ActionKind.CALL, ActionKind.CHECK, ActionKind.FOLD))

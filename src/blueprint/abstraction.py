@@ -24,10 +24,13 @@ HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
 HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
 HU100_SCHEMA = "hu100-native-reopening-ordered-history-card-v1"
 HU100_MENU_VERSION = "hu100-min-pot-conditional-jam-native-reopening-v1"
+HU200_SCHEMA = "hu200-native-reopening-ordered-history-card-v1"
+HU200_MENU_VERSION = "hu200-min-pot-conditional-jam-native-reopening-v1"
 # The postflop card part is the holding's #163 K=50 bucket; everything else is v1's.
 HU20_EQUITY_SCHEMA = "hu20-native-reopening-ordered-history-equity-k50-v1"
 HU100_EQUITY_SCHEMA = "hu100-native-reopening-ordered-history-equity-k50-v1"
-EQUITY_SCHEMAS = (HU20_EQUITY_SCHEMA, HU100_EQUITY_SCHEMA)
+HU200_EQUITY_SCHEMA = "hu200-native-reopening-ordered-history-equity-k50-v1"
+EQUITY_SCHEMAS = (HU20_EQUITY_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA)
 HU20_COMPRESSED_SCHEMA = "hu20-native-reopening-compressed-history-card-v1"
 HU20_CARD_V2_SCHEMA = "hu20-native-reopening-ordered-history-card-v2"
 HU20_COMPRESSED_CARD_V2_SCHEMA = "hu20-native-reopening-compressed-history-card-v2"
@@ -40,9 +43,12 @@ TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
 SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, HU20_CARD_V2_SCHEMA: 2, HU20_COMPRESSED_CARD_V2_SCHEMA: 2, TP20_SCHEMA: 3}
 SHORTSTACK_SEATS[HU100_SCHEMA] = 2
+SHORTSTACK_SEATS[HU200_SCHEMA] = 2
 SHORTSTACK_SEATS.update({schema: 2 for schema in EQUITY_SCHEMAS})
-STACK_BY_SCHEMA = {schema: 10000 if schema in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else 2000 for schema in SHORTSTACK_SEATS}
-NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA)
+STACK_BY_SCHEMA = {schema: 20000 if schema in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
+                   10000 if schema in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else 2000
+                   for schema in SHORTSTACK_SEATS}
+NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA, HU200_SCHEMA)
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"

@@ -12,7 +12,7 @@ from src.arena.schedule import Plan
 ROOT = Path(__file__).resolve().parents[2]
 
 
-AVERAGE_FORMATS = {"holdem-hu20-stored-cfr-average-diagnostic-v1", "holdem-hu100-stored-cfr-average-research-v1"}
+AVERAGE_FORMATS = {"holdem-hu20-stored-cfr-average-diagnostic-v1", "holdem-hu100-stored-cfr-average-research-v1", "holdem-hu200-stored-cfr-average-research-v1"}
 
 
 def artifact_suffix(format):
@@ -22,14 +22,15 @@ def artifact_suffix(format):
 def load_frozen(spec, path):
     if spec.format in AVERAGE_FORMATS:
         from src.blueprint.average import AveragePolicy
-        from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA
-        model = AveragePolicy(path, spec.sha256, expected_schema=HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA)
+        from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA
+        model = AveragePolicy(path, spec.sha256, expected_schema=HU200_SCHEMA if "hu200" in spec.format else
+                              HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA)
         model.spec = spec
         model.source_path = path
         return model
     if spec.format in {"holdem-blueprint-v1", "holdem-hu20-blueprint-v2",
                         "holdem-hu20-native-reopening-blueprint-v1", "holdem-tp20-blueprint-v1",
-                        "holdem-hu100-native-reopening-blueprint-v1"}:
+                        "holdem-hu100-native-reopening-blueprint-v1", "holdem-hu200-native-reopening-blueprint-v1"}:
         from src.blueprint.artifact import FrozenBlueprint
 
         return FrozenBlueprint(spec, path)

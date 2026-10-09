@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-from src.blueprint.abstraction import HU100_SCHEMA, HU20_UNCAPPED_SCHEMA
-from src.blueprint.solver import HU100_GAME, HU20_UNCAPPED_GAME
+from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA, HU20_UNCAPPED_SCHEMA
+from src.blueprint.solver import HU100_GAME, HU200_GAME, HU20_UNCAPPED_GAME
 from src.game.observation import Observation
 from src.game.types import Action
 
@@ -21,7 +21,7 @@ class GameContract:
     bet_convention: str = 'street-raise-to'
 
     def admit(self, policy):
-        expected = {HU100_GAME: (10000, HU100_SCHEMA), HU20_UNCAPPED_GAME: (2000, HU20_UNCAPPED_SCHEMA)}.get(policy.game)
+        expected = {HU200_GAME: (20000, HU200_SCHEMA), HU100_GAME: (10000, HU100_SCHEMA), HU20_UNCAPPED_GAME: (2000, HU20_UNCAPPED_SCHEMA)}.get(policy.game)
         if (expected is None or (self.stack, policy.abstraction) != expected
                 or type(self.stack) is not int or type(self.small_blind) is not int
                 or type(self.big_blind) is not int or (self.small_blind, self.big_blind) != (50, 100)

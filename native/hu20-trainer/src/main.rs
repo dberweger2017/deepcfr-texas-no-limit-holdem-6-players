@@ -117,7 +117,7 @@ fn main() {
                 fresh.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
                 fresh
             };
-            let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game == hu20_trainer::game::Game::Hu100;
+            let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game != hu20_trainer::game::Game::Hu20;
             // CFR+'s floor keeps the production average weights, so exports and their bounds are unchanged.
             // DCFR reweights the average and stays bench-only.
             trainer.options.regret_floor = args.iter().position(|a| a == "--regret-floor").map(|i| args[i + 1].parse().unwrap());

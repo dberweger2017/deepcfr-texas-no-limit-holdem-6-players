@@ -78,17 +78,19 @@ def test_a_native_run_equals_the_python_run_with_the_same_seed(tmp_path, roots):
     assert '"identical": true' in out.stdout
 
 
-def test_opponent_sampled_average_matches_a_python_reference(tmp_path):
+@pytest.mark.parametrize("bb", [20, 100, 200])
+def test_opponent_sampled_average_matches_a_python_reference(tmp_path, bb):
     """Hooks Python's trainer to add t * policy at each sampled opponent node, in native's order."""
     import gzip
     import json
     from src.blueprint import solver
-    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
-    from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, PilotConfig
+    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA
+    from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME, PilotConfig
     from src.game.hand import Table
-    config = PilotConfig(seed=2026100523, raise_cap=None, abstraction=HU20_UNCAPPED_SCHEMA, game=HU20_UNCAPPED_GAME,
+    config = PilotConfig(seed=2026100523, raise_cap=None, abstraction={20: HU20_UNCAPPED_SCHEMA, 100: HU100_SCHEMA, 200: HU200_SCHEMA}[bb],
+                         game={20: HU20_UNCAPPED_GAME, 100: HU100_GAME, 200: HU200_GAME}[bb],
                          roots_per_seat=1, postflop_replicates=1, max_nodes=10**9, max_entries=10**9, max_seconds=900)
-    trainer = BlueprintTrainer(Table(("player-0", "player-1"), (2000, 2000)), config)
+    trainer = BlueprintTrainer(Table(("player-0", "player-1"), (bb*100, bb*100)), config)
     roots, last, average = [], [None], {}
     original_distribution, original_random, original_start = solver._distribution, solver.Random, solver.Hand.start
 
@@ -127,7 +129,7 @@ def test_opponent_sampled_average_matches_a_python_reference(tmp_path):
     finally:
         solver._distribution, solver.Random, solver.Hand.start = original_distribution, original_random, original_start
     out = tmp_path / "native.json.gz"
-    subprocess.run([str(BINARY), "train", "--nodes", str(10**12), "--iterations", "80", "--seed", str(config.seed),
+    subprocess.run([str(BINARY), "train", "--stack-bb", str(bb), "--nodes", str(10**12), "--iterations", "80", "--seed", str(config.seed),
                     "--average-rule", "opponent-sampled", "--out", str(out)], check=True, capture_output=True)
     with gzip.open(out, "rt") as f:
         header = json.loads(f.readline())

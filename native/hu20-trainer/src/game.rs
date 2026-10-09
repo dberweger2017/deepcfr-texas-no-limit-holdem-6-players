@@ -1,6 +1,6 @@
-//! Equal-stack heads-up 20/100 BB no-limit hold'em with the pinned engine's betting rules.
+//! Equal-stack heads-up 20/100/200 BB no-limit hold'em with the pinned engine's betting rules.
 //!
-//! Both seats start with 2,000 or 10,000 chips; blinds are 50/100. The button posts the
+//! Both seats start with 2,000, 10,000 or 20,000 chips; blinds are 50/100. The button posts the
 //! small blind and acts first preflop; the big blind acts first afterwards.
 //! A full raise increases the wager by at least the last full increment; a
 //! smaller increase is legal only as an exact all-in. Raising is unavailable
@@ -16,34 +16,39 @@ use hu20_buckets::evaluate;
 
 pub const STACK: u32 = 2000;
 
-/// Only the two explicitly supported cash games; arbitrary/unequal stacks are separate scope.
+/// Only the explicitly supported cash games; arbitrary/unequal stacks are separate scope.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Game { Hu20, Hu100 }
+pub enum Game { Hu20, Hu100, Hu200 }
 
 impl Game {
     pub fn from_bb(bb: u32) -> Self {
-        match bb { 20 => Self::Hu20, 100 => Self::Hu100, _ => panic!("stack must be 20 or 100 BB") }
+        match bb { 20 => Self::Hu20, 100 => Self::Hu100, 200 => Self::Hu200, _ => panic!("stack must be 20, 100 or 200 BB") }
     }
-    pub fn stack(self) -> u32 { match self { Self::Hu20 => STACK, Self::Hu100 => 10000 } }
+    pub fn stack(self) -> u32 { match self { Self::Hu20 => STACK, Self::Hu100 => 10000, Self::Hu200 => 20000 } }
     pub fn schema(self) -> &'static str { match self {
         Self::Hu20 => crate::key::SCHEMA,
         Self::Hu100 => "hu100-native-reopening-ordered-history-card-v1",
+        Self::Hu200 => "hu200-native-reopening-ordered-history-card-v1",
     } }
     pub fn id(self) -> &'static str { match self {
         Self::Hu20 => crate::trainer::GAME,
         Self::Hu100 => "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+        Self::Hu200 => "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
     } }
     pub fn format(self) -> &'static str { match self {
         Self::Hu20 => crate::trainer::FORMAT,
         Self::Hu100 => "holdem-hu100-native-reopening-blueprint-v1",
+        Self::Hu200 => "holdem-hu200-native-reopening-blueprint-v1",
     } }
     pub fn menu(self) -> &'static str { match self {
         Self::Hu20 => "hu20-min-pot-conditional-jam-native-reopening-v1",
         Self::Hu100 => "hu100-min-pot-conditional-jam-native-reopening-v1",
+        Self::Hu200 => "hu200-min-pot-conditional-jam-native-reopening-v1",
     } }
     pub fn average_format(self) -> &'static str { match self {
         Self::Hu20 => "holdem-hu20-stored-cfr-average-diagnostic-v1",
         Self::Hu100 => "holdem-hu100-stored-cfr-average-research-v1",
+        Self::Hu200 => "holdem-hu200-stored-cfr-average-research-v1",
     } }
 }
 pub const SMALL_BLIND: u32 = 50;

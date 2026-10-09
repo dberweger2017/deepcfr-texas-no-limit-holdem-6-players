@@ -20,6 +20,7 @@ from src.blueprint.abstraction import (
     HU20_COMPRESSED_CARD_V2_SCHEMA,
     NATIVE_SCHEMAS,
     HU100_SCHEMA,
+    HU200_SCHEMA,
     STACK_BY_SCHEMA,
     TP20_SCHEMA,
     SHORTSTACK_SEATS,
@@ -36,9 +37,11 @@ FORMAT = "holdem-blueprint-v1"
 HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
 HU20_UNCAPPED_GAME = "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
 HU100_GAME = "hu100-native-reopening-100bb-52card-no-ante-rake-v1"
+HU200_GAME = "hu200-native-reopening-200bb-52card-no-ante-rake-v1"
 TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
 SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_SCHEMA: HU20_UNCAPPED_GAME, HU20_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
 SHORTSTACK_GAMES[HU100_SCHEMA] = HU100_GAME
+SHORTSTACK_GAMES[HU200_SCHEMA] = HU200_GAME
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -462,8 +465,7 @@ class BlueprintTrainer:
             or table.small_blind != 50 or table.big_blind != 100
             or table.chip_unit != "0.01"
         ):
-            raise ValueError("Fixed-stack training requires the versioned 100BB table" if config.abstraction == HU100_SCHEMA
-                             else "Short-stack training requires the versioned 20BB table")
+            raise ValueError(f"Fixed-stack training requires the versioned {STACK_BY_SCHEMA[config.abstraction] // 100}BB table")
         self.table = table
         self.config = config
         self.iteration = 0
