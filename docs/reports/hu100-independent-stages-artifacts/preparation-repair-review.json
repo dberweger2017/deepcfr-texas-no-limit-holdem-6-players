@@ -1,0 +1,9 @@
+{
+  "source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11",
+  "status": "passed",
+  "reviewer": "independent design_review agent",
+  "scope": "narrow original-clock preparation-only continuation plus campaign source",
+  "no_open_findings": true,
+  "tests": "38 passed in19.46s",
+  "native_binary_unchanged": true
+}

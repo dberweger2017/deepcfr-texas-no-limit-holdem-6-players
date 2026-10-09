@@ -1,0 +1,49 @@
+{
+  "status": "accepted",
+  "checked_at": "2026-10-09T13:06:29.696Z",
+  "archive": {
+    "id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+    "title": "hu100-independent-stages-M4-20261009.zip",
+    "mime_type": "application/zip",
+    "size": "15801035296",
+    "url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1hsyFliTReRUZE69hmXAotdzLwIjJpYLU"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder": {
+    "id": "1hsyFliTReRUZE69hmXAotdzLwIjJpYLU",
+    "title": "PR-215-HU100-independent-stages",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1hsyFliTReRUZE69hmXAotdzLwIjJpYLU",
+    "display_url": "https://drive.google.com/drive/folders/1hsyFliTReRUZE69hmXAotdzLwIjJpYLU",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "remote_bytes_verified": false,
+  "local_archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+  "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+  "native_status_receipt": "native-upload-status.json",
+  "metadata_only": true
+}

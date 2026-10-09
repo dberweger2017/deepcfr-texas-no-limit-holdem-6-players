@@ -1,0 +1,20 @@
+{
+  "all_members_readback_verified": true,
+  "bytes": 939179,
+  "created_exclusive": true,
+  "finished": 1791551342.3085399,
+  "machine": "M1",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140",
+  "name": "hu100-independent-stages-M1-metadata-20261009.zip",
+  "originals_retained": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-215-HU100-independent-stages/hu100-independent-stages-M1-metadata-20261009.zip",
+  "remote_bytes_verified": false,
+  "scope": "M1 metadata seal only; no models/main ZIP or M4 computation; later acceptance/review/CI receipts remain in Git",
+  "seconds": 0.8613028526306152,
+  "sha256": "7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9",
+  "source": "4c0607dcc178bde19559928dc02bc16361cce8ce",
+  "status": "locally-verified",
+  "verified_aliases": 0,
+  "verified_members": 147
+}

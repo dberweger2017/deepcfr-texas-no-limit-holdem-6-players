@@ -36,10 +36,14 @@ def audit(root, output):
     if complete['status'] != 'complete':
         raise ValueError('Incomplete play cannot be audited as complete')
     files = json.loads((root / 'output-files.json').read_text())
+    model_hash_seconds = 0.0
     for name, spec in files.items():
+        hash_started = perf_counter()
         path = root / name
         if path.stat().st_size != spec['bytes'] or file_hash(path) != spec['sha256']:
             raise ValueError('Changed output: ' + name)
+        if name.startswith('models/'):
+            model_hash_seconds += perf_counter() - hash_started
     reference = Path(inputs['reference_run']) if inputs.get('reference_run') else None
     if reference and file_hash(reference / 'inputs.json') != inputs['reference_inputs_sha256']:
         raise ValueError('Reused reference identity changed')
@@ -161,7 +165,7 @@ def audit(root, output):
     result = {'status': 'verified', 'hands_replayed': hands, 'actions_replayed': actions,
               'all_settlements_replayed': True, 'independent_block_arithmetic': True,
               'coverage_and_action_rates_recounted': True, 'source': inputs['source'],
-              'seconds': perf_counter() - started, 'panels': comparisons}
+              'seconds': perf_counter() - started, 'model_hash_seconds': model_hash_seconds, 'panels': comparisons}
     with output.open('x') as f:
         f.write(json.dumps(result, indent=2, sort_keys=True) + '\n')
     return result

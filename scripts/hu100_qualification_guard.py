@@ -134,6 +134,83 @@ class Campaign:
         for s in self.handlers:
             signal.signal(s, self.interrupt)
 
+    @classmethod
+    def resume_preparation(cls, root, out, source):
+        """Repair only the demonstrated inactive-source gate, with no new clock.
+
+        Existing science or a real resource/correctness breach cannot use this
+        path. The original failure, baseline and stream remain immutable history.
+        """
+        from src.policies.files import file_hash
+        failure = read(out / 'campaign-failure.json')
+        baseline = read(out / 'baseline.json')
+        op = out / 'operations/prepare'
+        receipt, intent = read(op / 'receipt.json'), read(op / 'intent.json')
+        log = (op / 'worker.log').read_text()
+        if (failure['failure'] != "prepare: RuntimeError('prepare exited 1')"
+                or failure['source'] != 'dd19995d27950ef6a6b73bef5ec84c970310089f'
+                or receipt['source'] != failure['source'] or baseline['source'] != failure['source']
+                or receipt['returncode'] != 1 or receipt['child_alive_after_cleanup'] or receipt['cleanup_error']
+                or intent['command'][-3:] != ['-m', 'scripts.run_hu100_independent_stages', 'prepare']
+                or "ValueError: Native source compatibility differs" not in log
+                or sorted(p.name for p in (out / 'operations').iterdir()) != ['prepare']
+                or any((out / name).exists() for name in ('training','calibration-32','calibration-512','final','recovery-fixture'))
+                or baseline['cap_seconds'] != CAP_SECONDS
+                or baseline['swap_growth_limit_bytes'] != SWAP_GROWTH
+                or baseline['soft_family_bytes'] != inherited.FAMILY_SOFT
+                or baseline['hard_family_bytes'] != inherited.FAMILY_HARD
+                or baseline['disk_floor_bytes'] != inherited.DISK_FLOOR):
+            raise ValueError('Preparation-only readmission proof differs')
+        old = read(root / 'planning/launch.json')
+        if psutil.pid_exists(old['controller_pid']):
+            raise RuntimeError('Original supervisor still exists')
+        self = object.__new__(cls)
+        self.root, self.out, self.source = root, out, source
+        self.child = self.stop_file = self.stop_at = self.failure = None
+        self.done = threading.Event()
+        self.tool_quote = self.panel_quote = self.report_quote = 0
+        self.lock = (Path.home() / 'Local/.hu100-m4-research.lock').open('a+')
+        fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        inherited.OUT = out
+        self.stable = [baseline['host']]
+        self.swap0 = baseline['host']['swap_bytes']
+        self.started, self.deadline = baseline['started'], baseline['deadline']
+        self.monotonic_deadline = monotonic() + self.deadline - time()
+        self.failure_name = 'readmission-failure.json'
+        self.monitor_mode = 'a'
+        self.count = 0; self.peak = 0
+        last = None
+        with (out / 'continuous-resources.jsonl').open() as stream:
+            for line in stream:
+                last = json.loads(line)
+                self.count += 1
+                self.peak = max(self.peak, last['family_rss_bytes'])
+                if violation(last, self.swap0, last['family_rss_bytes']):
+                    raise ValueError('Original stream contains a resource breach')
+        tick = monotonic()
+        with (out / 'stable-readmission.jsonl').open('x') as stream:
+            for _ in range(301):
+                sample = inherited.host()
+                self.check()
+                stream.write(json.dumps({'at':time(), **sample})+'\n'); stream.flush()
+                if violation(sample, self.swap0, 0) or sample['free_percent']*16*GIB/100 < 8*GIB:
+                    raise RuntimeError('Preparation readmission current resources refused against original baseline')
+                tick += .2
+                sleep(max(0,tick-monotonic()))
+        self.check()
+        put(out / 'preparation-readmission.json', {'source':source, 'at':time(),
+            'original_source':baseline['source'], 'started':self.started, 'deadline':self.deadline,
+            'baseline_sha256':file_hash(out/'baseline.json'), 'original_failure_sha256':file_hash(out/'campaign-failure.json'),
+            'original_receipt_sha256':file_hash(op/'receipt.json'), 'current_host':sample,
+            'monitoring_gap_seconds':time()-last['at'] if last else None,
+            'gap_policy':'no campaign computation while original supervisor stopped; downtime charged to original deadline',
+            'science_operations_before_readmission':0, 'no_guard_relaxation_or_baseline_reset':True})
+        self.thread = threading.Thread(target=self.monitor,daemon=True)
+        self.thread.start()
+        self.handlers = {s:signal.getsignal(s) for s in (signal.SIGINT,signal.SIGTERM)}
+        for sig in self.handlers: signal.signal(sig,self.interrupt)
+        return self
+
     def interrupt(self, signum, frame):
         self.latch('Supervisor interrupted')
         raise RuntimeError(self.failure)
@@ -141,7 +218,7 @@ class Campaign:
     def latch(self, reason):
         if self.failure is None:
             self.failure = reason
-            put(self.out / 'campaign-failure.json', {'at': time(), 'failure': reason,
+            put(self.out / getattr(self, 'failure_name', 'campaign-failure.json'), {'at': time(), 'failure': reason,
                 'source': self.source, 'deadline': self.deadline})
         child = self.child
         if child is not None and child.poll() is None:
@@ -165,7 +242,7 @@ class Campaign:
         tick = monotonic()
         parent = psutil.Process(os.getpid())
         try:
-            with (self.out / 'continuous-resources.jsonl').open('x') as stream:
+            with (self.out / 'continuous-resources.jsonl').open(getattr(self, 'monitor_mode', 'x')) as stream:
                 while not self.done.is_set():
                     rss = 0
                     for p in family_processes(parent, self.child):
@@ -178,7 +255,7 @@ class Campaign:
                     self.peak = max(self.peak, rss)
                     self.count += 1
                     stream.write(json.dumps({'at': now, 'family_rss_bytes': rss,
-                        'swap_growth_bytes': sample['swap_bytes'] - self.swap0, **sample}) + '\n')
+                        'swap_growth_bytes': sample['swap_bytes'] - self.swap0, 'source':self.source, 'deadline':self.deadline, **sample}) + '\n')
                     stream.flush()
                     reason = violation(sample, self.swap0, rss)
                     if now >= self.deadline or monotonic() >= self.monotonic_deadline:

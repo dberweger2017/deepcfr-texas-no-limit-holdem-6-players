@@ -1,0 +1,71 @@
+{
+  "actual_nodes": 1000000506,
+  "complete": true,
+  "model": {
+    "actual_nodes": 1000000506,
+    "bytes": 1167167445,
+    "entries": 40752103,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "iteration": 895403,
+    "name": "HU100-average-1000000506",
+    "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100901/terminal/average.gz",
+    "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b",
+    "source_checkpoint_sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+  },
+  "seed": 2026100901,
+  "target": 1000000000,
+  "telemetry": {
+    "audit_status": "unaudited",
+    "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+    "checkpoint_bytes": 1779115039,
+    "checkpoint_sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7",
+    "completed_nodes": 1000000506,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        15082806,
+        49119574,
+        141850676,
+        354022079
+      ],
+      "entries": 40752103,
+      "positive_average_mass_keys": 27657556,
+      "traverser_visits": 198467627,
+      "traverser_visits_by_street": [
+        4943587,
+        16295183,
+        49780452,
+        127448405
+      ],
+      "visits_histogram": {
+        "0": 15765179,
+        "1": 11854112,
+        "10-99": 3100284,
+        "100+": 227817,
+        "2-9": 9804711
+      },
+      "zero_average_mass_keys": 13094547
+    },
+    "elapsed_seconds_including_writes": 671.373995291,
+    "entries_per_completed_node": 0.04075208237944632,
+    "iteration": 895403,
+    "new_entries": 33029318,
+    "nodes_per_second_including_writes": 1430738.6221947053,
+    "nodes_since_previous_save": 960560705,
+    "overshoot_nodes": 506,
+    "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100901/terminal/checkpoint.gz",
+    "process_rss_bytes_after_save": 3779264512,
+    "recent_nodes_per_second_including_writes": 1430738.6221947053,
+    "requested_nodes": 1000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791543709.128758,
+    "write_seconds": 140.971485958,
+    "write_started": 1791543568.156154
+  }
+}

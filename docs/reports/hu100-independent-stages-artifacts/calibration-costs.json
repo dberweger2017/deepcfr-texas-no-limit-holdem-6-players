@@ -1,0 +1,207 @@
+{
+  "fixed_loads_per_model": 1,
+  "measurements": [
+    {
+      "arms": [
+        {
+          "blocks": 32,
+          "fixed_seconds": 0.6035397499799728,
+          "label": "old-early",
+          "primary": {
+            "model_load_or_validation_seconds": 0.06647008302388713,
+            "output_model_hash_seconds": 0.06727983400924131,
+            "output_raw_hash_seconds": 0.002097081975080073,
+            "panel_setup_seconds": 0.40974445798201486,
+            "play_and_report_seconds": 0.4449609159491956,
+            "registry_reused": true,
+            "snapshot_seconds": 0.1352799170417711,
+            "total_seconds": 1.1262920830049552
+          },
+          "replay_model_hash_seconds": 0.06626774999313056,
+          "replay_seconds": 0.2958229999640025,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.06743299996014684,
+            "output_model_hash_seconds": 0.06748824997339398,
+            "output_raw_hash_seconds": 0.002041500003542751,
+            "panel_setup_seconds": 0.35631033405661583,
+            "play_and_report_seconds": 0.4514665000606328,
+            "registry_reused": true,
+            "snapshot_seconds": 0.1333209159784019,
+            "total_seconds": 1.079099083028268
+          },
+          "variable_seconds": 1.896176039997954
+        }
+      ],
+      "blocks": 32,
+      "endpoint": "early",
+      "load_seconds": 30.851234166999348
+    },
+    {
+      "arms": [
+        {
+          "blocks": 512,
+          "fixed_seconds": 0.6005081260227598,
+          "label": "old-early",
+          "primary": {
+            "model_load_or_validation_seconds": 0.06657249998534098,
+            "output_model_hash_seconds": 0.06634512502932921,
+            "output_raw_hash_seconds": 0.01833979197544977,
+            "panel_setup_seconds": 0.6506047489820048,
+            "play_and_report_seconds": 7.494728669000324,
+            "registry_reused": true,
+            "snapshot_seconds": 0.13418058399111032,
+            "total_seconds": 8.431233040988445
+          },
+          "replay_model_hash_seconds": 0.06623908400069922,
+          "replay_seconds": 4.0055978749878705,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.06701116601470858,
+            "output_model_hash_seconds": 0.06657600001199171,
+            "output_raw_hash_seconds": 0.012639124994166195,
+            "panel_setup_seconds": 0.6361578320502304,
+            "play_and_report_seconds": 7.630996415973641,
+            "registry_reused": true,
+            "snapshot_seconds": 0.1335836669895798,
+            "total_seconds": 8.547601083992049
+          },
+          "variable_seconds": 20.382825373962987
+        }
+      ],
+      "blocks": 512,
+      "endpoint": "early",
+      "load_seconds": 0
+    },
+    {
+      "arms": [
+        {
+          "blocks": 32,
+          "fixed_seconds": 3.6219389590551145,
+          "label": "old-terminal",
+          "primary": {
+            "model_load_or_validation_seconds": 0.4019121670280583,
+            "output_model_hash_seconds": 0.4031547079794109,
+            "output_raw_hash_seconds": 0.003067250014282763,
+            "panel_setup_seconds": 0.4548332490376197,
+            "play_and_report_seconds": 0.294506544014439,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8053783749928698,
+            "total_seconds": 2.3635249590151943
+          },
+          "replay_model_hash_seconds": 0.4019375839852728,
+          "replay_seconds": 0.7066609999747016,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.40289012499852106,
+            "output_model_hash_seconds": 0.40246787504293025,
+            "output_raw_hash_seconds": 0.002166957943700254,
+            "panel_setup_seconds": 0.37355203996412456,
+            "play_and_report_seconds": 0.30523591698147357,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8041981250280514,
+            "total_seconds": 2.291084500029683
+          },
+          "variable_seconds": 1.7380853739450686
+        },
+        {
+          "blocks": 32,
+          "fixed_seconds": 3.625116749899462,
+          "label": "old-terminal-on",
+          "primary": {
+            "model_load_or_validation_seconds": 0.4022512909723446,
+            "output_model_hash_seconds": 0.4020729169715196,
+            "output_raw_hash_seconds": 0.0028441250324249268,
+            "panel_setup_seconds": 0.36900275107473135,
+            "play_and_report_seconds": 0.28373908292269334,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8052304169978015,
+            "total_seconds": 2.265713458007667
+          },
+          "replay_model_hash_seconds": 0.4025314999744296,
+          "replay_seconds": 0.7031647499534301,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.40580041700741276,
+            "output_model_hash_seconds": 0.40208904101746157,
+            "output_raw_hash_seconds": 0.002187624981161207,
+            "panel_setup_seconds": 0.37033595895627514,
+            "play_and_report_seconds": 0.307706082938239,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8051411669584922,
+            "total_seconds": 2.2937894579954445
+          },
+          "variable_seconds": 1.6364488758845255
+        }
+      ],
+      "blocks": 32,
+      "endpoint": "terminal",
+      "load_seconds": 171.7694013750297
+    },
+    {
+      "arms": [
+        {
+          "blocks": 512,
+          "fixed_seconds": 3.623343999905046,
+          "label": "old-terminal",
+          "primary": {
+            "model_load_or_validation_seconds": 0.40214370895409957,
+            "output_model_hash_seconds": 0.40209429099923,
+            "output_raw_hash_seconds": 0.017716667032800615,
+            "panel_setup_seconds": 0.6459445420769043,
+            "play_and_report_seconds": 4.679296959016938,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8048397920210846,
+            "total_seconds": 6.95263137499569
+          },
+          "replay_model_hash_seconds": 0.40278708294499665,
+          "replay_seconds": 5.3723730409983546,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.40218637499492615,
+            "output_model_hash_seconds": 0.4020151669974439,
+            "output_raw_hash_seconds": 0.012840415991377085,
+            "panel_setup_seconds": 0.6460863761021756,
+            "play_and_report_seconds": 4.906755999021698,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8072775829932652,
+            "total_seconds": 7.177840458985884
+          },
+          "variable_seconds": 15.878226917295251
+        },
+        {
+          "blocks": 512,
+          "fixed_seconds": 3.624590458057355,
+          "label": "old-terminal-on",
+          "primary": {
+            "model_load_or_validation_seconds": 0.4024136250372976,
+            "output_model_hash_seconds": 0.4020193750038743,
+            "output_raw_hash_seconds": 0.012587666977196932,
+            "panel_setup_seconds": 0.6488730409182608,
+            "play_and_report_seconds": 4.779444955987856,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8046650000032969,
+            "total_seconds": 7.050532541004941
+          },
+          "replay_model_hash_seconds": 0.40238133299862966,
+          "replay_seconds": 5.333175708015915,
+          "reproduction": {
+            "model_load_or_validation_seconds": 0.4021289169904776,
+            "output_model_hash_seconds": 0.40607900003669783,
+            "output_raw_hash_seconds": 0.014543291996233165,
+            "panel_setup_seconds": 0.6649501660140231,
+            "play_and_report_seconds": 4.983307959977537,
+            "registry_reused": true,
+            "snapshot_seconds": 0.8049032079870813,
+            "total_seconds": 7.276536958001088
+          },
+          "variable_seconds": 16.034501456888393
+        }
+      ],
+      "blocks": 512,
+      "endpoint": "terminal",
+      "load_seconds": 0
+    }
+  ],
+  "outcomes_inspected": false,
+  "sample_ratio": 16,
+  "sample_sizes": [
+    32,
+    512
+  ]
+}

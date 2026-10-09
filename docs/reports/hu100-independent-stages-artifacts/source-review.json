@@ -1,0 +1,12 @@
+{
+  "source": "dd19995d27950ef6a6b73bef5ec84c970310089f",
+  "status": "passed",
+  "reviewer": "independent design_review agent",
+  "findings_resolved": [
+    "retained archive-space accounting",
+    "reserve audit after export",
+    "block-scaled schedule setup"
+  ],
+  "no_open_findings": true,
+  "scope": "source/protocol on M1; no M4 computation"
+}

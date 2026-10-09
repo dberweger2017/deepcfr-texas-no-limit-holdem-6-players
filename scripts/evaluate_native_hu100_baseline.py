@@ -91,7 +91,7 @@ def diagnostics(rows):
     return result
 
 
-def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=None):
+def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=None, registry=None):
     settings = json.loads(config.read_text())
     reference_inputs = None
     if reference_run:
@@ -117,8 +117,21 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
     if model_path.stat().st_size != settings['model']['bytes']:
         raise ValueError('Pinned model byte size differs')
     load_started = perf_counter()
-    registry = PolicyRegistry(first, artifact_dir=reproduce / 'models' if reproduce else None)
+    reused_registry = registry is not None
+    if registry is None:
+        registry = PolicyRegistry(first, artifact_dir=reproduce / 'models' if reproduce else None)
+    elif registry.plan.models != first.models or set(registry.models) != {first.candidate}:
+        raise ValueError('Reused registry model identity differs')
+    registry.plan = first
     model = registry.models[first.candidate]
+    if model.spec != first.models[0] or file_hash(model.source_path) != first.models[0].sha256:
+        raise ValueError('Loaded registry bytes/spec differ')
+    for scenario in first.scenarios:
+        if (scenario.mode != 'fixed' or len(scenario.stacks) != model.players
+                or list(scenario.stacks) != model.identity['stacks']
+                or scenario.small_blind != model.identity['small_blind']
+                or scenario.big_blind != model.identity['big_blind'] or scenario.chip_unit != '0.01'):
+            raise ValueError('Loaded registry game differs')
     if (model.description['entries'] != settings['model']['entries']
             or model.description['iteration'] != settings['model']['iteration']
             or model.description['source_checkpoint_sha256'] != settings['model']['source_checkpoint_sha256']):
@@ -131,7 +144,10 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
         model.record_translation = True
         model.description['action_translation'] = option
     load_seconds = perf_counter() - load_started
+    snapshot_started = perf_counter()
     registry.snapshot(out)
+    snapshot_seconds = perf_counter() - snapshot_started
+    setup_seconds = 0.0
     write_json(out / 'inputs.json', {'config': settings, 'config_sha256': file_hash(config),
                                    'blocks_per_opponent': blocks, 'root': root, 'source': source,
                                    'reference_run': str(reference_run) if reference_run else None,
@@ -141,6 +157,7 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
     costs = []
     all_seeds = set()
     for opponent in OPPONENTS:
+        setup_started = perf_counter()
         plan = make_plan(settings, opponent, blocks, root)
         registry.plan = plan  # Same validated table/model; only the unchanged rival differs.
         panel = out / opponent
@@ -162,6 +179,7 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
                                          'logical_player': role, 'seed': seed}
         write_json(panel / 'private-action-seeds.json', contexts)
         rows, timings, decisions = [], [], []
+        setup_seconds += perf_counter() - setup_started
         wall = perf_counter()
         with ((panel / 'hands.jsonl').open('x') as hands,
               (panel / 'timings.jsonl').open('x') as latency,
@@ -230,12 +248,27 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
                'hands_actually_played': totals['hands'] // 2 if reference_run else totals['hands'],
                'reference_coverage_model': reference_inputs['config']['model']['sha256']
                if reference_inputs else settings['model']['sha256'],
-               'model_load_seconds': load_seconds, 'wall_seconds': perf_counter() - started,
+               'model_load_seconds': load_seconds, 'registry_reused': reused_registry,
+               'snapshot_seconds': snapshot_seconds, 'panel_setup_seconds': setup_seconds, 'wall_seconds': perf_counter() - started,
                'panel_costs': costs, 'source': source, 'reproduced_all_hands_and_decisions': bool(reproduce)}
     write_json(out / 'complete.json', receipt)
     write_json(out / 'status.json', receipt)
-    write_json(out / 'output-files.json', {str(p.relative_to(out)): {
-        'bytes': p.stat().st_size, 'sha256': file_hash(p)} for p in out.rglob('*') if p.is_file()})
+    hashing_started = perf_counter()
+    pins = {}
+    model_hash_seconds = 0.0
+    for p in out.rglob('*'):
+        if p.is_file():
+            tick = perf_counter()
+            pins[str(p.relative_to(out))] = {'bytes': p.stat().st_size, 'sha256': file_hash(p)}
+            if p.parent.name == 'models':
+                model_hash_seconds += perf_counter() - tick
+    write_json(out / 'output-files.json', pins)
+    write_json(out / 'costs.json', {'model_load_or_validation_seconds': load_seconds,
+        'registry_reused': reused_registry, 'snapshot_seconds': snapshot_seconds,
+        'panel_setup_seconds': setup_seconds, 'play_and_report_seconds': sum(c['seconds'] for c in costs),
+        'output_model_hash_seconds': model_hash_seconds,
+        'output_raw_hash_seconds': perf_counter() - hashing_started - model_hash_seconds,
+        'total_seconds': perf_counter() - started})
     return receipt
 
 

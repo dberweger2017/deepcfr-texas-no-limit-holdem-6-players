@@ -1,0 +1,74 @@
+{
+  "2026100601": {
+    "early": {
+      "actual_nodes": 39438279,
+      "bytes": 193277097,
+      "entries": 7643261,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 30080,
+      "name": "HU100-average-39438279",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/inputs/early/average.gz",
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "source_checkpoint_sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416"
+    },
+    "terminal": {
+      "actual_nodes": 1000002065,
+      "bytes": 1173264021,
+      "entries": 41010014,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 885307,
+      "name": "HU100-average-1000002065",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/inputs/terminal/average.gz",
+      "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "source_checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+    }
+  },
+  "2026100901": {
+    "early": {
+      "actual_nodes": 39439801,
+      "bytes": 195102346,
+      "entries": 7722785,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 30648,
+      "name": "HU100-average-39439801",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100901/early/average.gz",
+      "sha256": "47afbfaa5ef2cf36a137e0eb0083a047eba65b0f2e3c771f3b5ae7c85d2f74d7",
+      "source_checkpoint_sha256": "27f886cecda4fb46b51f4d1e954f47deb5c3a96447ee11bb238dd0b1ca2f652d"
+    },
+    "terminal": {
+      "actual_nodes": 1000000506,
+      "bytes": 1167167445,
+      "entries": 40752103,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 895403,
+      "name": "HU100-average-1000000506",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100901/terminal/average.gz",
+      "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b",
+      "source_checkpoint_sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+    }
+  },
+  "2026100902": {
+    "early": {
+      "actual_nodes": 39440603,
+      "bytes": 196152605,
+      "entries": 7767917,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 29651,
+      "name": "HU100-average-39440603",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/early/average.gz",
+      "sha256": "49386f0dafad3e94843efae432c65f8d0ee79603ed52dcda12c29bc9d2086e4d",
+      "source_checkpoint_sha256": "3ec0faacccd82a753445a9f339898374c5130d4027c3be6c5b42fc0c5c60ab93"
+    },
+    "terminal": {
+      "actual_nodes": 1000001141,
+      "bytes": 1174323849,
+      "entries": 41047344,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 902142,
+      "name": "HU100-average-1000001141",
+      "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/terminal/average.gz",
+      "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924",
+      "source_checkpoint_sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+    }
+  }
+}

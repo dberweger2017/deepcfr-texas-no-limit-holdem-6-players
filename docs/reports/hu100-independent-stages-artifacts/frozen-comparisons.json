@@ -1,0 +1,22 @@
+{
+  "blocks": 4096,
+  "early_target": 39438279,
+  "families": "separate FWER .05, not union .05",
+  "final_root": 2026100911013,
+  "growth_alpha": 0.008333333333333333,
+  "outcomes_inspected": false,
+  "pilot_roots": {
+    "32": 2026100911011,
+    "512": 2026100911012
+  },
+  "practical_lower_bb100": 10,
+  "quote_sha256": "82624da8cb6bd4dd6f88c6d405b862a9ce8a7151e3d6a6497b6abf20185e861c",
+  "seeds": [
+    2026100601,
+    2026100901,
+    2026100902
+  ],
+  "source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11",
+  "terminal_target": 1000000000,
+  "translation_alpha": 0.016666666666666666
+}
