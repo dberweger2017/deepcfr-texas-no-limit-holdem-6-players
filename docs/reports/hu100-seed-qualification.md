@@ -118,3 +118,35 @@ admit this campaign only after enough free space,
 fresh exclusive/stable-host evidence and the full six-hour time/disk quote.
 No other PR cleanup or synced eviction funds this campaign. This PR grants
 no automatic launch, release, recipe change, deeper training or merge.
+
+## October 9 authorized execution preparation
+
+The owner explicitly asked to start while they free the remaining roughly5GB.
+Fresh08:11UTC inventory found114,199,179,264bytes free (106.36GiB), normal
+pressure/86%free/AC and no visible scientific process; subsequent inventory
+reached about110GiB. Exact source `b51db57c402df116e3acc370b9f3247b1cea1ac2`
+passed independent review after resolving schedule freshness, highest-feasible
+count, reporting/archive allowances, whole-group cleanup and disappeared-PID
+sampling. Seven final campaign checks pass, with39 earlier focused and3
+translation-campaign checks passing. The reviewed native source trees exactly
+match #207's frozen source; its pinned binary and recipe are unchanged.
+
+The first launcher refused before stable admission or any scientific operation
+because it saw its own caffeinate helper as competing research. Its log stays
+in `planning/controller.log`; no clock/baseline existed and no science retry
+occurred. A corrected launcher uses a separate PID-scoped power helper and
+starts fresh stable admission. Later dated execution receipts distinguish
+controller launch, clock start, pilots, actual training and admission outcomes.
+
+Active dependencies during execution: the new nonsynced M4 root
+`~/Local/hu100-seed-qualification-20261009`; #207's retained original averages
+while copying, its native binary/source and its `.venv` (the new root links the
+existing environment). Preserve these and all shared Git/archives; this task
+authorizes no cleanup. The offloaded20.5GB #207 ZIP is not hydrated: required
+averages are copied from its retained local originals with exact merged-index
+size/SHA256/full-audit binding and archive/member retrieval provenance.
+
+Prospective recipe remains unqualified until the fixed completed1B comparisons,
+full replay/reproduction, storage acceptance and final independent evidence
+review pass. Main training requires the cost-only pilot's complete measured
+quote and newly sufficient disk; no resource ceiling is waived by launch.

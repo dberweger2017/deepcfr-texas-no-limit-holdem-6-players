@@ -1,0 +1,31 @@
+{
+  "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+  "status": "passed",
+  "reviewer": "independent agent execution_source_review",
+  "rounds": [
+    {
+      "source": "60f984b",
+      "status": "blocked",
+      "findings": [
+        "missing205roots",
+        "preferhighestfeasiblecount",
+        "report/archivequote",
+        "owneddescendants"
+      ]
+    },
+    {
+      "source": "895a96f",
+      "status": "blocked",
+      "findings": [
+        "disappearingownedhelperPIDrace"
+      ]
+    },
+    {
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "status": "passed",
+      "open_blockers": []
+    }
+  ],
+  "summary": "Exact source approved for authorized bounded pilots; main training still requires fresh measured time/disk admission; completion/archive acceptance require later evidence review. No M4 compute/ZIPreads/edits/copy/delete performed by reviewer.",
+  "tests": "39 focused plus3 translation campaign at895;7 final guard/stats/schedule tests including newPIDrace pass."
+}
