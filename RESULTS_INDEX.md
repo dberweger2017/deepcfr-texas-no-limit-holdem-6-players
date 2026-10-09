@@ -15,7 +15,8 @@ that clock. No scientific retry or guard waiver.
 
 Cost-only32/512-block calibration and exact actual #211 partial compatibility
 pass. Seed2026100901 early39,439,801 nodes is fully audited; its1,000,000,506-node
-terminal audit is pending. Seed2026100902 and final evaluation are pending.
+terminal audit passed. Seed2026100902 passed separate admission and began
+at11:24UTC; its endpoints and final evaluation are pending.
 Qualification remains incomplete. New archive/member/upload acceptance is not
 available yet; do not treat this progress entry as cloud acceptance.
 Input restoration remains the accepted PR207/PR211 indexes below, with local

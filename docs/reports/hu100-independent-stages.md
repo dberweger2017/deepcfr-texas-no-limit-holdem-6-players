@@ -78,8 +78,10 @@ training gate; its later quote cannot retrospectively refuse useful training.
 The protocol requires retaining early39,438,279 and terminal1B total-node
 checkpoints for both fresh seeds, allowing complete-iteration overshoots, with
 full exports/audits. Seed2026100901 has reached1,000,000,506 nodes; its terminal
-audit is running. Its early endpoint is fully audited. Seed2026100902 has not
-started. These are progress observations, not completed qualification results.
+audit passed, verifying all40,752,103 entries and recovery/current/average hashes.
+Its early endpoint is fully audited. Seed2026100902 passed separate admission
+and started at11:24UTC. These are progress observations, not completed
+qualification results.
 
 ## Remaining work
 
