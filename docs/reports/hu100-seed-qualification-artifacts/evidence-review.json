@@ -1,0 +1,11 @@
+{
+  "reviewed_head": "1219e9a63c09e3d7ee3369c2cc9ac8512d6ef149",
+  "scientific_source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+  "reviewer": "independent agent execution_source_review",
+  "status": "passed",
+  "open_blockers": [],
+  "summary": "Independently recomputed the complete conservative time quotes from retained receipts: 13.47 hours for 4096 blocks and 20.11 hours for 8192. Capacity refusal follows frozen admission rules. All 18 operations completed within the original clock; no main training or final inference occurred. Report, index, roadmap, retrieval pins and archive/native/cloud receipts agree. Scientific source remained frozen. Keep the HU100 recipe unqualified; no automatic continuation or merge.",
+  "archive_acceptance_scope": "Local byte verification and native upload status plus independent cloud identity/size/parent confirmation agree; remote byte verification is not claimed.",
+  "validation": "Seven qualification tests, revision artifact guard and whitespace checks passed on the exact reviewed head. PR211 was open and draft; full CI was still running at review.",
+  "limits": "Compact receipts and source only; no models, raw traces, archive reads, downloads, rehashes or M4 computation. Final-head CI is recorded separately on the live PR."
+}

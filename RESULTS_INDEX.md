@@ -65,7 +65,8 @@ M1 `~/Local/hu100-seed-qualification-20261009` and its ignored coordinator;
 upload acceptance grants no cleanup of this root or dependencies.
 Recommendation: HU100 seed qualification remains unanswered; improve measured
 pipeline costs before a separately authorized complete campaign. Independent
-end evidence review/final-headCI pending at this snapshot.
+[end evidence review](docs/reports/hu100-seed-qualification-artifacts/evidence-review.json)
+passed exact1219e9a with no open findings; final-head CI is recorded on the live PR.
 
 ### Historical preparation refusals (superseded by execution above)
 
