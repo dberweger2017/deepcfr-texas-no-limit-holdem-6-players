@@ -1,0 +1,17 @@
+{
+  "source_revision": "84b1048de1c68678451235859e4027877b771d55",
+  "reviewer": "independent_review, inherited gpt-6.1-sol",
+  "status": "no open correctness findings",
+  "checks": [
+    "Independent raw-hand joint estimator, t and 13-panel intervals; all lineage intervals",
+    "Every disjoint partition conserves -159 BB across 1536 pairs",
+    "Independent common-prefix enumeration: 35 priced opportunities, all <=200; counts and mean probabilities match",
+    "Eight frozen posteriors independently enumerated from public-action likelihoods; all frozen responses and root-floor TV match",
+    "Eight search ranges and response aggregates from original request seat_map and parsed native profiles match",
+    "Nine scientific requests match original frozen requests; completed uncompressed 50-iteration evidence/member hashes verify",
+    "All selected policy probabilities reproduce exactly; ten focused tests pass"
+  ],
+  "limits": "Archive acceptance and cleanup are subsequent operational closeout, outside scientific review",
+  "calculation_provenance": "Inline read-only calculations and pytest; no files created, no further dependency or running processes",
+  "fresh_confirmation": "Unrun proposal; owner chat approval required"
+}

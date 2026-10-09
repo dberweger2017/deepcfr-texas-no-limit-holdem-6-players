@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-08",
+  "receipt_url": "https://drive.google.com/file/d/1I-5Z5G7l26h3g37YwUndSgGWalx3vy4_/view",
+  "receipt_bytes": 242597,
+  "receipt_sha256": "8a88a0b1c754fc8ed927ed322a75689cfd71048a546a52443aa8534e7741088f",
+  "machines": [
+    {
+      "machine": "m1",
+      "removed_files": 52,
+      "logical_bytes_removed": 1544534864,
+      "allocated_bytes_removed": 1544638464,
+      "measured_free_space_gain": 1059446784,
+      "free_bytes_after_batch": 41342836736,
+      "archives": [
+        {
+          "pr": 201,
+          "archive_id": "1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr",
+          "files": 52,
+          "bytes": 1544534864,
+          "archive_url": "https://drive.google.com/file/d/1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr/view",
+          "archive_sha256": "0142436e009aea5d5866ea62836ffb8055c812329b7aaad2fb8de6656cb4b6d4"
+        }
+      ]
+    },
+    {
+      "machine": "m4",
+      "removed_files": 154,
+      "logical_bytes_removed": 23868203385,
+      "allocated_bytes_removed": 23883091968,
+      "measured_free_space_gain": 23883894784,
+      "free_bytes_after_batch": 77663617024,
+      "archives": [
+        {
+          "pr": 202,
+          "archive_id": "1-XHLJ-dM_DFMFTtXZYJZW7OmBeW2VLem",
+          "files": 59,
+          "bytes": 8930394776,
+          "archive_url": "https://drive.google.com/file/d/1-XHLJ-dM_DFMFTtXZYJZW7OmBeW2VLem/view",
+          "archive_sha256": "b5ae66eed7ed5e07c4fb8aa25cf3f72fa6de36a203798e568859783da380c554"
+        },
+        {
+          "pr": 205,
+          "archive_id": "1Lkme7gGFIsiCBkquKwt0gRgUIFFbCy7G",
+          "files": 89,
+          "bytes": 6243823218,
+          "archive_url": "https://drive.google.com/file/d/1Lkme7gGFIsiCBkquKwt0gRgUIFFbCy7G/view",
+          "archive_sha256": "ec64da6df8249794d79efdc81667d6cafd47dbaad47519979e2140eec467e46d"
+        },
+        {
+          "pr": 203,
+          "archive_id": "1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re",
+          "files": 1,
+          "bytes": 1143009755,
+          "archive_url": "https://drive.google.com/file/d/1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re/view",
+          "archive_sha256": "bb42f78802d552e4d790e491ca23bbf3a6970f1a233230bbcf409fd116b2a896"
+        },
+        {
+          "pr": 203,
+          "archive_id": "1Qs_8_7YUCMccw6A44jNld_s0ksKfTM-b",
+          "files": 1,
+          "bytes": 2078090291,
+          "archive_url": "https://drive.google.com/file/d/1Qs_8_7YUCMccw6A44jNld_s0ksKfTM-b/view",
+          "archive_sha256": "752e045b67261f630e0c1be0331659a60c708ba91e6052d1548524fb7932c59c"
+        },
+        {
+          "pr": 204,
+          "archive_id": "12LEcZWKJCwtTCCYcMxW578Gm3rDy9emK",
+          "files": 1,
+          "bytes": 1641001686,
+          "archive_url": "https://drive.google.com/file/d/12LEcZWKJCwtTCCYcMxW578Gm3rDy9emK/view",
+          "archive_sha256": "9f01443ef9008aa112112ca25bee71048f74bd07e5ebb9e364ce243efac22f4b"
+        },
+        {
+          "pr": 204,
+          "archive_id": "1D8BRCrV2BDAgKB8tipRYptABERZv88xt",
+          "files": 1,
+          "bytes": 2032348910,
+          "archive_url": "https://drive.google.com/file/d/1D8BRCrV2BDAgKB8tipRYptABERZv88xt/view",
+          "archive_sha256": "f6f4bec282c59af1a1ba25a6be1be1a9b89daecbc5fd94ecd9ff37f0e1467d22"
+        },
+        {
+          "pr": 197,
+          "archive_id": "1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1",
+          "files": 1,
+          "bytes": 574958858,
+          "archive_url": "https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view",
+          "archive_sha256": "a2c6f3106bdff486ece8ed1cec53521c235fe3eaf0c9debbae8b901e5ea5421d"
+        },
+        {
+          "pr": 200,
+          "archive_id": "1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg",
+          "files": 1,
+          "bytes": 1224575891,
+          "archive_url": "https://drive.google.com/file/d/1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg/view",
+          "archive_sha256": "ac79cc76209e95c4dc1c4a6d6903b645fdae4aeec4fd0d7b7f2cf5603ced1139"
+        }
+      ]
+    }
+  ],
+  "remote_payloads_downloaded": false,
+  "repeated_payload_hash_audits": false
+}

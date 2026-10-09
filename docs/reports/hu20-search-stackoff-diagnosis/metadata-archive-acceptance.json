@@ -1,0 +1,40 @@
+{
+  "archive": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/archives/hu20-search-stackoff-closeout-M1-20261008.zip",
+  "at": 1791493049.19848,
+  "authentication_files_excluded": [
+    "control-token",
+    "github-token",
+    "runpod-credential.json"
+  ],
+  "bytes": 157012,
+  "members": 34,
+  "sha256": "ef4b3685a46a89222d57fca8c36c773b58dd829f42dd74c2494767957374fd02",
+  "source": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/closeout-metadata",
+  "verified": true,
+  "manifest_member": "RESEARCH_MEMBER_HASHES.json",
+  "manifest_sha256": "8e6f7e3daabc6dae63b00eb8501b68ddfc5d98a0dc3048ec192e952d7d24c31d",
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-208-hu20-search-stackoff/hu20-search-stackoff-closeout-M1-20261008.zip",
+  "native_copy_verified": true,
+  "operational_note": "Final metadata-only seal; no scientific rerun.",
+  "archive_id": "1uFiVmE1rjIQ46YpzH6bJLKWV-xcd9DmU",
+  "archive_url": "https://drive.google.com/file/d/1uFiVmE1rjIQ46YpzH6bJLKWV-xcd9DmU/view",
+  "folder_id": "11xBCanng_d4J8Bx5f3gNKyU2nnB6pCZP",
+  "native_upload_confirmed": true,
+  "native": {
+    "documentSize": 157012,
+    "isUploaded": 1,
+    "isUploading": 0,
+    "hasUnresolvedConflicts": 0
+  },
+  "cloud": {
+    "id": "1uFiVmE1rjIQ46YpzH6bJLKWV-xcd9DmU",
+    "name": "hu20-search-stackoff-closeout-M1-20261008.zip",
+    "size": 157012,
+    "parent": "11xBCanng_d4J8Bx5f3gNKyU2nnB6pCZP",
+    "independently_read_back": true
+  },
+  "remote_archive_bytes_downloaded": false,
+  "status": "accepted",
+  "accepted_at": 1791493189.336415,
+  "native_status_source": "Read-only macOS FileProvider FP_snapshot; exact native file item ID checked via com.google.drivefs.item-id#S"
+}

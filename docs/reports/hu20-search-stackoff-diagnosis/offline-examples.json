@@ -1,0 +1,1350 @@
+{
+  "binary_sha256": "a172854c88e9ef17e61b30b8dce19b5570d765ed34e2ff533d8e4395b82776b1",
+  "examples": [
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.4171121670151441,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.2509928842378016,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.3318949487470542,
+          "raise_to": 400
+        }
+      ],
+      "block": 14,
+      "board": [
+        "Js",
+        "2h",
+        "6d",
+        "5d"
+      ],
+      "call_amount": 0,
+      "decision_role": "first-divergence",
+      "delta_bb": -15.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "high_card": 0.019510719929570212,
+          "lower_pair": 0.7197443957194333,
+          "overpair": 0.0005448365449163786,
+          "straight": 0.0370263071716143,
+          "top_pair": 0.11948859389356344,
+          "trips": 0.013948262050125641,
+          "two_pair": 0.08973688469077697
+        },
+        "hero_made_ahead_mass": 0.8422021727026546,
+        "hero_made_tie_mass": 0.004027350358115363,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.8397778261579126,
+          "strong": 0.14071145391251694,
+          "weak": 0.019510719929570212
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 773,
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "floor_new_root_support_mass": 0.0,
+      "floor_root_total_variation": 0.0254877865965058,
+      "frozen_rule_response": {
+        "call": 0.07208674992596353,
+        "fold": 0.9279132500740396,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "lower_pair": 0.6936771538866487,
+          "overpair": 0.03354421450908768,
+          "top_pair": 0.20069188167830262,
+          "trips": 0.01082662817874214,
+          "two_pair": 0.061260121747221376
+        },
+        "hero_made_ahead_mass": 0.8083582291313934,
+        "hero_made_tie_mass": 0.01720216128671163,
+        "positive_holdings": 386,
+        "tiers": {
+          "medium": 0.9279132500740396,
+          "strong": 0.07208674992596353
+        }
+      },
+      "hero": [
+        "Jc",
+        "Tc"
+      ],
+      "index": 6,
+      "pot": 400,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75",
+      "rival_cards_diagnostic_only": [
+        "5c",
+        "5s"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "high_card": 1.6587077371714229e-06,
+          "lower_pair": 0.8226264995761697,
+          "overpair": 7.834205412372603e-07,
+          "straight": 0.04540340729512184,
+          "top_pair": 0.06181316176168698,
+          "trips": 0.001024366022156148,
+          "two_pair": 0.06913012321658678
+        },
+        "hero_made_ahead_mass": 0.8839481705710012,
+        "hero_made_tie_mass": 0.00012062289727808152,
+        "positive_holdings": 1012,
+        "tiers": {
+          "medium": 0.884440444758398,
+          "strong": 0.11555789653386475,
+          "weak": 1.6587077371714229e-06
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "high_card": 2.3923694925410313e-06,
+          "lower_pair": 0.7337495422589414,
+          "overpair": 6.0378742929508186e-05,
+          "straight": 0.03799496662043488,
+          "top_pair": 0.12204777907448308,
+          "trips": 0.01406041512225013,
+          "two_pair": 0.09208452581146866
+        },
+        "hero_made_ahead_mass": 0.8393922291978066,
+        "hero_made_tie_mass": 0.0041327114182939505,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.8558577000763541,
+          "strong": 0.14413990755415362,
+          "weak": 2.3923694925410313e-06
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.00041887398821930353,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.05720888681912489,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.9423722391926558,
+          "raise_to": 400
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "seed": 2026093001,
+      "solved_response_model": {
+        "call": 0.423162454748879,
+        "fold": 0.49186809103214296,
+        "raise": 0.08496945421897832
+      },
+      "street": "turn"
+    },
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.9483770385909639,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.018235332881775552,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.03338762852726054,
+          "raise_to": 1200
+        },
+        {
+          "kind": "raise",
+          "p": 0.0,
+          "raise_to": 1400
+        }
+      ],
+      "block": 14,
+      "board": [
+        "Js",
+        "2h",
+        "6d",
+        "5d",
+        "9h"
+      ],
+      "call_amount": 0,
+      "decision_role": "largest-late-wager",
+      "delta_bb": -15.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "high_card": 0.0036602287203715287,
+          "lower_pair": 0.6808181852528189,
+          "overpair": 1.8865892443614864e-05,
+          "straight": 0.0525908088785595,
+          "top_pair": 0.13841369776975293,
+          "trips": 0.0004573569301096163,
+          "two_pair": 0.12404085655594359
+        },
+        "hero_made_ahead_mass": 0.8220041222519288,
+        "hero_made_tie_mass": 0.00014715838561571667,
+        "positive_holdings": 990,
+        "tiers": {
+          "medium": 0.8192507489150151,
+          "strong": 0.17708902236461274,
+          "weak": 0.0036602287203715287
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 1295,
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1069,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 3243,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 314,
+        "zero_likelihood:own": 12
+      },
+      "floor_new_root_support_mass": 0.00044751130445210116,
+      "floor_root_total_variation": 0.018945132209571273,
+      "frozen_rule_response": {
+        "call": 0.9999999999999991,
+        "fold": 0.0,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "trips": 0.15018887923039392,
+          "two_pair": 0.8498111207696054
+        },
+        "hero_made_ahead_mass": 0.0,
+        "hero_made_tie_mass": 0.0,
+        "positive_holdings": 55,
+        "tiers": {
+          "strong": 0.9999999999999991
+        }
+      },
+      "hero": [
+        "Jc",
+        "Tc"
+      ],
+      "index": 9,
+      "pot": 1200,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908",
+      "rival_cards_diagnostic_only": [
+        "5c",
+        "5s"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "high_card": 9.381674193372007e-08,
+          "lower_pair": 0.6859544381651579,
+          "overpair": 1.8613544999496678e-08,
+          "straight": 0.04954974844785481,
+          "top_pair": 0.1395519604123054,
+          "trips": 0.0003712857762529726,
+          "two_pair": 0.12457245476814158
+        },
+        "hero_made_ahead_mass": 0.8249590100669115,
+        "hero_made_tie_mass": 0.00010739922460394466,
+        "positive_holdings": 610,
+        "tiers": {
+          "medium": 0.8255064171910079,
+          "strong": 0.1744934889922494,
+          "weak": 9.381674193372007e-08
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "high_card": 1.600152302532523e-07,
+          "lower_pair": 0.6849325394355884,
+          "overpair": 1.8727285203576032e-08,
+          "straight": 0.049353094097133114,
+          "top_pair": 0.14016279768197568,
+          "trips": 0.0003681045610680928,
+          "two_pair": 0.12518328548171864
+        },
+        "hero_made_ahead_mass": 0.824546771375811,
+        "hero_made_tie_mass": 0.0001063690020026025,
+        "positive_holdings": 710,
+        "tiers": {
+          "medium": 0.8250953558448486,
+          "strong": 0.17490448413991977,
+          "weak": 1.600152302532523e-07
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.0,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.0,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.4818989347279707,
+          "raise_to": 1200
+        },
+        {
+          "kind": "raise",
+          "p": 0.5181010652720294,
+          "raise_to": 1400
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1069,
+        "positive_holdings:1": 767,
+        "trained": 5405,
+        "turn_solution_factors": 3243,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 314,
+        "zero_likelihood:own": 12
+      },
+      "seed": 2026093001,
+      "solved_response_model": {
+        "call": 0.2604423884537969,
+        "fold": 0.5466972413144376,
+        "raise": 0.1928603702317658
+      },
+      "street": "river"
+    },
+    {
+      "actual_response": "fold",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.0018352949042414728,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.4213422883562004,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.5768224167395581,
+          "raise_to": 600
+        }
+      ],
+      "block": 176,
+      "board": [
+        "Ks",
+        "Ac",
+        "Jd",
+        "2d"
+      ],
+      "call_amount": 0,
+      "decision_role": "first-divergence",
+      "delta_bb": -17.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "high_card": 0.6141278475424797,
+          "lower_pair": 0.2859466938214145,
+          "straight": 0.0003157055735438843,
+          "top_pair": 0.045680998425512966,
+          "trips": 0.0004902892777513105,
+          "two_pair": 0.05343846535929732
+        },
+        "hero_made_ahead_mass": 0.9457503398817301,
+        "hero_made_tie_mass": 2.976436422888792e-06,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.3316276922469274,
+          "strong": 0.05424446021059252,
+          "weak": 0.6141278475424797
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 292,
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "floor_new_root_support_mass": 0.0,
+      "floor_root_total_variation": 0.0027135556025243827,
+      "frozen_rule_response": {
+        "call": 0.08883869078204087,
+        "fold": 0.9111613092179613,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "lower_pair": 0.5121541672394979,
+          "straight": 0.01878468623414316,
+          "top_pair": 0.3990071419784624,
+          "trips": 0.018237725818893578,
+          "two_pair": 0.051816278729004094
+        },
+        "hero_made_ahead_mass": 0.8313598808222686,
+        "hero_made_tie_mass": 0.03420061216958245,
+        "positive_holdings": 212,
+        "tiers": {
+          "medium": 0.9111613092179613,
+          "strong": 0.08883869078204087
+        }
+      },
+      "hero": [
+        "Tc",
+        "As"
+      ],
+      "index": 6,
+      "pot": 600,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935",
+      "rival_cards_diagnostic_only": [
+        "Js",
+        "Ts"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "high_card": 0.6193538776481776,
+          "lower_pair": 0.282506514746122,
+          "straight": 4.4913742890440856e-05,
+          "top_pair": 0.045456674108613135,
+          "trips": 0.00027784233097691676,
+          "two_pair": 0.05236017742322047
+        },
+        "hero_made_ahead_mass": 0.9473169653283896,
+        "hero_made_tie_mass": 8.99333396333287e-08,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.32796318885473513,
+          "strong": 0.052682933497087824,
+          "weak": 0.6193538776481776
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "high_card": 0.6155292553065966,
+          "lower_pair": 0.2851722376364171,
+          "straight": 7.072830627428992e-05,
+          "top_pair": 0.045722114305054726,
+          "trips": 0.0002927456245978885,
+          "two_pair": 0.05321291882105954
+        },
+        "hero_made_ahead_mass": 0.9464235052144976,
+        "hero_made_tie_mass": 9.073921878746672e-08,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.3308943519414717,
+          "strong": 0.05357639275193171,
+          "weak": 0.6155292553065966
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.00034810278330842207,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.006959701632032446,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.9926921955846592,
+          "raise_to": 600
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "seed": 2026093002,
+      "solved_response_model": {
+        "call": 0.24027257864579454,
+        "fold": 0.7093983315367646,
+        "raise": 0.05032908981744187
+      },
+      "street": "turn"
+    },
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "fold",
+          "p": 0.1861893488490111,
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "p": 0.7474317673670642,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.021156095719466958,
+          "raise_to": 200
+        },
+        {
+          "kind": "raise",
+          "p": 0.0009545371944942169,
+          "raise_to": 1100
+        },
+        {
+          "kind": "raise",
+          "p": 0.044268250869963444,
+          "raise_to": 1600
+        }
+      ],
+      "block": 208,
+      "board": [
+        "9s",
+        "Kh",
+        "Qd",
+        "Js",
+        "9h"
+      ],
+      "call_amount": 100,
+      "decision_role": "first-divergence",
+      "delta_bb": -10.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "board_only": 0.07155607039897231,
+          "board_pair": 0.1081263946560746,
+          "full_house": 0.020142705337626476,
+          "quads": 1.9021079648278928e-06,
+          "straight": 0.2549300642545699,
+          "trips": 0.010034223939421355,
+          "two_pair": 0.5352086393053703
+        },
+        "hero_made_ahead_mass": 0.07155607039897231,
+        "hero_made_tie_mass": 0.1081263946560746,
+        "positive_holdings": 990,
+        "tiers": {
+          "board_only": 0.07155607039897231,
+          "strong": 0.8203175349449529,
+          "weak": 0.1081263946560746
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 367,
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1079,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 2162,
+        "zero_average_mass": 0,
+        "zero_likelihood:own": 2
+      },
+      "floor_new_root_support_mass": 0.0,
+      "floor_root_total_variation": 0.004063216167541721,
+      "frozen_rule_response": {
+        "call": 1.0,
+        "fold": 0.0,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "full_house": 0.06119376963996412,
+          "quads": 0.007186260210655226,
+          "straight": 0.5607834299297105,
+          "two_pair": 0.3708365402196698
+        },
+        "hero_made_ahead_mass": 0.0,
+        "hero_made_tie_mass": 0.0,
+        "positive_holdings": 79,
+        "tiers": {
+          "strong": 1.0
+        }
+      },
+      "hero": [
+        "5h",
+        "Ac"
+      ],
+      "index": 8,
+      "pot": 900,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6",
+      "rival_cards_diagnostic_only": [
+        "Th",
+        "Jh"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "board_only": 0.037562374300343704,
+          "board_pair": 0.07811797125562922,
+          "full_house": 0.038633488645344286,
+          "quads": 1.7175420131040166e-07,
+          "straight": 0.19021198130127145,
+          "trips": 3.188119493305497e-05,
+          "two_pair": 0.655442131548277
+        },
+        "hero_made_ahead_mass": 0.037562374300343704,
+        "hero_made_tie_mass": 0.07811797125562922,
+        "positive_holdings": 990,
+        "tiers": {
+          "board_only": 0.037562374300343704,
+          "strong": 0.8843196544440277,
+          "weak": 0.07811797125562922
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "board_only": 0.0708202685808666,
+          "board_pair": 0.10856798442709845,
+          "full_house": 0.019779160009206737,
+          "quads": 6.863835061762493e-08,
+          "straight": 0.25484132829162953,
+          "trips": 0.009981427479135854,
+          "two_pair": 0.5360097625737128
+        },
+        "hero_made_ahead_mass": 0.0708202685808666,
+        "hero_made_tie_mass": 0.10856798442709845,
+        "positive_holdings": 990,
+        "tiers": {
+          "board_only": 0.0708202685808666,
+          "strong": 0.8206117469920353,
+          "weak": 0.10856798442709845
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "fold",
+          "p": 0.7741956537769216,
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "p": 0.014414198374430871,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.0,
+          "raise_to": 200
+        },
+        {
+          "kind": "raise",
+          "p": 0.14628998608239027,
+          "raise_to": 1100
+        },
+        {
+          "kind": "raise",
+          "p": 0.06510016176625724,
+          "raise_to": 1600
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1079,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 2162,
+        "zero_average_mass": 0,
+        "zero_likelihood:own": 2
+      },
+      "seed": 2026093002,
+      "solved_response_model": {
+        "call": 0.37912388357816673,
+        "fold": 0.5461128838420235,
+        "raise": 0.07476323257981035
+      },
+      "street": "river"
+    },
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.36912378109956423,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.3607657776838425,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.2701104412165932,
+          "raise_to": 400
+        }
+      ],
+      "block": 14,
+      "board": [
+        "Js",
+        "2h",
+        "6d",
+        "5d"
+      ],
+      "call_amount": 0,
+      "decision_role": "first-divergence",
+      "delta_bb": -15.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "high_card": 0.01637718980105569,
+          "lower_pair": 0.7102929467617952,
+          "overpair": 0.0006477838906248324,
+          "straight": 0.04164982207271416,
+          "top_pair": 0.11468512229298636,
+          "trips": 0.00040165053671963155,
+          "two_pair": 0.1159454846441035
+        },
+        "hero_made_ahead_mass": 0.8185185479060676,
+        "hero_made_tie_mass": 0.005574552371470452,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.8256258529454046,
+          "strong": 0.15799695725353724,
+          "weak": 0.01637718980105569
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 782,
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "floor_new_root_support_mass": 0.0,
+      "floor_root_total_variation": 0.021985057071277417,
+      "frozen_rule_response": {
+        "call": 0.07208674992596353,
+        "fold": 0.9279132500740396,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "lower_pair": 0.6936771538866487,
+          "overpair": 0.03354421450908768,
+          "top_pair": 0.20069188167830262,
+          "trips": 0.01082662817874214,
+          "two_pair": 0.061260121747221376
+        },
+        "hero_made_ahead_mass": 0.8083582291313934,
+        "hero_made_tie_mass": 0.01720216128671163,
+        "positive_holdings": 386,
+        "tiers": {
+          "medium": 0.9279132500740396,
+          "strong": 0.07208674992596353
+        }
+      },
+      "hero": [
+        "Jc",
+        "Tc"
+      ],
+      "index": 6,
+      "pot": 400,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba",
+      "rival_cards_diagnostic_only": [
+        "5c",
+        "5s"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "high_card": 2.375137108853252e-05,
+          "lower_pair": 0.8387265433652578,
+          "overpair": 8.947664548814746e-07,
+          "straight": 0.041210722249928666,
+          "top_pair": 0.01483910407046269,
+          "trips": 8.743673182161757e-05,
+          "two_pair": 0.10511154744498565
+        },
+        "hero_made_ahead_mass": 0.8531545095521995,
+        "hero_made_tie_mass": 3.4688550880140804e-05,
+        "positive_holdings": 1022,
+        "tiers": {
+          "medium": 0.853566542202175,
+          "strong": 0.1464097064267359,
+          "weak": 2.375137108853252e-05
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "high_card": 2.787218684965449e-05,
+          "lower_pair": 0.7219372571883689,
+          "overpair": 9.29916899170591e-06,
+          "straight": 0.04258626780095635,
+          "top_pair": 0.11661198201090037,
+          "trips": 0.000274943419002415,
+          "two_pair": 0.11855237822493046
+        },
+        "hero_made_ahead_mass": 0.8158289500767848,
+        "hero_made_tie_mass": 0.0056998894196338785,
+        "positive_holdings": 1035,
+        "tiers": {
+          "medium": 0.8385585383682604,
+          "strong": 0.1614135894448893,
+          "weak": 2.787218684965449e-05
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.06745163100020472,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.09692376490966362,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.8356246040901316,
+          "raise_to": 400
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "seed": 2026093003,
+      "solved_response_model": {
+        "call": 0.3762971760455213,
+        "fold": 0.49432974200739493,
+        "raise": 0.12937308194708314
+      },
+      "street": "turn"
+    },
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.9099655805955559,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.025373759768496023,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.062435669100497894,
+          "raise_to": 1200
+        },
+        {
+          "kind": "raise",
+          "p": 0.002224990535450293,
+          "raise_to": 1400
+        }
+      ],
+      "block": 14,
+      "board": [
+        "Js",
+        "2h",
+        "6d",
+        "5d",
+        "9h"
+      ],
+      "call_amount": 0,
+      "decision_role": "largest-late-wager",
+      "delta_bb": -15.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "high_card": 0.0019271691930528704,
+          "lower_pair": 0.7595328574725845,
+          "overpair": 1.0538370362592088e-05,
+          "straight": 0.028055517417270522,
+          "top_pair": 0.038946435578349925,
+          "trips": 8.768549167215842e-05,
+          "two_pair": 0.17143979647670768
+        },
+        "hero_made_ahead_mass": 0.7986843605651079,
+        "hero_made_tie_mass": 0.0004837460742157795,
+        "positive_holdings": 990,
+        "tiers": {
+          "medium": 0.7984898314212969,
+          "strong": 0.19958299938565022,
+          "weak": 0.0019271691930528704
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 1393,
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1081,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 3243,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 303
+      },
+      "floor_new_root_support_mass": 0.0003567231665681873,
+      "floor_root_total_variation": 0.019067175033176127,
+      "frozen_rule_response": {
+        "call": 0.9999999999999991,
+        "fold": 0.0,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "trips": 0.15018887923039392,
+          "two_pair": 0.8498111207696054
+        },
+        "hero_made_ahead_mass": 0.0,
+        "hero_made_tie_mass": 0.0,
+        "positive_holdings": 55,
+        "tiers": {
+          "strong": 0.9999999999999991
+        }
+      },
+      "hero": [
+        "Jc",
+        "Tc"
+      ],
+      "index": 9,
+      "pot": 1200,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e",
+      "rival_cards_diagnostic_only": [
+        "5c",
+        "5s"
+      ],
+      "rotation": 0,
+      "search": {
+        "categories": {
+          "high_card": 2.1627375370882287e-07,
+          "lower_pair": 0.7655789603334744,
+          "overpair": 5.696040196050664e-08,
+          "straight": 0.02728508466623724,
+          "top_pair": 0.03558408720598014,
+          "trips": 2.524985920487037e-05,
+          "two_pair": 0.17152634470094788
+        },
+        "hero_made_ahead_mass": 0.8005919631597582,
+        "hero_made_tie_mass": 5.7733888762381755e-05,
+        "positive_holdings": 647,
+        "tiers": {
+          "medium": 0.8011631044998566,
+          "strong": 0.19883667922639,
+          "weak": 2.1627375370882287e-07
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "high_card": 2.493869747935126e-06,
+          "lower_pair": 0.7628324653799841,
+          "overpair": 8.975961809145201e-08,
+          "straight": 0.026952975321673463,
+          "top_pair": 0.03731363059899504,
+          "trips": 2.502651217115072e-05,
+          "two_pair": 0.17287331855781052
+        },
+        "hero_made_ahead_mass": 0.7995112899565275,
+        "hero_made_tie_mass": 5.919133269257176e-05,
+        "positive_holdings": 718,
+        "tiers": {
+          "medium": 0.8001461857385969,
+          "strong": 0.19985132039165518,
+          "weak": 2.493869747935126e-06
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.0,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.0,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.46465470002130566,
+          "raise_to": 1200
+        },
+        {
+          "kind": "raise",
+          "p": 0.5353452999786943,
+          "raise_to": 1400
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1081,
+        "positive_holdings:1": 778,
+        "trained": 5405,
+        "turn_solution_factors": 3243,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 303
+      },
+      "seed": 2026093003,
+      "solved_response_model": {
+        "call": 0.2811044157293258,
+        "fold": 0.517315512322091,
+        "raise": 0.2015800719485833
+      },
+      "street": "river"
+    },
+    {
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.27116705326642104,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.4864169003219785,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.24241604641160047,
+          "raise_to": 600
+        }
+      ],
+      "block": 127,
+      "board": [
+        "2c",
+        "Qh",
+        "Th",
+        "2h"
+      ],
+      "call_amount": 0,
+      "decision_role": "first-divergence",
+      "delta_bb": -11.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "board_pair": 0.48828741059330505,
+          "flush": 0.18223554181801455,
+          "full_house": 0.0030284762528280744,
+          "quads": 2.6914012341337862e-05,
+          "trips": 0.09617336239972152,
+          "two_pair": 0.23024829492378854
+        },
+        "hero_made_ahead_mass": 0.4506041324071114,
+        "hero_made_tie_mass": 0.0368875601116938,
+        "positive_holdings": 1035,
+        "tiers": {
+          "strong": 0.511712589406694,
+          "weak": 0.48828741059330505
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 199,
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "floor_new_root_support_mass": 0.0,
+      "floor_root_total_variation": 0.0038971466171382747,
+      "frozen_rules": {
+        "categories": {
+          "full_house": 0.01301306439798536,
+          "quads": 0.0033366831789706044,
+          "trips": 0.04738484987887248,
+          "two_pair": 0.9362654025441715
+        },
+        "hero_made_ahead_mass": 0.0,
+        "hero_made_tie_mass": 0.0,
+        "positive_holdings": 142,
+        "tiers": {
+          "strong": 0.9999999999999999
+        }
+      },
+      "hero": [
+        "3c",
+        "Ac"
+      ],
+      "index": 6,
+      "pot": 600,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc",
+      "rival_cards_diagnostic_only": [
+        "6d",
+        "6h"
+      ],
+      "rotation": 1,
+      "search": {
+        "categories": {
+          "board_pair": 0.5650961393217779,
+          "flush": 0.08636681157323219,
+          "full_house": 0.00012618869462604297,
+          "quads": 2.3744976327692593e-08,
+          "trips": 3.978436293695717e-05,
+          "two_pair": 0.3483710523024507
+        },
+        "hero_made_ahead_mass": 0.4720516978237127,
+        "hero_made_tie_mass": 0.09304313459147766,
+        "positive_holdings": 962,
+        "tiers": {
+          "strong": 0.43490386067822234,
+          "weak": 0.5650961393217779
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "board_pair": 0.48906219730392814,
+          "flush": 0.18284090197660602,
+          "full_house": 0.002953750252272004,
+          "quads": 2.9883664056800968e-06,
+          "trips": 0.09528227710517728,
+          "two_pair": 0.2298578849956101
+        },
+        "hero_made_ahead_mass": 0.45197460433920544,
+        "hero_made_tie_mass": 0.03701542171035373,
+        "positive_holdings": 1035,
+        "tiers": {
+          "strong": 0.5109378026960715,
+          "weak": 0.48906219730392814
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.9084985759566553,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.09138920809980722,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.00011221594353754516,
+          "raise_to": 600
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1128,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1128,
+        "positive_holdings:1": 1128,
+        "trained": 5640,
+        "zero_average_mass": 0
+      },
+      "seed": 2026093003,
+      "street": "turn"
+    },
+    {
+      "actual_response": "call",
+      "base_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.5682821137578871,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 0.40553941752766165,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.026178468714451234,
+          "raise_to": 600
+        }
+      ],
+      "block": 127,
+      "board": [
+        "2c",
+        "Qh",
+        "Th",
+        "2h",
+        "As"
+      ],
+      "call_amount": 0,
+      "decision_role": "largest-late-wager",
+      "delta_bb": -11.0,
+      "floor_001_at_round_root_fixed_turn": {
+        "categories": {
+          "board_only": 0.1142938132394639,
+          "board_pair": 0.3335553082583956,
+          "flush": 0.08965694083876898,
+          "full_house": 0.0012103196124993957,
+          "quads": 1.6871122361406516e-06,
+          "straight": 0.04047522158125061,
+          "trips": 0.0048208770447306605,
+          "two_pair": 0.4159858323126544
+        },
+        "hero_made_ahead_mass": 0.8058130661668974,
+        "hero_made_tie_mass": 0.05780049435550139,
+        "positive_holdings": 990,
+        "tiers": {
+          "board_only": 0.1142938132394639,
+          "strong": 0.5521508785021401,
+          "weak": 0.3335553082583956
+        }
+      },
+      "floor_coverage": {
+        "floored_opponent_factors": 529,
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1081,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 2162,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 76
+      },
+      "floor_new_root_support_mass": 0.003812523740278739,
+      "floor_root_total_variation": 0.020739045717119303,
+      "frozen_rule_response": {
+        "call": 1.0000000000000002,
+        "fold": 0.0,
+        "raise": 0.0
+      },
+      "frozen_rules": {
+        "categories": {
+          "full_house": 0.05367884745285975,
+          "quads": 0.003601177094808979,
+          "two_pair": 0.9427199754523315
+        },
+        "hero_made_ahead_mass": 0.8404380224636742,
+        "hero_made_tie_mass": 0.0,
+        "positive_holdings": 132,
+        "tiers": {
+          "strong": 1.0000000000000002
+        }
+      },
+      "hero": [
+        "3c",
+        "Ac"
+      ],
+      "index": 8,
+      "pot": 600,
+      "recorded_probability_max_error": 0.0,
+      "request_identity": "5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44",
+      "rival_cards_diagnostic_only": [
+        "6d",
+        "6h"
+      ],
+      "rotation": 1,
+      "search": {
+        "categories": {
+          "board_only": 0.002430228480567735,
+          "board_pair": 0.6307343278077887,
+          "flush": 0.06921835418704707,
+          "full_house": 3.3832518977803593e-05,
+          "quads": 1.5586885468608245e-08,
+          "straight": 0.05248955457651376,
+          "trips": 1.9872570043855217e-05,
+          "two_pair": 0.24507381427217587
+        },
+        "hero_made_ahead_mass": 0.8739288531073165,
+        "hero_made_tie_mass": 0.004307306074907441,
+        "positive_holdings": 917,
+        "tiers": {
+          "board_only": 0.002430228480567735,
+          "strong": 0.3668354437116439,
+          "weak": 0.6307343278077887
+        }
+      },
+      "search_at_round_root": {
+        "categories": {
+          "board_only": 0.11314681971555203,
+          "board_pair": 0.3353250190971277,
+          "flush": 0.08961557101944313,
+          "full_house": 0.00014418185094384217,
+          "quads": 2.4638163360297555e-08,
+          "straight": 0.04133647621698756,
+          "trips": 2.4266376539089237e-05,
+          "two_pair": 0.4204076410852435
+        },
+        "hero_made_ahead_mass": 0.8098827664735179,
+        "hero_made_tie_mass": 0.058962037373809166,
+        "positive_holdings": 917,
+        "tiers": {
+          "board_only": 0.11314681971555203,
+          "strong": 0.5515281611873201,
+          "weak": 0.3353250190971277
+        }
+      },
+      "search_probabilities": [
+        {
+          "kind": "check",
+          "p": 0.0,
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "p": 1.7745169618116628e-05,
+          "raise_to": 100
+        },
+        {
+          "kind": "raise",
+          "p": 0.9999822548303818,
+          "raise_to": 600
+        }
+      ],
+      "search_range_coverage": {
+        "holdings_per_seat": 1081,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 1005,
+        "positive_holdings:1": 1081,
+        "trained": 5405,
+        "turn_solution_factors": 2162,
+        "zero_average_mass": 0,
+        "zero_likelihood:opponent": 76
+      },
+      "seed": 2026093003,
+      "solved_response_model": {
+        "call": 0.3085290222207703,
+        "fold": 0.5185113323464194,
+        "raise": 0.1729596454328101
+      },
+      "street": "river"
+    }
+  ],
+  "query_checks": 9,
+  "response_analysis_seconds": 2.1159014999866486,
+  "seconds": 72.8872024170123
+}
