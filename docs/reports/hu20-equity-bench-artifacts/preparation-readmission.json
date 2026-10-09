@@ -1,0 +1,22 @@
+{
+  "at": 1791580149.527023,
+  "scope": "preparation entrypoint only; no failed scientific operation or resource breach",
+  "failure_sha256": "308a2966ffc7ba8b634fee5c7eb824222e367fe30e5c48fa988b738db786053f",
+  "failed_operation_receipt_sha256": "9b78b4de7a13f971b7154e583d598cfebbfb2427e7dea0299b47e889d8db5b22",
+  "worker_log_sha256": "86f1f28e5db5999eefb918fc342d20f4add002119398f4d8de5d2447bfe50bbe",
+  "baseline_sha256": "ae34951d304f219a1c233d61f7ce5acf02296f82442c670a986a35092c1b12ec",
+  "original_baseline_preserved_byte_identical": true,
+  "original_failure_and_all_evidence_retained": true,
+  "completed_native_runs_unchanged": [
+    "fold0/v1@10M",
+    "fold0/equity@10M",
+    "all four3Mprefixes"
+  ],
+  "remaining_native_runs_only": [
+    "fold1/v1@10M",
+    "fold1/equity@10M"
+  ],
+  "new_guard_root": "results/equity-bench/guards-after-setup",
+  "no_native_or_scoring_retry": true,
+  "corrected_command": "python -m planning.restore_references"
+}

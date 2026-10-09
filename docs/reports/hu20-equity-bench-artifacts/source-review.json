@@ -1,1 +1,22 @@
-{"status":"clear","reviewer":"independent review_stage_a agent","source":"2721c27","focused_tests":4,"findings_resolved":["Guard must stop descendants in separate sessions after parent exit; retained identity cleanup now runs unconditionally","Retain M4 identity assertions"],"native_trainer_changes":false,"scoring_started":false}
+{
+  "status": "clear",
+  "reviewer": "independent review_stage_a agent",
+  "source": "2721c27",
+  "focused_tests": 4,
+  "findings_resolved": [
+    "Guard must stop descendants in separate sessions after parent exit; retained identity cleanup now runs unconditionally",
+    "Retain M4 identity assertions"
+  ],
+  "native_trainer_changes": false,
+  "scoring_started": false,
+  "setup_continuation_review": {
+    "status": "clear",
+    "source": "d06105a",
+    "scope": "archived reference path and exact EV/hash restoration; import-only setup continuation",
+    "resource_samples_checked": 10404,
+    "native_runs_restarted": false,
+    "scoring_runs_retried": false,
+    "resource_breaches": 0,
+    "baseline_copied_byte_identical": true
+  }
+}
