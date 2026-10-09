@@ -27,23 +27,8 @@ impl Log {
     }
 }
 
-/// Table file: magic, street, k, count, sorted u64 class hashes, then u16 buckets.
 fn write_table(path: &Path, street: u32, k: u32, keys: &[u128], assignment: &[u16]) {
-    let mut rows: Vec<(u64, u16)> = keys.iter().map(|&key| hash_key(key)).zip(assignment.iter().copied()).collect();
-    rows.sort_unstable_by_key(|r| r.0);
-    assert!(rows.windows(2).all(|w| w[0].0 != w[1].0), "64-bit class hash collision");
-    let mut out = Vec::with_capacity(24 + rows.len() * 10);
-    out.extend_from_slice(b"HU20BKT1");
-    out.extend_from_slice(&street.to_le_bytes());
-    out.extend_from_slice(&k.to_le_bytes());
-    out.extend_from_slice(&(rows.len() as u64).to_le_bytes());
-    for r in &rows {
-        out.extend_from_slice(&r.0.to_le_bytes());
-    }
-    for r in &rows {
-        out.extend_from_slice(&r.1.to_le_bytes());
-    }
-    fs::write(path, out).expect("table");
+    BucketTable::new(street, k, keys, assignment).write(path).expect("table");
 }
 
 fn bucket_summary(k: usize, assignment: &[u16], weight: &[u64], equity: &[f32]) -> String {

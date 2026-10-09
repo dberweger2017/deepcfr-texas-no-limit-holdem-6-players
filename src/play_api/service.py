@@ -1,4 +1,4 @@
-"""Durable HU20 turns around the existing hand and blueprint interfaces."""
+"""Durable heads-up turns around the existing hand and blueprint interfaces."""
 
 from __future__ import annotations
 
@@ -15,12 +15,15 @@ from src.arena.runner import public_events
 from src.arena.schedule import digest
 from src.blueprint.abstraction import choices
 from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
-from src.game.hand import Hand, Table
+from src.game.hand import Hand
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
 from src.game.types import Action, ActionKind
+from src.play_api.configuration import PlayTable, policy_table, recorded_table, inference_record, distribution
 
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
+HU100_API_VERSION = "hu100-research-play-api-v1"
+HU100_BENCHMARK_PROTOCOL = "hu100-human-research-benchmark-v1"
 ADAPTER_ID = "direct-v1"
 BENCHMARK_PROTOCOL = "hu20-human-benchmark-v1"
 BUTTON_SCHEDULE = "alternating-seat-0-first-v1"
@@ -52,16 +55,12 @@ def _rng(state):
     return generator
 
 
-def _table(button):
-    return Table(("human", "trained"), (2000, 2000), button=button)
-
-
 def _action(row):
     return Action(ActionKind(row["kind"]), row.get("raiseTo"))
 
 
 def _hand(row):
-    hand = Hand.start(_table(row["button"]), hand_id=row["handId"], seed=row["dealSeed"])
+    hand = Hand.start(recorded_table(row).table(("human", "trained"), row["button"]), hand_id=row["handId"], seed=row["dealSeed"])
     for record in row["actions"]:
         if hand.actor != record["seat"]:
             raise RuntimeError("Private journal actor mismatch")
@@ -93,12 +92,19 @@ def _model_info(policy):
             "game": policy.game, "schema": policy.abstraction,
             "format": getattr(policy, "format_id", HU20_UNCAPPED_FORMAT), "strategy": policy.description["strategy"],
             "adapter": getattr(policy, "adapter_id", ADAPTER_ID),
-            "benchmarkOnly": getattr(policy, "benchmark_only", False)}
+            "benchmarkOnly": getattr(policy, "benchmark_only", False),
+            "research": getattr(policy, "research", False),
+            "table": policy_table(policy).record(), "inference": inference_record(policy)}
 
 
 class PlayService:
-    def __init__(self, db_path: Path, policy, *, source_version: str = "unknown"):
+    def __init__(self, db_path: Path, policy, *, source_version: str = "unknown", table: PlayTable | None = None):
         self.policy = policy
+        self.table = table or policy_table(policy)
+        self.table.validate_policy(policy)
+        self.model = _model_info(policy)
+        self.api_version = HU100_API_VERSION if self.table.stack == 10000 else API_VERSION
+        self.benchmark_protocol = HU100_BENCHMARK_PROTOCOL if self.table.stack == 10000 else BENCHMARK_PROTOCOL
         self.db_path = db_path
         self.source_version = source_version
         self.lock = threading.RLock()
@@ -122,10 +128,20 @@ class PlayService:
         state = json.loads(row[0])
         if state["modelSha256"] != self.policy.spec.sha256 or state["modelGame"] != self.policy.game:
             raise PlayError("Session model differs from the loaded policy", 409)
+        if (recorded_table(state) != self.table
+                or state.get('modelIdentity', self.model if self.table.stack == 2000 else None) != self.model):
+            raise PlayError("Session table or inference identity differs", 409)
+        for record in [*state['history'], *([state['current']] if state['current'] else [])]:
+            if recorded_table(record) != self.table:
+                raise PlayError("Hand table configuration differs", 409)
         return state
 
     def _ack_matches(self, response):
-        return response["model"]["sha256"] == self.policy.spec.sha256
+        recorded = response['model']
+        if self.table.stack == 10000:
+            return recorded == self.model
+        # Pre-configuration HU20 acknowledgments retain their original shape.
+        return all(self.model.get(key) == value for key, value in recorded.items())
 
     def _mutate(self, key, fingerprint, session_id, operation):
         if not isinstance(key, str) or not 16 <= len(key) <= 128 or not key.isascii():
@@ -181,18 +197,20 @@ class PlayService:
                      "revision": 0, "handsPlayed": 0,
                      "totalChips": 0, "dealRng": deals.getstate(), "botRng": bot.getstate(),
                      "current": None, "history": [], "sourceVersion": self.source_version,
-                     "modelSha256": self.policy.spec.sha256, "modelGame": self.policy.game}
+                     "modelSha256": self.policy.spec.sha256, "modelGame": self.policy.game,
+                     "table": self.table.record(), "modelIdentity": self.model}
             if session_type == "benchmark":
                 state["benchmark"] = {
-                    "id": secrets.token_urlsafe(18), "protocolVersion": BENCHMARK_PROTOCOL,
+                    "id": secrets.token_urlsafe(18), "protocolVersion": self.benchmark_protocol,
                     "targetHands": body["targetHands"], "status": "ACTIVE",
                     "buttonSchedule": BUTTON_SCHEDULE, "startedAt": _utc_now(),
                     "endedAt": None, "abortedHandId": None,
                     "modelName": _model_info(self.policy)["name"], "modelSha256": self.policy.spec.sha256,
                     "game": self.policy.game, "schema": self.policy.abstraction,
                     "playMode": body["playMode"], "adapter": _model_info(self.policy)["adapter"],
-                    "sourceVersion": self.source_version, "interfaceVersion": API_VERSION,
-                    "visibility": "benchmark"}
+                    "sourceVersion": self.source_version, "interfaceVersion": self.api_version,
+                    "visibility": "benchmark", "table": self.table.record(),
+                    "inference": inference_record(self.policy)}
             return state, self._view(state)
 
         return self._mutate(key, _json(["create", body]), None, operation)
@@ -221,7 +239,10 @@ class PlayService:
             deals = _rng(state["dealRng"])
             state["current"] = {"handId": secrets.token_urlsafe(18),
                                 "button": state["handsPlayed"] % 2,
-                                "dealSeed": deals.randrange(2**63), "actions": [], "lookup": []}
+                                "dealSeed": deals.randrange(2**63), "actions": [], "lookup": [],
+                                "table": self.table.record(), "game": self.policy.game,
+                                "modelIdentity": self.model, "samplingStart": state["botRng"],
+                                "botDecisions": []}
             state["dealRng"] = deals.getstate()
             state["revision"] += 1
             return state, self._view(state)
@@ -276,11 +297,22 @@ class PlayService:
                 if hand.finished or hand.actor != 1:
                     break
                 view = hand.observe(1)
-                menu, probabilities, trained = self.policy.distribution(view)
-                action = bot.choices(menu, weights=probabilities, k=1)[0].action
+                menu, probabilities, trained, telemetry = distribution(self.policy, view)
+                selected = bot.choices(range(len(menu)), weights=probabilities, k=1)[0]
+                action = menu[selected].action
+                from src.play_api.spectator import observation_record
+                if 'botDecisions' in state['current']:
+                    state['current']['botDecisions'].append({
+                        'actionIndex': len(state['current']['actions']),
+                        'observation': observation_record(view), 'telemetry': telemetry,
+                        'menu': [{'label': item.name, 'kind': item.action.kind.value,
+                                  'raiseTo': item.action.raise_to, 'probability': probability}
+                                 for item, probability in zip(menu, probabilities)],
+                        'selectedIndex': selected})
                 view.legal_actions.validate(action)
                 if trained is not None:
-                    state["current"]["lookup"].append({"street": view.street.value, "trained": bool(trained)})
+                    state["current"]["lookup"].append({"street": view.street.value, "trained": bool(trained),
+                                                        **({"telemetry": telemetry} if telemetry is not None else {})})
                 state["current"]["actions"].append(self._record_action(hand, action, view))
                 hand = hand.apply(action)
             else:
@@ -332,8 +364,8 @@ class PlayService:
         if not hand.finished or row.get("completed"):
             return
         final = hand.observe(0)
-        net = final.players[0].stack - 2000
-        if final.players[1].stack - 2000 != -net:
+        net = final.players[0].stack - recorded_table(row).stack
+        if final.players[1].stack - recorded_table(row).stack != -net:
             raise RuntimeError("Native settlement did not conserve chips")
         row["completed"] = True
         row["humanChips"] = net
@@ -342,7 +374,7 @@ class PlayService:
         row["game"] = self.policy.game
         row["schema"] = self.policy.abstraction
         row["adapter"] = _model_info(self.policy)["adapter"]
-        row["apiVersion"] = API_VERSION
+        row["apiVersion"] = self.api_version
         row["sourceVersion"] = state["sourceVersion"]
         row["playMode"] = state["playMode"]
         row["visibility"] = state["visibility"]
@@ -378,7 +410,7 @@ class PlayService:
                     "playMode": state["playMode"], "visibility": state["visibility"],
                     "model": _model_info(self.policy), "handsPlayed": state["handsPlayed"],
                     "sessionType": state.get("sessionType", "casual"),
-                    "phase": "ready" if state["current"] is None else "playing", "hand": None}
+                    "table": self.table.record(), "phase": "ready" if state["current"] is None else "playing", "hand": None}
         benchmark = state.get("benchmark")
         if benchmark:
             response["benchmark"] = {"id": benchmark["id"],
@@ -437,6 +469,7 @@ class PlayService:
                         "humanCards": list(view.hole_cards), "board": list(view.board),
                         "events": _events(hand),
                         "publicEventsSha256": row["publicEventsSha256"],
+                        "table": recorded_table(row).record(), "model": self.model,
                         "shownBotCards": list(view.players[1].shown_cards)}
                 if not hide_results:
                     item["humanChips"] = row["humanChips"]
@@ -455,7 +488,7 @@ class PlayService:
         references = []
         for index, row in enumerate(rows):
             hand = _hand(row)
-            payoff = hand.observe(0).players[0].stack - 2000
+            payoff = hand.observe(0).players[0].stack - recorded_table(row).stack
             if (not hand.finished or row["button"] != index % 2
                     or row["humanChips"] != payoff
                     or digest(public_events(hand.events)) != row["publicEventsSha256"]):
@@ -479,7 +512,8 @@ class PlayService:
             raise RuntimeError("Benchmark total mismatch")
         report = {"benchmarkId": benchmark["id"], "protocolVersion": benchmark["protocolVersion"],
                   "model": {"name": benchmark["modelName"], "sha256": benchmark["modelSha256"]},
-                  "game": benchmark["game"], "schema": benchmark["schema"],
+                  "game": benchmark["game"], "schema": benchmark["schema"], "table": self.table.record(),
+                  "inference": inference_record(self.policy),
                   "playMode": benchmark["playMode"], "adapter": benchmark["adapter"],
                   "targetHands": benchmark["targetHands"], "completedHands": len(rows),
                   "status": benchmark["status"], "netChips": net, "netBB": net / 100,
@@ -502,6 +536,10 @@ class PlayService:
                 "fallbackPercent": 100 * fallback / (trained + fallback) if trained + fallback else None,
                 "handsWithFallback": fallback_hands,
                 "handsWithFallbackFraction": fallback_hands / len(rows) if rows else None}
+        if self.table.stack == 10000:
+            modes = [item['telemetry']['mode'] for row in rows for item in row['lookup']
+                     if item.get('telemetry') is not None]
+            report['inferenceSummary'] = {mode: modes.count(mode) for mode in ('exact', 'translated', 'uniform')}
         return report
 
     def benchmark_result(self, session_id):
@@ -530,6 +568,8 @@ class PlayService:
             for row in state["history"]:
                 hand = _hand(row)
                 if (not hand.finished or digest(public_events(hand.events)) != row["publicEventsSha256"]
-                        or hand.observe(0).players[0].stack - 2000 != row["humanChips"]):
+                        or hand.observe(0).players[0].stack - recorded_table(row).stack != row["humanChips"]):
                     raise ValueError("Private hand replay mismatch")
+            from src.play_api.play_audit import audit_state
+            audit_state(state, self.policy)
             return len(state["history"])

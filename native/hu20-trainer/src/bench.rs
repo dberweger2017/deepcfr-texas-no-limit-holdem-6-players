@@ -149,7 +149,7 @@ pub fn export(sampled: &Trainer, source: &Trainer, lineage: &Value, average: boo
         assert!(p.iter().all(|v| v.is_finite()) && (fsum(p.iter().copied()) - 1.0).abs() <= 2e-5,
                 "non-finite or unnormalized exported policy");
         let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
-        json!({"lineage": lineage, "metric": "v1", "key": hex, "names": node.names(), "probabilities": p,
+        json!({"lineage": lineage, "metric": source.cards.metric(), "key": hex, "names": node.names(), "probabilities": p,
                "mass": mass, "roots": node.visits})
     }).collect();
     let mut document = json!({"format": "hu20-board-pooling-policy-v1", "groups": groups, "lineage": lineage,
@@ -157,6 +157,10 @@ pub fn export(sampled: &Trainer, source: &Trainer, lineage: &Value, average: boo
            "zero_mass_rule": "uniform within the actual menu"});
     if let Some(label) = source.options.label() {
         document["training_options"] = json!(label);
+    }
+    if let Some(tables) = source.cards.tables() {
+        document["abstraction"] = json!(source.cards.schema(source.game));
+        document["card_tables"] = tables;
     }
     document
 }

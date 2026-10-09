@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-09",
+  "scope": "retained research-model local runtime; no strength or external benchmark claim",
+  "status": "verified",
+  "source": "8f90697c5fcd207a51a0f7faa7da1742371320f3",
+  "model_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+  "model_entries": 41010014,
+  "retrieval": {
+    "status": "verified",
+    "started": 1791524899.88484,
+    "finished": 1791525011.564554,
+    "source_pr_head": "fbe19c17f0fbd474e5ea26393cc16c9ddeafaf27",
+    "drive_folder_id": "1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS",
+    "drive_archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+    "archive_bytes": 20517119304,
+    "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+    "member": "research/training/1000000000/average.gz",
+    "target": "/Users/dberweger/Local/hu100-local-runtime/models/retrieved/pr207-20261009/average.gz",
+    "bytes": 1173264021,
+    "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+    "method": "read-only SSH stream from fully allocated canonical M4 Research-Cloud ZIP; whole ZIP and manifest verified before stream",
+    "remote_cloud_bytes_downloaded": false,
+    "m4_originals_changed": false,
+    "command": "python results/hu100-retained-smoke/retrieve_pr207.py",
+    "helper_sha256": "a96a7a40ff547d40f4f0ad9fc80fac3fc0f3300ac711f23685341af9004d9a82",
+    "native_upload": {
+      "is_uploaded": true,
+      "is_uploading": false,
+      "reported_upload_error": false,
+      "conflicts_nil": false,
+      "unresolved_conflict_count": 0
+    },
+    "cloud_metadata": "exact ID/name/size/parent matched via connected Drive",
+    "max_m1_swap_used_bytes": 1605569085.44,
+    "min_m1_free_bytes": 34749513728
+  },
+  "resources": {
+    "status": "passed",
+    "exit_code": 0,
+    "failure": null,
+    "elapsed_seconds": 241.5965440273285,
+    "peak_family_rss_bytes": 2554298368,
+    "maximum_total_swap_bytes": 1605569085.44,
+    "minimum_free_bytes": 34696425472,
+    "limits": {
+      "total_swap_bytes": 3000000000,
+      "family_rss_bytes": 8589934592,
+      "disk_floor_bytes": 16642998272,
+      "wall_seconds": 1800
+    },
+    "rss_note": "sum of RSS double-counts inherited shared compact-model pages across forked parent/worker"
+  },
+  "load_seconds": 230.9687099456787,
+  "load_limit": "OS cache warmed by retrieval/hash checks; forked HTTP workers inherit one validated immutable compact model. Separate cold CLI starts not measured.",
+  "driver_sha256": "acd1b4e76656eeea59a63aa83a1b38de618290d17e8dea5a2c69d9a286e1d8ba",
+  "guard_sha256": "74629e76d56c3ef76b75728ed83b05585242e9541b080ff0574d3756cab39167",
+  "modes": [
+    {
+      "translation_enabled": false,
+      "human": {
+        "hands": 20,
+        "decisions": 75,
+        "inference": {
+          "exact": 66,
+          "translated": 0,
+          "uniform": 9
+        },
+        "all_in_calls": {}
+      },
+      "spectator": {
+        "hands": 20,
+        "decisions": 85,
+        "inference": {
+          "exact": 85,
+          "translated": 0,
+          "uniform": 0
+        },
+        "all_in_calls": {
+          "bot_all_in_calls": 1
+        }
+      },
+      "human_off_menu_550_raises": 2,
+      "human_all_in_raises": 1,
+      "http_worker_starts": 4,
+      "expected_rejections": [
+        "unavailable release/table identity",
+        "HU20 table for HU100 model",
+        "changed translation identity on process restart"
+      ],
+      "independent_journal_audit": "passed"
+    },
+    {
+      "translation_enabled": true,
+      "human": {
+        "hands": 20,
+        "decisions": 72,
+        "inference": {
+          "exact": 63,
+          "translated": 8,
+          "uniform": 1
+        },
+        "all_in_calls": {
+          "bot_all_in_calls": 1,
+          "human_all_in_calls": 1
+        }
+      },
+      "spectator": {
+        "hands": 20,
+        "decisions": 101,
+        "inference": {
+          "exact": 101,
+          "translated": 0,
+          "uniform": 0
+        },
+        "all_in_calls": {}
+      },
+      "human_off_menu_550_raises": 2,
+      "human_all_in_raises": 1,
+      "http_worker_starts": 4,
+      "expected_rejections": [
+        "unavailable release/table identity",
+        "HU20 table for HU100 model",
+        "changed translation identity on process restart"
+      ],
+      "independent_journal_audit": "passed"
+    }
+  ],
+  "independent_review": {
+    "status": "passed",
+    "unresolved_findings": 0,
+    "scope": "No-model-reload replay of 80 hands and 593 HTTP responses: legal observations/actions, menu sampling/RNG continuity, reset/accounting/event digests, helper hashes and sampled resource extrema. In-worker audits also reproduced exact policy distributions and translation receipts."
+  },
+  "setup_failures": {
+    "attempts": [
+      {
+        "stage": "guard startup",
+        "reason": "monitoring dependency psutil missing; installed declared requirements-monitoring pin7.2.2; no model load or hands"
+      },
+      {
+        "stage": "model loading",
+        "reason": "independent review caught incorrect sessionId lookup in compiled smoke helper; stopped before hands and repaired both audit lookups",
+        "receipt": "setup-stop-01/resources.json"
+      }
+    ]
+  },
+  "final_run_failures": [],
+  "http": {
+    "responses": 593,
+    "statuses": {
+      "200": 589,
+      "400": 2,
+      "409": 2
+    },
+    "lost_reply_retries_across_distinct_worker_pids": 2,
+    "human_public_privacy_review": "passed",
+    "hu100_export_filename": "verified"
+  },
+  "retained_files": {
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/guard.py": {
+      "bytes": 2094,
+      "sha256": "74629e76d56c3ef76b75728ed83b05585242e9541b080ff0574d3756cab39167"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/http-journal.jsonl": {
+      "bytes": 6140408,
+      "sha256": "97ddec10ff2640e633f4bc883eb2bd8b00c3aac81f273431c8c74e8fb16c9f0e"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/off/human.sqlite": {
+      "bytes": 1159168,
+      "sha256": "6c011c9ec545e916107a70c0d774ff78d6ba1b4394997f75382a2f6c8bc142fd"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/off/spectator.sqlite": {
+      "bytes": 2744320,
+      "sha256": "26f420e9326aa25bbeabdd4c3c52200b3c164f007dba525a2eeff6ed2e122d2c"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/on/human.sqlite": {
+      "bytes": 1191936,
+      "sha256": "7cf31c4bb9e7dc1e05c6c8d0e77921f82b21ac92dd6173744589889c654765c1"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/on/spectator.sqlite": {
+      "bytes": 3477504,
+      "sha256": "094f4d4a58a3410816385c36b961a2756d180ee2729bdba6f090fe0f7ff7b2a8"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/resource-samples.json": {
+      "bytes": 32262,
+      "sha256": "978194e9030e321a6e7c8b1a0769ffa6fadd61633e515725f80b854457e55397"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/resources.json": {
+      "bytes": 483,
+      "sha256": "2538f40f382197cfc97720937e302cf8d99ab0843193ebe4bd20f264cbab8570"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/retrieval-remote.log": {
+      "bytes": 485,
+      "sha256": "a7ede8224ccc52bbf3a2d79d2626a8f437a92127c56e79b02b661df381a4970a"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/retrieval-resources.json": {
+      "bytes": 7506,
+      "sha256": "84beedc7c1ff7428e85c32d426a802e5de327540a4b7c42f25cce3c0db98dbb8"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/retrieval.json": {
+      "bytes": 1597,
+      "sha256": "87f2d70a330152c4fc7415ec0cef69c380eac677511ec68943ce0dd0ffe8d0ae"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/retrieve_pr207.py": {
+      "bytes": 4708,
+      "sha256": "a96a7a40ff547d40f4f0ad9fc80fac3fc0f3300ac711f23685341af9004d9a82"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/runtime-verification.json": {
+      "bytes": 15530,
+      "sha256": "0b4a9161c6964270b33cc34b69b150afaac7db07b582c2bec5a0b8c7ff677a49"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/runtime.log": {
+      "bytes": 3080,
+      "sha256": "768f76f6ae3356d1ec68755a9513e9c7266fcf961f9543bd4449ba2fb2b2227b"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/setup-failures.json": {
+      "bytes": 444,
+      "sha256": "f3b5d47a12c66bf6dacce8c49b92e6aa5f1286aaab215bef3fc96254e3f2b8a4"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/setup-stop-01/resource-samples.json": {
+      "bytes": 12605,
+      "sha256": "0539b5df90504949a75fb846c794af7ac18edb55caac0759ad3eca3ce5ce1449"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/setup-stop-01/resources.json": {
+      "bytes": 485,
+      "sha256": "6b10ce312ef04d43ac403e4c96bac7c8e5dfc54c77096b3691184704021815cc"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/setup-stop-01/runtime.log": {
+      "bytes": 41,
+      "sha256": "4f996ec6693c5f7a55ee7f47243c60ce676ec2171f9e36418d678cd7cae70c4a"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/smoke.py": {
+      "bytes": 10688,
+      "sha256": "acd1b4e76656eeea59a63aa83a1b38de618290d17e8dea5a2c69d9a286e1d8ba"
+    }
+  },
+  "sqlite_sidecars": "Ephemeral WAL/shared-memory files are excluded from required retention; closed main databases retain the verified transactions."
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-09",
+  "scope": "browser fixture only; not PR207 retained-model qualification",
+  "research_model_retrieval": "blocked: PR207 draft/open f0ff3c1; partial archive unaccepted",
+  "checks": {
+    "human": {
+      "sessions": 1,
+      "hands": 1,
+      "status": "verified"
+    },
+    "spectator": {
+      "status": "verified",
+      "sessions": 1,
+      "hands": 1,
+      "decisions": 1,
+      "counts": {
+        "decisions": 1,
+        "missing": 1,
+        "bot_0_decisions": 1,
+        "hands": 1,
+        "button_0_hands": 1
+      }
+    }
+  },
+  "browser": "human 100BB raise bounds and fold settlement; spectator 100BB one-decision complete hand; no undefined research manifest links",
+  "files": {
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/human.sqlite": {
+      "bytes": 57344,
+      "sha256": "89038dcf11b398c40fd1b7076580689934c860ce097149c4c30faf9734224d90"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/serve_fixture.py": {
+      "bytes": 1053,
+      "sha256": "6360c7c3ccd9eb463f8e466ecd14b53b40d48deabdab158b48f26131bc99a31d"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/spectator.sqlite": {
+      "bytes": 90112,
+      "sha256": "5a538bd159c4da6564911e4ba2cbb9cef90644b119de0828ecd14758bfb0349c"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/training.gz": {
+      "bytes": 482,
+      "sha256": "7081dc8f29d0ba309b43a2e3e7aa66200a34c90353e97a8c118ab06e59b8d458"
+    },
+    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/average.gz": {
+      "bytes": 674,
+      "sha256": "877c384ab62eb933e568be41335d52c8a876f1e895245337e7f52dee5cb71380"
+    }
+  },
+  "owner_swap_cap": "3 GB; no M4 work or closeout retry",
+  "failures": "initial localhost navigation rejected by loopback Host boundary; corrected to 127.0.0.1. No failed hand or policy retry."
+}

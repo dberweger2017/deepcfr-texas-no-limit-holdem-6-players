@@ -33,7 +33,7 @@ function spectatorIdentities() {
   clear($("spectator-identities"));
   for (const [index, id] of ["bot-a-model", "bot-b-model"].entries()) {
     const model = availableModels.find(item => item.version === $(id).value);
-    if (model) $("spectator-identities").append(node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.version}\nModel SHA-256 ${model.sha256}\nManifest SHA-256 ${model.manifestSha256}`));
+    if (model) $("spectator-identities").append(node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.version}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Research identity; no release manifest"}`));
   }
 }
 
@@ -52,7 +52,8 @@ function spectatorSeat(target, seatIndex, hand) {
 function identityDetails(models) {
   const fragment = document.createDocumentFragment();
   for (const [index, model] of models.entries()) {
-    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\nManifest SHA-256 ${model.manifestSha256}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
+    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Research identity; no release manifest"}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
+    if (!model.manifestUrl) { fragment.append(item); continue; }
     const link = node("a", "", "Published release manifest"); link.href = model.manifestUrl;
     link.target = "_blank"; link.rel = "noopener noreferrer"; item.append(link); fragment.append(item);
   }
@@ -64,6 +65,7 @@ function decisionPanel(record) {
   const panel = node("div", "decision-panel");
   panel.append(node("h3", "", `Decision ${record.number + 1} · Bot ${record.seat ? "B" : "A"} · ${record.model.version} · ${view.street}`));
   panel.append(node("div", "lookup", `Lookup: ${record.lookup}`));
+  if (record.telemetry) panel.append(node("p", "", `Inference: ${record.telemetry.mode} · ${record.telemetry.reason}${record.telemetry.mode === "translated" ? ` · witness ${record.telemetry.selected_key} · distance ${record.telemetry.distance}` : ""}`));
   const ownCards = node("div", "cards seat-cards"); cards(ownCards, view.hole_cards); panel.append(ownCards);
   panel.append(node("p", "", `${view.player_id} perspective · Board: ${view.board.join(" ") || "none"} · Pot ${bb(view.pots.reduce((sum, pot) => sum + pot.amount, 0))}`));
   for (const player of view.players) panel.append(node("div", "", `Bot ${player.seat ? "B" : "A"}: stack ${bb(player.stack)} · street bet ${bb(player.street_bet)} · contributed ${bb(player.contributed)}${player.shown_cards.length ? ` · shown ${player.shown_cards.join(" ")}` : ""}`));
@@ -109,7 +111,7 @@ function decisionHistory(records, target) {
 
 function renderSpectator() {
   const hand = state.hand;
-  $("mode").textContent = `BOT-VS-BOT SPECTATOR / ${spectatorPlayback.running ? "PLAYING" : "PAUSED"} / 20 BB`;
+  $("mode").textContent = `BOT-VS-BOT SPECTATOR / ${spectatorPlayback.running ? "PLAYING" : "PAUSED"} / ${state.table?.stack / 100 || 20} BB`;
   $("model").textContent = `Bot A · ${state.models[0].version} versus Bot B · ${state.models[1].version}`;
   $("session-stat").hidden = false; $("session-bb").textContent = `A ${signed(state.sessionChips[0])} · B ${signed(state.sessionChips[1])}`;
   $("progress").hidden = true; $("benchmark-end").hidden = true;

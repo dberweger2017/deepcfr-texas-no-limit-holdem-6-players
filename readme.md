@@ -52,7 +52,8 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) |
 | **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2) |
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
-| **v0.5** | Heads-up 100 BB and a first external benchmark |
+| **v0.5 / v0.5.0** | Heads-up 100 BB; internal/scripted evaluation only, as no suitable free public 100 BB opponent has been verified |
+| **v0.5.5** | Heads-up 200 BB, trained at that depth and benchmarked against Slumbot; results and uncertainty published |
 | **v0.6 / v0.7** | Three players / four and five players |
 | **v0.8** | Six players, 100 BB; confirmed profit against the scripted pool |
 | **v0.9 / v1.0** | Changing lineups/stacks and full-table play / lower-end professional benchmark |

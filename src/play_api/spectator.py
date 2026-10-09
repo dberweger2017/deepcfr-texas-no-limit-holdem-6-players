@@ -1,20 +1,19 @@
-"""One-decision HU20 playback; only immutable seat observations reach policies."""
+"""One-decision heads-up playback; only immutable seat observations reach policies."""
 
 from __future__ import annotations
 
 from dataclasses import asdict
 import json
-from math import fsum, isfinite
 from pathlib import Path
 from random import Random
 import secrets
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, information_key
-from src.blueprint.solver import HU20_UNCAPPED_GAME
-from src.game.hand import Hand, Table
+from src.blueprint.abstraction import information_key
+from src.game.hand import Hand
 from src.game.observation import Observation
+from src.play_api.configuration import policy_table, recorded_table, distribution, spectator_identity_matches
 from src.play_api.service import PlayError, PlayService, _events, _json, _rng
 
 PROTOCOL = 'hu20-spectator-v1'
@@ -28,7 +27,7 @@ def observation_record(view: Observation) -> dict:
 
 
 def replay_hand(row: dict) -> Hand:
-    hand = Hand.start(Table(PLAYERS, (2000, 2000), button=row['button']),
+    hand = Hand.start(recorded_table(row).table(PLAYERS, row['button']),
                       hand_id=row['handId'], seed=row['dealSeed'])
     from src.game.types import Action, ActionKind
     for record in row['decisions']:
@@ -49,16 +48,17 @@ class SpectatorService(PlayService):
             identity = identities[version]
             if (identity['version'] != version or identity['sha256'] != policy.spec.sha256
                     or identity['game'] != policy.game or identity['schema'] != policy.abstraction
-                    or policy.game != HU20_UNCAPPED_GAME or policy.abstraction != HU20_UNCAPPED_SCHEMA
                     or getattr(policy, 'benchmark_only', False)):
                 raise ValueError('Spectator model identity differs')
         if len({(p.game, p.abstraction) for p in policies.values()}) != 1:
-            raise ValueError('Spectator models must share the HU20 game and schema')
+            raise ValueError('Spectator models must share the game and schema')
+        for policy in policies.values():
+            policy_table(policy)
         super().__init__(db_path, next(iter(policies.values())), source_version=source_version)
 
     def _models_match(self, models):
         return (isinstance(models, list) and len(models) == 2
-                and all(isinstance(item, dict) and item == self.identities.get(item.get('version'))
+                and all(isinstance(item, dict) and spectator_identity_matches(item, self.identities.get(item.get('version')))
                         for item in models))
 
     def _ack_matches(self, response):
@@ -69,8 +69,12 @@ class SpectatorService(PlayService):
         if row is None:
             raise PlayError('Unknown session', 404)
         state = json.loads(row[0])
-        if state.get('protocol') != PROTOCOL or not self._models_match(state.get('models')):
+        if (state.get('protocol') != PROTOCOL or not self._models_match(state.get('models'))
+                or recorded_table(state) != self.table):
             raise PlayError('Session models differ from the loaded policies', 409)
+        for row in [*state['history'], *([state['current']] if state['current'] else [])]:
+            if recorded_table(row) != self.table:
+                raise PlayError('Spectator hand table differs', 409)
         return state
 
     def create(self, key, body):
@@ -82,7 +86,7 @@ class SpectatorService(PlayService):
 
         def operation(_):
             state = {'sessionId': secrets.token_urlsafe(18), 'sessionType': 'spectator',
-                     'protocol': PROTOCOL, 'models': [self.identities[v] for v in versions],
+                     'protocol': PROTOCOL, 'table': self.table.record(), 'models': [self.identities[v] for v in versions],
                      'revision': 0, 'handsPlayed': 0, 'totalChips': [0, 0],
                      'dealRng': Random(secrets.randbits(256)).getstate(),
                      'botRngs': [Random(secrets.randbits(256)).getstate() for _ in range(2)],
@@ -100,7 +104,8 @@ class SpectatorService(PlayService):
             state['current'] = {'handId': secrets.token_urlsafe(18),
                                 'number': state['handsPlayed'], 'button': state['handsPlayed'] % 2,
                                 'dealSeed': deals.randrange(2**63), 'decisions': [],
-                                'samplingStart': state['botRngs'], 'models': state['models']}
+                                'samplingStart': state['botRngs'], 'models': state['models'],
+                                'table': self.table.record(), 'game': self.policy.game}
             state['dealRng'] = deals.getstate()
             state['revision'] += 1
             return state, self._view(state)
@@ -120,16 +125,12 @@ class SpectatorService(PlayService):
             view = hand.observe(seat)
             model = state['models'][seat]
             policy = self.policies[model['version']]
-            menu, probabilities, trained = policy.distribution(view)
-            if (not menu or len(menu) != len(probabilities)
-                    or any(not isfinite(p) or p < 0 for p in probabilities)
-                    or abs(fsum(probabilities) - 1) > 1e-8):
-                raise ValueError('Invalid spectator action distribution')
-            for item in menu:
-                view.legal_actions.validate(item.action)
+            menu, probabilities, trained, telemetry = distribution(policy, view)
             info_key = information_key(view, menu, schema=policy.abstraction)
             status = ('missing' if not trained else
                       'zero-mass' if info_key in getattr(policy, 'zero_mass', ()) else 'trained')
+            if telemetry and telemetry['mode'] == 'translated':
+                status = 'translated'
             generator = _rng(state['botRngs'][seat])
             selected = generator.choices(range(len(menu)), weights=probabilities, k=1)[0]
             row['decisions'].append({
@@ -138,12 +139,12 @@ class SpectatorService(PlayService):
                 'menu': [{'label': item.name, 'kind': item.action.kind.value,
                           'raiseTo': item.action.raise_to, 'probability': probability}
                          for item, probability in zip(menu, probabilities)],
-                'selectedIndex': selected,
+                'selectedIndex': selected, 'telemetry': telemetry,
             })
             state['botRngs'][seat] = generator.getstate()
             result = hand.apply(menu[selected].action)
             if result.finished:
-                net = [player.stack - 2000 for player in result.observe(0).players]
+                net = [player.stack - self.table.stack for player in result.observe(0).players]
                 if sum(net) != 0:
                     raise RuntimeError('Spectator settlement did not conserve chips')
                 row.update(completed=True, netChips=net,
@@ -160,7 +161,7 @@ class SpectatorService(PlayService):
     def _view(self, state):
         response = {key: state[key] for key in ('sessionId', 'sessionType', 'protocol', 'models',
                                               'revision', 'handsPlayed', 'sourceVersion')}
-        response.update(phase='ready', hand=None, sessionChips=list(state['totalChips']))
+        response.update(table=self.table.record(), phase='ready', hand=None, sessionChips=list(state['totalChips']))
         if state['current'] is None:
             return response
         row = state['current']
@@ -184,7 +185,7 @@ class SpectatorService(PlayService):
             for row in state['history']:
                 hand = replay_hand(row)
                 hands.append({'handId': row['handId'], 'number': row['number'], 'button': row['button'],
-                              'models': row['models'], 'netChips': row['netChips'],
+                              'models': row['models'], 'table': recorded_table(row).record(), 'netChips': row['netChips'],
                               'events': _events(hand), 'decisions': row['decisions'],
                               'publicEventsSha256': row['publicEventsSha256']})
             return {'sessionId': session_id, 'models': state['models'], 'hands': hands}
