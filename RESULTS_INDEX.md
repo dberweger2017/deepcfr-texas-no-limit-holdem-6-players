@@ -1,38 +1,79 @@
-## PR215 HU100 independent stages — active, October 9
+## PR215 HU100 independent stages — science complete, October 9
 
-[PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215)
-is open/unmerged on `feature/hu100-independent-seed-stages` from current main
+[PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215),
+`feature/hu100-independent-seed-stages`, is open/unmerged from current-main base
 `6e18043317817080fd38f400c5366fbf18fc6b53`.
 [Protocol](docs/hu100-independent-stages.md),
-[progress report](docs/reports/hu100-independent-stages.md).
+[results/costs/remaining questions](docs/reports/hu100-independent-stages.md).
 Scientific source `1d862d6f9ea2e5e56b23c84cac94561103b5da11`; unchanged #207
 binary `7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262`,
-actual frozen native source `bd0e7a417064f736091dc2b667954b50becb4b69`.
-Single M4 clock10:34:33–16:34:33UTC includes calibration, preparation repair and
-closeout; original baseline/guards are immutable. The preparation-only source
-binding refusal and370.914s idle monitoring gap remain preserved, charged to
-that clock. No scientific retry or guard waiver.
+actual native source `bd0e7a417064f736091dc2b667954b50becb4b69`.
 
-Cost-only32/512-block calibration and exact actual #211 partial compatibility
-pass. Both new lineages have fully audited early/terminal recovery/current/average
-files: seed2026100901 at39,439,801 /1,000,000,506 nodes; seed2026100902 at
-39,440,603 /1,000,001,141 nodes. Final evaluation is running at the cost-only
-frozen4,096 blocks/opponent, root2026100911013. Qualification remains incomplete
-until final results and evidence closeout. New archive/member/upload acceptance is not
-available yet; do not treat this progress entry as cloud acceptance.
-Input restoration remains the accepted PR207/PR211 indexes below, with local
-size/SHA256/full-audit provenance and no old archive hydration. Exact resumed
-versus fresh direct2M checkpoint hash:
-`f3d7a74076e41885477e4413be3606753eddc25bcc683f4042cfc56fe3531b41`.
+Both fresh lineages retain fully audited recovery/current/average endpoints:
+seed2026100901 at39,439,801 /1,000,000,506 nodes; seed2026100902 at
+39,440,603 /1,000,001,141 nodes. Cost-only32/512-block calibration and exact
+actual #211 partial resume compatibility pass. Fresh final root2026100911013,
+4,096 blocks/opponent,409,600 unique primary hands; all replay/reproduction and
+strict recount complete. Loose growth and pot translation repeat with practical
+support in all3 fixed lineages. Tight growth for seed2026100902 is inconclusive
+under the fixed adjusted interval: +32.54 [−5.11,70.20] BB/100. Eight/nine formal
+contrasts pass; **recipe qualification is not established**, with no sample
+extension, release or automatic continuation.
 
-Protected roots: M4 and M1 `~/Local/hu100-independent-seed-stages-20261009`,
-M4's ignored `results/hu100-independent-stages`, M1's ignored coordinator,
-all PR207/PR211 originals/failures, PR207 native binary/source/environment,
-shared Git and other agents' dependencies. Preserve this open PR's roots and
-all future inputs. Native archive destination will be this PR's own
-`~/Local/Research-Cloud/PR-215-HU100-independent-stages` under Research-Cloud
-folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; exact new folder/archive IDs and
-restoration pins will be recorded only after closeout acceptance. No cleanup.
+M4 clock10:34:33–12:41:15UTC, **7,602.223s /2h06m42s**, original hard deadline
+16:34:33UTC. Fixed baseline and all guards unchanged; peak family5.11GiB,
+maxswapgrowth592,246,210.56bytes, minfree75%, minimumdisk64.75GiB; no breach.
+Preparation source-binding failure, its independently reviewed repair and
+charged370.968s adjacent-stream gap remain preserved. No whole-clock continuous
+sampling claim; scientific stages/packing have observed coverage. A harmless
+read-only empty-telemetry probe failure is preserved separately.
+
+**Locally verified primary archive, native upload currently pending:**
+`hu100-independent-stages-M4-20261009.zip`, **15,801,035,296bytes**, whole SHA256
+`b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad`:
+**1,422 unique members locally readback-verified /30 hardlink aliases**.
+Confirmed Research-Cloud [PR215 folder](https://drive.google.com/drive/folders/1hsyFliTReRUZE69hmXAotdzLwIjJpYLU),
+ID `1hsyFliTReRUZE69hmXAotdzLwIjJpYLU`, parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`;
+native destination `~/Local/Research-Cloud/PR-215-HU100-independent-stages/`.
+Native uploaded/no-pending/no-conflicts and independent cloud archive ID/name/
+size/parent acceptance are not yet claimed. Remote bytes not downloaded/verified.
+[Local receipt](docs/reports/hu100-independent-stages-artifacts/archive-receipt.json),
+[required asset identities](docs/reports/hu100-independent-stages-artifacts/model-index.json)
+name all12 new checkpoint/current/average members, their canonical alias members,
+byte counts/SHA256s, old #207 averages, #211 partial, native binary/source and
+strict result. Actual new averages are canonical snapshot members; **do not
+assume `zipfile -e` recreates training aliases**. Restore with the pinned helper.
+
+After downloading this archive into a fresh ignored nonsynced root, this command
+verifies whole/manifest/member hashes and restores all canonical bytes plus
+aliases without overwrite or automatic science:
+
+```sh
+python -m scripts.restore_hu100_staged_archive \
+  --archive results/retrieved/pr215/NEW_ROOT/campaign.zip \
+  --destination results/retrieved/pr215/NEW_ROOT/unpacked \
+  --archive-sha256 b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc \
+  --manifest-sha256 53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad
+```
+
+For a selective recovery, add e.g.
+`--member research/training/2026100902/terminal/checkpoint.gz`
+and `--member research/training/2026100902/terminal/average.gz`; the helper
+extracts the average's canonical snapshot and recreates the requested alias.
+Use each other exact member from the asset index for its corresponding retrieval.
+Source/configs retain original path identities; resolve retrieved assets by their
+pinned SHA256 when adapting a separately authorized run. Never relaunch the
+one-use controller or overwrite an active input automatically.
+
+Late M1 metadata seal will retain complete final guard stream, archive lifecycle,
+native/cloud acceptance and final report/review in the same folder. Protected:
+M4/M1 `~/Local/hu100-independent-seed-stages-20261009`, ignored coordinator,
+all PR207/PR211 original models/failures, PR207 native/environment dependencies,
+sharedGit and other agents' inputs. All originals remain; this open PR and its
+future inputs are protected even after upload acceptance. No cleanup or force
+execution/offloading. Final storage/evidence review and exact-head CI pending.
 
 ## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
 
