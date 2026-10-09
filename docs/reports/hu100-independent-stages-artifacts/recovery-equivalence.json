@@ -1,0 +1,8 @@
+{
+  "actual_partial_used": true,
+  "direct_sha256": "f3d7a74076e41885477e4413be3606753eddc25bcc683f4042cfc56fe3531b41",
+  "requested_nodes": 2000000,
+  "resumed_sha256": "f3d7a74076e41885477e4413be3606753eddc25bcc683f4042cfc56fe3531b41",
+  "seed": 2026100901,
+  "status": "verified"
+}

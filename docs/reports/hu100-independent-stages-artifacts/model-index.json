@@ -1,0 +1,194 @@
+{
+  "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+  "assets": [
+    {
+      "actual_nodes": 39439801,
+      "audit_status": "verified",
+      "bytes": 286415199,
+      "canonical_member": "research/training/2026100901/early/checkpoint.gz",
+      "endpoint": "early",
+      "entries": 7722785,
+      "kind": "checkpoint.gz",
+      "member": "research/training/2026100901/early/checkpoint.gz",
+      "seed": 2026100901,
+      "sha256": "27f886cecda4fb46b51f4d1e954f47deb5c3a96447ee11bb238dd0b1ca2f652d"
+    },
+    {
+      "actual_nodes": 39439801,
+      "audit_status": "verified",
+      "bytes": 189721266,
+      "canonical_member": "research/training/2026100901/early/current.gz",
+      "endpoint": "early",
+      "entries": 7722785,
+      "kind": "current.gz",
+      "member": "research/training/2026100901/early/current.gz",
+      "seed": 2026100901,
+      "sha256": "4dcddc06b67b66a5d9ed4fa90b14d3cef51510e8a34f21b110030c328ff4a59e"
+    },
+    {
+      "actual_nodes": 39439801,
+      "audit_status": "verified",
+      "bytes": 195102346,
+      "canonical_member": "research/final/2026100901-early/models/47afbfaa5ef2cf36a137e0eb0083a047eba65b0f2e3c771f3b5ae7c85d2f74d7.json.gz",
+      "endpoint": "early",
+      "entries": 7722785,
+      "kind": "average.gz",
+      "member": "research/training/2026100901/early/average.gz",
+      "seed": 2026100901,
+      "sha256": "47afbfaa5ef2cf36a137e0eb0083a047eba65b0f2e3c771f3b5ae7c85d2f74d7"
+    },
+    {
+      "actual_nodes": 1000000506,
+      "audit_status": "verified",
+      "bytes": 1779115039,
+      "canonical_member": "research/training/2026100901/terminal/checkpoint.gz",
+      "endpoint": "terminal",
+      "entries": 40752103,
+      "kind": "checkpoint.gz",
+      "member": "research/training/2026100901/terminal/checkpoint.gz",
+      "seed": 2026100901,
+      "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+    },
+    {
+      "actual_nodes": 1000000506,
+      "audit_status": "verified",
+      "bytes": 1027144114,
+      "canonical_member": "research/training/2026100901/terminal/current.gz",
+      "endpoint": "terminal",
+      "entries": 40752103,
+      "kind": "current.gz",
+      "member": "research/training/2026100901/terminal/current.gz",
+      "seed": 2026100901,
+      "sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+    },
+    {
+      "actual_nodes": 1000000506,
+      "audit_status": "verified",
+      "bytes": 1167167445,
+      "canonical_member": "research/final/2026100901-terminal/models/2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b.json.gz",
+      "endpoint": "terminal",
+      "entries": 40752103,
+      "kind": "average.gz",
+      "member": "research/training/2026100901/terminal/average.gz",
+      "seed": 2026100901,
+      "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+    },
+    {
+      "actual_nodes": 39440603,
+      "audit_status": "verified",
+      "bytes": 287954598,
+      "canonical_member": "research/training/2026100902/early/checkpoint.gz",
+      "endpoint": "early",
+      "entries": 7767917,
+      "kind": "checkpoint.gz",
+      "member": "research/training/2026100902/early/checkpoint.gz",
+      "seed": 2026100902,
+      "sha256": "3ec0faacccd82a753445a9f339898374c5130d4027c3be6c5b42fc0c5c60ab93"
+    },
+    {
+      "actual_nodes": 39440603,
+      "audit_status": "verified",
+      "bytes": 190888387,
+      "canonical_member": "research/training/2026100902/early/current.gz",
+      "endpoint": "early",
+      "entries": 7767917,
+      "kind": "current.gz",
+      "member": "research/training/2026100902/early/current.gz",
+      "seed": 2026100902,
+      "sha256": "5f9c66086cb0f757801bc57d23cf82555d047227a91602f5f4520bcfdec9f15f"
+    },
+    {
+      "actual_nodes": 39440603,
+      "audit_status": "verified",
+      "bytes": 196152605,
+      "canonical_member": "research/final/2026100902-early/models/49386f0dafad3e94843efae432c65f8d0ee79603ed52dcda12c29bc9d2086e4d.json.gz",
+      "endpoint": "early",
+      "entries": 7767917,
+      "kind": "average.gz",
+      "member": "research/training/2026100902/early/average.gz",
+      "seed": 2026100902,
+      "sha256": "49386f0dafad3e94843efae432c65f8d0ee79603ed52dcda12c29bc9d2086e4d"
+    },
+    {
+      "actual_nodes": 1000001141,
+      "audit_status": "verified",
+      "bytes": 1790689153,
+      "canonical_member": "research/training/2026100902/terminal/checkpoint.gz",
+      "endpoint": "terminal",
+      "entries": 41047344,
+      "kind": "checkpoint.gz",
+      "member": "research/training/2026100902/terminal/checkpoint.gz",
+      "seed": 2026100902,
+      "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+    },
+    {
+      "actual_nodes": 1000001141,
+      "audit_status": "verified",
+      "bytes": 1034504511,
+      "canonical_member": "research/training/2026100902/terminal/current.gz",
+      "endpoint": "terminal",
+      "entries": 41047344,
+      "kind": "current.gz",
+      "member": "research/training/2026100902/terminal/current.gz",
+      "seed": 2026100902,
+      "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+    },
+    {
+      "actual_nodes": 1000001141,
+      "audit_status": "verified",
+      "bytes": 1174323849,
+      "canonical_member": "research/final/2026100902-terminal/models/1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924.json.gz",
+      "endpoint": "terminal",
+      "entries": 41047344,
+      "kind": "average.gz",
+      "member": "research/training/2026100902/terminal/average.gz",
+      "seed": 2026100902,
+      "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+    },
+    {
+      "bytes": 193277097,
+      "canonical_member": "research/calibration-32/old-early/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member": "research/inputs/early/average.gz",
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4"
+    },
+    {
+      "bytes": 1173264021,
+      "canonical_member": "research/calibration-32/old-terminal/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "member": "research/inputs/terminal/average.gz",
+      "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+    },
+    {
+      "bytes": 15192117,
+      "canonical_member": "research/inputs/partial/checkpoint.gz",
+      "member": "research/inputs/partial/checkpoint.gz",
+      "sha256": "3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec"
+    },
+    {
+      "bytes": 1311248,
+      "canonical_member": "research/bin/hu20-trainer",
+      "member": "research/bin/hu20-trainer",
+      "sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262"
+    },
+    {
+      "bytes": 253306880,
+      "canonical_member": "research/source.tar",
+      "member": "research/source.tar",
+      "sha256": "774993603ffa8eeef1bdbb15b6956d5b197427ef1463e9f47c9eedbb42ac877c"
+    },
+    {
+      "bytes": 204800,
+      "canonical_member": "research/native-execution-source.tar",
+      "member": "research/native-execution-source.tar",
+      "sha256": "36f1380615a5250dc59d5c47abee6063c2e9f62431dce2ff1628aa04f4dccfd3"
+    },
+    {
+      "bytes": 330317,
+      "canonical_member": "research/result.json",
+      "member": "research/result.json",
+      "sha256": "90d7379a1242c19b1e85566b081c219872f7903f51a0c52cfa5e10876445b980"
+    }
+  ],
+  "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+  "restoration": "scripts.restore_hu100_staged_archive restores requested members and any canonical byte dependencies; no overwrite or automatic relaunch",
+  "scientific_source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11"
+}

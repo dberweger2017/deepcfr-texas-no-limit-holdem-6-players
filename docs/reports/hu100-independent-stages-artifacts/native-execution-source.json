@@ -1,0 +1,10 @@
+{
+  "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+  "provenance": "exact #207 frozen native source and its indexed binary; inactive current native source is not executed",
+  "revision": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "source_archive_sha256": "36f1380615a5250dc59d5c47abee6063c2e9f62431dce2ff1628aa04f4dccfd3",
+  "trees": {
+    "native/hu20-buckets": "871fe0b3d0adb33a4f026e037cfcdaacabf3baf3",
+    "native/hu20-trainer": "5c5f30ce8ee198754d436e0d82be54969c6ddb6e"
+  }
+}

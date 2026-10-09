@@ -80,6 +80,17 @@ and the command/source pins in the current campaign protocol; for inference extr
 `scripts/evaluate_hu20_v041_arena.py` and its experiment protocol. A new campaign
 still predeclares inputs, roots, comparison, stopping rule and cost.
 
+HU100's [independent stages protocol](hu100-independent-stages.md) records
+`scripts/run_hu100_independent_stages.py`: two-size cost-only calibration,
+separate training/evaluation admission and a single fixed guarded budget.
+Its one-use launcher is campaign evidence, not authorization for another run.
+The [historical #211 report](reports/hu100-seed-qualification.md) retains that
+attempt's older combined quote and 1M partial; it contains no new 1B results.
+For archived assets, `scripts/restore_hu100_staged_archive.py` verifies the
+whole ZIP, manifest and selected members, reconstructs pinned hardlink aliases
+into a fresh destination, and never launches science. See RESULTS_INDEX for
+the owning archive IDs and required hashes.
+
 Shared behavior belongs in a library, with scripts as entry points. Prefer one
 coherent refactor with regression coverage over renaming all historical modules.
 New imports should use the current reader/release modules; to reproduce an old

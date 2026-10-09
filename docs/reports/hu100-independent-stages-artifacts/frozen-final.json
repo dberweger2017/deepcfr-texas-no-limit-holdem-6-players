@@ -1,0 +1,8 @@
+{
+  "blocks_per_opponent": 4096,
+  "comparisons_sha256": "07e9756cbd5cea3e73627dab7375c081144c766e8ab454894e16f3879d349556",
+  "final_root": 2026100911013,
+  "models_sha256": "f3067b84adc58e0bbb901546bf1bcf595c5a987584bc7928e4069035ff46a4bd",
+  "schedule_sha256": "a85d55c45eea58d3058558238a8c30993102787dd81973a1be0f26f8aee4349c",
+  "source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11"
+}

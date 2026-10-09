@@ -1,0 +1,22 @@
+{
+  "at": 1791542445.4467149,
+  "baseline_sha256": "52898726d81816216542c0e2651280df0de36bcc6263579b275c14a52bfdedf3",
+  "current_host": {
+    "ac": true,
+    "disk_free_bytes": 104886968320,
+    "free_percent": 86,
+    "pressure_level": 1,
+    "swap_bytes": 1429408317.44,
+    "system_used_bytes": 8902639616
+  },
+  "deadline": 1791563673.0945432,
+  "gap_policy": "no campaign computation while original supervisor stopped; downtime charged to original deadline",
+  "monitoring_gap_seconds": 370.91374111175537,
+  "no_guard_relaxation_or_baseline_reset": true,
+  "original_failure_sha256": "af8f72616211bd7a1e00fa21f390ae734d766bcb90800ef1d420017e5f57208f",
+  "original_receipt_sha256": "345d4e8426bcbb76fcc38306ee8453bcdeee862869e52aa21779b7a9b1ddfa1b",
+  "original_source": "dd19995d27950ef6a6b73bef5ec84c970310089f",
+  "science_operations_before_readmission": 0,
+  "source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11",
+  "started": 1791542073.0945432
+}

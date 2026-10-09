@@ -1,0 +1,18 @@
+{
+  "closeout_reserve_seconds": 1800,
+  "disk_free_bytes": 97940217856,
+  "early_entries_forecast": 8407588,
+  "factor": "2x #207 cumulative nonsave cost and max save/tool seconds per entry at unchanged entry cap",
+  "independent_of_evaluation": true,
+  "pass": true,
+  "per_seed_export_audit_seconds": 4371.069069334552,
+  "per_seed_save_seconds": 464.2082129346212,
+  "per_seed_seconds": 5946.298764101173,
+  "per_seed_training_seconds": 1111.021481832,
+  "projected_archive_seconds": 163.9736036064325,
+  "remaining_seconds": 18615.339153273322,
+  "required_free_bytes": 40183798101.61961,
+  "retained_archive_bytes": 7618899988,
+  "seed": 2026100902,
+  "terminal_entries_forecast": 57658644
+}

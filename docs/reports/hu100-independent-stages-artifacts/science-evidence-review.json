@@ -1,0 +1,19 @@
+{
+  "material_findings": [],
+  "minor_wording_fixes": [
+    "final root is disjoint from the other 17 listed roots",
+    "40.32\u201342.48% pot river coverage is terminal/off"
+  ],
+  "reconciled": [
+    "nine formal contrasts and adjusted uncertainty",
+    "three fixed-seed descriptive variation and controls",
+    "absolute outcomes and diagnostics",
+    "costs, original guards, preparation sampling gap and cleanup",
+    "1422 unique members, 30 aliases and all 19 asset pins"
+  ],
+  "reviewed_revision": "7dc2de98150380018ac1c8670f41a2b0b289952a",
+  "reviewer": "independent /root/design_review",
+  "scope": "read-only M1 scientific report, strict results, complete guard stream and local archive manifest; no M4 compute, main archive download or model loading",
+  "status": "passed",
+  "upload_storage_review": "separate pending round"
+}

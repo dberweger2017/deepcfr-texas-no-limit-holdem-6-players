@@ -1,0 +1,33 @@
+{
+  "scope": "descriptive measured costs at512blocks; includes reporting/row bookkeeping as named; not isolated solver latency",
+  "rows": [
+    {
+      "arm": "old-early",
+      "blocks": 512,
+      "actually_played_primary_hands": 10240,
+      "replayed_rows": 10240,
+      "primary_play_report_ms_per_played_hand": 0.7319070965820629,
+      "reproduction_ms_per_played_hand": 0.7452144937474259,
+      "replay_nonmodel_hash_ms_per_row": 0.38470300693234094
+    },
+    {
+      "arm": "old-terminal",
+      "blocks": 512,
+      "actually_played_primary_hands": 5120,
+      "replayed_rows": 10240,
+      "primary_play_report_ms_per_played_hand": 0.9139251873079957,
+      "reproduction_ms_per_played_hand": 0.9583507810589253,
+      "replay_nonmodel_hash_ms_per_row": 0.48531112871614823
+    },
+    {
+      "arm": "old-terminal-on",
+      "blocks": 512,
+      "actually_played_primary_hands": 5120,
+      "replayed_rows": 10240,
+      "primary_play_report_ms_per_played_hand": 0.9334853429663781,
+      "reproduction_ms_per_played_hand": 0.9733023359331128,
+      "replay_nonmodel_hash_ms_per_row": 0.48152288818528177
+    }
+  ],
+  "winnings_inspected": false
+}

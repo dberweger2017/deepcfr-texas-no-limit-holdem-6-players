@@ -1,0 +1,1219 @@
+{
+  "all_final_hands_replayed_and_reproduced": true,
+  "all_fixed_1b_endpoints_completed": true,
+  "blocks_per_opponent": 4096,
+  "deal_uncertainty": "paired independent-block Student-t conditional on each policy",
+  "per_seed": [
+    {
+      "absolute": {
+        "check_call": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 99.945068359375,
+            "blocks": 4096,
+            "interval": [
+              81.59294220964784,
+              118.29719450910216
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 100.5126953125,
+            "blocks": 4096,
+            "interval": [
+              81.48675828839346,
+              119.53863233660654
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 100.5126953125,
+            "blocks": 4096,
+            "interval": [
+              81.48675828839346,
+              119.53863233660654
+            ]
+          }
+        },
+        "loose_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -197.16796875,
+            "blocks": 4096,
+            "interval": [
+              -250.27948904778424,
+              -144.05644845221576
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 57.1044921875,
+            "blocks": 4096,
+            "interval": [
+              21.669122191604856,
+              92.53986218339514
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 57.1044921875,
+            "blocks": 4096,
+            "interval": [
+              21.669122191604856,
+              92.53986218339514
+            ]
+          }
+        },
+        "pot_pressure": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -125.189208984375,
+            "blocks": 4096,
+            "interval": [
+              -165.5157184780618,
+              -84.86269949068819
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": -99.47509765625,
+            "blocks": 4096,
+            "interval": [
+              -136.78104135688767,
+              -62.16915395561232
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": -9.326171875,
+            "blocks": 4096,
+            "interval": [
+              -39.09563632370266,
+              20.443292573702657
+            ]
+          }
+        },
+        "random": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 64.239501953125,
+            "blocks": 4096,
+            "interval": [
+              -6.988237518468793,
+              135.4672414247188
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 76.89208984375,
+            "blocks": 4096,
+            "interval": [
+              4.819853536218261,
+              148.96432615128174
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 76.89208984375,
+            "blocks": 4096,
+            "interval": [
+              4.819853536218261,
+              148.96432615128174
+            ]
+          }
+        },
+        "tight_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -11.859130859375,
+            "blocks": 4096,
+            "interval": [
+              -38.05997738333156,
+              14.341715664581557
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 36.297607421875,
+            "blocks": 4096,
+            "interval": [
+              18.607099684565245,
+              53.98811515918476
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 36.297607421875,
+            "blocks": 4096,
+            "interval": [
+              18.607099684565245,
+              53.98811515918476
+            ]
+          }
+        }
+      },
+      "growth": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.567626953125,
+            "blocks": 4096,
+            "interval": [
+              -21.279439468790716,
+              22.414693375040716
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.567626953125,
+            "blocks": 4096,
+            "interval": [
+              -21.279439468790716,
+              22.414693375040716
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 254.2724609375,
+            "blocks": 4096,
+            "interval": [
+              178.15697010191008,
+              330.3879517730899
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 254.2724609375,
+            "blocks": 4096,
+            "interval": [
+              197.73695567196737,
+              310.8079662030326
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 25.714111328125,
+            "blocks": 4096,
+            "interval": [
+              -12.110219269101016,
+              63.538441925351016
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 25.714111328125,
+            "blocks": 4096,
+            "interval": [
+              -12.110219269101016,
+              63.538441925351016
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 12.652587890625,
+            "blocks": 4096,
+            "interval": [
+              -29.038904795808747,
+              54.34408057705875
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 12.652587890625,
+            "blocks": 4096,
+            "interval": [
+              -29.038904795808747,
+              54.34408057705875
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 48.15673828125,
+            "blocks": 4096,
+            "interval": [
+              10.555756793052758,
+              85.75771976944725
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 48.15673828125,
+            "blocks": 4096,
+            "interval": [
+              20.228251404552395,
+              76.0852251579476
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        }
+      },
+      "identical_translation_candidate_hands": {
+        "check_call": true,
+        "loose_aggressive": true,
+        "pot_pressure": false,
+        "random": true,
+        "tight_aggressive": true
+      },
+      "random_severe_regression_flag": false,
+      "seed": 2026100601,
+      "terminal_actual_nodes": 1000002065,
+      "translation": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.016666666666666666,
+            "bb_per_100": 90.14892578125,
+            "blocks": 4096,
+            "interval": [
+              53.53094828823432,
+              126.76690327426567
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 90.14892578125,
+            "blocks": 4096,
+            "interval": [
+              60.173052402321204,
+              120.1247991601788
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        }
+      }
+    },
+    {
+      "absolute": {
+        "check_call": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 97.186279296875,
+            "blocks": 4096,
+            "interval": [
+              78.273526327301,
+              116.099032266449
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 117.5537109375,
+            "blocks": 4096,
+            "interval": [
+              96.85355784450846,
+              138.25386403049154
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 117.5537109375,
+            "blocks": 4096,
+            "interval": [
+              96.85355784450846,
+              138.25386403049154
+            ]
+          }
+        },
+        "loose_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -158.038330078125,
+            "blocks": 4096,
+            "interval": [
+              -209.5800675145105,
+              -106.49659264173951
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 35.26611328125,
+            "blocks": 4096,
+            "interval": [
+              -0.5098530712067557,
+              71.04207963370675
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 35.26611328125,
+            "blocks": 4096,
+            "interval": [
+              -0.5098530712067557,
+              71.04207963370675
+            ]
+          }
+        },
+        "pot_pressure": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -127.264404296875,
+            "blocks": 4096,
+            "interval": [
+              -165.55490614925887,
+              -88.97390244449113
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": -88.348388671875,
+            "blocks": 4096,
+            "interval": [
+              -126.01869226227959,
+              -50.678085081470414
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": -26.129150390625,
+            "blocks": 4096,
+            "interval": [
+              -57.368485487822255,
+              5.110184706572252
+            ]
+          }
+        },
+        "random": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 63.067626953125,
+            "blocks": 4096,
+            "interval": [
+              -8.291774685349097,
+              134.42702859159908
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 78.009033203125,
+            "blocks": 4096,
+            "interval": [
+              5.111988253364942,
+              150.90607815288507
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 78.009033203125,
+            "blocks": 4096,
+            "interval": [
+              5.111988253364942,
+              150.90607815288507
+            ]
+          }
+        },
+        "tight_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -9.918212890625,
+            "blocks": 4096,
+            "interval": [
+              -34.04538998665268,
+              14.208964205402676
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 43.0419921875,
+            "blocks": 4096,
+            "interval": [
+              24.960739066674645,
+              61.12324530832535
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 43.0419921875,
+            "blocks": 4096,
+            "interval": [
+              24.960739066674645,
+              61.12324530832535
+            ]
+          }
+        }
+      },
+      "growth": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 20.367431640625,
+            "blocks": 4096,
+            "interval": [
+              -2.6629912939440032,
+              43.397854575194
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 20.367431640625,
+            "blocks": 4096,
+            "interval": [
+              -2.6629912939440032,
+              43.397854575194
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 193.304443359375,
+            "blocks": 4096,
+            "interval": [
+              117.46953499839519,
+              269.1393517203548
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 193.304443359375,
+            "blocks": 4096,
+            "interval": [
+              136.97734339736988,
+              249.63154332138012
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 38.916015625,
+            "blocks": 4096,
+            "interval": [
+              1.9666786538457401,
+              75.86535259615425
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 38.916015625,
+            "blocks": 4096,
+            "interval": [
+              1.9666786538457401,
+              75.86535259615425
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": false
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 14.94140625,
+            "blocks": 4096,
+            "interval": [
+              -26.520102782765655,
+              56.402915282765655
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 14.94140625,
+            "blocks": 4096,
+            "interval": [
+              -26.520102782765655,
+              56.402915282765655
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 52.960205078125,
+            "blocks": 4096,
+            "interval": [
+              17.732574268707694,
+              88.1878358875423
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 52.960205078125,
+            "blocks": 4096,
+            "interval": [
+              26.79454700702421,
+              79.1258631492258
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        }
+      },
+      "identical_translation_candidate_hands": {
+        "check_call": true,
+        "loose_aggressive": true,
+        "pot_pressure": false,
+        "random": true,
+        "tight_aggressive": true
+      },
+      "random_severe_regression_flag": false,
+      "seed": 2026100901,
+      "terminal_actual_nodes": 1000000506,
+      "translation": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.016666666666666666,
+            "bb_per_100": 62.21923828125,
+            "blocks": 4096,
+            "interval": [
+              22.864841503881053,
+              101.57363505861895
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 62.21923828125,
+            "blocks": 4096,
+            "interval": [
+              30.003302408561737,
+              94.43517415393826
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        }
+      }
+    },
+    {
+      "absolute": {
+        "check_call": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 74.322509765625,
+            "blocks": 4096,
+            "interval": [
+              55.19980052352138,
+              93.44521900772861
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 100.225830078125,
+            "blocks": 4096,
+            "interval": [
+              80.67082553739029,
+              119.78083461885971
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 100.225830078125,
+            "blocks": 4096,
+            "interval": [
+              80.67082553739029,
+              119.78083461885971
+            ]
+          }
+        },
+        "loose_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -156.93359375,
+            "blocks": 4096,
+            "interval": [
+              -210.46484171927605,
+              -103.40234578072395
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 56.84814453125,
+            "blocks": 4096,
+            "interval": [
+              20.166553613371732,
+              93.52973544912827
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 56.84814453125,
+            "blocks": 4096,
+            "interval": [
+              20.166553613371732,
+              93.52973544912827
+            ]
+          }
+        },
+        "pot_pressure": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": -142.08984375,
+            "blocks": 4096,
+            "interval": [
+              -181.9206038155991,
+              -102.2590836844009
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": -100.1953125,
+            "blocks": 4096,
+            "interval": [
+              -138.34562304774238,
+              -62.04500195225761
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": -22.25341796875,
+            "blocks": 4096,
+            "interval": [
+              -54.22097756281953,
+              9.714141625319527
+            ]
+          }
+        },
+        "random": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 61.956787109375,
+            "blocks": 4096,
+            "interval": [
+              -9.172090790877078,
+              133.08566500962706
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 95.361328125,
+            "blocks": 4096,
+            "interval": [
+              23.949068048020067,
+              166.77358820197992
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 95.361328125,
+            "blocks": 4096,
+            "interval": [
+              23.949068048020067,
+              166.77358820197992
+            ]
+          }
+        },
+        "tight_aggressive": {
+          "early": {
+            "alpha": 0.05,
+            "bb_per_100": 0.35400390625,
+            "blocks": 4096,
+            "interval": [
+              -26.98089315678248,
+              27.68890096928248
+            ]
+          },
+          "terminal": {
+            "alpha": 0.05,
+            "bb_per_100": 32.89794921875,
+            "blocks": 4096,
+            "interval": [
+              17.24891842867663,
+              48.54698000882337
+            ]
+          },
+          "terminal-on": {
+            "alpha": 0.05,
+            "bb_per_100": 32.89794921875,
+            "blocks": 4096,
+            "interval": [
+              17.24891842867663,
+              48.54698000882337
+            ]
+          }
+        }
+      },
+      "growth": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 25.9033203125,
+            "blocks": 4096,
+            "interval": [
+              3.557363736436976,
+              48.249276888563024
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 25.9033203125,
+            "blocks": 4096,
+            "interval": [
+              3.557363736436976,
+              48.249276888563024
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 213.78173828125,
+            "blocks": 4096,
+            "interval": [
+              135.94870421490225,
+              291.61477234759775
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 213.78173828125,
+            "blocks": 4096,
+            "interval": [
+              155.9705114339433,
+              271.59296512855667
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 41.89453125,
+            "blocks": 4096,
+            "interval": [
+              5.039844645188296,
+              78.7492178548117
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 41.89453125,
+            "blocks": 4096,
+            "interval": [
+              5.039844645188296,
+              78.7492178548117
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": false
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 33.404541015625,
+            "blocks": 4096,
+            "interval": [
+              -4.174921982426717,
+              70.98400401367672
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 33.404541015625,
+            "blocks": 4096,
+            "interval": [
+              -4.174921982426717,
+              70.98400401367672
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.008333333333333333,
+            "bb_per_100": 32.5439453125,
+            "blocks": 4096,
+            "interval": [
+              -5.113062312525628,
+              70.20095293752563
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 32.5439453125,
+            "blocks": 4096,
+            "interval": [
+              4.573844489430947,
+              60.51404613556905
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        }
+      },
+      "identical_translation_candidate_hands": {
+        "check_call": true,
+        "loose_aggressive": true,
+        "pot_pressure": false,
+        "random": true,
+        "tight_aggressive": true
+      },
+      "random_severe_regression_flag": false,
+      "seed": 2026100902,
+      "terminal_actual_nodes": 1000001141,
+      "translation": {
+        "check_call": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "loose_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "pot_pressure": {
+          "adjusted": {
+            "alpha": 0.016666666666666666,
+            "bb_per_100": 77.94189453125,
+            "blocks": 4096,
+            "interval": [
+              40.16632503384509,
+              115.71746402865492
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 77.94189453125,
+            "blocks": 4096,
+            "interval": [
+              47.0184037871991,
+              108.8653852753009
+            ]
+          },
+          "label": "improvement",
+          "practically_supported": true
+        },
+        "random": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        },
+        "tight_aggressive": {
+          "adjusted": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "descriptive_95": {
+            "alpha": 0.05,
+            "bb_per_100": 0.0,
+            "blocks": 4096,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "label": "inconclusive",
+          "practically_supported": false
+        }
+      }
+    }
+  ],
+  "qualification_conclusion": "not established: seed2026100902 tight growth adjusted interval crosses zero; experiment training/evaluation completed; both research bundles accepted; scientific/integration/storage reviews pass",
+  "raw_result_sha256": "90d7379a1242c19b1e85566b081c219872f7903f51a0c52cfa5e10876445b980",
+  "recipe_qualification": "pending archive acceptance and independent evidence review even if scientific gates pass",
+  "repetition": {
+    "growth-loose_aggressive": {
+      "descriptive_seed_range": [
+        193.304443359375,
+        254.2724609375
+      ],
+      "descriptive_seed_sample_sd": 31.026648212865243,
+      "repeat_improvement": true,
+      "repeat_practical": true,
+      "seed_estimates": [
+        254.2724609375,
+        193.304443359375,
+        213.78173828125
+      ]
+    },
+    "growth-tight_aggressive": {
+      "descriptive_seed_range": [
+        32.5439453125,
+        52.960205078125
+      ],
+      "descriptive_seed_sample_sd": 10.674395067724824,
+      "repeat_improvement": false,
+      "repeat_practical": false,
+      "seed_estimates": [
+        48.15673828125,
+        52.960205078125,
+        32.5439453125
+      ]
+    },
+    "translation-pot_pressure": {
+      "descriptive_seed_range": [
+        62.21923828125,
+        90.14892578125
+      ],
+      "descriptive_seed_sample_sd": 14.001672372385837,
+      "repeat_improvement": true,
+      "repeat_practical": true,
+      "seed_estimates": [
+        90.14892578125,
+        62.21923828125,
+        77.94189453125
+      ]
+    }
+  },
+  "replayed_actions_including_reference_copies": 2878098,
+  "replayed_rows_including_reference_copies": 737280,
+  "science_supports_benchmark_preparation": false,
+  "seed_variation": "three descriptive estimates/range/sample SD; common deals correlate estimates; no population or pooled-hand claim",
+  "source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11",
+  "statistical_families": "growth six Bonferroni contrasts; translation three separately adjusted contrasts, not union FWER .05",
+  "status": "science-verified",
+  "uniform_reference_baseline_sha256": {
+    "check_call": "81409b0467e3f3ab3f08b47e9bc3c70e5250261596432e371cc41c1d8edc0bfb",
+    "loose_aggressive": "d987716b95fd12499d01e5286477377c6caed53ca9718c00700f174ea9bea1cf",
+    "pot_pressure": "a5a178279e8163c1c64647f79695e03fc84ee41826d82a85e2d161d02883ffc8",
+    "random": "dffb2ea38cfb63601671a59d32086c07a8fc4a4a6c3f7136a9f443a8f7d073b5",
+    "tight_aggressive": "f115867f9158f46e24c851dc78af1fa2b51d871ba92bfe64a12ed7f4dc80f5bb"
+  },
+  "unique_final_hands": 409600
+}

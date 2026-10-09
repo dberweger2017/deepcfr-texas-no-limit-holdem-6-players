@@ -1,0 +1,71 @@
+{
+  "actual_nodes": 39440603,
+  "complete": true,
+  "model": {
+    "actual_nodes": 39440603,
+    "bytes": 196152605,
+    "entries": 7767917,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "iteration": 29651,
+    "name": "HU100-average-39440603",
+    "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/early/average.gz",
+    "sha256": "49386f0dafad3e94843efae432c65f8d0ee79603ed52dcda12c29bc9d2086e4d",
+    "source_checkpoint_sha256": "3ec0faacccd82a753445a9f339898374c5130d4027c3be6c5b42fc0c5c60ab93"
+  },
+  "seed": 2026100902,
+  "target": 39438279,
+  "telemetry": {
+    "audit_status": "unaudited",
+    "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+    "checkpoint_bytes": 287954598,
+    "checkpoint_sha256": "3ec0faacccd82a753445a9f339898374c5130d4027c3be6c5b42fc0c5c60ab93",
+    "completed_nodes": 39440603,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        761719,
+        2347336,
+        5826456,
+        13038549
+      ],
+      "entries": 7767917,
+      "positive_average_mass_keys": 5193359,
+      "traverser_visits": 7908549,
+      "traverser_visits_by_street": [
+        272148,
+        844710,
+        2103761,
+        4687930
+      ],
+      "visits_histogram": {
+        "0": 4072080,
+        "1": 2587319,
+        "10-99": 89896,
+        "100+": 1637,
+        "2-9": 1016985
+      },
+      "zero_average_mass_keys": 2574558
+    },
+    "elapsed_seconds_including_writes": 42.04898775,
+    "entries_per_completed_node": 0.19695228797592165,
+    "iteration": 29651,
+    "new_entries": 7767917,
+    "nodes_per_second_including_writes": 937967.9538183413,
+    "nodes_since_previous_save": 39440603,
+    "overshoot_nodes": 2324,
+    "path": "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/results/hu100-independent-stages/training/2026100902/early/checkpoint.gz",
+    "process_rss_bytes_after_save": 712376320,
+    "recent_nodes_per_second_including_writes": 937967.9538183413,
+    "requested_nodes": 39438279,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791545099.777757,
+    "write_seconds": 23.969665416,
+    "write_started": 1791545075.808203
+  }
+}

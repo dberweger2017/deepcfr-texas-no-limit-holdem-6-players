@@ -1,0 +1,10 @@
+{
+  "source": "4c0607dcc178bde19559928dc02bc16361cce8ce",
+  "frozen_scientific_source": "1d862d6f9ea2e5e56b23c84cac94561103b5da11",
+  "focused_tests": 38,
+  "result": "passed",
+  "seconds": 19.66,
+  "log_sha256": "711eade4c1dc22ae0d60f2bfeebd52cfe0e61444a50f73a372728412bc5b3f35",
+  "raw_log_archive_member": "research/coordinator/post-merge-pytest.txt",
+  "integration_review": "Independent read-only review4c0607d passed: merged HU200 changes preserve HU100 behavior and frozen provenance; no M4 or archive hydration"
+}

@@ -1,0 +1,39 @@
+{
+  "choices": [
+    {
+      "blocks": 8192,
+      "disk_free_bytes": 91266674688,
+      "disk_pass": true,
+      "factor": "3x fixed loads/setup/snapshot/model hashing plus 3x max measured per-block play/replay/reproduction/raw hashing; strict report separate",
+      "fixed_arm_seconds": 32.62605074909516,
+      "load_seconds": 607.7621602102449,
+      "per_block_all_nine_arms_seconds": 0.5332995112494245,
+      "play_replay_reproduction_seconds": 15027.533421343876,
+      "projected_archive_seconds": 364.6904882163346,
+      "remaining_seconds": 16278.116235273308,
+      "report_seconds": 2534.6212577819824,
+      "required_free_bytes": 69704404118.0,
+      "seconds": 17562.15467912586,
+      "time_pass": false
+    },
+    {
+      "blocks": 4096,
+      "disk_free_bytes": 91266674688,
+      "disk_pass": true,
+      "factor": "3x fixed loads/setup/snapshot/model hashing plus 3x max measured per-block play/replay/reproduction/raw hashing; strict report separate",
+      "fixed_arm_seconds": 32.62605074909516,
+      "load_seconds": 607.7621602102449,
+      "per_block_all_nine_arms_seconds": 0.5332995112494245,
+      "play_replay_reproduction_seconds": 8474.34902711095,
+      "projected_archive_seconds": 254.51890126136576,
+      "remaining_seconds": 16278.116222440323,
+      "report_seconds": 1267.3106288909912,
+      "required_free_bytes": 50932931222.0,
+      "seconds": 9741.65965600194,
+      "time_pass": true
+    }
+  ],
+  "outcomes_inspected": false,
+  "raw_bytes_per_block_three_arms": 381906.59375,
+  "training_independently_completed": true
+}

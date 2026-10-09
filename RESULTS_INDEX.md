@@ -1,3 +1,117 @@
+## PR215 HU100 independent stages — science complete, October 9
+
+[PR215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/215),
+`feature/hu100-independent-seed-stages`, completed from current-main base
+`6e18043317817080fd38f400c5366fbf18fc6b53`. The owner subsequently requested
+merge after the reviewed head passed all five checks; earlier unmerged handoff
+instructions are superseded. Current host status is authoritative.
+[Protocol](docs/hu100-independent-stages.md),
+[results/costs/remaining questions](docs/reports/hu100-independent-stages.md).
+Scientific source `1d862d6f9ea2e5e56b23c84cac94561103b5da11`; unchanged #207
+binary `7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262`,
+actual native source `bd0e7a417064f736091dc2b667954b50becb4b69`.
+
+Both fresh lineages retain fully audited recovery/current/average endpoints:
+seed2026100901 at39,439,801 /1,000,000,506 nodes; seed2026100902 at
+39,440,603 /1,000,001,141 nodes. Cost-only32/512-block calibration and exact
+actual #211 partial resume compatibility pass. Fresh final root2026100911013,
+4,096 blocks/opponent,409,600 unique primary hands; all replay/reproduction and
+strict recount complete. Loose growth and pot translation repeat with practical
+support in all3 fixed lineages. Tight growth for seed2026100902 is inconclusive
+under the fixed adjusted interval: +32.54 [−5.11,70.20] BB/100. Eight/nine formal
+contrasts pass; **recipe qualification is not established**, with no sample
+extension, release or automatic continuation.
+
+M4 clock10:34:33–12:41:15UTC, **7,602.223s /2h06m42s**, original hard deadline
+16:34:33UTC. Fixed baseline and all guards unchanged; peak family5.11GiB,
+maxswapgrowth592,246,210.56bytes, minfree75%, minimumdisk64.75GiB; no breach.
+Preparation source-binding failure, its independently reviewed repair and
+charged370.968s adjacent-stream gap remain preserved. No whole-clock continuous
+sampling claim; scientific stages/packing have observed coverage. A harmless
+read-only empty-telemetry probe failure is preserved separately.
+
+**Accepted primary archive:**
+[hu100-independent-stages-M4-20261009.zip](https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view),
+ID `1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9`:
+`hu100-independent-stages-M4-20261009.zip`, **15,801,035,296bytes**, whole SHA256
+`b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad`:
+**1,422 unique members locally readback-verified /30 hardlink aliases**.
+Confirmed Research-Cloud [PR215 folder](https://drive.google.com/drive/folders/1hsyFliTReRUZE69hmXAotdzLwIjJpYLU),
+ID `1hsyFliTReRUZE69hmXAotdzLwIjJpYLU`, parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`;
+native destination `~/Local/Research-Cloud/PR-215-HU100-independent-stages/`.
+[Native uploaded/no-pending/no-conflicts](docs/reports/hu100-independent-stages-artifacts/native-upload-status.json)
+and [independent cloud ID/name/size/parent confirmation](docs/reports/hu100-independent-stages-artifacts/cloud-acceptance.json) agree.
+Remote bytes not downloaded/verified.
+[Local receipt](docs/reports/hu100-independent-stages-artifacts/archive-receipt.json),
+[required asset identities](docs/reports/hu100-independent-stages-artifacts/model-index.json)
+name all12 new checkpoint/current/average members, their canonical alias members,
+byte counts/SHA256s, old #207 averages, #211 partial, native binary/source and
+strict result. Actual new averages are canonical snapshot members; **do not
+assume `zipfile -e` recreates training aliases**. Restore with the pinned helper.
+
+Using the project Python 3.11 environment, after downloading this archive into
+a fresh ignored nonsynced root, this command
+verifies whole/manifest/member hashes and restores all canonical bytes plus
+aliases without overwrite or automatic science:
+
+```sh
+python -m scripts.restore_hu100_staged_archive \
+  --archive results/retrieved/pr215/NEW_ROOT/campaign.zip \
+  --destination results/retrieved/pr215/NEW_ROOT/unpacked \
+  --archive-sha256 b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc \
+  --manifest-sha256 53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad
+```
+
+For a selective recovery, add e.g.
+`--member research/training/2026100902/terminal/checkpoint.gz`
+and `--member research/training/2026100902/terminal/average.gz`; the helper
+extracts the average's canonical snapshot and recreates the requested alias.
+Use each other exact member from the asset index for its corresponding retrieval.
+Source/configs retain original path identities; resolve retrieved assets by their
+pinned SHA256 when adapting a separately authorized run. Never relaunch the
+one-use controller or overwrite an active input automatically.
+
+**Accepted M1 closeout metadata:**
+[hu100-independent-stages-M1-metadata-20261009.zip](https://drive.google.com/file/d/1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU/view),
+ID `1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU`, same PR215 folder/parent:
+**939,179 bytes /147 readback-verified members**, whole SHA256
+`7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140`.
+[Local seal](docs/reports/hu100-independent-stages-artifacts/metadata-archive-receipt.json),
+[native uploaded/no-pending/no-conflicts](docs/reports/hu100-independent-stages-artifacts/metadata-native-upload-status.json),
+[independent cloud ID/name/size/parent](docs/reports/hu100-independent-stages-artifacts/metadata-cloud-acceptance.json).
+Full closed guard stream is `research/coordinator/m4-closeout/continuous-resources.jsonl`;
+full result is `research/coordinator/result.json`; scientific review and dated
+report/index snapshots are under `research/closeout-snapshot/`. Exact member
+bytes/hashes are in the embedded manifest. For retrieval, download into a fresh
+ignored nonsynced root and use the same helper:
+
+```sh
+python -m scripts.restore_hu100_staged_archive \
+  --archive results/retrieved/pr215/NEW_METADATA_ROOT/metadata.zip \
+  --destination results/retrieved/pr215/NEW_METADATA_ROOT/unpacked \
+  --archive-sha256 7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9 \
+  --manifest-sha256 4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140
+```
+
+Metadata source snapshot `4c0607dcc178bde19559928dc02bc16361cce8ce`; M4 science
+remains frozen at `1d862d6f9ea2e5e56b23c84cac94561103b5da11`. M1 seal takes0.861s,
+no additional M4 scientific work. Later storage acceptance/review/CI receipts
+remain in Git; archived pending statements are dated snapshots. Remote bytes
+not downloaded/verified. Protected:
+M4/M1 `~/Local/hu100-independent-seed-stages-20261009`, ignored coordinator,
+all PR207/PR211 original models/failures, PR207 native/environment dependencies,
+sharedGit and other agents' inputs. All originals remain; this campaign and its
+future inputs are retained after upload acceptance and merge. No cleanup or force
+execution/offloading. [Final storage/evidence review](docs/reports/hu100-independent-stages-artifacts/final-storage-review.json)
+passes with no blockers. Scientific and integration reviews pass; 38 focused
+post-merge regressions pass. Exact final-head host CI is checked before ready
+status; final statuses remain on PR215. The owner subsequently authorized merge; that
+instruction supersedes the initial unmerged handoff.
+
 ## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
 
 [PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211),
