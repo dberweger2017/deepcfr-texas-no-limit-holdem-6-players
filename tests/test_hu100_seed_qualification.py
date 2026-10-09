@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 import sys
+from types import SimpleNamespace
 
 import pytest
 
@@ -46,6 +47,17 @@ while True: time.sleep(.1)
     finally:
         if guard.group_members(child.pid):
             os.killpg(child.pid, 9)
+
+
+def test_guard_handles_owned_helper_disappearing_during_pid_snapshot(monkeypatch):
+    parent = SimpleNamespace(pid=1, children=lambda recursive: [])
+    child = SimpleNamespace(pid=2)
+    monkeypatch.setattr(guard, 'group_members', lambda _: [1, 3])
+    def disappeared(pid):
+        assert pid == 3
+        raise guard.psutil.NoSuchProcess(pid)
+    monkeypatch.setattr(guard.psutil, 'Process', disappeared)
+    assert guard.family_processes(parent, child) == [parent]
 
 
 def test_absolute_budget_and_closeout_reserve_refuse_child_before_start(tmp_path):

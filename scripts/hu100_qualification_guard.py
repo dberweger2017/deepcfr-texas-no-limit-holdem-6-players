@@ -68,6 +68,19 @@ def stop_group(child):
         raise RuntimeError('Owned process group survived SIGKILL')
 
 
+def family_processes(parent, child):
+    family = {p.pid: p for p in [parent, *parent.children(recursive=True)]}
+    if child is not None:
+        for pid in group_members(child.pid):
+            if pid in family:
+                continue
+            try:
+                family[pid] = psutil.Process(pid)
+            except psutil.NoSuchProcess:
+                pass
+    return list(family.values())
+
+
 class Campaign:
     """Hold ownership and sample idle work, tools and archival work alike."""
 
@@ -155,12 +168,7 @@ class Campaign:
             with (self.out / 'continuous-resources.jsonl').open('x') as stream:
                 while not self.done.is_set():
                     rss = 0
-                    family = {p.pid: p for p in [parent, *parent.children(recursive=True)]}
-                    child = self.child
-                    if child is not None:
-                        for pid in group_members(child.pid):
-                            family.setdefault(pid, psutil.Process(pid))
-                    for p in family.values():
+                    for p in family_processes(parent, self.child):
                         try:
                             rss += p.memory_info().rss
                         except psutil.NoSuchProcess:
