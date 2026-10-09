@@ -63,7 +63,11 @@ def main():
         'reason': 'remote browser acknowledgment exposed empty file before copy completed',
         'original_failure_sha256': sha(out / 'main.log'), 'no_new_hands': True,
         'no_server_restart_or_model_copy': True, 'original_baseline_preserved': True})
-    subprocess.run(['git', 'archive', '-o', str(out / 'source-closeout.tar'), 'HEAD'], check=True)
+    subprocess.run(['git', 'archive', '-o', str(out / 'source-closeout.tar'), 'HEAD',
+        'AGENTS.md', 'ROADMAP.md', 'readme.md', 'requirements-play.txt', 'requirements-monitoring.txt',
+        'src', 'scripts', 'tests', 'configs', 'apps', 'native', '.github',
+        'docs/releases/v0.5.0', 'docs/development.md', 'docs/artifact-storage.md',
+        'docs/rules.md', 'docs/observations.md'], check=True)
     guard.thread = threading.Thread(target=guard.monitor, daemon=True); guard.thread.start()
     try:
         guard.stable_admission()
