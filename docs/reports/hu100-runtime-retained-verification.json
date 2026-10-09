@@ -183,14 +183,6 @@
       "bytes": 3477504,
       "sha256": "094f4d4a58a3410816385c36b961a2756d180ee2729bdba6f090fe0f7ff7b2a8"
     },
-    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/on/spectator.sqlite-shm": {
-      "bytes": 32768,
-      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
-    },
-    "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/on/spectator.sqlite-wal": {
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
     "/Users/dberweger/Local/hu100-local-runtime/results/hu100-retained-smoke/resource-samples.json": {
       "bytes": 32262,
       "sha256": "978194e9030e321a6e7c8b1a0769ffa6fadd61633e515725f80b854457e55397"
@@ -243,5 +235,6 @@
       "bytes": 10688,
       "sha256": "acd1b4e76656eeea59a63aa83a1b38de618290d17e8dea5a2c69d9a286e1d8ba"
     }
-  }
+  },
+  "sqlite_sidecars": "Ephemeral WAL/shared-memory files are excluded from required retention; closed main databases retain the verified transactions."
 }

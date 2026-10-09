@@ -37,7 +37,7 @@ an active model.
 
 ```sh
 python -m src.play_api.server \
-  --hu100-research models/retrieved/pr207/average.gz --stack-bb 100 \
+  --hu100-research models/retrieved/pr207-20261009/average.gz --stack-bb 100 \
   --data-dir results/hu100-play --source-version "$(git rev-parse HEAD)"
 ```
 
