@@ -29,7 +29,7 @@ def effect(values, alpha):
     return result
 
 
-def report(out=OUT):
+def report(out=OUT, *, settings_factory=config):
     freeze = read(out / 'frozen-final.json')
     comparisons = read(out / 'frozen-comparisons.json')
     models = read(out / 'models.json')
@@ -49,6 +49,7 @@ def report(out=OUT):
     baseline = {}
     values, hand_digests, coverage, translations, visits = {}, {}, [], [], []
     hands_replayed = actions_replayed = 0
+    visit_tables = {}
     for seed in SEEDS:
         for label in ('early', 'terminal', 'terminal-on'):
             name = f'{seed}-{label}'
@@ -60,7 +61,7 @@ def report(out=OUT):
             inputs = read(run / 'inputs.json')
             if (audit['status'] != 'verified' or not audit['all_settlements_replayed'] or not repeat['reproduced_all_hands_and_decisions']
                     or inputs['source'] != source or inputs['root'] != root or inputs['blocks_per_opponent'] != blocks
-                    or inputs['config'] != config(model, label == 'terminal-on')):
+                    or inputs['config'] != settings_factory(model, label == 'terminal-on')):
                 raise ValueError('Unverified arm identity/replay/reproduction: ' + name)
             hands_replayed += audit['hands_replayed']
             actions_replayed += audit['actions_replayed']
@@ -132,15 +133,25 @@ def report(out=OUT):
                         'distance_mean': g['distance_sum']/g['distance_count'] if g['distance_count'] else None,
                         'distance_max': g['distance_max'], 'states_max': g['states_max'],
                         'bounds_reached': g['bounds'], 'lookup_mean_ms': 1000*g['lookup_sum']/g['count']})
-            table = {}
-            with gzip.open(model['path'], 'rt') as f:
-                next(f)
-                for line in f:
-                    row = json.loads(line)
-                    if row[0] in selected_keys:
-                        table[row[0]] = (row[3], row[4])
-            if file_hash(Path(model['path'])) != model['sha256']:
-                raise ValueError('Visit-band model changed')
+            if model['sha256'] not in visit_tables:
+                related = [label] if label == 'early' else ['terminal', 'terminal-on']
+                union_keys = set(selected_keys)
+                for option in related:
+                    for opponent in OPPONENTS:
+                        for d in traces(out / 'final' / f'{seed}-{option}' / opponent / 'decisions.jsonl.gz'):
+                            if d['arm'] == 'candidate' and d['logical_player'] == 0:
+                                union_keys.add(d['key'])
+                table = {}
+                with gzip.open(model['path'], 'rt') as f:
+                    next(f)
+                    for line in f:
+                        row = json.loads(line)
+                        if row[0] in union_keys:
+                            table[row[0]] = (row[3], row[4])
+                if file_hash(Path(model['path'])) != model['sha256']:
+                    raise ValueError('Visit-band model changed')
+                visit_tables[model['sha256']] = table
+            table = visit_tables[model['sha256']]
             for opponent in OPPONENTS:
                 groups = defaultdict(Counter)
                 for d in traces(run / opponent / 'decisions.jsonl.gz'):
