@@ -82,6 +82,40 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR225 K50 bench scoring — M1 admission refused, October 10
+
+[PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
+`feature/hu20-equity-bench-scoring`, fresh M1 checkout
+`~/Local/hu20-equity-bench-scoring`, source main
+`ff984da9a16bf1e76e891fab239d0785188a93af`, run
+`m1-hu20-equity-bench-scoring-admission-20261010`. Final admission refusal:
+battery power and 4,183.62 MiB used system swap exceed frozen AC/3 GB guards.
+No restoration, pilot, scoring, scientific outcome or retry. #222's original
+stop and inputs remain unchanged. [Report](docs/reports/hu20-equity-bench-scoring.md).
+
+Accepted [administrative ZIP](https://drive.google.com/file/d/1We8DP3Jbz3SPk2HbKgr5fgNJou8r46Ix/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-admission-M1-20261010.zip`,
+**8,641 bytes /7 payload members**, SHA256
+`b63457f5ce249bcf07400578557c7de8c8bc49362828403e803b84c5d7ea38c0`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`205aba4daf98e5c6a946da37d796ace2a8e4e49cfb5962184fb32534a7e076d3`.
+[Folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi)
+parent Research-Cloud `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+All local member sizes/hashes read back; native uploaded=1/uploading=0/
+conflicts=0/unpaused and independent cloud ID/name/size/parent agree.
+Remote archive bytes were **not downloaded**. [Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/archive-receipt.json)
+and [separate acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/cloud-upload.json).
+The immutable archive captures admission and the first source review; later
+terminal receipts/[clear end evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/evidence-review.json) remain in Git. Originals retained;
+no extracted copies existed to delete and no other PR files were cleaned.
+
+Restore by downloading that Drive ID into a fresh ignored `results/` path,
+verify the whole ZIP SHA256, then `python -m zipfile -e <download.zip> <fresh-root>`
+and verify named members against the embedded manifest. Scientific inputs were
+**not restored**: use the already indexed PR222 model/input locators below and
+PR163 table archive/pins; this ZIP duplicates neither. Restoration grants no
+permission to restart this stopped attempt.
+
 ## PR222 trained K50 bench — partial/unclassified, October10
 
 [PR222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222),
