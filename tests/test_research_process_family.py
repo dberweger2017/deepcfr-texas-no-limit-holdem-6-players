@@ -1,5 +1,6 @@
 import pytest
 import psutil
+import os
 import subprocess
 import sys
 from scripts.research_process_family import owned_processes
@@ -82,6 +83,28 @@ def test_owned_workload_rss_access_denied_still_stops(monkeypatch):
         def memory_info(self):raise psutil.AccessDenied(2)
     monkeypatch.setattr(guard,'owned_processes',lambda known:[Unreadable()])
     with pytest.raises(psutil.AccessDenied):guard.family_rss({2:2})
+    from src.diagnostics import flop_check_runtime as runtime
+    monkeypatch.setattr(runtime,'owned_processes',lambda known,root:[Unreadable()])
+    with pytest.raises(psutil.AccessDenied):runtime.rss_for_tree(1,{2:2})
+
+
+def test_inner_resource_sampling_starts_no_ps(monkeypatch):
+    from src.diagnostics import flop_check_runtime as runtime
+    def forbidden(*args,**kwargs):raise AssertionError('RSS sampling spawned a helper')
+    monkeypatch.setattr(subprocess,'Popen',forbidden)
+    assert runtime.rss_for_tree(os.getpid())>0
+    def output(args,**kwargs):
+        assert args[0]!='ps'
+        if args[0]=='vm_stat':return 'Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free: 100.\n'
+        if args==('sysctl','vm.swapusage'):return 'used = 0.00M'
+        if args==('sysctl','-n','hw.memsize'):return '17179869184'
+        if args==('sysctl','-n','hw.ncpu'):return '8'
+        return 'test'
+    monkeypatch.setattr(subprocess,'check_output',output)
+    monkeypatch.setattr(runtime.sys,'platform','darwin')
+    snapshot=runtime.machine_snapshot()
+    assert snapshot['swap_used_bytes']==0
+    assert any(p['pid']==os.getpid() for p in snapshot['processes'])
 
 
 @pytest.mark.skipif(sys.platform!='darwin',reason='macOS setuid ps regression')

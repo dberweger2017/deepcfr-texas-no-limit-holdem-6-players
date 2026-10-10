@@ -3,8 +3,9 @@
   "status": "clear",
   "scope": "continuation of single independent pre-scoring review, owner-authorized fixed discovery source",
   "findings": "Prior blocker resolved: no discovery helper; fresh owned identity check; launched child registered with parent/create identity; retained reparented PIDs; PID reuse and AccessDenied failclosed. Thresholds, frozen scoring/decision/bootstrap and native trainer unchanged.",
-  "tests_reported_by_parent": 12,
+  "tests_reported_by_parent": 29,
   "reviewer_science_or_outcomes_inspected": false,
   "limitation": "Unknown PID with ppid=None cannot establish ancestry. Seeded, retained and ancestry-readable owned processes remain checked.",
-  "proceed": "Verified restoration, prepare and guarded timing pilot under ownercomment6097292716."
+  "proceed": "Verified restoration, prepare and guarded timing pilot under ownercomment6097292716.",
+  "inner_monitor_review": "Clear; machine metadata and RSS also launch no ps; retained owned native child seeded. No consumer interprets changed process-metadata field; owned RSS AccessDenied still stops. Budget/deadline/science/trainer unchanged."
 }
