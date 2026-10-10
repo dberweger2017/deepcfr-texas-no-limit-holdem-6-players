@@ -1,0 +1,122 @@
+{
+  "samples": 23714,
+  "guard_violations": [],
+  "peak_family_rss_bytes": 4073963520,
+  "maximum_total_swap_bytes": 1085339074.56,
+  "minimum_system_free_percent": 74,
+  "minimum_disk_free_bytes": 56226959360,
+  "baseline_sha256": {
+    "results/equity-bench/guards/baseline.json": "ae34951d304f219a1c233d61f7ce5acf02296f82442c670a986a35092c1b12ec",
+    "results/equity-bench/guards-after-setup/baseline.json": "ae34951d304f219a1c233d61f7ce5acf02296f82442c670a986a35092c1b12ec",
+    "results/equity-bench/guards-qualified-setup/baseline.json": "ae34951d304f219a1c233d61f7ce5acf02296f82442c670a986a35092c1b12ec"
+  },
+  "baseline_byte_identical": true,
+  "operations": [
+    {
+      "name": "final-train-0-v1",
+      "seconds": 614.4098770618439,
+      "failure": null,
+      "peak_family_rss_bytes": 440107008,
+      "path": "results/equity-bench/guards/operations/final-train-0-v1/receipt.json"
+    },
+    {
+      "name": "freeze",
+      "seconds": 2.0115468502044678,
+      "failure": null,
+      "peak_family_rss_bytes": 322306048,
+      "path": "results/equity-bench/guards/operations/freeze/receipt.json"
+    },
+    {
+      "name": "prepare",
+      "seconds": 3.412169933319092,
+      "failure": null,
+      "peak_family_rss_bytes": 194723840,
+      "path": "results/equity-bench/guards/operations/prepare/receipt.json"
+    },
+    {
+      "name": "pilot-train-0-v1",
+      "seconds": 184.21314191818237,
+      "failure": null,
+      "peak_family_rss_bytes": 420069376,
+      "path": "results/equity-bench/guards/operations/pilot-train-0-v1/receipt.json"
+    },
+    {
+      "name": "final-train-0-equity",
+      "seconds": 681.0095639228821,
+      "failure": null,
+      "peak_family_rss_bytes": 1963212800,
+      "path": "results/equity-bench/guards/operations/final-train-0-equity/receipt.json"
+    },
+    {
+      "name": "pilot-train-1-equity",
+      "seconds": 206.77521800994873,
+      "failure": null,
+      "peak_family_rss_bytes": 1882390528,
+      "path": "results/equity-bench/guards/operations/pilot-train-1-equity/receipt.json"
+    },
+    {
+      "name": "pilot-train-1-v1",
+      "seconds": 181.81287384033203,
+      "failure": null,
+      "peak_family_rss_bytes": 402685952,
+      "path": "results/equity-bench/guards/operations/pilot-train-1-v1/receipt.json"
+    },
+    {
+      "name": "reference-restoration",
+      "seconds": 0.2127068042755127,
+      "failure": "RuntimeError('Worker reference-restoration exited 1')",
+      "peak_family_rss_bytes": 45170688,
+      "path": "results/equity-bench/guards/operations/reference-restoration/receipt.json"
+    },
+    {
+      "name": "pilot-train-0-equity",
+      "seconds": 207.01297688484192,
+      "failure": null,
+      "peak_family_rss_bytes": 1900756992,
+      "path": "results/equity-bench/guards/operations/pilot-train-0-equity/receipt.json"
+    },
+    {
+      "name": "reference-restoration",
+      "seconds": 421.61514496803284,
+      "failure": "RuntimeError('Worker reference-restoration exited 1')",
+      "peak_family_rss_bytes": 96452608,
+      "path": "results/equity-bench/guards-after-setup/operations/reference-restoration/receipt.json"
+    },
+    {
+      "name": "final-train-1-v1",
+      "seconds": 607.0162250995636,
+      "failure": null,
+      "peak_family_rss_bytes": 471826432,
+      "path": "results/equity-bench/guards-qualified-setup/operations/final-train-1-v1/receipt.json"
+    },
+    {
+      "name": "adapters",
+      "seconds": 892.6192178726196,
+      "failure": null,
+      "peak_family_rss_bytes": 2307899392,
+      "path": "results/equity-bench/guards-qualified-setup/operations/adapters/receipt.json"
+    },
+    {
+      "name": "scoring-pilot",
+      "seconds": 3.2438907623291016,
+      "failure": "psutil.AccessDenied(pid=11563)",
+      "peak_family_rss_bytes": 1502429184,
+      "path": "results/equity-bench/guards-qualified-setup/operations/scoring-pilot/receipt.json"
+    },
+    {
+      "name": "reference-restoration",
+      "seconds": 48.81211304664612,
+      "failure": null,
+      "peak_family_rss_bytes": 4073963520,
+      "path": "results/equity-bench/guards-qualified-setup/operations/reference-restoration/receipt.json"
+    },
+    {
+      "name": "final-train-1-equity",
+      "seconds": 688.8219139575958,
+      "failure": null,
+      "peak_family_rss_bytes": 1945944064,
+      "path": "results/equity-bench/guards-qualified-setup/operations/final-train-1-equity/receipt.json"
+    }
+  ],
+  "scope": "all retained resource samples; administrative setup failures preserved separately"
+}

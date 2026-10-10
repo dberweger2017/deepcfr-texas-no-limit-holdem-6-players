@@ -1,0 +1,56 @@
+{
+  "status": "clear",
+  "reviewer": "independent review_stage_a agent",
+  "scope": "One combined end evidence review for PR222 partial and PR223 final; no new scientific runs or archive hash audits",
+  "reviewed_heads": {
+    "stage_a": "bfba8f0eb05eab4506dd0f5de98732081eead554",
+    "stage_b": "82a2ec02edfe62bf1952101227d6833950e78cec"
+  },
+  "stage_a": {
+    "decision": "stopped/unclassified",
+    "resource_samples": 23714,
+    "threshold_breaches": 0,
+    "final_scoring_started": false,
+    "scientific_retry": false,
+    "training_prefixes": "Four 10M trajectories and exact 1M/3M prefixes retained; matched iterations frozen before scoring"
+  },
+  "stage_b": {
+    "endpoint_nodes": 2000000460,
+    "endpoint_reason": "Preventive disk admission; no 3B segment or native entry-cap stop",
+    "resource_samples": 70225,
+    "threshold_breaches": 0,
+    "final_hands_independently_recounted": 2260992,
+    "primary_bb_per_100": 29.51211929321289,
+    "primary_ci95": [
+      26.821715008418415,
+      32.202523578007366
+    ],
+    "descriptive_1b_minus_500m_bb_per_100": 38.93113136291504,
+    "descriptive_ci95": [
+      35.91681757967918,
+      41.945445146150895
+    ],
+    "all_five_scripted_contrast_intervals_cross_zero": true,
+    "numerical_recount_max_roundoff": 3e-14,
+    "final_scope_quote_hours": 9.9316703427,
+    "secondary_admitted_and_complete": true
+  },
+  "verification": [
+    "Raw final hands have fixed 100 BB starts, completed/error-free state, correct candidate seats, consistent stacks/net and zero-sum settlement",
+    "Direct and scripted statistics independently reproduce; shared uniform rows agree across endpoints",
+    "Full replay/reproduction and export/audit receipts agree with published scope and all nine restoration locators",
+    "Resource extrema independently reproduce; receipts complete with no surviving owned children",
+    "Native trainer source is unchanged in both stages; B post-science code change is a historical-audit-proxy comment only",
+    "Upload acceptance and independent Drive ID/name/size/parent metadata agree for both archives; originals retained",
+    "Coverage and visit bands reproduce all published endpoint/street totals"
+  ],
+  "scanner_correction": {
+    "independently_confirmed": "Reported text is a SHA256 label concatenated with the exact indexed lock-evaluator artifact digest, not a credential",
+    "metadata_head": "90de5661997f4db879d4e737456f3b1a5147af47",
+    "diff": "One label/digest formatting line only",
+    "original_head_retained_local": "backup/hu20-equity-bench-pre-scan-fix-bfba8f0",
+    "requires_actual_new_scanner_success": true
+  },
+  "findings_open": [],
+  "merge_condition": "All final-head host checks green; no findings open"
+}

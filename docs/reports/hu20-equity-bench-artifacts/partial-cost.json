@@ -1,0 +1,8 @@
+{
+  "completed_and_failed_operation_seconds": 4742.998580932617,
+  "closeout_reserve_seconds": 1800,
+  "stage_quote_seconds": 6542.998580932617,
+  "scoring_pilot_completed": false,
+  "final_scoring_started": false,
+  "scope": "partial stage costs only; scoring pilot did not yield an admissible time quote"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "stopped-unclassified",
+  "reason": "process supervisor AccessDenied during scoring pilot",
+  "failure": {
+    "at": 1791583082.368347,
+    "failure": "psutil.AccessDenied(pid=11563)",
+    "operation": "scoring-pilot"
+  },
+  "training_four_10m_completed": true,
+  "prefix_1m_3m_byte_identical": true,
+  "adapters_completed": true,
+  "pilot_v1_gate_passed": true,
+  "final_scoring_started": false,
+  "completed_scoring_quote": false,
+  "scientific_retry": false,
+  "trainer_source_changed": false,
+  "at": 1791583234.5558
+}

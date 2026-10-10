@@ -82,6 +82,65 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR222 trained K50 bench — partial/unclassified, October10
+
+[PR222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222),
+`feature/hu20-equity-bench`, M4 isolated root
+`~/Local/overnight-equity-hu100-20261009/stage-a`. Four10M trajectories,
+matched checkpoints and1M/3M deterministic prefixes complete. The scoring
+pilot loses process visibility after3.24s; no final score, scientific retry or
+abstraction decision. Two earlier setup failures and all interrupted files
+are retained. [Report](docs/reports/hu20-equity-bench.md).
+Unchanged native main source3ca6f81c064595b27e5c1fcaa665769f7c5b4ba5;
+scoring code d06105afab9e4ff9c68d7dc372fa6efe2c09c12f, subsequent metadata-only
+commits before the stop; reviewed archive-only sourcef51f46a. Executed
+source snapshots are `research/source-code-d06105a.tar` and
+`research/source-code-f51f46a.tar`, with adjacent revision/blob restoration
+receipts. Grandfathered Git research payloads and full preparation source
+tars stay local instead of being copied into these source snapshots.
+
+Accepted [partial ZIP](https://drive.google.com/file/d/1CloDY_sTImLcn4lffU5OHWQAdT7RLb37/view),
+`~/Local/Research-Cloud/PR-222-hu20-equity-bench/hu20-equity-bench-partial-20261010.zip`,
+**535,046,681 bytes /400 verified members /29 restoration aliases**.
+SHA256 `c1f305a85282330ef14deadb176a8c97a560f0976fb632e75e387da9e265a8f9`;
+`ARCHIVE-MANIFEST.json` SHA256
+`feec3c2212e7edc7411f4eff1cf1e73745994d8525c749e6aa9b01544dd764a4`.
+Actual [folder](https://drive.google.com/drive/folders/1cRCBFxwJChv0tE4cmRuz5O3uv8Dx5FkS)
+parent is the designated research root188bEt6i0RHqegCCdvpf3wPzUiRw78N2s.
+All local member sizes/SHA256 read back; native uploaded/not-uploading/
+no-conflict and independently fetched cloud ID/name/size/parent agree.
+Remote archive bytes were **not downloaded/verified**. Originals remain;
+no other-PR cleanup. [Acceptance](docs/reports/hu20-equity-bench-artifacts/archive-acceptance.json),
+[model/input locators](docs/reports/hu20-equity-bench-artifacts/model-input-index.json).
+The current archive guard/upload acceptance and later evidence review are
+compact Git closeout receipts outside the immutable ZIP.
+
+Restore the ZIP from its Drive URL into a fresh ignored nonsynced folder,
+verify its whole SHA256, then use `python -m zipfile -e <download.zip> <fresh-root>`.
+Verify every named member’s size/SHA256 against `ARCHIVE-MANIFEST.json`;
+for `restoration_aliases`, copy/hardlink `same_bytes_as_member` to the named
+path and verify the alias hash. All final trained policies and projected
+requests/compacts have exact locators in the linked model/input index.
+Three K50 table inputs remain in the already indexed PR163 archive; use
+`tar -xzf ~/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz --strip-components 1 hu20-equity-buckets-20261005/{flop,turn,river}-k50.bin`
+inside a fresh ignored table directory, and verify all pinned hashes from
+`native/hu20-trainer/src/cards.rs`/the linked index.
+Original frozen requests come from PR149 archive1NNSkCO811USN6U9L2p6lBbti1-6Q9r2X,
+SHA25620ad0f67df71464e7c06bdb1cf63451c243944c14e732b83650861f8f9bbcaed,
+`campaign/prepared-03/`; per-job paths/hashes are in `research/input-pins.json`.
+B/L/P reference member provenance is PR169 archive17X9Fpi1gNL0BVU24iN6xGBuoIMG8_Jpa,
+SHA256198301d2c14a8abf35a1567c241e96254294c10941ebca7efc96ae92c15170c7,
+`pr169-scoring-6fd63e0/references/main-06/{collect,relock}/`;
+`research/reference-restoration.json` pins all120 members. This ZIP already
+retains80 atomic results and40 exact completion records.
+The exact lock evaluator is indexed under PR190 input archive
+1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6, SHA256
+56db3a114aaa1e5273c4445c178a6e516bdcf7eacf0e9e4477dbc5786e360e49,
+member `inputs/pr149/pooling-engineering-05-mac`,1,340,544bytes,
+SHA256 `fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f`.
+Use the same ZIP extraction/member verification for that dependency.
+Restoration does not authorize restarting the stopped one-use science.
+
 ## PR220 v0.5.0 HU100 candidate readiness — owner-authorized merge, October9
 
 [PR220](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/220),

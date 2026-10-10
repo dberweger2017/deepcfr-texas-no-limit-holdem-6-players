@@ -1,0 +1,36 @@
+{
+  "owning_pr_live_merged": 169,
+  "archive_id": "17X9Fpi1gNL0BVU24iN6xGBuoIMG8_Jpa",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-169-HU20-native-bench/scoring-6fd63e0/pr169-scoring-6fd63e0.zip",
+  "archive_bytes": 1869797825,
+  "archive_sha256": "198301d2c14a8abf35a1567c241e96254294c10941ebca7efc96ae92c15170c7",
+  "manifest_member": "pr169-scoring-6fd63e0/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "b791f688d16fe1761fc55ebfe21e67a8b03cd59bbf82b158053aa4f110cef57e",
+  "member_readback": "all120selectedmembers size/SHA256 match; full responses streamed, exact completion records retained",
+  "native_archive_hydrated_on_read": true,
+  "remote_api_bytes_downloaded": false,
+  "selected_members": 120,
+  "guard_receipt": {
+    "child_alive_after_cleanup": false,
+    "cleanup_error": null,
+    "command": [
+      "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/.venv/bin/python",
+      "-m",
+      "planning.restore_references"
+    ],
+    "deadline": null,
+    "failure": null,
+    "finished": 1791580889.833269,
+    "kernel_command_peak_rss_bytes": 4044652544,
+    "name": "reference-restoration",
+    "peak_family_rss_bytes": 4073963520,
+    "returncode": 0,
+    "samples": 244,
+    "sampling_target_seconds": 0.2,
+    "seconds": 48.81211304664612,
+    "soft_stop_requested": false,
+    "started": 1791580841.021157,
+    "status": "complete",
+    "swap_growth_limit_bytes": 3000000000
+  }
+}
