@@ -1,0 +1,138 @@
+{
+  "status": "clear",
+  "reviewed_at_utc": "2026-10-10T19:23:48.860077+00:00",
+  "reviewer": "independent partial-analysis review /root/continuation_evidence_review",
+  "authorization": "Owner separately requested numeric analysis of available results and posting it on PR230 after the blind terminal merge. This review is numeric, unlike the earlier outcome-blind terminal review.",
+  "scope": "Descriptive partial analysis only; no scoring, training, official report command, retry, PR write or cleanup by reviewer.",
+  "findings": [],
+  "provenance": {
+    "accepted_archives": [
+      230,
+      222
+    ],
+    "restored_files_verified": 29,
+    "archive_whole_manifest_and_selected_member_hashes_verified": true,
+    "scores": 9,
+    "references": 18,
+    "metadata": 2,
+    "selection": "Exactly frozen sorted jobs[:9], including five retained and four new complete roots; timing pilots and interrupted tenth root excluded.",
+    "fold_counts": {
+      "0": 5,
+      "1": 4
+    },
+    "no_models_or_tables_restored": true
+  },
+  "independent_recomputation": {
+    "method": "Read raw metric arrays directly; group each metric by the two target solver seats; average gain_bb with math.fsum/2, then equal-weight roots. Normalize only frozen fold-specific matched iterations. Recompute all distributions independently of parent helper using exact randrange draw sequence.",
+    "E_estimates_verified": 24,
+    "Q_estimates_verified": 21,
+    "exported_policy_rows_verified": 21,
+    "bootstrap": "Exploratory paired nine-root resampling, 2000 draws, Random(202610050002), indices49/1949; not the frozen 40-root qualification.",
+    "comparison_tolerance": 1e-12,
+    "Q": "Ratio of means in each paired draw, not mean of per-root ratios.",
+    "matched_contrast": {
+      "mean": -0.14849517398410372,
+      "low": -0.3181376690334744,
+      "high": 0.034103410508897564
+    },
+    "ten_M_contrast": {
+      "mean": -0.12105836656358511,
+      "low": -0.26915763431125217,
+      "high": 0.03875313229031022
+    },
+    "per_fold": {
+      "0": {
+        "boards": 5,
+        "matched_difference": -0.32938826751708983,
+        "ten_M_difference": -0.21635021209716804
+      },
+      "1": {
+        "boards": 4,
+        "matched_difference": 0.07762119293212888,
+        "ten_M_difference": -0.0019435596466064464
+      }
+    },
+    "learning_10M_minus_1M": {
+      "v1": {
+        "mean": 0.010580707126193585,
+        "low": -0.06782815297444657,
+        "high": 0.09404930538601344
+      },
+      "equity": {
+        "mean": 0.09528645833333328,
+        "low": 0.049682184855143245,
+        "high": 0.14100968678792306
+      }
+    },
+    "matched_improvement_roots": 7,
+    "ten_M_improvement_roots": 6,
+    "all_CSV_cells_verified": true
+  },
+  "report_and_comment_review": {
+    "paths": [
+      "docs/reports/hu20-equity-bench-partial-analysis.md",
+      "planning/partial-analysis-pr230-comment.md"
+    ],
+    "all_reported_numbers_and_policy_table_match": true,
+    "limits": "Nine-root exploratory unadjusted intervals cover empirical root variation, not missing-root or training-seed uncertainty; two seats are averaged, not resampled independently. No pass/fail/inconclusive classification or full-game qualification, no favorable replacement-checkpoint recommendation.",
+    "witness": "E=0.3917 clearly labeled full40-corpus/three-lineage context, not matched nine-root witness; subtraction descriptive only.",
+    "plot": "Visually inspected six-panel E/Q chart; units, values, references, bands, title and caveat agree. Fold-specific matched iterations plotted at documented midpoint.",
+    "primary_decision": null,
+    "full40_requirement_preserved": true
+  },
+  "unblinding": {
+    "first_numeric_inspection_recorded_utc": "2026-10-10T19:17:03.887118+00:00",
+    "nine_outcomes_now_inspected": true,
+    "future_completion_disclosure_required": true,
+    "original_blind_stop_artifacts_unchanged_against_baseline5875ecd": true,
+    "historical_report_crosslink": "Only an explanatory paragraph is added to the prior continuation report, identifying the separate later authorized inspection; historical stop narrative and archived evidence stay intact."
+  },
+  "archival_scope": "Derived outputs, helpers and retrieval provenance only. Keep 29 extracted raw inputs local. Accepted raw score/reference/model/table payloads must not be duplicated in new derived bundle. Parent archival acceptance recorded separately.",
+  "reviewed_files": [
+    {
+      "path": "planning/analyze_partial_equity.py",
+      "bytes": 11229,
+      "sha256": "f0bb750ed5a0c59eb5394da90268a65f94d04a4513e81421007cc8693873a8ef"
+    },
+    {
+      "path": "planning/publish_partial_equity.py",
+      "bytes": 3473,
+      "sha256": "1188837aceb658208c12ff37997e881b09720ad2ab485c77918f9c6fc1fcdf66"
+    },
+    {
+      "path": "planning/partial-analysis-pr230-comment.md",
+      "bytes": 4815,
+      "sha256": "018cd691b94f8a121aa39e873695ad888a66d3ddf19f3323239d5969f66bd77b"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis.md",
+      "bytes": 5352,
+      "sha256": "e9b2d44236fbb81f1093711f994316f548e4decc90f99577483925277b91a505"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis-artifacts/partial-summary.json",
+      "bytes": 26185,
+      "sha256": "5740f1cd81ad6d96a2c54c3186095a8192b90121463ac72cabed533109222928"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis-artifacts/partial-policy-table.csv",
+      "bytes": 5007,
+      "sha256": "fb864b97fc53d91317bbc38e727c6bbcbb3c9734519a680bc20b2eef943fedd7"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis-artifacts/partial-policy-table.md",
+      "bytes": 1841,
+      "sha256": "7bdb759f530df7620727d0750ea9107d1762631b9bbc1ae3d68c7f5e0abec65f"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis-artifacts/partial-learning-curves.png",
+      "bytes": 165033,
+      "sha256": "4ac0efbb1bb68703ea7bb9355a5411629112b36f42095a9a00f451316ba9627d"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-partial-analysis-artifacts/partial-restoration.json",
+      "bytes": 16976,
+      "sha256": "0a9ebedb103e4a3b96aeef829764ba591454ffd1027a68d3fa1705a4a029873a"
+    }
+  ]
+}

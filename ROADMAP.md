@@ -40,7 +40,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 4. **Card abstraction — in progress.** Follow the [abstraction lessons](docs/reports/hu20-abstraction-lessons.md). Each step depends on the one before:
    1. **validation complete:** [#190](docs/reports/hu20-global-bucket-validation.md) passes at K50 E 0.3917 [0.3614, 0.4234] BB, reproducing fitted50's advantage over v1. K200 is descriptively worse at 0.4233; all coverage/replay and independent audit checks pass.
    2. **bucket keys done:** [`…-equity-k50-v1`](docs/reports/native-equity-bucket-keys.md) keys postflop cards by #163's pinned K50 tables in the native trainer, bench and Python key function, with exact Rust/Python parity. It has about 1.4× v1's keys;
-   3. **trained bench unresolved:** [#222](docs/reports/hu20-equity-bench.md) completes training through 10M and matched visits. [M1 scoring (#225)](docs/reports/hu20-equity-bench-scoring.md) stops on pressure at 5/40; the owner-authorized [continuation (#230)](docs/reports/hu20-equity-bench-scoring-continuation.md) retains those five and stops on AC loss at 9/40. Partial scores stay uninspected; no classification, retry or full-game recommendation. Earlier stops remain preserved;
+   3. **trained bench unresolved:** [#222](docs/reports/hu20-equity-bench.md) completes training through 10M and matched visits. [#225](docs/reports/hu20-equity-bench-scoring.md) stops on pressure at 5/40; [#230](docs/reports/hu20-equity-bench-scoring-continuation.md) stops on AC loss at 9/40. The [owner-requested nine-root analysis](docs/reports/hu20-equity-bench-partial-analysis.md) gives matched K50 − v1 = −0.1485 [−0.3181, +0.0341] BB, descriptively. Thirty-one roots remain missing; no frozen classification, retry or full-game recommendation. Earlier stops remain preserved;
    4. full-game confirmation: learning curves, then a direct match against the current release and the arena rule.
 5. **Turn search — diagnosed, adoption unresolved.** The [fixed-work arena](docs/reports/hu20-fixed-work-arena/attempt-2-closeout.md) gains against LBR/native pressure; the [stackoff diagnosis](docs/reports/hu20-search-stackoff-diagnosis.md) finds mis-modeled value callers and future folds, rather than large-bet over-calling. Its −10.35 BB/100 regression is plausible but not established after 13-panel adjustment. Fresh unchanged-search confirmation is quoted, awaiting owner approval; no direct search-versus-no-search match yet.
 6. **Flop search — conditional,** only if the evidence still supports it at 20 BB.
@@ -70,7 +70,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-- **K50 scoring continuation ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), AC stop:** 9/40 roots complete, including five retained from #225; normal pressure and other guards pass. Scores remain uninspected and item 4.3 unresolved. [Terminal evidence](docs/reports/hu20-equity-bench-scoring-continuation.md).
+- **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
 *Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 

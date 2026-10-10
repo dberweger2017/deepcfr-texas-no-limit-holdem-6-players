@@ -1,0 +1,13 @@
+{
+  "status": "locally-verified-upload-pending",
+  "owning_scoring_pr": 230,
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-230-hu20-equity-bench-scoring/hu20-equity-bench-nine-root-analysis-20261010.zip",
+  "bytes": 185103,
+  "sha256": "37d85e0442c1e97660e468e12061bb43de1a97dee9fd6061330e0fa4966771bd",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "f9f199fde46118a9a63c18b7f2258b6ee812d12af2a8ea38d53c6b90ac463505",
+  "payload_members": 11,
+  "member_readback": "all size/SHA256 verified",
+  "raw_inputs_duplicated": false,
+  "remote_archive_bytes_downloaded": false
+}
