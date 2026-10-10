@@ -1,3 +1,13 @@
+## M1/M4 storage cleanup — October 10, 2026
+
+Owner-authorized cleanup for open #225/#226 preserved their roots and current inputs. **M1: 18.497 GB native cache released /41.924 GB free at verification. M4: 32.978 GB native cache released plus 37.051 GB measured original-removal gain /96.163 GB free.** Free space fluctuates; the M4 check exceeds the historical 87.5 GiB campaign estimate, pending pilot refinement.
+
+**819 unchanged manifested M4 original paths** from merged #215/#223, #202 results and #176/#185 copied inputs were removed after live merged status, current native/cloud upload acceptance and dependency review. #223 reference copies restore from #207; #185 copied references restore from #176. Canonical #207 originals/incomplete synced partial, K50 inputs, source/build/Git, active PR work, external links and changed/unarchived files remain protected. Earlier originals-retained descriptions remain historical; this entry and its exact path list supersede them only for the selected 819 paths.
+
+[Receipt and safeguards](docs/artifacts/storage-vacuum-20261010.md), [all removed paths and exact restoration locators](docs/artifacts/storage-vacuum-20261010-locators.md). [Full cleanup receipt](https://drive.google.com/file/d/1cOGjCi1ZPSYGiO-3X22h0GO6RDcWHPBR/view?usp=drivesdk) (970,734 bytes, SHA256 `c25312817f3d4393f77005781200fd5ca0f683cd2795cda996d8edb4cab00c40`; confirmed cloud ID/name/size/Research-Cloud parent).
+
+Sixteen native unpinned uploaded cache items are online-only with unchanged local placeholders, logical sizes, Drive IDs and cloud metadata; no synced deletion or force offloading. Existing archive manifests/provenance were used without downloading archives or repeating payload hashes. Retrieval still verifies indexed hashes before research use. No scientific retry, app shutdown or unattended cleanup.
+
 ## PR223 HU100 terminal 2B direct ladder — October 10
 
 [PR223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/223),

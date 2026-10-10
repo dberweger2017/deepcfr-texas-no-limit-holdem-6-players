@@ -74,6 +74,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 - **v0.5.0 released:** the owner authorized publishing #220's candidate, #207's 1B HU100 average with translation 512/128, as stable Latest. It runs with `--v050` on its own HU100 table; the HU20 table keeps v0.4.2 as its default. [Notes](docs/releases/v0.5.0/RELEASE_NOTES.md), [model card](docs/releases/v0.5.0/MODEL_CARD.md).
 
+- **Storage for M1 K50 scoring and M4 fresh HU100 ladder (October 10):** uploaded cache released 18.497 GB on M1 and 32.978 GB on M4; 819 unchanged archived M4 originals removed with 37.051 GB measured gain. Verification free 41.924 GB on M1 /96.163 GB on M4; active PR roots/inputs and canonical #207 models retained. [Receipt/restoration](docs/artifacts/storage-vacuum-20261010.md).
+
 - **Native export workspace:** current-policy exports of sorted checkpoints now stream without the on-disk sort that stopped #223 before 3B (13.58 GiB at 2B). Outputs are byte-identical; the workspace beyond the output files is now zero. [Report](docs/reports/native-streamed-export.md).
 
 - **HU100 direct ladder ([#223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/223)):** preventive disk admission stops at the fully audited 2B terminal; 3B never starts. Fresh 500M/1B match #207 exactly. Terminal beats 1B **+29.51 [26.82,32.20] BB/100** over 524,288 duplicate blocks; all final hands replay/reproduce. Five scripted gains are inconclusive. [Report](docs/reports/hu100-3b-ladder.md); one-seed evidence, no release or default change.
