@@ -1,0 +1,22 @@
+{
+  "owner_authorization": "Can you see if now you could continue, you are allowed to force quit chrome if that gives you some more ram",
+  "owner_swap_amendment": "Accept swap up to 10 gb, Mac seems to love it even when there is eighnogun ram space, also I plugged in the Mac",
+  "owner_app_shutdown": "Close docker, Claude desktop, and the virtual machine",
+  "swap_ceiling_bytes": 10000000000,
+  "other_guards": "7GiB whole-family RSS;normal pressure/free>=15%;9GiB admission proxy;AC;disk>16GiB unchanged",
+  "frozen_science_changed": false,
+  "prior_terminal_pr": 225,
+  "prior_stop_preserved": true,
+  "prior_partial_scores_inspected": false,
+  "continuation": "Only35remainingfrozenroots;fivearchivedcompletedresults preserved by exacthashes;one separately admitted attempt",
+  "app_shutdown_result": "ClaudeDesktop quit viaAppleScript;DockerDesktop stop CLI completed;bothVirtualizationVirtualMachine processes exited;Chromealreadygone;noothersignalled exceptownhungread-onlyinventoryquery",
+  "post_shutdown_resources": {
+    "ac": true,
+    "pressure_level": 1,
+    "free_percent": 79,
+    "swap_bytes": 2372602429,
+    "disk_free_bytes": 38189461504,
+    "admission_proxy_gib": 12.64
+  },
+  "recorded_at_utc": "2026-10-10T16:42:14.207710+00:00"
+}

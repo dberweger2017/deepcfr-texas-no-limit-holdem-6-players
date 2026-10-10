@@ -1,0 +1,16 @@
+{
+  "status": "locally-verified-upload-pending",
+  "owning_pr": 225,
+  "source_revision": "4b5de42b25869a6fe02cfbcb931e9349bc6c9add",
+  "run_id": "m1-hu20-equity-bench-scoring-20261010",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-partial-M1-20261010.zip",
+  "bytes": 55976,
+  "sha256": "9f4efaee91762c3ef1be50bc780bde9d7405f039fcda6a30a4cf162f20aa5112",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "f0bb7f4c643d7cbd1850e3b6893f0b3a72e86c54dc46fc967c97c43dbe62dd43",
+  "payload_members": 22,
+  "member_readback": "all sizes/SHA256 verified",
+  "restored_inputs_duplicated": false,
+  "remote_archive_bytes_downloaded": false,
+  "restored_copies_retained_until_acceptance": true
+}

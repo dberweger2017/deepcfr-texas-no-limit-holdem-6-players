@@ -1,0 +1,99 @@
+{
+  "blocking_findings": [],
+  "files": [
+    {
+      "bytes": 7616,
+      "path": "scripts/continue_restored_hu20_equity_bench.py",
+      "sha256": "b4f723dc0924d6424e350570402c31d97a388e9dd3f3fde89be5fc44b7292e7d"
+    },
+    {
+      "bytes": 5568,
+      "path": "tests/test_equity_scoring_continuation.py",
+      "sha256": "8fda830b8bf20c2e5cd5ecba533359800d8c774ce0751ede99e09812a1eb8d22"
+    },
+    {
+      "bytes": 7906,
+      "path": "scripts/guard_hu20_equity_scoring.py",
+      "sha256": "30041eeba333899cff9ab7603364b9b765684aaf22b788e51e8ee08935466bc2"
+    },
+    {
+      "bytes": 12691,
+      "path": "scripts/run_hu20_equity_bench.py",
+      "sha256": "ccc92b22965ebd782c8cf9ce8cf6cb40ecde1257fd7d31688c326fc1e3c7e5b2"
+    },
+    {
+      "bytes": 5199,
+      "path": "scripts/score_restored_hu20_equity_bench.py",
+      "sha256": "ef8a9d5d30c15fa6caf640603dccbd55ef76f4bde3a467d8ab1d184e0a3065c7"
+    },
+    {
+      "bytes": 2227,
+      "path": "scripts/research_process_family.py",
+      "sha256": "56eb10102855a3a4d8b609a0faccfdf9ffa258350facf4fcbfb1349cc4789526"
+    },
+    {
+      "bytes": 7124,
+      "path": "src/diagnostics/flop_check_runtime.py",
+      "sha256": "e7f1b24fc0a41456f405e76ac6c7fb3d89ba1fe65dc1997a000ecb55cdbf708b"
+    },
+    {
+      "bytes": 1258,
+      "path": "docs/reports/hu20-equity-bench-scoring-continuation-artifacts/authorization.json",
+      "sha256": "734b48aa2cc54e6c1aaff9eaa1c4d245995670414bf3d929db1c8bf2fb0ccf2e"
+    }
+  ],
+  "findings": [
+    "Only the first five frozen jobs are eligible for preservation; accepted prior archive, embedded manifest and every selected member require their pinned hashes and byte counts. Prior stop metadata must establish exactly these five roots, the pinned prior source and outcome blindness.",
+    "Completed result payloads remain opaque bytes during seeding and verification. The deliberately non-JSON fixture verifies no numerical payload decoding before final reporting.",
+    "An exclusive evaluation claim and fresh-directory checks prevent repeat execution. The shared evaluator receives only the remaining 35 jobs and its original full input function is restored before reporting.",
+    "Final reporting requires a complete successful evaluate guard, no failure or cleanup error, exact completion marker and the full 40-root result set. The CLI also rejects a latched failed attempt.",
+    "The swap amendment is an explicit CLI choice of 10,000,000,000 bytes, recorded in admission, intent and receipt. The existing default remains 3,000,000,000 bytes; 7 GiB family RSS, pressure/headroom, disk and AC checks remain unchanged.",
+    "The shared scoring/reporting, qualified evaluator identity checks, process-family and inner monitor code are byte-identical to the prior executed source; native trainer is unchanged. Frozen roots, folds, matched iterations, primary contrast and paired-bootstrap implementation remain unchanged.",
+    "Corrected direct-depth selector independently matches the real accepted ZIP directory metadata: exactly five direct job/result.json entries plus five excluded nested solver/result.json runtime receipts; no numerical payload was opened or decoded."
+  ],
+  "prior_executed_scoring_source": "9310cb7574b196788fb0e508390337dcb4954d3c",
+  "recorded_at_utc": "2026-10-10T16:48:10.659491+00:00",
+  "review": "single independent pre-scoring source review for the owner-authorized continuation",
+  "review_continuations": [
+    {
+      "administrative_stop_preserved": true,
+      "corrected_source": "c669f3e421ad0eed2d65c6b7d96f6a3537db6604",
+      "earlier_reviewed_source": "33f9f8e92a35f4a63d8f9fb37711b29a573fbc18",
+      "finding": "Selector also counted nested native solver/result.json runtime receipts as completed root results.",
+      "resolution": "Require exactly one slash relative to work/eval/: only direct JOB/result.json qualifies. The opaque fixture now includes five nested solver/result.json members.",
+      "science_before_correction": false,
+      "status": "closed"
+    }
+  ],
+  "reviewed_source": "c669f3e421ad0eed2d65c6b7d96f6a3537db6604",
+  "scope_limit": "Source review does not certify restoration execution, current resource admission, numerical outcomes or final archive acceptance; those remain operational checks and the separate end evidence review.",
+  "status": "clear",
+  "validation": {
+    "actual_result_or_native_score_payloads_inspected": false,
+    "github_writes_performed_by_reviewer": false,
+    "parent_reported_artifact_check": "passed before source commit",
+    "parent_reported_tests": 34,
+    "performed": "read-only source/test inspection, committed-byte SHA256 verification and Git comparison against prior executed source",
+    "real_archive_directory_metadata": {
+      "archive_id": "1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH",
+      "direct_job_ids_match_recorded_prior_stop_metadata": true,
+      "direct_root_result_entries": 5,
+      "nested_receipts_have_same_five_job_parents": true,
+      "nested_solver_runtime_receipt_entries": 5,
+      "whole_archive_hash_reverified_by_reviewer": false,
+      "zip_payload_members_opened_or_decoded_by_reviewer": false
+    },
+    "restoration_or_cleanup_performed_by_reviewer": false,
+    "reviewer_executed_tests": false,
+    "science_executed_by_reviewer": false,
+    "tests_reviewed": [
+      "opaque preservation and remaining-35 routing",
+      "exclusive no-reexecution claim",
+      "mutated retained root blocks execution",
+      "archive hash and frozen ordering enforcement",
+      "report refuses failed guard",
+      "explicit swap amendment preserves other guards and old default",
+      "nested native runtime receipts are excluded from complete-root selection"
+    ]
+  }
+}
