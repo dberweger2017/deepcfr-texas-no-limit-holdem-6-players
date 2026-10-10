@@ -92,7 +92,20 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
-## PR225 fresh K50 scoring admission — evaluator identity stop, October 10
+## PR225 preparation error resolved — October 10
+
+The historical preparation stop below compared #222's obsolete setup pin.
+The accepted archive's later `research/qualified-final-source.json` (390 bytes,
+SHA256 `62bf82f01cf0c14a204d73eab2e810013cbc6f68ce055a59c48be2c5e5e35956`)
+and final launcher explicitly qualify `fb32974d…8812f`, identical to the
+published locator and restored evaluator. [Resolution](docs/reports/hu20-equity-bench-scoring-artifacts/evaluator-identity-resolution.json).
+That erroneous setup and its archive remain preserved. Fresh ignored root
+`results/equity-bench-scoring-qualified-20261010` restores the qualification
+alongside the same selected scientific inputs with `python -m planning.restore_scoring`.
+The one independent pre-scoring review confirms the correction. This does not
+retry failed science: no scoring pass was launched by either earlier setup.
+
+## PR225 historical setup identity stop, October 10
 
 The owner explicitly authorized continuation after connecting AC and reducing
 swap. [PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),

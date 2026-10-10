@@ -9,6 +9,21 @@ from src.diagnostics.flop_check import atomic_json
 from src.policies.files import file_hash
 
 
+def qualified_evaluator(restored, receipt):
+    """Use #222's later scoring qualification, preserving its earlier setup pin."""
+    qualification_path = restored/'qualified-final-source.json'
+    member = next(p for p in receipt['members']
+                  if p.get('path') == 'research/qualified-final-source.json')
+    if (qualification_path.stat().st_size != member['bytes']
+            or file_hash(qualification_path) != member['sha256']):
+        raise ValueError('Archived evaluator qualification differs')
+    qualification = json.loads(qualification_path.read_text())
+    index = json.loads((bench.ROOT/'docs/reports/hu20-equity-bench-artifacts/model-input-index.json').read_text())
+    if qualification['lock_sha256'] != index['lock_evaluator']['sha256']:
+        raise ValueError('Final qualification and restoration locator differ')
+    return qualification['lock_sha256']
+
+
 def configure(base):
     restored = base/'restored/research'
     receipt = json.loads((base/'restoration.json').read_text())
@@ -32,7 +47,7 @@ def configure(base):
         raise ValueError('Matched freeze differs')
     bench.OUT = base/'work'
     bench.LOCK = base/'restored/lock-evaluator'
-    if file_hash(bench.LOCK) != pins['lock']:
+    if file_hash(bench.LOCK) != qualified_evaluator(restored, receipt):
         raise ValueError('Lock evaluator differs')
     # The accepted #222 adapters replace canonical-path preparation at this
     # boundary. Only file locations change; evaluation and reporting stay shared.
@@ -74,7 +89,7 @@ def prepare(base):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('prepare','pilot','evaluate','report'))
-    parser.add_argument('--base',type=Path,default=Path('results/equity-bench-scoring-20261010'))
+    parser.add_argument('--base',type=Path,default=Path('results/equity-bench-scoring-qualified-20261010'))
     args = parser.parse_args()
     base = args.base.resolve()
     if args.command == 'prepare':

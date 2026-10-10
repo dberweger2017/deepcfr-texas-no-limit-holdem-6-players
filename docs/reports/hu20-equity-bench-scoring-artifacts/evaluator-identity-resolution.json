@@ -1,0 +1,25 @@
+{
+  "status": "resolved-preparation-check-error",
+  "old_preparation_source": "2721c275f21e59beb8e3c035917bc2cb495ded53",
+  "old_preparation_lock": "4f22f58bd677c6fb46e980c69fcfd14f13cadd850417c0aca711983aaacc7792",
+  "qualified_final_source": {
+    "source": "564d27344956f4be9e0d5ef28490d3d28e315974",
+    "lock_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+    "native_sha256": "557c86ed645dabe04dca4d53cc6e4508d6db172b2e36e46dac487aa0930c5082",
+    "earlier_prepare_receipt_retained": true,
+    "review": "independent source review clear; four focused tests passed",
+    "training_pilot_quote_posted_pr": 222
+  },
+  "qualified_member_pin": {
+    "bytes": 390,
+    "mtime_ns": 1791578632068028315,
+    "original_path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-a/results/equity-bench/qualified-final-source.json",
+    "path": "research/qualified-final-source.json",
+    "sha256": "62bf82f01cf0c14a204d73eab2e810013cbc6f68ce055a59c48be2c5e5e35956"
+  },
+  "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+  "archive_sha256": "c1f305a85282330ef14deadb176a8c97a560f0976fb632e75e387da9e265a8f9",
+  "reason": "Wrapper incorrectly compared a superseded preparation lock pin; later archived qualification matches published restoration locator and restored binary. No actual evaluator mismatch or scientific failure.",
+  "failed_setup_preserved": true,
+  "pilot_or_scoring_attempted": false
+}
