@@ -2527,7 +2527,7 @@ The original on gzip intentionally fails its final-footer integrity check. For f
 
 ## Fresh M4 frozen K50 scoring preparation — October 10, 2026
 
-The owner requests a separate fresh attempt in branch
+The owner requests [PR232](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232), a separate fresh attempt in branch
 `feature/hu20-equity-bench-scoring-m4`, isolated M4 workdir
 `/Users/dberweger/Local/hu20-equity-bench-scoring-m4`, fresh main
 `5875ecd36bf0b35abeeb718dba2e7b7f4b6765c4`.

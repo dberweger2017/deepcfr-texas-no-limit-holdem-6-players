@@ -1,0 +1,34 @@
+{
+  "status": "prepared-queued-not-admitted",
+  "owning_pr": 232,
+  "machine": "Apple M4",
+  "cores": 10,
+  "memory_bytes": 17179869184,
+  "workdir": "/Users/dberweger/Local/hu20-equity-bench-scoring-m4",
+  "prepared_source": "94d81571f8e489b98cab1cd7a1f72017cc96078e",
+  "main_base": "5875ecd36bf0b35abeeb718dba2e7b7f4b6765c4",
+  "source_review": "source-review.json",
+  "local_focused_checks": "22 passed; independent reviewer also22 passed",
+  "m4_cli_import_check": "passed using qualified active HU100 environment; no phase invoked",
+  "runtime_environment": "Own M4 environment qualification deferred until M4 release; avoid changing active/shared environments",
+  "current_machine_owner_pr": 226,
+  "current_owner_release_estimate_madrid": "2026-10-11 02:00\u201304:00; conservative04:00",
+  "requested_initial_wake_madrid": "2026-10-11 02:00",
+  "requested_initial_wake_utc": "2026-10-11 00:00Z",
+  "subsequent_admission_check_minutes": 30,
+  "science_started": false,
+  "restoration_started": false,
+  "scores_reused": 0,
+  "roots_to_score": 40,
+  "prior_inspected_completed_roots": 9,
+  "outcome_blind": false,
+  "administrative_preparation_observations": [
+    "M4 stable root environment lacks psutil; no scientific command invoked. Use own qualified environment at release.",
+    "First narrow git fetch populated FETCH_HEAD but not remote tracking ref; worktree add refused invalid origin ref before checkout. Explicit branch refspec corrected it; no science or foreign worktree change."
+  ],
+  "preserved_prior_stops": [
+    222,
+    225,
+    230
+  ]
+}
