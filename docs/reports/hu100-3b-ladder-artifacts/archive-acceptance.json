@@ -1,0 +1,114 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "archive": {
+    "aliases": 123,
+    "at": 1791598146.815238,
+    "bytes": 7503720854,
+    "cloud_acceptance": "pending",
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "6071b334e45c89922dc73e95e874668b7c3d7449b39624ebc3d97f1c3576fcd0",
+    "member_readback": "all member sizes/SHA256 match",
+    "members": 477,
+    "originals_retained": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip",
+    "remote_bytes_downloaded": false,
+    "sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+    "status": "locally-verified"
+  },
+  "native": {
+    "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+    "at": 1791598405.606421,
+    "bytes": 7503720854,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "folder_id": "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+    "is_uploaded": true,
+    "is_uploading": false,
+    "name": "hu100-terminal-2b-ladder-20261010.zip",
+    "originals_retained": true,
+    "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536871039;\n            contentModificationDate = \"2026-10-10 02:08:58 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-10 02:08:38 +0000\";\n            displayName = \"hu100-terminal-2b-ladder-20261010.zip\";\n            documentSize = 7503720854;\n            filename = \"hu100-terminal-2b-ladder-20261010.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 1;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 1;\n            isRecursivelyDownloaded = 1;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 81597;\n            lastUsedDate = \"2026-10-10 02:09:01 +0000\";\n            parentItemIdentifier = 81595;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 454e6a5a ... 35365445 394a5051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpfetT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+    "remote_bytes_downloaded": false,
+    "sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+    "status": "uploaded",
+    "upload_error": false
+  },
+  "cloud": {
+    "status": "confirmed-metadata",
+    "archive": {
+      "id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+      "title": "hu100-terminal-2b-ladder-20261010.zip",
+      "mime_type": "application/zip",
+      "size": "7503720854",
+      "url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "folder": {
+      "id": "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+      "title": "PR-223-hu100-3b-ladder",
+      "mime_type": "application/vnd.google-apps.folder",
+      "size": null,
+      "url": "https://drive.google.com/drive/folders/1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+      "display_url": "https://drive.google.com/drive/folders/1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+      "file_or_folder": "folder",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "remote_archive_bytes_downloaded": false
+  },
+  "remote_archive_bytes_downloaded": false,
+  "originals_retained": true,
+  "administrative_guard": {
+    "child_alive_after_cleanup": false,
+    "cleanup_error": null,
+    "command": [
+      "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/.venv/bin/python",
+      "-m",
+      "planning.archive_overnight",
+      "pack",
+      "--out",
+      "results/hu100-3b-ladder",
+      "--destination",
+      "/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip",
+      "--pr",
+      "223"
+    ],
+    "deadline": null,
+    "failure": null,
+    "finished": 1791598146.838609,
+    "kernel_command_peak_rss_bytes": 100925440,
+    "name": "archive",
+    "peak_family_rss_bytes": 146620416,
+    "returncode": 0,
+    "samples": 204,
+    "sampling_target_seconds": 0.2,
+    "seconds": 40.8118839263916,
+    "soft_stop_requested": false,
+    "started": 1791598106.026725,
+    "status": "complete",
+    "swap_growth_limit_bytes": 3000000000
+  }
+}

@@ -96,7 +96,7 @@ def checked_row(row, iteration, bounded=True):
 
 class AveragePolicy(FrozenBlueprint):
     """Read stored averages with the same observation/key/menu inference as current policies."""
-    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None):
+    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None, sorted_rows: bool = False):
         if file_hash(path)!=expected_sha256:raise ValueError('Diagnostic average hash differs')
         # Compact storage: a 10B-node average needs about 50 bytes per key instead of about 800.
         rows=CompactBuilder();count=0
@@ -115,7 +115,7 @@ class AveragePolicy(FrozenBlueprint):
                 rows.add(key,names,[float(x) for x in p],visits,not total);count+=1
                 if count>header['config']['max_entries']:raise ValueError('Diagnostic export exceeds entry cap')
         try:
-            self.entries,self.zero_mass,self.visits=rows.build()
+            self.entries,self.zero_mass,self.visits=rows.build_sorted() if sorted_rows else rows.build()
         except ValueError as duplicate:
             raise ValueError('Invalid diagnostic policy row') from duplicate
         self.players=2;self.raise_cap=None;self.abstraction=expected_schema;self.game=header['config']['game'];self.identity=header['identity']

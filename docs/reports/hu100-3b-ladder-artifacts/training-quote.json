@@ -1,0 +1,27 @@
+{
+  "available_bytes": 55446048768,
+  "basis": "fresh timing1M and #207 measured save/tool rates;2x measured headroom",
+  "entries": {
+    "1000000000": 41010014,
+    "2000000000": 55000000,
+    "3000000000": 67419934,
+    "500000000": 30027422
+  },
+  "export_audit_seconds": 12799.511954031375,
+  "memory_forecast_bytes": {
+    "1000000000": 4611101540,
+    "2000000000": 6150000000,
+    "3000000000": 7516192740,
+    "500000000": 3403016420
+  },
+  "pilot_speed_nodes_per_second": 3144670.7278534053,
+  "required_additional_free_bytes": 50108443295.21846,
+  "resume_load_seconds": 5673.373017039205,
+  "save_seconds": 1359.3101541909004,
+  "save_seconds_per_entry": 7.0264066661864595e-06,
+  "source": "38c83f2eab09b5247a8c16344ce6d0a3d00c43af",
+  "storage_admitted": true,
+  "tool_seconds_per_entry": 6.61619247384133e-05,
+  "total_seconds": 23276.32615378233,
+  "training_seconds": 3444.131028520849
+}

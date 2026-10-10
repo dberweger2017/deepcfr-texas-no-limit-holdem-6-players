@@ -1,0 +1,16 @@
+{
+  "at": 1791588594.4860559,
+  "status": "clear",
+  "reviewer": "/root/review_stage_b",
+  "reviewed_source": "38c83f2eab09b5247a8c16344ce6d0a3d00c43af",
+  "finding": "Measured temporary export workspace makes prospective 3B storage inadmissible under the unchanged 16 GiB floor.",
+  "clearance": "Preventive terminal-at-2B is authorized by the user terminal-checkpoint rule. After current guarded 2B audit succeeds and all owned children finish, retire paused orchestration parent without resuming it, run previously unstarted spec2B/pairs once, then unchanged calibration/freeze/postquote/final.",
+  "conditions": [
+    "Stop Stage B if current audit fails; never retry failed science",
+    "Preserve native gate terminal_capacity_stop=false: preventive disk-admission stop is not a native entry-cap stop or an actual guard breach",
+    "No source, recipe, menu, abstraction, default or model modification",
+    "Report historical full-audit duration as conservative resume-loading proxy, not measured native parser duration"
+  ],
+  "actual_guard_breach": false,
+  "outcomes_used_to_select_endpoint": false
+}

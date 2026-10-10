@@ -1,3 +1,87 @@
+## PR223 HU100 terminal 2B direct ladder — October 10
+
+[PR223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/223),
+`feature/hu100-3b-ladder`, isolated M4 checkout from main
+`3ca6f81c064595b27e5c1fcaa665769f7c5b4ba5`.
+Executed scientific source `38c83f2eab09b5247a8c16344ce6d0a3d00c43af`;
+later report, storage and comment edits do not change the executed experiment.
+[Protocol](docs/hu100-3b-ladder.md), [report](docs/reports/hu100-3b-ladder.md),
+[raw-evidence summary](docs/reports/hu100-3b-ladder-artifacts/summary.json),
+[model/input restoration](docs/reports/hu100-3b-ladder-artifacts/model-input-index.json).
+
+Fresh #207 seed 2026100601 reproduces the indexed 500M and 1B checkpoint hashes
+exactly, then reaches **2,000,000,460 nodes /54,626,283 entries**.
+The 3B segment was refused prospectively because its measured export workspace
+forecast would cross the unchanged disk floor; no actual guard breach, trainer
+source change or scientific retry occurred. The native gate remains
+`terminal_capacity_stop=false`: this is a preventive admission stop.
+All three evaluated checkpoints were stream-exported and fully audited.
+
+The terminal-minus-1B primary passes at **+29.51 [26.82,32.20] BB/100**;
+1B-minus-500M is descriptively +38.93 [35.92,41.95].
+Each distinct rung has 524,288 independent duplicate blocks, translation off.
+The admitted translated secondary uses five opponents, 4,096 blocks each,
+512 states/128 events; all five paired gains are inconclusive.
+All **2,260,992 final hands** replay and reproduce.
+The 9.93-hour full-scope quote was posted before final play.
+One fixed training seed supports these conditional comparisons; no release,
+default or external-strength qualification follows.
+
+**Accepted native upload plus independent cloud metadata:**
+[hu100-terminal-2b-ladder-20261010.zip](https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view),
+Drive ID `15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd`, **7,503,720,854 bytes**,
+SHA256 `e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`6071b334e45c89922dc73e95e874668b7c3d7449b39624ebc3d97f1c3576fcd0`; **477 members /123 restoration aliases**.
+Every stored member’s size and SHA256 passed local readback.
+[Acceptance](docs/reports/hu100-3b-ladder-artifacts/archive-acceptance.json)
+separates native upload/conflict checks from cloud ID/name/size/parent checks;
+no remote ZIP bytes were downloaded.
+[Designated folder](https://drive.google.com/drive/folders/1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp)
+is under Research-Cloud parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+
+Local ZIP: `/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip`.
+All originals remain at
+`/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder`.
+No synced-folder eviction/deletion or other-PR cleanup was performed.
+
+**New 2B models, in this archive:**
+
+| File | Member | Bytes | SHA256 |
+| --- | --- | ---: | --- |
+| checkpoint.gz | `research/training/2000000000/checkpoint.gz` | 2,460,507,577 | `e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676` |
+| current.gz | `research/training/2000000000/current.gz` | 1,381,038,201 | `94576d2684a05b19f2bc1f864961d45dc753240ff04a3783a9a762d687c6b1e6` |
+| average.gz | `research/training/2000000000/average.gz` | 1,603,422,956 | `e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae` |
+
+**Indexed model dependencies:** the six byte/hash-verified fresh 500M/1B
+checkpoint/current/average copies are omitted. Restore their matching originals
+from [accepted PR207 ZIP](https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view),
+SHA256 `ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf`,
+members `research/training/{500000000,1000000000}/{checkpoint,current,average}.gz`.
+The [model/input index](docs/reports/hu100-3b-ladder-artifacts/model-input-index.json)
+lists all nine exact model hashes, member paths and per-member retrieval commands.
+The manifest resolves other SHA-identical aliases; do not create duplicate model ZIP copies.
+
+**Restoration:** download the named ZIP into a fresh ignored working directory,
+verify its whole SHA256 with `shasum -a 256 ARCHIVE.zip`, and extract only needed
+members. For the 2B average:
+
+```sh
+python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/average.gz RESTORE_ROOT
+shasum -a 256 RESTORE_ROOT/research/training/2000000000/average.gz
+```
+
+Expected model SHA256 is in the table above. Use the separately indexed PR207 ZIP
+for the six dependency models and verify each member before use.
+Frozen schedules/specifications, full play/replay/reproduction, telemetry,
+native full audits, original source reviews and preventive-stop records are
+`research/*`; orchestration/report helpers are `planning/*`.
+Executed-source member `research/source-code-38c83f2.tar` SHA256 `81229e253da5262bfdbfb8d1bece7d8dc55da22a2037afbef96df3fb46b4b0d4`
+omits only grandfathered research payloads, with exact Git-blob restoration.
+Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086beeb1ecc0728557015118d42fa0317fc`.
+Upload/validation/end-review receipts generated after packing remain compact Git evidence;
+archive originals and all scientific members remain unchanged.
+
 ## PR222 trained K50 bench — partial/unclassified, October10
 
 [PR222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222),

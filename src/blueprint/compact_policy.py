@@ -138,6 +138,26 @@ class CompactBuilder:
         self.counts.append(count)
         self.flags.append(1 if flag else 0)
 
+    def build_sorted(self):
+        """Use native sorted exports without a second full table or sort array.
+
+        Verify strict ordering in bounded chunks before exposing views. NumPy
+        retains each buffer, so deleting the builder leaves immutable inference
+        ownership with the compact containers, exactly like build().
+        """
+        keys = np.frombuffer(self.digests, dtype="S16")
+        for start in range(1, len(keys), 65536):
+            end = min(len(keys), start + 65536)
+            if bool(np.any(keys[start:end] <= keys[start-1:end-1])):
+                raise ValueError("Native policy keys are not strictly sorted")
+        index = _Index(keys)
+        return (CompactEntries(index, tuple(self.menus),
+                    np.frombuffer(self.menu, dtype=np.uint16),
+                    np.frombuffer(self.offsets, dtype=np.uint64),
+                    np.frombuffer(self.probabilities, dtype=np.float64)),
+                CompactFlags(index, np.frombuffer(self.flags, dtype=np.uint8).view(np.bool_)),
+                CompactCounts(index, np.frombuffer(self.counts, dtype=np.uint64)))
+
     def build(self):
         """(entries, flagged keys, counts); raises on a duplicate key."""
         keys = np.frombuffer(bytes(self.digests), dtype="S16")

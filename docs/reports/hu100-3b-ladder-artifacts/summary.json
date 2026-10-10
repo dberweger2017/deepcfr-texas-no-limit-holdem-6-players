@@ -1,0 +1,509 @@
+{
+  "source": "38c83f2eab09b5247a8c16344ce6d0a3d00c43af",
+  "primary": {
+    "actions_replayed": 5104979,
+    "all_native_menu_actions": true,
+    "bb_per_100": 29.51211929321289,
+    "blocks": 524288,
+    "bonferroni_three_ci": [
+      26.225947013741834,
+      32.798291572683944
+    ],
+    "ci95": [
+      26.821715008418415,
+      32.202523578007366
+    ],
+    "coverage": {
+      "HU100-average-1000002065/flop": {
+        "decisions": 680770,
+        "lookup": {
+          "missing-key": 18,
+          "positive-mass-known-key": 680741,
+          "zero-mass": 11
+        },
+        "visit_bands": {
+          "0": 166,
+          "1-9": 2073,
+          "10-99": 13903,
+          "100+": 664628
+        }
+      },
+      "HU100-average-1000002065/preflop": {
+        "decisions": 1085491,
+        "lookup": {
+          "positive-mass-known-key": 1085490,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 7,
+          "1-9": 340,
+          "10-99": 10012,
+          "100+": 1075132
+        }
+      },
+      "HU100-average-1000002065/river": {
+        "decisions": 309933,
+        "lookup": {
+          "missing-key": 114,
+          "positive-mass-known-key": 309712,
+          "zero-mass": 107
+        },
+        "visit_bands": {
+          "0": 1293,
+          "1-9": 9138,
+          "10-99": 36483,
+          "100+": 263019
+        }
+      },
+      "HU100-average-1000002065/turn": {
+        "decisions": 474202,
+        "lookup": {
+          "missing-key": 117,
+          "positive-mass-known-key": 473980,
+          "zero-mass": 105
+        },
+        "visit_bands": {
+          "0": 1239,
+          "1-9": 9175,
+          "10-99": 41508,
+          "100+": 422280
+        }
+      },
+      "HU100-average-2000000460/flop": {
+        "decisions": 683403,
+        "lookup": {
+          "missing-key": 2,
+          "positive-mass-known-key": 683395,
+          "zero-mass": 6
+        },
+        "visit_bands": {
+          "0": 77,
+          "1-9": 1156,
+          "10-99": 9226,
+          "100+": 672944
+        }
+      },
+      "HU100-average-2000000460/preflop": {
+        "decisions": 1083877,
+        "lookup": {
+          "positive-mass-known-key": 1083875,
+          "zero-mass": 2
+        },
+        "visit_bands": {
+          "0": 4,
+          "1-9": 119,
+          "10-99": 5173,
+          "100+": 1078581
+        }
+      },
+      "HU100-average-2000000460/river": {
+        "decisions": 310900,
+        "lookup": {
+          "missing-key": 36,
+          "positive-mass-known-key": 310821,
+          "zero-mass": 43
+        },
+        "visit_bands": {
+          "0": 470,
+          "1-9": 5333,
+          "10-99": 26547,
+          "100+": 278550
+        }
+      },
+      "HU100-average-2000000460/turn": {
+        "decisions": 476403,
+        "lookup": {
+          "missing-key": 46,
+          "positive-mass-known-key": 476318,
+          "zero-mass": 39
+        },
+        "visit_bands": {
+          "0": 592,
+          "1-9": 5424,
+          "10-99": 29087,
+          "100+": 441300
+        }
+      }
+    },
+    "decision": "improves",
+    "half_width": 2.6904042847944747,
+    "hands_replayed": 1048576,
+    "seconds": 597.412080375012,
+    "settlement_sum_zero": true,
+    "status": "verified"
+  },
+  "rungs": {
+    "1b-vs-500m": {
+      "actions_replayed": 4845987,
+      "all_native_menu_actions": true,
+      "bb_per_100": 38.93113136291504,
+      "blocks": 524288,
+      "bonferroni_three_ci": [
+        35.24932247936507,
+        42.61294024646501
+      ],
+      "ci95": [
+        35.91681757967918,
+        41.945445146150895
+      ],
+      "coverage": {
+        "HU100-average-1000002065/flop": {
+          "decisions": 634697,
+          "lookup": {
+            "missing-key": 11,
+            "positive-mass-known-key": 634669,
+            "zero-mass": 17
+          },
+          "visit_bands": {
+            "0": 149,
+            "1-9": 2180,
+            "10-99": 14988,
+            "100+": 617380
+          }
+        },
+        "HU100-average-1000002065/preflop": {
+          "decisions": 1071569,
+          "lookup": {
+            "positive-mass-known-key": 1071567,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 9,
+            "1-9": 325,
+            "10-99": 14446,
+            "100+": 1056789
+          }
+        },
+        "HU100-average-1000002065/river": {
+          "decisions": 277367,
+          "lookup": {
+            "missing-key": 78,
+            "positive-mass-known-key": 277177,
+            "zero-mass": 112
+          },
+          "visit_bands": {
+            "0": 896,
+            "1-9": 9143,
+            "10-99": 37518,
+            "100+": 229810
+          }
+        },
+        "HU100-average-1000002065/turn": {
+          "decisions": 439098,
+          "lookup": {
+            "missing-key": 138,
+            "positive-mass-known-key": 438856,
+            "zero-mass": 104
+          },
+          "visit_bands": {
+            "0": 1128,
+            "1-9": 9164,
+            "10-99": 43365,
+            "100+": 385441
+          }
+        },
+        "HU100-average-500000323/flop": {
+          "decisions": 636914,
+          "lookup": {
+            "missing-key": 36,
+            "positive-mass-known-key": 636849,
+            "zero-mass": 29
+          },
+          "visit_bands": {
+            "0": 428,
+            "1-9": 4174,
+            "10-99": 23996,
+            "100+": 608316
+          }
+        },
+        "HU100-average-500000323/preflop": {
+          "decisions": 1079317,
+          "lookup": {
+            "positive-mass-known-key": 1079315,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 35,
+            "1-9": 1218,
+            "10-99": 21271,
+            "100+": 1056793
+          }
+        },
+        "HU100-average-500000323/river": {
+          "decisions": 274645,
+          "lookup": {
+            "missing-key": 226,
+            "positive-mass-known-key": 274164,
+            "zero-mass": 255
+          },
+          "visit_bands": {
+            "0": 2430,
+            "1-9": 15075,
+            "10-99": 50165,
+            "100+": 206975
+          }
+        },
+        "HU100-average-500000323/turn": {
+          "decisions": 432380,
+          "lookup": {
+            "missing-key": 306,
+            "positive-mass-known-key": 431867,
+            "zero-mass": 207
+          },
+          "visit_bands": {
+            "0": 2348,
+            "1-9": 15227,
+            "10-99": 60197,
+            "100+": 354608
+          }
+        }
+      },
+      "decision": "improves",
+      "half_width": 3.0143137832358575,
+      "hands_replayed": 1048576,
+      "seconds": 570.0217350000166,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "terminal-vs-1b": {
+      "actions_replayed": 5104979,
+      "all_native_menu_actions": true,
+      "bb_per_100": 29.51211929321289,
+      "blocks": 524288,
+      "bonferroni_three_ci": [
+        26.225947013741834,
+        32.798291572683944
+      ],
+      "ci95": [
+        26.821715008418415,
+        32.202523578007366
+      ],
+      "coverage": {
+        "HU100-average-1000002065/flop": {
+          "decisions": 680770,
+          "lookup": {
+            "missing-key": 18,
+            "positive-mass-known-key": 680741,
+            "zero-mass": 11
+          },
+          "visit_bands": {
+            "0": 166,
+            "1-9": 2073,
+            "10-99": 13903,
+            "100+": 664628
+          }
+        },
+        "HU100-average-1000002065/preflop": {
+          "decisions": 1085491,
+          "lookup": {
+            "positive-mass-known-key": 1085490,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 7,
+            "1-9": 340,
+            "10-99": 10012,
+            "100+": 1075132
+          }
+        },
+        "HU100-average-1000002065/river": {
+          "decisions": 309933,
+          "lookup": {
+            "missing-key": 114,
+            "positive-mass-known-key": 309712,
+            "zero-mass": 107
+          },
+          "visit_bands": {
+            "0": 1293,
+            "1-9": 9138,
+            "10-99": 36483,
+            "100+": 263019
+          }
+        },
+        "HU100-average-1000002065/turn": {
+          "decisions": 474202,
+          "lookup": {
+            "missing-key": 117,
+            "positive-mass-known-key": 473980,
+            "zero-mass": 105
+          },
+          "visit_bands": {
+            "0": 1239,
+            "1-9": 9175,
+            "10-99": 41508,
+            "100+": 422280
+          }
+        },
+        "HU100-average-2000000460/flop": {
+          "decisions": 683403,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 683395,
+            "zero-mass": 6
+          },
+          "visit_bands": {
+            "0": 77,
+            "1-9": 1156,
+            "10-99": 9226,
+            "100+": 672944
+          }
+        },
+        "HU100-average-2000000460/preflop": {
+          "decisions": 1083877,
+          "lookup": {
+            "positive-mass-known-key": 1083875,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 4,
+            "1-9": 119,
+            "10-99": 5173,
+            "100+": 1078581
+          }
+        },
+        "HU100-average-2000000460/river": {
+          "decisions": 310900,
+          "lookup": {
+            "missing-key": 36,
+            "positive-mass-known-key": 310821,
+            "zero-mass": 43
+          },
+          "visit_bands": {
+            "0": 470,
+            "1-9": 5333,
+            "10-99": 26547,
+            "100+": 278550
+          }
+        },
+        "HU100-average-2000000460/turn": {
+          "decisions": 476403,
+          "lookup": {
+            "missing-key": 46,
+            "positive-mass-known-key": 476318,
+            "zero-mass": 39
+          },
+          "visit_bands": {
+            "0": 592,
+            "1-9": 5424,
+            "10-99": 29087,
+            "100+": 441300
+          }
+        }
+      },
+      "decision": "improves",
+      "half_width": 2.6904042847944747,
+      "hands_replayed": 1048576,
+      "seconds": 597.412080375012,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    }
+  },
+  "frozen_plan": {
+    "all_completed_operations_seconds": 6890.82524561882,
+    "blocks_per_rung": 524288,
+    "cost_rule": "2x measured fixed cost plus block-scaled pilot cost; hardware/disk-admitted primary;10h scope threshold for descriptive/secondary; no pilot winnings/variance",
+    "decision": "paired Student-t 95% lower >0",
+    "direct_quote_seconds": 18398.61588561302,
+    "dropped_descriptive_rungs": [],
+    "expected_planning_half_width": 4.506977089305037,
+    "full_pair_pilot_family_peaks": {
+      "1b-vs-500m": 3230695424,
+      "terminal-vs-1b": 4006903808
+    },
+    "primary": "terminal-vs-1b",
+    "requested_full_scope_quote_seconds": 35754.01323377504,
+    "root": 2026100922202,
+    "rungs": [
+      "terminal-vs-1b",
+      "1b-vs-500m"
+    ],
+    "science_outcomes_used_to_select_budget": false,
+    "scripted_blocks": 4096,
+    "scripted_root": 2026100922204,
+    "secondary_quote_seconds": 2121.5735216105822,
+    "skip_secondary": false,
+    "stage_a_quote_seconds": 6542.998580932617,
+    "storage": {
+      "archive_original_reserve_bytes": 5545136377,
+      "archive_reserve_basis": "unique local inodes; hash-verified indexed model inodes and full historical-source snapshots excluded; different-inode equal bytes conservatively retained",
+      "available_bytes": 37159399424,
+      "disk_floor_bytes": 17179869184,
+      "existing_original_bytes": 18206525629,
+      "final_workspace_bytes": 1073741824,
+      "hash_verified_indexed_model_bytes_excluded_from_zip": 6852632460,
+      "overhead_bytes": 1073741824,
+      "pilot_peak_family_bytes": 4006903808,
+      "raw_and_archive_copies": 2,
+      "raw_bytes_per_block_per_rung": 2044.5,
+      "required_additional_free_bytes": 29605334009.0
+    },
+    "ten_hour_scope_threshold_exceeded": false,
+    "training_actual_seconds": 5773.367873907089
+  },
+  "training": [
+    {
+      "requested": 500000000,
+      "spec": {
+        "actual_nodes": 500000323,
+        "bytes": 836277172,
+        "entries": 30027422,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 441628,
+        "name": "HU100-average-500000323",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/500000000/average.gz",
+        "sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+        "source_checkpoint_sha256": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788"
+      },
+      "gate": {
+        "actual": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+        "actual_nodes": 500000323,
+        "expected": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+        "status": "passed",
+        "terminal_capacity_stop": false
+      }
+    },
+    {
+      "requested": 1000000000,
+      "spec": {
+        "actual_nodes": 1000002065,
+        "bytes": 1173264021,
+        "entries": 41010014,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 885307,
+        "name": "HU100-average-1000002065",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/1000000000/average.gz",
+        "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+        "source_checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+      },
+      "gate": {
+        "actual": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+        "actual_nodes": 1000002065,
+        "expected": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+        "status": "passed",
+        "terminal_capacity_stop": false
+      }
+    },
+    {
+      "requested": 2000000000,
+      "spec": {
+        "actual_nodes": 2000000460,
+        "bytes": 1603422956,
+        "entries": 54626283,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1812907,
+        "name": "HU100-average-2000000460",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/2000000000/average.gz",
+        "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+        "source_checkpoint_sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676"
+      },
+      "gate": {
+        "actual": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+        "actual_nodes": 2000000460,
+        "expected": null,
+        "status": "passed",
+        "terminal_capacity_stop": false
+      }
+    }
+  ],
+  "all_final_hands_replayed_and_reproduced": true
+}
