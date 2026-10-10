@@ -11,8 +11,8 @@ from scripts import archive_hu100_4b_seed_ladder as archive
 def test_reference_caps_and_recipe(tmp_path):
     assert run.cap_for(2026100601, 1_000_000_000) == 57_658_644
     assert run.cap_for(2026100601, 2_000_000_000) == 67_419_934
-    assert run.cap_for(2026100601, 4_000_000_000) == 61_801_606
-    assert run.cap_for(2026100901, 2_000_000_000) == 61_801_606
+    assert run.cap_for(2026100601, 4_000_000_000) == 72_437_552
+    assert run.cap_for(2026100901, 2_000_000_000) == 72_437_552
     command = list(map(str, run.train_command(2026100902, 2_000_000_000, tmp_path)))
     assert command[command.index("--average-rule")+1] == "opponent-sampled"
     assert command[command.index("--stack-bb")+1] == "100"
@@ -123,3 +123,37 @@ def test_executable_match_specs_bound_to_frozen_pairs(tmp_path, monkeypatch):
     spec.write_text(json.dumps([{"name": "selected-other-candidate"}, {"name": "fixed-baseline"}]))
     with pytest.raises(ValueError, match="differ from declared pair"):
         evaluation.checked_specs(pairs)
+
+
+def test_freeze_preserves_each_primary_memory_admitted_sample(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from scripts import evaluate_hu100_4b_seed_ladder as evaluation
+    monkeypatch.setattr(evaluation, "OUT", tmp_path/"out")
+    monkeypatch.setattr(evaluation, "ROOT", tmp_path/"repo")
+    monkeypatch.setattr(evaluation.campaign, "source", lambda: "fixed-source")
+    monkeypatch.setattr(evaluation.shutil, "disk_usage", lambda p: SimpleNamespace(free=120*run.GIB))
+    monkeypatch.setattr(evaluation.subprocess, "check_output", lambda *a, **k: "100\n")
+    captured = []
+    monkeypatch.setattr(evaluation, "freshness", lambda blocks, label: captured.append((blocks.copy(), label)))
+    pairs = {r: [{"name": r+"-a"}, {"name": r+"-b"}] for r in ("p0", "p1", "p2", "d0", "d1")}
+    evaluation.put(evaluation.OUT/"pairs.json", {"pairs": pairs, "primary": ["p0", "p1", "p2"], "descriptive": ["d0", "d1"]})
+    for rung, pair in pairs.items():
+        evaluation.put(evaluation.OUT/"specs"/(rung+".json"), pair)
+        arm = {"load_or_validation_seconds": 3, "files": {"trace.gz": {"bytes": 32000}}}
+        evaluation.put(evaluation.OUT/"direct-pilot"/rung/"costs.json",
+            {"outcomes_inspected_for_quote": False, "blocks": 32, "seconds": 8, "primary": arm, "repeat": arm})
+        peak = int(5.5*run.GIB) if rung == "p0" else 4*run.GIB
+        evaluation.put(evaluation.OUT/"guards/operations"/("direct-pilot-"+rung)/"receipt.json",
+            {"peak_family_rss_bytes": peak, "seconds": 8})
+    evaluation.put(evaluation.ROOT/"docs/reports/hu100-3b-ladder-artifacts/model-input-index.json", {"models": []})
+    evaluation.put(evaluation.ROOT/"docs/reports/hu100-independent-stages-artifacts/model-index.json", {"assets": []})
+    evaluation.put(evaluation.OUT/"archive-pilot-cost.json",
+        {"seconds_including_source_hash_pack_readback_whole_hash": 1, "logical_member_bytes": 1000000})
+    evaluation.freeze()
+    frozen = evaluation.read(evaluation.OUT/"frozen-final.json")
+    assert frozen["blocks_per_contrast"]["p0"] == 262144
+    assert frozen["blocks_per_contrast"]["p1"] == 524288
+    assert frozen["blocks_per_contrast"]["p2"] == 524288
+    assert frozen["primary_confidence"] == 1-.05/3
+    assert captured == [(frozen["blocks_per_contrast"], "final")]
+    assert frozen["outcomes_used_for_budget"] is False

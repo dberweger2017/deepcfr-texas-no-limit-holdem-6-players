@@ -53,8 +53,9 @@ def freshness(blocks, label):
     seen, prior = prior_deals(next(iter(pairs.values())))
     old_count = len(seen)
     hashes = {}
-    for root, count in ((campaign.PILOT_ROOT, 32), (campaign.FINAL_ROOT, blocks)):
+    for root in (campaign.PILOT_ROOT, campaign.FINAL_ROOT):
         for rung, specs in pairs.items():
+            count = 32 if root == campaign.PILOT_ROOT else blocks[rung] if isinstance(blocks, dict) else blocks
             schedule = build_schedule(make_plan(specs, count, root, rung))
             seeds = {b.deal_seeds[0] for b in schedule}
             if len(seeds) != count or seen.intersection(seeds):
@@ -130,8 +131,7 @@ def freeze():
     existing_pins = {pin["sha256"]: pin["bytes"] for model in history["models"] for pin in model["files"].values()}
     other = read(ROOT/"docs/reports/hu100-independent-stages-artifacts/model-index.json")
     existing_pins.update({asset["sha256"]: asset["bytes"] for asset in other["assets"]})
-    indexed_bytes = 0
-    exclusions = []
+    indexed_bytes, exclusions = 0, []
     for path in (OUT/"training").glob("*/*/*.gz"):
         actual = file_hash(path)
         if actual in existing_pins:
@@ -141,31 +141,46 @@ def freeze():
             exclusions.append({"path": str(path.relative_to(OUT)), "bytes": path.stat().st_size, "sha256": actual})
     archive_base = unique_bytes(OUT)-indexed_bytes
     free = shutil.disk_usage(OUT).free
-    candidates = []
-    for blocks in (1_048_576, 524_288, 262_144, 131_072):
-        memory = {r: rates[r]["pilot_family_peak_bytes"]+2048*blocks+100_000_000 for r in rates}
-        raw = math.ceil(blocks*sum(r["raw_bytes_per_block"] for r in rates.values()))
-        required = 16*GIB+archive_base+2*raw+2*GIB
-        candidates.append({"blocks": blocks, "forecast_family_bytes": memory,
-            "required_additional_free_bytes": required,
-            "memory_admitted": max(memory.values()) < 7*GIB,
-            "disk_admitted": free >= required})
-    admitted = next((c for c in candidates if c["memory_admitted"] and c["disk_admitted"]), None)
-    if admitted is None:
-        put(OUT/"final-storage-memory-inadmission.json", {"candidates": candidates, "available_bytes": free})
-        raise ValueError("Preventive final storage/memory admission")
-    blocks = admitted["blocks"]
+    choices = (1_048_576, 524_288, 262_144, 131_072)
+    candidates, blocks = {}, {}
+    for rung, rate in rates.items():
+        rows = [{"blocks": n, "forecast_family_bytes": rate["pilot_family_peak_bytes"]+5200*n+100_000_000}
+            for n in choices]
+        candidates[rung] = rows
+        selected = next((r for r in rows if r["forecast_family_bytes"] < 7*GIB), None)
+        if selected is None:
+            put(OUT/"final-memory-inadmission.json", {"candidates": candidates})
+            raise ValueError("Preventive final memory admission")
+        blocks[rung] = selected["blocks"]
+    def raw_bytes():
+        return math.ceil(sum(blocks[r]*rates[r]["raw_bytes_per_block"] for r in rates))
+    def disk_required():
+        return 16*GIB+archive_base+2*raw_bytes()+2*GIB
+    # Preserve each primary's hardware-admitted precision before reducing
+    # descriptive samples. All reductions are frozen from costs, not scores.
+    reductions = []
+    while free < disk_required():
+        eligible = [r for group in (plan["descriptive"], plan["primary"])
+            for r in group if blocks[r] > min(choices)]
+        descriptive = [r for r in eligible if r in plan["descriptive"]]
+        eligible = descriptive or eligible
+        if not eligible:
+            put(OUT/"final-storage-inadmission.json", {"blocks": blocks,
+                "required_bytes": disk_required(), "available_bytes": free})
+            raise ValueError("Preventive final storage admission")
+        rung = max(eligible, key=lambda r: blocks[r]*rates[r]["raw_bytes_per_block"])
+        old = blocks[rung]
+        blocks[rung] //= 2
+        reductions.append({"rung": rung, "from": old, "to": blocks[rung], "reason": "disk"})
     operations = [read(p) for p in (OUT/"guards/operations").glob("*/receipt.json")]
     elapsed_operations = sum(o["seconds"] for o in operations)
-    quotes = {r: 2*(rate["fixed_seconds"]+blocks*rate["seconds_per_block"]) for r, rate in rates.items()}
+    quotes = {r: 2*(rate["fixed_seconds"]+blocks[r]*rate["seconds_per_block"]) for r, rate in rates.items()}
     archive_pilot = read(OUT/"archive-pilot-cost.json")
-    archive_bytes = archive_base+math.ceil(blocks*sum(r["raw_bytes_per_block"] for r in rates.values()))+2*GIB
+    archive_bytes = archive_base+raw_bytes()+2*GIB
     archive_quote = 2*archive_pilot["seconds_including_source_hash_pack_readback_whole_hash"]*archive_bytes/archive_pilot["logical_member_bytes"]
     timestamps = subprocess.check_output(["git", "reflog", "--format=%ct"], text=True).splitlines()
     elapsed_checkout_wall = time()-min(map(int, timestamps))
     total = elapsed_checkout_wall+sum(quotes.values())+archive_quote
-    # The ten-hour threshold changes order only: all authorized descriptive
-    # comparisons follow primaries. This fixed workflow omits optional scripts.
     put(OUT/"frozen-final.json", {"source": revision, "blocks_per_contrast": blocks,
         "root": campaign.FINAL_ROOT, "pilot_root": campaign.PILOT_ROOT,
         "primary": plan["primary"], "descriptive": plan["descriptive"],
@@ -177,13 +192,16 @@ def freeze():
         "primary_first_due_to_ten_hour_scope": total > 10*3600,
         "optional_scripted_panel": "omitted; required primary and descriptive matches take priority",
         "planning_sd_bb_per_100": 1113,
-        "projected_adjusted_half_width": 2.394*1113/math.sqrt(blocks),
+        "projected_adjusted_half_width": {r: 2.394*1113/math.sqrt(blocks[r]) for r in plan["primary"]},
         "outcomes_used_for_budget": False, "pilot_costs": rates,
+        "schedule_memory_bytes_per_block": 5200,
+        "schedule_memory_basis": "#223 observed terminal full-minus-pilot family RSS / additional blocks =4807 B/block; headroom plus100MB",
         "storage": {"available_bytes": free, "archive_base_bytes": archive_base,
             "indexed_model_bytes_excluded_from_zip": indexed_bytes,
-            "required_additional_free_bytes": admitted["required_additional_free_bytes"],
+            "required_additional_free_bytes": disk_required(),
             "raw_and_archive_copies": 2, "floor_bytes": 16*GIB},
-        "admission_candidates": candidates, "indexed_model_exclusions": exclusions,
+        "admission_candidates": candidates, "disk_sample_reductions": reductions,
+        "indexed_model_exclusions": exclusions,
         "pairs_sha256": file_hash(OUT/"pairs.json"), "executable_spec_sha256": spec_hashes})
     freshness(blocks, "final")
 
@@ -208,7 +226,7 @@ def final():
         if remaining <= 0:
             raise ValueError("Frozen campaign budget exhausted")
         campaign.guarded("final-direct-"+rung, [sys.executable, "-m", "scripts.evaluate_hu100_direct",
-            "--specs", OUT/"specs"/(rung+".json"), "--blocks", freeze["blocks_per_contrast"],
+            "--specs", OUT/"specs"/(rung+".json"), "--blocks", freeze["blocks_per_contrast"][rung],
             "--root", freeze["root"], "--rung", rung, "--out", OUT/"final-direct"/rung,
             "--source", revision], remaining)
     campaign.guarded("readout", [sys.executable, "-m", MODULE, "readout"])
@@ -223,7 +241,7 @@ def readout():
         repeat = read(base/"reproduction/complete.json")
         if report["status"] != "verified" or not repeat["reproduced_all_hands_and_decisions"]:
             raise ValueError("Every final hand must replay and reproduce")
-        if report["blocks"] != freeze["blocks_per_contrast"]:
+        if report["blocks"] != freeze["blocks_per_contrast"][rung]:
             raise ValueError("Frozen blocks differ")
         primary = rung in freeze["primary"]
         interval = report["bonferroni_three_ci"] if primary else report["ci95"]

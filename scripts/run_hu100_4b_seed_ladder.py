@@ -24,7 +24,7 @@ PR = 226
 SEEDS = (2026100601, 2026100901, 2026100902)
 GATE_CAP = 57_658_644
 REFERENCE_2B_CAP = 67_419_934
-CAP = (7*GIB-100_000_000)//120
+CAP = (7*GIB-200_000_000)//101
 PILOT_ROOT, FINAL_ROOT = 202610104401, 202610104402
 PINS = {
     (2026100601, 1_000_000_000): "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
@@ -139,6 +139,8 @@ def check_gate(seed, target):
         raise ValueError("STOP exact checkpoint gate mismatch; no science retry")
     entries = row["diagnostics"]["entries"]
     stopped = row["completed_nodes"] < target
+    if stopped and seed != SEEDS[0]:
+        raise ValueError("STOP independent-seed 2B target not reached; retain checkpoint without substituting an endpoint")
     if stopped and not (entries >= cap_for(seed, target) or row["stop_requested"]):
         raise ValueError("STOP unexplained incomplete native target")
     if row["completed_nodes"] >= target and row["status"] != "saved":
@@ -192,7 +194,11 @@ def pilot():
     revision = source()
     OUT.mkdir(parents=True, exist_ok=True)
     admission = read(ROOT/"docs/reports/hu100-4b-seed-ladder-artifacts/storage-admission.json")
-    required = admission["forecast"]["required_initial_free_bytes"]
+    forecast = admission["forecast"]
+    extra_entries = max(0, CAP-forecast["four_b_entries"])
+    extra_model_copies = math.ceil(2*extra_entries*admission["historical_inputs"]["measured_2b_model_set_bytes"]
+        /admission["historical_inputs"]["measured_2b_entries"])
+    required = forecast["required_initial_free_bytes"]+extra_model_copies
     if shutil.disk_usage(OUT).free < required:
         raise ValueError("Preventive disk admission: provision campaign storage before pilot")
     put(OUT/"launch-admission.json", {"source": revision, "free_bytes": shutil.disk_usage(OUT).free,

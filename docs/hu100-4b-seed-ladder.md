@@ -36,11 +36,14 @@ Seed 2026100601: 1B gate, 2B gate, then 4B. Seeds 2026100901 and 2026100902:
 - 2026100902 /1B: `c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4`.
 
 Use reference `--max-entries 57658644` through 1B, and reference 67419934
-at original-seed 2B. Before 4B or independent-seed 2B, conservatively set
-capacity to floor((7 GiB -100,000,000 bytes)/120 bytes per entry) =
-61,801,606 entries. The 120 B/entry planning bound includes headroom over
-#223's 6.08 GiB /54,626,283 entries (119.51 B/entry whole-family peak),
-rather than only the native process's smaller RSS. Reassess whether the
+at original-seed 2B. Before 4B or independent-seed 2B, set capacity to
+floor((7 GiB -200,000,000 bytes)/101 bytes per entry) = **72,437,552 entries**.
+#223's guard receipt identifies its 6.08 GiB peak as *final direct evaluation*;
+train/save at2B peaks at4,799,266,816 bytes for54,626,283 entries,
+**87.86 B/entry**. The101 B/entry bound provides15% headroom over that entire
+operation peak, plus200 MB for the added controller and fixed workspace.
+It also exceeds #207's largest measured97.8 B/entry once the fixed reserve
+is included. This distinguishes training capacity from match schedule memory. Reassess whether the
 reference 2B cap is safe before launch using its *actual endpoint*, 54.63M
 entries; that reference gate target terminates below the cap.
 
@@ -115,8 +118,13 @@ inspect costs and sizes only, never winnings/variance. Target primary
 half-width about3 BB/100. Historical #223 largest95% half-width3.01 at524,288
 blocks gives planning SD about1,113 BB/100. Adjusted planning requirement
 ceil((2.394*1113/3)^2) is about789k blocks; propose1,048,576 blocks/contrast.
-Freeze actual sample from measured pilot costs and storage before any final
-hand. No extensions, pooling, checkpoint selection or outcome-driven scope
+Freeze actual sample for each contrast from measured pilot costs, memory and
+storage before any final hand. Contrasts may have different frozen counts.
+For schedule/replay memory, #223's terminal pilot-to-final whole-family
+growth is4,807 B/block; reserve5,200 B/block plus100 MB over each new full-pair
+pilot peak. The2 KiB/block planning allowance previously used by #223
+underestimated its measured final growth. Preserve primary precision before
+reducing descriptive samples for disk admission. No extensions, pooling, checkpoint selection or outcome-driven scope
 change. Any prospectively smaller admitted sample must disclose its projected
 precision limitation.
 
