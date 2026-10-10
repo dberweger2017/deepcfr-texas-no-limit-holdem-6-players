@@ -1,0 +1,11 @@
+{
+  "pr": 225,
+  "authorization_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716",
+  "authorization_created_at": "2026-10-10T12:03:55Z",
+  "authorization": "One new guarded attempt on fixed source: fresh admission, timing-only pilot with full quote, unchanged40root scoring and frozen primary decision. All stopped attempts preserved.",
+  "new_run_root": "results/equity-bench-scoring-fixed-20261010",
+  "evaluator_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+  "fix": "No ps subprocess in ancestry discovery. process_iter metadata snapshot, fresh owned identity checks, direct launched child seeded, access failures stay failclosed; thresholds unchanged.",
+  "tests": "12focusedtests passed including macOS ps discovery, ownership/reparenting/PIDreuse/ownedRSSAccessDenied/qualification/frozenbench.",
+  "frozen_protocol_changed": false
+}

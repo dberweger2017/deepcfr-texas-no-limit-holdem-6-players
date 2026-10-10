@@ -72,7 +72,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
-- **K50 bench scoring ([#225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225)):** initial AC/swap refusal and erroneous setup stop preserved. Final qualification matches the restored evaluator; the actual timing pilot stops after 10.89 seconds on unreadable owned RSS. No score inspection or retry; step 4.3 remains unresolved. [Report](docs/reports/hu20-equity-bench-scoring.md).
+- **K50 bench scoring ([#225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225)):** initial AC/swap refusal and erroneous setup stop preserved. Final qualification matches the restored evaluator; the actual timing pilot stops after 10.89 seconds on unreadable owned RSS. Previous stops preserved; owner-authorized fixed-source scoring is pending. Step 4.3 remains unresolved. [Report](docs/reports/hu20-equity-bench-scoring.md).
 
 - **v0.5.0 released:** the owner authorized publishing #220's candidate, #207's 1B HU100 average with translation 512/128, as stable Latest. It runs with `--v050` on its own HU100 table; the HU20 table keeps v0.4.2 as its default. [Notes](docs/releases/v0.5.0/RELEASE_NOTES.md), [model card](docs/releases/v0.5.0/MODEL_CARD.md).
 

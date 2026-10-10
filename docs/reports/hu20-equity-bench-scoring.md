@@ -1,8 +1,12 @@
-# K50 bench scoring: pilot stopped by unreadable owned RSS
+# K50 bench scoring: new attempt on corrected discovery
 
-**Unclassified. The timing-only pilot launched on the M1 and stopped after 10.89 seconds when the whole-family guard raised `psutil.AccessDenied(pid=7508)` at `process.memory_info().rss`.** No scores were inspected, no complete quote was produced, and the 40-root scoring and report commands were never launched. No retry followed. This says nothing about trained K50 quality; the frozen pass/fail/inconclusive decision cannot be applied.
+**New fixed-source scoring attempt authorized and pending.** The owner identified the setuid-root `ps` sampling helper and [authorized one new attempt](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716). Discovery now uses `psutil.process_iter` without launching a process; thresholds and unreadable-owned-process fail-closed handling remain unchanged. All previous stops and archives remain preserved.
 
-## Corrected qualification and preserved setup history
+The earlier timing-only pilot launched on the M1 and stopped after 10.89 seconds when the whole-family guard raised `psutil.AccessDenied(pid=7508)` at `process.memory_info().rss`. No scores were inspected, no complete quote was produced, and the 40-root scoring and report commands were never launched. No retry followed. This says nothing about trained K50 quality; the frozen pass/fail/inconclusive decision cannot be applied.
+
+## Protocol erratum and preserved setup history
+
+The [owner’s evaluator erratum](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097184148) prospectively pins evaluator `fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f`. #149 engineering amendment 05 superseded the older `4f22…` build without science/request changes. #222’s archived earlier pin is retained as a metadata copy error; its archive is immutable and the frozen scoring protocol otherwise unchanged.
 
 The first admission refused Battery Power at 49% and 4,183.62 MiB used swap. The owner connected AC, reduced swap and authorized continuation. Its [admission receipt](hu20-equity-bench-scoring-artifacts/admission.json) and [accepted administrative archive](https://drive.google.com/file/d/1We8DP3Jbz3SPk2HbKgr5fgNJou8r46Ix/view) remain unchanged. The exact sample timestamp was not captured.
 
@@ -22,7 +26,7 @@ The guard keeps the 7 GiB whole-family ceiling, normal pressure, at least 15% fr
 
 Eight focused qualification/process-family/frozen-bench tests pass, and the staged repository artifact check runs before each commit. The single independent pre-scoring review is clear. The [clear final evidence review](hu20-equity-bench-scoring-artifacts/qualified-evidence-review.json) verifies the stopped pilot, all archive members, restoration and resource metadata without outcome inspection. Native trainer source, protocol, defaults and releases are unchanged. No M4, paid compute, training or other-process termination occurred.
 
-There is no valid E/Q table, learning curve, primary bootstrap, 10M contrast or gap to #190's E=0.3917 witness. This attempt rules out no abstraction-quality hypothesis and supports no full-game step 4 recommendation. Step 4.3 remains unresolved. The immediate next step is to diagnose owned-process RSS sampling under process exit without running the evaluator; another scoring attempt requires a new explicit owner instruction because this launched pilot is stopped under the no-retry rule.
+There is no valid E/Q table, learning curve, primary bootstrap, 10M contrast or gap to #190's E=0.3917 witness. This attempt rules out no abstraction-quality hypothesis and supports no full-game step 4 recommendation. Step 4.3 remains unresolved. The immediate next step is to diagnose owned-process RSS sampling under process exit without running the evaluator; the owner has since explicitly authorized one new attempt on the fixed source, separate from this preserved stop.
 
 ## Storage
 

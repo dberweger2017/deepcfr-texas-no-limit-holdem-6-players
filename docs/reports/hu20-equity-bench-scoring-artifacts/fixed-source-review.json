@@ -1,0 +1,10 @@
+{
+  "reviewer": "/root/scoring_admission_review",
+  "status": "clear",
+  "scope": "continuation of single independent pre-scoring review, owner-authorized fixed discovery source",
+  "findings": "Prior blocker resolved: no discovery helper; fresh owned identity check; launched child registered with parent/create identity; retained reparented PIDs; PID reuse and AccessDenied failclosed. Thresholds, frozen scoring/decision/bootstrap and native trainer unchanged.",
+  "tests_reported_by_parent": 12,
+  "reviewer_science_or_outcomes_inspected": false,
+  "limitation": "Unknown PID with ppid=None cannot establish ancestry. Seeded, retained and ancestry-readable owned processes remain checked.",
+  "proceed": "Verified restoration, prepare and guarded timing pilot under ownercomment6097292716."
+}

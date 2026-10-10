@@ -127,6 +127,13 @@ def main():
             write(folder/'intent.json', {'command': args.command, 'source': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(), 'started': started})
             with (folder/'worker.log').open('x') as log, (folder/'resources.jsonl').open('x') as stream:
                 child = subprocess.Popen(['/usr/bin/time','-l',*args.command], stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+                try:
+                    launched = psutil.Process(child.pid)
+                    if launched.ppid() != os.getpid():
+                        raise RuntimeError('Launched child identity changed')
+                    known[child.pid] = launched.create_time()
+                except (psutil.NoSuchProcess, psutil.ZombieProcess):
+                    pass
                 while True:
                     rss = family_rss(known)
                     sample = host(args.out)

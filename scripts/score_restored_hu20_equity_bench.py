@@ -89,7 +89,7 @@ def prepare(base):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('prepare','pilot','evaluate','report'))
-    parser.add_argument('--base',type=Path,default=Path('results/equity-bench-scoring-qualified-20261010'))
+    parser.add_argument('--base',type=Path,default=Path('results/equity-bench-scoring-fixed-20261010'))
     args = parser.parse_args()
     base = args.base.resolve()
     if args.command == 'prepare':
