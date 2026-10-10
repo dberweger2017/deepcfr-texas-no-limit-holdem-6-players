@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **Native export workspace:** current-policy exports of sorted checkpoints now stream without the on-disk sort that stopped #223 before 3B (13.58 GiB at 2B). Outputs are byte-identical; the workspace beyond the output files is now zero. [Report](docs/reports/native-streamed-export.md).
+
 - **HU100 direct ladder ([#223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/223)):** preventive disk admission stops at the fully audited 2B terminal; 3B never starts. Fresh 500M/1B match #207 exactly. Terminal beats 1B **+29.51 [26.82,32.20] BB/100** over 524,288 duplicate blocks; all final hands replay/reproduce. Five scripted gains are inconclusive. [Report](docs/reports/hu100-3b-ladder.md); one-seed evidence, no release or default change.
 
 - **K50 trained bench ([#222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222)), partial/unclassified:** four10M trajectories and deterministic prefixes pass; process visibility fails during the scoring pilot, so final scoring never starts. [Report](docs/reports/hu20-equity-bench.md) retains all partials and visits; no scientific retry or abstraction adoption. Accepted partial ZIP retains failures and visits; StageB proceeds independently.
