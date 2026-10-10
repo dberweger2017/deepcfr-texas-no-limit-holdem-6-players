@@ -1,0 +1,17 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "checked_at": "2026-10-10T11:57:07.187064+00:00",
+  "archive_id": "1PwKrWrE6Lfp1yAvAxFtn8jf6AzdZiMl1",
+  "archive_bytes": 217376,
+  "native_uploaded": true,
+  "native_uploading": false,
+  "native_conflicts": false,
+  "native_sync_paused": false,
+  "cloud_name": "hu20-equity-bench-scoring-qualified-pilot-stop-M1-20261010.zip",
+  "cloud_parent_ids": [
+    "1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi"
+  ],
+  "cloud_bytes": "217376",
+  "remote_archive_bytes_downloaded": false,
+  "cloud_content_hash_not_rechecked": true
+}

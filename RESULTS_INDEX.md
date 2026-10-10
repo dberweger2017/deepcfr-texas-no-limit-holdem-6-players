@@ -92,6 +92,51 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR225 actual timing pilot stopped — October 10
+
+Corrected source `32b126c4cf298e28b8a70e0da53fd734d1465fa3`, isolated M1
+checkout `~/Local/hu20-equity-bench-scoring`, fresh ignored root
+`results/equity-bench-scoring-qualified-20261010`. All three source archive
+hashes, **281 members /24 aliases /three K50 tables** verify; preparation
+checks the final qualified evaluator exactly. [Restoration](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-restoration.json)
+records every member/path/size/hash/mtime/Drive archive locator. Exact retrieval
+command `python -m planning.restore_scoring` is preserved in this archive;
+it verifies archives and every selected member before use.
+
+The actual timing pilot launches, then stops after **10.8885 seconds** on
+`psutil.AccessDenied(pid=7508)` at an owned-process RSS probe. All **178**
+successful restoration/preparation/pilot samples pass applicable limits;
+RSS at the unreadable sample is unknown. Cleanup has no error and no own
+workers remain. Scores were not inspected; no complete quote, final 40-root
+scoring, E/Q/bootstrap/decision, or retry. [Stopped summary](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-stopped-summary.json),
+[report](docs/reports/hu20-equity-bench-scoring.md). All earlier stops remain
+preserved separately. The setup evaluator error is resolved, as below.
+
+Accepted [stopped-pilot ZIP](https://drive.google.com/file/d/1PwKrWrE6Lfp1yAvAxFtn8jf6AzdZiMl1/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-qualified-pilot-stop-M1-20261010.zip`,
+**217,376 bytes /40 payload members**, SHA256
+`dbc5ae631691a99aa99c65ead66963aea0fb791ba37d1bd5cd6905e598dca20d`.
+Embedded manifest SHA256
+`67599a29922f2d6ccab625bab7cb8d39f7d901912f2fe28db4bd059c21dabe6d`.
+[Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-archive-receipt.json)
+and [separate native/cloud acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-cloud-upload.json)
+confirm all member sizes/hashes, uploaded=1/uploading=0/conflicts=0/unpaused,
+cloud ID/name/size/PR225 folder parent. No remote archive bytes redownloaded.
+
+The ZIP retains partial pilot native response/progress **without numeric
+inspection**, executed pilot request, raw guard telemetry/failure/admission,
+source, helper, localization and restoration provenance. No exported policies,
+adapters, references or tables are duplicated. Their accepted PR222/190/163
+archive IDs/member hashes are in the restoration receipt. Other localized
+prepared requests reconstruct from the helper and localization receipt.
+After accepted upload and the [clear final evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-evidence-review.json),
+immediate exact set/path/size/mtime/SHA/open-handle checks pass and **305 own
+extracted copies** are removed. [Cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-cleanup-receipt.json)
+records every removed path and source archive/member/hash; 3,755,888,589 logical
+bytes include hardlink aliases and do not measure physical space reclaimed.
+Outputs, prepared files, receipts and failure latch remain; no synced or other
+PR files are deleted.
+
 ## PR225 preparation error resolved — October 10
 
 The historical preparation stop below compared #222's obsolete setup pin.
