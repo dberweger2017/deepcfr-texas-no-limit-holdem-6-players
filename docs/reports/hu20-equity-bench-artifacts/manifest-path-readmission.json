@@ -1,0 +1,17 @@
+{
+  "at": 1791580838.943964,
+  "scope": "manifest path setup correction only; no scientific retry or resource breach",
+  "original_baseline_sha256": "ae34951d304f219a1c233d61f7ce5acf02296f82442c670a986a35092c1b12ec",
+  "new_baseline_byte_identical": true,
+  "previous_setup_receipt": "preparation-readmission.json",
+  "failure_sha256": "39d0cb42fa96c6bc1353d9e512c594325cbf5cea143591a1244fabdf3b515dde",
+  "receipt_sha256": "5d209ae8010a39c405f953160ade3713132001b40fdf927afb4cf8e328599e31",
+  "worker_sha256": "ab8164d2870505feca206d77c45fd7e190882d5b74ee1e1e3bdc3de71a133e33",
+  "pinned_archive_sha256_passed": "198301d2c14a8abf35a1567c241e96254294c10941ebca7efc96ae92c15170c7",
+  "manifest_member": "pr169-scoring-6fd63e0/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "b791f688d16fe1761fc55ebfe21e67a8b03cd59bbf82b158053aa4f110cef57e",
+  "required_member_paths_sizes_preflight": 120,
+  "scientific_runs_restarted": false,
+  "scoring_started": false,
+  "all_failures_and_originals_retained": true
+}

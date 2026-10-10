@@ -40,7 +40,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 4. **Card abstraction — in progress.** Follow the [abstraction lessons](docs/reports/hu20-abstraction-lessons.md). Each step depends on the one before:
    1. **validation complete:** [#190](docs/reports/hu20-global-bucket-validation.md) passes at K50 E 0.3917 [0.3614, 0.4234] BB, reproducing fitted50's advantage over v1. K200 is descriptively worse at 0.4233; all coverage/replay and independent audit checks pass.
    2. **bucket keys done:** [`…-equity-k50-v1`](docs/reports/native-equity-bucket-keys.md) keys postflop cards by #163's pinned K50 tables in the native trainer, bench and Python key function, with exact Rust/Python parity. It has about 1.4× v1's keys;
-   3. a trained bench comparison against v1 at matched visits per key, or each at its plateau;
+   3. **trained bench unresolved:** [#222](docs/reports/hu20-equity-bench.md) completes v1/K50 training through10M and matched visits, but stops at a process-monitor failure during the scoring pilot; no held-out decision or scientific retry;
    4. full-game confirmation: learning curves, then a direct match against the current release and the arena rule.
 5. **Turn search — diagnosed, adoption unresolved.** The [fixed-work arena](docs/reports/hu20-fixed-work-arena/attempt-2-closeout.md) gains against LBR/native pressure; the [stackoff diagnosis](docs/reports/hu20-search-stackoff-diagnosis.md) finds mis-modeled value callers and future folds, rather than large-bet over-calling. Its −10.35 BB/100 regression is plausible but not established after 13-panel adjustment. Fresh unchanged-search confirmation is quoted, awaiting owner approval; no direct search-versus-no-search match yet.
 6. **Flop search — conditional,** only if the evidence still supports it at 20 BB.
@@ -70,7 +70,11 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-*Updated October 9, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+*Updated October 10, 2026.*
+
+- **K50 trained bench ([#222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222)), partial/unclassified:** four10M trajectories and deterministic prefixes pass; process visibility fails during the scoring pilot, so final scoring never starts. [Report](docs/reports/hu20-equity-bench.md) retains all partials and visits; no scientific retry or abstraction adoption. Accepted partial ZIP retains failures and visits; StageB proceeds independently.
+
+Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **v0.5.0 readiness ([#220](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/220)), owner-authorized merge:** exact #207 seed2026100601 HU100 average, translation512/128 proposed; released v0.4.2 defaults unchanged. Clean M4 package/CLI/browser/restart/independent replay validates25 complete integration hands plus a disclosed paused partial browser decision. Guards pass; locally verified evidence ZIP/sidecars staged in Research-Cloud within42.45min of original60min, upload-acceptance handoff with originals retained. [Readiness](docs/releases/v0.5.0/READINESS.md) preserves #215 FAILED overall qualification/inconclusive adjusted tight gain and unproven pot profitability; no additional science gate for revised usable/internal-evaluation scope. Independent review clear; owner requested merge after renewed current-main integration checks. Publication remains separate. Owner still decides candidate/translation publication and exact source/tag/assets/default/Latest separately; #218 HU200 independent.
 

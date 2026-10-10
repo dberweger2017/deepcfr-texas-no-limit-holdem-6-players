@@ -11,14 +11,14 @@ ALIASES = {50: "eq50-fit0", 200: "eq50-fit1"}
 BLOCKED = 65535
 
 
-def global_labels(data, tables):
+def global_labels(data, tables, *, ks=(50, 200)):
     """Resolve legal holding/runout states through the unchanged table reader."""
     boards, holdings = data["boards"], data["holdings"]
     codes = np.asarray(data["codes"])
     if codes.shape != (len(boards), len(holdings)):
         raise ValueError("Frozen holding/board matrix dimensions differ")
     output, counts = {}, {}
-    for k in ALIASES:
+    for k in ks:
         matrix = np.full(codes.shape, BLOCKED, dtype=np.uint16)
         for row, board in enumerate(boards):
             street = "turn" if len(board) == 4 else "river"

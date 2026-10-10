@@ -1,0 +1,24 @@
+{
+  "child_alive_after_cleanup": false,
+  "cleanup_error": null,
+  "command": [
+    "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/.venv/bin/python",
+    "-m",
+    "scripts.run_hu20_equity_bench",
+    "pilot"
+  ],
+  "deadline": null,
+  "failure": "psutil.AccessDenied(pid=11563)",
+  "finished": 1791583082.394559,
+  "kernel_command_peak_rss_bytes": null,
+  "name": "scoring-pilot",
+  "peak_family_rss_bytes": 1502429184,
+  "returncode": 0,
+  "samples": 16,
+  "sampling_target_seconds": 0.2,
+  "seconds": 3.2438907623291016,
+  "soft_stop_requested": false,
+  "started": 1791583079.1506681,
+  "status": "failed",
+  "swap_growth_limit_bytes": 3000000000
+}
