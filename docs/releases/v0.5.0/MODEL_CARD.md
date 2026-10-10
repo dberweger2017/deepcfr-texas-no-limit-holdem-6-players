@@ -1,67 +1,61 @@
-# v0.5.0 candidate model card
+# v0.5.0 model card: heads-up 100 BB
 
-Unpublished candidate for usable heads-up 100 BB cash play, internal and scripted
-evaluation only. No established external benchmark, professional-strength claim,
-or publication approval. The release remains v0.4.2 until an owner-approved
-publication workflow changes it.
+The first release for heads-up no-limit hold'em at 100 big blinds. It's a usable local opponent, evaluated with internal checks and scripted opponents only. **No external benchmark exists yet**, so this release makes no claim about strength against established bots or people.
 
-## Exact identity
+## What the model is
 
-Fixed #207 opponent-sampled linear-CFR average, original training seed
-**2026100601**, **1,000,002,065 actual nodes**, iteration **885307**,
-**41,010,014 entries**. This is the existing export, not a re-extraction or the
-best-scoring #215 seed. File `O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`:
-**1,173,264,021 bytes**, SHA256
-`47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`.
-Checkpoint SHA256
-`cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec`.
-Scientific source `bd0e7a417064f736091dc2b667954b50becb4b69`;
-[model index](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/native-hu100-growth-1b-artifacts/model-index.json).
+- **Training:** linear CFR with opponent-sampled averaging, the production recipe of v0.4.1 and v0.4.2, trained natively to **1,000,002,065 nodes** (iteration 885,307) from seed **2026100601**. The table holds **41,010,014** information sets.
+- **Abstraction:** the v1 card descriptor and ordered, size-bucketed betting history, with a menu of min-raise, pot and conditional all-in (`hu100-native-reopening-ordered-history-card-v1`).
+- **Policy:** the normalized stored average. Information sets with no stored average play uniformly over the menu.
+- **Translation, always on:** when a real bet size leaves the trained menu's support, the bot maps the public history to the nearest one the menu can produce (`hu100-public-menu-translation-v1`, at most 512 states and 128 events). Real wagers are never changed, and translation uses public information only.
+- **Not included:** search, opponent modelling, other stack depths.
 
-Candidate identity **v0.5.0-candidate-pr207-translation-v1** includes
-**hu100-public-menu-translation-v1, max_states=512, max_events=128, enabled**,
-exactly #215's evaluated settings. Translation uses bounded public history
-witnesses without hidden cards or policy randomness; real legal wagers remain
-unchanged. Missing/zero-mass unsupported histories retain uniform fallback.
-Average extraction is lifetime iteration opponent-sampled normalization;
-card/history schema is `hu100-native-reopening-ordered-history-card-v1` and
-format remains `holdem-hu100-stored-cfr-average-research-v1`. No search,
-opponent adaptation or arbitrary stack scaling.
+The model is #207's exported average, unchanged: it isn't re-extracted, and it isn't the best of several seeds.
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| `O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz` | 1,173,264,021 | `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9` |
+
+Source checkpoint SHA256 `cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec`; training source `bd0e7a417064f736091dc2b667954b50becb4b69`; [model index](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/native-hu100-growth-1b-artifacts/model-index.json).
 
 ## Table and information
 
-Two seats, 10,000 chips each, blinds 50/100, chip unit 0.01, no ante/rake,
-uncapped no-limit betting, fixed reset each hand, alternating button. Human
-restricted/free and self-play spectator modes are supported. Each bot sees only
-its legal seat observation. Private journals retain deal/sampling state for
-independent replay; human public responses exclude this state and hidden bot
-cards. Spectator inspection is privileged to the viewer, not an agent input.
-HU20/HU200 or mixed-depth combinations are rejected.
+- **Table:** two seats, 10,000 chips each, reset every hand; blinds 50/100; no ante or rake; uncapped no-limit betting; alternating button.
+- **What the bot sees:** only its own seat's legal observation. It never sees the other hole cards, the deck or seeds.
+- **Modes:** human play (restricted or free sizing) and a self-play spectator view.
+- **Journals:** private journals keep what independent replay needs. Responses to the human never include hidden bot cards.
+- **Other depths:** HU20, HU200 and mixed-depth tables are rejected.
 
-## Evidence and limits
+## Evidence
 
-[#207](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/native-hu100-growth-1b.md) supplies exact audited retained
-bytes, recovery, evaluation and replay provenance. [#212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/hu100-local-play.md)
-verified 80 retained-model runtime hands and durable recovery. Neither selects a
-new policy or establishes general strength.
+All results are BB/100 against the scripted opponents, on fresh paired deals with seats swapped.
 
-[#215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/hu100-independent-stages.md) completed three fixed lineages
-on fresh 4,096 paired blocks/opponent, with no sample extension. Loose growth
-and pot translation pass practical support across all three seeds. The original
-**overall recipe qualification failed**: seed 2026100902 tight growth
-+32.54 [-5.11, 70.20] BB/100 at its predeclared 99.1667% adjusted interval is
-inconclusive. A positive descriptive 95% interval cannot replace that decision.
-The selected seed's translation gain is +90.15 [53.53,126.77] at the adjusted
-interval; absolute translated pot result is **-9.33 [-39.10,20.44] BB/100**
-(descriptive 95%). Other seeds' translated pot estimates are also negative with
-intervals crossing zero. Profitability against pot pressure is unproven;
-seed 2026100901 loose absolute profitability is also inconclusive. Reported
-intervals concern these fixed policies/deals, not training-population uncertainty.
+**This model, translation on** ([#215](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/hu100-independent-stages.md), 4,096 blocks per opponent):
 
-The revised v0.5.0 milestone requires usable HU100 and internal/scripted evidence,
-not all-opponent profitability, a successful all-nine-contrast growth recipe,
-or an external benchmark. Those failures remain explicit limitations, not
-waived pass results. v0.8's every-seed opponent-profitability requirement and
-later milestones remain unchanged. [Readiness](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/releases/v0.5.0/READINESS.md) maps each requirement
-and records integration gates and owner decisions. #218's HU200 experiment is
-independent, not a dependency. No new strength experiment is part of preparation.
+| Opponent | BB/100 [95%] |
+|---|---|
+| check_call | +100.51 [81.49, 119.54] |
+| random | +76.89 [4.82, 148.96] |
+| loose_aggressive | +57.10 [21.67, 92.54] |
+| tight_aggressive | +36.30 [18.61, 53.99] |
+| pot_pressure | **−9.33 [−39.10, 20.44]** |
+
+Translation changes only the pot_pressure result: −99.48 with it off.
+
+**Independent seeds.** Two other seeds, trained the same way, beat the same four opponents too. Their pot_pressure results are also negative, with intervals crossing zero.
+
+**The recipe's formal qualification failed.** #215's growth test from 39.4M to 1B nodes passed eight of nine adjusted contrasts. The ninth, seed 2026100902 against tight_aggressive, is +32.54 [−5.11, 70.20] and inconclusive. That decision stands; it isn't re-read from a descriptive interval.
+
+**Head to head** ([#223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/hu100-3b-ladder.md), same seed):
+- this 1B model beats its 500M checkpoint by **+38.93 [35.92, 41.95]**;
+- the 2B checkpoint beats this model by **+29.51 [26.82, 32.20]**.
+
+More training still pays, so stronger HU100 releases are expected.
+
+## Limits
+
+- **No external benchmark.** No suitable public 100 BB opponent has been found; v0.5.5 moves to 200 BB to play Slumbot.
+- **Pot-size pressure:** profit against the pot-pressure opponent is unproven.
+- **What the intervals cover:** they're over deals and action streams for fixed policies, not over training seeds.
+- **Scripted opponents measure little at this level.** They no longer separate 1B from 2B (#223), even though head-to-head play does.
+- **Coverage is still sparse,** at about 4.8 traverser visits per key.

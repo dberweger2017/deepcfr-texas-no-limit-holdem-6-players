@@ -20,7 +20,7 @@ The v0.4.x releases improve heads-up 20 BB; v0.5 starts at 100 BB and adds 200 B
 | **v0.4.1** (released, `v0.4.1`) | The 1B-node linear-CFR opponent-sampled average, seed 2026100601; it beats v0.4.0 in a fresh direct match and passes the arena rule. [Release comparison](docs/reports/v0.4.1-release.md). v0.4.0 stays available. |
 | **v0.4.2** (released, `v0.4.2`, current) | The same recipe at 10B nodes, fixed seed 2026100601. Direct gain +3.50 [+1.63, +5.37] BB/100; all four gates pass, fresh LBR narrowly. [Verified publication record](docs/releases/v0.4.2/PUBLICATION.md). v0.4.0/v0.4.1 stay available. |
 | **v0.4.x** (now) | The Pluribus recipe on heads-up 20 BB: average-policy play, a native trainer, a better training procedure or card abstraction, turn/river search, then flop search, in the order the evidence supports. Each patch must beat its predecessor in a paired arena without severe scenario regressions. |
-| **v0.5 / v0.5.0** | Heads-up 100 BB, validated through internal checks and scripted-opponent evaluations, without an established external benchmark: no suitable free public 100 BB opponent model or API has been verified. No externally established strength claim. |
+| **v0.5.0** (released, `v0.5.0`) | Heads-up 100 BB: #207's 1B-node average, seed 2026100601, with public-history translation (512/128). It beats four of five scripted opponents across three seeds; against pot pressure it's −9 [−39, 20] BB/100. Validated through internal checks and scripted evaluations only: no suitable free public 100 BB opponent has been found, so there is no external strength claim. [Model card](docs/releases/v0.5.0/MODEL_CARD.md). Later v0.5.x releases continue on 100 BB. |
 | **v0.5.5** | Heads-up 200 BB with a policy trained and validated at that depth, tested against Slumbot at its public API's 200 BB stacks. Publish results and uncertainty; these do not establish HU100 strength. **Still to decide (owner):** benchmark acceptance criteria, informed by an exploratory run before fresh confirmation. |
 | **v0.6** | Three players: multiway blueprint and search. |
 | **v0.7** | Four and five players: a blueprint for each table size. |
@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 ## Current position
 
 *Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+
+- **v0.5.0 released:** the owner authorized publishing #220's candidate, #207's 1B HU100 average with translation 512/128, as stable Latest. It runs with `--v050` on its own HU100 table; the HU20 table keeps v0.4.2 as its default. [Notes](docs/releases/v0.5.0/RELEASE_NOTES.md), [model card](docs/releases/v0.5.0/MODEL_CARD.md).
 
 - **Storage for M1 K50 scoring and M4 fresh HU100 ladder (October 10):** uploaded cache released 18.497 GB on M1 and 32.978 GB on M4; 819 unchanged archived M4 originals removed with 37.051 GB measured gain. Verification free 41.924 GB on M1 /96.163 GB on M4; active PR roots/inputs and canonical #207 models retained. [Receipt/restoration](docs/artifacts/storage-vacuum-20261010.md).
 
