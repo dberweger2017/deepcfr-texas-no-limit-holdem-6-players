@@ -36,7 +36,8 @@ def trainer(target,resume=None,*,pilot=False):
         q=run.read(OUT/'training-quote.json')
         fraction=(target-(0 if resume is None else run.read(resume.parent/'gate.json')['actual_nodes']))/3_000_000_000
         quote=q['training_seconds']*max(fraction,.01)+q['save_seconds_per_entry']*q['entries'][str(target)]
-        # Resume loading is charged from #207's measured parser cost per entry.
+        # Historical full-audit timing conservatively covers reloads; it is not
+        # a measurement of native checkpoint parsing.
         if resume:quote+=2*923*run.read(resume.parent/'audit.json')['entries']/41_010_014
     guarded('pilot-train' if pilot else 'train-'+str(target),command,quote,folder/'stop.json')
     return folder

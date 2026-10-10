@@ -1,0 +1,19 @@
+{
+  "at": 1791588451.33933,
+  "status": "prospective-3b-storage-inadmission",
+  "campaign_pid": 13178,
+  "campaign_create_time": 1791583776.418349,
+  "action": "Pause orchestration parent only; allow the guarded 2B full audit to finish. No 3B operation or final evaluation has started.",
+  "measured_2b_entries": 54626283,
+  "forecast_3b_entries": 67419934,
+  "measured_2b_export_peak_net_bytes": 14586634240,
+  "checkpoint_bytes_per_entry": 45.04255903701154,
+  "required_checkpoint_and_export_workspace_bytes": 21039637206,
+  "available_bytes": 35953852416,
+  "remaining_forecast_bytes": 14914215210,
+  "floor_bytes": 17179869184,
+  "science_outcomes_used": false,
+  "actual_guard_breach": false,
+  "trainer_modified": false,
+  "terminal_proposal": "Use fully audited 2B terminal endpoint under the existing terminal-versus-1B rule, without resuming or retrying a scientific operation."
+}

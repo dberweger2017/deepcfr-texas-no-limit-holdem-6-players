@@ -1,0 +1,190 @@
+{
+  "samples": 70225,
+  "guard_violations": [],
+  "peak_family_rss_bytes": 6527090688,
+  "maximum_total_swap_bytes": 1051784642.56,
+  "minimum_system_free_percent": 75,
+  "minimum_disk_free_bytes": 28042076160,
+  "baseline_sha256": {
+    "results/hu100-3b-ladder/guards/baseline.json": "1211beed432b73da58b1855aec46920fa9bc3f50878f9bdcbdac264862a23b9f"
+  },
+  "baseline_byte_identical": true,
+  "operations": [
+    {
+      "name": "direct-pilot-1b-vs-500m",
+      "seconds": 298.0106360912323,
+      "failure": null,
+      "peak_family_rss_bytes": 3230695424,
+      "path": "results/hu100-3b-ladder/guards/operations/direct-pilot-1b-vs-500m/receipt.json"
+    },
+    {
+      "name": "audit-2000000000",
+      "seconds": 1228.017404794693,
+      "failure": null,
+      "peak_family_rss_bytes": 99450880,
+      "path": "results/hu100-3b-ladder/guards/operations/audit-2000000000/receipt.json"
+    },
+    {
+      "name": "direct-pilot-terminal-vs-1b",
+      "seconds": 405.01080107688904,
+      "failure": null,
+      "peak_family_rss_bytes": 4006903808,
+      "path": "results/hu100-3b-ladder/guards/operations/direct-pilot-terminal-vs-1b/receipt.json"
+    },
+    {
+      "name": "freeze",
+      "seconds": 24.611487865447998,
+      "failure": null,
+      "peak_family_rss_bytes": 823705600,
+      "path": "results/hu100-3b-ladder/guards/operations/freeze/receipt.json"
+    },
+    {
+      "name": "train-1000000000",
+      "seconds": 463.0077750682831,
+      "failure": null,
+      "peak_family_rss_bytes": 3687038976,
+      "path": "results/hu100-3b-ladder/guards/operations/train-1000000000/receipt.json"
+    },
+    {
+      "name": "export-2000000000",
+      "seconds": 569.2079453468323,
+      "failure": null,
+      "peak_family_rss_bytes": 58736640,
+      "path": "results/hu100-3b-ladder/guards/operations/export-2000000000/receipt.json"
+    },
+    {
+      "name": "check-2000000000",
+      "seconds": 1.4116079807281494,
+      "failure": null,
+      "peak_family_rss_bytes": 145637376,
+      "path": "results/hu100-3b-ladder/guards/operations/check-2000000000/receipt.json"
+    },
+    {
+      "name": "final-direct-terminal-vs-1b",
+      "seconds": 3301.274067878723,
+      "failure": null,
+      "peak_family_rss_bytes": 6527090688,
+      "path": "results/hu100-3b-ladder/guards/operations/final-direct-terminal-vs-1b/receipt.json"
+    },
+    {
+      "name": "prepare",
+      "seconds": 1.4124343395233154,
+      "failure": null,
+      "peak_family_rss_bytes": 145883136,
+      "path": "results/hu100-3b-ladder/guards/operations/prepare/receipt.json"
+    },
+    {
+      "name": "pairs",
+      "seconds": 0.6117570400238037,
+      "failure": null,
+      "peak_family_rss_bytes": 140886016,
+      "path": "results/hu100-3b-ladder/guards/operations/pairs/receipt.json"
+    },
+    {
+      "name": "final-direct-1b-vs-500m",
+      "seconds": 3040.7791171073914,
+      "failure": null,
+      "peak_family_rss_bytes": 5266587648,
+      "path": "results/hu100-3b-ladder/guards/operations/final-direct-1b-vs-500m/receipt.json"
+    },
+    {
+      "name": "spec-2000000000",
+      "seconds": 1.0115582942962646,
+      "failure": null,
+      "peak_family_rss_bytes": 145850368,
+      "path": "results/hu100-3b-ladder/guards/operations/spec-2000000000/receipt.json"
+    },
+    {
+      "name": "pilot-train",
+      "seconds": 1.6114678382873535,
+      "failure": null,
+      "peak_family_rss_bytes": 95649792,
+      "path": "results/hu100-3b-ladder/guards/operations/pilot-train/receipt.json"
+    },
+    {
+      "name": "audit-500000000",
+      "seconds": 674.8134551048279,
+      "failure": null,
+      "peak_family_rss_bytes": 99860480,
+      "path": "results/hu100-3b-ladder/guards/operations/audit-500000000/receipt.json"
+    },
+    {
+      "name": "check-1000000000",
+      "seconds": 1.2117040157318115,
+      "failure": null,
+      "peak_family_rss_bytes": 145522688,
+      "path": "results/hu100-3b-ladder/guards/operations/check-1000000000/receipt.json"
+    },
+    {
+      "name": "final-secondary",
+      "seconds": 787.8400120735168,
+      "failure": null,
+      "peak_family_rss_bytes": 2795470848,
+      "path": "results/hu100-3b-ladder/guards/operations/final-secondary/receipt.json"
+    },
+    {
+      "name": "train-2000000000",
+      "seconds": 794.5892961025238,
+      "failure": null,
+      "peak_family_rss_bytes": 4799266816,
+      "path": "results/hu100-3b-ladder/guards/operations/train-2000000000/receipt.json"
+    },
+    {
+      "name": "export-1000000000",
+      "seconds": 431.01154923439026,
+      "failure": null,
+      "peak_family_rss_bytes": 58785792,
+      "path": "results/hu100-3b-ladder/guards/operations/export-1000000000/receipt.json"
+    },
+    {
+      "name": "audit-1000000000",
+      "seconds": 922.8127202987671,
+      "failure": null,
+      "peak_family_rss_bytes": 99647488,
+      "path": "results/hu100-3b-ladder/guards/operations/audit-1000000000/receipt.json"
+    },
+    {
+      "name": "train-500000000",
+      "seconds": 370.8124599456787,
+      "failure": null,
+      "peak_family_rss_bytes": 2946367488,
+      "path": "results/hu100-3b-ladder/guards/operations/train-500000000/receipt.json"
+    },
+    {
+      "name": "secondary-pilot",
+      "seconds": 412.4117431640625,
+      "failure": null,
+      "peak_family_rss_bytes": 1749106688,
+      "path": "results/hu100-3b-ladder/guards/operations/secondary-pilot/receipt.json"
+    },
+    {
+      "name": "spec-500000000",
+      "seconds": 1.0125701427459717,
+      "failure": null,
+      "peak_family_rss_bytes": 145588224,
+      "path": "results/hu100-3b-ladder/guards/operations/spec-500000000/receipt.json"
+    },
+    {
+      "name": "export-500000000",
+      "seconds": 310.8127598762512,
+      "failure": null,
+      "peak_family_rss_bytes": 58802176,
+      "path": "results/hu100-3b-ladder/guards/operations/export-500000000/receipt.json"
+    },
+    {
+      "name": "spec-1000000000",
+      "seconds": 1.011918067932129,
+      "failure": null,
+      "peak_family_rss_bytes": 145358848,
+      "path": "results/hu100-3b-ladder/guards/operations/spec-1000000000/receipt.json"
+    },
+    {
+      "name": "check-500000000",
+      "seconds": 1.0116817951202393,
+      "failure": null,
+      "peak_family_rss_bytes": 145326080,
+      "path": "results/hu100-3b-ladder/guards/operations/check-500000000/receipt.json"
+    }
+  ],
+  "scope": "all retained resource samples; administrative setup failures preserved separately"
+}

@@ -1,0 +1,368 @@
+{
+  "source": {
+    "source": "38c83f2eab09b5247a8c16344ce6d0a3d00c43af",
+    "interpreter": "/Users/dberweger/Local/hu100-1b-growth-20261008/.venv/bin/python",
+    "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "native_sha256": "7d0af59cb2f83e23f74847ee67abb086beeb1ecc0728557015118d42fa0317fc",
+    "native_source_unchanged_from_main": "3ca6f81c064595b27e5c1fcaa665769f7c5b4ba5",
+    "preparation_source_archive": "source.tar is pre-science e27c543 and remains local; executed source-code-38c83f2.tar is archived",
+    "stage_a_completed_partial_archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+    "at": 1791583983.30865
+  },
+  "models": [
+    {
+      "requested_nodes": 500000000,
+      "spec": {
+        "actual_nodes": 500000323,
+        "bytes": 836277172,
+        "entries": 30027422,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 441628,
+        "name": "HU100-average-500000323",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/500000000/average.gz",
+        "sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+        "source_checkpoint_sha256": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788"
+      },
+      "gate": {
+        "actual": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+        "actual_nodes": 500000323,
+        "expected": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+        "status": "passed",
+        "terminal_capacity_stop": false
+      },
+      "files": {
+        "checkpoint.gz": {
+          "bytes": 1266489098,
+          "sha256": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/500000000/checkpoint.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/500000000/checkpoint.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/500000000/checkpoint.gz # expected 35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788"
+          }
+        },
+        "current.gz": {
+          "bytes": 753589994,
+          "sha256": "24ce60451708a7b0ace7bfad7873f2f17b0b5a27af8bade73d0f175163441edb",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/500000000/current.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/500000000/current.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/500000000/current.gz # expected 24ce60451708a7b0ace7bfad7873f2f17b0b5a27af8bade73d0f175163441edb"
+          }
+        },
+        "average.gz": {
+          "bytes": 836277172,
+          "sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/500000000/average.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/500000000/average.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/500000000/average.gz # expected f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca"
+          }
+        }
+      }
+    },
+    {
+      "requested_nodes": 1000000000,
+      "spec": {
+        "actual_nodes": 1000002065,
+        "bytes": 1173264021,
+        "entries": 41010014,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 885307,
+        "name": "HU100-average-1000002065",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/1000000000/average.gz",
+        "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+        "source_checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+      },
+      "gate": {
+        "actual": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+        "actual_nodes": 1000002065,
+        "expected": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+        "status": "passed",
+        "terminal_capacity_stop": false
+      },
+      "files": {
+        "checkpoint.gz": {
+          "bytes": 1789504352,
+          "sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/1000000000/checkpoint.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000/checkpoint.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000/checkpoint.gz # expected cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+          }
+        },
+        "current.gz": {
+          "bytes": 1033507823,
+          "sha256": "979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/1000000000/current.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000/current.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000/current.gz # expected 979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21"
+          }
+        },
+        "average.gz": {
+          "bytes": 1173264021,
+          "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+          "owning_pr": 207,
+          "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+          "archive_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view",
+          "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+          "member": "research/training/1000000000/average.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000/average.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000/average.gz # expected 47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+          }
+        }
+      }
+    },
+    {
+      "requested_nodes": 2000000000,
+      "spec": {
+        "actual_nodes": 2000000460,
+        "bytes": 1603422956,
+        "entries": 54626283,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1812907,
+        "name": "HU100-average-2000000460",
+        "path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/training/2000000000/average.gz",
+        "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+        "source_checkpoint_sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676"
+      },
+      "gate": {
+        "actual": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+        "actual_nodes": 2000000460,
+        "expected": null,
+        "status": "passed",
+        "terminal_capacity_stop": false
+      },
+      "files": {
+        "checkpoint.gz": {
+          "bytes": 2460507577,
+          "sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+          "owning_pr": 223,
+          "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+          "archive_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view",
+          "archive_sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+          "member": "research/training/2000000000/checkpoint.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/checkpoint.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000/checkpoint.gz # expected e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676"
+          }
+        },
+        "current.gz": {
+          "bytes": 1381038201,
+          "sha256": "94576d2684a05b19f2bc1f864961d45dc753240ff04a3783a9a762d687c6b1e6",
+          "owning_pr": 223,
+          "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+          "archive_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view",
+          "archive_sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+          "member": "research/training/2000000000/current.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/current.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000/current.gz # expected 94576d2684a05b19f2bc1f864961d45dc753240ff04a3783a9a762d687c6b1e6"
+          }
+        },
+        "average.gz": {
+          "bytes": 1603422956,
+          "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+          "owning_pr": 223,
+          "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+          "archive_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view",
+          "archive_sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+          "member": "research/training/2000000000/average.gz",
+          "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+          "retrieval_commands": {
+            "archive_hash": "shasum -a 256 ARCHIVE.zip # expected e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+            "extract_member": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/average.gz RESTORE_ROOT",
+            "model_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000/average.gz # expected e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+          }
+        }
+      }
+    }
+  ],
+  "archive": {
+    "aliases": 123,
+    "at": 1791598146.815238,
+    "bytes": 7503720854,
+    "cloud_acceptance": "pending",
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "6071b334e45c89922dc73e95e874668b7c3d7449b39624ebc3d97f1c3576fcd0",
+    "member_readback": "all member sizes/SHA256 match",
+    "members": 477,
+    "originals_retained": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip",
+    "remote_bytes_downloaded": false,
+    "sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+    "status": "locally-verified"
+  },
+  "acceptance": {
+    "status": "accepted-native-and-cloud-metadata",
+    "archive": {
+      "aliases": 123,
+      "at": 1791598146.815238,
+      "bytes": 7503720854,
+      "cloud_acceptance": "pending",
+      "manifest_member": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "6071b334e45c89922dc73e95e874668b7c3d7449b39624ebc3d97f1c3576fcd0",
+      "member_readback": "all member sizes/SHA256 match",
+      "members": 477,
+      "originals_retained": true,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip",
+      "remote_bytes_downloaded": false,
+      "sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+      "status": "locally-verified"
+    },
+    "native": {
+      "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+      "at": 1791598405.606421,
+      "bytes": 7503720854,
+      "conflicts": {
+        "exists": true,
+        "nil": false,
+        "unresolved_count": 0
+      },
+      "folder_id": "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+      "is_uploaded": true,
+      "is_uploading": false,
+      "name": "hu100-terminal-2b-ladder-20261010.zip",
+      "originals_retained": true,
+      "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536871039;\n            contentModificationDate = \"2026-10-10 02:08:58 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-10 02:08:38 +0000\";\n            displayName = \"hu100-terminal-2b-ladder-20261010.zip\";\n            documentSize = 7503720854;\n            filename = \"hu100-terminal-2b-ladder-20261010.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 1;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 1;\n            isRecursivelyDownloaded = 1;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 81597;\n            lastUsedDate = \"2026-10-10 02:09:01 +0000\";\n            parentItemIdentifier = 81595;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 454e6a5a ... 35365445 394a5051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpfetT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+      "remote_bytes_downloaded": false,
+      "sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+      "status": "uploaded",
+      "upload_error": false
+    },
+    "cloud": {
+      "status": "confirmed-metadata",
+      "archive": {
+        "id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+        "title": "hu100-terminal-2b-ladder-20261010.zip",
+        "mime_type": "application/zip",
+        "size": "7503720854",
+        "url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      },
+      "folder": {
+        "id": "1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+        "title": "PR-223-hu100-3b-ladder",
+        "mime_type": "application/vnd.google-apps.folder",
+        "size": null,
+        "url": "https://drive.google.com/drive/folders/1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+        "display_url": "https://drive.google.com/drive/folders/1K9iLLPtHZrduVPQf_btzv3OyV1Oe19jp",
+        "file_or_folder": "folder",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      },
+      "remote_archive_bytes_downloaded": false
+    },
+    "remote_archive_bytes_downloaded": false,
+    "originals_retained": true,
+    "administrative_guard": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "command": [
+        "/Users/dberweger/Local/hu100-independent-seed-stages-20261009/.venv/bin/python",
+        "-m",
+        "planning.archive_overnight",
+        "pack",
+        "--out",
+        "results/hu100-3b-ladder",
+        "--destination",
+        "/Users/dberweger/Local/Research-Cloud/PR-223-hu100-3b-ladder/hu100-terminal-2b-ladder-20261010.zip",
+        "--pr",
+        "223"
+      ],
+      "deadline": null,
+      "failure": null,
+      "finished": 1791598146.838609,
+      "kernel_command_peak_rss_bytes": 100925440,
+      "name": "archive",
+      "peak_family_rss_bytes": 146620416,
+      "returncode": 0,
+      "samples": 204,
+      "sampling_target_seconds": 0.2,
+      "seconds": 40.8118839263916,
+      "soft_stop_requested": false,
+      "started": 1791598106.026725,
+      "status": "complete",
+      "swap_growth_limit_bytes": 3000000000
+    }
+  },
+  "native_runtime": {
+    "bytes": 1348832,
+    "mtime_ns": 1791583669000285519,
+    "original_path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/native/hu20-trainer/target/release/hu20-trainer",
+    "path": "runtime/hu20-trainer",
+    "sha256": "7d0af59cb2f83e23f74847ee67abb086beeb1ecc0728557015118d42fa0317fc"
+  },
+  "source_snapshots": [
+    {
+      "bytes": 68413440,
+      "mtime_ns": 1791583938264110421,
+      "original_path": "/Users/dberweger/Local/overnight-equity-hu100-20261009/stage-b/results/hu100-3b-ladder/source-code-38c83f2.tar",
+      "path": "research/source-code-38c83f2.tar",
+      "sha256": "81229e253da5262bfdbfb8d1bece7d8dc55da22a2037afbef96df3fb46b4b0d4"
+    }
+  ],
+  "frozen_schedule_and_model_inputs": "Restore research/pairs.json, research/frozen-final.json, research/freshness.json and direct model-spec JSONs from the indexed ZIP; model bytes are located above. The embedded manifest resolves all SHA-identical aliases.",
+  "all_required_models_have_byte_and_hash_verified_restoration": true,
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false
+}

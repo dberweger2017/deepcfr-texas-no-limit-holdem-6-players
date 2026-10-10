@@ -1,0 +1,42 @@
+{
+  "all_completed_operations_seconds": 6890.82524561882,
+  "blocks_per_rung": 524288,
+  "cost_rule": "2x measured fixed cost plus block-scaled pilot cost; hardware/disk-admitted primary;10h scope threshold for descriptive/secondary; no pilot winnings/variance",
+  "decision": "paired Student-t 95% lower >0",
+  "direct_quote_seconds": 18398.61588561302,
+  "dropped_descriptive_rungs": [],
+  "expected_planning_half_width": 4.506977089305037,
+  "full_pair_pilot_family_peaks": {
+    "1b-vs-500m": 3230695424,
+    "terminal-vs-1b": 4006903808
+  },
+  "primary": "terminal-vs-1b",
+  "requested_full_scope_quote_seconds": 35754.01323377504,
+  "root": 2026100922202,
+  "rungs": [
+    "terminal-vs-1b",
+    "1b-vs-500m"
+  ],
+  "science_outcomes_used_to_select_budget": false,
+  "scripted_blocks": 4096,
+  "scripted_root": 2026100922204,
+  "secondary_quote_seconds": 2121.5735216105822,
+  "skip_secondary": false,
+  "stage_a_quote_seconds": 6542.998580932617,
+  "storage": {
+    "archive_original_reserve_bytes": 5545136377,
+    "archive_reserve_basis": "unique local inodes; hash-verified indexed model inodes and full historical-source snapshots excluded; different-inode equal bytes conservatively retained",
+    "available_bytes": 37159399424,
+    "disk_floor_bytes": 17179869184,
+    "existing_original_bytes": 18206525629,
+    "final_workspace_bytes": 1073741824,
+    "hash_verified_indexed_model_bytes_excluded_from_zip": 6852632460,
+    "overhead_bytes": 1073741824,
+    "pilot_peak_family_bytes": 4006903808,
+    "raw_and_archive_copies": 2,
+    "raw_bytes_per_block_per_rung": 2044.5,
+    "required_additional_free_bytes": 29605334009.0
+  },
+  "ten_hour_scope_threshold_exceeded": false,
+  "training_actual_seconds": 5773.367873907089
+}

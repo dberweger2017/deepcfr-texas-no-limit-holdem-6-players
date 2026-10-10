@@ -1,0 +1,9 @@
+{
+  "source": "38c83f2eab09b5247a8c16344ce6d0a3d00c43af",
+  "returncode": 0,
+  "stdout": ".............                                                            [100%]\n13 passed in 5.74s\n",
+  "stderr": "",
+  "post_science_edits_restored_byte_exact": true,
+  "first_attempt": "12 passed; fixture clean-tree admission blocked before play because roadmap/comment edits were uncommitted",
+  "scientific_operation_repeated": false
+}
