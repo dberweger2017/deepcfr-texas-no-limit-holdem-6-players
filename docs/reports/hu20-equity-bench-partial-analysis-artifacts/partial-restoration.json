@@ -1,0 +1,231 @@
+{
+  "owning_pr": 230,
+  "status": "verified",
+  "authorization": "Owner requested analysis of the available completed roots and posting it on PR230 after the terminal merge.",
+  "inspection_authorized_at_utc": "2026-10-10T19:17:03.887118+00:00",
+  "scope": "Nine direct complete roots only; excludes timing pilots and the interrupted root. No scoring/report/retry.",
+  "archives": [
+    {
+      "owning_pr": 230,
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-230-hu20-equity-bench-scoring/hu20-equity-bench-scoring-ac-stop-M1-20261010.zip",
+      "sha256": "eadf2fa3eaa79334227b5e79daeb45e3ca061ad24a47edcb8744ca40b1e13183",
+      "manifest_sha256": "f9b86d4ff2d7f1446031369321566922289b18155f24338116771dc202eab6e5",
+      "owning_pr_live_status_checked": "MERGED"
+    },
+    {
+      "owning_pr": 222,
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-222-hu20-equity-bench/hu20-equity-bench-partial-20261010.zip",
+      "sha256": "c1f305a85282330ef14deadb176a8c97a560f0976fb632e75e387da9e265a8f9",
+      "manifest_sha256": "feec3c2212e7edc7411f4eff1cf1e73745994d8525c749e6aa9b01544dd764a4",
+      "owning_pr_live_status_checked": "MERGED"
+    }
+  ],
+  "members": [
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json",
+      "bytes": 24624,
+      "sha256": "4e55e0c66d9a4e5a461bd9a0dd6b61163be6bca820cd4c6d18c75f67de450a1a",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json",
+      "bytes": 24636,
+      "sha256": "526d9e3fed677a3b0901e48767258d7f9e598a0732e9c5ee86f6a4d7358b55c0",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json",
+      "bytes": 24570,
+      "sha256": "c64fea9bd0374f1e9e7d8b824532cd6b9b5a984d0970163c0c0a4838d62713cf",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json",
+      "bytes": 24583,
+      "sha256": "8538cfa28f6f390fc3cd023f73414f79f3dfbcea741a45f324de46c734dc4ee2",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json",
+      "bytes": 24683,
+      "sha256": "b84a0e1b57621f151faaf192fef80bc2e8dc35c99a2365c00911b5079f9a0e73",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json",
+      "bytes": 24644,
+      "sha256": "691e8038887dbc314caa877255d585fe999ae6771c5a650094937dc649abed6b",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json",
+      "bytes": 24612,
+      "sha256": "6a4b344a80bb2b47d829690e4dee924a0103ccd59b85fda7fd3a27ac60f7be3f",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json",
+      "bytes": 24681,
+      "sha256": "109c60bb8a6a89c13cf031f8da1d2b6d4d360a0b9ddda50aa2afe0faa6f6742e",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json"
+    },
+    {
+      "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+      "member": "results/equity-bench-scoring-continuation-admitted-20261010/work/eval/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json",
+      "bytes": 24626,
+      "sha256": "b4524517797eb6765726b53926a5028403c5821d0afe3b9042fd2fe488e1e884",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/scores/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json",
+      "bytes": 3681,
+      "sha256": "d7902f0f7303f137e8cad7039394e1d4d6ce039768dcc9dfd338aea58f41c8df",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json",
+      "bytes": 6909,
+      "sha256": "1817de701db0d328ec8b69291b9a9b6b3ad68dd65c1e968cb6dc0e79bc86ac65",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json",
+      "bytes": 3675,
+      "sha256": "a8e8044b68f6ed668d89c067c3244c45a87ac6770fb70a646c43be3b773004f0",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json",
+      "bytes": 7327,
+      "sha256": "7f5195195b460ba14620f0579a8de9f4fec7811352558ec999eb7215913ebeb4",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json",
+      "bytes": 3674,
+      "sha256": "74f262a28189ad978f302c48ba82064f08f323b2c7aebcff87fe1918054d814d",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json",
+      "bytes": 7079,
+      "sha256": "1a1eddf9e3e09c7c38db569a1e67f14e8ec0de4354f7eaf2394ba0f669df695c",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json",
+      "bytes": 3667,
+      "sha256": "d894235e930c7614a62869b53b1cd220113a1a24a491182696faa22d29d3ee7f",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json",
+      "bytes": 6978,
+      "sha256": "3dca29d72d5a50816c524f1f03f6ec5c74d553350ef63ec300eafb6ebc74ec81",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json",
+      "bytes": 3677,
+      "sha256": "c51249af81f5934da04ca0e3af3afd788102285773db1f09e373c41e02b7c55a",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json",
+      "bytes": 7072,
+      "sha256": "29cce5e84c32d3ae6a25de250a74e5d9a75ebb0395d4600aa82037cc0d3c3817",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json",
+      "bytes": 3662,
+      "sha256": "4d0de0f86da83897d601401344234546fb7cdd3bad98b4176b778508f1fee681",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json",
+      "bytes": 7056,
+      "sha256": "167adc52d5515c173b689b4d80c88e4abe3f55f60ed49972fd57bcd3e0387567",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json",
+      "bytes": 3675,
+      "sha256": "ba701a9bc7fca688dfb5b3b1928441e41239c5a63722f9c781561d33ecce796c",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json",
+      "bytes": 6936,
+      "sha256": "e6f6f8844113830b6998cc2b8f32f12a0b29be14095ccff748ab666db8ffea8b",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json",
+      "bytes": 3677,
+      "sha256": "b499325ecfb5fdc3e05563b4d6a8fc3aa3daf490c5493a79e7502e191ccef1ba",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json",
+      "bytes": 7074,
+      "sha256": "1c1fd541125bba6f566f294fadbce9282f12055729e5fb65ced795100a97eec9",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/collect/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json",
+      "bytes": 3674,
+      "sha256": "c73001f80118ca0dd6ac400a8d0c64e9679371fb8b04419c4f4e49a6e533dbfd",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/collect/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/references/main-06/relock/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json",
+      "bytes": 7035,
+      "sha256": "8e60ee46e32916139185d8128048fc034ff5a08bf4c9c1b88afa89e402c92057",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/references/relock/3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37-0/result.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/input-pins.json",
+      "bytes": 25011,
+      "sha256": "01e4a7fb47385f8dc668cd9afc692b3c7b5219c92bc70cb64fc04e7e54713a08",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/input-pins.json"
+    },
+    {
+      "archive_id": "1CloDY_sTImLcn4lffU5OHWQAdT7RLb37",
+      "member": "research/matched-freeze.json",
+      "bytes": 1771,
+      "sha256": "467f1c102938a6cc92f16c8b6273a85a3ffc76332e99df58a7f0dfb5a79b3618",
+      "restored_path": "/Users/dberweger/Local/hu20-equity-bench-partial-analysis/results/equity-bench-partial-analysis-20261010/inputs/matched-freeze.json"
+    }
+  ],
+  "model_or_table_exports_restored": false
+}
