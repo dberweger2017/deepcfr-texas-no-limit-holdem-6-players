@@ -177,14 +177,14 @@ def handler_for(service, token, port):
 
 
 def single_table(args):
-    if getattr(args, 'hu100_research', None) or getattr(args, 'v050_candidate', None):
+    if getattr(args, 'hu100_research', None) or getattr(args, 'v050', None):
         from src.policies.hu100_research import load_policy, VERSION_ID
         from src.play_api.versions import VersionedTables
         from src.play_api.spectator import SpectatorService
         from src.play_api.service import _model_info
-        if getattr(args, 'v050_candidate', None):
-            from src.policies.v050_candidate import load_policy as load_candidate, VERSION_ID
-            policy = load_candidate(args.v050_candidate)
+        if getattr(args, 'v050', None):
+            from src.policies.v050 import load_policy as load_release, VERSION_ID
+            policy = load_release(args.v050)
         else:
             policy = load_policy(args.hu100_research, translation=args.translate_off_menu)
         identity = {'version': VERSION_ID, **_model_info(policy)}
@@ -226,8 +226,8 @@ def main():
                           help="Benchmark-only control over the same restricted HU20 menu; loads no model")
     opponent.add_argument('--hu100-research', type=Path,
                           help='Explicit hash-pinned PR207 terminal HU100 average; no release/default change')
-    opponent.add_argument('--v050-candidate', type=Path,
-                          help='Verified unpublished v0.5.0 bundle; fixed HU100 translation 512/128')
+    opponent.add_argument('--v050', type=Path,
+                          help='Verified v0.5.0 HU100 release bundle directory; translation 512/128 is fixed')
     parser.add_argument('--translate-off-menu', action='store_true',
                         help='Explicit HU100 public-history translation; recorded in every session')
     parser.add_argument('--stack-bb', type=int, choices=(20, 100),
@@ -241,10 +241,10 @@ def main():
         parser.error("Port must be 1–65535")
     if args.translate_off_menu and not args.hu100_research:
         parser.error('--translate-off-menu requires --hu100-research')
-    if args.stack_bb is not None and args.stack_bb != (100 if args.hu100_research or args.v050_candidate else 20):
+    if args.stack_bb is not None and args.stack_bb != (100 if args.hu100_research or args.v050 else 20):
         parser.error('Model and table stack configuration differ')
     os.umask(0o077)
-    if args.models_dir or not (args.policy or args.o_candidate or args.shield_policy or args.uniform_random or args.hu100_research or args.v050_candidate):
+    if args.models_dir or not (args.policy or args.o_candidate or args.shield_policy or args.uniform_random or args.hu100_research or args.v050):
         from src.play_api.versions import load_tables
         service = load_tables(args.models_dir or Path("models"), args.data_dir, args.source_version)
     else:

@@ -1,4 +1,4 @@
-"""Standalone Python 3.11 verifier for the unpublished fixed HU100 candidate."""
+"""Standalone Python 3.11 verifier for the v0.5.0 HU100 bundle and its publication binding."""
 
 import argparse
 import gzip
@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 ASSET_NAME = 'O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz'
-CANDIDATE = 'v0.5.0-candidate-pr207-translation-v1'
+RELEASE = 'v0.5.0'
 MODEL = {
     'file': ASSET_NAME, 'bytes': 1173264021,
     'sha256': '47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9',
@@ -35,7 +35,9 @@ PROVENANCE = {
     'member': 'research/training/1000000000/average.gz',
 }
 ASSETS = {ASSET_NAME, 'MODEL_CARD.md', 'RELEASE_NOTES.md', 'INSTALL.md',
-          'candidate-manifest.json', 'verify_v050_bundle.py'}
+          'release-manifest.json', 'verify_v050_bundle.py'}
+PUBLICATION_GATE = ('Owner chat authorization; reviewed green-check merge; exact tagged source; '
+                    'verified draft download before stable Latest')
 
 
 def sha(path):
@@ -49,13 +51,13 @@ def full_sha(value):
 
 def regular(path):
     if path.is_symlink() or not path.is_file():
-        raise ValueError('Candidate assets must be regular files')
+        raise ValueError('Bundle assets must be regular files')
 
 
 def verify_model(path):
     regular(path)
     if path.stat().st_size != MODEL['bytes'] or sha(path) != MODEL['sha256']:
-        raise ValueError('Candidate model bytes/SHA256 differ from fixed PR207 export')
+        raise ValueError('Model bytes/SHA256 differ from the fixed PR207 export')
     with gzip.open(path, 'rt') as stream:
         header = json.loads(stream.readline())
     checkpoint = header['checkpoint_header']
@@ -69,15 +71,21 @@ def verify_model(path):
             or checkpoint['iteration'] != MODEL['iteration']
             or checkpoint['average_rule'] != 'opponent-sampled'
             or checkpoint['identity']['players'] != 2):
-        raise ValueError('Candidate lineage, game or extraction differs')
+        raise ValueError('Model lineage, game or extraction differs')
 
 
-def manifest(source):
+def manifest(source, approved=False):
+    """The bundle's identity. Approval binds the publication to the source it was built from."""
     if not full_sha(source):
         raise ValueError('Full lowercase package-source Git SHA required')
-    return {'candidate': CANDIDATE, 'proposed_release': 'v0.5.0',
-            'status': 'unpublished-owner-review', 'package_source_commit': source,
-            'owner_publication_approval': False, 'release_tag': None,
+    if type(approved) is not bool:
+        raise ValueError('Publication approval must be an explicit boolean')
+    return {'release': RELEASE,
+            'status': 'owner-approved-publication' if approved else 'unpublished-owner-review',
+            'package_source_commit': source,
+            'approved_release_source_commit': source if approved else None,
+            'owner_publication_approval': approved, 'release_tag': RELEASE if approved else None,
+            'publication_gate': PUBLICATION_GATE,
             'model': MODEL, 'inference': INFERENCE, 'provenance': PROVENANCE,
             'table': {'players': 2, 'stack_chips': 10000, 'small_blind': 50,
                       'big_blind': 100, 'chip_unit': '0.01', 'reset_each_hand': True},
@@ -88,10 +96,10 @@ def manifest(source):
                            '5db20e3d5d6862b32a7402035c1340b622d3b005'}}
 
 
-def verify_bundle(directory, expected_source=None):
+def verify_bundle(directory, expected_source=None, *, require_publication=False):
     directory = Path(directory)
     if directory.is_symlink() or set(p.name for p in directory.iterdir()) != ASSETS | {'SHA256SUMS'}:
-        raise ValueError('Candidate bundle members differ')
+        raise ValueError('Bundle members differ from the declared assets')
     for name in ASSETS | {'SHA256SUMS'}:
         regular(directory / name)
     hashes = {}
@@ -101,17 +109,20 @@ def verify_bundle(directory, expected_source=None):
             raise ValueError('Invalid, duplicate or undeclared checksum member')
         digest, name = fields
         if sha(directory / name) != digest:
-            raise ValueError('Candidate checksum differs: ' + name)
+            raise ValueError('Checksum differs: ' + name)
         hashes[name] = digest
     if set(hashes) != ASSETS:
-        raise ValueError('Missing candidate checksum')
-    data = json.loads((directory / 'candidate-manifest.json').read_text())
-    source = data['package_source_commit']
-    if (data != manifest(source) or type(data.get('owner_publication_approval')) is not bool
+        raise ValueError('Missing release checksum')
+    data = json.loads((directory / 'release-manifest.json').read_text())
+    source, approved = data.get('package_source_commit'), data.get('owner_publication_approval')
+    # Rebuilding the expected manifest pins every field, so no edit can waive a pin or the hold.
+    if (type(approved) is not bool or data != manifest(source, approved)
             or expected_source is not None and source != expected_source):
-        raise ValueError('Candidate identity/source/publication status differs')
+        raise ValueError('Release identity, source or publication status differs')
+    if require_publication and (expected_source is None or not approved):
+        raise ValueError('Publication verification needs the expected tagged source and owner approval')
     verify_model(directory / ASSET_NAME)
-    return {'status': 'verified-unpublished', 'candidate': CANDIDATE,
+    return {'status': data['status'], 'release': RELEASE,
             'package_source_commit': source, 'model_sha256': MODEL['sha256'],
             'inference': INFERENCE, 'hashes': hashes}
 
@@ -120,8 +131,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directory', type=Path)
     parser.add_argument('--expect-source')
+    parser.add_argument('--require-publication', action='store_true')
     args = parser.parse_args()
-    print(json.dumps(verify_bundle(args.directory, args.expect_source), sort_keys=True))
+    try:
+        print(json.dumps(verify_bundle(args.directory, args.expect_source,
+                                       require_publication=args.require_publication), sort_keys=True))
+    except (ValueError, KeyError, OSError) as error:
+        parser.error(str(error))
 
 
 if __name__ == '__main__':
