@@ -128,6 +128,13 @@ def pack():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("pilot", "pack"))
+    parser.add_argument("command", choices=("pilot", "pack", "pack-worker"))
     args = parser.parse_args()
-    globals()[args.command]()
+    if args.command == "pack":
+        quote = campaign.read(OUT/"frozen-final.json")
+        campaign.guarded("archive-final", [sys.executable, "-m", "scripts.archive_hu100_4b_seed_ladder", "pack-worker"],
+            quote["archive_quote_seconds"])
+    elif args.command == "pack-worker":
+        pack()
+    else:
+        pilot()

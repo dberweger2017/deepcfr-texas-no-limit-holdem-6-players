@@ -149,7 +149,36 @@ def check_gate(seed, target):
         "stop_requested": row["stop_requested"]})
 
 
+def check_reference_exports(seed, target):
+    if (seed, target) not in PINS:
+        return
+    if seed == SEEDS[0]:
+        index = read(ROOT/"docs/reports/hu100-3b-ladder-artifacts/model-input-index.json")
+        model = next(m for m in index["models"] if m["requested_nodes"] == target)
+        pins = model["files"]
+        reference = "docs/reports/hu100-3b-ladder-artifacts/model-input-index.json"
+    else:
+        index = read(ROOT/"docs/reports/hu100-independent-stages-artifacts/model-index.json")
+        pins = {a["kind"]: a for a in index["assets"]
+            if a.get("seed") == seed and a.get("endpoint") == "terminal"}
+        reference = "docs/reports/hu100-independent-stages-artifacts/model-index.json"
+    if set(pins) != {"checkpoint.gz", "current.gz", "average.gz"}:
+        raise ValueError("Reference model set incomplete")
+    verified = {}
+    for name, pin in pins.items():
+        path = folder(seed, target)/name
+        actual = file_hash(path)
+        if actual != pin["sha256"] or path.stat().st_size != pin["bytes"]:
+            put(folder(seed, target)/"export-exactness-mismatch.json",
+                {"file": name, "expected": pin["sha256"], "actual": actual, "reference": reference})
+            raise ValueError("STOP exact indexed checkpoint/current/average mismatch")
+        verified[name] = {"sha256": actual, "bytes": pin["bytes"]}
+    put(folder(seed, target)/"indexed-reference.json",
+        {"status": "byte-exact", "index": reference, "files": verified})
+
+
 def model_spec(seed, target):
+    check_reference_exports(seed, target)
     dest = folder(seed, target)
     gate = read(dest/"gate.json")
     spec = audited_average_spec(dest/"average.gz", read(dest/"audit.json"),

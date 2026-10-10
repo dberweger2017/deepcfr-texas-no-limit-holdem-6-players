@@ -89,3 +89,37 @@ def test_controller_is_counted_but_never_owned_for_cleanup(monkeypatch):
         assert known == {}
     monkeypatch.setattr(guard, "main", inspect)
     run.guard_main()
+
+
+def test_current_and_average_hash_gates_before_model_spec(tmp_path, monkeypatch):
+    monkeypatch.setattr(run, "OUT", tmp_path)
+    dest = run.folder(2026100901, 1_000_000_000)
+    dest.mkdir(parents=True)
+    pins = {}
+    for name in ("checkpoint.gz", "current.gz", "average.gz"):
+        path = dest/name
+        path.write_bytes(name.encode())
+        pins[name] = {"kind": name, "seed": 2026100901, "endpoint": "terminal",
+            "sha256": run.file_hash(path), "bytes": path.stat().st_size}
+    monkeypatch.setattr(run, "read", lambda p: {"assets": list(pins.values())})
+    (dest/"current.gz").write_bytes(b"tampered current export")
+    with pytest.raises(ValueError, match="exact indexed checkpoint/current/average mismatch"):
+        run.model_spec(2026100901, 1_000_000_000)
+    assert (dest/"export-exactness-mismatch.json").exists()
+    assert not (dest/"spec.json").exists()
+
+
+def test_executable_match_specs_bound_to_frozen_pairs(tmp_path, monkeypatch):
+    from scripts import evaluate_hu100_4b_seed_ladder as evaluation
+    monkeypatch.setattr(evaluation, "OUT", tmp_path)
+    pairs = {"primary": [{"name": "fixed-candidate"}, {"name": "fixed-baseline"}]}
+    spec = tmp_path/"specs/primary.json"
+    spec.parent.mkdir()
+    spec.write_text(json.dumps(pairs["primary"]))
+    pins = evaluation.checked_specs(pairs)
+    spec.write_text(json.dumps(pairs["primary"], indent=2))
+    with pytest.raises(ValueError, match="frozen executable match spec bytes changed"):
+        evaluation.checked_specs(pairs, pins)
+    spec.write_text(json.dumps([{"name": "selected-other-candidate"}, {"name": "fixed-baseline"}]))
+    with pytest.raises(ValueError, match="differ from declared pair"):
+        evaluation.checked_specs(pairs)

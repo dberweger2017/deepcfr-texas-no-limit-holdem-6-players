@@ -69,8 +69,19 @@ def freshness(blocks, label):
         "new_physical_deals": len(seen)-old_count})
 
 
+def checked_specs(pairs, frozen_hashes=None):
+    for rung, specs in pairs.items():
+        path = OUT/"specs"/(rung+".json")
+        if read(path) != specs:
+            raise ValueError("STOP executable match specs differ from declared pair")
+        if frozen_hashes is not None and file_hash(path) != frozen_hashes[rung]:
+            raise ValueError("STOP frozen executable match spec bytes changed")
+    return {r: file_hash(OUT/"specs"/(r+".json")) for r in pairs}
+
+
 def calibrate():
     revision = campaign.source()
+    checked_specs(read(OUT/"pairs.json")["pairs"])
     # Review receives all campaign sources, including these cost gates, before
     # any final hand. Pilots never produce a payoff report.
     campaign.guarded("pilot-freshness", [sys.executable, "-m", MODULE, "freshness",
@@ -103,6 +114,7 @@ def unique_bytes(root):
 def freeze():
     revision = campaign.source()
     plan = read(OUT/"pairs.json")
+    spec_hashes = checked_specs(plan["pairs"])
     costs = {r: read(OUT/"direct-pilot"/r/"costs.json") for r in plan["pairs"]}
     if any(c["outcomes_inspected_for_quote"] or c["blocks"] != 32 for c in costs.values()):
         raise ValueError("Cost-only fixed pilot required")
@@ -172,7 +184,7 @@ def freeze():
             "required_additional_free_bytes": admitted["required_additional_free_bytes"],
             "raw_and_archive_copies": 2, "floor_bytes": 16*GIB},
         "admission_candidates": candidates, "indexed_model_exclusions": exclusions,
-        "pairs_sha256": file_hash(OUT/"pairs.json")})
+        "pairs_sha256": file_hash(OUT/"pairs.json"), "executable_spec_sha256": spec_hashes})
     freshness(blocks, "final")
 
 
@@ -185,6 +197,7 @@ def final():
         raise ValueError("Independent clear exact-source review required before final play")
     if freeze["source"] != revision or freeze["pairs_sha256"] != file_hash(OUT/"pairs.json"):
         raise ValueError("Frozen source/models changed")
+    checked_specs(read(OUT/"pairs.json")["pairs"], freeze["executable_spec_sha256"])
     if not read(OUT/"final-freshness.json")["all_pairwise_disjoint"]:
         raise ValueError("Final physical freshness receipt required")
     if shutil.disk_usage(OUT).free < freeze["storage"]["required_additional_free_bytes"]:
@@ -230,7 +243,7 @@ def readout():
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("command", choices=("calibrate", "freeze", "freshness", "final", "readout"))
+    p.add_argument("command", choices=("calibrate", "freeze", "freeze-worker", "freshness", "final", "readout"))
     p.add_argument("--blocks", type=int)
     p.add_argument("--label")
     args = p.parse_args()
@@ -238,6 +251,10 @@ def main():
         if args.blocks is None or args.label not in ("pilot", "final"):
             p.error("Freshness requires positive blocks and pilot/final label")
         freshness(args.blocks, args.label)
+    elif args.command == "freeze":
+        campaign.guarded("freeze", [sys.executable, "-m", MODULE, "freeze-worker"])
+    elif args.command == "freeze-worker":
+        freeze()
     else:
         globals()[args.command]()
 
