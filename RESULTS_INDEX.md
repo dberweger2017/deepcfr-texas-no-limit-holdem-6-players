@@ -86,7 +86,9 @@ archive originals and all scientific members remain unchanged.
 
 The owner explicitly authorized continuation after connecting AC and reducing
 swap. [PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
-source `4b5de42b25869a6fe02cfbcb931e9349bc6c9add`, M1 isolated checkout
+preparation source `4b5de42b25869a6fe02cfbcb931e9349bc6c9add` (restoration
+intent HEAD `c5786936a7615271b6e7ecb74f643e5dff31a7e2` with newly added
+guard/helper files uncommitted; their bytes are pinned in the partial ZIP), M1 isolated checkout
 `~/Local/hu20-equity-bench-scoring`, fresh root `results/equity-bench-scoring-20261010`.
 All source archives and **280 restored members /24 aliases /three K50 tables**
 verify. Preparation then stops: PR222 archived `input-pins.json` records lock
@@ -122,9 +124,14 @@ checkout with the three indexed source archives available via Research-Cloud;
 it verifies each archive and selected member. Neither retrieval nor correction
 grants permission to restart this stopped attempt.
 
-Own extracted copies remain pending closeout; no other PR files or synced
-files are removed. Earlier admission archive/receipt below stays authoritative
-for that distinct refusal.
+After accepted archival, independent dependency review and immediate
+path/size/mtime/open-handle rechecks, **304 own extracted files** were removed
+from `results/equity-bench-scoring-20261010/restored/`. The [cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/cleanup-receipt.json)
+records every path and exact Drive archive/member/hash; 3,755,888,199 logical
+bytes includes hardlink aliases and is not physical space reclaimed. Failure
+latch, provenance and all synced/source archives stay retained. [Clear final evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/final-evidence-review.json).
+No other PR or synced files removed. Earlier admission archive/receipt below
+stays authoritative for that distinct refusal.
 
 ## PR225 K50 bench scoring — M1 admission refused, October 10
 
