@@ -1,6 +1,6 @@
 # v0.5.1: heads-up 100 BB, twice the training
 
-The same recipe as v0.5.0, trained to 2B nodes instead of 1B. **It beats v0.5.0 head to head by +29.51 [26.82, 32.20] BB/100.** {{SEEDS_SHORT}}
+The same recipe as v0.5.0, trained to 2B nodes instead of 1B. **It beats v0.5.0 head to head by +29.51 [26.82, 32.20] BB/100.** Two independent seeds repeat the 2B-over-1B gain almost exactly: +28.14 and +27.90 BB/100 (#226).
 
 - **Model:** #223's linear-CFR opponent-sampled average, seed 2026100601, 2,000,000,460 nodes, 54.6M information sets. Translation for off-menu bet sizes stays on (512 states, 128 events).
 - **Scripted opponents** (translation on), BB/100:

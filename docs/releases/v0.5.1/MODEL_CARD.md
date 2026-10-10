@@ -32,7 +32,15 @@ All results are BB/100 on fresh paired deals with seats swapped.
 
 **Head to head against v0.5.0** ([#223](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/PACKAGE_SOURCE_COMMIT/docs/reports/hu100-3b-ladder.md)): **+29.51 [26.82, 32.20]**, over 524,288 duplicate blocks. v0.5.0's model is exactly this run's 1B checkpoint.
 
-{{SEEDS}}
+**Independent seeds** ([#226](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226)): the same step from 1B to 2B nodes, repeated from two other seeds, gains almost exactly the same. Each uses 524,288 blocks with a three-contrast Bonferroni 98.33% interval.
+
+| Seed | 2B vs 1B, BB/100 |
+|---|---|
+| 2026100601 (this release; #223, 95%) | +29.51 [26.82, 32.20] |
+| 2026100901 | +28.14 [24.87, 31.41] |
+| 2026100902 | +27.90 [24.65, 31.15] |
+
+Head-to-head matches between the 2B checkpoints of different seeds show no significant strength difference; both intervals cross zero.
 
 **Against the scripted opponents, translation on** (#223, 4,096 blocks per opponent), alongside v0.5.0 on the same deals:
 

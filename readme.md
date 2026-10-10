@@ -4,7 +4,7 @@ Two release lines play two-player no-limit hold'em, with no rake or ante and fre
 
 **v0.5.1, heads-up 100 BB (newest).**
 - **The model:** a 2B-node average (seed 2026100601), the same recipe as v0.5.0 trained twice as long, with public-history translation for off-menu bet sizes.
-- **Head to head:** it beats v0.5.0 by **+29.51 [26.82, 32.20] BB/100**.{{SEEDS_README}}
+- **Head to head:** it beats v0.5.0 by **+29.51 [26.82, 32.20] BB/100**. Two independent seeds repeat that step from 1B to 2B almost exactly: +28.1 and +27.9 (#226).
 - **Scripted opponents** (translation on), BB/100:
 
   | Opponent | BB/100 [95%] |
