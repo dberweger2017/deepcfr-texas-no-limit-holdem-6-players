@@ -92,6 +92,159 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR225 fixed-source scoring stopped on system pressure — October 10
+
+Executed source `9310cb7574b196788fb0e508390337dcb4954d3c`, owner [authorization 6097292716](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716), one clear source review and 29 focused tests. The helper-free timing pilot completes in 627.0966 seconds with a full blind quote posted before scoring. Full scoring stops at 15:23 Madrid after 3,129.1473 seconds and **5/40 completed roots**, on normal→warning system pressure. Peak whole-family RSS 4,058,202,112 bytes stays below 7 GiB; AC/swap/disk pass. [Summary](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-stopped-summary.json), [executed source](docs/reports/hu20-equity-bench-scoring-artifacts/final-executed-source.json), [report](docs/reports/hu20-equity-bench-scoring.md). No numeric outcomes inspected, primary decision, report command or scientific retry. Scheduler disabled; failure latch and all partials preserved.
+
+Ignored run `results/equity-bench-scoring-admitted-20261010` used its own verified input copies at `results/equity-bench-scoring-fixed-20261010/restored` through a symlink. Those extracted copies are now removed after accepted archival and dependency review; all run outputs/receipts/latches remain. All 281 members /24 aliases /three K50 tables match. Its earlier prospective 9 GiB headroom refusal launched no evaluator and remains separate. Restoration provenance remains in each run's `restoration.json`; original [PR222 model/input index](docs/reports/hu20-equity-bench-artifacts/model-input-index.json), [PR190 evaluator index](#pr190-global-equity-bucket-validation-october-8) and [PR163 K50 report](docs/reports/native-equity-bucket-keys.md) retain input member hashes and locators. Do not duplicate these inputs in the partial archive.
+
+Accepted partial archive: `~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-pressure-stop-M1-20261010.zip`, Drive [1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH](https://drive.google.com/file/d/1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH/view), in [PR225 folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi). **1,356,843 bytes /123 payload members**, SHA256 `f78c1327d413d519a0da57d99f9cc341f92fea074c3a2465317e85d64f4cd935`; embedded `ARCHIVE-MANIFEST.json` SHA256 `fb6f4bc66d3e16a7b75fb8c890af8f1e16e4b7954b3f6d71eebd8bde27417422`. All local member sizes/SHA256 read back. [Archive receipt](docs/reports/hu20-equity-bench-scoring-artifacts/final-archive-receipt.json), [native/cloud acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-cloud-upload.json): uploaded=1, uploading=0, no conflicts/paused sync; independent cloud ID/name/size/parent confirmed. Remote archive bytes not redownloaded.
+
+For partial-run retrieval, download the indexed Drive ZIP into a fresh ignored directory, verify its whole SHA256, then use `python -m zipfile -e <archive.zip> <fresh-results-directory>` and verify every extracted member against `ARCHIVE-MANIFEST.json`. `results/equity-bench-scoring-fixed-20261010/restoration.json` inside this ZIP pins every original PR222/190/163 input archive ID/member/hash and `restoration_command`; `planning/restore_scoring.py` records the exact restoration recipe. No input payload is duplicated. The [single end evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-evidence-review.json) is clear. Following accepted upload and dependency review, immediate exact path-set/size/mtime/SHA256/open-handle checks pass; **only 305 own extracted copies** are removed, 3,755,888,589 logical bytes including aliases. [Cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-cleanup-receipt.json) lists every removed path with original archive ID/canonical member/size/SHA256, including logical alias paths separately. Outputs, prepared files, receipts and failure latches remain; no synced files or other PR dependencies are deleted. All earlier immutable stopped archives below remain unchanged.
+
+## PR225 actual timing pilot stopped — October 10
+
+Corrected source `32b126c4cf298e28b8a70e0da53fd734d1465fa3`, isolated M1
+checkout `~/Local/hu20-equity-bench-scoring`, fresh ignored root
+`results/equity-bench-scoring-qualified-20261010`. All three source archive
+hashes, **281 members /24 aliases /three K50 tables** verify; preparation
+checks the final qualified evaluator exactly. [Restoration](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-restoration.json)
+records every member/path/size/hash/mtime/Drive archive locator. Exact retrieval
+command `python -m planning.restore_scoring` is preserved in this archive;
+it verifies archives and every selected member before use.
+
+The actual timing pilot launches, then stops after **10.8885 seconds** on
+`psutil.AccessDenied(pid=7508)` at an owned-process RSS probe. All **178**
+successful restoration/preparation/pilot samples pass applicable limits;
+RSS at the unreadable sample is unknown. Cleanup has no error and no own
+workers remain. Scores were not inspected; no complete quote, final 40-root
+scoring, E/Q/bootstrap/decision, or retry. [Stopped summary](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-stopped-summary.json),
+[report](docs/reports/hu20-equity-bench-scoring.md). All earlier stops remain
+preserved separately. The setup evaluator error is resolved, as below.
+
+Accepted [stopped-pilot ZIP](https://drive.google.com/file/d/1PwKrWrE6Lfp1yAvAxFtn8jf6AzdZiMl1/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-qualified-pilot-stop-M1-20261010.zip`,
+**217,376 bytes /40 payload members**, SHA256
+`dbc5ae631691a99aa99c65ead66963aea0fb791ba37d1bd5cd6905e598dca20d`.
+Embedded manifest SHA256
+`67599a29922f2d6ccab625bab7cb8d39f7d901912f2fe28db4bd059c21dabe6d`.
+[Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-archive-receipt.json)
+and [separate native/cloud acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-cloud-upload.json)
+confirm all member sizes/hashes, uploaded=1/uploading=0/conflicts=0/unpaused,
+cloud ID/name/size/PR225 folder parent. No remote archive bytes redownloaded.
+
+The ZIP retains partial pilot native response/progress **without numeric
+inspection**, executed pilot request, raw guard telemetry/failure/admission,
+source, helper, localization and restoration provenance. No exported policies,
+adapters, references or tables are duplicated. Their accepted PR222/190/163
+archive IDs/member hashes are in the restoration receipt. Other localized
+prepared requests reconstruct from the helper and localization receipt.
+After accepted upload and the [clear final evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-evidence-review.json),
+immediate exact set/path/size/mtime/SHA/open-handle checks pass and **305 own
+extracted copies** are removed. [Cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/qualified-cleanup-receipt.json)
+records every removed path and source archive/member/hash; 3,755,888,589 logical
+bytes include hardlink aliases and do not measure physical space reclaimed.
+Outputs, prepared files, receipts and failure latch remain; no synced or other
+PR files are deleted.
+
+## PR225 preparation error resolved — October 10
+
+The historical preparation stop below compared #222's obsolete setup pin.
+The accepted archive's later `research/qualified-final-source.json` (390 bytes,
+SHA256 `62bf82f01cf0c14a204d73eab2e810013cbc6f68ce055a59c48be2c5e5e35956`)
+and final launcher explicitly qualify `fb32974d…8812f`, identical to the
+published locator and restored evaluator. [Resolution](docs/reports/hu20-equity-bench-scoring-artifacts/evaluator-identity-resolution.json).
+That erroneous setup and its archive remain preserved. Fresh ignored root
+`results/equity-bench-scoring-qualified-20261010` restores the qualification
+alongside the same selected scientific inputs with `python -m planning.restore_scoring`.
+The one independent pre-scoring review confirms the correction. This does not
+retry failed science: no scoring pass was launched by either earlier setup.
+
+## PR225 historical setup identity stop, October 10
+
+The owner explicitly authorized continuation after connecting AC and reducing
+swap. [PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
+preparation source `4b5de42b25869a6fe02cfbcb931e9349bc6c9add` (restoration
+intent HEAD `c5786936a7615271b6e7ecb74f643e5dff31a7e2` with newly added
+guard/helper files uncommitted; their bytes are pinned in the partial ZIP), M1 isolated checkout
+`~/Local/hu20-equity-bench-scoring`, fresh root `results/equity-bench-scoring-20261010`.
+All source archives and **280 restored members /24 aliases /three K50 tables**
+verify. Preparation then stops: PR222 archived `input-pins.json` records lock
+`4f22f58b…acc7792`, while its published index/restored PR190 evaluator is
+`fb32974d…8812f`. Full identities and raw failure are preserved; no pilot,
+scoring, result or retry. All 553 guard samples pass. Prior PR222 and first
+PR225 admission stops remain unchanged. [Report](docs/reports/hu20-equity-bench-scoring.md).
+
+Accepted [partial ZIP](https://drive.google.com/file/d/1l-F041qwoqbi0hIBi93e3LAf73wbYAmj/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-partial-M1-20261010.zip`,
+**55,976 bytes /22 payload members**, SHA256
+`9f4efaee91762c3ef1be50bc780bde9d7405f039fcda6a30a4cf162f20aa5112`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`f0bb7f4c643d7cbd1850e3b6893f0b3a72e86c54dc46fc967c97c43dbe62dd43`.
+Same [PR225 folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi),
+Research-Cloud parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+All member sizes/hashes read back; native uploaded=1/uploading=0/conflicts=0/
+unpaused plus independent cloud ID/name/size/parent accepted.
+Remote archive bytes were **not downloaded**. [Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/partial-archive-receipt.json)
+and [separate acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/partial-cloud-upload.json).
+Later terminal receipts/review remain in Git.
+
+No policies/adapters/references/tables are duplicated into this ZIP.
+[Restoration receipt](docs/reports/hu20-equity-bench-scoring-artifacts/restoration.json)
+and its archived `results/equity-bench-scoring-20261010/restoration.json` pin every
+member, alias, byte count, SHA256, source archive ID and extraction mtime.
+Required inputs use existing PR222 model/input locators below, PR190 evaluator
+archive `1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6` and PR163 tables
+`1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`; whole hashes and exact member paths are
+in that receipt. Retrieval command: restore this partial ZIP by its pinned
+whole SHA256, then use its `planning/restore_scoring.py` in a fresh ignored
+checkout with the three indexed source archives available via Research-Cloud;
+it verifies each archive and selected member. Neither retrieval nor correction
+grants permission to restart this stopped attempt.
+
+After accepted archival, independent dependency review and immediate
+path/size/mtime/open-handle rechecks, **304 own extracted files** were removed
+from `results/equity-bench-scoring-20261010/restored/`. The [cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/cleanup-receipt.json)
+records every path and exact Drive archive/member/hash; 3,755,888,199 logical
+bytes includes hardlink aliases and is not physical space reclaimed. Failure
+latch, provenance and all synced/source archives stay retained. [Clear final evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/final-evidence-review.json).
+No other PR or synced files removed. Earlier admission archive/receipt below
+stays authoritative for that distinct refusal.
+
+## PR225 K50 bench scoring — M1 admission refused, October 10
+
+[PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
+`feature/hu20-equity-bench-scoring`, fresh M1 checkout
+`~/Local/hu20-equity-bench-scoring`, source main
+`ff984da9a16bf1e76e891fab239d0785188a93af`, run
+`m1-hu20-equity-bench-scoring-admission-20261010`. Final admission refusal:
+battery power and 4,183.62 MiB used system swap exceed frozen AC/3 GB guards.
+No restoration, pilot, scoring, scientific outcome or retry. #222's original
+stop and inputs remain unchanged. [Report](docs/reports/hu20-equity-bench-scoring.md).
+
+Accepted [administrative ZIP](https://drive.google.com/file/d/1We8DP3Jbz3SPk2HbKgr5fgNJou8r46Ix/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-admission-M1-20261010.zip`,
+**8,641 bytes /7 payload members**, SHA256
+`b63457f5ce249bcf07400578557c7de8c8bc49362828403e803b84c5d7ea38c0`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`205aba4daf98e5c6a946da37d796ace2a8e4e49cfb5962184fb32534a7e076d3`.
+[Folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi)
+parent Research-Cloud `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+All local member sizes/hashes read back; native uploaded=1/uploading=0/
+conflicts=0/unpaused and independent cloud ID/name/size/parent agree.
+Remote archive bytes were **not downloaded**. [Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/archive-receipt.json)
+and [separate acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/cloud-upload.json).
+The immutable archive captures admission and the first source review; later
+terminal receipts/[clear end evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/evidence-review.json) remain in Git. Originals retained;
+no extracted copies existed to delete and no other PR files were cleaned.
+
+Restore by downloading that Drive ID into a fresh ignored `results/` path,
+verify the whole ZIP SHA256, then `python -m zipfile -e <download.zip> <fresh-root>`
+and verify named members against the embedded manifest. Scientific inputs were
+**not restored**: use the already indexed PR222 model/input locators below and
+PR163 table archive/pins; this ZIP duplicates neither. Restoration grants no
+permission to restart this stopped attempt.
+
 ## PR222 trained K50 bench — partial/unclassified, October10
 
 [PR222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222),

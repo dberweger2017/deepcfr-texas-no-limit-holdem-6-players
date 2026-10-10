@@ -1,0 +1,32 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "owning_pr": 225,
+  "checked_at_utc": "2026-10-10T13:27:56.838569+00:00",
+  "archive_id": "1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH",
+  "archive_url": "https://drive.google.com/file/d/1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH/view",
+  "archive_name": "hu20-equity-bench-scoring-pressure-stop-M1-20261010.zip",
+  "bytes": 1356843,
+  "folder_id": "1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi",
+  "native": {
+    "isUploaded": "1",
+    "isUploading": "0",
+    "isSyncPaused": "0",
+    "isTrashed": "0",
+    "hasUnresolvedConflicts": "0",
+    "documentSize": "1356843",
+    "drive_id": "1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH",
+    "conflicts_absent_native_field": false
+  },
+  "cloud_metadata": {
+    "id": "1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH",
+    "title": "hu20-equity-bench-scoring-pressure-stop-M1-20261010.zip",
+    "size": "1356843",
+    "parent_ids": [
+      "1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi"
+    ]
+  },
+  "native_source": "results/equity-bench-scoring-admitted-20261010/final-pressure-native-upload.txt",
+  "local_archive_and_manifest_receipt": "docs/reports/hu20-equity-bench-scoring-artifacts/final-archive-receipt.json",
+  "remote_archive_bytes_downloaded": false,
+  "interpretation": "Current native upload completion and independent cloud metadata acceptance; local member readback verifies local archive, no remote byte audit claimed."
+}

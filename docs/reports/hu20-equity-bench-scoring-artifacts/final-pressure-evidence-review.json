@@ -1,0 +1,24 @@
+{
+  "reviewer": "/root/admission_evidence_review",
+  "phase": "single end evidence review of fixed-source system-pressure stop",
+  "status": "clear",
+  "findings": [],
+  "resolved_findings": [
+    "Cleanup alias receipts initially named logical paths absent from PR222's ZIP. The unexecuted helper now records same_bytes_as_member as the canonical archive member and retains logical_alias_path separately; all 24 canonical members and sizes independently match the ZIP directory."
+  ],
+  "executed_scoring_source": "9310cb7574b196788fb0e508390337dcb4954d3c",
+  "independent_checks": [
+    "All 12957 evaluation resource samples inspected: only the final sample breaches pressure/free requirements, at pressure level 2 with 41% free. AC, swap, disk and family RSS limits pass throughout; extrema and terminal sample match the stopped summary.",
+    "Five direct work/eval result.json paths counted by filesystem metadata only; sixth started root is incomplete. Failed guard receipt and failure latch remain authoritative over worker returncode zero. No own scoring or guard worker remains.",
+    "Executed-source file hashes match the source receipt; frozen evaluator/scoring protocol, native trainer and scientific functions are preserved. Timing quote is recorded before final scoring; no partial numerical readout or primary classification is claimed.",
+    "Pressure-stop ZIP is 1356843 bytes, SHA256 f78c1327d413d519a0da57d99f9cc341f92fea074c3a2465317e85d64f4cd935. Embedded manifest SHA256 fb6f4bc66d3e16a7b75fb8c890af8f1e16e4b7954b3f6d71eebd8bde27417422 and all 123 payload member sizes/hashes independently verify without decoding numerical outcomes.",
+    "Raw native uploaded/no-pending/no-conflicts/unpaused evidence and independent cloud ID/name/size/parent match final-pressure-cloud-upload.json. Remote archive bytes were not downloaded or audited.",
+    "Report, RESULTS_INDEX and ROADMAP accurately preserve the 5/40 pressure stop, earlier attempts, uninspected scores, no scientific decision and no retry."
+  ],
+  "own_extracted_copy_dependency_review": "clear",
+  "cleanup_scope": "Only the 305 own extracted copies under results/equity-bench-scoring-fixed-20261010/restored, using the owner's explicit authorization after accepted archival. Exact path set, sizes and modification times independently match; no open input handles or active workers found. The reviewed helper requires immediate exact-set/path/size/mtime/SHA256/open-handle rechecks before removal and preserves canonical restoration locators. Preserve all outputs, prepared files, receipts, failure latches, prior stops, synced archives and other PR files.",
+  "scores_inspected": false,
+  "scientific_commands_run_by_reviewer": false,
+  "reviewer_deleted_files": false,
+  "mode": "Metadata and source review plus archive byte hashing; no metric payload decoding, science, restoration, cleanup or GitHub writes. Only this compact review receipt was written."
+}
