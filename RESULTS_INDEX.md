@@ -92,6 +92,28 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR225 fixed-source scoring running — October10
+
+Owner [authorization6097292716](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716)
+fixes discovery/inner resource monitoring to avoid setuid-root ps helpers,
+without changing any thresholds or frozen science. Executed source
+`9310cb7574b196788fb0e508390337dcb4954d3c`; one source review clear,
+29focusedtests pass. [Source/authorization](docs/reports/hu20-equity-bench-scoring-artifacts/fixed-source-authorization.json),
+[review](docs/reports/hu20-equity-bench-scoring-artifacts/fixed-source-review.json),
+[executed-source hashes](docs/reports/hu20-equity-bench-scoring-artifacts/final-executed-source.json).
+
+Active ignored root `results/equity-bench-scoring-admitted-20261010` shares
+verified own inputs in `results/equity-bench-scoring-fixed-20261010/restored`.
+All281members/24aliases/threeK50tables match; guard-only prospective9GiB
+headroom refusal at53%free precedes any fixed-source evaluator and remains
+latched separately. Fresh pilot/final admission passes at61%/66%free.
+Pilot627.0966seconds, all42policy/seat measurements complete, no score
+inspection, guard clear. [Full timing/storage quote](docs/reports/hu20-equity-bench-scoring-artifacts/final-pilot-quote.json)
+was posted before final40-root scoring:6.97hours plus30minutes closeout,
+25% scheduling allowance. No outcome/readout claimed yet. Inputs, current
+outputs and all previous immutable stopped archives remain protected;
+final scores/derived outputs await separate member-hashed PR225 archival.
+
 ## PR225 actual timing pilot stopped — October 10
 
 Corrected source `32b126c4cf298e28b8a70e0da53fd734d1465fa3`, isolated M1

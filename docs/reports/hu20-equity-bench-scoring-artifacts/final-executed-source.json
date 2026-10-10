@@ -1,0 +1,26 @@
+{
+  "executed_source_revision": "9310cb7574b196788fb0e508390337dcb4954d3c",
+  "scoring_run_root": "/Users/dberweger/Local/hu20-equity-bench-scoring/results/equity-bench-scoring-admitted-20261010",
+  "shared_own_restoration_root": "/Users/dberweger/Local/hu20-equity-bench-scoring/results/equity-bench-scoring-fixed-20261010/restored",
+  "source_files": {
+    "scripts/research_process_family.py": "56eb10102855a3a4d8b609a0faccfdf9ffa258350facf4fcbfb1349cc4789526",
+    "scripts/guard_hu20_equity_scoring.py": "020ce739ecc64f41318fcf40bf5dbce3e925ae2283842c2a06dd6dc88cd8e2c2",
+    "scripts/score_restored_hu20_equity_bench.py": "ef8a9d5d30c15fa6caf640603dccbd55ef76f4bde3a467d8ab1d184e0a3065c7",
+    "scripts/run_hu20_equity_bench.py": "ccc92b22965ebd782c8cf9ce8cf6cb40ecde1257fd7d31688c326fc1e3c7e5b2",
+    "src/diagnostics/flop_check_runtime.py": "e7f1b24fc0a41456f405e76ac6c7fb3d89ba1fe65dc1997a000ecb55cdbf708b",
+    "src/diagnostics/pooling_runtime.py": "677bb78157f7bd28db4c61dd797945f5c9116ea738be735286666728903dd870",
+    "configs/diagnostics/hu20-board-pooling.json": "754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1",
+    "docs/hu20-equity-bench.md": "4ff6a2f38f84573faf66ac057a528cde74b4bc8421dee27da093321397963e1c",
+    "planning/restore_scoring.py": "885f3c34dcd97c785e1ee5d1036825c3a105c7dbe63eadf1f5a528bd7ada3ada"
+  },
+  "pilot_outcomes_inspected": false,
+  "frozen_protocol_changed": false,
+  "native_trainer_modified": false,
+  "prospective_refusal_before_any_fixed_source_evaluator": "results/equity-bench-scoring-fixed-20261010/operations/pilot/admission.json",
+  "science_permission": "ownercomment6097292716, one new attempt after fixed guards; prior pilots remain preserved",
+  "runtime_versions": {
+    "python": "3.11.15",
+    "numpy": "1.26.4",
+    "psutil": "7.2.2"
+  }
+}
