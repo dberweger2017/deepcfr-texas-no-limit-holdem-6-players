@@ -38,7 +38,7 @@ Seed 2026100601: 1B gate, 2B gate, then 4B. Seeds 2026100901 and 2026100902:
 Use reference `--max-entries 57658644` through 1B, and reference 67419934
 at original-seed 2B. Before 4B or independent-seed 2B, conservatively set
 capacity to floor((7 GiB -100,000,000 bytes)/120 bytes per entry) =
-61,801,273 entries. The 120 B/entry planning bound includes headroom over
+61,801,606 entries. The 120 B/entry planning bound includes headroom over
 #223's 6.08 GiB /54,626,283 entries (119.51 B/entry whole-family peak),
 rather than only the native process's smaller RSS. Reassess whether the
 reference 2B cap is safe before launch using its *actual endpoint*, 54.63M
@@ -127,9 +127,10 @@ training/loading/save/export/audit, direct play/replay/reproduction, descriptive
 matches, optional scripted panel, packing/readback and proportionate closeout.
 Use measurement for the budget. If full scope looks well over about10h,
 finish training plus the primary family first, then descriptive matches.
-Optional five scripted opponents at4B/terminal versus2B with #215 exact
-translation512 states/128 events, 4,096 duplicate blocks/opponent, descriptive
-only, admitted only if the quote leaves room. Scope is frozen before outcomes.
+The optional scripted panel is omitted from this campaign's fixed scope so
+training and all five direct contrasts take priority. Its authorized optional
+settings would be #215 translation512 states/128 events, 4,096 duplicate
+blocks/opponent, descriptive only. No optional play will be added after outcomes.
 
 One independent source review before final play and one end evidence review.
 No extra metadata seals. ZIP into
