@@ -1,6 +1,8 @@
-# K50 bench scoring: M1 admission stopped
+# K50 bench scoring: separately admitted M1 attempt
 
-**Not admitted; no scientific outcome.** The separately requested scoring attempt on October 10, 2026 stopped during its first host inspection, before restoring inputs, running a timing pilot or launching the lock evaluator. The M1 was on battery and total system swap was 4,183.62 MiB (about 4.387 GB), above the frozen 3,000,000,000-byte ceiling. No scores were produced or inspected, and no scientific command was retried.
+**First admission refused; fresh attempt authorized.** The owner subsequently connected AC, reduced swap and explicitly authorized continuation. A new operation root, `results/equity-bench-scoring-20261010`, preserves the first admission and its immutable archive. Restoration and scoring proceed only under a fresh M1 admission; no score has yet been read.
+
+**Preserved first admission; no scientific outcome:** The separately requested scoring attempt on October 10, 2026 stopped during its first host inspection, before restoring inputs, running a timing pilot or launching the lock evaluator. The M1 was on battery and total system swap was 4,183.62 MiB (about 4.387 GB), above the frozen 3,000,000,000-byte ceiling. No scores were produced or inspected, and no scientific command was retried.
 
 The fresh isolated checkout is `~/Local/hu20-equity-bench-scoring`, branch `feature/hu20-equity-bench-scoring`, based on current main `ff984da9a16bf1e76e891fab239d0785188a93af`. Host identity was arm64 MacBookPro17,1, eight cores and 16 GiB RAM. Disk showed 26 GiB available and system free memory 51%; a worker family and kernel pressure level were not measured because admission had already failed. The [admission receipt](hu20-equity-bench-scoring-artifacts/admission.json) preserves the raw power, swap and headroom readings, their timing limitation and the intended guards.
 
@@ -12,7 +14,7 @@ The [#222 protocol](../hu20-equity-bench.md), exports, roots, folds, references 
 
 There is no complete pilot timing quote to publish and no 40-root E/Q table, learning curve, paired bootstrap or trained-policy gap to the #190 K50 witness (E=0.3917). No pass, fail or inconclusive result can be assigned. The stopped admission rules out nothing about K50's trained quality and does not support advancing to full-game step 4. Roadmap item 4.3 remains unresolved.
 
-The single immediate next step is for the owner to make the M1 eligible (AC power and total swap below the unchanged ceiling), then explicitly authorize a new admission. This attempt stays stopped; it will not watch the host or resume automatically.
+The single immediate next step is for the owner to make the M1 eligible (AC power and total swap below the unchanged ceiling), then explicitly authorize a new admission. The first admission stays stopped. The owner subsequently authorized the fresh attempt; it has its own guard records and never resets or overwrites an earlier failure.
 
 ## Closeout
 
