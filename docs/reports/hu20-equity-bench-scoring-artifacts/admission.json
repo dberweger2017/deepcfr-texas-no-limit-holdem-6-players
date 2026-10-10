@@ -1,0 +1,52 @@
+{
+  "run_id": "m1-hu20-equity-bench-scoring-admission-20261010",
+  "recorded_at_utc": "2026-10-10T11:17:24.453813+00:00",
+  "sample_time": "Initial read-only inspection during this task, before 2026-10-10T11:16:29Z; exact sample timestamp was not recorded.",
+  "source_revision": "ff984da9a16bf1e76e891fab239d0785188a93af",
+  "checkout": "/Users/dberweger/Local/hu20-equity-bench-scoring",
+  "branch": "feature/hu20-equity-bench-scoring",
+  "status": "not-admitted",
+  "scientific_outcome": "unclassified",
+  "failure_stage": "host admission before restoration or scientific commands",
+  "host": {
+    "architecture": "arm64",
+    "model": "MacBookPro17,1",
+    "cpu_cores": 8,
+    "memory_bytes": 17179869184,
+    "disk_available_display": "26Gi",
+    "free_memory_percent": 51
+  },
+  "raw_power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=37093475)\t49%; discharging; 9:28 remaining present: true\n",
+  "raw_swap": "vm.swapusage: total = 5120.00M  used = 4183.62M  free = 936.38M  (encrypted)\n",
+  "raw_memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 51%\n",
+  "violations": [
+    "AC required; observed Battery Power",
+    "total system swap must be <= 3000000000 bytes; observed 4183.62 MiB (rounded sysctl display, about 4386843484 bytes)"
+  ],
+  "required_guards": {
+    "whole_family_rss_ceiling_bytes": 7516192768,
+    "normal_pressure_level": 1,
+    "minimum_system_free_percent": 15,
+    "total_system_swap_ceiling_bytes": 3000000000,
+    "disk_floor_bytes": 17179869184,
+    "ac_required": true
+  },
+  "unmeasured": [
+    "whole-family RSS (no worker launched)",
+    "kernel memory-pressure level (admission already failed)"
+  ],
+  "restoration": {
+    "performed": false,
+    "reason": "Stopped at host admission; no accepted archive was copied, opened, extracted or hashed.",
+    "input_index": "docs/reports/hu20-equity-bench-artifacts/model-input-index.json"
+  },
+  "scientific_commands_executed": [],
+  "scores_produced": false,
+  "scores_inspected": false,
+  "pilot_quote": null,
+  "retry": false,
+  "other_processes_stopped": false,
+  "other_pr_files_changed": false,
+  "synced_files_deleted_or_evicted": false,
+  "preserved_prior_stop": "PR222 merged, original 3.24-second AccessDenied stop unchanged; no scoring outcome existed."
+}
