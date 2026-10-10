@@ -1,0 +1,26 @@
+{
+  "status": "administrative-selector-error-corrected-before-science",
+  "failed_root": "/Users/dberweger/Local/hu20-equity-bench-scoring-continuation/results/equity-bench-scoring-continuation-20261010",
+  "fresh_science_root": "/Users/dberweger/Local/hu20-equity-bench-scoring-continuation/results/equity-bench-scoring-continuation-admitted-20261010",
+  "failure_receipt": {
+    "cleanup_error": null,
+    "failure": "RuntimeError('Worker exit 1')",
+    "finished": 1791650701.9172869,
+    "name": "seed",
+    "peak_family_rss_bytes": 19988480,
+    "returncode": 1,
+    "samples": 2,
+    "seconds": 0.3277246952056885,
+    "started": 1791650701.5895622,
+    "status": "failed",
+    "swap_ceiling_bytes": 10000000000
+  },
+  "actual_frozen_input_mismatch": false,
+  "expected_direct_results": 5,
+  "nested_solver_receipts": 5,
+  "archive_hashes_match": true,
+  "pilot_or_scoring_launched": false,
+  "partial_score_contents_inspected": false,
+  "old_latch_preserved": true,
+  "shared_own_inputs": "/Users/dberweger/Local/hu20-equity-bench-scoring-continuation/results/equity-bench-scoring-continuation-20261010/restored"
+}

@@ -38,13 +38,13 @@ def host(out):
             'disk_free_bytes': shutil.disk_usage(out).free}
 
 
-def violation(sample, rss):
+def violation(sample, rss, *, swap_ceiling_bytes=3_000_000_000):
     if rss >= 7*GIB:
         return '7 GiB whole-family ceiling'
     if sample['pressure_level'] != 1 or sample['free_percent'] < 15:
         return 'system pressure/headroom'
-    if sample['swap_bytes'] > 3_000_000_000:
-        return '3 GB total system swap ceiling'
+    if sample['swap_bytes'] > swap_ceiling_bytes:
+        return f'{swap_ceiling_bytes/1_000_000_000:g} GB total system swap ceiling'
     if sample['disk_free_bytes'] <= 16*GIB:
         return '16 GiB disk floor'
     if not sample['ac']:
@@ -91,6 +91,10 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--name', required=True)
     parser.add_argument('--scoring', action='store_true')
+    parser.add_argument('--swap-ceiling-bytes', type=int,
+                        choices=(3_000_000_000, 10_000_000_000),
+                        default=3_000_000_000,
+                        help='10 GB requires the owner-authorized continuation amendment')
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     if args.command[:1] == ['--']:
@@ -118,13 +122,15 @@ def main():
         try:
             sample = host(args.out)
             rss = family_rss(known)
-            write(folder/'admission.json', dict(sample, family_rss_bytes=rss, identity=identity))
-            problem = violation(sample, rss)
+            write(folder/'admission.json', dict(sample, family_rss_bytes=rss, identity=identity,
+                                               swap_ceiling_bytes=args.swap_ceiling_bytes))
+            problem = violation(sample, rss, swap_ceiling_bytes=args.swap_ceiling_bytes)
             if args.scoring and sample['free_percent']*16*GIB/100 < 9*GIB:
                 problem = problem or '9 GiB admission headroom'
             if problem:
                 raise RuntimeError('Admission refused: '+problem)
-            write(folder/'intent.json', {'command': args.command, 'source': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(), 'started': started})
+            write(folder/'intent.json', {'command': args.command, 'source': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(), 'started': started,
+                                        'swap_ceiling_bytes': args.swap_ceiling_bytes})
             with (folder/'worker.log').open('x') as log, (folder/'resources.jsonl').open('x') as stream:
                 child = subprocess.Popen(['/usr/bin/time','-l',*args.command], stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
                 try:
@@ -141,7 +147,7 @@ def main():
                     stream.write(json.dumps(dict(sample, family_rss_bytes=rss))+'\n')
                     stream.flush()
                     count += 1
-                    problem = violation(sample, rss)
+                    problem = violation(sample, rss, swap_ceiling_bytes=args.swap_ceiling_bytes)
                     if problem:
                         raise RuntimeError('Guard breach: '+problem)
                     if child.poll() is not None:
@@ -167,7 +173,8 @@ def main():
                 signal.signal(s, handler)
             write(folder/'receipt.json', {'name': args.name, 'started': started, 'finished': time(), 'seconds': time()-started,
                   'samples': count, 'peak_family_rss_bytes': peak, 'failure': failure, 'cleanup_error': cleanup_error,
-                  'returncode': child.returncode if child else None, 'status': 'failed' if failure else 'complete'})
+                  'returncode': child.returncode if child else None, 'status': 'failed' if failure else 'complete',
+                  'swap_ceiling_bytes': args.swap_ceiling_bytes})
             if cleanup_error:
                 raise RuntimeError(cleanup_error)
 
