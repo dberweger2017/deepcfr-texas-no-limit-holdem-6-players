@@ -1,4 +1,7 @@
-"""Bounded packaged HU100 HTTP/restart/journal integration; no strength metrics."""
+"""Bounded packaged v0.5.0 HTTP/restart/journal integration; no strength metrics.
+
+`release` plays restricted, free and spectator hands through the real CLI, restarts it
+before a pending bot decision, then `audit` independently replays every journal."""
 import argparse
 import json
 import os
@@ -11,7 +14,7 @@ import urllib.error
 import urllib.request
 from uuid import uuid4
 
-from src.policies.v050_bundle import CANDIDATE, INFERENCE, MODEL, sha
+from src.policies.v050_bundle import INFERENCE, MODEL, RELEASE
 
 
 def put(path, value):
@@ -44,13 +47,13 @@ class Runtime:
         started = monotonic()
         log = (self.out / f'server-{len(self.starts)}.log').open('x')
         self.process = subprocess.Popen([sys.executable, '-m', 'src.play_api.server',
-            '--v050-candidate', str(self.bundle), '--stack-bb', '100',
+            '--v050', str(self.bundle), '--stack-bb', '100',
             '--data-dir', str(self.data), '--source-version', self.source,
             '--port', str(self.port)], stdout=log, stderr=subprocess.STDOUT)
         log.close()
         while monotonic() - started < 900:
             if self.process.poll() is not None:
-                raise RuntimeError('Candidate server exited during startup')
+                raise RuntimeError('v0.5.0 server exited during startup')
             token = self.data / 'access.token'
             if token.exists():
                 self.token = token.read_text().strip()
@@ -103,15 +106,15 @@ def exercise(runtime, counts, label):
     started = monotonic()
     result = {'sessions': [], 'hands': 0, 'off_menu_550_raises': 0, 'all_in_raises': 0}
     catalog = runtime.call('/api/models')
-    assert catalog['default'] == CANDIDATE and len(catalog['models']) == 1
+    assert catalog['default'] == RELEASE and len(catalog['models']) == 1
     assert catalog['models'][0]['inference'] == INFERENCE
     runtime.call('/api/sessions', {'modelVersion': 'v0.4.2'}, expected=400)
     runtime.call('/api/sessions', {'sessionType': 'spectator',
-                                 'modelVersions': [CANDIDATE, 'v0.4.2']}, expected=400)
+                                 'modelVersions': [RELEASE, 'v0.4.2']}, expected=400)
     for mode, hands in counts.items():
         if mode == 'spectator':
             state = runtime.call('/api/sessions', {'sessionType': 'spectator',
-                                    'modelVersions': [CANDIDATE, CANDIDATE]})
+                                    'modelVersions': [RELEASE, RELEASE]})
         else:
             state = runtime.call('/api/sessions', {'playMode': mode, 'visibility': 'developer'})
         result['sessions'].append({'id': state['sessionId'], 'mode': mode, 'hands': hands})
@@ -151,7 +154,7 @@ def exercise(runtime, counts, label):
 
 
 def audit(data, bundle, out):
-    from src.policies.v050_candidate import load_policy
+    from src.policies.v050 import load_policy
     from src.play_api.play_audit import audit_state
     from src.play_api.spectator_audit import audit_states
     from src.play_api.service import PlayService, _model_info, PlayError
@@ -159,10 +162,10 @@ def audit(data, bundle, out):
     from src.play_api.configuration import PlayTable
     started = monotonic(); policy = load_policy(bundle)
     loaded = monotonic() - started
-    base = data / CANDIDATE
+    base = data / RELEASE
     human = PlayService(base / 'private.sqlite', policy)
-    identity = {'version': CANDIDATE, **_model_info(policy)}
-    spectator = SpectatorService(base / 'spectator.sqlite', {CANDIDATE: policy}, {CANDIDATE: identity})
+    identity = {'version': RELEASE, **_model_info(policy)}
+    spectator = SpectatorService(base / 'spectator.sqlite', {RELEASE: policy}, {RELEASE: identity})
     try:
         human_rows = [json.loads(r[0]) for r in human.db.execute('SELECT state FROM sessions')]
         spectator_rows = [json.loads(r[0]) for r in spectator.db.execute('SELECT state FROM sessions')]
@@ -170,7 +173,7 @@ def audit(data, bundle, out):
             audit_state(row, policy); human.verify_replay(row['sessionId'])
         for row in spectator_rows:
             spectator.verify_replay(row['sessionId'])
-        spect = audit_states(spectator_rows, {CANDIDATE: policy}, {CANDIDATE: identity})
+        spect = audit_states(spectator_rows, {RELEASE: policy}, {RELEASE: identity})
         try:
             PlayService(out / 'wrong-table.sqlite', policy, table=PlayTable())
         except ValueError:
@@ -210,7 +213,7 @@ def audit(data, bundle, out):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode', choices=('pilot', 'main', 'audit'))
+    parser.add_argument('mode', choices=('pilot', 'main', 'release', 'audit'))
     parser.add_argument('--bundle', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--data', type=Path, required=True)
@@ -249,12 +252,14 @@ def main():
                     response = runtime.call(prefix(response) + '/actions', {**request(response),
                         'kind': 'check' if 'check' in legal['kinds'] else 'call', 'raiseTo': None})
             assert response['phase'] == 'finished'
-            result = exercise(runtime, {'restricted': 4, 'free': 7, 'spectator': 8}, 'main')
+            counts = {'restricted': 4, 'free': 7, 'spectator': 8} if args.mode == 'main' else {'restricted': 2, 'free': 3, 'spectator': 2}
+            result = exercise(runtime, counts, args.mode)
             result['hands'] += 1; result['restart_hand_session'] = state['sessionId']
             result['starts'] = runtime.starts; result['lost_reply_verified'] = True
-            put(args.out / 'browser-ready.json', {'port': runtime.port, 'pid': runtime.process.pid,
-                                                   'started': time(), 'max_seconds': 600})
-            result['browser'] = browser_receipt(args.out / 'browser-done.json')
+            if args.mode == 'main':
+                put(args.out / 'browser-ready.json', {'port': runtime.port, 'pid': runtime.process.pid,
+                                                       'started': time(), 'max_seconds': 600})
+                result['browser'] = browser_receipt(args.out / 'browser-done.json')
         put(args.out / 'summary.json', result)
         print(json.dumps(result))
     finally:
