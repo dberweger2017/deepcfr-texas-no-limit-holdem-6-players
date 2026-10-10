@@ -1,0 +1,15 @@
+{
+  "status": "locally-verified-upload-pending",
+  "owning_pr": 225,
+  "executed_scoring_source": "9310cb7574b196788fb0e508390337dcb4954d3c",
+  "run_identity": "results/equity-bench-scoring-admitted-20261010",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-pressure-stop-M1-20261010.zip",
+  "bytes": 1356843,
+  "sha256": "f78c1327d413d519a0da57d99f9cc341f92fea074c3a2465317e85d64f4cd935",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "fb6f4bc66d3e16a7b75fb8c890af8f1e16e4b7954b3f6d71eebd8bde27417422",
+  "payload_members": 123,
+  "member_readback": "all sizes/SHA256 verified",
+  "restored_inputs_duplicated": false,
+  "remote_archive_bytes_downloaded": false
+}

@@ -92,27 +92,15 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
-## PR225 fixed-source scoring running — October10
+## PR225 fixed-source scoring stopped on system pressure — October 10
 
-Owner [authorization6097292716](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716)
-fixes discovery/inner resource monitoring to avoid setuid-root ps helpers,
-without changing any thresholds or frozen science. Executed source
-`9310cb7574b196788fb0e508390337dcb4954d3c`; one source review clear,
-29focusedtests pass. [Source/authorization](docs/reports/hu20-equity-bench-scoring-artifacts/fixed-source-authorization.json),
-[review](docs/reports/hu20-equity-bench-scoring-artifacts/fixed-source-review.json),
-[executed-source hashes](docs/reports/hu20-equity-bench-scoring-artifacts/final-executed-source.json).
+Executed source `9310cb7574b196788fb0e508390337dcb4954d3c`, owner [authorization 6097292716](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225#issuecomment-6097292716), one clear source review and 29 focused tests. The helper-free timing pilot completes in 627.0966 seconds with a full blind quote posted before scoring. Full scoring stops at 15:23 Madrid after 3,129.1473 seconds and **5/40 completed roots**, on normal→warning system pressure. Peak whole-family RSS 4,058,202,112 bytes stays below 7 GiB; AC/swap/disk pass. [Summary](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-stopped-summary.json), [executed source](docs/reports/hu20-equity-bench-scoring-artifacts/final-executed-source.json), [report](docs/reports/hu20-equity-bench-scoring.md). No numeric outcomes inspected, primary decision, report command or scientific retry. Scheduler disabled; failure latch and all partials preserved.
 
-Active ignored root `results/equity-bench-scoring-admitted-20261010` shares
-verified own inputs in `results/equity-bench-scoring-fixed-20261010/restored`.
-All281members/24aliases/threeK50tables match; guard-only prospective9GiB
-headroom refusal at53%free precedes any fixed-source evaluator and remains
-latched separately. Fresh pilot/final admission passes at61%/66%free.
-Pilot627.0966seconds, all42policy/seat measurements complete, no score
-inspection, guard clear. [Full timing/storage quote](docs/reports/hu20-equity-bench-scoring-artifacts/final-pilot-quote.json)
-was posted before final40-root scoring:6.97hours plus30minutes closeout,
-25% scheduling allowance. No outcome/readout claimed yet. Inputs, current
-outputs and all previous immutable stopped archives remain protected;
-final scores/derived outputs await separate member-hashed PR225 archival.
+Ignored run `results/equity-bench-scoring-admitted-20261010` used its own verified input copies at `results/equity-bench-scoring-fixed-20261010/restored` through a symlink. Those extracted copies are now removed after accepted archival and dependency review; all run outputs/receipts/latches remain. All 281 members /24 aliases /three K50 tables match. Its earlier prospective 9 GiB headroom refusal launched no evaluator and remains separate. Restoration provenance remains in each run's `restoration.json`; original [PR222 model/input index](docs/reports/hu20-equity-bench-artifacts/model-input-index.json), [PR190 evaluator index](#pr190-global-equity-bucket-validation-october-8) and [PR163 K50 report](docs/reports/native-equity-bucket-keys.md) retain input member hashes and locators. Do not duplicate these inputs in the partial archive.
+
+Accepted partial archive: `~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-pressure-stop-M1-20261010.zip`, Drive [1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH](https://drive.google.com/file/d/1KKCV4dLBJplxi_NVScGTSXgkcHahXhLH/view), in [PR225 folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi). **1,356,843 bytes /123 payload members**, SHA256 `f78c1327d413d519a0da57d99f9cc341f92fea074c3a2465317e85d64f4cd935`; embedded `ARCHIVE-MANIFEST.json` SHA256 `fb6f4bc66d3e16a7b75fb8c890af8f1e16e4b7954b3f6d71eebd8bde27417422`. All local member sizes/SHA256 read back. [Archive receipt](docs/reports/hu20-equity-bench-scoring-artifacts/final-archive-receipt.json), [native/cloud acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-cloud-upload.json): uploaded=1, uploading=0, no conflicts/paused sync; independent cloud ID/name/size/parent confirmed. Remote archive bytes not redownloaded.
+
+For partial-run retrieval, download the indexed Drive ZIP into a fresh ignored directory, verify its whole SHA256, then use `python -m zipfile -e <archive.zip> <fresh-results-directory>` and verify every extracted member against `ARCHIVE-MANIFEST.json`. `results/equity-bench-scoring-fixed-20261010/restoration.json` inside this ZIP pins every original PR222/190/163 input archive ID/member/hash and `restoration_command`; `planning/restore_scoring.py` records the exact restoration recipe. No input payload is duplicated. The [single end evidence review](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-evidence-review.json) is clear. Following accepted upload and dependency review, immediate exact path-set/size/mtime/SHA256/open-handle checks pass; **only 305 own extracted copies** are removed, 3,755,888,589 logical bytes including aliases. [Cleanup receipt](docs/reports/hu20-equity-bench-scoring-artifacts/final-pressure-cleanup-receipt.json) lists every removed path with original archive ID/canonical member/size/SHA256, including logical alias paths separately. Outputs, prepared files, receipts and failure latches remain; no synced files or other PR dependencies are deleted. All earlier immutable stopped archives below remain unchanged.
 
 ## PR225 actual timing pilot stopped — October 10
 
