@@ -83,3 +83,7 @@ Fresh 1M timing pilot measured 3,144,671 nodes/s. The posted train/save/export/a
 Whole-family 7/9 GiB, total 3 GB swap, normal pressure/15% system free, 16 GiB disk and AC guards were unchanged. The opt-in checked-sorted loader shares compact buffers and validates ordering, avoiding global sorting copies; default inference is unchanged. No trainer source edit, failed-science retry, leak, invalid action, accounting error, release, tag, publication, paid compute or other-PR cleanup occurred. Complete guard samples, pilots, models and traces are in the member-hashed ZIP; upload acceptance/restoration is indexed in [RESULTS_INDEX](../../RESULTS_INDEX.md). Originals remain retained.
 
 Actual guarded B operations total 3.90 h, including training, exports, full audits and pilots; final direct play/replay/reproduction took 1.76 h and the final scripted secondary 13.13 min. All 70,225 retained resource samples passed: peak family RSS 6.08 GiB, maximum total swap 1.05 GB, minimum system free 75%, minimum disk free 26.12 GiB.
+
+## Validation and independent evidence review
+
+The single combined [end evidence review](hu100-3b-ladder-artifacts/evidence-review.json) is clear, with no correctness findings open. It independently reproduces the statistics, resource extrema, coverage, restoration locators and archive acceptance. Scientific operations were not rerun. Merge requires every final-head host check to pass.
