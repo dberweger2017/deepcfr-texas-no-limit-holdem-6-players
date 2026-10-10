@@ -52,8 +52,9 @@ def prior_results(archive_path: Path, jobs: list) -> list:
                 or summary['scores_inspected'] is not False
                 or summary['failure_receipt']['status'] != 'failed'):
             raise ValueError('Prior completed-root provenance differs')
+        prefix = PRIOR_PREFIX+'/work/eval/'
         result_names = {name for name in pins
-                        if name.startswith(PRIOR_PREFIX+'/work/eval/')
+                        if name.startswith(prefix) and name[len(prefix):].count('/') == 1
                         and name.endswith('/result.json')}
         expected_names = {PRIOR_PREFIX+'/work/eval/'+job+'/result.json' for job in expected}
         if result_names != expected_names:

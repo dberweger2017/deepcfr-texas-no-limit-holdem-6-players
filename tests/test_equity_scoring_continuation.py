@@ -13,6 +13,9 @@ def fixture_archive(tmp_path, monkeypatch):
     jobs = [{'job': f'job-{i:02d}'} for i in range(40)]
     payloads = {continuation.PRIOR_PREFIX+'/work/eval/'+j['job']+'/result.json':
                 b'opaque result bytes, deliberately not JSON' for j in jobs[:5]}
+    # Native runtime receipts share the filename but are not complete root results.
+    payloads.update({continuation.PRIOR_PREFIX+'/work/eval/'+j['job']+'/solver/result.json':
+                     b'opaque nested native runtime receipt' for j in jobs[:5]})
     summary = {'completed_job_ids': [j['job'] for j in jobs[:5]],
                'completed_roots': 5, 'required_roots': 40,
                'executed_scoring_source': continuation.PRIOR_SOURCE,
