@@ -1,4 +1,4 @@
-"""Bounded packaged v0.5.0 HTTP/restart/journal integration; no strength metrics.
+"""Bounded packaged HU100 release HTTP/restart/journal integration; no strength metrics.
 
 `release` plays restricted, free and spectator hands through the real CLI, restarts it
 before a pending bot decision, then `audit` independently replays every journal."""
@@ -14,7 +14,7 @@ import urllib.error
 import urllib.request
 from uuid import uuid4
 
-from src.policies.v050_bundle import INFERENCE, MODEL, RELEASE
+from src.policies.hu100_bundle import INFERENCE, RELEASES, bundle_release
 
 
 def put(path, value):
@@ -47,13 +47,13 @@ class Runtime:
         started = monotonic()
         log = (self.out / f'server-{len(self.starts)}.log').open('x')
         self.process = subprocess.Popen([sys.executable, '-m', 'src.play_api.server',
-            '--v050', str(self.bundle), '--stack-bb', '100',
+            '--hu100-release', str(self.bundle), '--stack-bb', '100',
             '--data-dir', str(self.data), '--source-version', self.source,
             '--port', str(self.port)], stdout=log, stderr=subprocess.STDOUT)
         log.close()
         while monotonic() - started < 900:
             if self.process.poll() is not None:
-                raise RuntimeError('v0.5.0 server exited during startup')
+                raise RuntimeError('HU100 release server exited during startup')
             token = self.data / 'access.token'
             if token.exists():
                 self.token = token.read_text().strip()
@@ -103,6 +103,7 @@ def prefix(state):
 
 
 def exercise(runtime, counts, label):
+    RELEASE = bundle_release(runtime.bundle)
     started = monotonic()
     result = {'sessions': [], 'hands': 0, 'off_menu_550_raises': 0, 'all_in_raises': 0}
     catalog = runtime.call('/api/models')
@@ -154,13 +155,14 @@ def exercise(runtime, counts, label):
 
 
 def audit(data, bundle, out):
-    from src.policies.v050 import load_policy
+    from src.policies.hu100_release import load_policy
     from src.play_api.play_audit import audit_state
     from src.play_api.spectator_audit import audit_states
     from src.play_api.service import PlayService, _model_info, PlayError
     from src.play_api.spectator import SpectatorService
     from src.play_api.configuration import PlayTable
-    started = monotonic(); policy = load_policy(bundle)
+    started = monotonic(); RELEASE, policy = load_policy(bundle)
+    MODEL = RELEASES[RELEASE]['model']
     loaded = monotonic() - started
     base = data / RELEASE
     human = PlayService(base / 'private.sqlite', policy)

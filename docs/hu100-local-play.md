@@ -108,6 +108,9 @@ failed. The run and all workers are stopped. No training, external campaign or
 strength inference follows from this runtime check. Keep the ignored model and
 raw evidence while PR212 remains open; archive closeout is pending.
 
-## The v0.5.0 release
+## HU100 releases
 
-`--v050 BUNDLE` loads the verified v0.5.0 release bundle: these same #207 bytes, with #215's translation (512 states, 128 events) fixed on. It runs as its own table, outside the HU20 release catalog. [Install and run](releases/v0.5.0/INSTALL.md) · [model card](releases/v0.5.0/MODEL_CARD.md) · [readiness record](releases/v0.5.0/READINESS.md).
+`--hu100-release BUNDLE` loads a verified HU100 release bundle, with #215's translation (512 states, 128 events) fixed on. It runs as its own table, outside the HU20 release catalog, and keeps each release's sessions separate.
+
+- **v0.5.1:** #223's 2B average. [Install and run](releases/v0.5.1/INSTALL.md) · [model card](releases/v0.5.1/MODEL_CARD.md).
+- **v0.5.0:** these same #207 1B bytes. [Model card](releases/v0.5.0/MODEL_CARD.md) · [readiness record](releases/v0.5.0/READINESS.md).

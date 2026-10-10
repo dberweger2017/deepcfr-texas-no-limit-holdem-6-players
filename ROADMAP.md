@@ -21,6 +21,7 @@ The v0.4.x releases improve heads-up 20 BB; v0.5 starts at 100 BB and adds 200 B
 | **v0.4.2** (released, `v0.4.2`, current) | The same recipe at 10B nodes, fixed seed 2026100601. Direct gain +3.50 [+1.63, +5.37] BB/100; all four gates pass, fresh LBR narrowly. [Verified publication record](docs/releases/v0.4.2/PUBLICATION.md). v0.4.0/v0.4.1 stay available. |
 | **v0.4.x** (now) | The Pluribus recipe on heads-up 20 BB: average-policy play, a native trainer, a better training procedure or card abstraction, turn/river search, then flop search, in the order the evidence supports. Each patch must beat its predecessor in a paired arena without severe scenario regressions. |
 | **v0.5.0** (released, `v0.5.0`) | Heads-up 100 BB: #207's 1B-node average, seed 2026100601, with public-history translation (512/128). It beats four of five scripted opponents across three seeds; against pot pressure it's −9 [−39, 20] BB/100. Validated through internal checks and scripted evaluations only: no suitable free public 100 BB opponent has been found, so there is no external strength claim. [Model card](docs/releases/v0.5.0/MODEL_CARD.md). Later v0.5.x releases continue on 100 BB. |
+| **v0.5.1** (released, `v0.5.1`) | Heads-up 100 BB: #223's 2B-node average from the same seed, with the same translation. Beats v0.5.0 head to head by +29.51 [26.82, 32.20] BB/100, and two independent seeds repeat the 2B-over-1B gain at +28.14 and +27.90 (#226). No scripted difference from v0.5.0 is significant; pot pressure still beats it. [Model card](docs/releases/v0.5.1/MODEL_CARD.md). |
 | **v0.5.5** | Heads-up 200 BB with a policy trained and validated at that depth, tested against Slumbot at its public API's 200 BB stacks. Publish results and uncertainty; these do not establish HU100 strength. **Still to decide (owner):** benchmark acceptance criteria, informed by an exploratory run before fresh confirmation. |
 | **v0.6** | Three players: multiway blueprint and search. |
 | **v0.7** | Four and five players: a blueprint for each table size. |
@@ -73,6 +74,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 - **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
 *Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+
+- **v0.5.1 released:** the owner authorized releasing #223's 2B HU100 average as v0.5.1, stable Latest. `--hu100-release` now loads any verified HU100 release bundle (v0.5.0 and v0.5.1); `hu100_bundle.py` pins both. [Notes](docs/releases/v0.5.1/RELEASE_NOTES.md), [model card](docs/releases/v0.5.1/MODEL_CARD.md).
 
 - **K50 bench scoring ([#225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225)), pressure stop:** helper-free pilot passes; full scoring stops at 5/40 roots on macOS warning pressure. No partial score inspection, classification or retry; item 4.3 remains unresolved. [Evidence and preserved earlier stops](docs/reports/hu20-equity-bench-scoring.md).
 
