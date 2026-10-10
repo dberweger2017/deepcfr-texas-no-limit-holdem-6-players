@@ -1,0 +1,8 @@
+{
+  "samples": 553,
+  "peak_family_rss_bytes": 50233344,
+  "max_total_swap_bytes": 1912340480,
+  "minimum_free_percent": 56,
+  "minimum_disk_free_bytes": 42284982272,
+  "all_thresholds_pass": true
+}

@@ -82,6 +82,50 @@ Native runtime `runtime/hu20-trainer` SHA256 `7d0af59cb2f83e23f74847ee67abb086be
 Upload/validation/end-review receipts generated after packing remain compact Git evidence;
 archive originals and all scientific members remain unchanged.
 
+## PR225 fresh K50 scoring admission — evaluator identity stop, October 10
+
+The owner explicitly authorized continuation after connecting AC and reducing
+swap. [PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
+source `4b5de42b25869a6fe02cfbcb931e9349bc6c9add`, M1 isolated checkout
+`~/Local/hu20-equity-bench-scoring`, fresh root `results/equity-bench-scoring-20261010`.
+All source archives and **280 restored members /24 aliases /three K50 tables**
+verify. Preparation then stops: PR222 archived `input-pins.json` records lock
+`4f22f58b…acc7792`, while its published index/restored PR190 evaluator is
+`fb32974d…8812f`. Full identities and raw failure are preserved; no pilot,
+scoring, result or retry. All 553 guard samples pass. Prior PR222 and first
+PR225 admission stops remain unchanged. [Report](docs/reports/hu20-equity-bench-scoring.md).
+
+Accepted [partial ZIP](https://drive.google.com/file/d/1l-F041qwoqbi0hIBi93e3LAf73wbYAmj/view),
+`~/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-partial-M1-20261010.zip`,
+**55,976 bytes /22 payload members**, SHA256
+`9f4efaee91762c3ef1be50bc780bde9d7405f039fcda6a30a4cf162f20aa5112`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`f0bb7f4c643d7cbd1850e3b6893f0b3a72e86c54dc46fc967c97c43dbe62dd43`.
+Same [PR225 folder](https://drive.google.com/drive/folders/1-GljAPB9ONeCPIaljdZ7p1FWAjkdM4gi),
+Research-Cloud parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+All member sizes/hashes read back; native uploaded=1/uploading=0/conflicts=0/
+unpaused plus independent cloud ID/name/size/parent accepted.
+Remote archive bytes were **not downloaded**. [Local receipt](docs/reports/hu20-equity-bench-scoring-artifacts/partial-archive-receipt.json)
+and [separate acceptance](docs/reports/hu20-equity-bench-scoring-artifacts/partial-cloud-upload.json).
+Later terminal receipts/review remain in Git.
+
+No policies/adapters/references/tables are duplicated into this ZIP.
+[Restoration receipt](docs/reports/hu20-equity-bench-scoring-artifacts/restoration.json)
+and its archived `results/equity-bench-scoring-20261010/restoration.json` pin every
+member, alias, byte count, SHA256, source archive ID and extraction mtime.
+Required inputs use existing PR222 model/input locators below, PR190 evaluator
+archive `1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6` and PR163 tables
+`1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`; whole hashes and exact member paths are
+in that receipt. Retrieval command: restore this partial ZIP by its pinned
+whole SHA256, then use its `planning/restore_scoring.py` in a fresh ignored
+checkout with the three indexed source archives available via Research-Cloud;
+it verifies each archive and selected member. Neither retrieval nor correction
+grants permission to restart this stopped attempt.
+
+Own extracted copies remain pending closeout; no other PR files or synced
+files are removed. Earlier admission archive/receipt below stays authoritative
+for that distinct refusal.
+
 ## PR225 K50 bench scoring — M1 admission refused, October 10
 
 [PR225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225),
