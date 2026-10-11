@@ -1,0 +1,10 @@
+{
+  "source_revision": "d97d6c7",
+  "reviewer": "/root/source_review",
+  "status": "clear",
+  "open_findings": [],
+  "scope": ["information boundary", "table SHA256 identity", "per-policy schema and memmap ownership", "mixed arena/direct policy inputs", "LBR public hypothetical queries", "native pressure", "checkpoint continuation safeguards", "search/web entry refusal"],
+  "review_validation": "10 synthetic tests passed; no real-table run launched by reviewer",
+  "helper_review": {"files": ["planning/guard_smoke.py", "planning/smoke_worker.py"], "status": "clear", "scope": "whole-family guards, owned-session cleanup, fixed correctness schedule"},
+  "native_trainer_modified": false
+}

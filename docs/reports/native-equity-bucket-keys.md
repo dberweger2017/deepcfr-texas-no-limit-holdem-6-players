@@ -52,12 +52,8 @@ Measured on the M1 with #163's tables, HU20 production recipe:
 
 The tables add about 1.4 GB to each process. Bucket keys multiply the key count by about 1.4. Card v2 multiplied it by 7 ([#143](hu20-card-v2.md)), so matched visits per key costs only about 1.4× the nodes here.
 
-## Not yet covered
+## Evaluation support
 
-The bench, native training, resume and export are covered. Before any full-game bucket model is played, these still need the schema (rule 6):
-- the Python checkpoint and average loaders (`load_training`, `AveragePolicy`);
-- the web runtime;
-- turn search, which takes ranges from blueprint keys;
-- LBR.
+[PR235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235) adds explicit pinned-table ownership to Python checkpoint/current/average readers, mixed-schema paired arena/direct matches, and the existing observation-only LBR/native-pressure paths. See the [evaluation guide and smoke](k50-evaluation-support.md). Tables remain read-only `np.memmap` mappings; evaluation never relies on process-wide key registration.
 
-That work is only worth doing if the trained bench passes (step 3).
+Turn search/rollout blueprint ranges and the web runtime **refuse K50 with a clear error**. They are not yet supported. Python K50 checkpoints are for evaluation only; native training remains the resume path. The [proposed full-game protocol](../hu20-k50-full-game-proposal.md) awaits owner approval; no full-game campaign, adoption or strength claim follows from this engineering.
