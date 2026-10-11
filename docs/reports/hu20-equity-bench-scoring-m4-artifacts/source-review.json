@@ -1,0 +1,159 @@
+{
+  "status": "clear",
+  "open_findings": [],
+  "reviewer": "independent scoring source review /root/continuation_evidence_review",
+  "reviewed_at_utc": "2026-10-10T19:38:21.148531+00:00",
+  "working_tree_base": "5875ecd36bf0b35abeeb718dba2e7b7f4b6765c4",
+  "scope": "Fresh owner-authorized M4 all40 scoring infrastructure before pilot; local M1 source/metadata review only. No M4 operations, restoration, pilot, evaluation or numeric outcome inspection by reviewer. End evidence review is separate.",
+  "source_files": [
+    {
+      "path": "scripts/guard_hu20_equity_scoring.py",
+      "sha256": "0678270e86a821610f62a8e6f69fbe9a7e2784bd647773b08ccbe461728552a6"
+    },
+    {
+      "path": "scripts/restore_hu20_equity_scoring.py",
+      "sha256": "5e78711164c39958c9d557f52bf22b0d1e47024ef1f7a0f0c8b87012247c19e8"
+    },
+    {
+      "path": "scripts/run_fresh_hu20_equity_scoring.py",
+      "sha256": "cfbbfbb6928984abc2893370bb82c5a3c8d27d65aca68a5da3d5a2d369ad8532"
+    },
+    {
+      "path": "scripts/hu20_equity_scoring_metadata.py",
+      "sha256": "f39db5c532f2a872cc6b5820c2ece83433eb0a0991da98c989548d8edc8e7b80"
+    },
+    {
+      "path": "scripts/score_restored_hu20_equity_bench.py",
+      "sha256": "ef8a9d5d30c15fa6caf640603dccbd55ef76f4bde3a467d8ab1d184e0a3065c7"
+    },
+    {
+      "path": "scripts/continue_restored_hu20_equity_bench.py",
+      "sha256": "b4f723dc0924d6424e350570402c31d97a388e9dd3f3fde89be5fc44b7292e7d"
+    },
+    {
+      "path": "scripts/run_hu20_equity_bench.py",
+      "sha256": "ccc92b22965ebd782c8cf9ce8cf6cb40ecde1257fd7d31688c326fc1e3c7e5b2"
+    },
+    {
+      "path": "scripts/research_process_family.py",
+      "sha256": "56eb10102855a3a4d8b609a0faccfdf9ffa258350facf4fcbfb1349cc4789526"
+    },
+    {
+      "path": "scripts/subgame_bench.py",
+      "sha256": "0b1859be76f35d9570d8d0d9ba7bb63de5eeed79a556d6dbde71bc54aae9d2ac"
+    },
+    {
+      "path": "scripts/hu20_search_runtime.py",
+      "sha256": "7069be7f492e62d3b0a095a3e27511b71ce75ee453ae9f0a58bb907944caa74e"
+    },
+    {
+      "path": "src/diagnostics/flop_check_runtime.py",
+      "sha256": "e7f1b24fc0a41456f405e76ac6c7fb3d89ba1fe65dc1997a000ecb55cdbf708b"
+    },
+    {
+      "path": "src/diagnostics/pooling_runtime.py",
+      "sha256": "677bb78157f7bd28db4c61dd797945f5c9116ea738be735286666728903dd870"
+    },
+    {
+      "path": "src/diagnostics/flop_check.py",
+      "sha256": "133bf174524cb8a6549218cecb4d5c17f197dc75efb5403c782da6c979058627"
+    },
+    {
+      "path": "src/diagnostics/global_bucket_validation.py",
+      "sha256": "510e4ae2953e5bcd328fddd41f242e50c9927f808dacf4bf7f77c10ae5698ecc"
+    },
+    {
+      "path": "src/diagnostics/board_pooling_results.py",
+      "sha256": "d1dcd6bfa5e283b04d3782f67c2770691f9bb0e0bab5ebf5a7d90e7a4007cceb"
+    },
+    {
+      "path": "src/diagnostics/subgame_bench.py",
+      "sha256": "2a1df0f22e0d76ae1e98737893b93ec6437e375d727aec9f5453d52fb128fe3b"
+    },
+    {
+      "path": "src/diagnostics/saved_hu20.py",
+      "sha256": "08dd12e7df62cbb310ed9ba8f16ef44efe44878eceadab5d68a570c8a7f99ab4"
+    },
+    {
+      "path": "src/blueprint/abstraction.py",
+      "sha256": "97bc21d898bd09ca053248434898b4514e29a7d402417dc9dec3a812873d529c"
+    },
+    {
+      "path": "src/blueprint/equity_buckets.py",
+      "sha256": "b678f5f20f39b7be047ea9d8ccea69915d752a8d8a047a9c55bbfdbd3405e3f8"
+    },
+    {
+      "path": "src/policies/files.py",
+      "sha256": "b6f8612a0e62211f2dad600f75da03fbd423c715f3fe275f06c86359005990e4"
+    },
+    {
+      "path": "configs/diagnostics/hu20-board-pooling.json",
+      "sha256": "754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-artifacts/model-input-index.json",
+      "sha256": "7d6717da4818661047a5aa6ba20fbed3cff5da3bf0598c9ccc03fb07d71982e3"
+    },
+    {
+      "path": "tests/test_fresh_equity_scoring.py",
+      "sha256": "f6fde2f7bcb726a7a91d96ac1258fc69a5c346b9b8ac443df65e49449fd8dbdb"
+    }
+  ],
+  "protocols_reviewed": [
+    {
+      "path": "docs/hu20-equity-bench-scoring-m4.md",
+      "sha256": "5be74cbd37f61b5a122d318e3dc7f3e7e032ec8cb6fc9cf6bd826c9b9279208a"
+    },
+    {
+      "path": "docs/reports/hu20-equity-bench-scoring-m4.md",
+      "sha256": "77ba2fb44fce230970c32ddb565508d8adf068005e1b27303873841cdee921c3"
+    },
+    {
+      "path": "docs/hu20-equity-bench.md",
+      "sha256": "4ff6a2f38f84573faf66ac057a528cde74b4bc8421dee27da093321397963e1c"
+    }
+  ],
+  "science_identity": {
+    "roots": 40,
+    "folds": 2,
+    "lineage": 2026093001,
+    "training_export_seed": 202610050001,
+    "matched_iterations": {
+      "0": 4000977,
+      "1": 3855889
+    },
+    "policies_per_fold": 21,
+    "reference_set": "Frozen B/L/P from main-06; mean two target seats per root and equal root mean; Q ratio of means.",
+    "projection": "v1 exports through v1 labels; equity exports through accepted #190 global K50 adapter/native eq50-fit0 alias with trained scalar bucket keys.",
+    "execution": "Original run_hu20_equity_bench.evaluate/report unchanged against baseline; one serial lock-only native pass per root, six threads/nice10/4GiB arena. No trainer operation exposed by fresh wrapper.",
+    "primary": "Pass iff matched opponent-sampled equity E minus v1 at3M paired95% upper < -0.10BB and equity-v1 10M point < 0; fail iff matched lower > -0.10BB; else inconclusive.",
+    "bootstrap": "Original 2000 paired40-root draws, Random202610050002, sorted spots, percentile49/1949.",
+    "witness": "Full-corpus three-lineage K50 E=.3917 remains descriptive context.",
+    "freshness": "No retained score seed; existing eval directory or continuation receipt refused; exclusive pilot/evaluation/report claims prevent duplicate phase execution; full40 completion marker plus exact direct result set and successful supervisor required before report."
+  },
+  "engineering_review": {
+    "machine": "Explicit m4 selector pins Apple M4/16GiB/10 cores; default m1 and original m1 lock path unchanged. Distinct M4 advisory lock.",
+    "guards": "Original 7GiB whole-family ceiling, creation-verified ancestry discovery/fail-closed owned identity checks, normal pressure/free>=15%, scoring9GiB admission proxy, AC, >16GiB disk; explicit owner10,000,000,000-byte total swap amendment. Failure latch immutable.",
+    "inner_guards": "Original native runtime +1GiB swap-growth ceiling, family job budget, wall deadline and native gate failure checks remain unchanged.",
+    "restoration": "Whole-archive pins enforced for PR222/190/163, PR222 manifest SHA and selected bytes/SHA pins, exact evaluator qualified later-source pin, exact three table sizes/SHA and alias equality. Exclusive destinations/outputs and no science in restorer.",
+    "metadata_only_selection_check": "Read PR222 manifest metadata only, no raw outcomes: 277 selected PR222 members including120 references; with evaluator+three tables281 members plus24 canonical matching aliases. No extraction performed.",
+    "source_review_gate": "Fresh phases rehash reviewed executed source and every restored member/alias before use. Review file is intentionally not self-pinned, avoiding cyclic dependency.",
+    "pilot_quote_gate": "Full-policy timing-only pilot; clear M4 supervisor required; quote includes all40 new roots/no reuse/source/shape/time/resource/storage forecasts and prior-nine inspection disclosure; posted exact quote SHA/comment receipt required before evaluation.",
+    "metadata_checker": "Host/phase receipts, direct result path count and failure/completion markers only; competitor ps inventory excludes own ancestors and reads no score/native response/worker-log content.",
+    "prior_outcome_disclosure": "Both new protocol and report explicitly acknowledge nine previously inspected M1 outcomes. No claim of restored outcome blindness or independent confirmation data; new partial outcomes deferred until full40 clear completion.",
+    "preservation": "Prior attempts/latches unchanged, no retained result reuse, no native trainer/default/release changes."
+  },
+  "validation": {
+    "command": "python -m pytest -q tests/test_fresh_equity_scoring.py tests/test_research_process_family.py tests/test_restored_equity_scoring.py tests/test_equity_scoring_continuation.py",
+    "result": "22 passed independently in 0.36s",
+    "covers": "Machine refusal, exactness/overwrite refusal, all40 fresh routing, permanent failed phase claims, quote/prior-result refusal, failed supervisor/incomplete report refusal and original ownership/continuation regressions.",
+    "baseline_unchanged": "git diff --exit-code 5875ecd confirms native trainer and frozen evaluator/report/runtime, plan and model-input-index unchanged."
+  },
+  "deferred_runtime_checks": [
+    "Owner release gate: live PR226 terminal merged record plus fresh M4 inventory with no competing research worker/controller; remain queued if occupied, never stop other work.",
+    "Live input PR222/190/163 merged-state check before copying; exact M4 archive/member/table/alias restoration and localization receipts must pass; the static source review does not assert remote file availability or hashes.",
+    "Before each heavy phase verify actual M4 identity and fresh resource admission, explicit10GB swap/m4 args, unchanged Python/native qualification and exact reviewed source bytes.",
+    "Post full actual pilot quote on new owning PR before once-only evaluation; inspect no pilot or partial metrics for budgeting/decisions.",
+    "Any actual guard breach or exactness mismatch terminates this attempt; preserve/archive/review without scientific retry. Full40 independent end evidence review and accepted archive/Drive provenance required at closeout."
+  ]
+}

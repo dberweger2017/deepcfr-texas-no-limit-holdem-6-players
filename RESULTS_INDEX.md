@@ -2534,3 +2534,48 @@ PY
 ```
 
 The original on gzip intentionally fails its final-footer integrity check. For forensic count/hash readback only, stream `gzip.open(...,'rt')`, parse complete JSON lines until the documented EOFError, and validate each row's canonical SHA256; keep original bytes. There is no frozen final plan or complete worker cost receipt. Restoration does not authorize another experiment, missing-coordinate completion, reuse as final data or removal. Independent final review and required checks accompanied the initial unmerged handoff. The owner subsequently requested merge after all five checks passed on reviewed head `14de46b215e2f34b2beb320902d679868999f415`; PR218 merged as `31cf2490144581992d0d334d5132daeebfa7918d` at 18:29:15 UTC on October 9, 2026. That authorization supersedes the earlier unmerged instruction. The original playing-comparison goal remains incomplete, translation stays experimental/off by default, and upload acceptance/dependency review/cleanup remains a pending owner/later-agent handoff. No archive bytes, originals or inputs changed for merge.
+
+## Fresh M4 frozen K50 scoring preparation — October 10, 2026
+
+The owner requests [PR232](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232), a separate fresh attempt in branch
+`feature/hu20-equity-bench-scoring-m4`, isolated M4 workdir
+`/Users/dberweger/Local/hu20-equity-bench-scoring-m4`, fresh main
+`5875ecd36bf0b35abeeb718dba2e7b7f4b6765c4`.
+[Protocol](docs/hu20-equity-bench-scoring-m4.md),
+[preparation report](docs/reports/hu20-equity-bench-scoring-m4.md).
+No scoring or large-input restoration is admitted while PR226 owns M4.
+All 40 roots will be newly scored; the nine previously inspected M1 outcomes
+are disclosed, so this is not an outcome-blind or independent confirmation.
+All previous stops and archives remain intact.
+
+Inputs are restored after release into ignored non-synced
+`results/equity-bench-scoring-m4-20261010/restored/` with
+`python -m scripts.restore_hu20_equity_scoring --base results/equity-bench-scoring-m4-20261010`,
+under the explicit M4 operation guard. This command verifies every whole
+archive and selected member/alias size and SHA256. It writes exact source
+member locators, hashes, restored paths and original modification times into
+`BASE/restoration.json`. Input archives are not duplicated in new score bundles:
+
+- #222 exports/adapters/references: Drive `1CloDY_sTImLcn4lffU5OHWQAdT7RLb37`,
+  archive SHA256 `c1f305a85282330ef14deadb176a8c97a560f0976fb632e75e387da9e265a8f9`,
+  manifest `ARCHIVE-MANIFEST.json` SHA256
+  `feec3c2212e7edc7411f4eff1cf1e73745994d8525c749e6aa9b01544dd764a4`.
+  Every required model/prepared input and hardlink alias is pinned by
+  [the existing member index](docs/reports/hu20-equity-bench-artifacts/model-input-index.json);
+  selected `research/references/` and metadata members are verified against the
+  accepted manifest. Scoring requires the original corpus/fold hashes.
+- #190 qualified lock evaluator: Drive `1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6`,
+  archive SHA256 `56db3a114aaa1e5273c4445c178a6e516bdcf7eacf0e9e4477dbc5786e360e49`,
+  member `inputs/pr149/pooling-engineering-05-mac`, 1,340,544 bytes,
+  SHA256 `fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f`.
+- #163 K50 tables: Drive `1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`, archive
+  `PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz`, SHA256
+  `03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca`;
+  members `hu20-equity-buckets-20261005/{flop,turn,river}-k50.bin`, respectively
+  12,867,944 /139,600,524 /1,231,562,564 bytes. Full member hashes remain pinned
+  in the existing member index and [key report](docs/reports/native-equity-bucket-keys.md).
+
+A new score/derived-output archive, native/cloud acceptance receipts and own-copy
+cleanup receipt will be indexed when this attempt terminates, under its new PR's
+Research-Cloud folder. None is claimed at preparation; all other PR files and
+synced contents are retained.

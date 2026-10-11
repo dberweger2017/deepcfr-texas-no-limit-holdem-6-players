@@ -1,0 +1,8 @@
+{
+  "at_utc": "2026-10-11T00:22:12.106368+00:00",
+  "correction": "Use absolute virtual-environment interpreter path without resolving symlink",
+  "failure": "Base interpreter was selected by Path.resolve; ModuleNotFoundError psutil before guard main",
+  "guard_phase_claimed": false,
+  "prior_launch": "planning/pilot-launch.json",
+  "scientific_phase_claimed": false
+}
