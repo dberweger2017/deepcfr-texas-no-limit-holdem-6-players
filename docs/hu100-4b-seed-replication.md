@@ -12,7 +12,11 @@ change, other-PR cleanup or unattended schedule.
 Initial admission is preventive: disk cannot support the required outputs and
 archive while preserving the 16 GiB floor. GitHub CLI authentication also returns
 HTTP 401. No training, timing pilot or final hand has started. The owner is
-addressing both prerequisites. The dated [admission receipt](reports/hu100-4b-seed-replication-artifacts/storage-admission.json)
+addressing the prerequisites. GitHub authentication subsequently succeeds;
+free disk increased to approximately48GiB, still below the provisional77.6GiB
+full-campaign requirement. The [recheck](reports/hu100-4b-seed-replication-artifacts/admission-recheck-20261011.json)
+preserves this later observation without overwriting initial evidence.
+The dated [admission receipt](reports/hu100-4b-seed-replication-artifacts/storage-admission.json)
 is a storage forecast, not a timing quote or a guard breach. Remeasure before
 science. Final sample counts, elapsed-time budgets and physical schedule
 disjointness are not yet frozen or verified.
