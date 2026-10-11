@@ -1,0 +1,599 @@
+{
+  "status": "owner-authorized-descriptive-partial-analysis",
+  "owning_scoring_pr": 230,
+  "boards": 9,
+  "frozen_total": 40,
+  "missing_boards": 31,
+  "fold_counts": {
+    "0": 5,
+    "1": 4
+  },
+  "first_numeric_inspection_utc": "2026-10-10T19:17:03.887118+00:00",
+  "stop_history": "PR230 failed AC supervisor receipt and all earlier stops remain immutable; no scientific retry or official report command.",
+  "selection": "All nine predetermined sorted-prefix completed roots; no selection by scores, no pilot or incomplete output included.",
+  "bootstrap": "Exploratory paired nine-root bootstrap only: 2000 draws, Random(202610050002), percentile indices49/1949. This is not the frozen 40-root qualification.",
+  "primary_decision": null,
+  "outcomes_now_inspected": true,
+  "estimates_bb": {
+    "B": {
+      "mean": 1.3515713331434462,
+      "low": 1.1617969343397352,
+      "high": 1.5620396084255643
+    },
+    "L": {
+      "mean": 0.4365926996866862,
+      "low": 0.3649121888478597,
+      "high": 0.5123175515068902
+    },
+    "P": {
+      "mean": 0.6396415858798556,
+      "low": 0.599936589135064,
+      "high": 0.6927508905198838
+    },
+    "iteration-1000000/equity.average-opponent-sampled": {
+      "mean": 0.9212147606743707,
+      "low": 0.8491004392835829,
+      "high": 0.9973809814453125
+    },
+    "iteration-1000000/equity.average-traverser-reach": {
+      "mean": 0.9565959591335721,
+      "low": 0.8848130798339844,
+      "high": 1.0282742351955838
+    },
+    "iteration-1000000/equity.current": {
+      "mean": 1.4582036632961697,
+      "low": 1.3410803731282552,
+      "high": 1.6023799302842883
+    },
+    "iteration-1000000/v1.average-opponent-sampled": {
+      "mean": 1.1269788784450954,
+      "low": 1.0153839704725478,
+      "high": 1.2471041827731661
+    },
+    "iteration-1000000/v1.average-traverser-reach": {
+      "mean": 1.2863160069783528,
+      "low": 1.1575644810994465,
+      "high": 1.4147676679823133
+    },
+    "iteration-1000000/v1.current": {
+      "mean": 2.5097353871663413,
+      "low": 2.1746124182807076,
+      "high": 2.887674289279514
+    },
+    "iteration-10000000/equity.average-opponent-sampled": {
+      "mean": 1.0165012190077038,
+      "low": 0.9348660405476887,
+      "high": 1.0990325715806748
+    },
+    "iteration-10000000/equity.average-traverser-reach": {
+      "mean": 1.0347362475925022,
+      "low": 0.9566461817423503,
+      "high": 1.1132099787394205
+    },
+    "iteration-10000000/equity.current": {
+      "mean": 1.5716984515719943,
+      "low": 1.4863235388861762,
+      "high": 1.6564367845323351
+    },
+    "iteration-10000000/v1.average-opponent-sampled": {
+      "mean": 1.137559585571289,
+      "low": 1.0359196768866645,
+      "high": 1.2637157440185547
+    },
+    "iteration-10000000/v1.average-traverser-reach": {
+      "mean": 1.2744088617960612,
+      "low": 1.1566993713378906,
+      "high": 1.415655403137207
+    },
+    "iteration-10000000/v1.current": {
+      "mean": 2.5119197379218208,
+      "low": 1.9930962838066948,
+      "high": 3.19118290371365
+    },
+    "iteration-3000000/equity.average-opponent-sampled": {
+      "mean": 0.9766443549262153,
+      "low": 0.893081652323405,
+      "high": 1.0638598336113823
+    },
+    "iteration-3000000/equity.average-traverser-reach": {
+      "mean": 1.0047035259670682,
+      "low": 0.9194654125637479,
+      "high": 1.0963874944051106
+    },
+    "iteration-3000000/equity.current": {
+      "mean": 1.7069042375352648,
+      "low": 1.5048850843641493,
+      "high": 1.9124721484714085
+    },
+    "iteration-3000000/v1.average-opponent-sampled": {
+      "mean": 1.1346601486206054,
+      "low": 1.0274086719089084,
+      "high": 1.243877084520128
+    },
+    "iteration-3000000/v1.average-traverser-reach": {
+      "mean": 1.2885486094156902,
+      "low": 1.1503765148586698,
+      "high": 1.4266659291585286
+    },
+    "iteration-3000000/v1.current": {
+      "mean": 2.9769793023003475,
+      "low": 2.2936784108479817,
+      "high": 3.9553365241156686
+    },
+    "matched/equity.average-opponent-sampled": {
+      "mean": 0.9861649746365018,
+      "low": 0.8937618086073134,
+      "high": 1.0819252649943034
+    },
+    "matched/equity.average-traverser-reach": {
+      "mean": 1.0131743664211696,
+      "low": 0.9243410831027561,
+      "high": 1.1037462615966798
+    },
+    "matched/equity.current": {
+      "mean": 1.6953038872612847,
+      "low": 1.5474406221177843,
+      "high": 1.8536710611979168
+    }
+  },
+  "placement_Q": {
+    "iteration-1000000/equity.average-opponent-sampled": {
+      "mean": 0.39550696663088464,
+      "low": 0.25282704579625787,
+      "high": 0.5914422707097609
+    },
+    "iteration-1000000/equity.average-traverser-reach": {
+      "mean": 0.44520456473686965,
+      "low": 0.30503105056515784,
+      "high": 0.6446341604987513
+    },
+    "iteration-1000000/equity.current": {
+      "mean": 1.1497792872998789,
+      "low": 0.8917595546149019,
+      "high": 1.5258634950190515
+    },
+    "iteration-1000000/v1.average-opponent-sampled": {
+      "mean": 0.6845300318442854,
+      "low": 0.5218553307619935,
+      "high": 0.9197427044151804
+    },
+    "iteration-1000000/v1.average-traverser-reach": {
+      "mean": 0.9083402169723739,
+      "low": 0.7354976531829158,
+      "high": 1.1790845823248775
+    },
+    "iteration-1000000/v1.current": {
+      "mean": 2.626795422546218,
+      "low": 2.2191028629082448,
+      "high": 3.2011036933631094
+    },
+    "iteration-10000000/equity.average-opponent-sampled": {
+      "mean": 0.5293494682254325,
+      "low": 0.3388656529088565,
+      "high": 0.7855254631846806
+    },
+    "iteration-10000000/equity.average-traverser-reach": {
+      "mean": 0.5549629907041425,
+      "low": 0.3710205411129199,
+      "high": 0.8112723051226322
+    },
+    "iteration-10000000/equity.current": {
+      "mean": 1.309197809579723,
+      "low": 0.9980151844769356,
+      "high": 1.7921078026252293
+    },
+    "iteration-10000000/v1.average-opponent-sampled": {
+      "mean": 0.6993920419890535,
+      "low": 0.5699782775263329,
+      "high": 0.8890614947711587
+    },
+    "iteration-10000000/v1.average-traverser-reach": {
+      "mean": 0.8916150481926473,
+      "low": 0.7312038160431878,
+      "high": 1.125242915143153
+    },
+    "iteration-10000000/v1.current": {
+      "mean": 2.629863633649737,
+      "low": 2.0007950508253782,
+      "high": 3.3939660449339777
+    },
+    "iteration-3000000/equity.average-opponent-sampled": {
+      "mean": 0.47336520259432985,
+      "low": 0.30239020739277744,
+      "high": 0.702297012311652
+    },
+    "iteration-3000000/equity.average-traverser-reach": {
+      "mean": 0.512778039533231,
+      "low": 0.3390825100391539,
+      "high": 0.7382206927543298
+    },
+    "iteration-3000000/equity.current": {
+      "mean": 1.4991123151653576,
+      "low": 1.1007246916204194,
+      "high": 2.084761289053139
+    },
+    "iteration-3000000/v1.average-opponent-sampled": {
+      "mean": 0.6953193972346685,
+      "low": 0.5507940119037557,
+      "high": 0.9193994815206966
+    },
+    "iteration-3000000/v1.average-traverser-reach": {
+      "mean": 0.9114762039794047,
+      "low": 0.7651915911265773,
+      "high": 1.152176685776534
+    },
+    "iteration-3000000/v1.current": {
+      "mean": 3.2831016338401393,
+      "low": 2.14004720821883,
+      "high": 4.7685354131693325
+    },
+    "matched/equity.average-opponent-sampled": {
+      "mean": 0.48673817899667915,
+      "low": 0.30257630182661066,
+      "high": 0.7331964715373334
+    },
+    "matched/equity.average-traverser-reach": {
+      "mean": 0.5246764613742347,
+      "low": 0.3414729666234473,
+      "high": 0.7711268191496798
+    },
+    "matched/equity.current": {
+      "mean": 1.4828180806308857,
+      "low": 1.1189861932998775,
+      "high": 2.02872230472917
+    }
+  },
+  "matched_equity_minus_v1_3M": {
+    "mean": -0.14849517398410372,
+    "low": -0.3181376690334744,
+    "high": 0.034103410508897564
+  },
+  "ten_M_equity_minus_v1": {
+    "mean": -0.12105836656358511,
+    "low": -0.26915763431125217,
+    "high": 0.03875313229031022
+  },
+  "per_root_contrasts": [
+    {
+      "spot": "0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9",
+      "fold": 0,
+      "matched_equity_minus_v1_3M": -0.5073486328124999,
+      "ten_M_equity_minus_v1": -0.42105377197265614
+    },
+    {
+      "spot": "0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d",
+      "fold": 1,
+      "matched_equity_minus_v1_3M": -0.15736217498779292,
+      "ten_M_equity_minus_v1": -0.3728406524658203
+    },
+    {
+      "spot": "0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5",
+      "fold": 0,
+      "matched_equity_minus_v1_3M": -0.4586513137817385,
+      "ten_M_equity_minus_v1": -0.35552936553955083
+    },
+    {
+      "spot": "1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108",
+      "fold": 0,
+      "matched_equity_minus_v1_3M": -0.09966178894042965,
+      "ten_M_equity_minus_v1": 0.09960952758789032
+    },
+    {
+      "spot": "1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812",
+      "fold": 0,
+      "matched_equity_minus_v1_3M": -0.4007078170776367,
+      "ten_M_equity_minus_v1": -0.28686084747314466
+    },
+    {
+      "spot": "30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd",
+      "fold": 1,
+      "matched_equity_minus_v1_3M": 0.3705461120605469,
+      "ten_M_equity_minus_v1": 0.30718677520751936
+    },
+    {
+      "spot": "3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c",
+      "fold": 0,
+      "matched_equity_minus_v1_3M": -0.1805717849731443,
+      "ten_M_equity_minus_v1": -0.11791660308837892
+    },
+    {
+      "spot": "391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9",
+      "fold": 1,
+      "matched_equity_minus_v1_3M": -0.08207782745361336,
+      "ten_M_equity_minus_v1": -0.07857936859130854
+    },
+    {
+      "spot": "3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37",
+      "fold": 1,
+      "matched_equity_minus_v1_3M": 0.17937866210937492,
+      "ten_M_equity_minus_v1": 0.13645900726318372
+    }
+  ],
+  "rows": [
+    {
+      "spot": "0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9",
+      "fold": 0,
+      "B": 1.5495177841186525,
+      "L": 0.2560724925994873,
+      "P": 0.8254784774780273,
+      "iteration-1000000/equity.average-opponent-sampled": 0.8844651412963866,
+      "iteration-1000000/equity.average-traverser-reach": 0.9379353713989258,
+      "iteration-1000000/equity.current": 1.5914577484130858,
+      "iteration-1000000/v1.average-opponent-sampled": 1.346370849609375,
+      "iteration-1000000/v1.average-traverser-reach": 1.4817259979248047,
+      "iteration-1000000/v1.current": 2.1034721374511722,
+      "iteration-10000000/equity.average-opponent-sampled": 0.8516144180297851,
+      "iteration-10000000/equity.average-traverser-reach": 0.869324951171875,
+      "iteration-10000000/equity.current": 1.3402214813232423,
+      "iteration-10000000/v1.average-opponent-sampled": 1.2726681900024412,
+      "iteration-10000000/v1.average-traverser-reach": 1.4492623901367188,
+      "iteration-10000000/v1.current": 2.0891331481933593,
+      "iteration-3000000/equity.average-opponent-sampled": 0.8682681274414062,
+      "iteration-3000000/equity.average-traverser-reach": 0.8768571472167969,
+      "iteration-3000000/equity.current": 1.7695931243896483,
+      "iteration-3000000/v1.average-opponent-sampled": 1.3485549926757812,
+      "iteration-3000000/v1.average-traverser-reach": 1.4809627532958984,
+      "iteration-3000000/v1.current": 3.400968475341797,
+      "matched/equity.average-opponent-sampled": 0.8412063598632813,
+      "matched/equity.average-traverser-reach": 0.8798153686523438,
+      "matched/equity.current": 1.446350440979004
+    },
+    {
+      "spot": "0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d",
+      "fold": 1,
+      "B": 1.942100067138672,
+      "L": 0.5600631904602051,
+      "P": 0.5814318466186523,
+      "iteration-1000000/equity.average-opponent-sampled": 1.0343737411499023,
+      "iteration-1000000/equity.average-traverser-reach": 1.0906630325317384,
+      "iteration-1000000/equity.current": 1.6363370513916016,
+      "iteration-1000000/v1.average-opponent-sampled": 1.2421490859985351,
+      "iteration-1000000/v1.average-traverser-reach": 1.4750875091552735,
+      "iteration-1000000/v1.current": 3.257346649169922,
+      "iteration-10000000/equity.average-opponent-sampled": 1.1456763458251953,
+      "iteration-10000000/equity.average-traverser-reach": 1.1660414505004884,
+      "iteration-10000000/equity.current": 1.6437386322021483,
+      "iteration-10000000/v1.average-opponent-sampled": 1.5185169982910156,
+      "iteration-10000000/v1.average-traverser-reach": 1.686351623535156,
+      "iteration-10000000/v1.current": 3.84554931640625,
+      "iteration-3000000/equity.average-opponent-sampled": 1.158763313293457,
+      "iteration-3000000/equity.average-traverser-reach": 1.2477873611450194,
+      "iteration-3000000/equity.current": 2.0699227142333987,
+      "iteration-3000000/v1.average-opponent-sampled": 1.3449058532714844,
+      "iteration-3000000/v1.average-traverser-reach": 1.6369252014160156,
+      "iteration-3000000/v1.current": 2.7261669921875002,
+      "matched/equity.average-opponent-sampled": 1.1875436782836915,
+      "matched/equity.average-traverser-reach": 1.2207231903076172,
+      "matched/equity.current": 2.0506842041015627
+    },
+    {
+      "spot": "0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5",
+      "fold": 0,
+      "B": 1.5527391815185547,
+      "L": 0.5257586860656738,
+      "P": 0.6233831405639649,
+      "iteration-1000000/equity.average-opponent-sampled": 0.7966303253173828,
+      "iteration-1000000/equity.average-traverser-reach": 0.8312113952636719,
+      "iteration-1000000/equity.current": 1.3642784881591798,
+      "iteration-1000000/v1.average-opponent-sampled": 1.402256393432617,
+      "iteration-1000000/v1.average-traverser-reach": 1.5767726135253906,
+      "iteration-1000000/v1.current": 3.2730165100097657,
+      "iteration-10000000/equity.average-opponent-sampled": 0.8722293853759766,
+      "iteration-10000000/equity.average-traverser-reach": 0.9244520187377929,
+      "iteration-10000000/equity.current": 1.5973236083984375,
+      "iteration-10000000/v1.average-opponent-sampled": 1.2277587509155274,
+      "iteration-10000000/v1.average-traverser-reach": 1.4364073944091795,
+      "iteration-10000000/v1.current": 4.4558868408203125,
+      "iteration-3000000/equity.average-opponent-sampled": 0.8136983489990235,
+      "iteration-3000000/equity.average-traverser-reach": 0.8579784011840821,
+      "iteration-3000000/equity.current": 1.6259870910644532,
+      "iteration-3000000/v1.average-opponent-sampled": 1.2783829498291017,
+      "iteration-3000000/v1.average-traverser-reach": 1.474651107788086,
+      "iteration-3000000/v1.current": 6.4002993774414065,
+      "matched/equity.average-opponent-sampled": 0.8197316360473632,
+      "matched/equity.average-traverser-reach": 0.8626754760742188,
+      "matched/equity.current": 1.5948721694946288
+    },
+    {
+      "spot": "1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108",
+      "fold": 0,
+      "B": 1.3740989685058593,
+      "L": 0.4667992210388183,
+      "P": 0.5649755859375,
+      "iteration-1000000/equity.average-opponent-sampled": 0.9331790542602539,
+      "iteration-1000000/equity.average-traverser-reach": 0.9808294677734375,
+      "iteration-1000000/equity.current": 1.90458251953125,
+      "iteration-1000000/v1.average-opponent-sampled": 1.089089584350586,
+      "iteration-1000000/v1.average-traverser-reach": 1.2844557189941406,
+      "iteration-1000000/v1.current": 2.144616851806641,
+      "iteration-10000000/equity.average-opponent-sampled": 1.1210511016845701,
+      "iteration-10000000/equity.average-traverser-reach": 1.1282524871826172,
+      "iteration-10000000/equity.current": 1.7045032501220703,
+      "iteration-10000000/v1.average-opponent-sampled": 1.0214415740966798,
+      "iteration-10000000/v1.average-traverser-reach": 1.1385454177856444,
+      "iteration-10000000/v1.current": 2.1214370727539062,
+      "iteration-3000000/equity.average-opponent-sampled": 1.006684799194336,
+      "iteration-3000000/equity.average-traverser-reach": 1.0243867111206055,
+      "iteration-3000000/equity.current": 2.2207818603515626,
+      "iteration-3000000/v1.average-opponent-sampled": 1.1151205825805663,
+      "iteration-3000000/v1.average-traverser-reach": 1.2314337158203126,
+      "iteration-3000000/v1.current": 3.184894561767578,
+      "matched/equity.average-opponent-sampled": 1.0154587936401367,
+      "matched/equity.average-traverser-reach": 1.055674476623535,
+      "matched/equity.current": 2.048165130615234
+    },
+    {
+      "spot": "1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812",
+      "fold": 0,
+      "B": 0.9615093994140625,
+      "L": 0.33576686859130855,
+      "P": 0.6667494201660156,
+      "iteration-1000000/equity.average-opponent-sampled": 0.7560420608520508,
+      "iteration-1000000/equity.average-traverser-reach": 0.7857807922363281,
+      "iteration-1000000/equity.current": 1.2947693634033204,
+      "iteration-1000000/v1.average-opponent-sampled": 1.2295164108276366,
+      "iteration-1000000/v1.average-traverser-reach": 1.3434404754638671,
+      "iteration-1000000/v1.current": 2.082449188232422,
+      "iteration-10000000/equity.average-opponent-sampled": 0.9067303085327147,
+      "iteration-10000000/equity.average-traverser-reach": 0.9219189071655274,
+      "iteration-10000000/equity.current": 1.4557415008544923,
+      "iteration-10000000/v1.average-opponent-sampled": 1.1935911560058594,
+      "iteration-10000000/v1.average-traverser-reach": 1.2998194122314453,
+      "iteration-10000000/v1.current": 2.0017252349853516,
+      "iteration-3000000/equity.average-opponent-sampled": 0.8573056411743165,
+      "iteration-3000000/equity.average-traverser-reach": 0.8819602584838867,
+      "iteration-3000000/equity.current": 1.7710330963134764,
+      "iteration-3000000/v1.average-opponent-sampled": 1.2349542999267578,
+      "iteration-3000000/v1.average-traverser-reach": 1.3365052795410155,
+      "iteration-3000000/v1.current": 2.4165199279785154,
+      "matched/equity.average-opponent-sampled": 0.8342464828491211,
+      "matched/equity.average-traverser-reach": 0.85648193359375,
+      "matched/equity.current": 1.420328598022461
+    },
+    {
+      "spot": "30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd",
+      "fold": 1,
+      "B": 1.2038950729370117,
+      "L": 0.4787533569335938,
+      "P": 0.5984994888305664,
+      "iteration-1000000/equity.average-opponent-sampled": 1.0178013610839844,
+      "iteration-1000000/equity.average-traverser-reach": 1.0377717590332032,
+      "iteration-1000000/equity.current": 1.4035746002197267,
+      "iteration-1000000/v1.average-opponent-sampled": 0.8648027038574219,
+      "iteration-1000000/v1.average-traverser-reach": 0.9465288543701171,
+      "iteration-1000000/v1.current": 2.223772430419922,
+      "iteration-10000000/equity.average-opponent-sampled": 1.2088578033447264,
+      "iteration-10000000/equity.average-traverser-reach": 1.21543270111084,
+      "iteration-10000000/equity.current": 1.5302917480468752,
+      "iteration-10000000/v1.average-opponent-sampled": 0.901671028137207,
+      "iteration-10000000/v1.average-traverser-reach": 0.986203956604004,
+      "iteration-10000000/v1.current": 2.5479664611816406,
+      "iteration-3000000/equity.average-opponent-sampled": 1.1978557586669922,
+      "iteration-3000000/equity.average-traverser-reach": 1.206229820251465,
+      "iteration-3000000/equity.current": 1.5362887573242188,
+      "iteration-3000000/v1.average-opponent-sampled": 0.8460314559936524,
+      "iteration-3000000/v1.average-traverser-reach": 0.9291162109375,
+      "iteration-3000000/v1.current": 2.1133760070800784,
+      "matched/equity.average-opponent-sampled": 1.2165775680541993,
+      "matched/equity.average-traverser-reach": 1.220570182800293,
+      "matched/equity.current": 1.8192196655273438
+    },
+    {
+      "spot": "3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c",
+      "fold": 0,
+      "B": 0.9645793914794922,
+      "L": 0.3140603542327881,
+      "P": 0.6684315490722657,
+      "iteration-1000000/equity.average-opponent-sampled": 0.8486930465698241,
+      "iteration-1000000/equity.average-traverser-reach": 0.8854507446289063,
+      "iteration-1000000/equity.current": 1.356011962890625,
+      "iteration-1000000/v1.average-opponent-sampled": 1.076838493347168,
+      "iteration-1000000/v1.average-traverser-reach": 1.228472366333008,
+      "iteration-1000000/v1.current": 1.8842003631591795,
+      "iteration-10000000/equity.average-opponent-sampled": 0.9238824462890625,
+      "iteration-10000000/equity.average-traverser-reach": 0.9528071975708008,
+      "iteration-10000000/equity.current": 1.461446189880371,
+      "iteration-10000000/v1.average-opponent-sampled": 1.0417990493774414,
+      "iteration-10000000/v1.average-traverser-reach": 1.146636199951172,
+      "iteration-10000000/v1.current": 1.7254954528808595,
+      "iteration-3000000/equity.average-opponent-sampled": 0.8809571075439453,
+      "iteration-3000000/equity.average-traverser-reach": 0.9173025512695312,
+      "iteration-3000000/equity.current": 1.798774490356445,
+      "iteration-3000000/v1.average-opponent-sampled": 1.086615409851074,
+      "iteration-3000000/v1.average-traverser-reach": 1.1877894973754883,
+      "iteration-3000000/v1.current": 2.6741634368896485,
+      "matched/equity.average-opponent-sampled": 0.9060436248779298,
+      "matched/equity.average-traverser-reach": 0.9485309600830079,
+      "matched/equity.current": 1.5886438751220702
+    },
+    {
+      "spot": "391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9",
+      "fold": 1,
+      "B": 1.5837554168701171,
+      "L": 0.6069587707519531,
+      "P": 0.6197894096374512,
+      "iteration-1000000/equity.average-opponent-sampled": 0.8804360961914062,
+      "iteration-1000000/equity.average-traverser-reach": 0.9076420974731445,
+      "iteration-1000000/equity.current": 1.2630731964111328,
+      "iteration-1000000/v1.average-opponent-sampled": 0.9462461853027344,
+      "iteration-1000000/v1.average-traverser-reach": 1.2284336853027344,
+      "iteration-1000000/v1.current": 3.2469500732421874,
+      "iteration-10000000/equity.average-opponent-sampled": 0.9488691711425781,
+      "iteration-10000000/equity.average-traverser-reach": 0.9554060745239258,
+      "iteration-10000000/equity.current": 1.6126457977294923,
+      "iteration-10000000/v1.average-opponent-sampled": 1.0274485397338866,
+      "iteration-10000000/v1.average-traverser-reach": 1.145635986328125,
+      "iteration-10000000/v1.current": 1.813229217529297,
+      "iteration-3000000/equity.average-opponent-sampled": 0.9032587814331055,
+      "iteration-3000000/equity.average-traverser-reach": 0.9146503067016603,
+      "iteration-3000000/equity.current": 1.1695884323120116,
+      "iteration-3000000/v1.average-opponent-sampled": 0.9967552185058595,
+      "iteration-3000000/v1.average-traverser-reach": 1.2755709075927735,
+      "iteration-3000000/v1.current": 1.6199264526367188,
+      "matched/equity.average-opponent-sampled": 0.9146773910522461,
+      "matched/equity.average-traverser-reach": 0.9177262115478515,
+      "matched/equity.current": 1.4067760467529298
+    },
+    {
+      "spot": "3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37",
+      "fold": 1,
+      "B": 1.0319467163085938,
+      "L": 0.3851013565063477,
+      "P": 0.6080353546142578,
+      "iteration-1000000/equity.average-opponent-sampled": 1.1393120193481445,
+      "iteration-1000000/equity.average-traverser-reach": 1.152078971862793,
+      "iteration-1000000/equity.current": 1.3097480392456053,
+      "iteration-1000000/v1.average-opponent-sampled": 0.9455401992797852,
+      "iteration-1000000/v1.average-traverser-reach": 1.0119268417358398,
+      "iteration-1000000/v1.current": 2.371794281005859,
+      "iteration-10000000/equity.average-opponent-sampled": 1.1695999908447265,
+      "iteration-10000000/equity.average-traverser-reach": 1.1789904403686524,
+      "iteration-10000000/equity.current": 1.7993738555908203,
+      "iteration-10000000/v1.average-opponent-sampled": 1.0331409835815428,
+      "iteration-10000000/v1.average-traverser-reach": 1.1808173751831055,
+      "iteration-10000000/v1.current": 2.00685489654541,
+      "iteration-3000000/equity.average-opponent-sampled": 1.1030073165893555,
+      "iteration-3000000/equity.average-traverser-reach": 1.1151791763305665,
+      "iteration-3000000/equity.current": 1.400168571472168,
+      "iteration-3000000/v1.average-opponent-sampled": 0.9606205749511718,
+      "iteration-3000000/v1.average-traverser-reach": 1.0439828109741212,
+      "iteration-3000000/v1.current": 2.256498489379883,
+      "matched/equity.average-opponent-sampled": 1.1399992370605467,
+      "matched/equity.average-traverser-reach": 1.15637149810791,
+      "matched/equity.current": 1.882694854736328
+    }
+  ],
+  "global_witness_E_40_root_three_lineage_context": 0.3917,
+  "witness_caveat": "Fixed reported full-corpus/three-lineage witness, not a matched nine-root trained-policy baseline.",
+  "uncertainty_scope": "Resampling these nine roots only; no missing-root or training-seed uncertainty, no complete primary rule applied.",
+  "per_fold": {
+    "0": {
+      "boards": 5,
+      "matched_difference": -0.32938826751708983,
+      "ten_M_difference": -0.21635021209716804
+    },
+    "1": {
+      "boards": 4,
+      "matched_difference": 0.07762119293212888,
+      "ten_M_difference": -0.0019435596466064464
+    }
+  },
+  "learning_10M_minus_1M": {
+    "v1": {
+      "mean": 0.010580707126193585,
+      "low": -0.06782815297444657,
+      "high": 0.09404930538601344
+    },
+    "equity": {
+      "mean": 0.09528645833333328,
+      "low": 0.049682184855143245,
+      "high": 0.14100968678792306
+    }
+  },
+  "bootstrap_B_minus_P_range": {
+    "min": 0.39264462788899746,
+    "max": 1.1234646797180177
+  },
+  "matched_improvement_root_count": 7,
+  "ten_M_improvement_root_count": 6
+}
