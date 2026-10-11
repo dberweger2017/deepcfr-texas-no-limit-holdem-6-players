@@ -1,3 +1,11 @@
+## Storage cleanup for K50 evaluation and HU100 replication — October 11, 2026
+
+Owner-requested cleanup for new M1 #235 /M4 #236 tasks left **M1 86.501 GB free** and **M4 97.866 GB free** at verification. M4 released **42.403 GB native uploaded cache** plus **27.749 GB measured original-removal gain**, exceeding the provisional 77.567 GiB campaign forecast; fresh research admission and pilot refinement remain required.
+
+**49 unchanged merged #226 paths** were removed after current #226/#207/#215/#223 merged status, native/cloud upload acceptance and dependency review. [Receipt/safeguards](docs/artifacts/storage-vacuum-20261011.md), [every removed path and restoration archive/member/hash](docs/artifacts/storage-vacuum-20261011-locators.md), [full cleanup receipt](https://drive.google.com/file/d/1lj6nZVoI8vSlsxY2OYluTdnmPDPCmxp9/view) (444,294 bytes, SHA256 `bc6666cd7ad25c0d9f3a073772462523d97f7214de42a718c2126db2719d4b0b`; confirmed Research-Cloud upload). Existing manifests and byte-exact model receipts were used without remote downloads or repeated research payload audits. Six candidate/reference models, both new work roots, K50 inputs, canonical #207 originals, source/build/Git and changed/unarchived files remain protected.
+
+Four unpinned uploaded cache files retain unchanged cloud files/placeholders with zero allocated blocks. This includes the fully uploaded **incomplete #226 failure ZIP**, whose contents and failure status remain preserved online; it is still unaccepted as a scientific archive, and no original-removal backup depends on it. The accepted recovery ZIP remains #226's scientific backup. The incomplete #207 original cache remains unchanged. Historical “all originals retained” statements are superseded only for the 49 listed paths. No synced deletion, force offload, app shutdown, science retry or unattended maintenance.
+
 ## PR226 HU100 4B and independent 2B direct ladders — October11
 
 [PR226](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226), branch feature/hu100-4b-seed-ladder, isolated M4 root
