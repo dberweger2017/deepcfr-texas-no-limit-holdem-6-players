@@ -1,0 +1,9 @@
+{
+  "actions": 1361,
+  "all_coordinates_complete": true,
+  "all_settlements_replayed": true,
+  "hands": 280,
+  "native_parity": "hands 280 decisions 1361 mismatched_hands 0",
+  "status": "complete",
+  "target_keys_checked": 670
+}

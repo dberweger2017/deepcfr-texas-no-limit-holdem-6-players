@@ -1,0 +1,42 @@
+{
+  "archive": {
+    "id": "1yHj86jLr6qYleIFH10qB29yOo7qTJPST",
+    "title": "k50-evaluation-smoke-M1-20261011.zip",
+    "mime_type": "application/zip",
+    "size": "164073954",
+    "url": null,
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1KOsHYBJ2QOPQOgfGItDaZFlJSN9wCQk4"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder": {
+    "id": "1KOsHYBJ2QOPQOgfGItDaZFlJSN9wCQk4",
+    "title": "PR-235-k50-evaluation-support",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": null,
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "status": "accepted",
+  "remote_bytes_downloaded": false
+}

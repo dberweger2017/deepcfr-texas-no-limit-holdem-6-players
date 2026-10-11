@@ -1,10 +1,46 @@
 {
-  "source_revision": "d97d6c7",
-  "reviewer": "/root/source_review",
-  "status": "clear",
+  "ci_fixture_review": {
+    "path": "tests/diagnostics/test_o_confirmation_audit.py",
+    "production_source_unchanged": true,
+    "status": "clear",
+    "validation": "1 replay-audit regression test passed"
+  },
+  "closeout_review": {
+    "files": [
+      "planning/guard_closeout.py",
+      "planning/closeout_worker.py",
+      "docs/hu20-k50-full-game-proposal.md"
+    ],
+    "scope": "inherited swap baseline, independent offline replay/native parity, immutable member archive, fixed protocol counts/margins and conditional inference; subsequent closeout addition invokes existing every-row export auditor",
+    "status": "clear"
+  },
+  "final_evidence_review": {
+    "open_findings": [],
+    "scope": "matching model/table/archive identities, replay/export audits, guards, uploaded archive and own-table cleanup receipts",
+    "status": "clear"
+  },
+  "helper_review": {
+    "files": [
+      "planning/guard_smoke.py",
+      "planning/smoke_worker.py"
+    ],
+    "scope": "whole-family guards, owned-session cleanup, fixed correctness schedule",
+    "status": "clear"
+  },
+  "native_trainer_modified": false,
   "open_findings": [],
-  "scope": ["information boundary", "table SHA256 identity", "per-policy schema and memmap ownership", "mixed arena/direct policy inputs", "LBR public hypothetical queries", "native pressure", "checkpoint continuation safeguards", "search/web entry refusal"],
   "review_validation": "10 synthetic tests passed; no real-table run launched by reviewer",
-  "helper_review": {"files": ["planning/guard_smoke.py", "planning/smoke_worker.py"], "status": "clear", "scope": "whole-family guards, owned-session cleanup, fixed correctness schedule"},
-  "native_trainer_modified": false
+  "reviewer": "/root/source_review",
+  "scope": [
+    "information boundary",
+    "table SHA256 identity",
+    "per-policy schema and memmap ownership",
+    "mixed arena/direct policy inputs",
+    "LBR public hypothetical queries",
+    "native pressure",
+    "checkpoint continuation safeguards",
+    "search/web entry refusal"
+  ],
+  "source_revision": "d97d6c7",
+  "status": "clear"
 }

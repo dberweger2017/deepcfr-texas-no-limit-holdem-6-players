@@ -51,7 +51,25 @@ The focused source/fixture suite passed **106 tests, 2 optional skips**. Synthet
 
 Independent source and smoke-supervisor review found no actionable findings. [Review record](k50-evaluation-support-artifacts/source-review.json).
 
-The owner-authorized M1 correctness smoke is in progress at this report revision: fixed 20M native nodes, opponent-sampled average, 256 direct duplicate hands against v0.4.2, 8 bounded-LBR hands and 16 native-pressure hands, with every action/settlement replayed. No smoke return will be presented as strength evidence. The one-use supervisor caps whole-family RSS at 7 GiB, normal pressure/15% ongoing free memory, 8 GiB entry headroom, 512 MiB fixed-baseline swap growth/2 GiB total swap, 16 GiB free disk, AC and 30 minutes. It stops only its owned worker session; source/restoration/partials and logs will be archived.
+The owner-authorized **M1 correctness smoke passed** at source `d97d6c7`: 20,000,204 native nodes, 59,105 iterations and 1,693,042 keys, using the opponent-sampled average. It played **256 direct duplicate hands against v0.4.2, 8 bounded-LBR hands and 16 native-pressure hands**. All 280 hands/1,361 actions independently replayed, including legal bounds, public event digests and final chip accounting. Rust/Python real-table parity checked every decision with **zero mismatched hands**, and all 670 target trace keys matched. LBR made postflop hypothetical queries on flop and turn. The optional pinned-real-table fixture also passed. [Smoke summary](k50-evaluation-support-artifacts/smoke-summary.json), [replay audit](k50-evaluation-support-artifacts/replay-audit.json).
+
+The existing every-row native export auditor verified checkpoint totals/current regrets and average normalization on all 1,693,042 rows: 1,192,181 positive-mass keys and 500,861 zero-mass keys. This checks stored state, not reconstructed historical accumulator increments. [Export audit](k50-evaluation-support-artifacts/export-audit.json). No smoke returns are presented as strength evidence.
+
+| M1 measurement | Result |
+| --- | ---: |
+| Native training command, including checkpoint write | 27.07 s |
+| K50 checkpoint load | 11.90 s |
+| K50 average load | 10.09 s |
+| v0.4.2 average load | 40.66 s |
+| 280-hand evaluation | 3.64 s |
+| Whole-family smoke peak RSS | 1.50 GiB |
+| Whole-family audit/archive peak RSS | 1.38 GiB |
+
+Both one-use supervisors enforced 7 GiB whole-family RSS, normal pressure/15% ongoing free memory, 8 GiB entry headroom, 512 MiB growth from the original fixed swap baseline/2 GiB total swap, 16 GiB free disk, AC and 30-minute caps. Across both runs pressure stayed normal, free memory stayed at least 51%, swap stayed zero, and disk stayed above 78.65 GiB; both owned sessions ended empty. The smoke supervisor took 649.96 s including initial FileProvider table hydration and release retrieval; audit/archive took 56.69 s. No other process was stopped. [Resource receipts](k50-evaluation-support-artifacts/resources.json).
+
+The immutable member-hashed ZIP is uploaded to the designated [PR235 Research-Cloud folder](https://drive.google.com/drive/folders/1KOsHYBJ2QOPQOgfGItDaZFlJSN9wCQk4). Local whole/member verification and separate native/connected-cloud upload acceptance are recorded in [RESULTS_INDEX.md](../../RESULTS_INDEX.md), with source/helpers, model hashes and restoration commands. Only this worktree's three extracted table copies (1,384,031,032 bytes) were removed after exact path/size/mtime/hash and no-open-handle checks; outputs, release download and synced files remain. [Cleanup receipt](k50-evaluation-support-artifacts/cleanup-receipt.json).
+
+CI initially exposed an older uniform fixture missing the policy-owned trace-key method. Its explicit v1 method repairs the fixture; production source and the archived smoke source are unchanged. The failed run is retained at [38136754797](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/38136754797); complete green checks remain mandatory before merge.
 
 ## Next step
 

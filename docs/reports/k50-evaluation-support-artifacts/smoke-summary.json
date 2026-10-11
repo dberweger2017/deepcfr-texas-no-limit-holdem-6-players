@@ -1,0 +1,66 @@
+{
+  "all_hands_replay_verified": true,
+  "candidate": {
+    "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 1693042,
+    "iteration": 59105,
+    "kind": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "5884878c0fdc6ca9fffaee02f76479a0582a522adf657be609b8429e8ca089a1",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 202610110235,
+    "weights_sha256": "71f561adcb203ec5e4fd9ba5aa8a8d0d5645a67baa182486cf20478617b82ab2",
+    "zero_mass_entries": 500861
+  },
+  "candidate_load_seconds": 10.092488416999913,
+  "checkpoint": {
+    "average_rule": "opponent-sampled",
+    "entries": 1693042,
+    "iteration": 59105
+  },
+  "checkpoint_load_seconds": 11.901074041000356,
+  "decisions": {
+    "direct-v042": 1229,
+    "lbr": 44,
+    "native-pressure": 88
+  },
+  "evaluation_seconds": 3.642978791999667,
+  "hands": {
+    "direct-v042": 256,
+    "lbr": 8,
+    "native-pressure": 16
+  },
+  "model": {
+    "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+    "bytes": 48965799,
+    "card_buckets": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables",
+    "checkpoint_sha256": "5884878c0fdc6ca9fffaee02f76479a0582a522adf657be609b8429e8ca089a1",
+    "iteration": 59105,
+    "name": "K50-smoke",
+    "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/average.gz",
+    "seed": 202610110235,
+    "sha256": "71f561adcb203ec5e4fd9ba5aa8a8d0d5645a67baa182486cf20478617b82ab2",
+    "strategy": "average"
+  },
+  "reference": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "entries": 7227377,
+    "iteration": 19538759,
+    "kind": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026100601,
+    "weights_sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+    "zero_mass_entries": 2471072
+  },
+  "reference_load_seconds": 40.65834504199984,
+  "scope": "correctness only; no strength estimate",
+  "status": "complete",
+  "train_seconds": 27.07256099999995
+}
