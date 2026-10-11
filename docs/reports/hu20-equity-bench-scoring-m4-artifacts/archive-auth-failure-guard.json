@@ -1,0 +1,13 @@
+{
+  "cleanup_error": null,
+  "failure": "RuntimeError('Worker exit 1')",
+  "finished": 1791693522.974457,
+  "name": "archive",
+  "peak_family_rss_bytes": 100466688,
+  "returncode": 1,
+  "samples": 3,
+  "seconds": 0.5763890743255615,
+  "started": 1791693522.398068,
+  "status": "failed",
+  "swap_ceiling_bytes": 10000000000
+}

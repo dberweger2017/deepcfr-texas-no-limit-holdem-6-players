@@ -2535,20 +2535,22 @@ PY
 
 The original on gzip intentionally fails its final-footer integrity check. For forensic count/hash readback only, stream `gzip.open(...,'rt')`, parse complete JSON lines until the documented EOFError, and validate each row's canonical SHA256; keep original bytes. There is no frozen final plan or complete worker cost receipt. Restoration does not authorize another experiment, missing-coordinate completion, reuse as final data or removal. Independent final review and required checks accompanied the initial unmerged handoff. The owner subsequently requested merge after all five checks passed on reviewed head `14de46b215e2f34b2beb320902d679868999f415`; PR218 merged as `31cf2490144581992d0d334d5132daeebfa7918d` at 18:29:15 UTC on October 9, 2026. That authorization supersedes the earlier unmerged instruction. The original playing-comparison goal remains incomplete, translation stays experimental/off by default, and upload acceptance/dependency review/cleanup remains a pending owner/later-agent handoff. No archive bytes, originals or inputs changed for merge.
 
-## Fresh M4 frozen K50 scoring preparation — October 10, 2026
+## PR232 fresh all-40 M4 frozen K50 scoring
 
 The owner requests [PR232](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232), a separate fresh attempt in branch
 `feature/hu20-equity-bench-scoring-m4`, isolated M4 workdir
 `/Users/dberweger/Local/hu20-equity-bench-scoring-m4`, fresh main
 `5875ecd36bf0b35abeeb718dba2e7b7f4b6765c4`.
 [Protocol](docs/hu20-equity-bench-scoring-m4.md),
-[preparation report](docs/reports/hu20-equity-bench-scoring-m4.md).
-No scoring or large-input restoration is admitted while PR226 owns M4.
-All 40 roots will be newly scored; the nine previously inspected M1 outcomes
-are disclosed, so this is not an outcome-blind or independent confirmation.
+[final report](docs/reports/hu20-equity-bench-scoring-m4.md).
+PR226 explicitly released M4 at 01:09 Madrid October11; own clear admission,
+exact restoration and the once-only timing pilot preceded all-40 scoring.
+Executed source **d39ece2b00933dd7584daf9ff1ede82773f08241** preserves 23 reviewed
+scientific hashes. All 40 roots were newly scored; the nine previously inspected
+M1 outcomes are disclosed, so this is not outcome-blind or independent confirmation.
 All previous stops and archives remain intact.
 
-Inputs are restored after release into ignored non-synced
+Inputs were restored after release into ignored non-synced
 `results/equity-bench-scoring-m4-20261010/restored/` with
 `python -m scripts.restore_hu20_equity_scoring --base results/equity-bench-scoring-m4-20261010`,
 under the explicit M4 operation guard. This command verifies every whole
@@ -2575,7 +2577,37 @@ member locators, hashes, restored paths and original modification times into
   12,867,944 /139,600,524 /1,231,562,564 bytes. Full member hashes remain pinned
   in the existing member index and [key report](docs/reports/native-equity-bucket-keys.md).
 
-A new score/derived-output archive, native/cloud acceptance receipts and own-copy
-cleanup receipt will be indexed when this attempt terminates, under its new PR's
-Research-Cloud folder. None is claimed at preparation; all other PR files and
-synced contents are retained.
+**Final scoring: pass**, matched K50 − v1 **−0.2038 [−0.2836, −0.1274] BB** and negative 10M point **−0.1853 BB**. Scientific pilot/evaluation/report guards all complete clear; 40 fresh roots, zero reused. The full timing quote was posted before evaluation. A later M4 GitHub HTTP401 stopped the initial archival helper before ZIP creation; its worker-exit log/receipt/latch/helper remain preserved. Separate archival-only closeout used fresh live M1 PR metadata and completed clear; no science retry.
+
+Archive: [hu20-equity-bench-scoring-M4-20261011.zip](https://drive.google.com/file/d/14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL/view), Drive ID **14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL**, **7,051,373 bytes**, SHA256 **f8995df62bf466afc2b025e545183bb1b37de68bdcfd5338ae8fd70eed4e3882**. Native path `~/Local/Research-Cloud/PR-232-hu20-equity-bench-scoring/hu20-equity-bench-scoring-M4-20261011.zip`; actual [folder](https://drive.google.com/drive/folders/10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9), ID **10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9**, parent Research-Cloud **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**. Embedded `ARCHIVE-MANIFEST.json`, SHA256 **7e0549bb9924756bd12852ea260143c2ae77c3bc8dbfa1c1bdec77d08e09d38e**; all **430 payload members** locally size/SHA256 read back, independently reviewed. [Archive receipt](docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-archive-receipt.json).
+
+[Acceptance](docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-cloud-upload.json) records native uploaded1/uploading0/paused0/trashed0/conflicts0 with exact size, plus independent Drive ID/name/size/parent and folder-parent confirmation. Remote ZIP bytes were **not downloaded or verified**. No accepted #222 policies/adapters/references, #190 evaluator or #163 tables are duplicated; all 40 canonical prepared request copies are also omitted. `results/equity-bench-scoring-m4-20261010/restoration.json` pins every restored member/alias path, size, SHA256, original mtime and accepted input archive locator. `localization.json` pins compact-path-only replacements; reconstruct them with the indexed restorer plus `python -m scripts.score_restored_hu20_equity_bench prepare --base BASE`. New runtime scoring requests/native outputs remain in the ZIP.
+
+The full frozen summary is archive member `results/equity-bench-scoring-m4-20261010/work/summary.json`; all final raw results/requests/native outputs are under `results/equity-bench-scoring-m4-20261010/work/eval/`. Scientific and administrative failures are retained; final upload/review/cleanup/merge lifecycle records remain compact Git receipts, after the packed report snapshot. Only **305 own extracted input copies** were removed after accepted upload and independent dependency clearance, with immediate exact set/path/size/mtime/SHA256/lsof checks. [Every removed path and restoration locator](docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-cleanup-receipt.json). Score originals, work roots, prior archives and all synced files are retained; historical own symlinks require exact input restoration before reuse.
+
+Restore scores to a **fresh ignored directory**, using the existing synced ZIP without duplicating it, or download the linked archive there first:
+
+```sh
+PR232_ARCHIVE="$HOME/Local/Research-Cloud/PR-232-hu20-equity-bench-scoring/hu20-equity-bench-scoring-M4-20261011.zip" \
+python - <<'PY'
+import hashlib,json,os,zipfile
+from pathlib import Path
+archive=Path(os.environ['PR232_ARCHIVE'])
+assert hashlib.sha256(archive.read_bytes()).hexdigest()=='f8995df62bf466afc2b025e545183bb1b37de68bdcfd5338ae8fd70eed4e3882'
+dest=Path('results/hu20-equity-bench-scoring-m4-restored-20261011');dest.mkdir(exist_ok=False)
+prefix='results/equity-bench-scoring-m4-20261010/'
+with zipfile.ZipFile(archive) as z:
+    body=z.read('ARCHIVE-MANIFEST.json')
+    assert hashlib.sha256(body).hexdigest()=='7e0549bb9924756bd12852ea260143c2ae77c3bc8dbfa1c1bdec77d08e09d38e'
+    manifest=json.loads(body)
+    selected=[m for m in manifest['members'] if m['path']==prefix+'work/summary.json' or m['path']==prefix+'restoration.json' or m['path'].startswith(prefix+'work/eval/')]
+    assert selected
+    for m in selected:
+        data=z.read(m['path']);assert len(data)==m['bytes'] and hashlib.sha256(data).hexdigest()==m['sha256']
+        relative=Path(m['path']);assert not relative.is_absolute() and '..' not in relative.parts
+        p=dest/relative;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+print(dest)
+PY
+```
+
+Restoring this evidence does not authorize another scientific run. Own extracted-copy cleanup is complete as indexed above. The [single final end evidence review](docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-evidence-review.json) is clear, with no open findings. M4 was released at 06:46 Madrid October11; green exact-head merge remains pending. No cleanup of other PRs or synced folders occurred.

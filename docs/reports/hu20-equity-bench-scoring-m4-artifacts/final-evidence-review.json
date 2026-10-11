@@ -1,0 +1,220 @@
+{
+  "status": "clear",
+  "open_findings": [],
+  "reviewer": "/root/m4_scoring_end_evidence_review",
+  "review_round": "ONE independent PR232 end evidence review",
+  "reviewed_at_utc": "2026-10-11T04:47:12.459881+00:00",
+  "owning_pr": 232,
+  "executed_source": "d39ece2b00933dd7584daf9ff1ede82773f08241",
+  "scope": "Completed scientific run, exact inputs, source, raw native outputs, full frozen analysis, report/plot/tables, archive readback, native/cloud acceptance, dependency review and actual cleanup. No scientific phase launched or scientific outputs changed by reviewer.",
+  "source_pins": {
+    "verified": 23,
+    "exact_reviewed_source_files": [
+      {
+        "path": "scripts/guard_hu20_equity_scoring.py",
+        "sha256": "0678270e86a821610f62a8e6f69fbe9a7e2784bd647773b08ccbe461728552a6"
+      },
+      {
+        "path": "scripts/restore_hu20_equity_scoring.py",
+        "sha256": "5e78711164c39958c9d557f52bf22b0d1e47024ef1f7a0f0c8b87012247c19e8"
+      },
+      {
+        "path": "scripts/run_fresh_hu20_equity_scoring.py",
+        "sha256": "cfbbfbb6928984abc2893370bb82c5a3c8d27d65aca68a5da3d5a2d369ad8532"
+      },
+      {
+        "path": "scripts/hu20_equity_scoring_metadata.py",
+        "sha256": "f39db5c532f2a872cc6b5820c2ece83433eb0a0991da98c989548d8edc8e7b80"
+      },
+      {
+        "path": "scripts/score_restored_hu20_equity_bench.py",
+        "sha256": "ef8a9d5d30c15fa6caf640603dccbd55ef76f4bde3a467d8ab1d184e0a3065c7"
+      },
+      {
+        "path": "scripts/continue_restored_hu20_equity_bench.py",
+        "sha256": "b4f723dc0924d6424e350570402c31d97a388e9dd3f3fde89be5fc44b7292e7d"
+      },
+      {
+        "path": "scripts/run_hu20_equity_bench.py",
+        "sha256": "ccc92b22965ebd782c8cf9ce8cf6cb40ecde1257fd7d31688c326fc1e3c7e5b2"
+      },
+      {
+        "path": "scripts/research_process_family.py",
+        "sha256": "56eb10102855a3a4d8b609a0faccfdf9ffa258350facf4fcbfb1349cc4789526"
+      },
+      {
+        "path": "scripts/subgame_bench.py",
+        "sha256": "0b1859be76f35d9570d8d0d9ba7bb63de5eeed79a556d6dbde71bc54aae9d2ac"
+      },
+      {
+        "path": "scripts/hu20_search_runtime.py",
+        "sha256": "7069be7f492e62d3b0a095a3e27511b71ce75ee453ae9f0a58bb907944caa74e"
+      },
+      {
+        "path": "src/diagnostics/flop_check_runtime.py",
+        "sha256": "e7f1b24fc0a41456f405e76ac6c7fb3d89ba1fe65dc1997a000ecb55cdbf708b"
+      },
+      {
+        "path": "src/diagnostics/pooling_runtime.py",
+        "sha256": "677bb78157f7bd28db4c61dd797945f5c9116ea738be735286666728903dd870"
+      },
+      {
+        "path": "src/diagnostics/flop_check.py",
+        "sha256": "133bf174524cb8a6549218cecb4d5c17f197dc75efb5403c782da6c979058627"
+      },
+      {
+        "path": "src/diagnostics/global_bucket_validation.py",
+        "sha256": "510e4ae2953e5bcd328fddd41f242e50c9927f808dacf4bf7f77c10ae5698ecc"
+      },
+      {
+        "path": "src/diagnostics/board_pooling_results.py",
+        "sha256": "d1dcd6bfa5e283b04d3782f67c2770691f9bb0e0bab5ebf5a7d90e7a4007cceb"
+      },
+      {
+        "path": "src/diagnostics/subgame_bench.py",
+        "sha256": "2a1df0f22e0d76ae1e98737893b93ec6437e375d727aec9f5453d52fb128fe3b"
+      },
+      {
+        "path": "src/diagnostics/saved_hu20.py",
+        "sha256": "08dd12e7df62cbb310ed9ba8f16ef44efe44878eceadab5d68a570c8a7f99ab4"
+      },
+      {
+        "path": "src/blueprint/abstraction.py",
+        "sha256": "97bc21d898bd09ca053248434898b4514e29a7d402417dc9dec3a812873d529c"
+      },
+      {
+        "path": "src/blueprint/equity_buckets.py",
+        "sha256": "b678f5f20f39b7be047ea9d8ccea69915d752a8d8a047a9c55bbfdbd3405e3f8"
+      },
+      {
+        "path": "src/policies/files.py",
+        "sha256": "b6f8612a0e62211f2dad600f75da03fbd423c715f3fe275f06c86359005990e4"
+      },
+      {
+        "path": "configs/diagnostics/hu20-board-pooling.json",
+        "sha256": "754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1"
+      },
+      {
+        "path": "docs/reports/hu20-equity-bench-artifacts/model-input-index.json",
+        "sha256": "7d6717da4818661047a5aa6ba20fbed3cff5da3bf0598c9ccc03fb07d71982e3"
+      },
+      {
+        "path": "tests/test_fresh_equity_scoring.py",
+        "sha256": "f6fde2f7bcb726a7a91d96ac1258fc69a5c346b9b8ac443df65e49449fd8dbdb"
+      }
+    ],
+    "native_trainer_changes": "none in reviewed branch against executed source"
+  },
+  "restoration": {
+    "members_independently_rehashed": 281,
+    "aliases_independently_rehashed": 24,
+    "restoration_receipt_sha256": "7df91cada52a2945d3fbb9e18acc700dfcd9dde9d01073f3b2d5fc033a5a8b7b",
+    "matched_iterations": {
+      "0": 4000977,
+      "1": 3855889
+    },
+    "equity_transport_exact_alias_only": 24,
+    "v1_export_group_labels_verified": 18,
+    "request_changes": "40 localization records modify compact_path only; evaluated requests add frozen lock-only references and21 exact policy measurements."
+  },
+  "execution": {
+    "fresh_roots": 40,
+    "reused_roots": 0,
+    "fold_counts": {
+      "0": 20,
+      "1": 20
+    },
+    "native_seat_metrics": 1680,
+    "all_native_request_response_sha256_verified": true,
+    "all_native_V1_gates_passed_no_mismatches": true,
+    "completion": "All40 locked-evaluated, zeroiterations, no error events",
+    "clear_phases": [
+      "environment",
+      "restore",
+      "prepare",
+      "pilot",
+      "evaluate",
+      "report"
+    ],
+    "evaluate_peak_family_rss_bytes": 4947083264,
+    "evaluate_min_free_percent": 76,
+    "evaluate_max_swap_bytes": 1799618560,
+    "evaluate_min_disk_free_bytes": 25690066944,
+    "evaluate_pressure_levels": [
+      1
+    ],
+    "evaluate_all_AC": true,
+    "max_inner_swap_growth_bytes": 0,
+    "quote_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232#issuecomment-6103758968",
+    "quote_sha256": "ac852776a9ba69377017eebe8707aee396e959d865c19816f66db1e9c57bff40",
+    "quote_created_utc": "2026-10-11T00:28:36Z",
+    "evaluate_started_epoch": 1791678538.172415,
+    "timer": "Returned receipt disabled/nextnull; disable-before-report ordering confirmed by parent tool sequence, T3 did not supply disable timestamp."
+  },
+  "numeric_review": {
+    "all40_rows_exact": true,
+    "all24_E_statistics_exact": true,
+    "all21_Q_statistics_exact": true,
+    "bootstrap": "2000 paired sorted40 board draws, Python Random202610050002, percentile indices49/1949",
+    "reported_statistic_tolerance": "Exact Python equality for rows/E/Q/CI/primary/10M against emitted native gain_bb; no altered rounding or weighting.",
+    "native_float32_arithmetic_serialization_max_residual_BB": 3.051757806460387e-07,
+    "native_arithmetic_sanity_tolerance_BB": 1e-06,
+    "primary": {
+      "high": -0.12744907569885255,
+      "low": -0.28356604957580567,
+      "mean": -0.20384328556060793
+    },
+    "ten_million_difference": {
+      "high": -0.11174374485015871,
+      "low": -0.25889937686920167,
+      "mean": -0.18530977916717534
+    },
+    "frozen_outcome": "pass",
+    "witness_gap_matched_BB": 0.6300498598098756,
+    "witness_gap_10M_BB": 0.6465756595611574,
+    "policy_table_csv": "All21 E/Q/interval/reference/witness fields exact",
+    "learning_curve_plot": "Viewed; allthree strategies, matched mean coordinate and descriptive witness appropriately labelled",
+    "report_conclusions": "Fixed turn-root bench only; risingK50 curve disclosed; recommend fullgame lineages/learningcurves/directv0.4.2 with loader/runtime/search/LBR support. No fullgame strength/release/default claim.",
+    "prior_evidence": "Prior9 inspected M1 outcomes disclosed; no blindness/independent confirmation claim. Prior222/225/230 stops unchanged."
+  },
+  "preserved_administrative_failures": {
+    "pilot_launcher": "BasePython import psutil failure before phase claim; sole corrected ownvenv scientificpilot",
+    "postreport_archive": "Original HTTP401 at initial PR query before ZIPcreation, workerexit1/clear resources; original helper/log/receipt/latch in ZIP. Separate archival-only guard clear; no pilot/evaluate/report retry.",
+    "science_base_failure_latch_preserved": true
+  },
+  "archive": {
+    "bytes": 7051373,
+    "sha256": "f8995df62bf466afc2b025e545183bb1b37de68bdcfd5338ae8fd70eed4e3882",
+    "manifest_sha256": "7e0549bb9924756bd12852ea260143c2ae77c3bc8dbfa1c1bdec77d08e09d38e",
+    "payload_members_independently_read_back": 430,
+    "exact_manifest_member_set": true,
+    "restored_input_payloads_absent": true,
+    "all40_runtime_results_and_requests_preserved": true,
+    "pilot_result_preserved": true,
+    "prepared_request_duplicates_omitted": 40,
+    "drive_id": "14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL",
+    "folder_id": "10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9",
+    "native_uploaded_no_pending_no_conflicts": true,
+    "independent_cloud_name_size_parent_confirmation": true,
+    "remote_archive_bytes_downloaded": false,
+    "packed_report_lifecycle": "Snapshot at sealing; later review/upload/cleanup records kept inGit, clearly disclosed."
+  },
+  "cleanup": {
+    "dependency_review": "planning/cleanup-dependency-review.json, same end-review component",
+    "authorized_scope": "Only305 own BASE/restored extractions after accepted upload; explicitowner openPR exception. No synced/foreign/score originals/workroots removal.",
+    "exact_paths_sizes_mtimes_hashes_before_removal": true,
+    "no_open_handles_external_commands_or_active_research": true,
+    "removed_files": 305,
+    "logical_bytes": 3755888589,
+    "all305_member_and_archive_restoration_locators_verified": true,
+    "actual_removed_root_absent": true,
+    "score_originals_remaining": 40,
+    "cleanup_guard": "complete,return0,no failure/cleanup_error"
+  },
+  "final_text_review": {
+    "report": "dfa80f4d8aa8169a331f5db792bae504dd557e9ca67a5e2d73cd17e68a67a467",
+    "RESULTS_INDEX": "2eda05ba17b811fb0bff813f91b095f3abe388294e2cae846380387a23911750",
+    "ROADMAP": "80a2ec8077a633bda89f5de67f4b35adf016bfb9de3d1c3f53970bdd543f4fef",
+    "status": "Clear atreview; routine final review/merge link updates mayfollow. Scientific sourcepins mustremainexact; merge stillrequiresgreenexactheadchecks."
+  }
+}
