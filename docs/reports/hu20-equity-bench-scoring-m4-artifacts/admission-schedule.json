@@ -6,13 +6,9 @@
     "type": "interval",
     "everyMs": 600000
   },
-  "nextRunAt": "2026-10-11T00:17:02.691Z",
+  "nextRunAt": "2026-10-11T00:27:04.354Z",
   "boundThreadId": "05b1bbe7-3009-4c03-9993-a39a13bcb39e",
   "initial_fixed_timer_deleted": true,
-  "initial_wake_utc": "2026-10-11T00:00:00Z",
-  "m4_release_proof": "Explicit PR226 body: M4 released for PR232 October11 01:09Madrid",
-  "current_phase": "exact-restoration-running",
-  "environment_guard": "complete-clear",
-  "science_started": false,
-  "executed_source": "d39ece2b00933dd7584daf9ff1ede82773f08241"
+  "current_phase": "timing-only-pilot-running",
+  "source": "d39ece2b00933dd7584daf9ff1ede82773f08241"
 }
