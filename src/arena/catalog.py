@@ -10,6 +10,8 @@ class Checkpoint:
     path: str
     sha256: str
     format: str = "legacy-standard-v1"
+    abstraction: str | None = None
+    card_buckets: str | None = None
 
     def __post_init__(self):
         if not self.name or not isinstance(self.name, str):
@@ -20,6 +22,14 @@ class Checkpoint:
             r"[a-f0-9]{64}", self.sha256
         ):
             raise ValueError("Pin a checkpoint with its lowercase SHA-256 digest")
+        from src.blueprint.abstraction import EQUITY_SCHEMAS, SUPPORTED_SCHEMAS
+        if self.abstraction is not None and self.abstraction not in SUPPORTED_SCHEMAS:
+            raise ValueError("Unsupported checkpoint abstraction")
+        if self.abstraction in EQUITY_SCHEMAS:
+            if not isinstance(self.card_buckets, str) or not self.card_buckets:
+                raise ValueError("K50 arena models require an explicit card_buckets directory")
+        elif self.card_buckets is not None:
+            raise ValueError("Card bucket tables require a K50 schema")
         if self.format not in {
             "legacy-standard-v1",
             "holdem-average-v1",

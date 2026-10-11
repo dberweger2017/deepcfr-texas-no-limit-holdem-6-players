@@ -32,6 +32,9 @@ class LiveBlueprint:
     def __init__(self, trainer, *, lookup_mode: str = LEGACY_LOOKUP,
                  checkpoint_sha256: str | None = None,
                  lineage: dict | None = None):
+        from src.blueprint.abstraction import EQUITY_SCHEMAS
+        if trainer.config.abstraction in EQUITY_SCHEMAS:
+            raise ValueError("K50 models are not yet supported by rollout search blueprint ranges")
         self.trainer = trainer
         self.lookup = TableDistribution(
             trainer, lookup_mode=lookup_mode, checkpoint_sha256=checkpoint_sha256,
@@ -311,6 +314,9 @@ class SearchPlayer:
     """Bounded public-range search with unchanged blueprint fallback."""
 
     def __init__(self, blueprint, seed: int, config: SearchConfig = SearchConfig()):
+        from src.blueprint.abstraction import EQUITY_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in EQUITY_SCHEMAS:
+            raise ValueError("K50 models are not yet supported by rollout search blueprint ranges")
         self.blueprint = blueprint
         self.action_random = Random(seed)
         self.search_random = Random(seed ^ 0x505F4C5552494255)
