@@ -73,6 +73,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 - **K50 evaluation support ([#235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235)):** explicit pinned loaders, mixed-schema play and LBR pass 280 guarded M1 smoke hands and every-row/key/replay audits. Search/web refuse K50; [full-game proposal](docs/hu20-k50-full-game-proposal.md) awaits owner go. No strength or release change. [Report](docs/reports/k50-evaluation-support.md).
 
+- **Storage for new K50 evaluation /HU100 replication:** owner-requested cleanup releases 70.152 GB on M4; verified M1 86.501 GB /M4 97.866 GB free, above the provisional M4 77.567 GiB requirement. Six candidate/reference models and active inputs remain protected. [Receipt](docs/artifacts/storage-vacuum-20261011.md) records all 49 removals and four native cache releases, including preserved online failure evidence.
+
 - **HU100 4B/multi-seed ladder ([#226](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226)):** 4B beats2B +17.90 [14.98,20.83] BB/100; two fresh2B-over1B seeds gain+28.14/+27.90 with positive adjusted bounds. All4,718,592 hands replay/reproduce. [Report](docs/reports/hu100-4b-seed-ladder.md) retains archival timeout and owner-authorized recovery; fixed-seed evidence, no default/release change.
 
 - **K50 trained bench passes ([#232](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232)):** all40 M4 roots clear; matched contrast −0.2038 [−0.2836, −0.1274] BB and negative 10M point. Recommend full-game K50 learning curves and direct v0.4.2 match after loader/runtime/search/LBR support; prior stops preserved. [Report](docs/reports/hu20-equity-bench-scoring-m4.md).
