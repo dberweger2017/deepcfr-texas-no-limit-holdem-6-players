@@ -1,0 +1,16 @@
+{
+  "status": "locally-verified-upload-pending",
+  "owning_pr": 225,
+  "executed_source_revision": "32b126c4cf298e28b8a70e0da53fd734d1465fa3",
+  "run_id": "m1-hu20-equity-bench-scoring-qualified-20261010",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-qualified-pilot-stop-M1-20261010.zip",
+  "bytes": 217376,
+  "sha256": "dbc5ae631691a99aa99c65ead66963aea0fb791ba37d1bd5cd6905e598dca20d",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "67599a29922f2d6ccab625bab7cb8d39f7d901912f2fe28db4bd059c21dabe6d",
+  "payload_members": 40,
+  "member_readback": "all sizes/SHA256 verified without numeric outcome inspection",
+  "restored_inputs_duplicated": false,
+  "remote_archive_bytes_downloaded": false,
+  "restored_copies_retained_until_acceptance": true
+}

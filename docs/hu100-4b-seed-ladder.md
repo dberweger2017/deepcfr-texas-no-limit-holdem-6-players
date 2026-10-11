@@ -6,11 +6,14 @@ Owner authorizes this campaign on the free M4, one PR on
 `feature/hu100-4b-seed-ladder`. Isolated checkout
 `~/Local/hu100-4b-seed-ladder-20261010`, current-main base
 `ff984da9a16bf1e76e891fab239d0785188a93af` (#224 streamed exports).
-Initial read-only qualification finds insufficient disk; no training, pilot
-or final hand has started. [Admission receipt](reports/hu100-4b-seed-ladder-artifacts/storage-admission.json).
-This is preventive admission, not a guard breach or failed-science retry.
-Keep the PR draft until storage admits the campaign. No roadmap result entry
-or claim of completed science is appropriate yet.
+At initial qualification, insufficient disk prevented training, pilots and final
+hands. The owner then made space available; measured training admission was
+89.57GiB. [Initial admission receipt](reports/hu100-4b-seed-ladder-artifacts/storage-admission.json)
+is historical preventive admission, not a guard breach. All seven training
+milestones and five fixed direct matches subsequently completed. The
+[executed report](reports/hu100-4b-seed-ladder.md) records results, the archival
+guard stop and explicitly owner-authorized archival-only recovery. No scientific
+decision or sample was changed; final end review and green checks precede merge.
 
 Required prior reads: AGENTS, ROADMAP, artifact storage, development, rules,
 #223 report/protocol, #215 independent stages, #207 growth, compact table and
@@ -154,3 +157,7 @@ each with one immediate SOMA; normal quote/status belongs in the PR body.
 Merge only with green checks and no open findings; on landing add one short
 Current position entry and update v0.5 groundwork. No recipe/menu/abstraction
 change, paid compute, release, tag or publication.
+
+## Executed closeout — October11
+
+All three training targets and exact historical model gates completed. Fixed samples and all five matches fully replay/reproduce; [final report](reports/hu100-4b-seed-ladder.md) distinguishes adjusted primary and descriptive results. The initial archival guard failed and its incomplete ZIP is retained. Owner-authorized separate archival recovery uses doubled173.289365s with unchanged resource guards and no scientific rerun; full local readback passes. Native upload and independent cloud metadata acceptance pass; the single end evidence review is clear; green final-head checks precede merge. The prospective decisions above were not changed after outcomes.

@@ -1,0 +1,16 @@
+{
+  "reviewer": "/root/admission_evidence_review",
+  "status": "clear",
+  "scope": "continuation of the single final evidence review; stopped pilot only",
+  "own_extracted_copy_dependency_review": "clear",
+  "archive_bytes": 217376,
+  "payload_members": 40,
+  "archive_sha256": "dbc5ae631691a99aa99c65ead66963aea0fb791ba37d1bd5cd6905e598dca20d",
+  "verified": "Whole ZIP, manifest and all40 member sizes/hashes; native/cloud ID/name/size/parent; earlier archives unchanged;281members24aliases size/hash/mtime;178successfulsamples;no active own workers/open extracted-file handles.",
+  "outcomes_inspected": false,
+  "remote_archive_bytes_downloaded": false,
+  "scientific_outcome": "unclassified",
+  "findings": "No closeout blockers. Unreadable RSS unknown; failed PID identity unknown. Worker returncode0 does not establish completion. Exiting-descendant cause is hypothesis.",
+  "cleanup_boundary": "Only305own extracted copies after immediate exact set/path/size/mtime/hash/handle checks. Retain changed/uncertain paths, outputs, prepared files, receipts, latch, synced archives and other PR files.",
+  "retry_authorized": false
+}

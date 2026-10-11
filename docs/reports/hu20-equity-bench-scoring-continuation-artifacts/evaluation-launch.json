@@ -1,0 +1,109 @@
+{
+  "reviewed_source": "c669f3e421ad0eed2d65c6b7d96f6a3537db6604",
+  "evaluate_source": "0c97db88890783aed5b1dfe3d482189b4c8e538a",
+  "reviewed_files_match": true,
+  "reviewed_files": [
+    {
+      "bytes": 7616,
+      "path": "scripts/continue_restored_hu20_equity_bench.py",
+      "sha256": "b4f723dc0924d6424e350570402c31d97a388e9dd3f3fde89be5fc44b7292e7d"
+    },
+    {
+      "bytes": 5568,
+      "path": "tests/test_equity_scoring_continuation.py",
+      "sha256": "8fda830b8bf20c2e5cd5ecba533359800d8c774ce0751ede99e09812a1eb8d22"
+    },
+    {
+      "bytes": 7906,
+      "path": "scripts/guard_hu20_equity_scoring.py",
+      "sha256": "30041eeba333899cff9ab7603364b9b765684aaf22b788e51e8ee08935466bc2"
+    },
+    {
+      "bytes": 12691,
+      "path": "scripts/run_hu20_equity_bench.py",
+      "sha256": "ccc92b22965ebd782c8cf9ce8cf6cb40ecde1257fd7d31688c326fc1e3c7e5b2"
+    },
+    {
+      "bytes": 5199,
+      "path": "scripts/score_restored_hu20_equity_bench.py",
+      "sha256": "ef8a9d5d30c15fa6caf640603dccbd55ef76f4bde3a467d8ab1d184e0a3065c7"
+    },
+    {
+      "bytes": 2227,
+      "path": "scripts/research_process_family.py",
+      "sha256": "56eb10102855a3a4d8b609a0faccfdf9ffa258350facf4fcbfb1349cc4789526"
+    },
+    {
+      "bytes": 7124,
+      "path": "src/diagnostics/flop_check_runtime.py",
+      "sha256": "e7f1b24fc0a41456f405e76ac6c7fb3d89ba1fe65dc1997a000ecb55cdbf708b"
+    },
+    {
+      "bytes": 1258,
+      "path": "docs/reports/hu20-equity-bench-scoring-continuation-artifacts/authorization.json",
+      "sha256": "734b48aa2cc54e6c1aaff9eaa1c4d245995670414bf3d929db1c8bf2fb0ccf2e"
+    }
+  ],
+  "pilot_intent": {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.score_restored_hu20_equity_bench",
+      "pilot",
+      "--base",
+      "results/equity-bench-scoring-continuation-admitted-20261010"
+    ],
+    "source": "c669f3e421ad0eed2d65c6b7d96f6a3537db6604",
+    "started": 1791651120.0101252,
+    "swap_ceiling_bytes": 10000000000
+  },
+  "pilot_receipt": {
+    "cleanup_error": null,
+    "failure": null,
+    "finished": 1791651723.5107179,
+    "name": "pilot",
+    "peak_family_rss_bytes": 4557783040,
+    "returncode": 0,
+    "samples": 2522,
+    "seconds": 603.5005927085876,
+    "started": 1791651120.0101252,
+    "status": "complete",
+    "swap_ceiling_bytes": 10000000000
+  },
+  "evaluate_intent": {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.continue_restored_hu20_equity_bench",
+      "evaluate",
+      "--base",
+      "results/equity-bench-scoring-continuation-admitted-20261010"
+    ],
+    "source": "0c97db88890783aed5b1dfe3d482189b4c8e538a",
+    "started": 1791651773.797766,
+    "swap_ceiling_bytes": 10000000000
+  },
+  "evaluate_admission": {
+    "ac": true,
+    "at": 1791651773.8129861,
+    "disk_free_bytes": 29584789504,
+    "family_rss_bytes": 18726912,
+    "free_percent": 70,
+    "identity": [
+      "Apple M1",
+      "17179869184",
+      "8"
+    ],
+    "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=37093475)\t100%; charged; 0:00 remaining present: true\n",
+    "pressure_level": 1,
+    "swap_bytes": 2347436605,
+    "swap_ceiling_bytes": 10000000000,
+    "swap_raw": "vm.swapusage: total = 3072.00M  used = 2238.69M  free = 833.31M  (encrypted)\n"
+  },
+  "quote_comment": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230#issuecomment-6100004398",
+  "quote_posted_before_evaluate": true,
+  "retained_roots": 5,
+  "new_roots": 35,
+  "total_roots": 40,
+  "outcomes_inspected": false
+}

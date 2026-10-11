@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 22545560259,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 22545277491,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+  "members": 460,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-226-hu100-4b-seed-ladder/hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 105.14284854196012,
+  "sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+  "status": "locally-verified"
+}

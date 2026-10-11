@@ -1,0 +1,23 @@
+{
+  "review": "independent scoring/source and admission review",
+  "reviewer": "/root/scoring_admission_review",
+  "status": "clear",
+  "findings": [],
+  "conclusion": "Refuse admission: Battery Power and used swap 4183.62 MiB (~4386843525 bytes) exceed frozen AC/swap requirements. Unclassified; no retry.",
+  "science_reviewed": [
+    "sorted roots/folds",
+    "K50 scalar payload and sentinel with unchanged v1 mapping",
+    "lock-only all exports/both seats",
+    "paired bootstrap E/Q and primary rule",
+    "ancestry-first creation-verified owned process identities"
+  ],
+  "validation": "Static protocol/source comparison and independent unit conversion; no science, restoration, writes or process termination.",
+  "references": [
+    "scripts/subgame_bench.py:34",
+    "scripts/run_hu20_equity_bench.py:32",
+    "scripts/run_hu20_equity_bench.py:159",
+    "scripts/run_hu20_equity_bench.py:190",
+    "scripts/research_process_family.py:7",
+    "scripts/overnight_research_guard.py:65"
+  ]
+}

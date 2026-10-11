@@ -1,0 +1,23 @@
+{
+  "status": "M4-released",
+  "at_utc": "2026-10-11T04:46:15.442339+00:00",
+  "owning_pr": 232,
+  "scientific_roots": 40,
+  "scientific_evaluate_guard": "complete-clear",
+  "report_guard": "complete-clear",
+  "archive_accepted": true,
+  "cleanup_guard": "complete-clear",
+  "active_research": [],
+  "host": {
+    "at": 1791693975.344023,
+    "ac": true,
+    "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true\n",
+    "swap_raw": "vm.swapusage: total = 3072.00M  used = 1412.25M  free = 1659.75M  (encrypted)\n",
+    "swap_bytes": 1480851456,
+    "free_percent": 86,
+    "pressure_level": 1,
+    "disk_free_bytes": 29091786752
+  },
+  "retained_failure": "Original archive-only HTTP401 workerexit latch preserved; no science retry",
+  "instruction": "PR232 releases M4 now. Other campaigns must perform their own fresh resource admission; review/CI/merge continue on M1."
+}

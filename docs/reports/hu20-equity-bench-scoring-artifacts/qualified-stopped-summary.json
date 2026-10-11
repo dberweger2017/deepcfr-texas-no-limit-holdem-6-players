@@ -1,0 +1,18 @@
+{
+  "samples": 178,
+  "peak_family_rss_bytes": 2445295616,
+  "max_swap_bytes": 1895563264,
+  "min_free_percent": 62,
+  "min_disk_free_bytes": 41779650560,
+  "all_ac": true,
+  "all_normal_pressure": true,
+  "failed_process_currently_exists": false,
+  "scientific_outcome": "unclassified",
+  "scores_inspected": false,
+  "complete_timing_quote": false,
+  "retry": false,
+  "pilot_seconds": 10.888529777526855,
+  "pilot_failure": "psutil.AccessDenied(pid=7508) at owned process memory_info().rss",
+  "cleanup_error": null,
+  "note": "Successful resource samples do not establish RSS at the failed unreadable sample. Worker returncode0 during cleanup does not establish evaluator completion. Process command/creation identity was not persisted; failed PID cannot be named from evidence."
+}

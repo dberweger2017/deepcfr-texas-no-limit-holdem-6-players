@@ -1,0 +1,195 @@
+{
+  "owning_pr": 232,
+  "recorded_utc": "2026-10-11T04:43:16.692027+00:00",
+  "executed_source": "d39ece2b00933dd7584daf9ff1ede82773f08241",
+  "scientific_status": "40-root-complete-frozen-pass",
+  "scoring_roots": 40,
+  "reused_roots": 0,
+  "prior_inspected_roots": 9,
+  "scheduler_enabled": false,
+  "phases": {
+    "environment": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791676993.286143,
+        "name": "environment",
+        "peak_family_rss_bytes": 182648832,
+        "returncode": 0,
+        "samples": 26,
+        "seconds": 6.220412969589233,
+        "started": 1791676987.065731,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 86,
+        "min_disk_free_bytes": 34684768256,
+        "max_swap_bytes": 1833172992,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "restore": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791678053.9917922,
+        "name": "restore",
+        "peak_family_rss_bytes": 82526208,
+        "returncode": 0,
+        "samples": 3665,
+        "seconds": 1018.4048690795898,
+        "started": 1791677035.5869231,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 86,
+        "min_disk_free_bytes": 26730098688,
+        "max_swap_bytes": 1833172992,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "prepare": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791678085.470217,
+        "name": "prepare",
+        "peak_family_rss_bytes": 278429696,
+        "returncode": 0,
+        "samples": 49,
+        "seconds": 11.510584115982056,
+        "started": 1791678073.9596338,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 85,
+        "min_disk_free_bytes": 26448154624,
+        "max_swap_bytes": 1808007168,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "pilot": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791678488.183851,
+        "name": "pilot",
+        "peak_family_rss_bytes": 4933074944,
+        "returncode": 0,
+        "samples": 1497,
+        "seconds": 356.051066160202,
+        "started": 1791678132.1327848,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 86,
+        "min_disk_free_bytes": 26301128704,
+        "max_swap_bytes": 1808007168,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "evaluate": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791693227.692137,
+        "name": "evaluate",
+        "peak_family_rss_bytes": 4947083264,
+        "returncode": 0,
+        "samples": 61752,
+        "seconds": 14689.519721984863,
+        "started": 1791678538.172415,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 76,
+        "min_disk_free_bytes": 25690066944,
+        "max_swap_bytes": 1799618560,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "report": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": null,
+        "finished": 1791693248.001098,
+        "name": "report",
+        "peak_family_rss_bytes": 70598656,
+        "returncode": 0,
+        "samples": 23,
+        "seconds": 5.369329929351807,
+        "started": 1791693242.631768,
+        "status": "complete",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 85,
+        "min_disk_free_bytes": 25696083968,
+        "max_swap_bytes": 1489240064,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    },
+    "archive": {
+      "guard_receipt": {
+        "cleanup_error": null,
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1791693522.974457,
+        "name": "archive",
+        "peak_family_rss_bytes": 100466688,
+        "returncode": 1,
+        "samples": 3,
+        "seconds": 0.5763890743255615,
+        "started": 1791693522.398068,
+        "status": "failed",
+        "swap_ceiling_bytes": 10000000000
+      },
+      "resource_extrema": {
+        "min_free_percent": 86,
+        "min_disk_free_bytes": 25687916544,
+        "max_swap_bytes": 1489240064,
+        "pressure_levels": [
+          1
+        ],
+        "all_ac": true
+      }
+    }
+  },
+  "archival_only_closeout_guard": {
+    "cleanup_error": null,
+    "failure": null,
+    "finished": 1791693607.504359,
+    "name": "archive",
+    "peak_family_rss_bytes": 71663616,
+    "returncode": 0,
+    "samples": 7,
+    "seconds": 1.5344479084014893,
+    "started": 1791693605.969911,
+    "status": "complete",
+    "swap_ceiling_bytes": 10000000000
+  },
+  "postreport_failure_latch_preserved": true,
+  "postreport_failure": "Original archive helper HTTP401 before anyZIP; clear-resource workerexit1. Separate guarded archival-only closeout used live M1 PR metadata. No science retry."
+}

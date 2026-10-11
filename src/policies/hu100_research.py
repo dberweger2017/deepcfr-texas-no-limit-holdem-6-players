@@ -23,29 +23,32 @@ class Identity:
     sha256: str
 
 
-def verify(path: Path):
-    if not path.is_file() or path.is_symlink() or path.stat().st_size != MODEL_BYTES:
-        raise ValueError('HU100 research model must be the pinned regular file with matching size')
-    if file_hash(path) != MODEL_SHA256:
-        raise ValueError('HU100 research model SHA256 differs')
-    return MODEL_SHA256
+def load_pinned(path: Path, model: dict, *, translation: bool):
+    """An HU100 average whose bytes, lineage and extraction equal `model`'s pins."""
+    if type(translation) is not bool:
+        raise ValueError('Translation must be explicitly enabled or disabled')
+    if not path.is_file() or path.is_symlink() or path.stat().st_size != model['bytes']:
+        raise ValueError('HU100 model must be the pinned regular file with matching size')
+    if file_hash(path) != model['sha256']:
+        raise ValueError('HU100 model SHA256 differs')
+    policy = AveragePolicy(path, model['sha256'], expected_schema=HU100_SCHEMA,
+                           translation=TranslationOptions() if translation else None)
+    info = policy.description
+    if (info['training_seed'] != model['seed'] or info['iteration'] != model['iteration']
+            or info['entries'] != model['entries'] or info['source_checkpoint_sha256'] != model['checkpoint_sha256']
+            or info['strategy'] != EXTRACTIONS['opponent-sampled']
+            or info.get('zero_mass_rule') is not None):
+        raise ValueError('HU100 model lineage or extraction differs')
+    policy.spec = Identity(model['sha256'])
+    policy.format_id = HU100_FORMAT
+    policy.adapter_id = VERSION if translation else 'direct-v1'
+    return policy
 
 
 def load_policy(path: Path, *, translation=False):
-    if type(translation) is not bool:
-        raise ValueError('Translation must be explicitly enabled or disabled')
-    verify(path)
-    policy = AveragePolicy(path, MODEL_SHA256, expected_schema=HU100_SCHEMA,
-                           translation=TranslationOptions() if translation else None)
-    info = policy.description
-    if (info['training_seed'] != SEED or info['iteration'] != ITERATION
-            or info['entries'] != ENTRIES or info['source_checkpoint_sha256'] != CHECKPOINT_SHA256
-            or info['strategy'] != EXTRACTIONS['opponent-sampled']
-            or info.get('zero_mass_rule') is not None):
-        raise ValueError('HU100 research lineage or extraction differs')
-    policy.spec = Identity(MODEL_SHA256)
+    policy = load_pinned(path, {'bytes': MODEL_BYTES, 'sha256': MODEL_SHA256, 'seed': SEED,
+                                'iteration': ITERATION, 'entries': ENTRIES,
+                                'checkpoint_sha256': CHECKPOINT_SHA256}, translation=translation)
     policy.name = 'Research HU100 · PR207 terminal · 1,000,002,065 nodes · seed 2026100601'
-    policy.format_id = HU100_FORMAT
-    policy.adapter_id = VERSION if translation else 'direct-v1'
     policy.research = True
     return policy

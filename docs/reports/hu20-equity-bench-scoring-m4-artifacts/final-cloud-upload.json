@@ -1,0 +1,63 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "owning_pr": 232,
+  "checked_at_utc": "2026-10-11T04:41:11.314Z",
+  "archive_id": "14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL",
+  "archive_url": "https://drive.google.com/file/d/14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL/view",
+  "archive_name": "hu20-equity-bench-scoring-M4-20261011.zip",
+  "bytes": 7051373,
+  "folder_id": "10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9",
+  "folder_url": "https://drive.google.com/drive/folders/10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9",
+  "native": {
+    "isUploaded": "1",
+    "isUploading": "0",
+    "isSyncPaused": "0",
+    "isTrashed": "0",
+    "hasUnresolvedConflicts": "0",
+    "documentSize": "7051373",
+    "drive_id": "14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL",
+    "folder_id": "10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9"
+  },
+  "cloud_metadata": {
+    "id": "14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL",
+    "title": "hu20-equity-bench-scoring-M4-20261011.zip",
+    "mime_type": "application/zip",
+    "size": "7051373",
+    "url": null,
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "cloud_folder_metadata": {
+    "id": "10XNX5y9s7UK4H-WV8ukE8OZSPyprnhN9",
+    "title": "PR-232-hu20-equity-bench-scoring",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": null,
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "local_archive_manifest_receipt": "docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-archive-receipt.json",
+  "native_source": "results/equity-bench-scoring-m4-archive-closeout-20261011/native-upload.txt",
+  "remote_archive_bytes_downloaded": false,
+  "interpretation": "Native uploaded/not-uploading/not-paused/not-trashed/no-conflicts plus independent cloud ID/name/size/parent confirmation. All local members read back; no remote-byte audit."
+}

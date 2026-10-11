@@ -1,0 +1,42 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "checked_at_utc": "2026-10-10 19:25:51 UTC",
+  "owning_scoring_pr": 230,
+  "archive_id": "1cH3M-B2jdapSpgok_w-wbB1V9FhEN_6x",
+  "archive_url": "https://drive.google.com/file/d/1cH3M-B2jdapSpgok_w-wbB1V9FhEN_6x/view",
+  "folder_id": "1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx",
+  "bytes": 185103,
+  "native": {
+    "isUploaded": "1",
+    "isUploading": "0",
+    "isSyncPaused": "0",
+    "isTrashed": "0",
+    "hasUnresolvedConflicts": "0",
+    "documentSize": "185103",
+    "drive_id": "1cH3M-B2jdapSpgok_w-wbB1V9FhEN_6x"
+  },
+  "native_source": "results/equity-bench-partial-analysis-20261010/native-upload.txt",
+  "cloud_metadata": {
+    "id": "1cH3M-B2jdapSpgok_w-wbB1V9FhEN_6x",
+    "title": "hu20-equity-bench-nine-root-analysis-20261010.zip",
+    "mime_type": null,
+    "size": "185103",
+    "url": null,
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "local_member_readback": "All 11 payload sizes/SHA256 verified",
+  "remote_archive_bytes_downloaded": false,
+  "raw_inputs_duplicated": false,
+  "partial_analysis_comment": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230#issuecomment-6101289186"
+}

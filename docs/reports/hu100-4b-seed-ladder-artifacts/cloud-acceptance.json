@@ -1,0 +1,49 @@
+{
+  "status": "accepted",
+  "checked_at": "2026-10-11T10:18:51.107Z",
+  "archive": {
+    "id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+    "title": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+    "mime_type": "application/zip",
+    "size": "22545560259",
+    "url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder": {
+    "id": "1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW",
+    "title": "PR-226-hu100-4b-seed-ladder",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW",
+    "display_url": "https://drive.google.com/drive/folders/1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "metadata_only": true,
+  "remote_archive_bytes_downloaded": false,
+  "native_receipt": "native-upload-status.json",
+  "local_archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+  "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664"
+}

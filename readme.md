@@ -1,15 +1,33 @@
 # A local heads-up poker research bot
 
-v0.4.2 plays a tabular, linearly weighted opponent-sampled CFR average trained for **10B nodes**, fixed seed 2026100601. The game is two-player no-limit Hold'em at **20 BB**, no rake or ante, fresh stacks each hand. The local table supports replayable human sessions and bot-vs-bot spectator play; v0.4.0 and v0.4.1 remain selectable.
+Two release lines play two-player no-limit hold'em, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
 
-The three retained 10B lineages beat matched-seed 1B v0.4.1 directly by **+3.50 [+1.63, +5.37] BB/100**. All declared candidate checks pass. Fresh aggregate bounded LBR **−1.092 [−4.965, +2.782] BB/100** target-profit difference narrowly clears the unchanged lower >−5 safeguard, with half-width **3.874**. Its point estimate favors 1B on LBR; this does not establish LBR improvement or each seed's non-regression. [Updated decision table and limits](docs/reports/hu20-v042-lbr-confirmation.md), [v0.4.2 model card](docs/releases/v0.4.2/MODEL_CARD.md), [earlier v0.4.0 → v0.4.1 comparison](docs/reports/v0.4.1-release.md). Nominal paired 95% intervals are conditional on saved lineages; no full-game exploitability certificate, human/professional strength, six-player or HU100 support in this model follows.
+**v0.5.1, heads-up 100 BB (newest).**
+- **The model:** a 2B-node average (seed 2026100601), the same recipe as v0.5.0 trained twice as long, with public-history translation for off-menu bet sizes.
+- **Head to head:** it beats v0.5.0 by **+29.51 [26.82, 32.20] BB/100**. Two independent seeds repeat that step from 1B to 2B almost exactly: +28.1 and +27.9 (#226).
+- **Scripted opponents** (translation on), BB/100:
 
-An unpublished [v0.5.0 HU100 candidate](docs/releases/v0.5.0/READINESS.md)
-can be selected explicitly with `--v050-candidate`; follow its
-[retrieval/install guide](docs/releases/v0.5.0/INSTALL.md). It uses unchanged #207
-first-seed bytes and translation512/128, with internal/scripted evidence only.
-#215's overall recipe qualification failed and pot profitability is unproven.
-The released default remains v0.4.2.
+  | Opponent | BB/100 [95%] |
+  |---|---|
+  | check/call | +132 |
+  | random | +107 |
+  | tight-aggressive | +55 |
+  | loose-aggressive | +42 |
+  | pot-size pressure | −37 [−70, −5] |
+
+  None of these differs significantly from v0.5.0 on the same deals.
+- **Limits:** no external benchmark has been played, and pot-size pressure still beats it.
+- [Model card](docs/releases/v0.5.1/MODEL_CARD.md) · [install and run](docs/releases/v0.5.1/INSTALL.md)
+
+**v0.5.0, heads-up 100 BB.** The 1B-node average from the same run, still available. [Model card](docs/releases/v0.5.0/MODEL_CARD.md)
+
+**v0.4.2, heads-up 20 BB.**
+- **The model:** a 10B-node average, fixed seed 2026100601. It is the default on the 20 BB table; v0.4.0 and v0.4.1 remain selectable.
+- **Results:** the three retained 10B lineages beat matched-seed 1B v0.4.1 directly by **+3.50 [+1.63, +5.37] BB/100**, and all declared candidate checks pass.
+  - Fresh aggregate bounded LBR is **−1.092 [−4.965, +2.782] BB/100**. That narrowly clears the unchanged lower > −5 safeguard, with half-width **3.874**.
+  - Its point estimate favours 1B on LBR, so this doesn't establish an LBR improvement or each seed's non-regression.
+- **What the intervals cover:** they're nominal paired 95% intervals, conditional on the saved lineages. No full-game exploitability certificate or human or professional strength follows.
+- [Updated decision table and limits](docs/reports/hu20-v042-lbr-confirmation.md) · [v0.4.2 model card](docs/releases/v0.4.2/MODEL_CARD.md) · [earlier v0.4.0 → v0.4.1 comparison](docs/reports/v0.4.1-release.md)
 
 ## Watch two bots
 
@@ -59,7 +77,8 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) |
 | **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2) |
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
-| **v0.5 / v0.5.0** | Heads-up 100 BB; internal/scripted evaluation only, as no suitable free public 100 BB opponent has been verified |
+| **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) |
+| **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) |
 | **v0.5.5** | Heads-up 200 BB, trained at that depth and benchmarked against Slumbot; results and uncertainty published |
 | **v0.6 / v0.7** | Three players / four and five players |
 | **v0.8** | Six players, 100 BB; confirmed profit against the scripted pool |

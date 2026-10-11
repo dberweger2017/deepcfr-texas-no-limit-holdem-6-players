@@ -1,0 +1,18 @@
+{
+  "status": "locally-verified-upload-pending",
+  "owning_pr": 225,
+  "source_revision": "ff984da9a16bf1e76e891fab239d0785188a93af",
+  "run_id": "m1-hu20-equity-bench-scoring-admission-20261010",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-225-hu20-equity-bench-scoring/hu20-equity-bench-scoring-admission-M1-20261010.zip",
+  "bytes": 8641,
+  "sha256": "b63457f5ce249bcf07400578557c7de8c8bc49362828403e803b84c5d7ea38c0",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "205aba4daf98e5c6a946da37d796ace2a8e4e49cfb5962184fb32534a7e076d3",
+  "payload_members": 7,
+  "member_readback": "all sizes and SHA256 verified",
+  "remote_archive_bytes_downloaded": false,
+  "inputs_duplicated": false,
+  "restored_copies_deleted": [],
+  "originals_retained": true,
+  "note": "Small administrative closeout only after failed science admission; no evaluator or scientific computation."
+}

@@ -1,0 +1,70 @@
+{
+  "owning_pr": 225,
+  "run_identity": "results/equity-bench-scoring-admitted-20261010",
+  "executed_scoring_source": "9310cb7574b196788fb0e508390337dcb4954d3c",
+  "status": "stopped-unclassified",
+  "failure_receipt": {
+    "cleanup_error": null,
+    "failure": "RuntimeError('Guard breach: system pressure/headroom')",
+    "finished": 1791638626.428999,
+    "name": "evaluate",
+    "peak_family_rss_bytes": 4058202112,
+    "returncode": 0,
+    "samples": 12957,
+    "seconds": 3129.147304058075,
+    "started": 1791635497.281695,
+    "status": "failed"
+  },
+  "completed_roots": 5,
+  "required_roots": 40,
+  "completed_job_ids": [
+    "0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0",
+    "0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0",
+    "0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0",
+    "1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0",
+    "1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0"
+  ],
+  "started_job_ids": [
+    "0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9-0",
+    "0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d-0",
+    "0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5-0",
+    "1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108-0",
+    "1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812-0",
+    "30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd-0"
+  ],
+  "completed_roots_counted_without_reading_scores": true,
+  "scores_inspected": false,
+  "primary_applied": false,
+  "report_command_run": false,
+  "scientific_retry": false,
+  "last_resource_sample": {
+    "at": 1791638626.338732,
+    "ac": true,
+    "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=37093475)\t100%; charged; 0:00 remaining present: true\n",
+    "swap_raw": "vm.swapusage: total = 3072.00M  used = 1591.69M  free = 1480.31M  (encrypted)\n",
+    "swap_bytes": 1669007933,
+    "free_percent": 41,
+    "pressure_level": 2,
+    "disk_free_bytes": 43476758528,
+    "family_rss_bytes": 655343616
+  },
+  "resource_extrema": {
+    "peak_family_rss_bytes": 4058202112,
+    "maximum_swap_bytes": 1794899968,
+    "minimum_free_percent": 39,
+    "minimum_disk_free_bytes": 43470249984,
+    "pressure_levels": [
+      1,
+      2
+    ],
+    "all_ac": true,
+    "sample_count": 12957
+  },
+  "finished_utc": "2026-10-10T13:23:46.428999+00:00",
+  "cleanup_error": null,
+  "no_candidate_scoring_workers_after_cleanup": true,
+  "guard_status_authoritative_over_worker_returncode": true,
+  "schedule_disabled": true,
+  "scientific_interpretation": "Incomplete40root-scoring. No pass/fail/inconclusive decision, no E/Q/curves/witness gap. Rules out no abstraction-quality hypothesis.",
+  "immediate_next_step": "Preserve and independently review the pressure-stop evidence; do not restart scoring."
+}

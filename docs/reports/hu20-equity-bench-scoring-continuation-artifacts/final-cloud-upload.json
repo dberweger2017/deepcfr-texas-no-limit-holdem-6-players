@@ -1,0 +1,62 @@
+{
+  "status": "accepted-native-and-cloud-metadata",
+  "owning_pr": 230,
+  "checked_at_utc": "2026-10-10 17:52:10 UTC",
+  "archive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+  "archive_url": "https://drive.google.com/file/d/1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y/view",
+  "archive_name": "hu20-equity-bench-scoring-ac-stop-M1-20261010.zip",
+  "bytes": 1195153,
+  "folder_id": "1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx",
+  "folder_url": "https://drive.google.com/drive/folders/1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx",
+  "native": {
+    "isUploaded": "1",
+    "isUploading": "0",
+    "isSyncPaused": "0",
+    "isTrashed": "0",
+    "hasUnresolvedConflicts": "0",
+    "documentSize": "1195153",
+    "drive_id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y"
+  },
+  "cloud_metadata": {
+    "id": "1qIOW9fJIWWmXEEEQsu4KZJ0fBhH5Ka9y",
+    "title": "hu20-equity-bench-scoring-ac-stop-M1-20261010.zip",
+    "mime_type": null,
+    "size": "1195153",
+    "url": null,
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "cloud_folder_metadata": {
+    "id": "1fZajb4vTipfV7AnGgiNjkrZM8RL3POgx",
+    "title": "PR-230-hu20-equity-bench-scoring",
+    "mime_type": null,
+    "size": null,
+    "url": null,
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_source": "results/equity-bench-scoring-continuation-admitted-20261010/final-native-upload.txt",
+  "local_archive_and_manifest_receipt": "docs/reports/hu20-equity-bench-scoring-continuation-artifacts/final-archive-receipt.json",
+  "remote_archive_bytes_downloaded": false,
+  "interpretation": "Current native upload completion and independent cloud metadata acceptance; all local archive members were read back as opaque bytes. No remote byte audit or numerical score inspection."
+}

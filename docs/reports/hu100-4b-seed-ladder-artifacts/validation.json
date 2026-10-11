@@ -1,0 +1,18 @@
+{
+  "checked_at": 1791714622.0213802,
+  "host": "M4",
+  "scientific_source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+  "upstream_integrated": "dca7547e6eca82ce77f3e42230b82fabc1c29a4c",
+  "checks": {
+    "campaign_tests": {
+      "command": ".venv/bin/python -m pytest tests/test_hu100_4b_seed_ladder.py -q",
+      "passed": 8,
+      "seconds": 0.43
+    },
+    "diff_check": "passed",
+    "native_trainer_diff_against_current_main": "empty"
+  },
+  "artifact_guard": "required after final staging",
+  "final_head_ci": "pending",
+  "no_science_rerun": true
+}

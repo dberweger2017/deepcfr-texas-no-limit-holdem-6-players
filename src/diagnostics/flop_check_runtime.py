@@ -8,7 +8,9 @@ import signal
 import subprocess
 import sys
 from time import monotonic, sleep
+import psutil
 
+from scripts.research_process_family import owned_processes
 from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.saved_hu20 import file_hash
 
@@ -25,7 +27,7 @@ def machine_snapshot():
                               ("Pages free", "Pages inactive", "Pages speculative"))
     swap_text = command("sysctl", "vm.swapusage")
     swap = int(float(re.search(r"used = ([\d.]+)M", swap_text).group(1)) * 1024**2)
-    processes = command("ps", "-axo", "pid,ppid,pcpu,rss,etime,comm")
+    processes = [p.info for p in psutil.process_iter(['pid', 'ppid', 'create_time'])]
     pressure = command("memory_pressure")
     return {"platform": sys.platform, "hostname": command("hostname").strip(),
             "physical_bytes": int(command("sysctl", "-n", "hw.memsize")),
@@ -34,16 +36,14 @@ def machine_snapshot():
             "vm_stat": vm, "memory_pressure": pressure, "processes": processes}
 
 
-def rss_for_tree(pid):
-    rows = subprocess.check_output(["ps", "-axo", "pid,ppid,rss"], text=True).splitlines()[1:]
-    parsed = [tuple(map(int, line.split())) for line in rows]
-    owned = {pid}
-    while True:
-        more = {p for p, parent, _ in parsed if parent in owned}
-        if more <= owned:
-            break
-        owned |= more
-    return sum(rss * 1024 for p, _, rss in parsed if p in owned)
+def rss_for_tree(pid, known=None):
+    total = 0
+    for process in owned_processes({} if known is None else known, root=pid):
+        try:
+            total += process.memory_info().rss
+        except (psutil.NoSuchProcess, psutil.ZombieProcess):
+            pass
+    return total
 
 
 def append(path, row):
@@ -79,9 +79,17 @@ def run_tool(binary, request_path, out, *, memory_bytes, threads, seconds,
         process = subprocess.Popen(["nice", "-n", "10", str(binary),
                                     str(request_path), str(response)], env=env,
                                    stderr=error, stdout=error, start_new_session=True)
+        known = {}
         try:
+            try:
+                launched = psutil.Process(process.pid)
+                if launched.ppid() != os.getpid():
+                    raise RuntimeError('Launched solver identity changed')
+                known[process.pid] = launched.create_time()
+            except (psutil.NoSuchProcess, psutil.ZombieProcess):
+                pass
             while True:
-                rss = rss_for_tree(os.getpid())
+                rss = rss_for_tree(os.getpid(), known)
                 swap = swap_usage(); peak_rss = max(peak_rss, rss); peak_swap = max(peak_swap, swap)
                 if monotonic() - resource_time >= 5:
                     append(out / "progress.jsonl", {"event": "resources", "spot": request["spot"],
