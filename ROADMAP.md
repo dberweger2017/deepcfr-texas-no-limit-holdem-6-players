@@ -77,7 +77,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 11, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
-- **v0.5.1 released:** the owner authorized releasing #223's 2B HU100 average as v0.5.1, stable Latest. `--hu100-release` now loads any verified HU100 release bundle (v0.5.0 and v0.5.1); `hu100_bundle.py` pins both. [Notes](docs/releases/v0.5.1/RELEASE_NOTES.md), [model card](docs/releases/v0.5.1/MODEL_CARD.md).
+- **v0.5.1 published and verified:** [stable Latest](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) since October 11, tag at #233's merge `dca7547e`; draft and public downloads verify byte for byte ([publication record](docs/releases/v0.5.1/PUBLICATION.md)). The owner authorized releasing #223's 2B HU100 average as v0.5.1. `--hu100-release` now loads any verified HU100 release bundle (v0.5.0 and v0.5.1); `hu100_bundle.py` pins both. [Notes](docs/releases/v0.5.1/RELEASE_NOTES.md), [model card](docs/releases/v0.5.1/MODEL_CARD.md).
 
 - **K50 bench scoring ([#225](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/225)), pressure stop:** helper-free pilot passes; full scoring stops at 5/40 roots on macOS warning pressure. No partial score inspection, classification or retry; item 4.3 remains unresolved. [Evidence and preserved earlier stops](docs/reports/hu20-equity-bench-scoring.md).
 
