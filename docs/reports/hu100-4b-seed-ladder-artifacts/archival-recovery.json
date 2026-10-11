@@ -1,0 +1,54 @@
+{
+  "all_scientific_samples_unchanged": true,
+  "controller_source": "import sys\nfrom pathlib import Path\nsys.path.insert(0,str(Path(__file__).resolve().parents[1]))\nfrom scripts import run_hu100_4b_seed_ladder as c\nc.OUT=c.ROOT/\"planning/archive-recovery-supervision\"\nc.guarded(\"archive-final-recovery\",[sys.executable,str(c.ROOT/\"planning/archive_recovery_worker.py\")],173.28936452180122)\n",
+  "initial_recovery_launcher_blocked_before_worker": true,
+  "launch": {
+    "budget_seconds": 173.28936452180122,
+    "claimed_at": 1791712452.330202,
+    "cmdline": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.14_3/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+      "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/planning/archive_recovery_guarded_controller.py"
+    ],
+    "created": 1791712452.330372,
+    "cwd": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010",
+    "guard_root": "planning/archive-recovery-supervision/guards",
+    "initial_launcher_blocked_before_worker": true,
+    "launched_at": 1791712452.331317,
+    "original_failure_preserved": true,
+    "owner_authorized": true,
+    "phase": "archive-final-recovery",
+    "pid": 86691,
+    "scheduledTaskId": "scheduled-task:command:mcp:84cc752d-4d91-459d-8064-c19bb1ccfb36:schedule-task:pr226-m4-ladder-supervision-20261010-v1",
+    "scheduler_enabled": true,
+    "scientific_rerun": false,
+    "source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff"
+  },
+  "no_synced_deletion_or_offloading": true,
+  "original_allowance_seconds": 86.64468226090061,
+  "original_failed_zip": "/Users/dberweger/Local/Research-Cloud/PR-226-hu100-4b-seed-ladder/hu100-4b-seed-ladder-M4-20261010.zip",
+  "original_failed_zip_bytes": 19314987621,
+  "original_guard_failure_preserved": true,
+  "owner_authorization": "Double allowance, then Yes to separately named replacement; no science rerun",
+  "raw_guard_locations": [
+    "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/guards/operations/archive-final",
+    "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/planning/archive-recovery-supervision/guards/operations/archive-final-recovery"
+  ],
+  "recovery_allowance_seconds": 173.28936452180122,
+  "recovery_seconds": 112.41331315040588,
+  "science_rerun": false,
+  "verification_admission": {
+    "authorized_doubled_seconds": 173.28936452180122,
+    "bytes": 19314987621,
+    "checked_at": 1791711422.029512,
+    "end_of_central_directory_present_in_last_65557_bytes": false,
+    "mtime_ns": 1791672692809724994,
+    "original_retained_unmodified": true,
+    "original_seconds": 86.64468226090061,
+    "owner_authorization": "Double the time for archival verification",
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-226-hu100-4b-seed-ladder/hu100-4b-seed-ladder-M4-20261010.zip",
+    "starts_with_local_zip_header": true,
+    "verification_not_launched": true,
+    "zipfile_error": "BadZipFile: File is not a zip file"
+  },
+  "worker_source": "import sys\nfrom pathlib import Path\nsys.path.insert(0,str(Path(__file__).resolve().parents[1]))\nfrom scripts import archive_hu100_4b_seed_ladder as archive\noriginal_seal=archive.seal\ndef recovery_seal(files,destination,metadata):\n    files=[(p,m) for p,m in files if not m.startswith(\"research/guards/operations/archive-final-recovery/\")]\n    destination=destination.with_name(\"hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip\")\n    metadata={**metadata,\"archival_recovery\":{\"owner_authorized\":True,\"authorization\":\"Yes to separately named replacement archive under doubled allowance; no science rerun\",\"original_guard\":\"archive-final\",\"original_archive_retained\":\"hu100-4b-seed-ladder-M4-20261010.zip\",\"original_failed_seconds\":87.12621021270752,\"recovery_allowance_seconds\":173.28936452180122,\"excluded_live_recovery_guard\":\"research/guards/operations/archive-final-recovery\"}}\n    return original_seal(files,destination,metadata)\narchive.seal=recovery_seal\narchive.pack()\n"
+}

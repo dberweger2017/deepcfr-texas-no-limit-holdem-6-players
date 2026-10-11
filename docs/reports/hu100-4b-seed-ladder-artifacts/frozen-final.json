@@ -1,0 +1,249 @@
+{
+  "admission_candidates": {
+    "2b-seed-2026100601-vs-2026100901": [
+      {
+        "blocks": 1048576,
+        "forecast_family_bytes": 8781619456
+      },
+      {
+        "blocks": 524288,
+        "forecast_family_bytes": 6055321856
+      },
+      {
+        "blocks": 262144,
+        "forecast_family_bytes": 4692173056
+      },
+      {
+        "blocks": 131072,
+        "forecast_family_bytes": 4010598656
+      }
+    ],
+    "2b-seed-2026100601-vs-2026100902": [
+      {
+        "blocks": 1048576,
+        "forecast_family_bytes": 10670121216
+      },
+      {
+        "blocks": 524288,
+        "forecast_family_bytes": 7943823616
+      },
+      {
+        "blocks": 262144,
+        "forecast_family_bytes": 6580674816
+      },
+      {
+        "blocks": 131072,
+        "forecast_family_bytes": 5899100416
+      }
+    ],
+    "seed-2026100601-terminal-vs-2b": [
+      {
+        "blocks": 1048576,
+        "forecast_family_bytes": 10015678720
+      },
+      {
+        "blocks": 524288,
+        "forecast_family_bytes": 7289381120
+      },
+      {
+        "blocks": 262144,
+        "forecast_family_bytes": 5926232320
+      },
+      {
+        "blocks": 131072,
+        "forecast_family_bytes": 5244657920
+      }
+    ],
+    "seed-2026100901-2b-vs-1b": [
+      {
+        "blocks": 1048576,
+        "forecast_family_bytes": 9825460480
+      },
+      {
+        "blocks": 524288,
+        "forecast_family_bytes": 7099162880
+      },
+      {
+        "blocks": 262144,
+        "forecast_family_bytes": 5736014080
+      },
+      {
+        "blocks": 131072,
+        "forecast_family_bytes": 5054439680
+      }
+    ],
+    "seed-2026100902-2b-vs-1b": [
+      {
+        "blocks": 1048576,
+        "forecast_family_bytes": 9542934784
+      },
+      {
+        "blocks": 524288,
+        "forecast_family_bytes": 6816637184
+      },
+      {
+        "blocks": 262144,
+        "forecast_family_bytes": 5453488384
+      },
+      {
+        "blocks": 131072,
+        "forecast_family_bytes": 4771913984
+      }
+    ]
+  },
+  "archive_quote_basis": "2x measured timing ZIP source hash/write/member readback/whole hash per logical byte",
+  "archive_quote_seconds": 86.64468226090061,
+  "blocks_per_contrast": {
+    "2b-seed-2026100601-vs-2026100901": 524288,
+    "2b-seed-2026100601-vs-2026100902": 262144,
+    "seed-2026100601-terminal-vs-2b": 524288,
+    "seed-2026100901-2b-vs-1b": 524288,
+    "seed-2026100902-2b-vs-1b": 524288
+  },
+  "completed_operations_seconds": 20339.37926340103,
+  "decision": "each adjusted paired Student-t lower bound >0",
+  "descriptive": [
+    "2b-seed-2026100601-vs-2026100901",
+    "2b-seed-2026100601-vs-2026100902"
+  ],
+  "disk_sample_reductions": [],
+  "elapsed_checkout_wall_seconds_including_preparation_and_storage_wait": 24040.44917821884,
+  "executable_spec_sha256": {
+    "2b-seed-2026100601-vs-2026100901": "8ba7a978e43e820460c3e6b057c29b1f43ebf2748a8dc150cc89e50af3ad3d53",
+    "2b-seed-2026100601-vs-2026100902": "4e3ec1b77fb0f98d194bad7f268b73e123af6c4a6e2e3fbeb5ce4c4c07e89212",
+    "seed-2026100601-terminal-vs-2b": "5e66e578c50d1a7175ad2b3a09c3a40ffa004356cf4539ea29f8389238583248",
+    "seed-2026100901-2b-vs-1b": "4e064eb21b1ad0a5cf6068d8aff3da2223430074403cbd933cd7912ca415ddc1",
+    "seed-2026100902-2b-vs-1b": "a9cc71d9d5c4d3c9f81648b465d4beba65792c9bcd282c9783042121f70a0303"
+  },
+  "full_scope_seconds": 66850.2459940803,
+  "indexed_model_exclusions": [
+    {
+      "bytes": 1789504352,
+      "path": "training/2026100601/1000000000/checkpoint.gz",
+      "sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+    },
+    {
+      "bytes": 1033507823,
+      "path": "training/2026100601/1000000000/current.gz",
+      "sha256": "979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21"
+    },
+    {
+      "bytes": 1173264021,
+      "path": "training/2026100601/1000000000/average.gz",
+      "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+    },
+    {
+      "bytes": 2460507577,
+      "path": "training/2026100601/2000000000/checkpoint.gz",
+      "sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676"
+    },
+    {
+      "bytes": 1381038201,
+      "path": "training/2026100601/2000000000/current.gz",
+      "sha256": "94576d2684a05b19f2bc1f864961d45dc753240ff04a3783a9a762d687c6b1e6"
+    },
+    {
+      "bytes": 1603422956,
+      "path": "training/2026100601/2000000000/average.gz",
+      "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+    },
+    {
+      "bytes": 1790689153,
+      "path": "training/2026100902/1000000000/checkpoint.gz",
+      "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+    },
+    {
+      "bytes": 1034504511,
+      "path": "training/2026100902/1000000000/current.gz",
+      "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+    },
+    {
+      "bytes": 1174323849,
+      "path": "training/2026100902/1000000000/average.gz",
+      "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+    },
+    {
+      "bytes": 1779115039,
+      "path": "training/2026100901/1000000000/checkpoint.gz",
+      "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+    },
+    {
+      "bytes": 1027144114,
+      "path": "training/2026100901/1000000000/current.gz",
+      "sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+    },
+    {
+      "bytes": 1167167445,
+      "path": "training/2026100901/1000000000/average.gz",
+      "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+    }
+  ],
+  "optional_scripted_panel": "omitted; required primary and descriptive matches take priority",
+  "outcomes_used_for_budget": false,
+  "pairs_sha256": "20b5f5f08b345789e5c3f2214869fb60bfaa0fc5e2e2f2815f73caedbd4b1caf",
+  "pilot_costs": {
+    "2b-seed-2026100601-vs-2026100901": {
+      "fixed_seconds": 465.3759354579961,
+      "pilot_family_peak_bytes": 3229024256,
+      "raw_bytes_per_block": 2124.9375,
+      "seconds_per_block": 0.008343273468199186
+    },
+    "2b-seed-2026100601-vs-2026100902": {
+      "fixed_seconds": 459.2564674160676,
+      "pilot_family_peak_bytes": 5117526016,
+      "raw_bytes_per_block": 1976.375,
+      "seconds_per_block": 0.008286569027404767
+    },
+    "seed-2026100601-terminal-vs-2b": {
+      "fixed_seconds": 524.3312130420236,
+      "pilot_family_peak_bytes": 4463083520,
+      "raw_bytes_per_block": 2174.375,
+      "seconds_per_block": 0.008835743497911608
+    },
+    "seed-2026100901-2b-vs-1b": {
+      "fixed_seconds": 397.3615252500167,
+      "pilot_family_peak_bytes": 4272865280,
+      "raw_bytes_per_block": 1927.875,
+      "seconds_per_block": 0.007631832027982455
+    },
+    "seed-2026100902-2b-vs-1b": {
+      "fixed_seconds": 400.7108503320487,
+      "pilot_family_peak_bytes": 3990339584,
+      "raw_bytes_per_block": 1884.0625,
+      "seconds_per_block": 0.007503958371671615
+    }
+  },
+  "pilot_root": 202610104401,
+  "planning_sd_bb_per_100": 1113,
+  "primary": [
+    "seed-2026100601-terminal-vs-2b",
+    "seed-2026100901-2b-vs-1b",
+    "seed-2026100902-2b-vs-1b"
+  ],
+  "primary_confidence": 0.9833333333333333,
+  "primary_first_due_to_ten_hour_scope": true,
+  "projected_adjusted_half_width": {
+    "seed-2026100601-terminal-vs-2b": 3.6798858883217616,
+    "seed-2026100901-2b-vs-1b": 3.6798858883217616,
+    "seed-2026100902-2b-vs-1b": 3.6798858883217616
+  },
+  "quotes_seconds": {
+    "2b-seed-2026100601-vs-2026100901": 9679.308191106422,
+    "2b-seed-2026100601-vs-2026100902": 5263.061637072125,
+    "seed-2026100601-terminal-vs-2b": 10313.61100015021,
+    "seed-2026100901-2b-vs-1b": 8797.278951073764,
+    "seed-2026100902-2b-vs-1b": 8669.892354198033
+  },
+  "root": 202610104402,
+  "schedule_memory_basis": "#223 observed terminal full-minus-pilot family RSS / additional blocks =4807 B/block; headroom plus100MB",
+  "schedule_memory_bytes_per_block": 5200,
+  "source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+  "storage": {
+    "archive_base_bytes": 18082918108,
+    "available_bytes": 60375404544,
+    "floor_bytes": 17179869184,
+    "indexed_model_bytes_excluded_from_zip": 17414189041,
+    "raw_and_archive_copies": 2,
+    "required_additional_free_bytes": 46951722716
+  }
+}

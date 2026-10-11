@@ -1,3 +1,49 @@
+## PR226 HU100 4B and independent 2B direct ladders — October11
+
+[PR226](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226), branch feature/hu100-4b-seed-ladder, isolated M4 root
+/Users/dberweger/Local/hu100-4b-seed-ladder-20261010.
+Executed scientific source d3120c2c195b5eca136b7f0d9969e32ba5159fff, base ff984da9a16bf1e76e891fab239d0785188a93af.
+[Protocol](docs/hu100-4b-seed-ladder.md), [report](docs/reports/hu100-4b-seed-ladder.md), [exact model/restoration index](docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json).
+
+Three adjusted98.333333% primary contrasts pass: original seed4B vs2B **+17.90 [14.98,20.83] BB/100**; independent seeds2026100901/0902 2B vs1B **+28.14 [24.87,31.41]** / **+27.90 [24.65,31.15]**.
+All4,718,592hands and23,336,185actions replay/reproduce. Both descriptive cross-seed2B intervals cross0.
+Fixed seeds/samples support conditional repetition, not a training-seed population effect, external qualification, release or default change.
+
+**Accepted archive:** [hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip](https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk), DriveID 1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E, **22,545,560,259bytes**, SHA256 ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1.
+[Designated folder](https://drive.google.com/drive/folders/1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW), ID 1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW, under Research-Cloud parent188bEt6i0RHqegCCdvpf3wPzUiRw78N2s.
+ARCHIVE-MANIFEST.json SHA256 5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664; all460member sizes/SHA256 read back locally.
+[Native uploaded/no-pending/no-conflicts receipt](docs/reports/hu100-4b-seed-ladder-artifacts/native-upload-status.json) and [independent cloud ID/name/size/parent receipt](docs/reports/hu100-4b-seed-ladder-artifacts/cloud-acceptance.json) are separate. No remote archive bytes downloaded/verified.
+
+**Failure preserved:** original archive-final exceeded86.644682s at87.126210s. Its incomplete19,314,987,621-byte hu100-4b-seed-ladder-M4-20261010.zip has no ZIP end-directory and remains unchanged/unaccepted in the same synced folder.
+Owner explicitly approved a separately named replacement under doubled173.289365s; recovery completes112.413s, no science rerun.
+[Recovery/authorization/worker/controller provenance](docs/reports/hu100-4b-seed-ladder-artifacts/archival-recovery.json) and [both guard receipts/extrema](docs/reports/hu100-4b-seed-ladder-artifacts/campaign-resources.json) preserve that stop. Initial recovery launcher was blocked before a worker by the original campaign stop marker; the authorized archival guard uses a separate record and unchanged resource limits. Neither stop nor sample freeze was overwritten.
+
+**Models:** nine new checkpoint/current/average files are research/training/2026100601/4000000000/*.gz,
+research/training/2026100901/2000000000/*.gz and research/training/2026100902/2000000000/*.gz.
+The [21-file index](docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json) pins each byte count/SHA256/member/retrieval command.
+Twelve byte-exact historical model copies are omitted, restoring through #207/#223 [exact reference index](docs/reports/hu100-3b-ladder-artifacts/model-input-index.json) and #215 [model index](docs/reports/hu100-independent-stages-artifacts/model-index.json).
+For #215 restore each canonical_member (average aliases resolve to final/*/models/*.json.gz); check the whole/archive/member hashes before use.
+No archived state was retrieved to resume training.
+
+**Restoration:** download the linked ZIP into a fresh ignored location, verify its whole SHA256, then extract only required members into a fresh destination and verify member hashes.
+For the new4B average:
+
+```sh
+shasum -a 256 ARCHIVE.zip
+python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100601/4000000000/average.gz RESTORE_ROOT
+shasum -a 256 RESTORE_ROOT/research/training/2026100601/4000000000/average.gz
+```
+
+Expected averageSHA256 0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0.
+Restore scientific source with git checkout d3120c2c195b5eca136b7f0d9969e32ba5159fff in a fresh clone; controls/protocol also appear under source/.
+research/bin/hu20-trainer SHA256 de8dcee4b8a6592439b3def04e2d745e061e5df52c37d4085df4f08ebcfbda6b.
+research/final-direct/* retains frozen schedules/specs, original traces, full replay and reproduction; research/training/* has gates/telemetry/full audits.
+Archive manifest source_path/mtime/size pins restore provenance. Raw original/recovery archival guards and administrative consoles remain outside this ZIP at the owning root; compact closed receipts/provenance are Git evidence, as declared by the protocol.
+
+All scientific originals remain under results/hu100-4b-seed-ladder; local accepted ZIP is /Users/dberweger/Local/Research-Cloud/PR-226-hu100-4b-seed-ladder/hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip.
+No deletion, eviction, other-PR cleanup or paid compute.
+The single [end evidence review](docs/reports/hu100-4b-seed-ladder-artifacts/evidence-review.json) is clear with no open findings; green final-head checks precede merge. Accepted archival completion does not erase the original guard failure. The52-operation resource aggregate includes an earlier monitor-qualification preparation fixture (source3fd71759); actual science uses d312.
+
 ## M1/M4 storage cleanup — October 10, 2026
 
 Owner-authorized cleanup for open #225/#226 preserved their roots and current inputs. **M1: 18.497 GB native cache released /41.924 GB free at verification. M4: 32.978 GB native cache released plus 37.051 GB measured original-removal gain /96.163 GB free.** Free space fluctuates; the M4 check exceeds the historical 87.5 GiB campaign estimate, pending pilot refinement.

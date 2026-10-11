@@ -1,0 +1,177 @@
+{
+  "archive_and_restoration": {
+    "all_member_local_readback": "Existing completed recovery readback verifies all460 sizes/SHA256; reviewer independently checked manifest hash, exact inventory, every central-directory size and logical-byte total, plus417 small/binary member hashes",
+    "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+    "bytes": 22545560259,
+    "excluded_dependency_bytes": 17414189041,
+    "folder_id": "1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW",
+    "independent_cloud_metadata": "Accepted archive ID/name/22545560259bytes/designated parent agree with native/local receipts",
+    "indexed_dependency_files_excluded": 12,
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+    "native_upload": "uploaded1/uploading0/conflicts0/trashed0/syncPaused0/excluded0; IDs/name/size agree",
+    "new_model_files": 9,
+    "original_research_provenance": "Recorded scientific original paths/sizes/mtimes remain unchanged; administrative T3-HANDOFF.md and scheduler-state.json advanced after archived snapshots, with closed acceptance recorded separately in Git",
+    "payload_members": 460,
+    "remote_archive_bytes_downloaded": false,
+    "restoration": "All21 index size/hash/member entries and retrieval commands reconcile with accepted manifest or exact referenced historical locators; no duplicate dependency bytes; archived source/binary restore d312 execution",
+    "sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1"
+  },
+  "at_utc": "2026-10-11T10:31:26.106887+00:00",
+  "binding_and_science_checks": {
+    "audits_and_gates": "All7 full audits verified their complete entry/visit counts and native state;4 reference checkpoint gates and12 historical checkpoint/current/average byte identities agree with telemetry/audit/indexed-reference receipts;21 model index entries reconcile",
+    "coverage": "40 policy/street cells in summary/CSV reconcile; report percentages and primary visit counts agree; exact/menu-only coverage is descriptive",
+    "freeze_sha256": "09ac08821c1e63ed5f856ba87705d1b1a3848941021c9b7d0551a8dcd3b95805",
+    "freshness": "10 pilot/final per-contrast hashes; prior1740320 declared physical deals and new2359456 including160 pilot deals reconcile with frozen counts; held-out roots and source-reviewed physical disjointness checks preserved",
+    "frozen_source_pairs_executable_specs_counts_and_raw_inputs": "all agree; posted SHA-bound quote precedes first final guard by1.009732 seconds",
+    "native_binary_sha256": "de8dcee4b8a6592439b3def04e2d745e061e5df52c37d4085df4f08ebcfbda6b",
+    "native_source_diff_vs_origin_main": "empty; scientific source reachable and all6 archived source members hash-match Git d312",
+    "replay_and_reproduction": "All5 replay receipts verified menu legality/zero-sum settlement; all5 reproduction receipts complete with identical hand/action counts; coverage counters reconcile with actions",
+    "source_ci": "Five preserved exact-d312 checks succeeded; final closeout-head checks remain a merge requirement",
+    "timing_only_pilots": "32blocks each, no payoff report; frozen counts follow measured memory/cost rules; primary-first final order confirmed; no extension/checkpoint substitution",
+    "training": "Seven sequential nonoverlapping segments; each seed starts fresh, only own freshly generated predecessor resumes; unchanged100BB/roots1/opponent-sampled recipe; every requested target reached"
+  },
+  "findings_and_resolutions": [
+    {
+      "finding": "Two CSV visits_0 fields were blank although their authoritative counters were zero",
+      "resolution": "Both numeric fields normalized to0; all40 policy/street cells independently reconcile with summary lookup and visit-band counters"
+    },
+    {
+      "finding": "The52-operation resource aggregate includes an earlier monitor-qualification preparation fixture",
+      "resolution": "Report/index now disclose science/preparation scope and earlier3fd71759 monitor source; fixture is only a2-second sleep. All51 subsequent science/preparation intents and actual training/pilots/final controls bind d312 and the same native binary"
+    }
+  ],
+  "independent_resources": {
+    "all_closed_guards_passed": true,
+    "all_normal_pressure_and_ac": true,
+    "disk_floor_bytes": 17179869184,
+    "final_direct_seconds": 15549.248008728027,
+    "guard_violations": [],
+    "hard_family_bytes": 9663676416,
+    "maximum_total_swap_bytes": 1588655554.56,
+    "method": "Independently recounted every retained resource JSONL row and each closed receipt; all sample counts, peaks and claimed extrema agree",
+    "minimum_disk_free_bytes": 54957486080,
+    "minimum_system_free_percent": 48,
+    "peak_family_rss_bytes": 7478591488,
+    "samples_excluding_11_monitor_fixture_samples": 179830,
+    "samples_including_monitor_fixture": 179841,
+    "science_and_preparation_operations": 52,
+    "soft_family_bytes": 7516192768,
+    "total_swap_cap_bytes": 3000000000
+  },
+  "independent_statistics": {
+    "agreement": "Means exact; interval endpoints agree within1e-9",
+    "conclusion": "All three adjusted primary lower bounds exceed0; both descriptive intervals cross0. No pooling or seed-population inference.",
+    "method": "Streamed every stored play hands.jsonl.gz row; checked ordered complete block/seat coordinates,100BB reset, zero-sum settlements and candidate-seat net; accumulated exact integer pair sums and squared sums, dividing each duplicate sum by2. Recalculated sample variance and Student-t intervals (1-.05/6 quantile for three primaries; .975 for descriptives). No policy execution or hand replay rerun.",
+    "results": {
+      "2b-seed-2026100601-vs-2026100901": {
+        "actions_replayed": 5209888,
+        "bb_per_100": -0.21386146545410156,
+        "blocks": 524288,
+        "confidence": 0.95,
+        "half_width": 2.5423656380092226,
+        "hands_replayed": 1048576,
+        "interval": [
+          -2.756227103463324,
+          2.328504172555121
+        ],
+        "paired_block_sd": 939.2341508242172,
+        "primary": false
+      },
+      "2b-seed-2026100601-vs-2026100902": {
+        "actions_replayed": 2598153,
+        "bb_per_100": -0.36525726318359375,
+        "blocks": 262144,
+        "confidence": 0.95,
+        "half_width": 3.5765647179755566,
+        "hands_replayed": 524288,
+        "interval": [
+          -3.9418219811591504,
+          3.211307454791963
+        ],
+        "paired_block_sd": 934.2991478619671,
+        "primary": false
+      },
+      "seed-2026100601-terminal-vs-2b": {
+        "actions_replayed": 5348563,
+        "bb_per_100": 17.901325225830078,
+        "blocks": 524288,
+        "confidence": 0.9833333333333333,
+        "half_width": 2.9248432157333113,
+        "hands_replayed": 1048576,
+        "interval": [
+          14.976482010096767,
+          20.82616844156339
+        ],
+        "paired_block_sd": 884.6381702009785,
+        "primary": true
+      },
+      "seed-2026100901-2b-vs-1b": {
+        "actions_replayed": 5114916,
+        "bb_per_100": 28.138446807861328,
+        "blocks": 524288,
+        "confidence": 0.9833333333333333,
+        "half_width": 3.268096636265664,
+        "hands_replayed": 1048576,
+        "interval": [
+          24.870350171595664,
+          31.406543444126992
+        ],
+        "paired_block_sd": 988.4574368958722,
+        "primary": true
+      },
+      "seed-2026100902-2b-vs-1b": {
+        "actions_replayed": 5064665,
+        "bb_per_100": 27.89783477783203,
+        "blocks": 524288,
+        "confidence": 0.9833333333333333,
+        "half_width": 3.2475157354295767,
+        "hands_replayed": 1048576,
+        "interval": [
+          24.650319042402455,
+          31.145350513261608
+        ],
+        "paired_block_sd": 982.2326073532879,
+        "primary": true
+      }
+    },
+    "total_actions": 23336185,
+    "total_hands": 4718592
+  },
+  "limitations": [
+    "Review rederived stored outcomes/statistics and resource extrema; relied on source-reviewed existing full replay/reproduction/full model audits rather than executing science again.",
+    "No redundant multi-gigabyte model or whole-archive hash audit was performed; completed all-member readback is an existing evidence claim independently checked through receipts, manifest and selected small content.",
+    "Native upload and independent cloud metadata support upload acceptance; remote archive contents were not downloaded or verified.",
+    "Original/recovery archival raw guards and consoles remain local outside the science ZIP as explicitly disclosed; no deletion or cleanup authorization is inferred.",
+    "Final candidate commit/host checks and merge are outside this receipt; they must pass before landing."
+  ],
+  "open_findings": [],
+  "original_archive_failure_and_authorized_recovery": {
+    "all_scientific_samples_and_stop_marker_retained": true,
+    "authorization": "Owner-authorized doubled archival allowance and separately named replacement, retaining original; supplied session authorization and recorded controller/worker provenance agree",
+    "initial_recovery_launcher": "Preserved console shows original stop marker rejected launcher before a worker; operation directory contains no worker files",
+    "original_archive_min_disk_bytes": 34922807296,
+    "original_archive_resource_max_swap_bytes": 2196441661.44,
+    "original_configured_allowance_seconds": 86.64468226090061,
+    "original_guard_seconds": 87.12621021270752,
+    "original_guard_status": "failed",
+    "original_partial_bytes": 19314987621,
+    "original_partial_mtime_ns": 1791672692809724994,
+    "original_partial_retained_unmodified": "Size/mtime match verification receipt; local ZIP header present, no end-of-central-directory signature in terminal65557bytes; unaccepted",
+    "original_returncode0_does_not_override_failure": true,
+    "preservation_assessment": "Adequate disclosed closeout: failed marker is included in accepted science ZIP, original incomplete ZIP remains unchanged, both archival raw guards/consoles remain local, and closed failure/recovery/resource/provenance receipts are compact Git evidence. Original failure is not presented as success. No additional seal is needed for this review.",
+    "recovery_all_resource_limits_unchanged": true,
+    "recovery_child_alive_after_cleanup": false,
+    "recovery_configured_allowance_seconds": 173.28936452180122,
+    "recovery_guard_seconds": 112.41331315040588,
+    "recovery_guard_status": "complete",
+    "recovery_min_disk_bytes": 23098134528,
+    "recovery_resource_max_swap_bytes": 2013989437.44,
+    "science_rerun": false
+  },
+  "owning_pr": 226,
+  "reviewed_on": "M4 via ssh m4",
+  "scientific_source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+  "scope": "One independent end evidence review; findings resolved in the same exchange. No scientific operation rerun, trainer change, cleanup, or other campaign execution.",
+  "status": "clear"
+}

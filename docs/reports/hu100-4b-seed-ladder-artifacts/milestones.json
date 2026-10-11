@@ -1,0 +1,478 @@
+[
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 41010014,
+        "average_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+        "checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+        "counts": {
+          "entries": 41010014,
+          "positive_mass": 27797076,
+          "zero_mass": 13212938
+        },
+        "current_sha256": "979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.2591513843341236
+      },
+      "entries": 41010014,
+      "hu20_reference_checked": false,
+      "iteration": 885307,
+      "mean_traverser_visits_per_key": 4.847023070999195,
+      "native_state": {
+        "completed_nodes": 1000002065,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          15143140,
+          49225112,
+          142065121,
+          353560026
+        ],
+        "traverser_visits_by_street": [
+          4982671,
+          16391503,
+          49974879,
+          127427431
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 27797076,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 15870724,
+        "1": 11919786,
+        "10-99": 3120300,
+        "100+": 228682,
+        "2-9": 9870522
+      },
+      "zero_average_mass_keys": 13212938
+    },
+    "gate": {
+      "actual_nodes": 1000002065,
+      "entries": 41010014,
+      "entry_cap": 57658644,
+      "expected": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+      "sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 1000000000,
+    "seed": 2026100601
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 54626283,
+        "average_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+        "checkpoint_sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+        "counts": {
+          "entries": 54626283,
+          "positive_mass": 37059563,
+          "zero_mass": 17566720
+        },
+        "current_sha256": "94576d2684a05b19f2bc1f864961d45dc753240ff04a3783a9a762d687c6b1e6",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.2685049935306056
+      },
+      "entries": 54626283,
+      "hu20_reference_checked": false,
+      "iteration": 1812907,
+      "mean_traverser_visits_per_key": 7.201297093562086,
+      "native_state": {
+        "completed_nodes": 2000000460,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          28924385,
+          95628844,
+          283965531,
+          715722202
+        ],
+        "traverser_visits_by_street": [
+          9289508,
+          31156581,
+          98160931,
+          254773073
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 37059563,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 19604826,
+        "1": 15242873,
+        "10-99": 5268209,
+        "100+": 525662,
+        "2-9": 13984713
+      },
+      "zero_average_mass_keys": 17566720
+    },
+    "gate": {
+      "actual_nodes": 2000000460,
+      "entries": 54626283,
+      "entry_cap": 67419934,
+      "expected": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+      "sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 2000000000,
+    "seed": 2026100601
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 70466972,
+        "average_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "counts": {
+          "entries": 70466972,
+          "positive_mass": 47855757,
+          "zero_mass": 22611215
+        },
+        "current_sha256": "fe33f0a0ae76c08d790476d374689935ec94b8d16652775aa945355838d4a461",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.27746925344162315
+      },
+      "entries": 70466972,
+      "hu20_reference_checked": false,
+      "iteration": 3716073,
+      "mean_traverser_visits_per_key": 11.03295702843596,
+      "native_state": {
+        "completed_nodes": 4000000174,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          55912256,
+          186957254,
+          568981039,
+          1446043926
+        ],
+        "traverser_visits_by_street": [
+          17563822,
+          59649521,
+          192841266,
+          507404465
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 47855757,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 23388803,
+        "1": 18769046,
+        "10-99": 8337528,
+        "100+": 1113369,
+        "2-9": 18858226
+      },
+      "zero_average_mass_keys": 22611215
+    },
+    "gate": {
+      "actual_nodes": 4000000174,
+      "entries": 70466972,
+      "entry_cap": 72437552,
+      "expected": null,
+      "sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 4000000000,
+    "seed": 2026100601
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 40752103,
+        "average_sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b",
+        "checkpoint_sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7",
+        "counts": {
+          "entries": 40752103,
+          "positive_mass": 27657556,
+          "zero_mass": 13094547
+        },
+        "current_sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.258746769742324
+      },
+      "entries": 40752103,
+      "hu20_reference_checked": false,
+      "iteration": 895403,
+      "mean_traverser_visits_per_key": 4.87011988068444,
+      "native_state": {
+        "completed_nodes": 1000000506,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          15082806,
+          49119574,
+          141850676,
+          354022079
+        ],
+        "traverser_visits_by_street": [
+          4943587,
+          16295183,
+          49780452,
+          127448405
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 27657556,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 15765179,
+        "1": 11854112,
+        "10-99": 3100284,
+        "100+": 227817,
+        "2-9": 9804711
+      },
+      "zero_average_mass_keys": 13094547
+    },
+    "gate": {
+      "actual_nodes": 1000000506,
+      "entries": 40752103,
+      "entry_cap": 57658644,
+      "expected": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7",
+      "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 1000000000,
+    "seed": 2026100901
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 54579477,
+        "average_sha256": "bbc71fe6815ec8745f83288e48f37f605fef61c29dca55ab9d43fa935eca5287",
+        "checkpoint_sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0",
+        "counts": {
+          "entries": 54579477,
+          "positive_mass": 37090365,
+          "zero_mass": 17489112
+        },
+        "current_sha256": "8b2cb4cecaaf8fc11f4f502001cf68053f2f020a8338c4193f43529fcded168c",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.26752671090362223
+      },
+      "entries": 54579477,
+      "hu20_reference_checked": false,
+      "iteration": 1815805,
+      "mean_traverser_visits_per_key": 7.202424218905579,
+      "native_state": {
+        "completed_nodes": 2000001279,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          28991353,
+          95713889,
+          283724251,
+          715938048
+        ],
+        "traverser_visits_by_street": [
+          9319763,
+          31111863,
+          97918528,
+          254754393
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 37090365,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 19650589,
+        "1": 15211881,
+        "10-99": 5261307,
+        "100+": 525016,
+        "2-9": 13930684
+      },
+      "zero_average_mass_keys": 17489112
+    },
+    "gate": {
+      "actual_nodes": 2000001279,
+      "entries": 54579477,
+      "entry_cap": 72437552,
+      "expected": null,
+      "sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 2000000000,
+    "seed": 2026100901
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 41047344,
+        "average_sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924",
+        "checkpoint_sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4",
+        "counts": {
+          "entries": 41047344,
+          "positive_mass": 27834571,
+          "zero_mass": 13212773
+        },
+        "current_sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.25886459388415595
+      },
+      "entries": 41047344,
+      "hu20_reference_checked": false,
+      "iteration": 902142,
+      "mean_traverser_visits_per_key": 4.839191373746375,
+      "native_state": {
+        "completed_nodes": 1000001141,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          15254578,
+          49171874,
+          142040580,
+          353646492
+        ],
+        "traverser_visits_by_street": [
+          5021544,
+          16330369,
+          49903501,
+          127380539
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 27834571,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 15907246,
+        "1": 11939660,
+        "10-99": 3115449,
+        "100+": 227894,
+        "2-9": 9857095
+      },
+      "zero_average_mass_keys": 13212773
+    },
+    "gate": {
+      "actual_nodes": 1000001141,
+      "entries": 41047344,
+      "entry_cap": 57658644,
+      "expected": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4",
+      "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 1000000000,
+    "seed": 2026100902
+  },
+  {
+    "audit": {
+      "audit": {
+        "all_nodes_verified": 54210037,
+        "average_sha256": "47006e1bcd7df656dba361c2bec17098a2c9e85cc8e3cddde29eeadf21f70ad5",
+        "checkpoint_sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e",
+        "counts": {
+          "entries": 54210037,
+          "positive_mass": 36834921,
+          "zero_mass": 17375116
+        },
+        "current_sha256": "307ec4fbc7483fbf08ee6c77e16d4c4f5b587737db576f7a2751e4f986d33537",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.2682179317549135
+      },
+      "entries": 54210037,
+      "hu20_reference_checked": false,
+      "iteration": 1838535,
+      "mean_traverser_visits_per_key": 7.25136383876661,
+      "native_state": {
+        "completed_nodes": 2000000390,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          29039726,
+          95420056,
+          283736737,
+          716114069
+        ],
+        "traverser_visits_by_street": [
+          9321149,
+          31018672,
+          97902127,
+          254854754
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 36834921,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 19436715,
+        "1": 15115755,
+        "10-99": 5257845,
+        "100+": 525848,
+        "2-9": 13873874
+      },
+      "zero_average_mass_keys": 17375116
+    },
+    "gate": {
+      "actual_nodes": 2000000390,
+      "entries": 54210037,
+      "entry_cap": 72437552,
+      "expected": null,
+      "sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e",
+      "status": "passed",
+      "stop_requested": false,
+      "terminal_capacity_stop": false
+    },
+    "requested_nodes": 2000000000,
+    "seed": 2026100902
+  }
+]

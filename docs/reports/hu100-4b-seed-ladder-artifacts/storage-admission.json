@@ -1,0 +1,52 @@
+{
+  "ac": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+  "actual_guard_breach": false,
+  "at_utc": "2026-10-10T11:19:11.881713+00:00",
+  "available_above_floor_bytes": 9609748480,
+  "cpu_cores": 10,
+  "disk": {
+    "free": 26789617664,
+    "total": 494384795648,
+    "used": 467595177984
+  },
+  "final_hands": 0,
+  "floor_bytes": 17179869184,
+  "forecast": {
+    "contrasts": 5,
+    "four_b_entries": 70000000,
+    "four_b_model_set_bytes": 6977370425,
+    "models_alone_exceed_headroom": true,
+    "new_model_bytes_in_zip_excluding_prior_indexed_models": 17867307893,
+    "overhead_and_staging_bytes": 2147483648,
+    "provisional_blocks_per_contrast": 1048576,
+    "raw_primary_and_reproduction_bytes": 10719068160,
+    "raw_zip_copy_bytes": 10719068160,
+    "required_initial_free_bytes": 93933902260,
+    "required_initial_free_gib": 87.48276369646192,
+    "retained_seven_model_sets_bytes": 35301105215,
+    "shortfall_bytes": 67144284596
+  },
+  "hardware_model": "Mac16,1",
+  "historical_inputs": {
+    "measured_1b_model_set_bytes": 3996276196,
+    "measured_2b_entries": 54626283,
+    "measured_2b_model_set_bytes": 5444968734,
+    "model_sizes_source": "docs/reports/hu100-3b-ladder-artifacts/model-input-index.json",
+    "raw_bytes_per_block_per_rung_primary_and_reproduction": 2044.5,
+    "raw_size_source": "docs/reports/hu100-3b-ladder-artifacts/frozen-final.json"
+  },
+  "host": "dberwegerch-m4.local",
+  "isolated_checkout": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010",
+  "memory_bytes": 17179869184,
+  "other_pr_files_modified": false,
+  "pilot_hands": 0,
+  "pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 85%",
+  "quote_status": "Historical-size planning only; no measured current-campaign timing quote or final sample freeze",
+  "soma": "Make sufficient M4 disk space available or identify a writable attached external volume; remeasure admission before science.",
+  "source_base": "ff984da9a16bf1e76e891fab239d0785188a93af",
+  "status": "preventive-disk-inadmission",
+  "swap": "vm.swapusage: total = 2048.00M  used = 1107.44M  free = 940.56M  (encrypted)",
+  "synced_files_modified": false,
+  "training_started": false,
+  "volumes": "Macintosh HD"
+}

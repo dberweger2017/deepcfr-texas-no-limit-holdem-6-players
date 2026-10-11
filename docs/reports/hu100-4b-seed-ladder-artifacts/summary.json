@@ -1,0 +1,648 @@
+{
+  "all_final_hands_replayed_and_reproduced": true,
+  "freeze_sha256": "09ac08821c1e63ed5f856ba87705d1b1a3848941021c9b7d0551a8dcd3b95805",
+  "historical_seed_2026100601_2b_minus_1b": {
+    "bb_per_100": 29.51,
+    "confidence": 0.95,
+    "interval": [
+      26.82,
+      32.2
+    ],
+    "owning_pr": 223,
+    "same_schedule": false
+  },
+  "results": {
+    "2b-seed-2026100601-vs-2026100901": {
+      "actions_replayed": 5209888,
+      "all_hands_reproduced": true,
+      "bb_per_100": -0.21386146545410156,
+      "blocks": 524288,
+      "confidence": 0.95,
+      "coverage": {
+        "HU100-seed-2026100601-average-2000000460/flop": {
+          "decisions": 693825,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 693811,
+            "zero-mass": 11
+          },
+          "visit_bands": {
+            "0": 95,
+            "1-9": 1164,
+            "10-99": 8726,
+            "100+": 683840
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/preflop": {
+          "decisions": 1084394,
+          "lookup": {
+            "positive-mass-known-key": 1084394
+          },
+          "visit_bands": {
+            "0": 5,
+            "1-9": 111,
+            "10-99": 3993,
+            "100+": 1080285
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/river": {
+          "decisions": 326844,
+          "lookup": {
+            "missing-key": 58,
+            "positive-mass-known-key": 326745,
+            "zero-mass": 41
+          },
+          "visit_bands": {
+            "0": 674,
+            "1-9": 5811,
+            "10-99": 25383,
+            "100+": 294976
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/turn": {
+          "decisions": 496452,
+          "lookup": {
+            "missing-key": 47,
+            "positive-mass-known-key": 496364,
+            "zero-mass": 41
+          },
+          "visit_bands": {
+            "0": 666,
+            "1-9": 5476,
+            "10-99": 27716,
+            "100+": 462594
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/flop": {
+          "decisions": 697287,
+          "lookup": {
+            "missing-key": 1,
+            "positive-mass-known-key": 697282,
+            "zero-mass": 4
+          },
+          "visit_bands": {
+            "0": 62,
+            "1-9": 1167,
+            "10-99": 8700,
+            "100+": 687358
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/preflop": {
+          "decisions": 1087395,
+          "lookup": {
+            "positive-mass-known-key": 1087394,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 127,
+            "10-99": 4243,
+            "100+": 1083022
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/river": {
+          "decisions": 327714,
+          "lookup": {
+            "missing-key": 59,
+            "positive-mass-known-key": 327602,
+            "zero-mass": 53
+          },
+          "visit_bands": {
+            "0": 653,
+            "1-9": 5678,
+            "10-99": 25503,
+            "100+": 295880
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/turn": {
+          "decisions": 495977,
+          "lookup": {
+            "missing-key": 70,
+            "positive-mass-known-key": 495855,
+            "zero-mass": 52
+          },
+          "visit_bands": {
+            "0": 639,
+            "1-9": 5437,
+            "10-99": 27911,
+            "100+": 461990
+          }
+        }
+      },
+      "decision": "inconclusive",
+      "half_width": 2.5423656380092226,
+      "hands_replayed": 1048576,
+      "interval": [
+        -2.756227103463324,
+        2.328504172555121
+      ],
+      "primary": false
+    },
+    "2b-seed-2026100601-vs-2026100902": {
+      "actions_replayed": 2598153,
+      "all_hands_reproduced": true,
+      "bb_per_100": -0.36525726318359375,
+      "blocks": 262144,
+      "confidence": 0.95,
+      "coverage": {
+        "HU100-seed-2026100601-average-2000000460/flop": {
+          "decisions": 349374,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 349370,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 45,
+            "1-9": 521,
+            "10-99": 4256,
+            "100+": 344552
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/preflop": {
+          "decisions": 540832,
+          "lookup": {
+            "positive-mass-known-key": 540832
+          },
+          "visit_bands": {
+            "1-9": 40,
+            "10-99": 1889,
+            "100+": 538903
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/river": {
+          "decisions": 161309,
+          "lookup": {
+            "missing-key": 24,
+            "positive-mass-known-key": 161260,
+            "zero-mass": 25
+          },
+          "visit_bands": {
+            "0": 295,
+            "1-9": 2885,
+            "10-99": 12447,
+            "100+": 145682
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/turn": {
+          "decisions": 246647,
+          "lookup": {
+            "missing-key": 23,
+            "positive-mass-known-key": 246603,
+            "zero-mass": 21
+          },
+          "visit_bands": {
+            "0": 316,
+            "1-9": 2819,
+            "10-99": 13910,
+            "100+": 229602
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/flop": {
+          "decisions": 349052,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 349048,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 43,
+            "1-9": 542,
+            "10-99": 4281,
+            "100+": 344186
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/preflop": {
+          "decisions": 542746,
+          "lookup": {
+            "positive-mass-known-key": 542745,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "1-9": 47,
+            "10-99": 1894,
+            "100+": 540805
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/river": {
+          "decisions": 162027,
+          "lookup": {
+            "missing-key": 28,
+            "positive-mass-known-key": 161971,
+            "zero-mass": 28
+          },
+          "visit_bands": {
+            "0": 304,
+            "1-9": 2924,
+            "10-99": 12408,
+            "100+": 146391
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/turn": {
+          "decisions": 246166,
+          "lookup": {
+            "missing-key": 31,
+            "positive-mass-known-key": 246111,
+            "zero-mass": 24
+          },
+          "visit_bands": {
+            "0": 324,
+            "1-9": 2755,
+            "10-99": 14002,
+            "100+": 229085
+          }
+        }
+      },
+      "decision": "inconclusive",
+      "half_width": 3.5765647179755566,
+      "hands_replayed": 524288,
+      "interval": [
+        -3.9418219811591504,
+        3.211307454791963
+      ],
+      "primary": false
+    },
+    "seed-2026100601-terminal-vs-2b": {
+      "actions_replayed": 5348563,
+      "all_hands_reproduced": true,
+      "bb_per_100": 17.901325225830078,
+      "blocks": 524288,
+      "confidence": 0.9833333333333333,
+      "coverage": {
+        "HU100-seed-2026100601-average-2000000460/flop": {
+          "decisions": 721463,
+          "lookup": {
+            "missing-key": 5,
+            "positive-mass-known-key": 721457,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 83,
+            "1-9": 934,
+            "10-99": 7910,
+            "100+": 712536
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/preflop": {
+          "decisions": 1090829,
+          "lookup": {
+            "positive-mass-known-key": 1090825,
+            "zero-mass": 4
+          },
+          "visit_bands": {
+            "0": 2,
+            "1-9": 84,
+            "10-99": 2972,
+            "100+": 1087771
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/river": {
+          "decisions": 342062,
+          "lookup": {
+            "missing-key": 51,
+            "positive-mass-known-key": 341967,
+            "zero-mass": 44
+          },
+          "visit_bands": {
+            "0": 598,
+            "1-9": 4968,
+            "10-99": 24303,
+            "100+": 312193
+          }
+        },
+        "HU100-seed-2026100601-average-2000000460/turn": {
+          "decisions": 516129,
+          "lookup": {
+            "missing-key": 44,
+            "positive-mass-known-key": 516053,
+            "zero-mass": 32
+          },
+          "visit_bands": {
+            "0": 587,
+            "1-9": 4949,
+            "10-99": 26545,
+            "100+": 484048
+          }
+        },
+        "HU100-seed-2026100601-average-4000000174/flop": {
+          "decisions": 724773,
+          "lookup": {
+            "positive-mass-known-key": 724771,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 43,
+            "1-9": 578,
+            "10-99": 5120,
+            "100+": 719032
+          }
+        },
+        "HU100-seed-2026100601-average-4000000174/preflop": {
+          "decisions": 1089437,
+          "lookup": {
+            "positive-mass-known-key": 1089435,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 31,
+            "10-99": 2086,
+            "100+": 1087319
+          }
+        },
+        "HU100-seed-2026100601-average-4000000174/river": {
+          "decisions": 344741,
+          "lookup": {
+            "missing-key": 17,
+            "positive-mass-known-key": 344707,
+            "zero-mass": 17
+          },
+          "visit_bands": {
+            "0": 204,
+            "1-9": 2655,
+            "10-99": 17078,
+            "100+": 324804
+          }
+        },
+        "HU100-seed-2026100601-average-4000000174/turn": {
+          "decisions": 519129,
+          "lookup": {
+            "missing-key": 19,
+            "positive-mass-known-key": 519089,
+            "zero-mass": 21
+          },
+          "visit_bands": {
+            "0": 279,
+            "1-9": 2950,
+            "10-99": 18437,
+            "100+": 497463
+          }
+        }
+      },
+      "decision": "improves",
+      "half_width": 2.9248432157333113,
+      "hands_replayed": 1048576,
+      "interval": [
+        14.976482010096767,
+        20.82616844156339
+      ],
+      "primary": true
+    },
+    "seed-2026100901-2b-vs-1b": {
+      "actions_replayed": 5114916,
+      "all_hands_reproduced": true,
+      "bb_per_100": 28.138446807861328,
+      "blocks": 524288,
+      "confidence": 0.9833333333333333,
+      "coverage": {
+        "HU100-seed-2026100901-average-1000000506/flop": {
+          "decisions": 679697,
+          "lookup": {
+            "missing-key": 22,
+            "positive-mass-known-key": 679663,
+            "zero-mass": 12
+          },
+          "visit_bands": {
+            "0": 166,
+            "1-9": 1987,
+            "10-99": 13520,
+            "100+": 664024
+          }
+        },
+        "HU100-seed-2026100901-average-1000000506/preflop": {
+          "decisions": 1083163,
+          "lookup": {
+            "positive-mass-known-key": 1083158,
+            "zero-mass": 5
+          },
+          "visit_bands": {
+            "0": 12,
+            "1-9": 351,
+            "10-99": 10858,
+            "100+": 1071942
+          }
+        },
+        "HU100-seed-2026100901-average-1000000506/river": {
+          "decisions": 313067,
+          "lookup": {
+            "missing-key": 79,
+            "positive-mass-known-key": 312869,
+            "zero-mass": 119
+          },
+          "visit_bands": {
+            "0": 1196,
+            "1-9": 8947,
+            "10-99": 36006,
+            "100+": 266918
+          }
+        },
+        "HU100-seed-2026100901-average-1000000506/turn": {
+          "decisions": 477551,
+          "lookup": {
+            "missing-key": 156,
+            "positive-mass-known-key": 477295,
+            "zero-mass": 100
+          },
+          "visit_bands": {
+            "0": 1254,
+            "1-9": 8684,
+            "10-99": 40905,
+            "100+": 426708
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/flop": {
+          "decisions": 685539,
+          "lookup": {
+            "missing-key": 8,
+            "positive-mass-known-key": 685527,
+            "zero-mass": 4
+          },
+          "visit_bands": {
+            "0": 89,
+            "1-9": 1113,
+            "10-99": 9086,
+            "100+": 675251
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/preflop": {
+          "decisions": 1080394,
+          "lookup": {
+            "positive-mass-known-key": 1080393,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 116,
+            "10-99": 4914,
+            "100+": 1075361
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/river": {
+          "decisions": 316356,
+          "lookup": {
+            "missing-key": 41,
+            "positive-mass-known-key": 316260,
+            "zero-mass": 55
+          },
+          "visit_bands": {
+            "0": 452,
+            "1-9": 5205,
+            "10-99": 26414,
+            "100+": 284285
+          }
+        },
+        "HU100-seed-2026100901-average-2000001279/turn": {
+          "decisions": 479149,
+          "lookup": {
+            "missing-key": 57,
+            "positive-mass-known-key": 479033,
+            "zero-mass": 59
+          },
+          "visit_bands": {
+            "0": 545,
+            "1-9": 5377,
+            "10-99": 28645,
+            "100+": 444582
+          }
+        }
+      },
+      "decision": "improves",
+      "half_width": 3.268096636265664,
+      "hands_replayed": 1048576,
+      "interval": [
+        24.870350171595664,
+        31.406543444126992
+      ],
+      "primary": true
+    },
+    "seed-2026100902-2b-vs-1b": {
+      "actions_replayed": 5064665,
+      "all_hands_reproduced": true,
+      "bb_per_100": 27.89783477783203,
+      "blocks": 524288,
+      "confidence": 0.9833333333333333,
+      "coverage": {
+        "HU100-seed-2026100902-average-1000001141/flop": {
+          "decisions": 676279,
+          "lookup": {
+            "missing-key": 20,
+            "positive-mass-known-key": 676248,
+            "zero-mass": 11
+          },
+          "visit_bands": {
+            "0": 204,
+            "1-9": 2075,
+            "10-99": 13610,
+            "100+": 660390
+          }
+        },
+        "HU100-seed-2026100902-average-1000001141/preflop": {
+          "decisions": 1078376,
+          "lookup": {
+            "positive-mass-known-key": 1078374,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 5,
+            "1-9": 226,
+            "10-99": 9151,
+            "100+": 1068994
+          }
+        },
+        "HU100-seed-2026100902-average-1000001141/river": {
+          "decisions": 305399,
+          "lookup": {
+            "missing-key": 107,
+            "positive-mass-known-key": 305157,
+            "zero-mass": 135
+          },
+          "visit_bands": {
+            "0": 1303,
+            "1-9": 8851,
+            "10-99": 35546,
+            "100+": 259699
+          }
+        },
+        "HU100-seed-2026100902-average-1000001141/turn": {
+          "decisions": 471991,
+          "lookup": {
+            "missing-key": 150,
+            "positive-mass-known-key": 471731,
+            "zero-mass": 110
+          },
+          "visit_bands": {
+            "0": 1256,
+            "1-9": 8714,
+            "10-99": 40473,
+            "100+": 421548
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/flop": {
+          "decisions": 673645,
+          "lookup": {
+            "missing-key": 5,
+            "positive-mass-known-key": 673634,
+            "zero-mass": 6
+          },
+          "visit_bands": {
+            "0": 71,
+            "1-9": 1136,
+            "10-99": 9067,
+            "100+": 663371
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/preflop": {
+          "decisions": 1077898,
+          "lookup": {
+            "positive-mass-known-key": 1077898
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 99,
+            "10-99": 4751,
+            "100+": 1073047
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/river": {
+          "decisions": 307042,
+          "lookup": {
+            "missing-key": 45,
+            "positive-mass-known-key": 306937,
+            "zero-mass": 60
+          },
+          "visit_bands": {
+            "0": 385,
+            "1-9": 5207,
+            "10-99": 26071,
+            "100+": 275379
+          }
+        },
+        "HU100-seed-2026100902-average-2000000390/turn": {
+          "decisions": 474035,
+          "lookup": {
+            "missing-key": 49,
+            "positive-mass-known-key": 473933,
+            "zero-mass": 53
+          },
+          "visit_bands": {
+            "0": 484,
+            "1-9": 5382,
+            "10-99": 28435,
+            "100+": 439734
+          }
+        }
+      },
+      "decision": "improves",
+      "half_width": 3.2475157354295767,
+      "hands_replayed": 1048576,
+      "interval": [
+        24.650319042402455,
+        31.145350513261608
+      ],
+      "primary": true
+    }
+  },
+  "source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+  "status": "verified",
+  "training_seed_population_inference": false
+}

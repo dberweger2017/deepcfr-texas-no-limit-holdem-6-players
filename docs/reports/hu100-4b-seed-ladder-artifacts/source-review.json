@@ -1,0 +1,71 @@
+{
+  "at_utc": "2026-10-10T11:48:58.836770+00:00",
+  "findings_and_resolutions": [
+    {
+      "finding": "Indexed reference current/average hashes were not gated before dependent science",
+      "resolution": "check_reference_exports now checks checkpoint/current/average size and SHA against #223/#215 before model_spec; corruption regression passes"
+    },
+    {
+      "finding": "Executable per-rung specs were not bound to frozen pairs",
+      "resolution": "checked_specs requires declared parsed equality and freezes/verifies every executable spec hash before final play; corruption regression passes"
+    },
+    {
+      "finding": "Full-size freeze/freshness and final packing required guarded execution",
+      "resolution": "CLI freeze wraps freeze-worker with campaign.guarded; CLI pack wraps pack-worker with frozen archive quote and guard"
+    }
+  ],
+  "focused_preflight_resource_adjustments": [
+    {
+      "adjustment": "Training capacity now uses101 B/entry plus200MB reserve, cap72437552; memory soft/hard guards and valid complete-iteration capacity terminal remain unchanged; initial disk reservation adds original and ZIP model growth through cap",
+      "basis": "docs/reports/hu100-3b-ladder-artifacts/guard-verification.json",
+      "overall_peak_bytes": 6527090688,
+      "overall_peak_operation": "final-direct-terminal-vs-1b",
+      "training_2b_entries": 54626283,
+      "verified_training_2b_family_bytes": 4799266816,
+      "verified_training_bytes_per_entry": 87.85636789528587
+    },
+    {
+      "adjustment": "Schedule/replay memory bound now5200 B/block plus100MB over each measured pilot peak; frozen per-contrast counts preserve each primary precision, reducing descriptive counts first only for disk; final/freshness/readout use each rung count",
+      "final_blocks": 524288,
+      "pilot_blocks": 32,
+      "verified_direct_pilot_bytes": 4006903808,
+      "verified_final_direct_bytes": 6527090688,
+      "verified_growth_bytes_per_additional_block": 4807.168406274797
+    },
+    {
+      "adjustment": "Independent seeds must reach their2B target; shorter endpoints cannot silently substitute"
+    }
+  ],
+  "initial_source": "3fd7175963489fc673fe09ac87bffa62a416a528",
+  "limitations": [
+    "No campaign training, full-size pilot, final hand or model archival executed by reviewer",
+    "Actual endpoint resource safety, forecast precision, exact reference reproduction, replay coverage and final archive/cloud acceptance remain execution/evidence checks",
+    "No trainer defect identified; native trainer must remain unchanged"
+  ],
+  "open_findings": [],
+  "previous_cleared_source": "75c89a4903d484146b7b84881d5914e76761b4ea",
+  "reviewed_contracts": [
+    "M4-only sequential fresh recipe and reference caps/pins",
+    "complete-iteration terminal save and full export audit",
+    "whole-family controller accounting and owned-child cleanup",
+    "7/9 GiB RSS, total 3 GB swap, pressure/free-memory, 16 GiB disk and AC guards",
+    "#215 and #223 physical freshness exclusions",
+    "cost-only pilots and source/spec/sample/quote freeze",
+    "three-primary Bonferroni Student-t intervals",
+    "unchanged private-action/menu-only direct harness with full replay and reproduction",
+    "exclusive ZIP creation, full member readback and indexed model exclusion"
+  ],
+  "reviewed_on": "M4 via ssh m4",
+  "scope": "One independent pre-final source review, with findings and fixes resolved in the same exchange; no scientific execution",
+  "source": "d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+  "status": "clear",
+  "validation": {
+    "base": "ff984da9a16bf1e76e891fab239d0785188a93af",
+    "command": ".venv/bin/python -m pytest -q tests/test_hu100_4b_seed_ladder.py tests/test_hu100_direct.py tests/test_research_process_family.py",
+    "focused_followup_diff": "75c89a4903d484146b7b84881d5914e76761b4ea..d3120c2c195b5eca136b7f0d9969e32ba5159fff",
+    "native_direct_harness_guard_ancestry_diff_from_base": "empty",
+    "passed": 14,
+    "seconds": 0.69,
+    "tracked_worktree": "clean"
+  }
+}
