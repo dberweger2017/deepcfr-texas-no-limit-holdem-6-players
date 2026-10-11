@@ -1,0 +1,39 @@
+{
+  "command": [
+    "/Users/dberweger/Local/hu20-equity-bench-scoring-m4/.venv/bin/python",
+    "-m",
+    "scripts.guard_hu20_equity_scoring",
+    "--machine",
+    "m4",
+    "--swap-ceiling-bytes",
+    "10000000000",
+    "--out",
+    "results/equity-bench-scoring-m4-20261010",
+    "--name",
+    "evaluate",
+    "--scoring",
+    "--",
+    "/Users/dberweger/Local/hu20-equity-bench-scoring-m4/.venv/bin/python",
+    "-m",
+    "scripts.run_fresh_hu20_equity_scoring",
+    "evaluate",
+    "--base",
+    "results/equity-bench-scoring-m4-20261010"
+  ],
+  "forecast_scoring_finish_utc": "2026-10-11T04:25:06.014881+00:00",
+  "new_outcomes_inspected": false,
+  "phase": "evaluate",
+  "planned_closeout_with_allowance_utc": "2026-10-11T05:54:07.982335+00:00",
+  "quote_posted": {
+    "comment_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/232#issuecomment-6103758968",
+    "quote_sha256": "ac852776a9ba69377017eebe8707aee396e959d865c19816f66db1e9c57bff40"
+  },
+  "reused_roots": 0,
+  "roots": 40,
+  "scoring_finish_with_allowance_utc": "2026-10-11T05:24:07.982335+00:00",
+  "source": "d39ece2b00933dd7584daf9ff1ede82773f08241",
+  "started_utc": "2026-10-11T00:28:58.145066+00:00",
+  "supervisor_create_time": 1791678538.145277,
+  "supervisor_pid": 83467,
+  "m1_background_session": 4763
+}

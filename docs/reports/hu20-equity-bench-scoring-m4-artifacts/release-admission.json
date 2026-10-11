@@ -1,0 +1,16 @@
+{
+  "at_utc": "2026-10-11T00:00:39.738996Z",
+  "prior_owner_pr": 226,
+  "prior_owner_pr_state": "OPEN",
+  "explicit_release_madrid": "2026-10-11 01:09",
+  "release_quote": "M4 released for PR232 on October11,01:09Madrid. Fresh host check finds no remaining PR226 campaign process. PR232 must perform its own resource admission; its roots, timers and files were not touched.",
+  "source": "PR226 body, section Stopped at archival guard \u2014 M4 released for PR232",
+  "competing_research": [],
+  "pressure_level": 1,
+  "free_percent": 86,
+  "swap_bytes": 1841561600,
+  "disk_free_bytes": 34893684736,
+  "ac": true,
+  "all_new_phase_claims": "none",
+  "science_started": false
+}

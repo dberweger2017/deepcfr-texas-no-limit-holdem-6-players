@@ -1,0 +1,13 @@
+{
+  "cleanup_error": null,
+  "failure": null,
+  "finished": 1791693607.504359,
+  "name": "archive",
+  "peak_family_rss_bytes": 71663616,
+  "returncode": 0,
+  "samples": 7,
+  "seconds": 1.5344479084014893,
+  "started": 1791693605.969911,
+  "status": "complete",
+  "swap_ceiling_bytes": 10000000000
+}

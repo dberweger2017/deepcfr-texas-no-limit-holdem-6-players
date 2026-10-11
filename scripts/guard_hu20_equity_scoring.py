@@ -1,4 +1,4 @@
-"""One-use M1 operation guard for the owner-authorized K50 scoring attempt."""
+"""One-use machine-bound guard for owner-authorized K50 scoring attempts."""
 
 import argparse
 import fcntl
@@ -15,6 +15,13 @@ import psutil
 from scripts.research_process_family import owned_processes
 
 GIB = 1024**3
+
+
+def machine_identity(machine, identity):
+    expected = {'m1': ['Apple M1', str(16*GIB), '8'],
+                'm4': ['Apple M4', str(16*GIB), '10']}[machine]
+    if identity != expected:
+        raise ValueError(f'Only the authorized {machine.upper()} may run this guard')
 
 
 def write(path, value):
@@ -91,6 +98,8 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--name', required=True)
     parser.add_argument('--scoring', action='store_true')
+    parser.add_argument('--machine', choices=('m1', 'm4'), default='m1',
+                        help='M4 requires the separately owner-authorized fresh attempt')
     parser.add_argument('--swap-ceiling-bytes', type=int,
                         choices=(3_000_000_000, 10_000_000_000),
                         default=3_000_000_000,
@@ -100,8 +109,7 @@ def main():
     if args.command[:1] == ['--']:
         args.command = args.command[1:]
     identity = subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string', 'hw.memsize', 'hw.ncpu'], text=True).splitlines()
-    if identity != ['Apple M1', str(16*GIB), '8']:
-        raise ValueError('Only the authorized 8-core/16 GiB M1 may run this guard')
+    machine_identity(args.machine, identity)
     args.out.mkdir(parents=True, exist_ok=True)
     if (args.out/'campaign-failure.json').exists():
         raise ValueError('This attempt is stopped; no readmission or retry')
@@ -117,7 +125,7 @@ def main():
     def interrupt(signum, frame):
         raise RuntimeError('Supervisor interrupted')
     original = {s: signal.signal(s, interrupt) for s in (signal.SIGINT, signal.SIGTERM)}
-    with (Path.home()/'Local/.hu20-m1-research.lock').open('a+') as lock:
+    with (Path.home()/f'Local/.hu20-{args.machine}-research.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         try:
             sample = host(args.out)

@@ -1,0 +1,13 @@
+{
+  "scheduledTaskId": "scheduled-task:command:mcp:2e7b8d2e-ce87-4046-873b-693d967007f7:schedule-task:pr232-m4-k50-initial-0200-20261011-v1",
+  "title": "PR232 M4 K50 \u2014 initial 02:00 Madrid wake",
+  "enabled": true,
+  "schedule": {
+    "type": "fixed_time",
+    "timeOfDay": "02:00"
+  },
+  "nextRunAt": "2026-10-11T00:00:00.000Z",
+  "boundThreadId": "05b1bbe7-3009-4c03-9993-a39a13bcb39e",
+  "owner_instruction": "Initial02:00MadridOctober11 wake; delete this initial automation on wake, then create one30-minute release-check automation; adapt cadence once own run is active.",
+  "scientific_phase_launched": false
+}

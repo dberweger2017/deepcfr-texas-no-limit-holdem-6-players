@@ -1,0 +1,31 @@
+{
+  "status": "clear",
+  "open_findings": [],
+  "reviewer": "/root/m4_scoring_end_evidence_review",
+  "review_round": "single PR232 end evidence review, dependency component",
+  "reviewed_at_utc": "2026-10-11T04:42:07.814642+00:00",
+  "owning_pr": 232,
+  "owner_authorization": "Explicit PR232 instruction: delete only own extracted copies after accepted archive and dependency review; open-PR exception limited to these inputs.",
+  "scope": "/Users/dberweger/Local/hu20-equity-bench-scoring-m4/results/equity-bench-scoring-m4-20261010/restored",
+  "exact_candidates": "281 members plus24 aliases bound to restoration.json; 305 unique regular files, no additional unindexed extracted files.",
+  "verified_before_removal": [
+    "All305 path/size/mtime_ns match restoration receipt; no symlinks",
+    "All305 member/alias SHA256 independently verified earlier in this review",
+    "lsof +D scope exit1 with empty stdout/stderr: no open handles",
+    "No process command-line scope references; no active research worker",
+    "Shared M4 main and PR226 source/config/tests/scripts have no exact restored-path reference",
+    "Native uploaded/no-uploading/no-paused/no-trash/no-conflicts plus independent Drive ID/name/size/parent accepted",
+    "Independent readback exact for sealed430-member ZIP and manifest"
+  ],
+  "archive_id": "14uWTt_Cw09qT9EkTuxaEcwC6TOuDt7dL",
+  "archive_sha256": "f8995df62bf466afc2b025e545183bb1b37de68bdcfd5338ae8fd70eed4e3882",
+  "archive_payload_members": 430,
+  "required_immediate_recheck": "Before removal repeat exact set/path/size/mtime/hash plus open handles; retain changed or uncertain files.",
+  "retain": [
+    "All new score originals and scientific/archival failure latches",
+    "All working roots/shared Git",
+    "All prior research/model/table/reference archives and foreign copies",
+    "Every path inside synced folders"
+  ],
+  "final_review_pending": "Assess actual cleanup receipt/final report/index within this same end review before finalizing."
+}

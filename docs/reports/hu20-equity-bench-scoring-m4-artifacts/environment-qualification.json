@@ -1,0 +1,28 @@
+{
+  "status": "qualified",
+  "guard": {
+    "cleanup_error": null,
+    "failure": null,
+    "finished": 1791676993.286143,
+    "name": "environment",
+    "peak_family_rss_bytes": 182648832,
+    "returncode": 0,
+    "samples": 26,
+    "seconds": 6.220412969589233,
+    "started": 1791676987.065731,
+    "status": "complete",
+    "swap_ceiling_bytes": 10000000000
+  },
+  "python": "3.11.14",
+  "environment": {
+    "numpy": "1.26.4",
+    "pokers": "0.2.0",
+    "psutil": "7.2.2",
+    "pytest": "9.0.3",
+    "matplotlib": "3.9.0"
+  },
+  "focused_tests": "22 passed in 0.25s",
+  "pip_freeze_sha256": "4999cb705fb3cb7d2bf5b4ca6e810a83c6f59ed26dd0daf63cad1789fad112f3",
+  "source": "d39ece2b",
+  "science_started": false
+}
