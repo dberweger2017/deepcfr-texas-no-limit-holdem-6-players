@@ -1,14 +1,14 @@
 {
   "scheduledTaskId": "scheduled-task:command:mcp:d8e2ffdb-5483-4cf9-af34-4269f036bd87:schedule-task:pr232-m4-k50-admission-20261011-v1",
-  "title": "PR232 M4 K50 \u2014 10-minute preparation and pilot checks",
+  "title": "PR232 M4 K50 \u2014 30-minute evaluation checks",
   "enabled": true,
   "schedule": {
     "type": "interval",
-    "everyMs": 600000
+    "everyMs": 1800000
   },
-  "nextRunAt": "2026-10-11T00:27:04.354Z",
+  "nextRunAt": "2026-10-11T00:59:14.779Z",
   "boundThreadId": "05b1bbe7-3009-4c03-9993-a39a13bcb39e",
   "initial_fixed_timer_deleted": true,
-  "current_phase": "timing-only-pilot-running",
+  "current_phase": "all-40-evaluation-running",
   "source": "d39ece2b00933dd7584daf9ff1ede82773f08241"
 }
