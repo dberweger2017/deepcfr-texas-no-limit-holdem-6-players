@@ -1,0 +1,12 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-235-k50-evaluation-support/k50-evaluation-smoke-M1-20261011.zip",
+  "at": 1791719584.313189,
+  "bytes": 164073954,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "b0a58ce29200f609e189f971898293c8c7768e21f70bced967a83138f1340130",
+  "members_verified": 830,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "fe11c7631fd3ed33de717239bfa80a5a7b0eff08286e2d1838e28b95a3640088",
+  "status": "locally-verified"
+}

@@ -19,6 +19,8 @@ from src.blueprint.abstraction import (
     HU20_CARD_V2_SCHEMA,
     HU20_COMPRESSED_CARD_V2_SCHEMA,
     NATIVE_SCHEMAS,
+    EQUITY_SCHEMAS,
+    HU20_EQUITY_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA,
     HU100_SCHEMA,
     HU200_SCHEMA,
     STACK_BY_SCHEMA,
@@ -42,6 +44,8 @@ TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
 SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_SCHEMA: HU20_UNCAPPED_GAME, HU20_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
 SHORTSTACK_GAMES[HU100_SCHEMA] = HU100_GAME
 SHORTSTACK_GAMES[HU200_SCHEMA] = HU200_GAME
+SHORTSTACK_GAMES.update({HU20_EQUITY_SCHEMA: HU20_UNCAPPED_GAME,
+                        HU100_EQUITY_SCHEMA: HU100_GAME, HU200_EQUITY_SCHEMA: HU200_GAME})
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -112,11 +116,12 @@ class FrozenTable:
     entries: dict[str, tuple[tuple[str, ...], tuple[float, ...]]]
     raise_cap: int | None
     abstraction: str = SCHEMA
+    equity_cards: object | None = None
 
     def distribution(
         self, view: Observation, menu: tuple[Choice, ...]
     ) -> tuple[float, ...]:
-        key = information_key(view, menu, schema=self.abstraction)
+        key = information_key(view, menu, schema=self.abstraction, equity_cards=self.equity_cards)
         saved = self.entries.get(key)
         if saved is None:
             return (1.0 / len(menu),) * len(menu)
@@ -481,9 +486,12 @@ class BlueprintTrainer:
             },
             self.config.raise_cap,
             self.config.abstraction,
+            getattr(self, "equity_cards", None),
         )
 
     def step(self, *, workers: int = 1, cancelled=None) -> IterationReport:
+        if self.config.abstraction in EQUITY_SCHEMAS or getattr(self, "evaluation_only", False):
+            raise ValueError("Loaded checkpoint is for evaluation only; resume K50/native averages with the native trainer")
         if type(workers) is not int or workers < 1:
             raise ValueError("Blueprint workers must be a positive integer")
         iteration = self.iteration + 1

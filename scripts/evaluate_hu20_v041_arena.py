@@ -23,7 +23,7 @@ from scripts.evaluate_hu20_cfr_average import play
 from src.arena.catalog import Checkpoint
 from src.arena.report import estimate
 from src.arena.schedule import digest
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_EQUITY_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
 from src.blueprint.average import AveragePolicy
 from src.diagnostics.saved_hu20 import file_hash
@@ -41,10 +41,14 @@ def load(spec, root):
     path = root / spec["path"]
     if path.stat().st_size != spec["bytes"] or file_hash(path) != spec["sha256"]:
         raise ValueError("Policy bytes differ before loading: " + spec["name"])
-    source = (FrozenBlueprint(Checkpoint(spec["name"], str(path), spec["sha256"], HU20_UNCAPPED_FORMAT), path)
-              if spec["strategy"] == "current" else AveragePolicy(path, spec["sha256"]))
+    schema = spec.get("abstraction", HU20_UNCAPPED_SCHEMA)
+    if schema not in (HU20_UNCAPPED_SCHEMA, HU20_EQUITY_SCHEMA):
+        raise ValueError("HU20 evaluation requires a declared HU20 v1 or K50 schema")
+    cards = root / spec["card_buckets"] if spec.get("card_buckets") is not None else None
+    source = (FrozenBlueprint(Checkpoint(spec["name"], str(path), spec["sha256"], HU20_UNCAPPED_FORMAT, abstraction=schema, card_buckets=spec.get("card_buckets")), path, card_buckets=cards)
+              if spec["strategy"] == "current" else AveragePolicy(path, spec["sha256"], expected_schema=schema, card_buckets=cards))
     if (source.description["training_seed"] != spec["seed"] or source.description["iteration"] != spec["iteration"]
-            or source.abstraction != HU20_UNCAPPED_SCHEMA or source.raise_cap is not None):
+            or source.abstraction != schema or source.raise_cap is not None):
         raise ValueError("Policy identity differs: " + spec["name"])
     if spec["strategy"] == "average" and source.description["source_checkpoint_sha256"] != spec["checkpoint_sha256"]:
         raise ValueError("Average checkpoint provenance differs: " + spec["name"])

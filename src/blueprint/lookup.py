@@ -89,7 +89,8 @@ class TableDistribution:
 
     def key(self, view, menu):
         return information_key(view, menu, schema=self.trainer.config.abstraction,
-                               lookup_mode=self.lookup_mode)
+                               lookup_mode=self.lookup_mode,
+                               equity_cards=getattr(self.trainer, "equity_cards", None))
 
     def distribution(self, view):
         trainer = self.trainer

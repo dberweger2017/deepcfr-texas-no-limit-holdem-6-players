@@ -48,7 +48,7 @@ SHORTSTACK_SEATS.update({schema: 2 for schema in EQUITY_SCHEMAS})
 STACK_BY_SCHEMA = {schema: 20000 if schema in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
                    10000 if schema in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else 2000
                    for schema in SHORTSTACK_SEATS}
-NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA, HU200_SCHEMA)
+NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA, HU200_SCHEMA, *EQUITY_SCHEMAS)
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -261,6 +261,7 @@ def information_key(
     view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA,
     lookup_mode: str = LEGACY_LOOKUP,
     history_label_overrides: dict[int, str] | None = None,
+    equity_cards: equity_buckets.EquityCards | None = None,
 ) -> str:
     """Stable abstract infoset; action labels are part of the key."""
     if view.finished or view.actor != view.seat or not menu:
@@ -280,7 +281,7 @@ def information_key(
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
-        else equity_buckets.registered().bucket(view.hole_cards, view.board)
+        else (equity_cards if equity_cards is not None else equity_buckets.registered()).bucket(view.hole_cards, view.board)
         if schema in EQUITY_SCHEMAS
         else postflop_v2(view.hole_cards, view.board)
         if schema in HU20_CARD_V2_SCHEMAS else _postflop(view.hole_cards, view.board)
