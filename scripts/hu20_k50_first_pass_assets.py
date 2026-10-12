@@ -110,7 +110,7 @@ def recipe_gate(base):
 
 
 def recovery_gate(base):
-    fresh = base / 'gates/k50-fresh-4m.json.gz'
+    fresh = base / 'gates/k50-fresh-4000000.json.gz'
     resumed = base / 'gates/k50-resumed-4m.json.gz'
     rows = 0
     with gzip.open(fresh, 'rt') as left, gzip.open(resumed, 'rt') as right:

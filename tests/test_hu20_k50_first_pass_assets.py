@@ -10,7 +10,7 @@ def checkpoints(base, recovered_value=0.0):
     header = {'identity': {'tables': {name: sha for name, (_,sha) in TABLES.items()}}, 'iteration': 10}
     row = ['abc', ['check', 'raise-min'], [0.0,1.0], [1.0,2.0], 3]
     recovered = [*row]; recovered[2] = [recovered_value,1.0]
-    for name, metadata, value in [('k50-fresh-4m', header, row), ('k50-resumed-4m', dict(header,native_state={'completed_nodes':4000001}), recovered)]:
+    for name, metadata, value in [('k50-fresh-4000000', header, row), ('k50-resumed-4m', dict(header,native_state={'completed_nodes':4000001}), recovered)]:
         with gzip.open(base/'gates'/f'{name}.json.gz','wt') as out:
             out.write(json.dumps(metadata)+'\n'+json.dumps(value)+'\n')
 
