@@ -270,17 +270,26 @@ def final_play():
 
 def readout():
     from scipy.stats import t
-    if read(BASE/'all-final-verified.json')['status']!='verified':raise ValueError('Full independent replay before readout')
+    from scripts.evaluate_hu100_direct import make_plan
+    from src.arena.schedule import build_schedule
+    verified=read(BASE/'all-final-verified.json')
+    if verified['status']!='verified':raise ValueError('Full independent replay before readout')
+    if verified['canonical_sha256']!=file_hash(BASE/'canonical-plan.json'):raise ValueError('Final replay plan differs')
     def stats(values):
         center=statistics.mean(values);sd=statistics.stdev(values);margin=float(t.ppf(.975,len(values)-1))*sd/math.sqrt(len(values))
         return {'bb_per_100':center,'ci95':[center-margin,center+margin],'paired_sd':sd,'blocks':len(values)}
     results={};frozen=read(BASE/'canonical-plan.json')
     for contrast in frozen['pairs']:
         out=BASE/'final'/contrast;cells={};positions={'button':[],'big_blind':[]}
+        done=read(out/'play/complete.json')
+        for name,expected in done['files'].items():
+            actual=pin(out/'play'/name)
+            if (actual['bytes'],actual['sha256'])!=(expected['bytes'],expected['sha256']):raise ValueError('Final trace changed after replay')
+        buttons={b.index:b.button for b in build_schedule(make_plan(frozen['pairs'][contrast],frozen['counts'][contrast],frozen['roots'][contrast],contrast))}
         with gzip.open(out/'play/hands.jsonl.gz','rt') as f:
             for row in map(json.loads,f):
                 cells[row['block'],row['rotation']]=row['candidate_chips']
-                positions['button' if row['rotation']==row['button'] else 'big_blind'].append(row['candidate_chips'])
+                positions['button' if row['rotation']==buttons[row['block']] else 'big_blind'].append(row['candidate_chips'])
         n=frozen['counts'][contrast];values=[(cells[b,0]+cells[b,1])/2 for b in range(n)]
         result=stats(values);low,high=result['ci95']
         result.update(seats={seat:stats(v) for seat,v in positions.items()},absolute_returns={'k50':{'overall':result['bb_per_100'],'button':statistics.mean(positions['button']),'big_blind':statistics.mean(positions['big_blind'])},

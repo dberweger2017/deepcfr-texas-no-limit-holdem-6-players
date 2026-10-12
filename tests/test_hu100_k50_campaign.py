@@ -83,3 +83,28 @@ def test_mixed_hu100_trace_independent_replay_and_reproduction(tmp_path,monkeypa
     receipt.write_text(json.dumps(done))
     with pytest.raises(ValueError,match='key differs'):
         direct.audit(tmp_path/'play',tmp_path/'corrupt-replay.json')
+
+
+def test_readout_uses_frozen_schedule_for_seats_and_binds_replayed_bytes(tmp_path,monkeypatch):
+    # Existing HU100 traces do not repeat the button: it belongs to the frozen schedule.
+    monkeypatch.setattr(campaign,'BASE',tmp_path)
+    folder=tmp_path/'final/primary/play';folder.mkdir(parents=True)
+    trace=folder/'hands.jsonl.gz'
+    with gzip.open(trace,'wt') as f:
+        for block,rotation,chips in [(0,0,10),(0,1,20),(1,0,30),(1,1,60)]:
+            f.write(json.dumps({'block':block,'rotation':rotation,'candidate_chips':chips})+'\n')
+    done={'files':{trace.name:{'bytes':trace.stat().st_size,'sha256':file_hash(trace)}}}
+    (folder/'complete.json').write_text(json.dumps(done))
+    (folder.parent/'replay.json').write_text(json.dumps({'status':'verified','coverage':{}}))
+    dummy=[{'name':name,'path':'fixture','sha256':'a'*64,'format':'holdem-hu100-stored-cfr-average-research-v1'} for name in ('k50','v1')]
+    (tmp_path/'canonical-plan.json').write_text(json.dumps({'pairs':{'primary':dummy},'counts':{'primary':2},'roots':{'primary':61}}))
+    (tmp_path/'all-final-verified.json').write_text(json.dumps({'status':'verified','canonical_sha256':file_hash(tmp_path/'canonical-plan.json')}))
+    (tmp_path/'treatment.json').write_text(json.dumps({'primary_reached':True}))
+    campaign.readout()
+    result=json.loads((tmp_path/'summary.json').read_text())['results']['primary']
+    assert result['bb_per_100']==30
+    assert result['seats']['button']['bb_per_100']==35
+    assert result['seats']['big_blind']['bb_per_100']==25
+    assert result['absolute_returns']['v1']=={'overall':-30,'button':-25,'big_blind':-35}
+    trace.write_bytes(b'changed')
+    with pytest.raises(ValueError,match='changed after replay'):campaign.readout()

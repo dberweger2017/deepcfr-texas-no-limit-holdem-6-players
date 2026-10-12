@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "host": "M4",
+  "passed": 19,
+  "skipped": 0,
+  "seconds": 2.64,
+  "command": "K50_REAL_TABLES=results/hu100-k50-2b/tables python -m pytest -q tests/test_hu100_k50_campaign.py tests/test_hu100_direct.py tests/test_k50_evaluation.py",
+  "scope": "real-table loading, mixed-schema trace/replay/reproduction, seat readout and replayed-byte binding; no final campaign outcomes"
+}
