@@ -1,0 +1,26 @@
+{
+  "at": 1791814087.901194,
+  "status": "clear-source-and-science-review",
+  "review_type": "campaign-agent diff review plus independent every-hand replay and separate arithmetic implementation",
+  "source": "db8164daeb02f463c6c305a35c69921b236856c8",
+  "native_game_abstraction_regret_source_unchanged": true,
+  "qualified_direct_source_hashes_unchanged": true,
+  "checks": [
+    "Productionrecipe byte identity and exactK50fresh/resume rows establish only cardbucket treatment",
+    "Threefixedseeds5B actualnode/iteration telemetry; uniformcurrent/avg fullyaudited againstcheckpoint",
+    "Frozen freshroots/counts/allinputhashes/decision exactPRcomment before anyfinalhand; no selection/reruns/extension",
+    "Bothmodels receive ownpublic/private observation; addedlogging keeps RNGchoices call/order unchanged",
+    "All393216finalhands legalbounds/publichistory/ownschema keys/menu/distributions/eventdigest/seed/accounting independentlyreplay",
+    "Independent pairedStudentt arithmetic agrees; averagesbothseats/3seeds perblock; seed/seat/seedbyseat descriptive",
+    "Globaldensity exact; streetquantiles PRIMARYdistinctstoredreachedkeys coverage/unclassified/missingexplicit",
+    "Guardbaseline/deadlinefixed; onlyownfamily control; originalRSS/pressure/free/swap/disk/AC samplespass",
+    "Archive245members localwhole/member hashesreadback; allnewmodels/traces retained; indexedinputs exactdependencyexclusions",
+    "Setup/testfixture incidents preserved; no failedscientificoperation orhand rerun; allfailingchecks requirecorrection beforemerge"
+  ],
+  "open_findings": [],
+  "native_tests": 14,
+  "focused_direct_tests": 11,
+  "archive_inventory_tests": 2,
+  "cloud_acceptance_pending": true,
+  "final_exact_head_ci_pending": true
+}

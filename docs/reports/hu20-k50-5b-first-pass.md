@@ -164,3 +164,9 @@ Archive local/member/whole-hash verification, separate native and independent Dr
 | three-sequential-k50-lineages | 9112.42 | 2.085 |
 
 Across 52,107 samples through reporting: peak family 2.085 GiB; minimum free memory 72%; maximum swap growth 59.82 MiB; minimum disk 32.65 GiB. All sampled pressure levels are normal and all samples are on AC. No campaign failure. Archive-stage receipts will supplement this record.
+
+## Archive acceptance and supplemental closeout stop
+
+[Main ZIP](https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk) is accepted: 4,697,444,347 bytes, SHA256 2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27;245 locally size/hash-verified members, manifestSHA256 528f23792f27488882a37f76ff6f2ac453af2dcf69fafead3ae6b41b406b3fc0. Native uploaded/not-uploading/no-conflicts and independent cloud ID/name/size/parent agree. Remote bytes were not downloaded. [Acceptance](hu20-k50-5b-first-pass-artifacts/archive-acceptance.json), [model members](hu20-k50-5b-first-pass-artifacts/model-index.json) and RESULTS_INDEX retain full provenance.
+
+A supplemental closeout worker failed before packaging with ModuleNotFoundError: scripts; its planning-directory launch omitted the repository import path. Main science and ZIP verification are unchanged. No sidecar was created, no scientific stage/hand retried, failure latch preserved. Bootstrap repair prepared, not run; the original no-retry rule requires an owner exception before archival repair. [Failure/log](hu20-k50-5b-first-pass-artifacts/closeout-startup-failure.json). Closed archive guard and later failure stay local. PR remains draft, no merge or cleanup.

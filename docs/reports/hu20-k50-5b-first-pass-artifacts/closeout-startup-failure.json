@@ -1,0 +1,27 @@
+{
+  "status": "supplemental-closeout-startup-failed",
+  "at": 1791814662.25442,
+  "failure_latch": {
+    "at": 1791814088.004489,
+    "failure": "RuntimeError('Worker exit 1')",
+    "operation": "archive-closeout-sidecar"
+  },
+  "receipt": {
+    "cleanup_error": null,
+    "failure": "RuntimeError('Worker exit 1')",
+    "finished": 1791814088.016482,
+    "name": "archive-closeout-sidecar",
+    "peak_family_rss_bytes": 20840448,
+    "returncode": 1,
+    "samples": 1,
+    "seconds": 0.06476807594299316,
+    "started": 1791814087.951714,
+    "status": "failed"
+  },
+  "worker_log": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/planning/seal-archive-closeout.py\", line 3, in <module>\n    from scripts.archive_hu100_4b_seed_ladder import seal\nModuleNotFoundError: No module named 'scripts'\n        0.01 real         0.01 user         0.00 sys\n            15810560  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1705  page reclaims\n                  71  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   1  voluntary context switches\n                   8  involuntary context switches\n           215626982  instructions retired\n            73290637  cycles elapsed\n             8847816  peak memory footprint\n",
+  "sidecar_created": false,
+  "scientific_results_unchanged": true,
+  "main_archive_accepted": true,
+  "retry_authorized": false,
+  "failure_latch_preserved": true
+}
