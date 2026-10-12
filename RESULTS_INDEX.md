@@ -1,6 +1,17 @@
-## PR242 HU20 K50 5B-to-10B continuation — verified, accepted evidence, October 12
+## PR246 — HU100 K50 at equal 1B and 2B training (October 12–13)
+
+K50 at 2B versus v1 at 2B is **+31.14 [+27.79, +34.50] BB/100**, a nominal paired 95% interval. Recommend K50 for HU200; the owner decides.
+
+[Report](docs/reports/hu100-k50-2b.md), [model/restoration index](docs/reports/hu100-k50-2b-artifacts/model-index.json), [canonical freeze](docs/reports/hu100-k50-2b-artifacts/canonical-plan.json). Final source `36dbe21ed36b2c3196f93c4b170446e97009d88b`; verified final research-only record. Native/cloud upload acceptance is separate from local member readback. No remote archive download; originals remain.
+
+- [full: hu100-k50-2b-completed-M4-20261012.zip](https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk), ID `1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg`, [parent folder](https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL) ID `1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL`, **13,402,862,469 bytes**, whole SHA256 `42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4`, manifest `ARCHIVE-MANIFEST.json` SHA256 `e95f19d2dbea47498a5a3b2c8aa2760a45a49b2d9c92773610989912c27b3816`; all 204 local member sizes/hashes passed.
+- [averages: hu100-k50-2b-averages-M4-20261012.zip](https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk), ID `14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn`, [parent folder](https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL) ID `1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL`, **3,488,716,045 bytes**, whole SHA256 `278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c`, manifest `ARCHIVE-MANIFEST.json` SHA256 `7840c4f40015bfb018b7febd1f1f04762c587794be3f7390dfbda8b8c46bf915`; all 2 local member sizes/hashes passed.
+
+Checkpoints/current/average exports restore from the full archive’s `research/training/` members; exact sizes/SHA256s and executable commands are in the linked model index. Verify whole archive SHA256, extract only the named member into a fresh ignored nonsynced directory, and verify member SHA256 before use. Small ZIP averages are `averages/1000000000.average.gz` and `averages/2000000000.average.gz`. Controls remain pinned release downloads; tables remain the indexed #163 archive. Source/build/recovery, guards, traces, audits, setup/credential failures and retrieval provenance are preserved. No cleanup or other-PR dependency changes. Original incomplete ZIP prefix remains retained separately, with no accepted-model claim. This accepted record supersedes the earlier pending-storage handoff below; its model paths remain protected.
 
 ## PR246 — HU100 K50 1B/2B guarded partial (October 12)
+
+Historical stop record, superseded by the accepted owner-authorized final continuation above. The original failures and prefix remain preserved.
 
 Both K50 training targets and every-row export audits completed. **No final strength comparison ran.** The cost-only pilot stopped on warning memory pressure; preservation then stopped on fixed-baseline swap growth. The HU100 abstraction question remains unanswered.
 
@@ -11,6 +22,8 @@ Both K50 training targets and every-row export audits completed. **No final stre
 - Controls remain pinned v0.5.0/v0.5.1 release downloads with their own `--require-publication` verifiers and exact expected sources. #163 tables remain in the existing indexed archive `1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`, whole SHA256 `03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca`; exact table members/pins/restoration commands remain in #235’s external-dependency record and `docs/reports/k50-evaluation-support-artifacts/restoration.json`.
 
 No remote archive bytes downloaded or re-audited. Complete native audits are separate from incomplete archival. Pilot warning-pressure and archive swap-growth failures are preserved; no final sample freeze, no final hands, no strength classification, no release/adoption/default or HU200 training. Archival awaits an owner-coordinated admissible window; no unattended work.
+
+## PR242 HU20 K50 5B-to-10B continuation — verified, accepted evidence, October 12
 
 [PR242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242), [report](docs/reports/hu20-k50-10b.md), branch `feature/hu20-k50-10b`, task-owned non-synced M4 root `~/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/`. Native base `045c793a4abd2e371d4d77de663fd3dd2f00316b`, exact tree `06f98b959e7b56068918bb0cc7b9c162511c7686`; unchanged source. Three exact 5B lineages reach 10B concurrently in 52.64 minutes; every current/average row audits. All 49,152 descriptive hands independently replay. **10B versus own 5B +0.22 [−3.98, +4.42] BB/100**, nominal paired 95% conditional on fixed policies: further improvement is inconclusive, not a plateau or release decision. No extension, failed-hand rerun, release confirmation, adoption or model selection. Scientific Python source is pinned to main `600bd34cca328cd19b65f5fb14141fdcb397e966`; task control sources are member-hashed in the full ZIP. Merge and cleanup follow reviewed final-head checks.
 

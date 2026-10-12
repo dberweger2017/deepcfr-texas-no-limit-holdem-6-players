@@ -1,5 +1,6 @@
 {
   "all_ac": true,
+  "all_allowed_pressure": true,
   "budget": {
     "deadline": 1791857118.313808,
     "initial_host": {
@@ -15,171 +16,295 @@
     "started": 1791831918.313808,
     "swap_bytes": 762776125
   },
-  "maximum_swap_growth_bytes": 592309125,
-  "minimum_disk_free_bytes": 76602359808,
-  "minimum_free_percent": 45,
+  "closed_elapsed_seconds": 13425.11337685585,
+  "maximum_swap_growth_bytes": 893973955,
+  "minimum_disk_free_bytes": 63618199552,
+  "minimum_free_percent": 44,
   "operations": [
     {
       "all_ac": true,
-      "last_sample": {
-        "ac": true,
-        "at": 1791839491.12615,
-        "disk_free_bytes": 81428643840,
-        "family_rss_bytes": 192086016,
-        "free_percent": 85,
-        "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
-        "pressure_level": 1,
-        "swap_bytes": 1355085250,
-        "swap_raw": "vm.swapusage: total = 2048.00M  used = 1292.31M  free = 755.69M  (encrypted)\n"
-      },
-      "maximum_swap_growth_bytes": 592309125,
-      "minimum_disk_free_bytes": 81428643840,
-      "minimum_free_percent": 84,
+      "all_allowed_pressure": true,
+      "maximum_swap_bytes": 1656750080,
+      "minimum_disk_free_bytes": 63618199552,
+      "minimum_free_percent": 85,
       "operation": "archive",
-      "peak_family_rss_bytes": 238370816,
-      "pressure_levels": [
-        1
-      ],
-      "receipt": {
-        "failure": "RuntimeError('Guard breach: 512 MiB swap growth')",
-        "finished": 1791839492.043265,
-        "peak_family_rss_bytes": 238370816,
-        "returncode": 0,
-        "samples": 14,
-        "seconds": 8.01623797416687,
-        "started": 1791839484.027028,
-        "status": "failed"
-      }
-    },
-    {
-      "all_ac": true,
-      "last_sample": {
-        "ac": true,
-        "at": 1791832306.89051,
-        "disk_free_bytes": 95625900032,
-        "family_rss_bytes": 95584256,
-        "free_percent": 87,
-        "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
-        "pressure_level": 1,
-        "swap_bytes": 762776125,
-        "swap_raw": "vm.swapusage: total = 2048.00M  used = 727.44M  free = 1320.56M  (encrypted)\n"
-      },
-      "maximum_swap_growth_bytes": 0,
-      "minimum_disk_free_bytes": 95625871360,
-      "minimum_free_percent": 87,
-      "operation": "gates",
-      "peak_family_rss_bytes": 2116059136,
+      "peak_family_rss_bytes": 235290624,
       "pressure_levels": [
         1
       ],
       "receipt": {
         "failure": null,
-        "finished": 1791832306.9071958,
-        "peak_family_rss_bytes": 2116059136,
+        "finished": 1791845343.4271848,
+        "peak_family_rss_bytes": 235290624,
         "returncode": 0,
-        "samples": 158,
-        "seconds": 84.65762877464294,
-        "started": 1791832222.249567,
+        "samples": 122,
+        "seconds": 66.37423586845398,
+        "started": 1791845277.052949,
         "status": "complete"
-      }
+      },
+      "samples": 122
     },
     {
       "all_ac": true,
-      "last_sample": {
-        "ac": true,
-        "at": 1791839134.1786618,
-        "disk_free_bytes": 83509489664,
-        "family_rss_bytes": 2519875584,
-        "free_percent": 45,
-        "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
-        "pressure_level": 2,
-        "swap_bytes": 1110043525,
-        "swap_raw": "vm.swapusage: total = 2048.00M  used = 1058.62M  free = 989.38M  (encrypted)\n"
+      "all_allowed_pressure": true,
+      "maximum_swap_bytes": 1298262917,
+      "minimum_disk_free_bytes": 80505589760,
+      "minimum_free_percent": 59,
+      "operation": "final",
+      "peak_family_rss_bytes": 9549987840,
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791845146.376414,
+        "peak_family_rss_bytes": 9549987840,
+        "returncode": 0,
+        "samples": 5981,
+        "seconds": 3210.7895591259003,
+        "started": 1791841935.586855,
+        "status": "complete"
       },
-      "maximum_swap_growth_bytes": 364044616,
-      "minimum_disk_free_bytes": 83500978176,
-      "minimum_free_percent": 45,
+      "samples": 5981
+    },
+    {
+      "all_ac": true,
+      "all_allowed_pressure": true,
+      "maximum_swap_bytes": 1315040133,
+      "minimum_disk_free_bytes": 81380323328,
+      "minimum_free_percent": 44,
       "operation": "pilot",
-      "peak_family_rss_bytes": 4464197632,
+      "peak_family_rss_bytes": 4769595392,
       "pressure_levels": [
         1,
         2
       ],
       "receipt": {
-        "failure": "RuntimeError('Guard breach: normal pressure / 15% free')",
-        "finished": 1791839134.557835,
-        "peak_family_rss_bytes": 4464197632,
+        "failure": null,
+        "finished": 1791841717.375517,
+        "peak_family_rss_bytes": 4769595392,
         "returncode": 0,
-        "samples": 1728,
-        "seconds": 928.6995069980621,
-        "started": 1791838205.858328,
-        "status": "failed"
-      }
+        "samples": 1731,
+        "seconds": 929.6554048061371,
+        "started": 1791840787.720112,
+        "status": "complete"
+      },
+      "samples": 1731
     },
     {
       "all_ac": true,
-      "last_sample": {
+      "all_allowed_pressure": true,
+      "maximum_swap_bytes": 1122102149,
+      "minimum_disk_free_bytes": 80510865408,
+      "minimum_free_percent": 85,
+      "operation": "readout",
+      "peak_family_rss_bytes": 380485632,
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1791845221.556119,
+        "peak_family_rss_bytes": 380485632,
+        "returncode": 0,
+        "samples": 31,
+        "seconds": 16.257979154586792,
+        "started": 1791845205.2981398,
+        "status": "complete"
+      },
+      "samples": 31
+    }
+  ],
+  "original_operations": {
+    "all_ac": true,
+    "budget": {
+      "deadline": 1791857118.313808,
+      "initial_host": {
         "ac": true,
-        "at": 1791832123.785302,
-        "disk_free_bytes": 96229662720,
-        "family_rss_bytes": 96501760,
+        "at": 1791831918.326262,
+        "disk_free_bytes": 100387094528,
         "free_percent": 87,
         "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
         "pressure_level": 1,
         "swap_bytes": 762776125,
         "swap_raw": "vm.swapusage: total = 2048.00M  used = 727.44M  free = 1320.56M  (encrypted)\n"
       },
-      "maximum_swap_growth_bytes": 0,
-      "minimum_disk_free_bytes": 96229662720,
-      "minimum_free_percent": 77,
-      "operation": "prepare",
-      "peak_family_rss_bytes": 247316480,
-      "pressure_levels": [
-        1
-      ],
-      "receipt": {
-        "failure": null,
-        "finished": 1791832123.805881,
-        "peak_family_rss_bytes": 247316480,
-        "returncode": 0,
-        "samples": 359,
-        "seconds": 205.49207305908203,
-        "started": 1791831918.313808,
-        "status": "complete"
-      }
+      "started": 1791831918.313808,
+      "swap_bytes": 762776125
     },
-    {
-      "all_ac": true,
-      "last_sample": {
-        "ac": true,
-        "at": 1791838081.025889,
-        "disk_free_bytes": 83516801024,
-        "family_rss_bytes": 18628608,
-        "free_percent": 87,
-        "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
-        "pressure_level": 1,
-        "swap_bytes": 1135209349,
-        "swap_raw": "vm.swapusage: total = 2048.00M  used = 1082.62M  free = 965.38M  (encrypted)\n"
+    "maximum_swap_growth_bytes": 592309125,
+    "minimum_disk_free_bytes": 76602359808,
+    "minimum_free_percent": 45,
+    "operations": [
+      {
+        "all_ac": true,
+        "last_sample": {
+          "ac": true,
+          "at": 1791839491.12615,
+          "disk_free_bytes": 81428643840,
+          "family_rss_bytes": 192086016,
+          "free_percent": 85,
+          "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+          "pressure_level": 1,
+          "swap_bytes": 1355085250,
+          "swap_raw": "vm.swapusage: total = 2048.00M  used = 1292.31M  free = 755.69M  (encrypted)\n"
+        },
+        "maximum_swap_growth_bytes": 592309125,
+        "minimum_disk_free_bytes": 81428643840,
+        "minimum_free_percent": 84,
+        "operation": "archive",
+        "peak_family_rss_bytes": 238370816,
+        "pressure_levels": [
+          1
+        ],
+        "receipt": {
+          "failure": "RuntimeError('Guard breach: 512 MiB swap growth')",
+          "finished": 1791839492.043265,
+          "peak_family_rss_bytes": 238370816,
+          "returncode": 0,
+          "samples": 14,
+          "seconds": 8.01623797416687,
+          "started": 1791839484.027028,
+          "status": "failed"
+        }
       },
-      "maximum_swap_growth_bytes": 376375869,
-      "minimum_disk_free_bytes": 76602359808,
-      "minimum_free_percent": 55,
-      "operation": "treatment",
-      "peak_family_rss_bytes": 8106475520,
-      "pressure_levels": [
-        1
-      ],
-      "receipt": {
-        "failure": null,
-        "finished": 1791838081.0481899,
+      {
+        "all_ac": true,
+        "last_sample": {
+          "ac": true,
+          "at": 1791832306.89051,
+          "disk_free_bytes": 95625900032,
+          "family_rss_bytes": 95584256,
+          "free_percent": 87,
+          "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+          "pressure_level": 1,
+          "swap_bytes": 762776125,
+          "swap_raw": "vm.swapusage: total = 2048.00M  used = 727.44M  free = 1320.56M  (encrypted)\n"
+        },
+        "maximum_swap_growth_bytes": 0,
+        "minimum_disk_free_bytes": 95625871360,
+        "minimum_free_percent": 87,
+        "operation": "gates",
+        "peak_family_rss_bytes": 2116059136,
+        "pressure_levels": [
+          1
+        ],
+        "receipt": {
+          "failure": null,
+          "finished": 1791832306.9071958,
+          "peak_family_rss_bytes": 2116059136,
+          "returncode": 0,
+          "samples": 158,
+          "seconds": 84.65762877464294,
+          "started": 1791832222.249567,
+          "status": "complete"
+        }
+      },
+      {
+        "all_ac": true,
+        "last_sample": {
+          "ac": true,
+          "at": 1791839134.1786618,
+          "disk_free_bytes": 83509489664,
+          "family_rss_bytes": 2519875584,
+          "free_percent": 45,
+          "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+          "pressure_level": 2,
+          "swap_bytes": 1110043525,
+          "swap_raw": "vm.swapusage: total = 2048.00M  used = 1058.62M  free = 989.38M  (encrypted)\n"
+        },
+        "maximum_swap_growth_bytes": 364044616,
+        "minimum_disk_free_bytes": 83500978176,
+        "minimum_free_percent": 45,
+        "operation": "pilot",
+        "peak_family_rss_bytes": 4464197632,
+        "pressure_levels": [
+          1,
+          2
+        ],
+        "receipt": {
+          "failure": "RuntimeError('Guard breach: normal pressure / 15% free')",
+          "finished": 1791839134.557835,
+          "peak_family_rss_bytes": 4464197632,
+          "returncode": 0,
+          "samples": 1728,
+          "seconds": 928.6995069980621,
+          "started": 1791838205.858328,
+          "status": "failed"
+        }
+      },
+      {
+        "all_ac": true,
+        "last_sample": {
+          "ac": true,
+          "at": 1791832123.785302,
+          "disk_free_bytes": 96229662720,
+          "family_rss_bytes": 96501760,
+          "free_percent": 87,
+          "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+          "pressure_level": 1,
+          "swap_bytes": 762776125,
+          "swap_raw": "vm.swapusage: total = 2048.00M  used = 727.44M  free = 1320.56M  (encrypted)\n"
+        },
+        "maximum_swap_growth_bytes": 0,
+        "minimum_disk_free_bytes": 96229662720,
+        "minimum_free_percent": 77,
+        "operation": "prepare",
+        "peak_family_rss_bytes": 247316480,
+        "pressure_levels": [
+          1
+        ],
+        "receipt": {
+          "failure": null,
+          "finished": 1791832123.805881,
+          "peak_family_rss_bytes": 247316480,
+          "returncode": 0,
+          "samples": 359,
+          "seconds": 205.49207305908203,
+          "started": 1791831918.313808,
+          "status": "complete"
+        }
+      },
+      {
+        "all_ac": true,
+        "last_sample": {
+          "ac": true,
+          "at": 1791838081.025889,
+          "disk_free_bytes": 83516801024,
+          "family_rss_bytes": 18628608,
+          "free_percent": 87,
+          "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+          "pressure_level": 1,
+          "swap_bytes": 1135209349,
+          "swap_raw": "vm.swapusage: total = 2048.00M  used = 1082.62M  free = 965.38M  (encrypted)\n"
+        },
+        "maximum_swap_growth_bytes": 376375869,
+        "minimum_disk_free_bytes": 76602359808,
+        "minimum_free_percent": 55,
+        "operation": "treatment",
         "peak_family_rss_bytes": 8106475520,
-        "returncode": 0,
-        "samples": 10632,
-        "seconds": 5707.002338886261,
-        "started": 1791832374.045851,
-        "status": "complete"
+        "pressure_levels": [
+          1
+        ],
+        "receipt": {
+          "failure": null,
+          "finished": 1791838081.0481899,
+          "peak_family_rss_bytes": 8106475520,
+          "returncode": 0,
+          "samples": 10632,
+          "seconds": 5707.002338886261,
+          "started": 1791832374.045851,
+          "status": "complete"
+        }
       }
-    }
+    ],
+    "peak_family_rss_bytes": 8106475520
+  },
+  "peak_family_rss_bytes": 9549987840,
+  "pressure_amendment": [
+    1,
+    2
   ],
-  "peak_family_rss_bytes": 8106475520
+  "swap_growth_ceiling_bytes": 2000000000,
+  "whole_campaign_peak_family_rss_bytes": 9549987840
 }

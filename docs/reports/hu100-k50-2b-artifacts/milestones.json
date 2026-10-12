@@ -1,8 +1,7 @@
 [
   {
     "actual_nodes": 1000000678,
-    "entries": 52786090,
-    "full_audit": {
+    "audit": {
       "audit": {
         "all_nodes_verified": 52786090,
         "average_sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
@@ -70,6 +69,7 @@
       },
       "zero_average_mass_keys": 18379598
     },
+    "entries": 52786090,
     "iterations": 935476,
     "mean_traverser_visits_per_key": 3.7367821522677658,
     "policy": "K50",
@@ -78,8 +78,7 @@
   },
   {
     "actual_nodes": 2000000978,
-    "entries": 69531154,
-    "full_audit": {
+    "audit": {
       "audit": {
         "all_nodes_verified": 69531154,
         "average_sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
@@ -147,6 +146,7 @@
       },
       "zero_average_mass_keys": 24462761
     },
+    "entries": 69531154,
     "iterations": 1919544,
     "mean_traverser_visits_per_key": 5.593852375871685,
     "policy": "K50",

@@ -1,0 +1,19 @@
+{
+  "decisions": 2747832,
+  "files": {
+    "decisions.jsonl.gz": {
+      "bytes": 216037064,
+      "sha256": "53f0ace9b08ae02256401d5f43988c6d1954aa7471e886dd70f3411d8b49e59f"
+    },
+    "hands.jsonl.gz": {
+      "bytes": 52549298,
+      "sha256": "1f8a2cd166a0bcf0ba5dcd25d21d241933fec2976e2a2d60cdce9d29a0c16e0a"
+    }
+  },
+  "hands": 524288,
+  "load_or_validation_seconds": 1.4766920840047533,
+  "play_seconds": 633.8815724169981,
+  "reproduced_all_hands_and_decisions": true,
+  "seconds": 639.210492208993,
+  "status": "complete"
+}

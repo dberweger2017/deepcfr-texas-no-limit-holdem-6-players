@@ -1,52 +1,98 @@
 {
-  "cleanup_permitted": false,
-  "cloud_metadata": {
-    "at": 1791839742.759,
-    "complete_archive_accepted": false,
-    "file": {
-      "created_time": null,
-      "current_user_can_share": null,
-      "display_url": "https://drive.google.com/file/d/1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk/view?usp=drivesdk",
-      "drive_id": null,
-      "file_or_folder": "file",
-      "has_augmented_permissions": null,
-      "id": "1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk",
-      "mime_type": "application/zip",
-      "modified_time": null,
-      "parent_ids": [
-        "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
-      ],
-      "permissions": null,
-      "shared": null,
-      "size": "2075422594",
-      "source_visibility_status": "access_not_verified",
-      "title": "hu100-k50-2b-M4-20261012.zip",
-      "url": "https://drive.google.com/file/d/1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk/view?usp=drivesdk"
+  "archives": {
+    "averages": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 3488716045,
+      "cloud_archive_id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+      "cloud_archive_url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk",
+      "cloud_folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_folder_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_upload_accepted": true,
+      "logical_member_bytes": 3488714721,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "7840c4f40015bfb018b7febd1f1f04762c587794be3f7390dfbda8b8c46bf915",
+      "members": 2,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-averages-M4-20261012.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 10.349342166999122,
+      "sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+      "status": "locally-verified"
     },
-    "folder": {
-      "created_time": null,
-      "current_user_can_share": null,
-      "display_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
-      "drive_id": null,
-      "file_or_folder": "folder",
-      "has_augmented_permissions": null,
-      "id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
-      "mime_type": "application/vnd.google-apps.folder",
-      "modified_time": null,
-      "parent_ids": [
-        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
-      ],
-      "permissions": null,
-      "shared": null,
-      "size": null,
-      "source_visibility_status": "access_not_verified",
-      "title": "PR-246-hu100-k50-2b",
-      "url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
-    },
-    "remote_archive_bytes_downloaded": false,
-    "scope": "Independent cloud metadata confirms only the uploaded incomplete ZIP prefix, not archive/member integrity."
+    "full": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 13402862469,
+      "cloud_archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "cloud_archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+      "cloud_folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_folder_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_upload_accepted": true,
+      "logical_member_bytes": 13402749127,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "e95f19d2dbea47498a5a3b2c8aa2760a45a49b2d9c92773610989912c27b3816",
+      "members": 204,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-completed-M4-20261012.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 54.74126024999714,
+      "sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "status": "locally-verified"
+    }
   },
-  "external_table_record": "RESULTS_INDEX.md PR235 external dependencies and docs/reports/k50-evaluation-support-artifacts/restoration.json",
+  "input_retrieval": {
+    "controls": {
+      "1b": {
+        "commands": [
+          "gh release download v0.5.0 --repo dberweger2017/deepcfr-texas-no-limit-holdem-6-players --dir NEW_IGNORED_1B_DIR",
+          "python NEW_IGNORED_1B_DIR/verify_v050_bundle.py NEW_IGNORED_1B_DIR --expect-source b9c9bd161422e87371a2641ae4c60304c66eed79 --require-publication",
+          "shasum -a 256 NEW_IGNORED_1B_DIR/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz # expected 47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+        ],
+        "release": "v0.5.0"
+      },
+      "2b": {
+        "commands": [
+          "gh release download v0.5.1 --repo dberweger2017/deepcfr-texas-no-limit-holdem-6-players --dir NEW_IGNORED_2B_DIR",
+          "python NEW_IGNORED_2B_DIR/verify_hu100_bundle.py NEW_IGNORED_2B_DIR --expect-source dca7547e6eca82ce77f3e42230b82fabc1c29a4c --require-publication",
+          "shasum -a 256 NEW_IGNORED_2B_DIR/O2B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz # expected e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+        ],
+        "release": "v0.5.1"
+      }
+    },
+    "tables": {
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view",
+      "indexed_record": "RESULTS_INDEX.md#pr235-k50-evaluation-support--correctness-smoke-october11",
+      "members": {
+        "flop": {
+          "bytes": 12867944,
+          "commands": [
+            "tar -xzf TABLE_ARCHIVE.tar.gz -C NEW_IGNORED_TABLES_DIR --strip-components 1 hu20-equity-buckets-20261005/flop-k50.bin",
+            "shasum -a 256 NEW_IGNORED_TABLES_DIR/flop-k50.bin # expected 084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+          ],
+          "member": "hu20-equity-buckets-20261005/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "bytes": 1231562564,
+          "commands": [
+            "tar -xzf TABLE_ARCHIVE.tar.gz -C NEW_IGNORED_TABLES_DIR --strip-components 1 hu20-equity-buckets-20261005/river-k50.bin",
+            "shasum -a 256 NEW_IGNORED_TABLES_DIR/river-k50.bin # expected 70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "member": "hu20-equity-buckets-20261005/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "bytes": 139600524,
+          "commands": [
+            "tar -xzf TABLE_ARCHIVE.tar.gz -C NEW_IGNORED_TABLES_DIR --strip-components 1 hu20-equity-buckets-20261005/turn-k50.bin",
+            "shasum -a 256 NEW_IGNORED_TABLES_DIR/turn-k50.bin # expected c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          ],
+          "member": "hu20-equity-buckets-20261005/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      },
+      "restoration_receipt": "docs/reports/k50-evaluation-support-artifacts/restoration.json"
+    }
+  },
   "inputs": {
     "owning_pr": {
       "mergedAt": "2026-10-05T08:15:20Z",
@@ -116,292 +162,157 @@
   "models": [
     {
       "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
-      "actual_nodes": 2000000978,
-      "archive_member": null,
-      "bytes": 2004530099,
-      "entries": 69531154,
-      "iterations": 1919544,
-      "kind": "average",
-      "mtime_ns": 1791836502571800217,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz NEW_IGNORED_DIR/2000000000.average.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8"
-      },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-      "seed": 2026100601,
-      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
-      "sha256_provenance": "completed full native export audit"
-    },
-    {
-      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
-      "actual_nodes": 2000000978,
-      "archive_member": null,
-      "bytes": 1772996048,
-      "entries": 69531154,
-      "iterations": 1919544,
-      "kind": "current",
-      "mtime_ns": 1791836502572832376,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz NEW_IGNORED_DIR/2000000000.current.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.current.gz # expected 969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9"
-      },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-      "seed": 2026100601,
-      "sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9",
-      "sha256_provenance": "completed full native export audit"
-    },
-    {
-      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
-      "actual_nodes": 2000000978,
-      "archive_member": null,
-      "bytes": 3124951804,
-      "entries": 69531154,
-      "iterations": 1919544,
-      "kind": "checkpoint",
-      "mtime_ns": 1791833975002452649,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz NEW_IGNORED_DIR/2000000000.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.gz # expected b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
-      },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-      "seed": 2026100601,
-      "sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd",
-      "sha256_provenance": "completed full native export audit"
-    },
-    {
-      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
       "actual_nodes": 1000000678,
-      "archive_member": null,
+      "alternative_average_archive": {
+        "archive_sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+        "id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+        "member": "averages/1000000000.average.gz",
+        "member_verification": "shasum -a 256 RESTORE_ROOT/averages/1000000000.average.gz # expected 8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
+        "retrieval_command": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' AVERAGES_ARCHIVE.zip averages/1000000000.average.gz RESTORE_ROOT",
+        "url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk"
+      },
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
       "bytes": 1484184622,
       "entries": 52786090,
       "iterations": 935476,
       "kind": "average",
-      "mtime_ns": 1791834558704851018,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz NEW_IGNORED_DIR/1000000000.average.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.average.gz # expected 8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5"
+      "member": "research/training/1000000000.average.gz",
+      "original_source_mtime_ns": 1791834558704851018,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.average.gz # expected 8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5"
       },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
       "seed": 2026100601,
       "sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
       "sha256_provenance": "completed full native export audit"
     },
     {
       "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
       "actual_nodes": 1000000678,
-      "archive_member": null,
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
       "bytes": 1337790043,
       "entries": 52786090,
       "iterations": 935476,
       "kind": "current",
-      "mtime_ns": 1791834558708390030,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz NEW_IGNORED_DIR/1000000000.current.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.current.gz # expected 645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179"
+      "member": "research/training/1000000000.current.gz",
+      "original_source_mtime_ns": 1791834558708390030,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.current.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.current.gz # expected 645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179"
       },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
       "seed": 2026100601,
       "sha256": "645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179",
       "sha256_provenance": "completed full native export audit"
     },
     {
       "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-      "accepted_archive": null,
       "actual_nodes": 1000000678,
-      "archive_member": null,
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
       "bytes": 2292521401,
       "entries": 52786090,
       "iterations": 935476,
       "kind": "checkpoint",
-      "mtime_ns": 1791833120591246256,
-      "owner_authorized_copy_only": {
-        "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-        "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz NEW_IGNORED_DIR/1000000000.gz",
-        "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.gz # expected 6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8"
+      "member": "research/training/1000000000.gz",
+      "original_source_mtime_ns": 1791833120591246256,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.gz # expected 6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8"
       },
-      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz",
-      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
       "seed": 2026100601,
       "sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8",
+      "sha256_provenance": "completed full native export audit"
+    },
+    {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "actual_nodes": 2000000978,
+      "alternative_average_archive": {
+        "archive_sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+        "id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+        "member": "averages/2000000000.average.gz",
+        "member_verification": "shasum -a 256 RESTORE_ROOT/averages/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+        "retrieval_command": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' AVERAGES_ARCHIVE.zip averages/2000000000.average.gz RESTORE_ROOT",
+        "url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk"
+      },
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+      "bytes": 2004530099,
+      "entries": 69531154,
+      "iterations": 1919544,
+      "kind": "average",
+      "member": "research/training/2000000000.average.gz",
+      "original_source_mtime_ns": 1791836502571800217,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000.average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8"
+      },
+      "seed": 2026100601,
+      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+      "sha256_provenance": "completed full native export audit"
+    },
+    {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "actual_nodes": 2000000978,
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+      "bytes": 1772996048,
+      "entries": 69531154,
+      "iterations": 1919544,
+      "kind": "current",
+      "member": "research/training/2000000000.current.gz",
+      "original_source_mtime_ns": 1791836502572832376,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000.current.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000.current.gz # expected 969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9"
+      },
+      "seed": 2026100601,
+      "sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9",
+      "sha256_provenance": "completed full native export audit"
+    },
+    {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "actual_nodes": 2000000978,
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+      "bytes": 3124951804,
+      "entries": 69531154,
+      "iterations": 1919544,
+      "kind": "checkpoint",
+      "member": "research/training/2000000000.gz",
+      "original_source_mtime_ns": 1791833975002452649,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000.gz # expected b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
+      },
+      "seed": 2026100601,
+      "sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd",
       "sha256_provenance": "completed full native export audit"
     }
   ],
   "originals_retained": true,
   "owning_pr": 246,
-  "pilot_source": "1db150f106f4bb80aefec824456fd0d72316bd81",
+  "record": "verified-final",
   "remote_archive_bytes_downloaded": false,
-  "status": "guard-stopped-partial; archival incomplete",
-  "storage": {
-    "at": 1791839668.716203,
-    "averages_only_zip": "not created",
-    "models": [
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 2000000978,
-        "archive_member": null,
-        "bytes": 2004530099,
-        "entries": 69531154,
-        "iterations": 1919544,
-        "kind": "average",
-        "mtime_ns": 1791836502571800217,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz NEW_IGNORED_DIR/2000000000.average.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
-        "sha256_provenance": "completed full native export audit"
-      },
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 2000000978,
-        "archive_member": null,
-        "bytes": 1772996048,
-        "entries": 69531154,
-        "iterations": 1919544,
-        "kind": "current",
-        "mtime_ns": 1791836502572832376,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz NEW_IGNORED_DIR/2000000000.current.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.current.gz # expected 969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9",
-        "sha256_provenance": "completed full native export audit"
-      },
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 2000000978,
-        "archive_member": null,
-        "bytes": 3124951804,
-        "entries": 69531154,
-        "iterations": 1919544,
-        "kind": "checkpoint",
-        "mtime_ns": 1791833975002452649,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz NEW_IGNORED_DIR/2000000000.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/2000000000.gz # expected b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd",
-        "sha256_provenance": "completed full native export audit"
-      },
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 1000000678,
-        "archive_member": null,
-        "bytes": 1484184622,
-        "entries": 52786090,
-        "iterations": 935476,
-        "kind": "average",
-        "mtime_ns": 1791834558704851018,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz NEW_IGNORED_DIR/1000000000.average.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.average.gz # expected 8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
-        "sha256_provenance": "completed full native export audit"
-      },
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 1000000678,
-        "archive_member": null,
-        "bytes": 1337790043,
-        "entries": 52786090,
-        "iterations": 935476,
-        "kind": "current",
-        "mtime_ns": 1791834558708390030,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz NEW_IGNORED_DIR/1000000000.current.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.current.gz # expected 645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179",
-        "sha256_provenance": "completed full native export audit"
-      },
-      {
-        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
-        "accepted_archive": null,
-        "actual_nodes": 1000000678,
-        "archive_member": null,
-        "bytes": 2292521401,
-        "entries": 52786090,
-        "iterations": 935476,
-        "kind": "checkpoint",
-        "mtime_ns": 1791833120591246256,
-        "owner_authorized_copy_only": {
-          "condition": "Only after owner authorization/current owning-PR dependency review; use a fresh ignored nonsynced destination. No accepted Drive model archive exists.",
-          "copy": "scp m4:/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz NEW_IGNORED_DIR/1000000000.gz",
-          "verify": "shasum -a 256 NEW_IGNORED_DIR/1000000000.gz # expected 6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8"
-        },
-        "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz",
-        "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check.",
-        "seed": 2026100601,
-        "sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8",
-        "sha256_provenance": "completed full native export audit"
-      }
-    ],
-    "originals_retained": true,
-    "partial_archive": {
-      "accepted": false,
-      "bytes": 2075422594,
-      "ids": {
-        "archive_id": "1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk",
-        "folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
-      },
-      "member_manifest": null,
-      "member_readback": false,
-      "mtime_ns": 1791839491142321596,
-      "native_flags": {
-        "documentSize": 2075422594,
-        "hasUnresolvedConflicts": 0,
-        "isExcludedFromSync": 0,
-        "isSyncPaused": 0,
-        "isTrashed": 0,
-        "isUploaded": 1,
-        "isUploading": 0
-      },
-      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-M4-20261012.zip",
-      "sha256": null
-    },
-    "remote_archive_bytes_downloaded": false,
-    "status": "archive-stopped-unverified"
-  },
+  "scientific_source": "36dbe21ed36b2c3196f93c4b170446e97009d88b",
   "training_source": "be2692c311eaedc8670d9e12e6e424f73d2d3b60"
 }
