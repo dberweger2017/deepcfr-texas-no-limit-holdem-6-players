@@ -1,0 +1,46 @@
+{
+  "at": 1791839742.759,
+  "complete_archive_accepted": false,
+  "file": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/file/d/1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk/view?usp=drivesdk",
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk",
+    "mime_type": "application/zip",
+    "modified_time": null,
+    "parent_ids": [
+      "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "2075422594",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu100-k50-2b-M4-20261012.zip",
+    "url": "https://drive.google.com/file/d/1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk/view?usp=drivesdk"
+  },
+  "folder": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "drive_id": null,
+    "file_or_folder": "folder",
+    "has_augmented_permissions": null,
+    "id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "mime_type": "application/vnd.google-apps.folder",
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": null,
+    "source_visibility_status": "access_not_verified",
+    "title": "PR-246-hu100-k50-2b",
+    "url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+  },
+  "remote_archive_bytes_downloaded": false,
+  "scope": "Independent cloud metadata confirms only the uploaded incomplete ZIP prefix, not archive/member integrity."
+}

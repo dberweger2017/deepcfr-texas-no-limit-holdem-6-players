@@ -1,0 +1,10 @@
+{
+  "failure": "RuntimeError('Guard breach: normal pressure / 15% free')",
+  "finished": 1791839134.557835,
+  "peak_family_rss_bytes": 4464197632,
+  "returncode": 0,
+  "samples": 1728,
+  "seconds": 928.6995069980621,
+  "started": 1791838205.858328,
+  "status": "failed"
+}

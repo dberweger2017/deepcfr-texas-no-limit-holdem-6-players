@@ -1,0 +1,18 @@
+{
+  "binary": {
+    "bytes": 1349504,
+    "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/native/hu20-trainer/target/release/hu20-trainer",
+    "sha256": "cd9fbf1db5e79714c34825ea7d0c9e3bfedc192d1b59e1faadf4fae3d2352348"
+  },
+  "fresh": {
+    "bytes": 222275040,
+    "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/gates/fresh20m.gz",
+    "sha256": "546679233ac484cfb22fb4c4224d93b452fec1b1714496a6226d283da0aa5933"
+  },
+  "resumed": {
+    "bytes": 222275040,
+    "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/gates/resumed20m.gz",
+    "sha256": "546679233ac484cfb22fb4c4224d93b452fec1b1714496a6226d283da0aa5933"
+  },
+  "status": "verified"
+}
