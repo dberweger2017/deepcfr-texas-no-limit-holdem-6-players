@@ -57,7 +57,11 @@ The reproducible build completed in 14.77s; native source tree
 `8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a`.
 The [build receipt](hu200-200m-model-artifacts/build-receipt.json) records the
 toolchain, linker and lockfile. All four focused HU200 tests passed in 5.14s.
-Recovery and the main training/verification remain in progress.
+The uninterrupted fresh 20M run and 10M/resume-to-20M run are directly
+byte-identical: 227,890,921 bytes, SHA256
+`c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5`,
+20,002,603 actual nodes /8,687 iterations. [Recovery receipt](hu200-200m-model-artifacts/recovery.json).
+The fresh 200M run is now in progress.
 
 ## Closeout requirements
 
