@@ -1,8 +1,8 @@
 # HU20 K50 5B first pass
 
-**Preparation only; main campaign is not admitted yet.** No training, gate,
-model restoration, direct pilot or final play has started. There is no strength
-result or adoption/release decision. [Owner-authorized protocol](../hu20-k50-5b-first-pass.md).
+**Gates verified; sequential K50 training is underway.** All three v1 5B
+controls are hash-verified and fully audited. No direct pilot or final play has
+started; there is no strength result or adoption/release decision. [Owner-authorized protocol](../hu20-k50-5b-first-pass.md).
 
 ## M4 release and preparation
 
@@ -18,7 +18,7 @@ The prospective protocol and strict resource supervisor are committed at
 pass. Native training source is unchanged. Its supported option is `--nodes`,
 so the intended 5B command uses `--nodes 5000000000` with complete iterations.
 
-## Preventive storage admission
+## Initial preventive storage admission
 
 At initial admission, M4 had 22.01 GiB free, normal memory pressure, 89% free
 memory, AC, and 1,347,818,618 bytes of system swap. After Python setup and small
@@ -34,23 +34,53 @@ This is a prospective estimate, not a measured K50 footprint or a new guard.
 [Complete formulas and provenance](hu20-k50-5b-first-pass-artifacts/storage-admission.json).
 Actual hydration, outputs, scratch and pilot costs still need stage admission.
 
-This is a preventive capacity refusal, **not a guard breach or scientific
-failure**. The six-hour guarded campaign clock has not started. No table/model
-hash is claimed verified yet. No other PR root or synced file was deleted,
+This initial refusal was preventive, **not a guard breach or scientific
+failure**. The owner later authorized individually admitted stages while
+provisioning storage. M4 had 40.50 GiB free at guarded build admission. The
+six-hour clock began at **10:20:26 UTC**, with fixed deadline **16:20:26 UTC /
+18:20:26 Madrid**; it is never reset. Table and control hashes are now verified. No other PR root or synced file was deleted,
 offloaded or changed. No paid compute, guard relaxation or sample change.
 
-Owner provisioning at least 38 GiB free on M4 is the concrete next requirement.
-Continue resource admission every 30 minutes, then autonomously perform the
-already-authorized gates and pilot when admitted. A measured time/precision
+The 38 GiB entry target ceased to be a blanket hold after the owner replied
+**“on it, you can start though.”** Storage was then provisioned above the full
+forecast. Every later stage still reserves its outputs and scratch above the
+unchanged 16 GiB floor. A measured time/precision
 quote above the owner's limits stops dependent work for a revised decision.
+
+## Verified gates and controls
+
+Current-main native source is unchanged. Binary SHA256
+`aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6`;
+14 native tests pass. Seed602 1B exactly reproduces archived checkpoint SHA256
+`a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716`,
+including max_entries=1B. Fresh K50 4M and its own 2M-midpoint resume reach
+4,000,386 actual nodes /11,456 iterations and have **785,675 exact rows**,
+including IEEE signed zero and all three table hashes. Only documented
+native_state recovery metadata differs. No hash mismatch or guard breach.
+
+All three v1 5B checkpoint ZIP/manifest/member pins verify. Current-main
+uniform averages and paired current exports pass full audits. Seed601's
+average reproduces archived `ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193`.
+[Complete preliminary receipts and exact density](hu20-k50-5b-first-pass-artifacts/preliminary-gates-and-controls.json).
+
+The measured v1 1B train/save took 469.35 s. A three-seed K50 reserve scales
+this by 5 nodes, 13% K50 overhead and 25% headroom: **9,944.37 s**, plus a
+provisional **7,200 s** downstream reserve, within **19,642.40 s** remaining at
+launch. This admits sequential terminal training, not final play; the measured
+completed-model direct pilot must still pass the fixed time/precision rules.
+
+The owner accepted **“Use reached-key quantiles with coverage disclosed.”**
+Whole-table density is exact. Street quantiles cover distinct stored keys
+reached during frozen direct matches, with the classified fraction and remaining
+unclassified keys disclosed. Missing reached keys remain separate from stored
+zero-visit keys. No full-table street allocation is inferred from hashes.
 
 ## Required remaining evidence
 
-Recipe byte identity, K50 checkpoint/recovery identity, all six exact controls
-and treatment input pins, three sequential terminal 5B runs, every-row export
-audits, visit-density measurements, fresh root inventory, cost/precision admission,
-canonical final plan posted before play, both fixed direct contrasts, full
-independent replay, descriptive seed/seat splits, primary decision, member-hashed
-ZIP/native and independent cloud acceptance, RESULTS_INDEX/ROADMAP updates,
-final review and green checks remain pending. The draft PR must not merge with
-this preparation hold represented as finished science.
+Three sequential terminal K50 5B runs with full exports/audits, fresh root
+inventory, cost/precision pilot admission, canonical final plan posted before
+play, both fixed direct contrasts, complete independent replay, seed/seat splits,
+reached-key street distributions, primary decision, member-hashed ZIP and native /
+independent cloud acceptance, RESULTS_INDEX/ROADMAP updates, final review and
+green checks remain pending. The PR remains draft. No incomplete science may
+merge as a finished campaign.

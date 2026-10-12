@@ -1,0 +1,293 @@
+{
+  "updated": 1791803178.492063,
+  "phase": "three-sequential-k50-lineages",
+  "recipe": {
+    "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+    "checkpoint_byte_identity": true,
+    "max_entries": 1000000000,
+    "reference_sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+    "requested_nodes": 1000000000,
+    "scope": "Current-main production v1 reproduction. K50 treatment changes only card buckets.",
+    "seed": 2026100602,
+    "status": "verified"
+  },
+  "recovery": {
+    "all_rows_identical": 785675,
+    "allowed_header_difference": "Only documented native_state added by resume; no scientific row differences.",
+    "fresh_sha256": "c15eb9b756f0f0549a4c0fd2f0f83eaa2af2ce22d57b1204d2a0126de5096b92",
+    "identity": {
+      "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        2000,
+        2000
+      ]
+    },
+    "iteration": 11456,
+    "resumed_native_state": {
+      "completed_nodes": 4000386,
+      "coverage_start": [
+        5500,
+        2000460,
+        411726
+      ],
+      "decisions_by_street": [
+        103555,
+        215473,
+        346028,
+        472877
+      ],
+      "traverser_visits_by_street": [
+        37533,
+        79088,
+        129149,
+        172323
+      ],
+      "version": 1
+    },
+    "resumed_sha256": "eb35f55ffbb912db38d31f0314dc63e4c4f41d40cbc840e142f6e604df078ae1",
+    "status": "verified"
+  },
+  "training_time_admission": {
+    "admitted": true,
+    "at": 1791802383.8411021,
+    "basis": "Fresh byte-identical M4 v1 1B train/save time, x5 nodes x3 seeds, 13 percent K50 overhead and 25 percent headroom. Pilot measured play/replay quote still required before final play.",
+    "downstream_provisional_reserve_seconds": 7200,
+    "remaining_seconds": 19642.395211935043,
+    "training_reserve_seconds": 9944.367077858626
+  },
+  "controls": [
+    {
+      "audit": {
+        "all_nodes_verified": 6315718,
+        "average_sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+        "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+        "counts": {
+          "entries": 6315718,
+          "positive_mass": 4183525,
+          "zero_mass": 2132193
+        },
+        "current_sha256": "c8022585cbf36c976fb20072906b90f29565a48d7891fee079361f635886cd73",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.32047447102457416
+      },
+      "density": {
+        "count": 6315718,
+        "mean": 153.89421060281666,
+        "quantiles": {
+          "max": 1451837,
+          "median": 4.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 23.0,
+          "p90": 130.0,
+          "p99": 2393.0
+        },
+        "zero_fraction": 0.17553934485358594
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "actual_nodes": 5000000043,
+        "bytes": 214796948,
+        "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100601-5000000000.json.gz",
+        "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+        "current_path": "results/hu20-k50-5b/policies/v1-2026100601-5b.current.json.gz",
+        "current_sha256": "c8022585cbf36c976fb20072906b90f29565a48d7891fee079361f635886cd73",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 9971555,
+        "name": "O-2026100601-5000000000.json",
+        "path": "results/hu20-k50-5b/policies/v1-2026100601-5b.average.jsonl.gz",
+        "requested_nodes": 5000000000,
+        "seed": 2026100601,
+        "sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    },
+    {
+      "audit": {
+        "all_nodes_verified": 6414988,
+        "average_sha256": "4610b6fb06f370bf7478c8dcd79e7be867fa40d7d0dd4b5e767db84e812fd42f",
+        "checkpoint_sha256": "14651b481fb44c968f1039f69710344973f5b54a0a75fe5395f4ee319afd85ad",
+        "counts": {
+          "entries": 6414988,
+          "positive_mass": 4232544,
+          "zero_mass": 2182444
+        },
+        "current_sha256": "5333e8f7fd8e0403b3b6e0a6935936a72cba29b5a2632eb02383dda645c7edcd",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.32139658122829684
+      },
+      "density": {
+        "count": 6414988,
+        "mean": 151.50177895890062,
+        "quantiles": {
+          "max": 1449407,
+          "median": 4.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 23.0,
+          "p90": 129.0,
+          "p99": 2354.0
+        },
+        "zero_fraction": 0.17433251628841706
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "actual_nodes": 5000000208,
+        "bytes": 217829618,
+        "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100602-5000000000.json.gz",
+        "checkpoint_sha256": "14651b481fb44c968f1039f69710344973f5b54a0a75fe5395f4ee319afd85ad",
+        "current_path": "results/hu20-k50-5b/policies/v1-2026100602-5b.current.json.gz",
+        "current_sha256": "5333e8f7fd8e0403b3b6e0a6935936a72cba29b5a2632eb02383dda645c7edcd",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 9809166,
+        "name": "O-2026100602-5000000000.json",
+        "path": "results/hu20-k50-5b/policies/v1-2026100602-5b.average.jsonl.gz",
+        "requested_nodes": 5000000000,
+        "seed": 2026100602,
+        "sha256": "4610b6fb06f370bf7478c8dcd79e7be867fa40d7d0dd4b5e767db84e812fd42f",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    },
+    {
+      "audit": {
+        "all_nodes_verified": 6374215,
+        "average_sha256": "df34d756203dfc59753043bd03edcb885b094143f9b482b29abdb0371cab4268",
+        "checkpoint_sha256": "bb08472a95b11e2dc5c06565d59f6e04df0d4dc082d0d839528ee495c769d050",
+        "counts": {
+          "entries": 6374215,
+          "positive_mass": 4221711,
+          "zero_mass": 2152504
+        },
+        "current_sha256": "ca0311dab4e523dfafa4fe47568c2bc670a3116039bd219fb625dcf9ce9f5878",
+        "maximum_tv": 1.0,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.32025528181022356
+      },
+      "density": {
+        "count": 6374215,
+        "mean": 152.29694072132804,
+        "quantiles": {
+          "max": 1477116,
+          "median": 4.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 23.0,
+          "p90": 129.0,
+          "p99": 2373.0
+        },
+        "zero_fraction": 0.17590056187310907
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "actual_nodes": 5000000544,
+        "bytes": 216725085,
+        "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100603-5000000000.json.gz",
+        "checkpoint_sha256": "bb08472a95b11e2dc5c06565d59f6e04df0d4dc082d0d839528ee495c769d050",
+        "current_path": "results/hu20-k50-5b/policies/v1-2026100603-5b.current.json.gz",
+        "current_sha256": "ca0311dab4e523dfafa4fe47568c2bc670a3116039bd219fb625dcf9ce9f5878",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 10008052,
+        "name": "O-2026100603-5000000000.json",
+        "path": "results/hu20-k50-5b/policies/v1-2026100603-5b.average.jsonl.gz",
+        "requested_nodes": 5000000000,
+        "seed": 2026100603,
+        "sha256": "df34d756203dfc59753043bd03edcb885b094143f9b482b29abdb0371cab4268",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    }
+  ],
+  "guard_operations": {
+    "build-release": {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800434.608474,
+      "name": "build-release",
+      "peak_family_rss_bytes": 1123270656,
+      "returncode": 0,
+      "samples": 35,
+      "seconds": 8.372159957885742,
+      "started": 1791800426.236314,
+      "status": "complete"
+    },
+    "native-tests": {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800611.5278661,
+      "name": "native-tests",
+      "peak_family_rss_bytes": 637435904,
+      "returncode": 0,
+      "samples": 35,
+      "seconds": 8.222512245178223,
+      "started": 1791800603.3053539,
+      "status": "complete"
+    },
+    "restore-reference": {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800659.417971,
+      "name": "restore-reference",
+      "peak_family_rss_bytes": 68517888,
+      "returncode": 0,
+      "samples": 176,
+      "seconds": 47.860515832901,
+      "started": 1791800611.557455,
+      "status": "complete"
+    },
+    "recipe-and-recovery-gates": {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791801200.4002528,
+      "name": "recipe-and-recovery-gates",
+      "peak_family_rss_bytes": 1507950592,
+      "returncode": 0,
+      "samples": 2108,
+      "seconds": 496.02237582206726,
+      "started": 1791800704.377877,
+      "status": "complete"
+    },
+    "restore-export-audit-controls": {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791802089.625661,
+      "name": "restore-export-audit-controls",
+      "peak_family_rss_bytes": 123895808,
+      "returncode": 0,
+      "samples": 3480,
+      "seconds": 848.3543050289154,
+      "started": 1791801241.2713559,
+      "status": "complete"
+    }
+  },
+  "main_treatment_completed": false,
+  "pilot_started": false,
+  "final_play_started": false,
+  "owner_amendments": [
+    "on it, you can start though",
+    "Use reached-key quantiles with coverage disclosed"
+  ]
+}
