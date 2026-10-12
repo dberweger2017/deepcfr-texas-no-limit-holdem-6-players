@@ -131,3 +131,31 @@ def test_match_continuation_amends_only_pressure_and_swap():
     assert continuation.limits(sample,campaign.SOFT,baseline,99)
     assert continuation.limits(sample,campaign.HARD,baseline,99)
     assert continuation.limits(sample,0,baseline,100)
+
+
+@pytest.mark.parametrize('phase',['pilot','final'])
+def test_contrasts_release_both_registry_references(tmp_path,monkeypatch,phase):
+    import weakref
+    monkeypatch.setattr(campaign,'BASE',tmp_path)
+    monkeypatch.setattr(campaign,'revision',lambda:'source')
+    specs={'primary':[],'secondary':[]}
+    monkeypatch.setattr(campaign,'pairs',lambda:specs)
+    live=[]
+    class Registry:pass
+    def execute(models,blocks,root,rung,out,source,registry=None,reproduce=None):
+        if registry is None:
+            assert all(ref() is None for ref in live), 'previous contrast model buffers retained'
+            registry=Registry();live.append(weakref.ref(registry))
+        out.mkdir(parents=True)
+        return registry,{'load_or_validation_seconds':1.,'play_seconds':1.}
+    monkeypatch.setattr(direct,'execute',execute)
+    monkeypatch.setattr(direct,'audit',lambda *args,**kw:{'seconds':1.,'paired_sd_bb_per_100':10.})
+    if phase=='pilot':campaign.pilot()
+    else:
+        frozen={'source':'source','roots':campaign.ROOTS,'pairs':specs,'counts':{'primary':1024,'secondary':1024},
+          'pilot_quote':{'quotes':{c:{'load_seconds':1.,'play_seconds':1.,'replay_seconds':1.,'reproduction_seconds':1.} for c in specs}}}
+        (tmp_path/'canonical-plan.json').write_text(json.dumps(frozen))
+        (tmp_path/'plan-posted.json').write_text(json.dumps({'sha256':file_hash(tmp_path/'canonical-plan.json')}))
+        (tmp_path/'budget.json').write_text(json.dumps({'deadline':campaign.time()+10000}))
+        campaign.final_play()
+    assert all(ref() is None for ref in live)

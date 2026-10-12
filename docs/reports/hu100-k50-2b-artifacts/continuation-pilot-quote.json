@@ -1,0 +1,23 @@
+{
+  "at": 1791841716.8416798,
+  "outcomes_inspected": false,
+  "pilot_blocks": 1024,
+  "quotes": {
+    "primary": {
+      "load_seconds": 519.3167535000102,
+      "paired_sd_bb_per_100": 894.3342682191013,
+      "play_seconds": 3.127689750006539,
+      "replay_seconds": 1.7215579579933546,
+      "reproduction_seconds": 2.323548000000301,
+      "trace_bytes": 2074920
+    },
+    "secondary": {
+      "load_seconds": 392.7317395420105,
+      "paired_sd_bb_per_100": 1061.3277475842704,
+      "play_seconds": 2.794265833988902,
+      "replay_seconds": 1.7094559590041172,
+      "reproduction_seconds": 2.275816166002187,
+      "trace_bytes": 2022354
+    }
+  }
+}

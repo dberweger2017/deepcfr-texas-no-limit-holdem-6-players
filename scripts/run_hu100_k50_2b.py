@@ -219,7 +219,7 @@ def pilot():
             'replay_seconds':checked['seconds'],'reproduction_seconds':repeat['play_seconds'],
             'paired_sd_bb_per_100':checked['paired_sd_bb_per_100'],
             'trace_bytes':sum(p.stat().st_size for p in out.rglob('*.jsonl.gz'))}
-        del registry
+        del registry, _
         import gc;gc.collect()
     put(BASE/'pilot-quote.json',{'quotes':quotes,'pilot_blocks':1024,'outcomes_inspected':False,'at':time()})
 
@@ -269,7 +269,7 @@ def final_play():
         registry,done=direct.execute(specs,frozen['counts'][contrast],ROOTS[contrast],contrast,out/'play',frozen['source'])
         checked=direct.audit(out/'play',out/'replay.json')
         _,repeat=direct.execute(specs,frozen['counts'][contrast],ROOTS[contrast],contrast,out/'reproduction',frozen['source'],registry,out/'play')
-        del registry
+        del registry, _
         import gc;gc.collect()
     put(BASE/'all-final-verified.json',{'status':'verified','at':time(),'canonical_sha256':file_hash(BASE/'canonical-plan.json')})
 
