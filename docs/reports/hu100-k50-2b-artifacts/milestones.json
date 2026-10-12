@@ -1,0 +1,176 @@
+[
+  {
+    "actual_nodes": 1000000678,
+    "entries": 52786090,
+    "full_audit": {
+      "audit": {
+        "all_nodes_verified": 52786090,
+        "average_sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
+        "checkpoint_sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8",
+        "counts": {
+          "entries": 52786090,
+          "positive_mass": 34406492,
+          "zero_mass": 18379598
+        },
+        "current_sha256": "645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.2733790016217438
+      },
+      "entries": 52786090,
+      "files": {
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz": {
+          "bytes": 1484184622,
+          "sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5"
+        },
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz": {
+          "bytes": 1337790043,
+          "sha256": "645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179"
+        },
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz": {
+          "bytes": 2292521401,
+          "sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8"
+        }
+      },
+      "hu20_reference_checked": false,
+      "iteration": 935476,
+      "mean_traverser_visits_per_key": 3.7367821522677658,
+      "native_state": {
+        "completed_nodes": 1000000678,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          15734934,
+          51383543,
+          144799685,
+          349910232
+        ],
+        "traverser_visits_by_street": [
+          5135906,
+          17083973,
+          50673808,
+          124356432
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 34406492,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 19448733,
+        "1": 16186069,
+        "10-99": 3425781,
+        "100+": 171224,
+        "2-9": 13554283
+      },
+      "zero_average_mass_keys": 18379598
+    },
+    "iterations": 935476,
+    "mean_traverser_visits_per_key": 3.7367821522677658,
+    "policy": "K50",
+    "requested_nodes": 1000000000,
+    "zero_visit_fraction": 0.3684442814385381
+  },
+  {
+    "actual_nodes": 2000000978,
+    "entries": 69531154,
+    "full_audit": {
+      "audit": {
+        "all_nodes_verified": 69531154,
+        "average_sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+        "checkpoint_sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd",
+        "counts": {
+          "entries": 69531154,
+          "positive_mass": 45068393,
+          "zero_mass": 24462761
+        },
+        "current_sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.2855779319096877
+      },
+      "entries": 69531154,
+      "files": {
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz": {
+          "bytes": 2004530099,
+          "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8"
+        },
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz": {
+          "bytes": 1772996048,
+          "sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9"
+        },
+        "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz": {
+          "bytes": 3124951804,
+          "sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
+        }
+      },
+      "hu20_reference_checked": false,
+      "iteration": 1919544,
+      "mean_traverser_visits_per_key": 5.593852375871685,
+      "native_state": {
+        "completed_nodes": 2000000978,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          30335200,
+          100762025,
+          290975943,
+          707711541
+        ],
+        "traverser_visits_by_street": [
+          9678263,
+          32705146,
+          99553984,
+          247009618
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 45068393,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 100,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 23283225,
+        "1": 20457840,
+        "10-99": 6102259,
+        "100+": 424306,
+        "2-9": 19263524
+      },
+      "zero_average_mass_keys": 24462761
+    },
+    "iterations": 1919544,
+    "mean_traverser_visits_per_key": 5.593852375871685,
+    "policy": "K50",
+    "requested_nodes": 2000000000,
+    "zero_visit_fraction": 0.3348603275015398
+  },
+  {
+    "actual_nodes": 1000002065,
+    "entries": 41010014,
+    "iterations": 885307,
+    "mean_traverser_visits_per_key": 4.847023070999195,
+    "policy": "v1",
+    "requested_nodes": 1000000000,
+    "source": "docs/reports/hu100-4b-seed-ladder-artifacts/milestones.json",
+    "zero_visit_fraction": 0.38699630777985106
+  },
+  {
+    "actual_nodes": 2000000460,
+    "entries": 54626283,
+    "iterations": 1812907,
+    "mean_traverser_visits_per_key": 7.201297093562086,
+    "policy": "v1",
+    "requested_nodes": 2000000000,
+    "source": "docs/reports/hu100-4b-seed-ladder-artifacts/milestones.json",
+    "zero_visit_fraction": 0.35888998707819825
+  }
+]

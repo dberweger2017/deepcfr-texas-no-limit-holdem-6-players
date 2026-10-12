@@ -1,0 +1,97 @@
+{
+  "at": 1791839668.716203,
+  "status": "archive-stopped-unverified",
+  "models": [
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz",
+      "bytes": 2004530099,
+      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791836502571800217,
+      "actual_nodes": 2000000978,
+      "iterations": 1919544,
+      "entries": 69531154,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.current.gz",
+      "bytes": 1772996048,
+      "sha256": "969f96ba50a01956e8b95199de2c9da8e812682a7be1febfad4b8545804187e9",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791836502572832376,
+      "actual_nodes": 2000000978,
+      "iterations": 1919544,
+      "entries": 69531154,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.gz",
+      "bytes": 3124951804,
+      "sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791833975002452649,
+      "actual_nodes": 2000000978,
+      "iterations": 1919544,
+      "entries": 69531154,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.average.gz",
+      "bytes": 1484184622,
+      "sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791834558704851018,
+      "actual_nodes": 1000000678,
+      "iterations": 935476,
+      "entries": 52786090,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.current.gz",
+      "bytes": 1337790043,
+      "sha256": "645b5e314a01d82a38d27a6d011680aea4aa18e81883e6ef89d26b4c76ff8179",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791834558708390030,
+      "actual_nodes": 1000000678,
+      "iterations": 935476,
+      "entries": 52786090,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/1000000000.gz",
+      "bytes": 2292521401,
+      "sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8",
+      "sha256_provenance": "completed full native export audit",
+      "mtime_ns": 1791833120591246256,
+      "actual_nodes": 1000000678,
+      "iterations": 935476,
+      "entries": 52786090,
+      "restoration": "No accepted archive yet. Retain this protected original; do not copy, remove or use without the owning PR/owner dependency check."
+    }
+  ],
+  "partial_archive": {
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-M4-20261012.zip",
+    "bytes": 2075422594,
+    "mtime_ns": 1791839491142321596,
+    "sha256": null,
+    "member_manifest": null,
+    "member_readback": false,
+    "accepted": false,
+    "native_flags": {
+      "documentSize": 2075422594,
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0,
+      "isTrashed": 0,
+      "isSyncPaused": 0,
+      "isExcludedFromSync": 0
+    },
+    "ids": {
+      "archive_id": "1M4GB44ButQ4sFQ18bisG8NexnqHQXZjk",
+      "folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+    }
+  },
+  "averages_only_zip": "not created",
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false
+}
