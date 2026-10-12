@@ -57,3 +57,14 @@ def test_independent_replay_rejects_foreign_rival_key(tmp_path,monkeypatch):
         for row in rows:target.write(json.dumps(row)+'\n')
     with pytest.raises(ValueError,match='schema key'):
         replay(plan,out,tmp_path)
+
+def test_independent_replay_rejects_rival_decision_action_disagreement(tmp_path,monkeypatch):
+    plan,out=played(tmp_path,monkeypatch)
+    path=out/'direct-lineage-1.hands.jsonl.gz'
+    with gzip.open(path,'rt') as source:rows=list(map(json.loads,source))
+    decision=next(a for row in rows for a in row['actions'] if a['logical_player'])
+    decision['reference_decision']['kind']='foreign-action'
+    with gzip.open(path,'wt') as target:
+        for row in rows:target.write(json.dumps(row)+'\n')
+    with pytest.raises(ValueError,match='decision/action'):
+        replay(plan,out,tmp_path)

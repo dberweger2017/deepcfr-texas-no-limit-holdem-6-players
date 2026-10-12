@@ -62,6 +62,8 @@ def replay(plan,out,root):
                         evidence=record['reference_decision']
                         key_recorded=evidence['key'];p=evidence['probabilities'];visits=evidence['training_visits'];known=evidence['trained']
                         if evidence['menu']!=[choice.name for choice in menu]:raise ValueError('Rival menu differs')
+                        if (evidence['kind'],evidence['raise_to'])!=(record['kind'],record['raise_to']):
+                            raise ValueError('Rival decision/action evidence differs')
                     if key_recorded!=key:raise ValueError('Policy-owned schema key differs')
                     if type(visits) is not int or visits<0 or type(known) is not bool:raise ValueError('Visit/support evidence invalid')
                     if len(p)!=len(menu) or any(not math.isfinite(v) or v<0 for v in p) or not math.isclose(math.fsum(p),1,abs_tol=1e-8):

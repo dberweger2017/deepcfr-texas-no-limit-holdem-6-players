@@ -96,6 +96,6 @@ No other PR work root was read.
 The one-use wrapper separates fixed model loading from per-hand play, checks
 the unchanged time/precision limits, requires the exact canonical plan on PR238
 before final play, and independently replays both contrasts before readout.
-Seven source tests pass for cost projection, paired seed/seat weighting,
+Eight source tests pass for cost projection, paired seed/seat weighting,
 independent arithmetic and corrupt replay evidence. Pilot and final play remain
 pending until all three terminal K50 exports pass their full audits.

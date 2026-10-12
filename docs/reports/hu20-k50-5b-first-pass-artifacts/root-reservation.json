@@ -15,6 +15,29 @@
       ],
       "public_issue_matches": [],
       "public_pr_matches": []
+    },
+    {
+      "at": 1791804048.9849632,
+      "github_body_and_comment_searches": [
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051101 in:body,comments",
+          "root": 20261012051101,
+          "total_count": 0
+        },
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051102 in:body,comments",
+          "root": 20261012051102,
+          "total_count": 0
+        },
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051103 in:body,comments",
+          "root": 20261012051103,
+          "total_count": 0
+        }
+      ]
     }
   ],
   "outcome_seen": false,
