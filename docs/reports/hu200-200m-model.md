@@ -65,8 +65,9 @@ The fresh run saved both milestones, reaching **200,001,087 actual nodes /
 111,844 iterations /31,582,921 entries**. [Training receipt](hu200-200m-model-artifacts/training.json).
 Native elapsed was 462.15s, including 102.76s /146.36s for the 100M /200M
 saves. Supervised train/save wall time was 470.47s. Sampled family peak was
-2.64 GiB; kernel command peak was 2.62 GiB. Export and full verification remain
-in progress.
+2.64 GiB; kernel command peak was 2.62 GiB. Both exports completed in 496.30s, with uniform zero-mass fallback and a
+23.28 MiB sampled family peak. Full every-row audit and compact load/play/replay
+verification remain in progress.
 
 ## Closeout requirements
 
