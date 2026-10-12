@@ -1,0 +1,168 @@
+{
+  "finished": 1791823605.255378,
+  "status": "verified",
+  "terminals": [
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+      "checkpoint_bytes": 506904575,
+      "checkpoint_sha256": "f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54",
+      "completed_nodes": 10000000463,
+      "diagnostics": {
+        "coverage_start": [
+          10536954,
+          5000000783,
+          972491153
+        ],
+        "decisions_by_street": [
+          128831640,
+          345834938,
+          872397896,
+          1584722462
+        ],
+        "entries": 9332257,
+        "positive_average_mass_keys": 6375602,
+        "traverser_visits": 1942985984,
+        "traverser_visits_by_street": [
+          40607276,
+          106200633,
+          270062293,
+          553624629
+        ],
+        "visits_histogram": {
+          "0": 1301693,
+          "1": 1571862,
+          "10-99": 2548135,
+          "100+": 1212271,
+          "2-9": 2698296
+        },
+        "zero_average_mass_keys": 2956655
+      },
+      "elapsed_seconds_including_writes": 3137.675121958,
+      "entries_per_completed_node": 0.0009332256567916521,
+      "iteration": 20736432,
+      "new_entries": 1028750,
+      "nodes_per_second_including_writes": 1593536.4515622177,
+      "nodes_since_previous_save": 4999999680,
+      "overshoot_nodes": 463,
+      "path": "results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+      "process_rss_bytes_after_save": 2245672960,
+      "recent_nodes_per_second_including_writes": 1593536.4515622177,
+      "requested_nodes": 10000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791823597.313854,
+      "write_seconds": 33.888668708,
+      "write_started": 1791823563.425493
+    },
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+      "checkpoint_bytes": 511801980,
+      "checkpoint_sha256": "f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006",
+      "completed_nodes": 10000000103,
+      "diagnostics": {
+        "coverage_start": [
+          10472679,
+          5000000182,
+          973517335
+        ],
+        "decisions_by_street": [
+          127383590,
+          349884917,
+          873046280,
+          1582585734
+        ],
+        "entries": 9435432,
+        "positive_average_mass_keys": 6441469,
+        "traverser_visits": 1944475861,
+        "traverser_visits_by_street": [
+          39863775,
+          107945688,
+          270036047,
+          553113016
+        ],
+        "visits_histogram": {
+          "0": 1333024,
+          "1": 1595651,
+          "10-99": 2578535,
+          "100+": 1208976,
+          "2-9": 2719246
+        },
+        "zero_average_mass_keys": 2993963
+      },
+      "elapsed_seconds_including_writes": 3143.170189625,
+      "entries_per_completed_node": 0.0009435431902815051,
+      "iteration": 20609741,
+      "new_entries": 1145418,
+      "nodes_per_second_including_writes": 1590750.6178011096,
+      "nodes_since_previous_save": 4999999921,
+      "overshoot_nodes": 103,
+      "path": "results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+      "process_rss_bytes_after_save": 2254192640,
+      "recent_nodes_per_second_including_writes": 1590750.6178011096,
+      "requested_nodes": 10000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791823602.866779,
+      "write_seconds": 34.063738708,
+      "write_started": 1791823568.803349
+    },
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+      "checkpoint_bytes": 509311840,
+      "checkpoint_sha256": "fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14",
+      "completed_nodes": 10000000465,
+      "diagnostics": {
+        "coverage_start": [
+          10444021,
+          5000000137,
+          972434347
+        ],
+        "decisions_by_street": [
+          125899455,
+          350645862,
+          876070219,
+          1580201713
+        ],
+        "entries": 9401392,
+        "positive_average_mass_keys": 6410311,
+        "traverser_visits": 1943637881,
+        "traverser_visits_by_street": [
+          39259478,
+          107678031,
+          272246388,
+          552019637
+        ],
+        "visits_histogram": {
+          "0": 1347845,
+          "1": 1584928,
+          "10-99": 2562515,
+          "100+": 1209803,
+          "2-9": 2696301
+        },
+        "zero_average_mass_keys": 2991081
+      },
+      "elapsed_seconds_including_writes": 3135.522263542,
+      "entries_per_completed_node": 0.0009401391562835292,
+      "iteration": 20522144,
+      "new_entries": 1092629,
+      "nodes_per_second_including_writes": 1594630.7848415077,
+      "nodes_since_previous_save": 5000000328,
+      "overshoot_nodes": 465,
+      "path": "results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+      "process_rss_bytes_after_save": 2251096064,
+      "recent_nodes_per_second_including_writes": 1594630.7848415077,
+      "requested_nodes": 10000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791823595.156746,
+      "write_seconds": 35.285596583,
+      "write_started": 1791823559.87147
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "failure": null,
+  "finished": 1791823605.847001,
+  "name": "three-concurrent-10b-lineages",
+  "peak_family_rss_bytes": 6780289024,
+  "returncode": 0,
+  "samples": 5864,
+  "seconds": 3158.5118079185486,
+  "started": 1791820447.3351932,
+  "status": "complete"
+}
