@@ -20,10 +20,18 @@ class PolicyRival:
     def __init__(self, source, seed):
         self.source = source
         self.random = Random(seed)
+        self.decisions = []
 
     def choose_action(self, view):
-        menu, probabilities, _ = self.source.distribution(view)
-        return self.random.choices(menu, weights=probabilities, k=1)[0].action
+        menu, probabilities, known = self.source.distribution(view)
+        action = self.random.choices(menu, weights=probabilities, k=1)[0].action
+        key = self.source.information_key(view, menu)
+        # Evidence belongs to the acting rival's own observation and schema.
+        self.decisions.append({'key': key, 'menu': [choice.name for choice in menu],
+            'probabilities': [float(p) for p in probabilities], 'trained': bool(known),
+            'training_visits': int(getattr(self.source, 'visits', {}).get(key, 0)),
+            'kind': action.kind.value, 'raise_to': action.raise_to})
+        return action
 
 
 def run(plan, policies, out, lineage):
@@ -48,6 +56,17 @@ def run(plan, policies, out, lineage):
                     rival = PolicyRival(reference, stream_seed(plan['root'], 'test', 'opponent', 2, block, 1))
                     row = play(candidate, spec['candidate'], {'name': 'direct-v040', 'contract': 'frozen-policy',
                                'rule': 'frozen-policy'}, plan['root'], block, rotation, guard, rival=rival)
+                    decisions = iter(rival.decisions)
+                    for action in row['actions']:
+                        if action['logical_player']:
+                            evidence = next(decisions)
+                            if (evidence['kind'], evidence['raise_to']) != (action['kind'], action['raise_to']):
+                                raise ValueError('Rival decision evidence differs from played action')
+                            action['reference_decision'] = evidence
+                        else:
+                            action['training_visits'] = int(getattr(candidate, 'visits', {}).get(action['target_key'], 0))
+                    if next(decisions, None) is not None:
+                        raise ValueError('Unconsumed rival decision evidence')
                     row.update(arm='O', lineage=lineage, reference=spec['reference']['name'])
                     stream.write(json.dumps(row, sort_keys=True, allow_nan=False) + '\n')
                     stream.flush()

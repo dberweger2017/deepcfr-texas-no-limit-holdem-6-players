@@ -92,6 +92,53 @@ def restore_tables(base):
          'retrieval': 'tar -xzf TABLE_ARCHIVE --strip-components=1 -C NEW_TABLE_DIR hu20-equity-buckets-20261005/{flop,turn,river}-k50.bin; verify all exact member hashes before use'})
 
 
+CONTROLS = [
+    (2026100601, 'PR-182-HU20-learning-curve', 'd11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930',
+     'a5250834508a503c8b391f8dbc77749eb52ebb18de10e59e99b45cd1c3fe557f',
+     '2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f'),
+    (2026100602, 'PR-185-HU20-O-10B', 'dfe132d93873203d17f980db4fcba6d7bfbcd70cec481293677171093356689a',
+     '1133cb9a0a06331d0fbdc1045fa8cdf12990b17eb1eec22b51d9859f8eb29d25',
+     '14651b481fb44c968f1039f69710344973f5b54a0a75fe5395f4ee319afd85ad'),
+    (2026100603, 'PR-185-HU20-O-10B', 'f360a8dcd5a1d39ca22dcab07de6a3529ee6eb68d73e5a561007372653c5a443',
+     '9f45dfaa77b6622d6e250a662ebb27eb11d60e462c849efdc7658e6f18ec3240',
+     'bb08472a95b11e2dc5c06565d59f6e04df0d4dc082d0d839528ee495c769d050'),
+]
+
+
+def restore_controls(base):
+    receipts = []
+    for seed, folder, whole_sha, manifest_sha, member_sha in CONTROLS:
+        name = f'O-{seed}-5000000000'
+        archive = Path.home()/'Local/Research-Cloud'/folder/(name+'-milestone.zip')
+        whole = check(archive, whole_sha)
+        output = base/'inputs'/(name+'.json.gz')
+        metadata = base/'inputs'/(name+'-archive-metadata')
+        metadata.mkdir(exist_ok=False)
+        with zipfile.ZipFile(archive) as source:
+            manifest = source.read('ARCHIVE-MANIFEST.json')
+            if hashlib.sha256(manifest).hexdigest() != manifest_sha:
+                raise ValueError('Control manifest differs')
+            with source.open(name+'.json.gz') as incoming, output.open('xb') as target:
+                shutil.copyfileobj(incoming,target,1024**2)
+            for item in source.infolist():
+                if item.is_dir() or item.filename.endswith('.json.gz') or item.file_size>1024**2:
+                    continue
+                relative=Path(item.filename)
+                if relative.is_absolute() or '..' in relative.parts:
+                    raise ValueError('Unsafe archive path')
+                target=metadata/relative;target.parent.mkdir(parents=True,exist_ok=True)
+                target.write_bytes(source.read(item))
+        member=check(output,member_sha)
+        with gzip.open(output,'rt') as stream:
+            header=json.loads(stream.readline())
+        if header['config']['seed']!=seed or header['average_rule']!='opponent-sampled':
+            raise ValueError('Control identity differs')
+        receipts.append({'status':'verified','archive':whole,'archive_member':name+'.json.gz',
+            'member':member,'manifest_sha256':manifest_sha,'seed':seed,'header':header,
+            'retrieval':'Extract the named model and compact metadata from the whole-hash-verified milestone ZIP; verify the manifest and member hashes.'})
+    write(base/'controls-restoration.json',receipts)
+
+
 def recipe_gate(base):
     reference = base / 'inputs/v1-seed602-1b.json.gz'
     check(reference, REFERENCE)
@@ -135,10 +182,10 @@ def recovery_gate(base):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('stage', choices=('reference', 'tables', 'recipe-gate', 'recovery-gate'))
+    p.add_argument('stage', choices=('reference', 'tables', 'controls', 'recipe-gate', 'recovery-gate'))
     p.add_argument('--base', type=Path, required=True)
     a = p.parse_args()
-    {'reference': restore_reference, 'tables': restore_tables, 'recipe-gate': recipe_gate,
+    {'reference': restore_reference, 'tables': restore_tables, 'controls': restore_controls, 'recipe-gate': recipe_gate,
      'recovery-gate': recovery_gate}[a.stage](a.base)
 
 
