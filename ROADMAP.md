@@ -90,6 +90,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 12, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **Reproducible native builds:** `python -m scripts.build_native_trainer` builds the trainer byte-identically from any checkout, given the same toolchain, linker and Cargo home, and prints a receipt naming them. A plain `cargo build` embeds the checkout path, which blocked #242's fresh-build gate. Campaign binary gates should use this build or the archived executable.
+
 - **v0.5.2 published and verified:** [stable Latest](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.2) since October 12, tag at #240's merge `3a3bc421`; draft and public downloads verify byte for byte ([publication record](docs/releases/v0.5.2/PUBLICATION.md)). The owner authorized releasing #226's 4B HU100 average (seed 2026100601) as v0.5.2 after #236 repeated its gain on two more seeds. `hu100_bundle.py` pins v0.5.0, v0.5.1 and v0.5.2. [Notes](docs/releases/v0.5.2/RELEASE_NOTES.md), [model card](docs/releases/v0.5.2/MODEL_CARD.md).
 
 - **v0.5.1 published and verified:** [stable Latest](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) since October 11, tag at #233's merge `dca7547e`; draft and public downloads verify byte for byte ([publication record](docs/releases/v0.5.1/PUBLICATION.md)). The owner authorized releasing #223's 2B HU100 average as v0.5.1. `--hu100-release` now loads any verified HU100 release bundle (v0.5.0 and v0.5.1); `hu100_bundle.py` pins both. [Notes](docs/releases/v0.5.1/RELEASE_NOTES.md), [model card](docs/releases/v0.5.1/MODEL_CARD.md).
