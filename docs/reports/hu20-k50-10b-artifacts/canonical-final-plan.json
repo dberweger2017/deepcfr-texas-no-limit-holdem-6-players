@@ -1,0 +1,140 @@
+{
+  "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+  "created": 1791824020.5873961,
+  "plan": {
+    "blocks": 8192,
+    "card_table_hashes": {
+      "flop-k50.bin": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river-k50.bin": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn-k50.bin": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "max_seconds": 12600,
+    "no_extension_or_failed_hand_rerun": true,
+    "pairs": [
+      {
+        "candidate": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "actual_nodes": 10000000463,
+          "bytes": 331877769,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+          "checkpoint_sha256": "f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54",
+          "current_path": "results/hu20-k50-10b/policies/k50-2026100601-10b.current.json.gz",
+          "current_sha256": "5f12a663655632023d40b94785e9ce5e4c65cad2186a72172f977f448ad6877c",
+          "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+          "iteration": 20736432,
+          "name": "k50-2026100601-10b",
+          "path": "results/hu20-k50-10b/policies/k50-2026100601-10b.average.jsonl.gz",
+          "requested_nodes": 10000000000,
+          "seed": 2026100601,
+          "sha256": "462a2bfaac9a87f1a9a5eae772e756146de1d2d4661735b2649d24ecd3cba340",
+          "strategy": "average",
+          "table_keys": 9332257
+        },
+        "reference": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "bytes": 290814688,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce",
+          "iteration": 10536954,
+          "name": "k50-2026100601-5b",
+          "path": "results/hu20-k50-10b/inputs/policies/k50-2026100601-5b.average.jsonl.gz",
+          "seed": 2026100601,
+          "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e",
+          "strategy": "average",
+          "table_keys": 8303507
+        }
+      },
+      {
+        "candidate": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "actual_nodes": 10000000103,
+          "bytes": 335115559,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+          "checkpoint_sha256": "f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006",
+          "current_path": "results/hu20-k50-10b/policies/k50-2026100602-10b.current.json.gz",
+          "current_sha256": "1422a4772cb6d339db0bf3ac164b88b90c83e83ade6f6ae485df1e25153bae29",
+          "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+          "iteration": 20609741,
+          "name": "k50-2026100602-10b",
+          "path": "results/hu20-k50-10b/policies/k50-2026100602-10b.average.jsonl.gz",
+          "requested_nodes": 10000000000,
+          "seed": 2026100602,
+          "sha256": "a6910c43332627ca0702817178f0dad92ec49a520fc3825163bda2268aa789b5",
+          "strategy": "average",
+          "table_keys": 9435432
+        },
+        "reference": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "bytes": 290368705,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be",
+          "iteration": 10472679,
+          "name": "k50-2026100602-5b",
+          "path": "results/hu20-k50-10b/inputs/policies/k50-2026100602-5b.average.jsonl.gz",
+          "seed": 2026100602,
+          "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b",
+          "strategy": "average",
+          "table_keys": 8290014
+        }
+      },
+      {
+        "candidate": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "actual_nodes": 10000000465,
+          "bytes": 333559395,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+          "checkpoint_sha256": "fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14",
+          "current_path": "results/hu20-k50-10b/policies/k50-2026100603-10b.current.json.gz",
+          "current_sha256": "09c490150edc94742788ca4f98151dff0da3984d1ef173fdaffa0e6d65c53e46",
+          "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+          "iteration": 20522144,
+          "name": "k50-2026100603-10b",
+          "path": "results/hu20-k50-10b/policies/k50-2026100603-10b.average.jsonl.gz",
+          "requested_nodes": 10000000000,
+          "seed": 2026100603,
+          "sha256": "04cf08faad2bbe14c9dab150d7a63d15a1bef5eead98cb574b0acdd9ff782758",
+          "strategy": "average",
+          "table_keys": 9401392
+        },
+        "reference": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "bytes": 290499150,
+          "card_buckets": "results/hu20-k50-10b/tables",
+          "checkpoint_sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe",
+          "iteration": 10444021,
+          "name": "k50-2026100603-5b",
+          "path": "results/hu20-k50-10b/inputs/policies/k50-2026100603-5b.average.jsonl.gz",
+          "seed": 2026100603,
+          "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258",
+          "strategy": "average",
+          "table_keys": 8308763
+        }
+      }
+    ],
+    "root": 20261012081101,
+    "scope": "Descriptive K50 10B versus own K50 5B average. No decision or release gate; nominal paired Student-t 95% conditional on fixed trained policies.",
+    "seed_weighting": "three equally weighted seeds and two equally weighted seats within each shared deal block",
+    "started_at": 1791820023.0
+  },
+  "plan_sha256": "27824cfcae4385f73a6e19a39979ae1a8935a197546e62f2839b55df1faeda29",
+  "root_reservation": {
+    "freshness": {
+      "git_history_only_own_preparation_report": true,
+      "github_issue_search_matches": [],
+      "m4_no_ignore_scan_matches": [
+        "/Users/dberweger/Local/hu20-k50-10b-20261012/docs/reports/hu20-k50-10b.md",
+        "/Users/dberweger/Local/hu20-k50-10b-20261012/planning/k50_10b_run.py"
+      ],
+      "matches_are_own_unexecuted_protocol_references": true,
+      "prior_outcome_or_reservation_found": false
+    },
+    "pr": 242,
+    "reserved_at": 1791820698.630193,
+    "root": 20261012081101,
+    "scope": "8192 duplicate blocks per seed, seats rotated; descriptive only; no extension/rerun",
+    "status": "fresh-reserved"
+  }
+}
