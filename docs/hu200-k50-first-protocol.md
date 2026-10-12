@@ -16,7 +16,7 @@ recoverable checkpoints before the fresh main lineage.
 The node ceiling is 3,000,000,000. Complete-iteration recoverable saves at 500M,
 1B, 1.5B, 2B, 2.5B and terminal. Entry cap:
 `floor((11,000,000,000 - 1,400,000,000 - 500,000,000)/(96.9 * 1.1))`.
-The first complete iteration reaching the cap is terminal, including its small
+The resulting cap is **85,373,862 entries**. The first complete iteration reaching the cap is terminal, including its small
 entry overshoot. Entry projections do not stop training. Retain every native
 telemetry receipt, actual nodes, iterations, entries, total traverser visits,
 zero-visit fraction, speed including saves, write time and sampled family RSS.

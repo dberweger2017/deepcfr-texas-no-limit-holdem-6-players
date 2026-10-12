@@ -50,7 +50,9 @@ def prepare():
     if any(tables[s]['sha256']!=sha for s,sha in EQUITY_K50_SHA256.items()):
         raise ValueError('Pinned K50 tables differ')
     put(BASE/'inputs.json', {'status':'verified','owner':owner,'archive':archive_pin,
-         'archive_id':'1gwungsUq-b9uey8InGy0yOD2GbaMRhp- (folder; exact archive indexed in RESULTS_INDEX)',
+         'archive_id':'1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T',
+         'archive_url':'https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view',
+         'folder_id':'1gwungsUq-b9uey8InGy0yOD2GbaMRhp-',
          'tables':tables,'retrieval_command':list(map(str,args)), 'max_entries':CAP})
 
 
