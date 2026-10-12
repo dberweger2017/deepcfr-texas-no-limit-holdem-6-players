@@ -59,12 +59,12 @@ def pin(path):
     return {'path':str(path),'bytes':path.stat().st_size,'sha256':file_hash(path)}
 
 
-def limits(sample,rss,baseline,now):
+def limits(sample,rss,baseline,now,*,allowed_pressure=(1,),swap_growth_bytes=512*1024**2):
     if now>=baseline['deadline']:return 'seven-hour campaign ceiling'
     if rss>=HARD:return '11 GiB hard family RSS ceiling'
     if rss>=SOFT:return '10.5 GB soft family RSS ceiling'
-    if sample['pressure_level']!=1 or sample['free_percent']<15:return 'normal pressure / 15% free'
-    if sample['swap_bytes']-baseline['swap_bytes']>512*1024**2:return '512 MiB swap growth'
+    if sample['pressure_level'] not in allowed_pressure or sample['free_percent']<15:return 'allowed memory pressure / 15% free'
+    if sample['swap_bytes']-baseline['swap_bytes']>swap_growth_bytes:return str(swap_growth_bytes)+' byte swap growth'
     if sample['disk_free_bytes']<16*GIB:return '16 GiB disk floor'
     if not sample['ac']:return 'AC power'
     return None
@@ -224,15 +224,16 @@ def pilot():
     put(BASE/'pilot-quote.json',{'quotes':quotes,'pilot_blocks':1024,'outcomes_inspected':False,'at':time()})
 
 
-def freeze(pr):
+def freeze(pr, *, reservation_path=None, fixed_counts=False):
     from scipy.stats import t
     quote=read(BASE/'pilot-quote.json');budget=read(BASE/'budget.json');counts=dict(COUNTS)
     active=pairs()
-    reservation=read(ROOT/'docs/reports/hu100-k50-2b-artifacts/root-reservation.json')
+    reservation=read(reservation_path or ROOT/'docs/reports/hu100-k50-2b-artifacts/root-reservation.json')
     if reservation['roots']!=ROOTS or reservation['status']!='fresh-reserved':raise ValueError('Root reservation differs')
     def projection():
         return time()-budget['started']+1800+1.25*sum(q['load_seconds']+(q['play_seconds']+q['replay_seconds']+q['reproduction_seconds'])*counts[c]/1024 for c,q in quote['quotes'].items())
     projected=projection()
+    if projected>7*3600 and fixed_counts:raise ValueError('Fixed final counts do not fit the unchanged seven-hour ceiling')
     if projected>7*3600:
         counts={c:65536 for c in COUNTS}
         while projection()>7*3600 and counts['primary']>1024:counts={c:n//2 for c,n in counts.items()}

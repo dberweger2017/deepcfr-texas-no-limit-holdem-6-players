@@ -117,3 +117,17 @@ def test_preservation_permission_cannot_restart_scientific_work(tmp_path,monkeyp
         campaign.guard('pilot',['.venv/bin/python','-m','scripts.run_hu100_k50_2b','pilot'])
     with pytest.raises(ValueError,match='only admits the archive'):
         campaign.guard('archive',['.venv/bin/python','-m','scripts.run_hu100_k50_2b','pilot'],preservation_only=True)
+
+
+def test_match_continuation_amends_only_pressure_and_swap():
+    from scripts import run_hu100_k50_match_continuation as continuation
+    baseline={'deadline':100,'swap_bytes':1000}
+    sample={'pressure_level':2,'free_percent':15,'swap_bytes':1000+2_000_000_000,'disk_free_bytes':16*1024**3,'ac':True}
+    assert continuation.limits(sample,campaign.SOFT-1,baseline,99) is None
+    assert campaign.limits(sample,campaign.SOFT-1,baseline,99)
+    for key,value in [('pressure_level',4),('pressure_level',0),('free_percent',14),
+                      ('swap_bytes',sample['swap_bytes']+1),('disk_free_bytes',sample['disk_free_bytes']-1),('ac',False)]:
+        assert continuation.limits(dict(sample,**{key:value}),0,baseline,99)
+    assert continuation.limits(sample,campaign.SOFT,baseline,99)
+    assert continuation.limits(sample,campaign.HARD,baseline,99)
+    assert continuation.limits(sample,0,baseline,100)
