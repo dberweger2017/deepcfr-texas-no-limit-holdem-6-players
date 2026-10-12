@@ -60,6 +60,16 @@ def treatment():
     gate=json.loads((BASE/'gates-complete.json').read_text())
     if gate['status']!='verified' or gate['binary_sha256']!=file_hash(BINARY):raise ValueError('Gate binary differs')
     for name,(size,sha) in TABLES.items():check(BASE/'tables'/name,sha,size)
+    budget=json.loads((BASE/'guards/budget.json').read_text())
+    reference=json.loads((BASE/'gates/v1-seed602-fresh-1b.telemetry.jsonl').read_text())
+    train_reserve=3*5*1.13*1.25*reference['elapsed_seconds_including_writes']
+    downstream_reserve=2*3600
+    quote={'at':time(),'remaining_seconds':budget['deadline']-time(),'training_reserve_seconds':train_reserve,
+           'downstream_provisional_reserve_seconds':downstream_reserve,
+           'basis':'Fresh byte-identical M4 v1 1B train/save time, x5 nodes x3 seeds, 13 percent K50 overhead and 25 percent headroom. Pilot measured play/replay quote still required before final play.'}
+    quote['admitted']=train_reserve+downstream_reserve<=quote['remaining_seconds']
+    write(BASE/'training-time-admission.json',quote)
+    if not quote['admitted']:raise ValueError('Training and downstream time forecast do not fit six hours')
     for seed,*_ in CONTROLS:
         checkpoint=BASE/'training'/f'K50-{seed}-5000000000.json.gz'
         telemetry=BASE/'training'/f'{seed}.telemetry.jsonl'
