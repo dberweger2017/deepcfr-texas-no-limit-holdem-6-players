@@ -1,0 +1,459 @@
+{
+  "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+  "created": 1791812060.1220539,
+  "input_table_hashes": {
+    "flop-k50.bin": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+    "river-k50.bin": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+    "turn-k50.bin": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+  },
+  "native_base": "045c793a4abd2e371d4d77de663fd3dd2f00316b",
+  "no_outcome_driven_extension": true,
+  "per_street_quantiles": "Distinct stored reached keys, coverage disclosed; exact global density",
+  "pilot_quote": {
+    "admitted": true,
+    "archive_closeout_reserve_seconds": 1800,
+    "completed": 1791812016.237868,
+    "decision_rule": "Stop if primary projected nominal95 half-width >3 BB/100 or total >6 hours. No count extension or reruns.",
+    "elapsed_campaign_seconds": 11590.000941991806,
+    "observed_peak_worker_rss_bytes": 1723138048,
+    "pilot_blocks_per_seed_per_contrast": 2048,
+    "pilot_replay_receipts": {
+      "primary": {
+        "decisions_checked": 67257,
+        "hands_replayed": 12288,
+        "plan_sha256": "39a7b3ca11c59122fd0d4b83cfa6ba9df434038afe7bcf1620fddab575a6f8d4",
+        "policy_owned_key_checks": true,
+        "public_observations_and_legal_bounds_checked": true,
+        "raw_files": [
+          {
+            "bytes": 4197760,
+            "path": "results/hu20-k50-5b/direct/pilot-primary/direct-lineage-1.hands.jsonl.gz",
+            "sha256": "ceb949cf94ec15b4e7269f85a4b77cd449440c487c148e59c502e28a056291fa"
+          },
+          {
+            "bytes": 4209425,
+            "path": "results/hu20-k50-5b/direct/pilot-primary/direct-lineage-2.hands.jsonl.gz",
+            "sha256": "513423b640dcf65cda844f7bb66596a6e8c36dff6b973a82126f3cd01127d198"
+          },
+          {
+            "bytes": 4212454,
+            "path": "results/hu20-k50-5b/direct/pilot-primary/direct-lineage-3.hands.jsonl.gz",
+            "sha256": "5ae6eb399fa8f1953693d88523331821e8d99bc0ba03fe260fdea0cfd22065b9"
+          }
+        ],
+        "seconds": 10.23043854100979,
+        "status": "verified"
+      },
+      "secondary": {
+        "decisions_checked": 67293,
+        "hands_replayed": 12288,
+        "plan_sha256": "d73f42d2f9af43de58720e1c263776741e7eca3ce306e80201c802242ec9d7a1",
+        "policy_owned_key_checks": true,
+        "public_observations_and_legal_bounds_checked": true,
+        "raw_files": [
+          {
+            "bytes": 4198389,
+            "path": "results/hu20-k50-5b/direct/pilot-secondary/direct-lineage-1.hands.jsonl.gz",
+            "sha256": "d5dcc0b3cd3da2088de07175d90280dcca88abb89a631ce926b76643d82f19fc"
+          },
+          {
+            "bytes": 4222123,
+            "path": "results/hu20-k50-5b/direct/pilot-secondary/direct-lineage-2.hands.jsonl.gz",
+            "sha256": "5b1011c7477963a6b571edb79e499214703b093aae701e01923823701290f20a"
+          },
+          {
+            "bytes": 4208091,
+            "path": "results/hu20-k50-5b/direct/pilot-secondary/direct-lineage-3.hands.jsonl.gz",
+            "sha256": "dbc42d338c506853b8865f72d5f686bd1b1df1a9088e751151c4d1a7ac5b6436"
+          }
+        ],
+        "seconds": 10.200028916995507,
+        "status": "verified"
+      }
+    },
+    "pilot_results": [
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 1,
+        "load_seconds": 61.34794208400126,
+        "peak_rss_bytes": 1696399360,
+        "plan_sha256": "39a7b3ca11c59122fd0d4b83cfa6ba9df434038afe7bcf1620fddab575a6f8d4",
+        "play_seconds": 5.956379541006754,
+        "seconds": 67.30432162500801,
+        "status": "complete"
+      },
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 2,
+        "load_seconds": 61.64200733299367,
+        "peak_rss_bytes": 1644625920,
+        "plan_sha256": "39a7b3ca11c59122fd0d4b83cfa6ba9df434038afe7bcf1620fddab575a6f8d4",
+        "play_seconds": 6.016034792002756,
+        "seconds": 67.65804212499643,
+        "status": "complete"
+      },
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 3,
+        "load_seconds": 61.6032057919947,
+        "peak_rss_bytes": 1674149888,
+        "plan_sha256": "39a7b3ca11c59122fd0d4b83cfa6ba9df434038afe7bcf1620fddab575a6f8d4",
+        "play_seconds": 6.0056109160068445,
+        "seconds": 67.60881670800154,
+        "status": "complete"
+      },
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 1,
+        "load_seconds": 65.3282086669933,
+        "peak_rss_bytes": 1723138048,
+        "plan_sha256": "d73f42d2f9af43de58720e1c263776741e7eca3ce306e80201c802242ec9d7a1",
+        "play_seconds": 6.004808875004528,
+        "seconds": 71.33301754199783,
+        "status": "complete"
+      },
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 2,
+        "load_seconds": 65.02473925000231,
+        "peak_rss_bytes": 1605025792,
+        "plan_sha256": "d73f42d2f9af43de58720e1c263776741e7eca3ce306e80201c802242ec9d7a1",
+        "play_seconds": 6.006562582988408,
+        "seconds": 71.03130183299072,
+        "status": "complete"
+      },
+      {
+        "failure": null,
+        "hands": 4096,
+        "lineage": 3,
+        "load_seconds": 65.49181650001265,
+        "peak_rss_bytes": 1600077824,
+        "plan_sha256": "d73f42d2f9af43de58720e1c263776741e7eca3ce306e80201c802242ec9d7a1",
+        "play_seconds": 5.938059041989618,
+        "seconds": 71.42987554200226,
+        "status": "complete"
+      }
+    ],
+    "pilot_roots": 20261012051101,
+    "primary_aggregate_paired_sd_bb_per_100": 253.03396385651507,
+    "projected_final_play_seconds": 955.2772116099804,
+    "projected_final_replay_seconds": 326.88747932808474,
+    "projected_primary_half_width_bb_per_100": 2.73979447108819,
+    "projected_total_seconds": 14992.706805664388,
+    "projected_trace_bytes": 444369060,
+    "status": "cost-only-pilot",
+    "time_headroom_multiplier": 1.25
+  },
+  "plan_digests": {
+    "primary": "64bf81c6ed5f7915f68cc8e0a91e6451e0d2c2db1a55f7bc169f537af3662b86",
+    "secondary": "21c6ce08efee85ea681e91d17088f20cb868d1628b43bd89027ac965ce27c863"
+  },
+  "plans": {
+    "primary": {
+      "blocks": 32768,
+      "card_table_hashes": {
+        "flop-k50.bin": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river-k50.bin": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn-k50.bin": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "contrast": "primary",
+      "max_seconds": 21600.0,
+      "pairs": [
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000783,
+            "bytes": 290814688,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100601-5000000000.json.gz",
+            "checkpoint_sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100601-5b.current.json.gz",
+            "current_sha256": "51dc6765cca95fdbff643d5538b23da99ec6e13a927d4703445df5a6dc71d9bd",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10536954,
+            "name": "k50-2026100601-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100601-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100601,
+            "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e",
+            "strategy": "average",
+            "table_keys": 8303507
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "actual_nodes": 5000000043,
+            "bytes": 214796948,
+            "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100601-5000000000.json.gz",
+            "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+            "current_path": "results/hu20-k50-5b/policies/v1-2026100601-5b.current.json.gz",
+            "current_sha256": "c8022585cbf36c976fb20072906b90f29565a48d7891fee079361f635886cd73",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 9971555,
+            "name": "v1-2026100601-5b",
+            "path": "results/hu20-k50-5b/policies/v1-2026100601-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100601,
+            "sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+            "strategy": "average",
+            "table_keys": 6315718
+          }
+        },
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000182,
+            "bytes": 290368705,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100602-5000000000.json.gz",
+            "checkpoint_sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100602-5b.current.json.gz",
+            "current_sha256": "596adff516beaec21c773558dc4aa6e077962a6f8b6eb1b6fd22f6ed104e5504",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10472679,
+            "name": "k50-2026100602-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100602-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100602,
+            "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b",
+            "strategy": "average",
+            "table_keys": 8290014
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "actual_nodes": 5000000208,
+            "bytes": 217829618,
+            "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100602-5000000000.json.gz",
+            "checkpoint_sha256": "14651b481fb44c968f1039f69710344973f5b54a0a75fe5395f4ee319afd85ad",
+            "current_path": "results/hu20-k50-5b/policies/v1-2026100602-5b.current.json.gz",
+            "current_sha256": "5333e8f7fd8e0403b3b6e0a6935936a72cba29b5a2632eb02383dda645c7edcd",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 9809166,
+            "name": "v1-2026100602-5b",
+            "path": "results/hu20-k50-5b/policies/v1-2026100602-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100602,
+            "sha256": "4610b6fb06f370bf7478c8dcd79e7be867fa40d7d0dd4b5e767db84e812fd42f",
+            "strategy": "average",
+            "table_keys": 6414988
+          }
+        },
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000137,
+            "bytes": 290499150,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100603-5000000000.json.gz",
+            "checkpoint_sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100603-5b.current.json.gz",
+            "current_sha256": "d7424c72fe9ddd8f859447efcba2d4decdba4a0802b76100a0131402c95c22b8",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10444021,
+            "name": "k50-2026100603-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100603-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100603,
+            "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258",
+            "strategy": "average",
+            "table_keys": 8308763
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "actual_nodes": 5000000544,
+            "bytes": 216725085,
+            "checkpoint_path": "results/hu20-k50-5b/inputs/O-2026100603-5000000000.json.gz",
+            "checkpoint_sha256": "bb08472a95b11e2dc5c06565d59f6e04df0d4dc082d0d839528ee495c769d050",
+            "current_path": "results/hu20-k50-5b/policies/v1-2026100603-5b.current.json.gz",
+            "current_sha256": "ca0311dab4e523dfafa4fe47568c2bc670a3116039bd219fb625dcf9ce9f5878",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10008052,
+            "name": "v1-2026100603-5b",
+            "path": "results/hu20-k50-5b/policies/v1-2026100603-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100603,
+            "sha256": "df34d756203dfc59753043bd03edcb885b094143f9b482b29abdb0371cab4268",
+            "strategy": "average",
+            "table_keys": 6374215
+          }
+        }
+      ],
+      "root": 20261012051102,
+      "scope": "HU20 K50 5B first pass, nominal paired Student-t95 conditional on these fixed trained policies",
+      "seed_weighting": "three equally weighted seeds and two equally weighted seats within each deal block",
+      "started_at": 1791800426.236314
+    },
+    "secondary": {
+      "blocks": 32768,
+      "card_table_hashes": {
+        "flop-k50.bin": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river-k50.bin": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn-k50.bin": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "contrast": "secondary",
+      "max_seconds": 21600.0,
+      "pairs": [
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000783,
+            "bytes": 290814688,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100601-5000000000.json.gz",
+            "checkpoint_sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100601-5b.current.json.gz",
+            "current_sha256": "51dc6765cca95fdbff643d5538b23da99ec6e13a927d4703445df5a6dc71d9bd",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10536954,
+            "name": "k50-2026100601-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100601-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100601,
+            "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e",
+            "strategy": "average",
+            "table_keys": 8303507
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "bytes": 249237403,
+            "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+            "iteration": 19538759,
+            "name": "v0.4.2-O10B-seed2026100601",
+            "path": "results/hu20-k50-5b/release/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+            "strategy": "average"
+          }
+        },
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000182,
+            "bytes": 290368705,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100602-5000000000.json.gz",
+            "checkpoint_sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100602-5b.current.json.gz",
+            "current_sha256": "596adff516beaec21c773558dc4aa6e077962a6f8b6eb1b6fd22f6ed104e5504",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10472679,
+            "name": "k50-2026100602-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100602-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100602,
+            "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b",
+            "strategy": "average",
+            "table_keys": 8290014
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "bytes": 249237403,
+            "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+            "iteration": 19538759,
+            "name": "v0.4.2-O10B-seed2026100601",
+            "path": "results/hu20-k50-5b/release/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+            "strategy": "average"
+          }
+        },
+        {
+          "candidate": {
+            "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+            "actual_nodes": 5000000137,
+            "bytes": 290499150,
+            "card_buckets": "results/hu20-k50-5b/tables",
+            "checkpoint_path": "results/hu20-k50-5b/training/K50-2026100603-5000000000.json.gz",
+            "checkpoint_sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe",
+            "current_path": "results/hu20-k50-5b/policies/k50-2026100603-5b.current.json.gz",
+            "current_sha256": "d7424c72fe9ddd8f859447efcba2d4decdba4a0802b76100a0131402c95c22b8",
+            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+            "iteration": 10444021,
+            "name": "k50-2026100603-5b",
+            "path": "results/hu20-k50-5b/policies/k50-2026100603-5b.average.jsonl.gz",
+            "requested_nodes": 5000000000,
+            "seed": 2026100603,
+            "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258",
+            "strategy": "average",
+            "table_keys": 8308763
+          },
+          "reference": {
+            "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+            "bytes": 249237403,
+            "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+            "iteration": 19538759,
+            "name": "v0.4.2-O10B-seed2026100601",
+            "path": "results/hu20-k50-5b/release/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+            "strategy": "average"
+          }
+        }
+      ],
+      "root": 20261012051103,
+      "scope": "HU20 K50 5B first pass, nominal paired Student-t95 conditional on these fixed trained policies",
+      "seed_weighting": "three equally weighted seeds and two equally weighted seats within each deal block",
+      "started_at": 1791800426.236314
+    }
+  },
+  "primary_decision": "lower95>0: stronger, recommend longer protocol; upper95<0: weaker, recommend stopping full-game K50; otherwise inconclusive, no extension",
+  "protocol": "docs/hu20-k50-5b-first-pass.md",
+  "root_reservation": {
+    "at": 1791803979.856367,
+    "checks": [
+      {
+        "command": "M1 rg -n 2026101205110[123] configs docs planning results RESULTS_INDEX.md -g *.json -g *.md -g *.jsonl -g *.txt",
+        "exitcode": 1,
+        "matches": []
+      },
+      {
+        "command": "M4 rg same scopes; public gh search issues and gh search prs each exact root, --match body --limit100",
+        "own_only_mentions": [
+          "docs/hu20-k50-5b-first-pass.md:77-78",
+          "planning/T3-K50-HANDOFF.md",
+          "planning/T3-K50-HANDOFF-storage-history.md"
+        ],
+        "public_issue_matches": [],
+        "public_pr_matches": []
+      },
+      {
+        "at": 1791804048.9849632,
+        "github_body_and_comment_searches": [
+          {
+            "own_only_matches": [],
+            "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051101 in:body,comments",
+            "root": 20261012051101,
+            "total_count": 0
+          },
+          {
+            "own_only_matches": [],
+            "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051102 in:body,comments",
+            "root": 20261012051102,
+            "total_count": 0
+          },
+          {
+            "own_only_matches": [],
+            "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051103 in:body,comments",
+            "root": 20261012051103,
+            "total_count": 0
+          }
+        ]
+      }
+    ],
+    "outcome_seen": false,
+    "reserved_28b_roots_untouched": true,
+    "reserved_before_pilot": true,
+    "roots": {
+      "pilot": 20261012051101,
+      "primary": 20261012051102,
+      "secondary": 20261012051103
+    },
+    "scope": "Tracked/ignored readable configs, reports, manifests and plans in current M4 task checkout and M1 coordinator checkout, RESULTS_INDEX, and public GitHub issue/PR body searches; no other PR work roots read.",
+    "status": "fresh-reserved"
+  },
+  "source": "f1c3a978a3d357013bbfd87335db7cf815480bc9"
+}

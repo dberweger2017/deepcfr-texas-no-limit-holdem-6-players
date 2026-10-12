@@ -120,3 +120,9 @@ The three-seed sequential train/export/audit guard completed in **9,112.42 s
 cleanup error. [Full model hashes, audits and density](hu20-k50-5b-first-pass-artifacts/terminal-audits.json).
 The cost-only pilot uses the reserved root and will disclose costs and SD only;
 final play still requires its time/precision gate and a canonical plan on PR238.
+
+## Pilot admission and final freeze
+
+The2048-block/seed/contrast cost-only pilot replays all24,576 hands. Only pairedSD and costs were inspected. Primaryaggregate SD **253.03BB/100** projects a **2.7398BB/100** nominal95 half-width at32768blocks. Final play/replay forecasts are955.28s/326.89s;25% time headroom plus1800s archive/closeout gives **14,992.71s /4h10m** total. Both limits pass. Pilot guard458.07s, peakfamily1.73GiB, no failure.
+
+[Exact canonical plan](hu20-k50-5b-first-pass-artifacts/canonical-final-plan.json), [cost-only quote](hu20-k50-5b-first-pass-artifacts/pilot-quote.json), and [pre-play PR posting](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/238#issuecomment-6125369610) freeze all inputs/counts/roots/decision before any final hand. No final strength result yet.
