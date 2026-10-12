@@ -1,0 +1,38 @@
+{
+  "status": "preventive-storage-refusal",
+  "checked_at": 1791779946.5854452,
+  "disk_free_bytes": 23482867712,
+  "floor_bytes": 17179869184,
+  "retained_reserves": {
+    "k50_tables_exact": 1384031032,
+    "v1_5b_checkpoints_rounded": 1000000000,
+    "v1_5b_averages_1_1x_seed601": 708829929,
+    "v1_5b_current_exports_at_checkpoint_bytes": 1000000000,
+    "v042_average_exact": 249237403,
+    "gate_reference_and_fresh_1b_exact": 428441356,
+    "short_recovery_gate_reserve": 268435456,
+    "k50_terminal_sets_1_4x_1_1x": 4027442700,
+    "pilot_and_final_raw_traces_reserve": 1073741824,
+    "environment_build_source_reserve": 1073741824
+  },
+  "retained_reserve_bytes": 11213901524,
+  "largest_transient_reserve_bytes": 9959634658,
+  "scratch_reserve_bytes": 9959634658,
+  "archive_reserve_bytes": 6334932248,
+  "required_free_bytes": 38353405366,
+  "required_free_gib": 35.71939223073423,
+  "proposed_admission_free_gib": 38,
+  "formula": "16 GiB floor + retained inputs/outputs + max(sequential audit scratch, closeout ZIP)",
+  "provenance": {
+    "v1_seed601_5b_keys": 6315718,
+    "v1_seed601_checkpoint_bytes": 328471948,
+    "v1_seed601_average_bytes": 214796948,
+    "key_factor": 1.4,
+    "forecast_headroom": 1.1,
+    "scratch_bytes_per_key": 1024,
+    "scratch_source": "scripts/estimate_hu_export_capacity.py advisory planning term; not a measured K50 footprint"
+  },
+  "limitations": "Conservative prospective admission reserve, not an actual disk peak. Recheck actual files, archive hydration and pilot scratch/trace costs before each stage. No guard breach, scientific retry or weakened guard.",
+  "no_science_started": true,
+  "no_campaign_budget_started": true
+}

@@ -1,0 +1,13 @@
+{
+  "at": 1791816805.996941,
+  "owner_statement": "Exception permitted",
+  "authorized_operation": "archive-closeout-startup-repair",
+  "scope": "One supplemental archive-only startup repair, preserving original failure and every resource/deadline guard; no scientific retry or result/model changes.",
+  "command": [
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/.venv/bin/python",
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/planning/seal-archive-closeout.py"
+  ],
+  "original_failure_sha256": "e4d00174939e72645ae04b5340b90faac0c1c7ae3012a359b80cf399cd1a7e66",
+  "original_budget_sha256": "e7eaefd67f5dfaaa977e4ee52d5201e1fb3450955635b9296c1fe81c3ac10585",
+  "corrected_worker_sha256": "ec3fa7ad1dda8c18c4d2604e9543441e24c58d98f1469aa23839f9aa05956b7a"
+}

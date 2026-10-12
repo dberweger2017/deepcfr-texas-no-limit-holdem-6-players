@@ -1,0 +1,79 @@
+{
+  "at": 1791814662.253999,
+  "status": "main-archive-accepted",
+  "local_integrity": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 4697444347,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 4697316135,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "528f23792f27488882a37f76ff6f2ac453af2dcf69fafead3ae6b41b406b3fc0",
+    "members": 245,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-238-hu20-k50-5b-first-pass/hu20-k50-5b-first-pass-M4-20261012.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 19.526128083991352,
+    "sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27",
+    "status": "locally-verified"
+  },
+  "native": {
+    "at": 1791814164.691565,
+    "flags": {
+      "documentSize": 4697444347,
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0,
+      "isTrashed": 0,
+      "isSyncPaused": 0,
+      "isExcludedFromSync": 0
+    },
+    "ids": {
+      "folder_id": "1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-"
+    },
+    "upload_error_reported": false,
+    "raw_path": "planning/archive-native-after-startup-failure.txt"
+  },
+  "independent_cloud_metadata": {
+    "id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+    "title": "hu20-k50-5b-first-pass-M4-20261012.zip",
+    "mime_type": "application/zip",
+    "size": "4697444347",
+    "url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": "2026-10-12T14:04:07.818Z",
+    "modified_time": "2026-10-12T14:04:19.664Z",
+    "parent_ids": [
+      "1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "independent_folder_metadata": {
+    "id": "1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4",
+    "title": "PR-238-hu20-k50-5b-first-pass",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4",
+    "display_url": "https://drive.google.com/drive/folders/1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "remote_archive_bytes_downloaded": false,
+  "supplemental_closeout_failed": true,
+  "originals_retained": true
+}

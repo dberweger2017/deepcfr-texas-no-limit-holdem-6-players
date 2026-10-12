@@ -1,0 +1,125 @@
+{
+  "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+  "models": [
+    {
+      "label": "k50",
+      "seed": 2026100601,
+      "kind": "average",
+      "member": "research/policies/k50-2026100601-5b.average.jsonl.gz",
+      "bytes": 290814688,
+      "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100601,
+      "kind": "current",
+      "member": "research/policies/k50-2026100601-5b.current.json.gz",
+      "bytes": 211920096,
+      "sha256": "51dc6765cca95fdbff643d5538b23da99ec6e13a927d4703445df5a6dc71d9bd"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100601,
+      "kind": "checkpoint",
+      "member": "research/training/K50-2026100601-5000000000.json.gz",
+      "bytes": 441190007,
+      "sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100602,
+      "kind": "average",
+      "member": "research/policies/k50-2026100602-5b.average.jsonl.gz",
+      "bytes": 290368705,
+      "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100602,
+      "kind": "current",
+      "member": "research/policies/k50-2026100602-5b.current.json.gz",
+      "bytes": 211535274,
+      "sha256": "596adff516beaec21c773558dc4aa6e077962a6f8b6eb1b6fd22f6ed104e5504"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100602,
+      "kind": "checkpoint",
+      "member": "research/training/K50-2026100602-5000000000.json.gz",
+      "bytes": 440677004,
+      "sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100603,
+      "kind": "average",
+      "member": "research/policies/k50-2026100603-5b.average.jsonl.gz",
+      "bytes": 290499150,
+      "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100603,
+      "kind": "current",
+      "member": "research/policies/k50-2026100603-5b.current.json.gz",
+      "bytes": 211984396,
+      "sha256": "d7424c72fe9ddd8f859447efcba2d4decdba4a0802b76100a0131402c95c22b8"
+    },
+    {
+      "label": "k50",
+      "seed": 2026100603,
+      "kind": "checkpoint",
+      "member": "research/training/K50-2026100603-5000000000.json.gz",
+      "bytes": 440722890,
+      "sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100601,
+      "kind": "average",
+      "member": "research/policies/v1-2026100601-5b.average.jsonl.gz",
+      "bytes": 214796948,
+      "sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100601,
+      "kind": "current",
+      "member": "research/policies/v1-2026100601-5b.current.json.gz",
+      "bytes": 156001836,
+      "sha256": "c8022585cbf36c976fb20072906b90f29565a48d7891fee079361f635886cd73"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100602,
+      "kind": "average",
+      "member": "research/policies/v1-2026100602-5b.average.jsonl.gz",
+      "bytes": 217829618,
+      "sha256": "4610b6fb06f370bf7478c8dcd79e7be867fa40d7d0dd4b5e767db84e812fd42f"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100602,
+      "kind": "current",
+      "member": "research/policies/v1-2026100602-5b.current.json.gz",
+      "bytes": 158424978,
+      "sha256": "5333e8f7fd8e0403b3b6e0a6935936a72cba29b5a2632eb02383dda645c7edcd"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100603,
+      "kind": "average",
+      "member": "research/policies/v1-2026100603-5b.average.jsonl.gz",
+      "bytes": 216725085,
+      "sha256": "df34d756203dfc59753043bd03edcb885b094143f9b482b29abdb0371cab4268"
+    },
+    {
+      "label": "v1",
+      "seed": 2026100603,
+      "kind": "current",
+      "member": "research/policies/v1-2026100603-5b.current.json.gz",
+      "bytes": 157442282,
+      "sha256": "ca0311dab4e523dfafa4fe47568c2bc670a3116039bd219fb625dcf9ce9f5878"
+    }
+  ]
+}

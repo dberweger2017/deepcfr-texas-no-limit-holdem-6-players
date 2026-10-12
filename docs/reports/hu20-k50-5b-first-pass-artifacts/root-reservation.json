@@ -1,0 +1,53 @@
+{
+  "at": 1791803979.856367,
+  "checks": [
+    {
+      "command": "M1 rg -n 2026101205110[123] configs docs planning results RESULTS_INDEX.md -g *.json -g *.md -g *.jsonl -g *.txt",
+      "exitcode": 1,
+      "matches": []
+    },
+    {
+      "command": "M4 rg same scopes; public gh search issues and gh search prs each exact root, --match body --limit100",
+      "own_only_mentions": [
+        "docs/hu20-k50-5b-first-pass.md:77-78",
+        "planning/T3-K50-HANDOFF.md",
+        "planning/T3-K50-HANDOFF-storage-history.md"
+      ],
+      "public_issue_matches": [],
+      "public_pr_matches": []
+    },
+    {
+      "at": 1791804048.9849632,
+      "github_body_and_comment_searches": [
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051101 in:body,comments",
+          "root": 20261012051101,
+          "total_count": 0
+        },
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051102 in:body,comments",
+          "root": 20261012051102,
+          "total_count": 0
+        },
+        {
+          "own_only_matches": [],
+          "query": "repo:dberweger2017/deepcfr-texas-no-limit-holdem-6-players 20261012051103 in:body,comments",
+          "root": 20261012051103,
+          "total_count": 0
+        }
+      ]
+    }
+  ],
+  "outcome_seen": false,
+  "reserved_28b_roots_untouched": true,
+  "reserved_before_pilot": true,
+  "roots": {
+    "pilot": 20261012051101,
+    "primary": 20261012051102,
+    "secondary": 20261012051103
+  },
+  "scope": "Tracked/ignored readable configs, reports, manifests and plans in current M4 task checkout and M1 coordinator checkout, RESULTS_INDEX, and public GitHub issue/PR body searches; no other PR work roots read.",
+  "status": "fresh-reserved"
+}

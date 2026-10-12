@@ -6,13 +6,15 @@ import pytest
 
 from scripts.evaluate_hu20_cfr_plus_direct import PolicyRival, report
 from src.arena.schedule import digest
-from src.blueprint.abstraction import choices
+from src.blueprint.abstraction import choices, information_key, HU20_UNCAPPED_SCHEMA
 from src.game.hand import Hand, Table
 
 
 def test_rival_uses_its_own_observation_and_reproducible_stream():
     seen = []
     class Source:
+        def information_key(self, view, menu):
+            return information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
         def distribution(self, view):
             seen.append(view)
             menu = choices(view, raise_cap=None, free_fold=False)
@@ -22,6 +24,7 @@ def test_rival_uses_its_own_observation_and_reproducible_stream():
     left, right = PolicyRival(Source(), 3), PolicyRival(Source(), 3)
     assert [left.choose_action(view) for _ in range(8)] == [right.choose_action(view) for _ in range(8)]
     assert all(v is view for v in seen)
+    assert all(d['key']==information_key(view,choices(view,raise_cap=None,free_fold=False),schema=HU20_UNCAPPED_SCHEMA) for d in left.decisions)
 
 
 def test_direct_report_counts_deals_not_positions_or_lineages(tmp_path):

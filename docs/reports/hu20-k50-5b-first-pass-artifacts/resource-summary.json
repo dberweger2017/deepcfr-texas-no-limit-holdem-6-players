@@ -1,0 +1,175 @@
+{
+  "at": 1791813806.811808,
+  "status": "verified-through-report",
+  "fixed_budget": {
+    "deadline": 1791822026.236314,
+    "initial_host": {
+      "ac": true,
+      "at": 1791800426.249181,
+      "disk_free_bytes": 43488694272,
+      "free_percent": 87,
+      "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+      "pressure_level": 1,
+      "swap_bytes": 594081218,
+      "swap_raw": "vm.swapusage: total = 2048.00M  used = 566.56M  free = 1481.44M  (encrypted)\n"
+    },
+    "started": 1791800426.236314,
+    "swap_bytes": 594081218
+  },
+  "operations": [
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800434.608474,
+      "name": "build-release",
+      "peak_family_rss_bytes": 1123270656,
+      "returncode": 0,
+      "samples": 35,
+      "seconds": 8.372159957885742,
+      "started": 1791800426.236314,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791812016.3810089,
+      "name": "cost-only-direct-pilot",
+      "peak_family_rss_bytes": 1855275008,
+      "returncode": 0,
+      "samples": 1943,
+      "seconds": 458.06612372398376,
+      "started": 1791811558.3148851,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791813232.220375,
+      "name": "final-direct-play",
+      "peak_family_rss_bytes": 2205007872,
+      "returncode": 0,
+      "samples": 4118,
+      "seconds": 967.6798598766327,
+      "started": 1791812264.5405161,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791813599.163064,
+      "name": "final-numerical-readout",
+      "peak_family_rss_bytes": 216989696,
+      "returncode": 0,
+      "samples": 119,
+      "seconds": 27.796679973602295,
+      "started": 1791813571.366384,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791812060.201848,
+      "name": "freeze-canonical-final-plan",
+      "peak_family_rss_bytes": 118833152,
+      "returncode": 0,
+      "samples": 9,
+      "seconds": 1.9447431564331055,
+      "started": 1791812058.2571049,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791813571.3337119,
+      "name": "independent-final-replay",
+      "peak_family_rss_bytes": 1286602752,
+      "returncode": 0,
+      "samples": 1445,
+      "seconds": 339.0716049671173,
+      "started": 1791813232.262107,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800611.5278661,
+      "name": "native-tests",
+      "peak_family_rss_bytes": 637435904,
+      "returncode": 0,
+      "samples": 35,
+      "seconds": 8.222512245178223,
+      "started": 1791800603.3053539,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791801200.4002528,
+      "name": "recipe-and-recovery-gates",
+      "peak_family_rss_bytes": 1507950592,
+      "returncode": 0,
+      "samples": 2108,
+      "seconds": 496.02237582206726,
+      "started": 1791800704.377877,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791813676.9303198,
+      "name": "report-final-readout",
+      "peak_family_rss_bytes": 20791296,
+      "returncode": 0,
+      "samples": 2,
+      "seconds": 0.30976271629333496,
+      "started": 1791813676.620557,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791802089.625661,
+      "name": "restore-export-audit-controls",
+      "peak_family_rss_bytes": 123895808,
+      "returncode": 0,
+      "samples": 3480,
+      "seconds": 848.3543050289154,
+      "started": 1791801241.2713559,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791800659.417971,
+      "name": "restore-reference",
+      "peak_family_rss_bytes": 68517888,
+      "returncode": 0,
+      "samples": 176,
+      "seconds": 47.860515832901,
+      "started": 1791800611.557455,
+      "status": "complete"
+    },
+    {
+      "cleanup_error": null,
+      "failure": null,
+      "finished": 1791811495.56444,
+      "name": "three-sequential-k50-lineages",
+      "peak_family_rss_bytes": 2238562304,
+      "returncode": 0,
+      "samples": 38637,
+      "seconds": 9112.41531419754,
+      "started": 1791802383.1491258,
+      "status": "complete"
+    }
+  ],
+  "samples": 52107,
+  "peak_family_rss_bytes": 2238562304,
+  "maximum_fixed_baseline_swap_growth_bytes": 62725816,
+  "minimum_free_memory_percent": 72,
+  "minimum_free_disk_bytes": 35053006848,
+  "pressure_levels": [
+    1
+  ],
+  "all_samples_ac": true,
+  "no_campaign_failure": true
+}

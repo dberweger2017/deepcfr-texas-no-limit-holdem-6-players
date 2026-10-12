@@ -1,0 +1,56 @@
+{
+  "at": 1791817600.386966,
+  "status": "closeout-archive-accepted",
+  "local_integrity": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 80534,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 68296,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "0aa41a6f04f081d047f45f6ad4f384aa44d56c63944c0ffe42ebaaa8b75075b5",
+    "members": 27,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-238-hu20-k50-5b-first-pass/hu20-k50-5b-first-pass-M4-20261012-closeout.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 0.004603583991411142,
+    "sha256": "281cf1677bf441dc913cd40601c55394b3f9636fab219e21620a7ea94a67e88e",
+    "status": "locally-verified"
+  },
+  "native": {
+    "at": 1791817208.303094,
+    "flags": {
+      "documentSize": 80534,
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0,
+      "isTrashed": 0,
+      "isSyncPaused": 0,
+      "isExcludedFromSync": 0
+    },
+    "upload_error_reported": false,
+    "raw_path": "planning/closeout-native-status.txt",
+    "folder_id": "1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4",
+    "archive_id": "1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0"
+  },
+  "independent_cloud_metadata": {
+    "id": "1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0",
+    "title": "hu20-k50-5b-first-pass-M4-20261012-closeout.zip",
+    "mime_type": "application/zip",
+    "size": "80534",
+    "url": "https://drive.google.com/file/d/1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1CzL7umDojmOIhsOBPiLMC_J8_uKO6Ep4"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "remote_archive_bytes_downloaded": false,
+  "originals_retained": true
+}

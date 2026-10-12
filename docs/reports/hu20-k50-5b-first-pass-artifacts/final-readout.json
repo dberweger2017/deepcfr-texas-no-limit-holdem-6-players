@@ -1,0 +1,1058 @@
+{
+  "contrasts": {
+    "primary": {
+      "coverage": {
+        "k50-2026100601-5b": {
+          "classified_fraction": 0.0029646509601304605,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3406,
+                "mean": 17633.678214914857,
+                "quantiles": {
+                  "max": 192597,
+                  "median": 6908.5,
+                  "min": 29,
+                  "p10": 986.5,
+                  "p25": 2551.5,
+                  "p75": 18942.5,
+                  "p90": 46449.0,
+                  "p99": 134010.69999999992
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1831,
+                "mean": 15587.771709448389,
+                "quantiles": {
+                  "max": 95974,
+                  "median": 6708.0,
+                  "min": 23,
+                  "p10": 674.0,
+                  "p25": 1722.5,
+                  "p75": 19922.0,
+                  "p90": 41775.0,
+                  "p99": 95610.1
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 10886,
+                "mean": 6584.568712107293,
+                "quantiles": {
+                  "max": 69679,
+                  "median": 3214.0,
+                  "min": 2,
+                  "p10": 353.5,
+                  "p25": 1042.0,
+                  "p75": 8587.5,
+                  "p90": 17493.0,
+                  "p99": 41006.64999999997
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8494,
+                "mean": 9973.272780786438,
+                "quantiles": {
+                  "max": 142250,
+                  "median": 4435.5,
+                  "min": 9,
+                  "p10": 549.0,
+                  "p25": 1604.25,
+                  "p75": 11183.75,
+                  "p90": 25689.3,
+                  "p99": 84877.81999999999
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8303507,
+          "unclassified_table_keys": 8278890,
+          "unique_reached_keys": 24617,
+          "unique_stored_reached_keys": 24617
+        },
+        "k50-2026100602-5b": {
+          "classified_fraction": 0.003005181897159643,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3490,
+                "mean": 17109.57593123209,
+                "quantiles": {
+                  "max": 187665,
+                  "median": 6520.5,
+                  "min": 16,
+                  "p10": 895.9000000000001,
+                  "p25": 2470.25,
+                  "p75": 18344.25,
+                  "p90": 44649.899999999994,
+                  "p99": 131766.76000000045
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1831,
+                "mean": 15590.607864554888,
+                "quantiles": {
+                  "max": 95477,
+                  "median": 6808.0,
+                  "min": 42,
+                  "p10": 634.0,
+                  "p25": 1911.0,
+                  "p75": 20078.0,
+                  "p90": 41647.0,
+                  "p99": 95025.7
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 11003,
+                "mean": 6560.975552122149,
+                "quantiles": {
+                  "max": 68973,
+                  "median": 3224.0,
+                  "min": 0,
+                  "p10": 343.0,
+                  "p25": 1026.0,
+                  "p75": 8479.0,
+                  "p90": 17292.800000000003,
+                  "p99": 40817.7
+                },
+                "zero_fraction": 0.0002726529128419522
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8589,
+                "mean": 9818.293398533007,
+                "quantiles": {
+                  "max": 137143,
+                  "median": 4347.0,
+                  "min": 2,
+                  "p10": 535.0,
+                  "p25": 1559.0,
+                  "p75": 10784.0,
+                  "p90": 25445.4,
+                  "p99": 85586.84000000004
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8290014,
+          "unclassified_table_keys": 8265101,
+          "unique_reached_keys": 24913,
+          "unique_stored_reached_keys": 24913
+        },
+        "k50-2026100603-5b": {
+          "classified_fraction": 0.002972644664434405,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3481,
+                "mean": 17252.519678253375,
+                "quantiles": {
+                  "max": 192855,
+                  "median": 6719.0,
+                  "min": 45,
+                  "p10": 1008.0,
+                  "p25": 2632.0,
+                  "p75": 18260.0,
+                  "p90": 45579.0,
+                  "p99": 134148.8
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1782,
+                "mean": 15798.9898989899,
+                "quantiles": {
+                  "max": 95449,
+                  "median": 6767.0,
+                  "min": 44,
+                  "p10": 764.3000000000005,
+                  "p25": 2080.25,
+                  "p75": 19634.25,
+                  "p90": 40834.8,
+                  "p99": 94787.66
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 10906,
+                "mean": 6518.318631945718,
+                "quantiles": {
+                  "max": 73913,
+                  "median": 3134.5,
+                  "min": 1,
+                  "p10": 342.0,
+                  "p25": 1053.0,
+                  "p75": 8464.75,
+                  "p90": 17374.0,
+                  "p99": 40227.550000000105
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8530,
+                "mean": 9917.08733880422,
+                "quantiles": {
+                  "max": 139090,
+                  "median": 4446.5,
+                  "min": 13,
+                  "p10": 593.6000000000004,
+                  "p25": 1617.0,
+                  "p75": 11232.5,
+                  "p90": 24929.2,
+                  "p99": 84711.07999999882
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8308763,
+          "unclassified_table_keys": 8284064,
+          "unique_reached_keys": 24699,
+          "unique_stored_reached_keys": 24699
+        },
+        "v1-2026100601-5b": {
+          "classified_fraction": 0.003212936359729804,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 2640,
+                "mean": 26208.157954545455,
+                "quantiles": {
+                  "max": 1451837,
+                  "median": 5515.0,
+                  "min": 4,
+                  "p10": 421.7000000000001,
+                  "p25": 1466.75,
+                  "p75": 18579.25,
+                  "p90": 53320.19999999999,
+                  "p99": 303498.5200000005
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1837,
+                "mean": 14257.579205225911,
+                "quantiles": {
+                  "max": 90874,
+                  "median": 5998.0,
+                  "min": 30,
+                  "p10": 603.2000000000002,
+                  "p25": 1770.0,
+                  "p75": 17572.0,
+                  "p90": 39996.200000000004,
+                  "p99": 90444.64
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 7879,
+                "mean": 13417.673308795533,
+                "quantiles": {
+                  "max": 394937,
+                  "median": 4908.0,
+                  "min": 1,
+                  "p10": 526.8000000000001,
+                  "p25": 1628.0,
+                  "p75": 14102.5,
+                  "p90": 32830.39999999997,
+                  "p99": 133095.54000000007
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 7936,
+                "mean": 11821.882434475807,
+                "quantiles": {
+                  "max": 510154,
+                  "median": 3576.0,
+                  "min": 4,
+                  "p10": 329.0,
+                  "p25": 1065.5,
+                  "p75": 10852.5,
+                  "p90": 28148.0,
+                  "p99": 131877.89999999985
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 6315718,
+          "unclassified_table_keys": 6295426,
+          "unique_reached_keys": 20292,
+          "unique_stored_reached_keys": 20292
+        },
+        "v1-2026100602-5b": {
+          "classified_fraction": 0.003197044172179278,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 2721,
+                "mean": 25268.7460492466,
+                "quantiles": {
+                  "max": 1449407,
+                  "median": 5196.0,
+                  "min": 4,
+                  "p10": 364.0,
+                  "p25": 1343.0,
+                  "p75": 18052.0,
+                  "p90": 51581.0,
+                  "p99": 302520.40000000066
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1793,
+                "mean": 14295.191857222531,
+                "quantiles": {
+                  "max": 89449,
+                  "median": 5957.0,
+                  "min": 58,
+                  "p10": 734.2000000000003,
+                  "p25": 1913.0,
+                  "p75": 17307.0,
+                  "p90": 38420.799999999996,
+                  "p99": 89002.08
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8028,
+                "mean": 13135.999003487792,
+                "quantiles": {
+                  "max": 423427,
+                  "median": 4870.0,
+                  "min": 0,
+                  "p10": 515.0,
+                  "p25": 1563.75,
+                  "p75": 13564.5,
+                  "p90": 32420.000000000004,
+                  "p99": 130048.0899999995
+                },
+                "zero_fraction": 0.00012456402590931738
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 7967,
+                "mean": 11569.076942387348,
+                "quantiles": {
+                  "max": 503173,
+                  "median": 3421.0,
+                  "min": 2,
+                  "p10": 307.20000000000005,
+                  "p25": 999.5,
+                  "p75": 10395.0,
+                  "p90": 27419.800000000017,
+                  "p99": 132817.1000000002
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 6414988,
+          "unclassified_table_keys": 6394479,
+          "unique_reached_keys": 20509,
+          "unique_stored_reached_keys": 20509
+        },
+        "v1-2026100603-5b": {
+          "classified_fraction": 0.003199139031237572,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 2663,
+                "mean": 25991.108899737137,
+                "quantiles": {
+                  "max": 1477116,
+                  "median": 5350.0,
+                  "min": 2,
+                  "p10": 434.2,
+                  "p25": 1455.5,
+                  "p75": 18923.5,
+                  "p90": 52313.60000000004,
+                  "p99": 311264.9200000001
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1787,
+                "mean": 14541.978175713486,
+                "quantiles": {
+                  "max": 91422,
+                  "median": 5950.0,
+                  "min": 5,
+                  "p10": 737.4000000000001,
+                  "p25": 2005.5,
+                  "p75": 17352.5,
+                  "p90": 39811.0,
+                  "p99": 90833.95999999999
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 1,
+              "stored_reached_keys": {
+                "count": 8031,
+                "mean": 13360.41339808243,
+                "quantiles": {
+                  "max": 427715,
+                  "median": 4958.0,
+                  "min": 0,
+                  "p10": 571.0,
+                  "p25": 1666.0,
+                  "p75": 14040.0,
+                  "p90": 32463.0,
+                  "p99": 129453.09999999983
+                },
+                "zero_fraction": 0.00012451749470800648
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 7911,
+                "mean": 11841.890658576665,
+                "quantiles": {
+                  "max": 512052,
+                  "median": 3653.0,
+                  "min": 2,
+                  "p10": 336.0,
+                  "p25": 1080.5,
+                  "p75": 11146.0,
+                  "p90": 28002.0,
+                  "p99": 132523.69999999972
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 6374215,
+          "unclassified_table_keys": 6353823,
+          "unique_reached_keys": 20393,
+          "unique_stored_reached_keys": 20392
+        }
+      },
+      "hands": 196608,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 11.095428466796875,
+          "blocks": 32768,
+          "ci95": [
+            7.574656967851542,
+            14.616199965742208
+          ]
+        },
+        "2": {
+          "bb_per_100": 9.3963623046875,
+          "blocks": 32768,
+          "ci95": [
+            5.874408839706886,
+            12.918315769668114
+          ]
+        },
+        "3": {
+          "bb_per_100": 10.4461669921875,
+          "blocks": 32768,
+          "ci95": [
+            6.884156463500143,
+            14.008177520874856
+          ]
+        }
+      },
+      "overall": {
+        "bb_per_100": 10.312652587890625,
+        "blocks": 32768,
+        "ci95": [
+          7.664170613613932,
+          12.961134562167318
+        ]
+      },
+      "plan_sha256": "64bf81c6ed5f7915f68cc8e0a91e6451e0d2c2db1a55f7bc169f537af3662b86",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -3.5359700520833335,
+          "blocks": 32768,
+          "ci95": [
+            -10.427977061386153,
+            3.356036957219486
+          ]
+        },
+        "button": {
+          "bb_per_100": 24.161275227864582,
+          "blocks": 32768,
+          "ci95": [
+            17.283343873865938,
+            31.039206581863226
+          ]
+        }
+      },
+      "seed_by_seat": {
+        "2026100601": {
+          "big_blind": {
+            "bb_per_100": -1.2451171875,
+            "blocks": 32768,
+            "ci95": [
+              -8.901536001711534,
+              6.411301626711534
+            ]
+          },
+          "button": {
+            "bb_per_100": 23.43597412109375,
+            "blocks": 32768,
+            "ci95": [
+              15.78161865973452,
+              31.09032958245298
+            ]
+          }
+        },
+        "2026100602": {
+          "big_blind": {
+            "bb_per_100": -4.17938232421875,
+            "blocks": 32768,
+            "ci95": [
+              -11.821575719638616,
+              3.4628110712011155
+            ]
+          },
+          "button": {
+            "bb_per_100": 22.97210693359375,
+            "blocks": 32768,
+            "ci95": [
+              15.31099156352019,
+              30.63322230366731
+            ]
+          }
+        },
+        "2026100603": {
+          "big_blind": {
+            "bb_per_100": -5.18341064453125,
+            "blocks": 32768,
+            "ci95": [
+              -12.825706330731975,
+              2.4588850416694745
+            ]
+          },
+          "button": {
+            "bb_per_100": 26.07574462890625,
+            "blocks": 32768,
+            "ci95": [
+              18.39404854472683,
+              33.75744071308567
+            ]
+          }
+        }
+      }
+    },
+    "secondary": {
+      "coverage": {
+        "k50-2026100601-5b": {
+          "classified_fraction": 0.00288829767952264,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3335,
+                "mean": 17899.054272863566,
+                "quantiles": {
+                  "max": 192597,
+                  "median": 7035.0,
+                  "min": 31,
+                  "p10": 1047.0000000000002,
+                  "p25": 2678.0,
+                  "p75": 19373.5,
+                  "p90": 47122.79999999999,
+                  "p99": 134330.93999999994
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1788,
+                "mean": 15839.263982102908,
+                "quantiles": {
+                  "max": 95974,
+                  "median": 6815.5,
+                  "min": 39,
+                  "p10": 771.6000000000001,
+                  "p25": 2127.0,
+                  "p75": 20135.25,
+                  "p90": 41786.4,
+                  "p99": 95611.13
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 10723,
+                "mean": 6763.6883334887625,
+                "quantiles": {
+                  "max": 69679,
+                  "median": 3435.0,
+                  "min": 3,
+                  "p10": 411.0,
+                  "p25": 1142.0,
+                  "p75": 8805.5,
+                  "p90": 17953.200000000004,
+                  "p99": 41120.040000000045
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8137,
+                "mean": 10273.493302199828,
+                "quantiles": {
+                  "max": 142250,
+                  "median": 4710.0,
+                  "min": 14,
+                  "p10": 663.0,
+                  "p25": 1754.0,
+                  "p75": 11567.0,
+                  "p90": 26054.00000000002,
+                  "p99": 84962.52
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8303507,
+          "unclassified_table_keys": 8279524,
+          "unique_reached_keys": 23983,
+          "unique_stored_reached_keys": 23983
+        },
+        "k50-2026100602-5b": {
+          "classified_fraction": 0.002928704342356961,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3384,
+                "mean": 17722.309692671395,
+                "quantiles": {
+                  "max": 187665,
+                  "median": 6950.5,
+                  "min": 35,
+                  "p10": 1016.6,
+                  "p25": 2634.75,
+                  "p75": 19026.75,
+                  "p90": 47291.70000000008,
+                  "p99": 134919.37000000005
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1768,
+                "mean": 15999.419683257918,
+                "quantiles": {
+                  "max": 95477,
+                  "median": 7012.0,
+                  "min": 67,
+                  "p10": 920.1000000000006,
+                  "p25": 2176.75,
+                  "p75": 20311.0,
+                  "p90": 41827.299999999996,
+                  "p99": 95038.87
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 10835,
+                "mean": 6646.093308721735,
+                "quantiles": {
+                  "max": 68973,
+                  "median": 3327.0,
+                  "min": 1,
+                  "p10": 369.0,
+                  "p25": 1112.0,
+                  "p75": 8661.0,
+                  "p90": 17377.200000000004,
+                  "p99": 40812.899999999994
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8292,
+                "mean": 10205.136396526772,
+                "quantiles": {
+                  "max": 137143,
+                  "median": 4646.5,
+                  "min": 26,
+                  "p10": 661.2,
+                  "p25": 1748.75,
+                  "p75": 11352.25,
+                  "p90": 26127.70000000001,
+                  "p99": 85976.07
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8290014,
+          "unclassified_table_keys": 8265735,
+          "unique_reached_keys": 24279,
+          "unique_stored_reached_keys": 24279
+        },
+        "k50-2026100603-5b": {
+          "classified_fraction": 0.0029278726568563816,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3442,
+                "mean": 17440.2152818129,
+                "quantiles": {
+                  "max": 192855,
+                  "median": 6860.5,
+                  "min": 10,
+                  "p10": 1040.2,
+                  "p25": 2613.0,
+                  "p75": 18546.0,
+                  "p90": 45879.3,
+                  "p99": 134179.61000000002
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 1790,
+                "mean": 15777.616201117318,
+                "quantiles": {
+                  "max": 95449,
+                  "median": 6689.5,
+                  "min": 14,
+                  "p10": 899.9,
+                  "p25": 2221.75,
+                  "p75": 19634.25,
+                  "p90": 40856.50000000001,
+                  "p99": 94786.54
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 10767,
+                "mean": 6734.234884368905,
+                "quantiles": {
+                  "max": 73913,
+                  "median": 3409.0,
+                  "min": 1,
+                  "p10": 388.60000000000014,
+                  "p25": 1143.5,
+                  "p75": 8812.5,
+                  "p90": 17710.79999999999,
+                  "p99": 40459.38000000006
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 8328,
+                "mean": 10091.49987992315,
+                "quantiles": {
+                  "max": 139090,
+                  "median": 4545.5,
+                  "min": 8,
+                  "p10": 658.0,
+                  "p25": 1694.0,
+                  "p75": 11477.25,
+                  "p90": 25815.9,
+                  "p99": 84738.03999999941
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": 8308763,
+          "unclassified_table_keys": 8284436,
+          "unique_reached_keys": 24327,
+          "unique_stored_reached_keys": 24327
+        },
+        "v0.4.2-O10B-seed2026100601": {
+          "classified_fraction": null,
+          "street_quantiles_scope": "distinct stored keys reached in this direct contrast, not all table keys",
+          "streets": {
+            "flop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 3706,
+                "mean": 38848.84565569347,
+                "quantiles": {
+                  "max": 2908130,
+                  "median": 6073.5,
+                  "min": 1,
+                  "p10": 426.0,
+                  "p25": 1527.5,
+                  "p75": 24070.0,
+                  "p90": 77051.5,
+                  "p99": 529325.0999999976
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "preflop": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 2032,
+                "mean": 25336.083169291338,
+                "quantiles": {
+                  "max": 178022,
+                  "median": 8646.5,
+                  "min": 54,
+                  "p10": 665.4000000000001,
+                  "p25": 2497.5,
+                  "p75": 28180.25,
+                  "p90": 81563.1,
+                  "p99": 177155.45
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "river": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 13552,
+                "mean": 19987.392266824085,
+                "quantiles": {
+                  "max": 854443,
+                  "median": 6526.5,
+                  "min": 1,
+                  "p10": 631.0,
+                  "p25": 1962.75,
+                  "p75": 19348.75,
+                  "p90": 49318.499999999985,
+                  "p99": 212369.37999999936
+                },
+                "zero_fraction": 0.0
+              }
+            },
+            "turn": {
+              "missing_reached_keys": 0,
+              "stored_reached_keys": {
+                "count": 12351,
+                "mean": 17490.535341267914,
+                "quantiles": {
+                  "max": 1042275,
+                  "median": 4563.0,
+                  "min": 1,
+                  "p10": 370.0,
+                  "p25": 1261.5,
+                  "p75": 14650.5,
+                  "p90": 39927.0,
+                  "p99": 220795.0
+                },
+                "zero_fraction": 0.0
+              }
+            }
+          },
+          "table_keys": null,
+          "unclassified_table_keys": null,
+          "unique_reached_keys": 31641,
+          "unique_stored_reached_keys": 31641
+        }
+      },
+      "hands": 196608,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 12.047576904296875,
+          "blocks": 32768,
+          "ci95": [
+            8.519230144845945,
+            15.575923663747805
+          ]
+        },
+        "2": {
+          "bb_per_100": 8.153533935546875,
+          "blocks": 32768,
+          "ci95": [
+            4.634253805645959,
+            11.672814065447792
+          ]
+        },
+        "3": {
+          "bb_per_100": 9.716033935546875,
+          "blocks": 32768,
+          "ci95": [
+            6.176217486409132,
+            13.255850384684617
+          ]
+        }
+      },
+      "overall": {
+        "bb_per_100": 9.972381591796875,
+        "blocks": 32768,
+        "ci95": [
+          7.091296549378486,
+          12.853466634215264
+        ]
+      },
+      "plan_sha256": "21c6ce08efee85ea681e91d17088f20cb868d1628b43bd89027ac965ce27c863",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -0.5930582682291671,
+          "blocks": 32768,
+          "ci95": [
+            -7.831582296495111,
+            6.645465760036777
+          ]
+        },
+        "button": {
+          "bb_per_100": 20.537821451822918,
+          "blocks": 32768,
+          "ci95": [
+            13.494362356786548,
+            27.58128054685929
+          ]
+        }
+      },
+      "seed_by_seat": {
+        "2026100601": {
+          "big_blind": {
+            "bb_per_100": 2.4261474609375,
+            "blocks": 32768,
+            "ci95": [
+              -5.340166173238473,
+              10.192461095113472
+            ]
+          },
+          "button": {
+            "bb_per_100": 21.66900634765625,
+            "blocks": 32768,
+            "ci95": [
+              14.007519419070952,
+              29.330493276241548
+            ]
+          }
+        },
+        "2026100602": {
+          "big_blind": {
+            "bb_per_100": -2.44140625,
+            "blocks": 32768,
+            "ci95": [
+              -10.225673135292688,
+              5.342860635292688
+            ]
+          },
+          "button": {
+            "bb_per_100": 18.74847412109375,
+            "blocks": 32768,
+            "ci95": [
+              11.08712310537943,
+              26.40982513680807
+            ]
+          }
+        },
+        "2026100603": {
+          "big_blind": {
+            "bb_per_100": -1.763916015625,
+            "blocks": 32768,
+            "ci95": [
+              -9.500581931925591,
+              5.972749900675591
+            ]
+          },
+          "button": {
+            "bb_per_100": 21.19598388671875,
+            "blocks": 32768,
+            "ci95": [
+              13.581833787236608,
+              28.810133986200892
+            ]
+          }
+        }
+      }
+    }
+  },
+  "finished": 1791813598.9551759,
+  "primary_decision": "stronger; recommend longer protocol",
+  "scope": "Nominal paired Student-t95 intervals conditional on these fixed policies. Owner decides next; no adoption or release.",
+  "status": "verified"
+}
