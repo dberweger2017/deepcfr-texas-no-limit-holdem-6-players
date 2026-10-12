@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Extended storage cleanup (October 12):** owner-requested pass retires 109.818 GB of verified existing copies; M1 95.980 GB /M4 102.388 GB free. Active K50 inputs remain; previously unuploaded calibration evidence is now accepted in Drive. [Receipt and exact restoration](docs/artifacts/storage-vacuum-20261012-max.md).
+
 - **HU20 K50 matched 5B first pass ([#238](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/238)), science complete:** three equally trained seeds beat matched v1 **+10.31 [7.66,12.96] BB/100**; descriptive v0.4.2 **+9.97 [7.09,12.85]**, nominal paired 95% conditional on fixed policies. All 393,216 hands independently replay. [Report](docs/reports/hu20-k50-5b-first-pass.md) discloses 1.29–1.31x keys/fewer visits and reached-key coverage. Both ZIPs accepted; metadata failures preserved and owner-approved archival repair complete. Recommend longer protocol; owner decides next, no adoption/release/automatic 28B. Correct cleanup follows green-check merge and dependency/provenance review.
 
 - **Storage for open K50 first pass #238:** owner-requested native cache release from merged #236 frees 19.778 GB; verified M4 40.386 GiB free exceeds the original 38 GiB entry target. All research originals and active inputs remain. [Receipt](docs/artifacts/storage-vacuum-20261012.md).
