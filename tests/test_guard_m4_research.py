@@ -32,3 +32,29 @@ def test_disk_is_immediate_and_breaches_are_independent():
     assert sustained(sample(0, free_percent=7), sample(), held)[1] == []
     assert sustained(sample(59, pressure_level=4), sample(), held)[1] == []
     assert sustained(sample(60, pressure_level=4, disk_free_bytes=16*GIB-1), sample(), held)[1] == ['free_disk']
+
+
+def test_privileged_helper_does_not_break_family(monkeypatch):
+    import os
+    from types import SimpleNamespace
+    from scripts import guard_m4_research as guard
+    real_root = guard.psutil.Process()
+    monkeypatch.setattr(guard.psutil, 'process_iter', lambda *a, **k: iter([
+        SimpleNamespace(info={'pid':99112233,'ppid':None,'create_time':None})]))
+    monkeypatch.setattr(guard.psutil, 'Process', lambda pid=None: real_root)
+    _, readings, denied = guard.family({})
+    assert denied == [99112233]
+    assert [row['pid'] for row in readings] == [os.getpid()]
+
+
+def test_reused_pid_cannot_adopt_unowned_children(monkeypatch):
+    from types import SimpleNamespace
+    from scripts import guard_m4_research as guard
+    real_root = guard.psutil.Process()
+    reused = SimpleNamespace(create_time=lambda:2)
+    monkeypatch.setattr(guard.psutil, 'process_iter', lambda *a, **k: iter([
+        SimpleNamespace(info={'pid':99112234,'ppid':99112233,'create_time':3})]))
+    monkeypatch.setattr(guard.psutil, 'Process', lambda pid=None: reused if pid==99112233 else real_root)
+    known = {99112233:1}
+    guard.family(known)
+    assert not known
