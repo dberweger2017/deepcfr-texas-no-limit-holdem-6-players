@@ -1,3 +1,14 @@
+## PR249 Slumbot client live protocol checks — October 13, 2026
+
+[PR249](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/249) played 32 anonymous live hands against Slumbot's public API to check the client: 12 probe-bot hands and 20 check/call hands through `scripts.play_slumbot`. No model and no strength claim. [Report](docs/reports/slumbot-client.md).
+
+Archive `~/Local/Research-Cloud/PR-249-slumbot-client/slumbot-client-live-20261013.zip`, **17,238 bytes**, SHA256 `ef6c023676ef66b98591b6516bfaecfb285812d67711aa65447bc1a131341454`; embedded `ARCHIVE-MANIFEST.json` SHA256 `e10a9807d4ff5e4753a136f1dd9f61be8f20e9b19d491d655867c499c0ed2ab5`. Members, every one read back against the manifest before copying:
+- `research/probe-hands-20261013.jsonl`: the 12 probe hands' responses, without tokens. The same hands are the test fixture `tests/fixtures/slumbot/live-hands-20261013.json`.
+- `research/check-call-journal.jsonl`: the 20-hand hash-chained journal, tail `f06fe8008de81edd37c972c1d0f7ca7ae9dc1c04d05c7f9dd8c37800f3df49e0`.
+- `research/check-call-summary.json`: that run's summary.
+
+Restore with `python3 -m zipfile -e ~/Local/Research-Cloud/PR-249-slumbot-client/slumbot-client-live-20261013.zip results/retrieved/pr249`, check the manifest, then `python -c "from pathlib import Path; from src.arena.external.journal import verify_journal; print(verify_journal(Path('results/retrieved/pr249/research/check-call-journal.jsonl')))"`. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. No local originals besides scratch copies; nothing was deleted from synced folders.
+
 ## PR242 HU20 K50 5B-to-10B continuation — verified, accepted evidence, October 12
 
 [PR242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242), [report](docs/reports/hu20-k50-10b.md), branch `feature/hu20-k50-10b`, task-owned non-synced M4 root `~/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/`. Native base `045c793a4abd2e371d4d77de663fd3dd2f00316b`, exact tree `06f98b959e7b56068918bb0cc7b9c162511c7686`; unchanged source. Three exact 5B lineages reach 10B concurrently in 52.64 minutes; every current/average row audits. All 49,152 descriptive hands independently replay. **10B versus own 5B +0.22 [−3.98, +4.42] BB/100**, nominal paired 95% conditional on fixed policies: further improvement is inconclusive, not a plateau or release decision. No extension, failed-hand rerun, release confirmation, adoption or model selection. Scientific Python source is pinned to main `600bd34cca328cd19b65f5fb14141fdcb397e966`; task control sources are member-hashed in the full ZIP. Merge and cleanup follow reviewed final-head checks.
