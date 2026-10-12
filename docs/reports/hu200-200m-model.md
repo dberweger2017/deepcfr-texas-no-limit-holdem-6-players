@@ -45,12 +45,19 @@ there is no unattended continuation, paid compute, M4 access or other-PR work.
 
 ## Initial admission
 
-Training and build have not started. Initial admission found only
+Initial admission refused both build and training. It found only
 8,872,615,936 free disk bytes after the first 5.9 GiB observation, below the
 required 16 GiB. Pressure was normal, memory free 54%, and process enumeration
-found no competing research worker. The owner is freeing disk space; no local
-or synced evidence was removed by this task. The original admission refusal
-will be preserved in the final evidence bundle.
+found no competing research worker. The owner freed disk space; execution admitted at 41,858,174,976 free bytes,
+normal pressure and 52% free memory. This task removed no local or synced
+evidence. The original admission refusal is preserved.
+
+The reproducible build completed in 14.77s; native source tree
+`25aafbce93956aa54cf885c7275cbe73581810e0`, binary SHA256
+`8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a`.
+The [build receipt](hu200-200m-model-artifacts/build-receipt.json) records the
+toolchain, linker and lockfile. All four focused HU200 tests passed in 5.14s.
+Recovery and the main training/verification remain in progress.
 
 ## Closeout requirements
 
