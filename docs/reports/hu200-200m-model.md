@@ -61,7 +61,12 @@ The uninterrupted fresh 20M run and 10M/resume-to-20M run are directly
 byte-identical: 227,890,921 bytes, SHA256
 `c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5`,
 20,002,603 actual nodes /8,687 iterations. [Recovery receipt](hu200-200m-model-artifacts/recovery.json).
-The fresh 200M run is now in progress.
+The fresh run saved both milestones, reaching **200,001,087 actual nodes /
+111,844 iterations /31,582,921 entries**. [Training receipt](hu200-200m-model-artifacts/training.json).
+Native elapsed was 462.15s, including 102.76s /146.36s for the 100M /200M
+saves. Supervised train/save wall time was 470.47s. Sampled family peak was
+2.64 GiB; kernel command peak was 2.62 GiB. Export and full verification remain
+in progress.
 
 ## Closeout requirements
 
