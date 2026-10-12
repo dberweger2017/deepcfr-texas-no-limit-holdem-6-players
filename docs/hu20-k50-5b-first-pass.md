@@ -165,3 +165,13 @@ its inputs, retained outputs and scratch above the unchanged 16 GiB floor. All
 other guards, gates, samples and the six-hour aggregate limit remain binding.
 No deletion, offloading, paid compute, guard relaxation or extra training recipe
 is authorized by this amendment. Preserve the earlier refusal as provenance.
+
+## Owner street-density clarification
+
+Archived checkpoints contain irreversible information-key hashes without a
+street map. The owner accepted **“Use reached-key quantiles with coverage disclosed.”**
+Report exact whole-table nodes/iterations/keys/mean visits/zero-visit fraction.
+Per-street visit quantiles use distinct keys reached in the frozen direct matches,
+with the number/fraction of stored keys classified and the remaining unclassified
+keys disclosed. Missing reached keys are separate from stored zero-visit keys.
+Do not present reached-key street distributions as complete-table distributions.
