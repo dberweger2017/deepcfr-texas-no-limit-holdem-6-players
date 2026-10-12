@@ -127,7 +127,13 @@ Before each dependent stage, check projected temporary and retained disk use in
 addition to the live floor. Initial M4 snapshot: normal pressure, 89% free memory,
 AC, 1,347,818,618 baseline swap bytes and 23,628,259,328 free disk bytes (22.01 GiB).
 This live floor pass alone does not admit all retained outputs plus archive/scratch.
-Scientific gates and training have not started at this protocol commit.
+Scientific gates and training have not started. The initial conservative storage
+forecast requires 35.72 GiB free, rounded to a 38 GiB entry target; see the
+[capacity receipt](reports/hu20-k50-5b-first-pass-artifacts/storage-admission.json).
+Until that target is available, keep only this task's 30-minute resource-admission
+schedule active. This is a preventive refusal, not a guard failure. The six-hour
+guarded clock has not started. After admission, replace the waiting timer with
+checks of already-running owned work; never launch duplicate stages.
 
 ## Evidence and completion
 
