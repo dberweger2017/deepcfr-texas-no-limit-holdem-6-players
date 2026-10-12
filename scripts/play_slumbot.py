@@ -33,7 +33,8 @@ def load_player(args):
         return player, player, {'player': player.name}
     from src.blueprint.abstraction import HU200_SCHEMA
     from src.blueprint.average import AveragePolicy
-    model = AveragePolicy(args.model, args.model_sha256, expected_schema=HU200_SCHEMA)
+    # Native exports are written in key order; the sorted reader checks that as it loads.
+    model = AveragePolicy(args.model, args.model_sha256, expected_schema=HU200_SCHEMA, sorted_rows=True)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
                                             'description': model.description}
@@ -55,13 +56,18 @@ def main():
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
         parser.error('Give a positive --hands, and --model together with --model-sha256')
     args.out.mkdir(parents=True)
+    # Ask before the model loads, so nobody waits minutes for the prompt; log in after it, so
+    # the session starts fresh.
+    if args.login:
+        username = os.environ.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
+        password = os.environ.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
     policy, player, identity = load_player(args)
     transport = HttpTransport(SERVICE, timeout=args.timeout, min_interval=args.min_interval,
                               max_requests=args.max_requests or 60 * args.hands)
     connection = SlumbotConnection(transport, policy)
     if args.login:
-        username = os.environ.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
-        connection.login(username, os.environ.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: '))
+        connection.login(username, password)
+        del password
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
