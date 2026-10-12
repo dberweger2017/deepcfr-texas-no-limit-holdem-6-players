@@ -70,9 +70,12 @@ def limits(sample,rss,baseline,now):
     return None
 
 
-def guard(name,args):
+def guard(name,args,*,preservation_only=False):
+    if preservation_only and not (name=='archive' and len(args)==5
+            and args[:4]==['.venv/bin/python','-m','planning.archive_campaign','--pr'] and str(args[4]).isdigit()):
+        raise ValueError('Preservation permission only admits the archive worker')
     BASE.mkdir(parents=True,exist_ok=True)
-    if (BASE/'campaign-failure.json').exists():raise ValueError('Terminal failure: preserve partials, no rerun')
+    if (BASE/'campaign-failure.json').exists() and not preservation_only:raise ValueError('Terminal failure: preserve partials, no rerun')
     identity=subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string','hw.memsize','hw.ncpu'],text=True).splitlines()
     machine_identity('m4',identity)
     known={};child=None;failure=None;peak=0;count=0;started=time()
@@ -87,7 +90,7 @@ def guard(name,args):
             if not (BASE/'budget.json').exists():
                 put(BASE/'budget.json',{'started':started,'deadline':started+7*3600,'swap_bytes':sample['swap_bytes'],'initial_host':sample})
             baseline=read(BASE/'budget.json')
-            put(folder/'intent.json',{'command':list(map(str,args)),'source':revision(),'identity':identity,'started':started})
+            put(folder/'intent.json',{'command':list(map(str,args)),'source':revision(),'identity':identity,'started':started,'preservation_only':preservation_only})
             if reason:=limits(sample,psutil.Process().memory_info().rss,baseline,time()):
                 raise RuntimeError('Admission refused: '+reason)
             # process_iter tolerates unreadable unrelated metadata; owned descendants fail closed.
@@ -235,7 +238,9 @@ def freeze(pr):
         while projection()>7*3600 and counts['primary']>1024:counts={c:n//2 for c,n in counts.items()}
     if projection()>7*3600:raise ValueError('Cost quote refuses all final play')
     pilot_peak=read(BASE/'guards/pilot/receipt.json')['peak_family_rss_bytes']
-    memory_forecast={c:pilot_peak+5200*(counts[c]-1024)+100_000_000 for c in active}
+    # The short pilot cannot fault every bucket page. Allow both the policy and
+    # independent replay mappings to become fully resident in final play.
+    memory_forecast={c:pilot_peak+2*TABLE_BYTES+5200*(counts[c]-1024)+100_000_000 for c in active}
     if any(n>=SOFT for n in memory_forecast.values()):raise ValueError('Final schedule memory admission refused')
     trace_forecast=math.ceil(sum(q['trace_bytes']*counts[c]/1024 for c,q in quote['quotes'].items())*1.1)
     import shutil
@@ -302,9 +307,9 @@ def readout():
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('stage',choices=('guard','prepare','gates','treatment','pilot','freeze','final','readout'))
-    p.add_argument('--pr',type=int);p.add_argument('--name')
+    p.add_argument('--pr',type=int);p.add_argument('--name');p.add_argument('--preservation-only',action='store_true')
     a,extra=p.parse_known_args()
-    if a.stage=='guard':guard(a.name,extra[1:] if extra[:1]==['--'] else extra)
+    if a.stage=='guard':guard(a.name,extra[1:] if extra[:1]==['--'] else extra,preservation_only=a.preservation_only)
     elif a.stage=='freeze':freeze(a.pr)
     else:{'prepare':prepare,'gates':gates,'treatment':treatment,'pilot':pilot,'final':final_play,'readout':readout}[a.stage]()
 

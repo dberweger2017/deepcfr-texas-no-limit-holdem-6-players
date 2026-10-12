@@ -108,3 +108,12 @@ def test_readout_uses_frozen_schedule_for_seats_and_binds_replayed_bytes(tmp_pat
     assert result['absolute_returns']['v1']=={'overall':-30,'button':-25,'big_blind':-35}
     trace.write_bytes(b'changed')
     with pytest.raises(ValueError,match='changed after replay'):campaign.readout()
+
+
+def test_preservation_permission_cannot_restart_scientific_work(tmp_path,monkeypatch):
+    monkeypatch.setattr(campaign,'BASE',tmp_path)
+    (tmp_path/'campaign-failure.json').write_text('{}')
+    with pytest.raises(ValueError,match='Terminal failure'):
+        campaign.guard('pilot',['.venv/bin/python','-m','scripts.run_hu100_k50_2b','pilot'])
+    with pytest.raises(ValueError,match='only admits the archive'):
+        campaign.guard('archive',['.venv/bin/python','-m','scripts.run_hu100_k50_2b','pilot'],preservation_only=True)
