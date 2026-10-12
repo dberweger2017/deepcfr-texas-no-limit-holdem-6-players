@@ -1,0 +1,15 @@
+{
+  "archives_locally_verified": true,
+  "at": 1791845419.032473,
+  "drive_upload_acceptance_pending": true,
+  "madrid_at": "2026-10-13T00:50:19.032655+02:00",
+  "remaining_campaign_workers": [],
+  "research_lock_available": true,
+  "status": "M4-compute-released",
+  "successful_closed_stages": [
+    "pilot",
+    "final",
+    "readout",
+    "archive"
+  ]
+}

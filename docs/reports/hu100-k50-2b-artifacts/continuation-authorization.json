@@ -1,0 +1,37 @@
+{
+  "status": "owner-authorized-match-only",
+  "at": 1791840686.184021,
+  "owner_instructions": [
+    "Owner-authorized continuation, match stage only. Training, exports and audits are complete and stay as they are; do not retrain. Rerun the cost-only pilot on a fresh pilot root (reserve it before any outcome; the stopped pilot's partials stay preserved and are not used), then freeze and run the final comparisons exactly as planned: same counts, final roots 20261012101102/103, same decision rule. Amend only the pressure guard: macOS \"warning\" pressure is allowed; \"critical\" pressure still stops the campaign. All other guards stay unchanged: whole-family RSS soft 10.5 GB / hard 11 GiB, free memory \u2265 15%, swap growth \u2264 512 MiB, disk \u2265 16 GiB, AC. Run nothing else on the M4 meanwhile. Record the original stop, this amendment and its reason in the report.",
+    "change the swap guard to 2 gb"
+  ],
+  "reason": "Original pilot stopped on warning pressure with 45% free and RSS/swap/disk/AC within limits. Owner permits warning while retaining critical and numeric guards; owner separately increases swap-growth ceiling for this continuation.",
+  "allowed_pressure_levels": [
+    1,
+    2
+  ],
+  "critical_or_unknown_pressure_stops": true,
+  "swap_growth_bytes": 2000000000,
+  "swap_baseline_bytes": 762776125,
+  "unchanged_deadline": 1791857118.313808,
+  "counts": {
+    "primary": 262144,
+    "secondary": 131072
+  },
+  "roots": {
+    "pilot": 20261012101104,
+    "primary": 20261012101102,
+    "secondary": 20261012101103
+  },
+  "original_stop_sha256": "c695e35af44c0714c10ab2d48efc6b7911a81e5347ebc94ee6454e526edad8a0",
+  "original_archive_stop_sha256": "7dfbe08a2e46c34c0a438a9080200aa6775bdd315ea0e92c02792eee772448d8",
+  "immutable_metadata_sha256": {
+    "budget.json": "9826de927ed77868a435b5241743968ba5a5b3b7796ec2a49bf24c5a96a718a9",
+    "inputs.json": "c38c489d970ee111d2aca2ad0fd5a6ab81640d33bf48e14aa5abb392816e1448",
+    "treatment.json": "8555ef7830a29ac2e1d3b3cea63730a515ccb44847eed992063acd737abeebee",
+    "training/1000000000.audit.json": "2e4ad1883c956a2da9ced0327e940b368ad84f95d7b4cfa31c55647b247ac664",
+    "training/2000000000.audit.json": "18bdb146231fb52f6af474c4093f6331a631a2c3bc981c6e0d859e02090b0e05"
+  },
+  "original_partials_used": false,
+  "decision_rule": "primary lower95>0: recommend K50 for HU200; upper95<0: recommend v1; otherwise inconclusive, no extension; owner decides"
+}

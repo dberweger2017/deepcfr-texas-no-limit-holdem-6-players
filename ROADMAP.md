@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 K50 equal-training ([#246](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/246)):** 2B K50−v1 **+31.14 [+27.79, +34.50] BB/100**, nominal paired 95%; recommend K50 for HU200, owner decides. One seed, all final hands independently replayed/reproduced; full and averages-only archives accepted and indexed. [Report](docs/reports/hu100-k50-2b.md). Research only, no release/adoption/default or HU200 training.
+
 - **HU20 K50 10B continuation ([#242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242)), science complete:** all three #238 5B lineages reach 10B concurrently in **52.64 minutes**, preserving seed/table/lineage identity; every current/average row audits. All **49,152** descriptive hands independently replay. **10B versus own 5B +0.22 [−3.98, +4.42] BB/100**, nominal paired 95% conditional on fixed policies: no detectable further improvement, no plateau or release decision. Visits/key rise to 206–208 and zero visits fall to 14%; [report](docs/reports/hu20-k50-10b.md) compares matched v1 10B and discloses reached/queried coverage. Full and separate 1.001-GB three-average ZIPs plus corrected metadata closeout are accepted; build stop and metadata failure preserved. M4 compute released 19:20 Madrid. Candidates for later v0.4.3 confirmation; no confirmation, release, adoption, extra nodes or sample extension. Merged after five green reviewed-head checks; safe own-original cleanup removes 8.217 GB with accepted restoration receipts. Source/guards/failure history and all protected dependencies remain.
 
 - **Extended storage cleanup (October 12):** owner-requested pass retires 109.818 GB of verified existing copies; M1 95.980 GB /M4 102.388 GB free. Active K50 inputs remain; previously unuploaded calibration evidence is now accepted in Drive. [Receipt and exact restoration](docs/artifacts/storage-vacuum-20261012-max.md).
@@ -92,7 +94,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 - **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
-*Updated October 12, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+*Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **Reproducible native builds:** `python -m scripts.build_native_trainer` builds the trainer byte-identically from any checkout, given the same toolchain, linker and Cargo home, and prints a receipt naming them. A plain `cargo build` embeds the checkout path, which blocked #242's fresh-build gate. Campaign binary gates should use this build or the archived executable.
 

@@ -1,0 +1,116 @@
+{
+  "actions_replayed": 2747832,
+  "all_native_menu_actions": true,
+  "coverage": {
+    "k50-2b/flop": {
+      "decisions": 375519,
+      "lookup": {
+        "positive-mass-known-key": 375519
+      },
+      "visit_bands": {
+        "0": 2,
+        "1-9": 113,
+        "10-99": 2983,
+        "100+": 372421
+      }
+    },
+    "k50-2b/preflop": {
+      "decisions": 549759,
+      "lookup": {
+        "positive-mass-known-key": 549757,
+        "zero-mass": 2
+      },
+      "visit_bands": {
+        "0": 1,
+        "1-9": 57,
+        "10-99": 1863,
+        "100+": 547838
+      }
+    },
+    "k50-2b/river": {
+      "decisions": 176225,
+      "lookup": {
+        "missing-key": 11,
+        "positive-mass-known-key": 176191,
+        "zero-mass": 23
+      },
+      "visit_bands": {
+        "0": 176,
+        "1-9": 2578,
+        "10-99": 16911,
+        "100+": 156560
+      }
+    },
+    "k50-2b/turn": {
+      "decisions": 265799,
+      "lookup": {
+        "missing-key": 2,
+        "positive-mass-known-key": 265794,
+        "zero-mass": 3
+      },
+      "visit_bands": {
+        "0": 26,
+        "1-9": 770,
+        "10-99": 9488,
+        "100+": 255515
+      }
+    },
+    "v1-2b/flop": {
+      "decisions": 372405,
+      "lookup": {
+        "missing-key": 2,
+        "positive-mass-known-key": 372402,
+        "zero-mass": 1
+      },
+      "visit_bands": {
+        "0": 28,
+        "1-9": 438,
+        "10-99": 3671,
+        "100+": 368268
+      }
+    },
+    "v1-2b/preflop": {
+      "decisions": 568868,
+      "lookup": {
+        "positive-mass-known-key": 568868
+      },
+      "visit_bands": {
+        "1-9": 45,
+        "10-99": 1917,
+        "100+": 566906
+      }
+    },
+    "v1-2b/river": {
+      "decisions": 176633,
+      "lookup": {
+        "missing-key": 8,
+        "positive-mass-known-key": 176611,
+        "zero-mass": 14
+      },
+      "visit_bands": {
+        "0": 174,
+        "1-9": 1893,
+        "10-99": 10863,
+        "100+": 163703
+      }
+    },
+    "v1-2b/turn": {
+      "decisions": 262624,
+      "lookup": {
+        "missing-key": 29,
+        "positive-mass-known-key": 262585,
+        "zero-mass": 10
+      },
+      "visit_bands": {
+        "0": 218,
+        "1-9": 2000,
+        "10-99": 12102,
+        "100+": 248304
+      }
+    }
+  },
+  "hands_replayed": 524288,
+  "seconds": 317.72550333300023,
+  "settlement_sum_zero": true,
+  "status": "verified"
+}

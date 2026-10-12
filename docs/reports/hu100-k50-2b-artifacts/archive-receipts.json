@@ -1,0 +1,38 @@
+{
+  "averages": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 3488716045,
+    "cloud_archive_id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+    "cloud_archive_url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk",
+    "cloud_folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "cloud_folder_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "cloud_upload_accepted": true,
+    "logical_member_bytes": 3488714721,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "7840c4f40015bfb018b7febd1f1f04762c587794be3f7390dfbda8b8c46bf915",
+    "members": 2,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-averages-M4-20261012.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 10.349342166999122,
+    "sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+    "status": "locally-verified"
+  },
+  "full": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 13402862469,
+    "cloud_archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+    "cloud_archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+    "cloud_folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "cloud_folder_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+    "cloud_upload_accepted": true,
+    "logical_member_bytes": 13402749127,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "e95f19d2dbea47498a5a3b2c8aa2760a45a49b2d9c92773610989912c27b3816",
+    "members": 204,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-completed-M4-20261012.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 54.74126024999714,
+    "sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+    "status": "locally-verified"
+  }
+}

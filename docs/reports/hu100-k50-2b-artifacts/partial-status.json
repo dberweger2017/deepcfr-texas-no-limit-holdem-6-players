@@ -1,0 +1,35 @@
+{
+  "status": "guard-stopped-partial",
+  "training_targets_reached": [
+    1000000000,
+    2000000000
+  ],
+  "full_export_audits": "both verified",
+  "final_hands": 0,
+  "final_plan_frozen": false,
+  "final_plan_posted": false,
+  "primary_comparison": "not run; no strength interval",
+  "decision_rule_applied": false,
+  "outcomes_inspected": false,
+  "pilot_primary": {
+    "blocks": 1024,
+    "hands_played": 2048,
+    "independently_replayed": 2048,
+    "reproduction": "all hands and decisions verified",
+    "paired_sd_bb_per_100": 911.0537312418393
+  },
+  "pilot_secondary": {
+    "blocks": 1024,
+    "hands_played": 2048,
+    "replay": "incomplete; no verified receipt",
+    "reproduction": "not run"
+  },
+  "training_source": "be2692c311eaedc8670d9e12e6e424f73d2d3b60",
+  "pilot_source": "1db150f106f4bb80aefec824456fd0d72316bd81",
+  "failure": {
+    "at": 1791839134.180908,
+    "failure": "RuntimeError('Guard breach: normal pressure / 15% free')",
+    "operation": "pilot"
+  },
+  "retry": false
+}
