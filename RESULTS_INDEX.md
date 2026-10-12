@@ -1,4 +1,10 @@
-## PR236 HU100 near-4B seed replication and translated safeguard — October12
+## M4 uploaded archive cache release for open K50 PR238 — October 12, 2026
+
+Owner-requested cleanup released **19.778 GB** of native cache from merged #236's uploaded main ZIP. **M4 43.364 GB /40.386 GiB free**, above #238's original 38 GiB entry target; **M1 80.039 GB free**, no cleanup needed. Same Drive ID/name/logical size/parent and dataless local placeholder remain, with 6,787,072 allocated bytes. No research originals were removed; active #238 inputs and all #236 originals remain. No synced deletion, force offload, unpinning, app shutdown or research/schedule change.
+
+[Receipt, exact cache path and restoration](docs/artifacts/storage-vacuum-20261012.md), [full private cleanup receipt](https://drive.google.com/file/d/19s6rartMoLUjyiCQZv3Iq8ydh2ynWjEP/view) (481,394 bytes, SHA256 `922ad752d9874785e98035550de499f139cb6fdeaa6f5bc7404394ac253b0b8d`; confirmed Research-Cloud upload). Current #236 merged status, native upload/conflict/pin/download state, open handles, exact stat identity and independent cloud readback were checked. Existing manifest saved without remote downloads or repeated archive/member payload audits. The accepted #236 scientific archive below remains preserved online, and its historical originals-retained statement still holds.
+
+## PR236 HU100 near-4B seed replication and translated safeguard — October 12
 
 [PR236](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236), branch feature/hu100-4b-seed-replication; isolated M4 run /Users/dberweger/Local/hu100-4b-seed-replication-20261011. **Final verified evidence with disclosed owner-authorized continuation.** Training source8817a4732eebb05256da0eca544ef9b49840bfbd; science/main-archive source9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28; basec3869c9d8884cf7eaab66790b17b3e36398a3ac3. Later current-main integration427cb7098382ddba343116b8d7bb43c9642c5cf3 does not change or rerun the frozen science.
 

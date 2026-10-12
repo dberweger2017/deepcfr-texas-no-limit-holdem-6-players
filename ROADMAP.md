@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Storage for open K50 first pass #238:** owner-requested native cache release from merged #236 frees 19.778 GB; verified M4 40.386 GiB free exceeds the original 38 GiB entry target. All research originals and active inputs remain. [Receipt](docs/artifacts/storage-vacuum-20261012.md).
+
 - **HU100 near-4B seed replication ([#236](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236)):** fresh 3.885B/3.967B capacity terminals beat their 2B averages +18.67/+19.42 with positive 97.5% bounds; the original 4B candidate has no severe translated scripted flag, but pot pressure still wins. All final hands replay/reproduce. [Report](docs/reports/hu100-4b-seed-replication.md) preserves the 7 GiB stop and owner-authorized 9 GB continuation. Evidence only; no release or default change.
 
 - **K50 evaluation support ([#235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235)):** explicit pinned loaders, mixed-schema play and LBR pass 280 guarded M1 smoke hands and every-row/key/replay audits. Search/web refuse K50; [full-game proposal](docs/hu20-k50-full-game-proposal.md) awaits owner go. No strength or release change. [Report](docs/reports/k50-evaluation-support.md).
