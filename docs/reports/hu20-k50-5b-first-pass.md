@@ -84,3 +84,18 @@ reached-key street distributions, primary decision, member-hashed ZIP and native
 independent cloud acceptance, RESULTS_INDEX/ROADMAP updates, final review and
 green checks remain pending. The PR remains draft. No incomplete science may
 merge as a finished campaign.
+
+## Prospective direct-play preparation
+
+The original pilot/primary/secondary roots are fresh and reserved before any
+direct outcome. [Inventory](hu20-k50-5b-first-pass-artifacts/root-reservation.json)
+covers readable local configs, reports, manifests, plans, the index and public
+GitHub issue/PR bodies; only this task's proposed reservations matched.
+No other PR work root was read.
+
+The one-use wrapper separates fixed model loading from per-hand play, checks
+the unchanged time/precision limits, requires the exact canonical plan on PR238
+before final play, and independently replays both contrasts before readout.
+Seven source tests pass for cost projection, paired seed/seat weighting,
+independent arithmetic and corrupt replay evidence. Pilot and final play remain
+pending until all three terminal K50 exports pass their full audits.

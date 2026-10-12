@@ -92,7 +92,11 @@ def replay(plan,out,root):
             missing=sum(s==street and not known for s,_,known in keys.values())
             streets[street]={'stored_reached_keys':quantiles(known_values),'missing_reached_keys':missing}
         covered=sum(known for _,_,known in keys.values())
-        coverage[name]={'unique_reached_keys':len(keys),'unique_stored_reached_keys':covered,
+        total=models[name].get('table_keys')
+        if total is not None and covered>total:raise ValueError('Classified stored keys exceed full table')
+        coverage[name]={'table_keys':total,'classified_fraction':covered/total if total else None,
+                        'unclassified_table_keys':total-covered if total is not None else None,
+                        'unique_reached_keys':len(keys),'unique_stored_reached_keys':covered,
                         'street_quantiles_scope':'distinct stored keys reached in this direct contrast, not all table keys',
                         'streets':streets}
     receipt={'status':'verified','hands_replayed':len(cells),'decisions_checked':decisions,'plan_sha256':digest(plan),
