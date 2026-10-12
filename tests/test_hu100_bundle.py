@@ -204,15 +204,18 @@ def test_smoke_driver_http_and_independent_audit_with_small_fixture(tmp_path, mo
     assert result['counts'] == {'free': 1, 'restricted': 1, 'spectator': 1}
 
 
-def test_archive_retrieval_checks_archive_manifest_and_member(prepared, tmp_path, monkeypatch):
+@pytest.mark.parametrize('mapped', [False, True])
+def test_archive_retrieval_checks_archive_manifest_and_member(prepared, tmp_path, monkeypatch, mapped):
     import hashlib
     from zipfile import ZipFile
     from scripts import retrieve_hu100_model as retriever
     release, source, _ = prepared
     pins = verifier.RELEASES[release]
     member = pins['provenance']['member']
-    manifest = json.dumps({'members': [{'path': member, 'bytes': source.stat().st_size,
-                                        'sha256': verifier.sha(source)}]}).encode()
+    record = {'bytes': source.stat().st_size, 'sha256': verifier.sha(source)}
+    # Both archive manifest shapes: a list of records, or #226's path-to-record map.
+    members = {member: record} if mapped else [{'path': member, **record}]
+    manifest = json.dumps({'members': members}).encode()
     archive = tmp_path / 'archive.zip'
     with ZipFile(archive, 'w') as z:
         z.writestr('ARCHIVE-MANIFEST.json', manifest); z.write(source, member)
