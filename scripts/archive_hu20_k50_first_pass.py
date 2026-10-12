@@ -62,11 +62,16 @@ def inventory():
     return files,excluded
 
 
-def pack():
+def pack(*, partial=False):
     owner=json.loads(subprocess.check_output(['gh','pr','view','238','--repo',
         'dberweger2017/deepcfr-texas-no-limit-holdem-6-players','--json','state,isDraft,headRefOid'],text=True))
     if owner['state']!='OPEN':raise ValueError('Unexpected campaign PR state')
-    if read(BASE/'final-readout.json')['status']!='verified':raise ValueError('Final replayed readout required')
+    if partial:
+        quote=read(BASE/'pilot-quote.json')
+        if quote['admitted'] or (BASE/'final-play-complete.json').exists():
+            raise ValueError('Partial cost-refusal archive requires a rejected quote and no final play')
+    elif read(BASE/'final-readout.json')['status']!='verified':
+        raise ValueError('Final replayed readout required')
     files,excluded=inventory()
     logical=sum(path.stat().st_size for path,_ in files)
     cloud=Path.home()/'Local/Research-Cloud/PR-238-hu20-k50-5b-first-pass'
@@ -80,16 +85,18 @@ def pack():
     source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     receipt=seal(files,cloud/'hu20-k50-5b-first-pass-M4-20261012.zip',{
         'pr':238,'source':source,'source_base':SOURCE_BASE,'binary_sha256':file_hash(BINARY),
-        'canonical_plan_sha256':file_hash(BASE/'canonical-final-plan.json'),
+        'canonical_plan_sha256':file_hash(BASE/'canonical-final-plan.json') if (BASE/'canonical-final-plan.json').exists() else None,
+        'record':'cost-pilot-stop-partial' if partial else 'verified-final',
         'indexed_input_dependencies':excluded,'originals_retained':True,
         'live_archive_guard_excluded':'research/guards/operations/archive-final',
-        'scope':'Owner-authorized equal-node K50 first pass, every final hand independently replayed; no adoption or release'})
+        'scope':('Cost-only quote stop; terminal models/gates/pilot retained; no final strength result'
+                 if partial else 'Owner-authorized equal-node K50 first pass, every final hand independently replayed; no adoption or release')})
     write(BASE/'archive-receipt.json',receipt)
 
 
 def main():
-    argparse.ArgumentParser(description=__doc__).parse_args()
-    pack()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--partial',action='store_true')
+    args=p.parse_args();pack(partial=args.partial)
 
 
 if __name__=='__main__':main()
