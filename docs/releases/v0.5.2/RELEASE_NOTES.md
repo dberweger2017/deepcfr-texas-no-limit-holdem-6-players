@@ -17,6 +17,6 @@ The same recipe and training run as v0.5.1, continued from 2B to 4B nodes. **It 
 - **Limits:** no external benchmark has been played. See the model card for every number and limit.
 - **Next:** v0.5.5 adds 200 BB for a Slumbot benchmark.
 
-**Running it.** v0.5.2 runs with `--hu100-release`, which also loads v0.5.0 and v0.5.1 bundles. It peaks at about PEAK_MEMORY of RAM and takes about LOAD_MINUTES minutes to load. The HU20 releases are unchanged: v0.4.2 stays the default on the HU20 table.
+**Running it.** v0.5.2 runs with `--hu100-release`, which also loads v0.5.0 and v0.5.1 bundles. It peaks at about 4 GB of RAM, like v0.5.1, and takes about six and a half minutes to load. The HU20 releases are unchanged: v0.4.2 stays the default on the HU20 table.
 
 **Assets:** the model, model card, these notes, install instructions, `release-manifest.json`, `SHA256SUMS`, and a standard-library verifier, `verify_hu100_bundle.py`. The verifier checks every byte and the publication binding to this release's source commit.

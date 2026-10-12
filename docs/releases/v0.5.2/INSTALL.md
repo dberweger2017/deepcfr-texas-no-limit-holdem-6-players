@@ -1,6 +1,6 @@
 # Install and run v0.5.2
 
-v0.5.2 needs Python 3.11, about FREE_MEMORY of free memory and 4.5 GB of disk. Every start checks all 70.5 million stored entries, which took about LOAD_MINUTES minutes on an M1 MacBook Pro.
+v0.5.2 needs Python 3.11, about 5 GB of free memory and 4.5 GB of disk. Every start checks all 70.5 million stored entries, which took about six and a half minutes on an M1 MacBook Pro.
 
 ```sh
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
