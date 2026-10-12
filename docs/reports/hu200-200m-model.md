@@ -66,8 +66,11 @@ The fresh run saved both milestones, reaching **200,001,087 actual nodes /
 Native elapsed was 462.15s, including 102.76s /146.36s for the 100M /200M
 saves. Supervised train/save wall time was 470.47s. Sampled family peak was
 2.64 GiB; kernel command peak was 2.62 GiB. Both exports completed in 496.30s, with uniform zero-mass fallback and a
-23.28 MiB sampled family peak. Full every-row audit and compact load/play/replay
-verification remain in progress.
+23.28 MiB sampled family peak. The existing full audit verified **31,582,921 rows in each of the checkpoint,
+current and average exports**, with zero mismatches, in 866.94s.
+[Audit receipt](hu200-200m-model-artifacts/full-audit.json). The average SHA256 is
+`b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402`.
+Compact load/play/replay verification remains in progress.
 
 ## Closeout requirements
 
