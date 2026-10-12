@@ -225,6 +225,8 @@ def freeze(pr):
     from scipy.stats import t
     quote=read(BASE/'pilot-quote.json');budget=read(BASE/'budget.json');counts=dict(COUNTS)
     active=pairs()
+    reservation=read(ROOT/'docs/reports/hu100-k50-2b-artifacts/root-reservation.json')
+    if reservation['roots']!=ROOTS or reservation['status']!='fresh-reserved':raise ValueError('Root reservation differs')
     def projection():
         return time()-budget['started']+1800+1.25*sum(q['load_seconds']+(q['play_seconds']+q['replay_seconds']+q['reproduction_seconds'])*counts[c]/1024 for c,q in quote['quotes'].items())
     projected=projection()
@@ -232,10 +234,16 @@ def freeze(pr):
         counts={c:65536 for c in COUNTS}
         while projection()>7*3600 and counts['primary']>1024:counts={c:n//2 for c,n in counts.items()}
     if projection()>7*3600:raise ValueError('Cost quote refuses all final play')
+    pilot_peak=read(BASE/'guards/pilot/receipt.json')['peak_family_rss_bytes']
+    memory_forecast={c:pilot_peak+5200*(counts[c]-1024)+100_000_000 for c in active}
+    if any(n>=SOFT for n in memory_forecast.values()):raise ValueError('Final schedule memory admission refused')
+    trace_forecast=math.ceil(sum(q['trace_bytes']*counts[c]/1024 for c,q in quote['quotes'].items())*1.1)
+    import shutil
+    if shutil.disk_usage(BASE).free-2*trace_forecast-6*GIB<16*GIB:raise ValueError('Final trace plus archive disk admission refused')
     specs={c:s for c,s in active.items()}
     document={'source':revision(),'pr':pr,'roots':ROOTS,'counts':{c:counts[c] for c in active},'pairs':specs,
         'input_receipt_sha256':file_hash(BASE/'inputs.json'),'tables':EQUITY_K50_SHA256,'binary':pin(BINARY),
-        'pilot_quote':quote,'projected_whole_campaign_seconds':projection(),'requested_projection_seconds':projected,
+        'pilot_quote':quote,'projected_whole_campaign_seconds':projection(),'requested_projection_seconds':projected,'memory_forecast_bytes':memory_forecast,'trace_forecast_bytes':trace_forecast,'root_reservation':reservation,
         'projected_half_widths':{c:float(t.ppf(.975,counts[c]-1))*q['paired_sd_bb_per_100']/math.sqrt(counts[c]) for c,q in quote['quotes'].items()},
         'decision_rule':'primary lower95>0: K50 stronger, recommend K50 for HU200; upper95<0: K50 weaker, recommend v1; otherwise inconclusive, no extension; owner decides',
         'secondary':'descriptive nominal paired 95%', 'translation':None,'no_failed_hand_reruns':True,'created':time()}
@@ -246,7 +254,10 @@ def final_play():
     from scripts import evaluate_hu100_direct as direct
     frozen=read(BASE/'canonical-plan.json');posted=read(BASE/'plan-posted.json')
     if file_hash(BASE/'canonical-plan.json')!=posted['sha256']:raise ValueError('Unposted/changed final plan')
-    if frozen['source']!=revision():raise ValueError('Frozen source changed')
+    if frozen['source']!=revision() or frozen['roots']!=ROOTS:raise ValueError('Frozen source/roots changed')
+    quote=frozen['pilot_quote']['quotes']
+    remaining=1800+1.25*sum(q['load_seconds']+(q['play_seconds']+q['replay_seconds']+q['reproduction_seconds'])*frozen['counts'][c]/1024 for c,q in quote.items())
+    if time()+remaining>read(BASE/'budget.json')['deadline']:raise ValueError('Current clock no longer admits final scope')
     for contrast,specs in frozen['pairs'].items():
         out=BASE/'final'/contrast
         registry,done=direct.execute(specs,frozen['counts'][contrast],ROOTS[contrast],contrast,out/'play',frozen['source'])
@@ -272,7 +283,8 @@ def readout():
                 positions['button' if row['rotation']==row['button'] else 'big_blind'].append(row['candidate_chips'])
         n=frozen['counts'][contrast];values=[(cells[b,0]+cells[b,1])/2 for b in range(n)]
         result=stats(values);low,high=result['ci95']
-        result.update(seats={seat:stats(v) for seat,v in positions.items()},absolute_returns={'k50':result['bb_per_100'],'v1':-result['bb_per_100']},
+        result.update(seats={seat:stats(v) for seat,v in positions.items()},absolute_returns={'k50':{'overall':result['bb_per_100'],'button':statistics.mean(positions['button']),'big_blind':statistics.mean(positions['big_blind'])},
+                'v1':{'overall':-result['bb_per_100'],'button':-statistics.mean(positions['big_blind']),'big_blind':-statistics.mean(positions['button'])}},
             coverage=read(out/'replay.json')['coverage'],decision='stronger' if low>0 else 'weaker' if high<0 else 'inconclusive')
         results[contrast]=result
     put(BASE/'summary.json',{'results':results,'primary_reached':read(BASE/'treatment.json')['primary_reached'],'all_hands_independently_replayed':True,'at':time()})
