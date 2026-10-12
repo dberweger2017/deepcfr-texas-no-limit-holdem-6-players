@@ -46,10 +46,11 @@ def approved_archive_repair(out, name, command, approval):
     original = json.loads(failed.read_text())
     receipt = json.loads((out / 'operations/archive-closeout-sidecar/receipt.json').read_text())
     log = (out / 'operations/archive-closeout-sidecar/worker.log').read_text()
-    worker = Path.cwd() / 'planning/seal-archive-closeout.py'
+    worker = Path.cwd() / ('scripts/cleanup_hu20_k50_first_pass.py' if name == 'cleanup-owned-originals' else 'planning/seal-archive-closeout.py')
     expected_command = [str(Path.cwd() / '.venv/bin/python'), str(worker)]
-    if (name not in ('archive-closeout-startup-repair','archive-closeout-corrected-inventory')
-            or record.get('owner_statement') != 'Exception permitted'
+    if name == 'cleanup-owned-originals':expected_command.append('execute')
+    if (name not in ('archive-closeout-startup-repair','archive-closeout-corrected-inventory','cleanup-owned-originals')
+            or record.get('owner_statement') not in ('Exception permitted','everything falls under the exception, finish everything needed to close up the pr and do a correct cleanup')
             or record.get('authorized_operation') != name
             or command != expected_command or record.get('command') != command
             or original.get('operation') != 'archive-closeout-sidecar'
@@ -60,6 +61,11 @@ def approved_archive_repair(out, name, command, approval):
             or file_sha(out / 'budget.json') != record.get('original_budget_sha256')
             or file_sha(worker) != record.get('corrected_worker_sha256')):
         raise ValueError('Owner exception does not match the exact archival startup failure')
+    if name == 'cleanup-owned-originals':
+        if (record.get('owner_statement') != 'everything falls under the exception, finish everything needed to close up the pr and do a correct cleanup'
+                or json.loads((out.parent / 'final-readout.json').read_text()).get('status') != 'verified'
+                or json.loads((out / 'operations/archive-closeout-corrected-inventory/receipt.json').read_text()).get('status') != 'complete'):
+            raise ValueError('Cleanup requires the broad owner exception and completed science/archival repair')
     if name == 'archive-closeout-corrected-inventory':
         prior = out / 'operations/archive-closeout-startup-repair'
         second = json.loads((prior / 'receipt.json').read_text())

@@ -1,0 +1,292 @@
+{
+  "at": 1791817665.1080298,
+  "status": "current-native-and-independent-input-archives-accepted",
+  "native": [
+    {
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-1000000000-milestone.zip",
+      "recorded_bytes": 215176734,
+      "flags": {
+        "documentSize": 215176734,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      },
+      "archive_id": "16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi"
+    },
+    {
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+      "recorded_bytes": 1991949530,
+      "flags": {
+        "documentSize": 1991949530,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      },
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T"
+    },
+    {
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-5000000000-milestone.zip",
+      "recorded_bytes": 328483201,
+      "flags": {
+        "documentSize": 328483201,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      },
+      "archive_id": "1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i"
+    },
+    {
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-5000000000-milestone.zip",
+      "recorded_bytes": 333414365,
+      "flags": {
+        "documentSize": 333414365,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      },
+      "archive_id": "1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ"
+    },
+    {
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-5000000000-milestone.zip",
+      "recorded_bytes": 331384377,
+      "flags": {
+        "documentSize": 331384377,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      },
+      "archive_id": "1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf"
+    }
+  ],
+  "independent_cloud_metadata": [
+    {
+      "id": "16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi",
+      "title": "O-2026100602-1000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "215176734",
+      "url": "https://drive.google.com/file/d/16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1uTSTXQKn19JaGWTTx_lbrANfxO01xPtL"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "title": "hu20-equity-buckets-20261005.tar.gz",
+      "mime_type": "application/x-gzip",
+      "size": "1991949530",
+      "url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1gwungsUq-b9uey8InGy0yOD2GbaMRhp-"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i",
+      "title": "O-2026100601-5000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "328483201",
+      "url": "https://drive.google.com/file/d/1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ",
+      "title": "O-2026100602-5000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "333414365",
+      "url": "https://drive.google.com/file/d/1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1uTSTXQKn19JaGWTTx_lbrANfxO01xPtL"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf",
+      "title": "O-2026100603-5000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "331384377",
+      "url": "https://drive.google.com/file/d/1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1uTSTXQKn19JaGWTTx_lbrANfxO01xPtL"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    }
+  ],
+  "copies": [
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/inputs/v1-seed602-1b.json.gz",
+      "bytes": 215171058,
+      "source_mtime_ns": 1791800659135910292,
+      "sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+      "archive_id": "16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi",
+      "archive_url": "https://drive.google.com/file/d/16z0GMlOoxvK5-cFTNOtFebozcdK8OiRi/view?usp=drivesdk",
+      "archive_sha256": "7c51abc6963d5a415ffa3a8a130245ee63a81d1357db11e92e685280afb9613b",
+      "member": "O-2026100602-1000000000.json.gz",
+      "restoration_verified_before": 1791800659213266479,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/tables/flop-k50.bin",
+      "bytes": 12867944,
+      "source_mtime_ns": 1791801175590719264,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+      "member": "hu20-equity-buckets-20261005/flop-k50.bin",
+      "restoration_verified_before": 1791801181610440129,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/tables/river-k50.bin",
+      "bytes": 1231562564,
+      "source_mtime_ns": 1791801180477729005,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+      "member": "hu20-equity-buckets-20261005/river-k50.bin",
+      "restoration_verified_before": 1791801181610440129,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/tables/turn-k50.bin",
+      "bytes": 139600524,
+      "source_mtime_ns": 1791801181559018212,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+      "member": "hu20-equity-buckets-20261005/turn-k50.bin",
+      "restoration_verified_before": 1791801181610440129,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/inputs/O-2026100601-5000000000.json.gz",
+      "bytes": 328471948,
+      "source_mtime_ns": 1791801314129372520,
+      "sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+      "archive_id": "1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i",
+      "archive_url": "https://drive.google.com/file/d/1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i/view?usp=drivesdk",
+      "archive_sha256": "d11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930",
+      "member": "O-2026100601-5000000000.json.gz",
+      "restoration_verified_before": 1791801460908458394,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/inputs/O-2026100602-5000000000.json.gz",
+      "bytes": 333408609,
+      "source_mtime_ns": 1791801386199674307,
+      "sha256": "14651b481fb44c968f1039f69710344973f5b54a0a75fe5395f4ee319afd85ad",
+      "archive_id": "1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ",
+      "archive_url": "https://drive.google.com/file/d/1YuB1dU0j68QVgYiA3oeqCajwd9vHDcgJ/view?usp=drivesdk",
+      "archive_sha256": "dfe132d93873203d17f980db4fcba6d7bfbcd70cec481293677171093356689a",
+      "member": "O-2026100602-5000000000.json.gz",
+      "restoration_verified_before": 1791801460908458394,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/inputs/O-2026100603-5000000000.json.gz",
+      "bytes": 331378613,
+      "source_mtime_ns": 1791801460792359175,
+      "sha256": "bb08472a95b11e2dc5c06565d59f6e04df0d4dc082d0d839528ee495c769d050",
+      "archive_id": "1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf",
+      "archive_url": "https://drive.google.com/file/d/1N-L3v5rvEqkEn2YvQZMww5vw37XHhOvf/view?usp=drivesdk",
+      "archive_sha256": "f360a8dcd5a1d39ca22dcab07de6a3529ee6eb68d73e5a561007372653c5a443",
+      "member": "O-2026100603-5000000000.json.gz",
+      "restoration_verified_before": 1791801460908458394,
+      "modification_history": "mtime predates the stored successful whole/manifest/member verification receipt; no later modification"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/results/hu20-k50-5b/release/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "bytes": 249237403,
+      "source_mtime_ns": 1791811574954482548,
+      "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+      "archive_id": "pinned-release:v0.4.2",
+      "archive_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.2/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "archive_sha256": null,
+      "member": "O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "archive_kind": "pinned-public-release",
+      "restoration_verified_before": 1791811575064618147,
+      "modification_history": "No mtime change after successful pinned size/hash verification; current release API size/digest/URL verified"
+    }
+  ],
+  "repeat_archive_or_member_hash_audit": false,
+  "release_current_asset": {
+    "apiUrl": "https://api.github.com/repos/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/assets/621065612",
+    "contentType": "application/gzip",
+    "createdAt": "2026-10-08T07:17:17Z",
+    "digest": "sha256:15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+    "downloadCount": 57,
+    "id": "RA_kwDOOABkQc4lBLWM",
+    "label": "",
+    "name": "O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "size": 249237403,
+    "state": "uploaded",
+    "updatedAt": "2026-10-08T07:17:32Z",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.2/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz"
+  }
+}

@@ -38,7 +38,7 @@ Expected whole SHA is7cce272f16d292c62c62cdb0ac6b27e007fb51ef1460bb8e04fd9934f68
 No release/tag/publication, native-trainer edit, M1 science, paid compute or cleanup. All working originals/open dependencies retained; no synced deletion/eviction. Compact final evidence-review and exact-head CI receipts live with the report.
 
 
-## PR238 — HU20 K50 matched 5B; verified science, supplemental startup stop
+## PR238 — HU20 K50 matched 5B; verified science and accepted closeout
 
 [PR238](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/238), [report](docs/reports/hu20-k50-5b-first-pass.md).
 Native main source 045c793a4abd2e371d4d77de663fd3dd2f00316b; canonical scientific source f1c3a978; evidence source db8164da.
@@ -2777,3 +2777,9 @@ PY
 ```
 
 Restoring this evidence does not authorize another scientific run. Own extracted-copy cleanup is complete as indexed above. The [single final end evidence review](docs/reports/hu20-equity-bench-scoring-m4-artifacts/final-evidence-review.json) is clear, with no open findings. M4 was released at 06:46 Madrid October11; green exact-head merge remains pending. No cleanup of other PRs or synced folders occurred.
+
+### PR238 completed supplemental repair and cleanup authorization
+
+The owner permitted the archival exception, then explicitly authorized finishing everything needed to close PR238 and correct cleanup. Both metadata failures remain preserved; no scientific retry or changed guards/budget. [Closeout ZIP](https://drive.google.com/file/d/1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0/view?usp=drivesdk), ID 1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0, same PR238 folder: **80,534 bytes /27 members**, SHA256 **281cf1677bf441dc913cd40601c55394b3f9636fab219e21620a7ea94a67e88e**, manifest SHA256 **0aa41a6f04f081d047f45f6ad4f384aa44d56c63944c0ffe42ebaaa8b75075b5**. All local member readbacks pass; current native uploaded1/uploading0/conflicts0/not-paused/not-excluded/not-trashed and independent ID/name/size/parent agree. Remote bytes not downloaded. [Acceptance receipt](docs/reports/hu20-k50-5b-first-pass-artifacts/closeout-archive-acceptance.json).
+
+The supplemental archive seals both startup failures, original latch, closed archive guard, owner exception, corrected worker and review provenance. Locally preserved too. Existing indexed input copies have current native+independent archive acceptance, or current pinned release size/digest, without repeated large archive/member audits. [Input cleanup provenance](docs/reports/hu20-k50-5b-first-pass-artifacts/cleanup-input-acceptance.json). After reviewed green-check merge, cleanup targets41 unchanged own payloads /7,514,485,775 bytes; fresh dependency/stat/upload checks remain mandatory. A measured receipt will record every removed path and exact archive/member/hash restoration. Shared Git, guard/budget/failure history, source/environment, compact/changed/unarchived files and synced/other-PR files are protected. The earlier draft hold is superseded by accepted repair and owner authorization; merge awaits final exact-head checks.

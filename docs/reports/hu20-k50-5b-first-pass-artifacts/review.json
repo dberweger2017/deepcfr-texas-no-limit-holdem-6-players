@@ -1,6 +1,6 @@
 {
-  "at": 1791814087.901194,
-  "status": "clear-source-and-science-review",
+  "at": 1791818283.4071538,
+  "status": "source-science-and-storage-review-clear",
   "review_type": "campaign-agent diff review plus independent every-hand replay and separate arithmetic implementation",
   "source": "db8164daeb02f463c6c305a35c69921b236856c8",
   "native_game_abstraction_regret_source_unchanged": true,
@@ -21,6 +21,9 @@
   "native_tests": 14,
   "focused_direct_tests": 11,
   "archive_inventory_tests": 2,
-  "cloud_acceptance_pending": true,
-  "final_exact_head_ci_pending": true
+  "cloud_acceptance_pending": false,
+  "final_exact_head_ci_pending": true,
+  "supplemental_archival_repair_complete": true,
+  "cleanup_authorized_after_merge": true,
+  "cleanup_guard_tests": 16
 }

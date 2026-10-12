@@ -67,3 +67,24 @@ def test_inventory_correction_is_limited_to_known_metadata_path_failure(tmp_path
     (prior/'worker.log').write_text('Nonfinite scientific result')
     with pytest.raises(ValueError,match='different metadata failure'):
         approved_archive_repair(out,'archive-closeout-corrected-inventory',command,approval)
+
+
+def test_cleanup_needs_broad_owner_scope_and_completed_closeout(tmp_path,monkeypatch):
+    out,command,approval=setup(tmp_path,monkeypatch)
+    (tmp_path/'final-readout.json').write_text(json.dumps({'status':'verified'}))
+    closed=out/'operations/archive-closeout-corrected-inventory';closed.mkdir()
+    (closed/'receipt.json').write_text(json.dumps({'status':'complete'}))
+    worker=tmp_path/'scripts/cleanup_hu20_k50_first_pass.py';worker.parent.mkdir();worker.write_text('cleanup reviewed\n')
+    command=[str(tmp_path/'.venv/bin/python'),str(worker),'execute']
+    data=json.loads(approval.read_text())
+    data.update(authorized_operation='cleanup-owned-originals',command=command,
+                corrected_worker_sha256=file_sha(worker))
+    approval.write_text(json.dumps(data))
+    with pytest.raises(ValueError,match='broad owner'):
+        approved_archive_repair(out,'cleanup-owned-originals',command,approval)
+    data['owner_statement']='everything falls under the exception, finish everything needed to close up the pr and do a correct cleanup'
+    approval.write_text(json.dumps(data))
+    assert approved_archive_repair(out,'cleanup-owned-originals',command,approval)==file_sha(approval)
+    (closed/'receipt.json').write_text(json.dumps({'status':'failed'}))
+    with pytest.raises(ValueError,match='broad owner'):
+        approved_archive_repair(out,'cleanup-owned-originals',command,approval)

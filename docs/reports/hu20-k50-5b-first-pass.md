@@ -144,7 +144,7 @@ Initial 21.87 GiB disk prompted a preventive 38 GiB forecast hold, not a guard f
 
 Setup failures are retained: remote PATH, HTTPS keychain, quoting/missing test paths, unused wrapper indentation, canonical-post local time-module error (existing exact comment read back; no final hands started), and an older direct test double lacking the newly logged key contract. The corrected fixture preserves runtime bytes and 11 focused direct checks pass; two archive inventory/hash-refusal checks pass. These were source/setup checks, not failed scientific attempts or hand reruns.
 
-Archive local/member/whole-hash verification, separate native and independent Drive acceptance, RESULTS_INDEX restoration records and final exact-head checks remain pending. Originals are preserved; the PR remains draft until closeout is complete.
+Main and supplemental ZIPs are member/whole-hash verified and separately native/independent Drive accepted. Restoration is indexed; final exact-head checks precede merge and cleanup.
 
 ### Measured guarded stages (before archive)
 
@@ -174,3 +174,9 @@ A supplemental closeout worker failed before packaging with ModuleNotFoundError:
 The owner subsequently stated **Exception permitted** for one archive-only startup repair. The original latch, failed operation, budget and all scientific results stay unchanged; no scientific retry is authorized. The exception validates exact failure/budget/worker hashes and admits only the named metadata worker. Repair receipts and acceptance follow.
 
 The approved metadata correction then exposed a missing latch path before ZIP creation (1.07s, no swaps or file output). This second failure is preserved. Inventory now points at guards/campaign-failure.json and preflights every member;27 metadata members /68,296 bytes validate before the corrected guarded launch. This continues the same owner-approved archive-only correction, with no scientific retry or changed guards.
+
+## Completed archival repair and cleanup authorization
+
+The owner broadened the exception to complete all closeout and correct cleanup. [Supplemental ZIP](https://drive.google.com/file/d/1JOStfz0GZVdMF5FZ85mSon_LkzYNzxP0/view?usp=drivesdk) is accepted: **80,534 bytes /27 members**, SHA256 **281cf1677bf441dc913cd40601c55394b3f9636fab219e21620a7ea94a67e88e**, manifest SHA256 **0aa41a6f04f081d047f45f6ad4f384aa44d56c63944c0ffe42ebaaa8b75075b5**. It preserves both metadata startup failure logs/receipts, the original latch, owner exception, corrected worker and closed main archive guard. Every member locally reads back; native/cloud metadata independently agrees. Remote bytes were not downloaded. [Acceptance](hu20-k50-5b-first-pass-artifacts/closeout-archive-acceptance.json).
+
+Successful repair:1.05s /0.159GiB sampled family peak. Original budget/failure latch remain unchanged, and scientific work is unchanged. Post-merge cleanup is explicitly authorized for accepted, unchanged, unused own payload copies. The plan covers41 files /7,514,485,775 bytes; it rechecks current upload status, exact path/size/mtime and process/public-plan dependencies before removal. Shared Git, source/environment, guards/budget/failure history, compact receipts, changed/unarchived files, synced folders and other PR roots remain protected. Sixteen focused guard/exception/cleanup tests pass. Actual removal/restoration receipts follow merge.

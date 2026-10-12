@@ -1,0 +1,7 @@
+{
+  "status": "prospective-only-after-merge",
+  "files": 41,
+  "bytes": 7514485775,
+  "policy": "After PR238 merge only; accepted archives, exact path/size/mtime and dependency review. No synced deletion/eviction, shared Git, other roots or changed/uncertain files.",
+  "guards_and_compact_receipts_preserved": true
+}

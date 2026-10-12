@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU20 K50 matched 5B first pass ([#238](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/238)), science complete:** three equally trained seeds beat matched v1 **+10.31 [7.66,12.96] BB/100**; descriptive v0.4.2 **+9.97 [7.09,12.85]**, nominal paired 95% conditional on fixed policies. All 393,216 hands independently replay. [Report](docs/reports/hu20-k50-5b-first-pass.md) discloses 1.29–1.31x keys/fewer visits and reached-key coverage. Both ZIPs accepted; metadata failures preserved and owner-approved archival repair complete. Recommend longer protocol; owner decides next, no adoption/release/automatic 28B. Correct cleanup follows green-check merge and dependency/provenance review.
+
 - **HU100 near-4B seed replication ([#236](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236)):** fresh 3.885B/3.967B capacity terminals beat their 2B averages +18.67/+19.42 with positive 97.5% bounds; the original 4B candidate has no severe translated scripted flag, but pot pressure still wins. All final hands replay/reproduce. [Report](docs/reports/hu100-4b-seed-replication.md) preserves the 7 GiB stop and owner-authorized 9 GB continuation. Evidence only; no release or default change.
 
 - **K50 evaluation support ([#235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235)):** explicit pinned loaders, mixed-schema play and LBR pass 280 guarded M1 smoke hands and every-row/key/replay audits. Search/web refuse K50; [full-game proposal](docs/hu20-k50-full-game-proposal.md) awaits owner go. No strength or release change. [Report](docs/reports/k50-evaluation-support.md).

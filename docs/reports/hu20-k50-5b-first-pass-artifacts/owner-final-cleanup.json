@@ -1,0 +1,14 @@
+{
+  "at": 1791817721.574807,
+  "owner_statement": "everything falls under the exception, finish everything needed to close up the pr and do a correct cleanup",
+  "authorized_operation": "cleanup-owned-originals",
+  "scope": "After merge, remove only accepted unchanged own research originals, with dependency review and preservation of every changed/unarchived/shared/other-root file; all original guards/deadline unchanged.",
+  "command": [
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/.venv/bin/python",
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/scripts/cleanup_hu20_k50_first_pass.py",
+    "execute"
+  ],
+  "original_failure_sha256": "e4d00174939e72645ae04b5340b90faac0c1c7ae3012a359b80cf399cd1a7e66",
+  "original_budget_sha256": "e7eaefd67f5dfaaa977e4ee52d5201e1fb3450955635b9296c1fe81c3ac10585",
+  "corrected_worker_sha256": "5759023369da72c565ea581127beb66a2dc7b4aa182b790fe791354496947096"
+}
