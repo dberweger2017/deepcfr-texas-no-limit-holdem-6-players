@@ -112,5 +112,6 @@ raw evidence while PR212 remains open; archive closeout is pending.
 
 `--hu100-release BUNDLE` loads a verified HU100 release bundle, with #215's translation (512 states, 128 events) fixed on. It runs as its own table, outside the HU20 release catalog, and keeps each release's sessions separate.
 
+- **v0.5.2:** #226's 4B average. [Install and run](releases/v0.5.2/INSTALL.md) · [model card](releases/v0.5.2/MODEL_CARD.md).
 - **v0.5.1:** #223's 2B average. [Install and run](releases/v0.5.1/INSTALL.md) · [model card](releases/v0.5.1/MODEL_CARD.md).
 - **v0.5.0:** these same #207 1B bytes. [Model card](releases/v0.5.0/MODEL_CARD.md) · [readiness record](releases/v0.5.0/READINESS.md).

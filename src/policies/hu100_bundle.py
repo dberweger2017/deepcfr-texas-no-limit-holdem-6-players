@@ -78,6 +78,32 @@ RELEASES = {
                      'external_benchmark_established': False,
                      'translated_pot_profitability_established': False},
     },
+    'v0.5.2': {
+        'verifier': 'verify_hu100_bundle.py',
+        'name': 'v0.5.2 · HU100 · O4B · seed 2026100601 · translation 512/128',
+        'model': {
+            'file': 'O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz', 'bytes': 2121415396,
+            'sha256': '0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0',
+            'checkpoint_sha256': '65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368',
+            'seed': 2026100601, 'iteration': 3716073, 'entries': 70466972,
+            'actual_nodes': 4000000174, 'training_budget_nodes': 4000000000, **_SHARED,
+        },
+        'provenance': {
+            'pr': 226, 'scientific_source_commit': 'd3120c2c195b5eca136b7f0d9969e32ba5159fff',
+            'drive_folder_id': '1YP4RR_c6HlPjGyGSUoZQaVI33kgF-TfW',
+            'drive_archive_id': '1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E',
+            'archive_name': 'hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip',
+            'archive_bytes': 22545560259,
+            'archive_sha256': 'ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1',
+            'manifest_member': 'ARCHIVE-MANIFEST.json',
+            'manifest_sha256': '5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664',
+            'member': 'research/training/2026100601/4000000000/average.gz',
+        },
+        'evidence': {'direct_gain_over_v051_established': True,
+                     'independent_seed_replication_established': True,
+                     'external_benchmark_established': False,
+                     'translated_pot_profitability_established': False},
+    },
 }
 
 

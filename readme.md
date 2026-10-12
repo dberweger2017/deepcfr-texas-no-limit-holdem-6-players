@@ -2,24 +2,24 @@
 
 Two release lines play two-player no-limit hold'em, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
 
-**v0.5.1, heads-up 100 BB (newest).**
-- **The model:** a 2B-node average (seed 2026100601), the same recipe as v0.5.0 trained twice as long, with public-history translation for off-menu bet sizes.
-- **Head to head:** it beats v0.5.0 by **+29.51 [26.82, 32.20] BB/100**. Two independent seeds repeat that step from 1B to 2B almost exactly: +28.1 and +27.9 (#226).
+**v0.5.2, heads-up 100 BB (newest).**
+- **The model:** a 4B-node average (seed 2026100601), the same training run as v0.5.0 and v0.5.1 continued to 4B nodes, with public-history translation for off-menu bet sizes.
+- **Head to head:** it beats v0.5.1 by **+17.90 [14.98, 20.83] BB/100**. Two independent seeds repeat the gain over their own 2B models: +18.7 and +19.4 (#236).
 - **Scripted opponents** (translation on), BB/100:
 
   | Opponent | BB/100 [95%] |
   |---|---|
-  | check/call | +132 |
-  | random | +107 |
-  | tight-aggressive | +55 |
-  | loose-aggressive | +42 |
-  | pot-size pressure | −37 [−70, −5] |
+  | check/call | +140 |
+  | random | +138 |
+  | loose-aggressive | +82 |
+  | tight-aggressive | +49 |
+  | pot-size pressure | −49 [−82, −17] |
 
-  None of these differs significantly from v0.5.0 on the same deals.
+  No opponent shows a severe regression from v0.5.1 on the same deals; loose-aggressive improves by +35.
 - **Limits:** no external benchmark has been played, and pot-size pressure still beats it.
-- [Model card](docs/releases/v0.5.1/MODEL_CARD.md) · [install and run](docs/releases/v0.5.1/INSTALL.md)
+- [Model card](docs/releases/v0.5.2/MODEL_CARD.md) · [install and run](docs/releases/v0.5.2/INSTALL.md)
 
-**v0.5.0, heads-up 100 BB.** The 1B-node average from the same run, still available. [Model card](docs/releases/v0.5.0/MODEL_CARD.md)
+**v0.5.1 and v0.5.0, heads-up 100 BB.** The 2B- and 1B-node averages from the same run, still available. [v0.5.1 model card](docs/releases/v0.5.1/MODEL_CARD.md) · [v0.5.0 model card](docs/releases/v0.5.0/MODEL_CARD.md)
 
 **v0.4.2, heads-up 20 BB.**
 - **The model:** a 10B-node average, fixed seed 2026100601. It is the default on the 20 BB table; v0.4.0 and v0.4.1 remain selectable.
@@ -79,6 +79,7 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
 | **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) |
 | **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) |
+| **v0.5.2** | Heads-up 100 BB 4B-node average with translation; beats v0.5.1 head to head by +17.9 BB/100, repeated on two other seeds; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.2) |
 | **v0.5.5** | Heads-up 200 BB, trained at that depth and benchmarked against Slumbot; results and uncertainty published |
 | **v0.6 / v0.7** | Three players / four and five players |
 | **v0.8** | Six players, 100 BB; confirmed profit against the scripted pool |
