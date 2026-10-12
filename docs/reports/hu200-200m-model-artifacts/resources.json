@@ -1,0 +1,160 @@
+{
+  "all_operations_complete": true,
+  "maximum_kernel_command_peak_rss_bytes": 2813755392,
+  "maximum_sample_gap_seconds": 1.7572221755981445,
+  "minimum_free_disk_bytes": 38702837760,
+  "minimum_free_memory_percent": 30,
+  "observed_pressure_levels": [
+    1,
+    2
+  ],
+  "operations": [
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 43663360,
+      "maximum_sample_gap_seconds": 0.32512521743774414,
+      "operation": "archive",
+      "peak_family_rss_bytes": 94126080,
+      "returncode": 0,
+      "samples": 68,
+      "seconds": 20.031970042007742,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 11370496,
+      "maximum_sample_gap_seconds": null,
+      "operation": "archive-source",
+      "peak_family_rss_bytes": 25264128,
+      "returncode": 0,
+      "samples": 1,
+      "seconds": 0.3058169169962639,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 411893760,
+      "maximum_sample_gap_seconds": 0.6175940036773682,
+      "operation": "build",
+      "peak_family_rss_bytes": 1311965184,
+      "returncode": 0,
+      "samples": 45,
+      "seconds": 14.772430583005189,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 4833280,
+      "maximum_sample_gap_seconds": 1.7572221755981445,
+      "operation": "export",
+      "peak_family_rss_bytes": 24412160,
+      "returncode": 0,
+      "samples": 1705,
+      "seconds": 496.303242458991,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 73531392,
+      "maximum_sample_gap_seconds": 0.3191721439361572,
+      "operation": "focused-tests",
+      "peak_family_rss_bytes": 102858752,
+      "returncode": 0,
+      "samples": 19,
+      "seconds": 5.635229583000182,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 48578560,
+      "maximum_sample_gap_seconds": 0.529735803604126,
+      "operation": "full-audit",
+      "peak_family_rss_bytes": 66945024,
+      "returncode": 0,
+      "samples": 3007,
+      "seconds": 866.942730625,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 2785280,
+      "maximum_sample_gap_seconds": null,
+      "operation": "independent-native-replay",
+      "peak_family_rss_bytes": 17088512,
+      "returncode": 0,
+      "samples": 1,
+      "seconds": 0.3096053339977516,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 562462720,
+      "maximum_sample_gap_seconds": 0.42581605911254883,
+      "operation": "recovery-full",
+      "peak_family_rss_bytes": 587169792,
+      "returncode": 0,
+      "samples": 167,
+      "seconds": 51.159757458008244,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 366624768,
+      "maximum_sample_gap_seconds": 0.3025181293487549,
+      "operation": "recovery-part",
+      "peak_family_rss_bytes": 391282688,
+      "returncode": 0,
+      "samples": 80,
+      "seconds": 23.40241004098789,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 561020928,
+      "maximum_sample_gap_seconds": 0.36884212493896484,
+      "operation": "recovery-resumed",
+      "peak_family_rss_bytes": 587677696,
+      "returncode": 0,
+      "samples": 148,
+      "seconds": 43.58775179099757,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 707559424,
+      "maximum_sample_gap_seconds": 0.3218991756439209,
+      "operation": "smoke",
+      "peak_family_rss_bytes": 722157568,
+      "returncode": 0,
+      "samples": 616,
+      "seconds": 179.08334425000066,
+      "soft_stop_requested": false,
+      "status": "complete"
+    },
+    {
+      "failure": null,
+      "kernel_command_peak_rss_bytes": 2813755392,
+      "maximum_sample_gap_seconds": 0.46108388900756836,
+      "operation": "train-200m",
+      "peak_family_rss_bytes": 2834317312,
+      "returncode": 0,
+      "samples": 1599,
+      "seconds": 470.4705989590002,
+      "soft_stop_requested": false,
+      "status": "complete"
+    }
+  ],
+  "sampled_peak_family_rss_bytes": 2834317312,
+  "samples": 7456,
+  "scopes": "Sampled family includes supervisor and all owned descendants. Kernel peak is a per-command high-water observation; neither gives an exact whole-family supremum."
+}

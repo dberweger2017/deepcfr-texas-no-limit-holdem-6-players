@@ -1,0 +1,20 @@
+{
+  "blocks": 32,
+  "candidate_decisions": 211,
+  "compact_storage": true,
+  "coverage": {
+    "positive-mass": 211
+  },
+  "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+  "hands": 64,
+  "load_seconds": 177.25326608400792,
+  "model_sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402",
+  "opponent": "check_call",
+  "play_and_engine_replay_seconds": 0.11750554099853616,
+  "replay": "every action, event, settlement and selected policy action",
+  "schema": "hu200-native-reopening-ordered-history-card-v1",
+  "scope": "loading and legal internal play only; no strength claim or Slumbot requests",
+  "stack_bb": 200,
+  "status": "verified",
+  "translation": false
+}

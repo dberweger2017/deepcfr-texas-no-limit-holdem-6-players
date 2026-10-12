@@ -1,0 +1,37 @@
+{
+  "archives": [
+    {
+      "bytes": 4132696783,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "6da6a8b48e65f838d5cdcdeb61e1f556d4a89a843f3dae8dd013a31469a0ab12",
+      "members_readback": "every size and SHA256 agrees",
+      "name": "HU200-200M-M1-evidence-20261013.zip",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip",
+      "remote_bytes_downloaded": false,
+      "sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+      "verified_members": 73
+    },
+    {
+      "bytes": 800092256,
+      "manifest_path": null,
+      "manifest_sha256": null,
+      "members_readback": "every size and SHA256 agrees",
+      "name": "HU200-200M-average-only-20261013.zip",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-average-only-20261013.zip",
+      "remote_bytes_downloaded": false,
+      "sha256": "6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2",
+      "verified_members": 1
+    }
+  ],
+  "average_member": {
+    "bytes": 800092100,
+    "mtime_ns": 1791845152660702215,
+    "original_path": "/Users/dberweger/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-200000000.gz.average.gz",
+    "path": "HU200-200000000.gz.average.gz",
+    "sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402"
+  },
+  "manifest_member_count": 73,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "status": "locally-verified"
+}

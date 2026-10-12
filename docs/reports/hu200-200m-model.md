@@ -70,7 +70,16 @@ saves. Supervised train/save wall time was 470.47s. Sampled family peak was
 current and average exports**, with zero mismatches, in 866.94s.
 [Audit receipt](hu200-200m-model-artifacts/full-audit.json). The average SHA256 is
 `b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402`.
-Compact load/play/replay verification remains in progress.
+Compact load completed in **177.25s** through the existing sorted-row path;
+32 duplicate blocks /64 internal `check_call` hands replayed and reproduced
+with **211 candidate decisions**, all positive-mass known keys in this selected
+sample. Independent native replay checked **452 decisions /64 hands**, with
+**zero mismatched hands**, including legal bounds, menus, keys and settlement.
+No winrate is reported. [Smoke receipt](hu200-200m-model-artifacts/smoke.json).
+Science closed in **35.88 minutes**; the locally verified full evidence ZIP and
+separate average-only ZIP are staged in Research-Cloud. All 73 evidence members
+and the single average member passed size/SHA256 readback. Native Drive upload
+is pending; cloud acceptance and final index integration remain.
 
 ## Closeout requirements
 
