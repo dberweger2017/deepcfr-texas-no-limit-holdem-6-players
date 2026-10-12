@@ -14,7 +14,8 @@ from src.arena.catalog import Checkpoint
 from src.arena.registry import PolicyRegistry
 from src.arena.runner import public_events, run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest, schedule_document, stream_seed
-from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, choices, information_key
+from src.blueprint.equity_buckets import EquityCards
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -30,7 +31,7 @@ def action_seed(root,block,rotation,role):
 
 
 def make_plan(specs,blocks,root,rung):
-    models=tuple(Checkpoint(**{k:s[k] for k in ('name','path','sha256','format')}) for s in specs)
+    models=tuple(Checkpoint(**{k:s[k] for k in ('name','path','sha256','format','abstraction','card_buckets') if k in s}) for s in specs)
     return Plan((Scenario('direct-'+rung,(10000,10000)),),candidate=models[0].name,
         baseline=models[1].name,opponents=(models[1].name,),blocks=blocks,root_seed=root,
         split='test',models=models,max_decisions=1000)
@@ -58,7 +59,7 @@ class Probe:
     def choose_action(self,view):
         action=self.player.choose_action(view)
         menu,probabilities,known=self.model.distribution(view)
-        key=information_key(view,menu,schema=HU100_SCHEMA)
+        key=self.model.information_key(view,menu)
         if not any(c.action==action and p>0 for c,p in zip(menu,probabilities)):
             raise ValueError('Direct action outside positive-probability native menu')
         visits=int(self.model.visits.get(key,0))
@@ -129,10 +130,13 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None):
     return registry,json.loads((out/'complete.json').read_text())
 
 
-def audit(out,output,report=False):
+def audit(out,output,report=False,cost_only=False):
     tick=perf_counter()
     inputs=json.loads((out/'inputs.json').read_text());done=json.loads((out/'complete.json').read_text())
     plan=Plan.from_dict(inputs['plan'])
+    # Replay owns pinned tables independently of the policy instances used to play.
+    models={m.name:m for m in plan.models}
+    cards={m.name:EquityCards(Path(m.card_buckets)) for m in plan.models if m.abstraction in EQUITY_SCHEMAS}
     if done['status']!='complete' or inputs['translation'] is not None or inputs['plan_sha256']!=digest(inputs['plan']):
         raise ValueError('Foreign direct plan')
     for name,pin in done['files'].items():
@@ -159,10 +163,13 @@ def audit(out,output,report=False):
                 action=Action(ActionKind(event['action']['kind']),event['action']['raise_to'])
                 view.legal_actions.validate(action)
                 menu=choices(view,raise_cap=None,free_fold=False)
+                policy=plan.candidate if role==0 else plan.baseline
+                spec=models[policy]
+                key=information_key(view,menu,schema=spec.abstraction or HU100_SCHEMA,equity_cards=cards.get(policy))
                 if (d['block']!=block.index or d['rotation']!=rotation or d['role']!=role
                         or d['seed']!=action_seed(plan.root_seed,block,rotation,role)
                         or d['hand_id']!=view.hand_id or d['seat']!=view.seat or d['street']!=view.street.value
-                        or d['action']!=event['action'] or d['key']!=information_key(view,menu,schema=HU100_SCHEMA)
+                        or d['action']!=event['action'] or d['key']!=key
                         or d['policy']!=(plan.candidate if role==0 else plan.baseline)
                         or d['menu']!=json.loads(canonical([asdict(c) for c in menu]))
                         or len(d['probabilities'])!=len(menu) or not all(isfinite(p) and p>=0 for p in d['probabilities'])
@@ -188,6 +195,9 @@ def audit(out,output,report=False):
             raise ValueError('Incomplete direct replay')
     result={'status':'verified','hands_replayed':hands,'actions_replayed':actions,
         'seconds':perf_counter()-tick,'settlement_sum_zero':True,'all_native_menu_actions':True,'coverage':coverage}
+    if cost_only:
+        series=[(values[b,0]+values[b,1])/2 for b in range(plan.blocks)]
+        result['paired_sd_bb_per_100']=stdev(series)
     if report:
         series=[(values[b,0]+values[b,1])/2 for b in range(plan.blocks)]
         center=mean(series);sd=stdev(series) if len(series)>1 else 0
