@@ -1,0 +1,69 @@
+{
+  "ac_required": true,
+  "at": 1791765291.531772,
+  "completed_guard_names": [
+    "final-direct-seed-2026100901-terminal-vs-2b",
+    "final-direct-seed-2026100902-terminal-vs-2b",
+    "final-scripted"
+  ],
+  "descriptive_stage_retry_same_frozen_schedule": true,
+  "disk_floor_bytes": 17179869184,
+  "failed_partial_retained_unmodified": true,
+  "free_memory_percent_floor": 15,
+  "hard_family_bytes": 9663676416,
+  "helper_sha256": {
+    "continuation_guard.py": "083359771a067f6d656fb475aefa86f0f74601d440c3339a5c7e3c2a76d1c6b0",
+    "continue_pr236.py": "936e451b9b61b371372fc8bc64a5a01da7904aaf7013c71d764b7fb77c4daaee"
+  },
+  "interpretation": "9 GB decimal = 9,000,000,000 bytes; existing 9 GiB hard limit retained",
+  "no_completed_stage_rerun": true,
+  "normal_pressure_required": true,
+  "original_freeze_sha256": "ef7760791186aad61f6e34d111c31e492a60eeb855fb8e75c92ede276260bc40",
+  "overrides_prior_no_retry_for_this_failed_descriptive_only": true,
+  "owner_instruction": "New soft ceiling is 9 gb, continue where it stopped",
+  "partial_outcomes_inspected": false,
+  "preserved_files": {
+    "results/hu100-4b-seed-replication/final-direct/terminal-seed-2026100601-vs-2026100901/play/decisions.jsonl.gz": {
+      "bytes": 260393140,
+      "sha256": "de605c8fe745b6d89fdf23330cfeb4d7ba78ef0eb6203146a1d63fbc65036289"
+    },
+    "results/hu100-4b-seed-replication/final-direct/terminal-seed-2026100601-vs-2026100901/play/hands.jsonl.gz": {
+      "bytes": 66186380,
+      "sha256": "15a1acb5e01d6b64c50b82b3b3779852da1b13a1edd52503ca1535d14c58991d"
+    },
+    "results/hu100-4b-seed-replication/final-direct/terminal-seed-2026100601-vs-2026100901/play/inputs.json": {
+      "bytes": 2828,
+      "sha256": "3b9df4504268d0bbebce1c0b2d0a69ca3c5c0bec0a04c24a99679f48059f984d"
+    },
+    "results/hu100-4b-seed-replication/guards/campaign-failure.json": {
+      "bytes": 179,
+      "sha256": "df840c2bad69372cc8bc86e40154fbf2aecade450d4b323e369ef6953a62f29d"
+    },
+    "results/hu100-4b-seed-replication/guards/operations/final-direct-seed-2026100901-terminal-vs-2b/receipt.json": {
+      "bytes": 1171,
+      "sha256": "5ae6d1bccd21408248077167bea85982488526bfdc509bb9296a370f90a288f5"
+    },
+    "results/hu100-4b-seed-replication/guards/operations/final-direct-seed-2026100902-terminal-vs-2b/receipt.json": {
+      "bytes": 1170,
+      "sha256": "76fe2e8fb66399fc3647d624a2892051856c6e9c74059a4ac5dad7544f0f6b49"
+    },
+    "results/hu100-4b-seed-replication/guards/operations/final-direct-terminal-seed-2026100601-vs-2026100901/receipt.json": {
+      "bytes": 1254,
+      "sha256": "bc0ce884537120cc1fff7693982428bec3b0f26323dc16f34819174bab5a74ac"
+    },
+    "results/hu100-4b-seed-replication/guards/operations/final-scripted/receipt.json": {
+      "bytes": 686,
+      "sha256": "0b64adb9e2d9bc574a0bce47797905c6b81ed4ae58af9a10c261fb6919b9028e"
+    }
+  },
+  "qualification_prelaunch_failure": {
+    "error": "Receipt-path FileExistsError before baseline/worker/science; fixed to separate amendments directory",
+    "no_actual_guard_breach": true,
+    "no_science_started": true,
+    "phase": "guard-qualification"
+  },
+  "sample_sizes_roots_models_unchanged": true,
+  "science_source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "soft_family_bytes": 9000000000,
+  "total_swap_cap_bytes": 3000000000
+}

@@ -1,0 +1,5 @@
+{
+  "at": 1791753581.581641,
+  "failure": "RuntimeError('Guard breach: tool family exceeds soft ceiling')",
+  "operation": "final-direct-terminal-seed-2026100601-vs-2026100901"
+}

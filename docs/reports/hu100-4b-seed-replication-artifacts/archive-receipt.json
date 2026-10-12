@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 19777801324,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 19777198965,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "3bfe24115e1ee069dc0f146812bbc3ac93d2f72c97dc21ffe05bbf096c45400c",
+  "members": 878,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-236-hu100-4b-seed-replication/hu100-4b-seed-replication-M4-20261011.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 96.33430820800277,
+  "sha256": "7cce272f16d292c62c62cdb0ac6b27e007fb51ef1460bb8e04fd9934f686ecb5",
+  "status": "locally-verified"
+}

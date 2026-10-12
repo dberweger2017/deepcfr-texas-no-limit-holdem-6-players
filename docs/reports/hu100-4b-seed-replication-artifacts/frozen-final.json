@@ -1,0 +1,512 @@
+{
+  "archive_calibration": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 14318147951,
+    "cloud_upload_accepted": false,
+    "label": "initial",
+    "logical_member_bytes": 14317774629,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "149d31b89e4e137527aff3e89d61ac3acaeca9f44a21fc15eef6a2f98c172738",
+    "measured_at": 1791745411.424122,
+    "members": 542,
+    "path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/archive-calibrations/initial.zip",
+    "receipt_path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/archive-calibrations/initial.json",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 50.079783417000726,
+    "sha256": "2f0be37f6583c8ab11ece4a910d3ad421f5fc247d94ebe0377433f6045f6324e",
+    "status": "locally-verified"
+  },
+  "archive_projected_bytes": 19758324096,
+  "archive_quote_basis": "3x fresh multiGB source hash/write/all-member readback/whole hash",
+  "archive_quote_seconds": 207.3281533723295,
+  "blocks_per_contrast": {
+    "seed-2026100901-terminal-vs-2b": 524288,
+    "seed-2026100902-terminal-vs-2b": 262144,
+    "terminal-seed-2026100601-vs-2026100901": 524288,
+    "terminal-seed-2026100601-vs-2026100902": 524288,
+    "terminal-seed-2026100901-vs-2026100902": 262144
+  },
+  "completed_operations_seconds": 23289.279921770096,
+  "completed_training_export_audit_seconds": 16884.052292346954,
+  "descriptive": [
+    "terminal-seed-2026100601-vs-2026100901",
+    "terminal-seed-2026100601-vs-2026100902",
+    "terminal-seed-2026100901-vs-2026100902"
+  ],
+  "descriptive_disk_reductions": [],
+  "direct_root": 202610114502,
+  "executable_spec_sha256": {
+    "seed-2026100901-terminal-vs-2b": "c2bd8ebdca18474c94ba05bce0d309038a4dbf235729d1eafd1fac0e36556e66",
+    "seed-2026100902-terminal-vs-2b": "42204a0da286c9071f1bdd1b7d0624223df3d9a863e3ec7e9043137bfa59575c",
+    "terminal-seed-2026100601-vs-2026100901": "5bc68cdcb28ab5157bbcd16cd683fd38e157a6da8e909b5fd776f7c79b362238",
+    "terminal-seed-2026100601-vs-2026100902": "620823d6b31475c99eaa988fcebfaae08063fd3e3e910df9f80af1d62016b3a2",
+    "terminal-seed-2026100901-vs-2026100902": "5343f4e3896b019133fef3921b70c8fdb75c8aa828d225381b5a31e5c6b70d0d"
+  },
+  "freshness_sha256": "980e4207998f02a28b69203a37058adfe10f497f8ad92278bf3278962ca0fb42",
+  "indexed_model_exclusions": [
+    {
+      "asset": {
+        "actual_nodes": 1000001141,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1790689153,
+        "entries": 41047344,
+        "kind": "checkpoint.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/training/2026100902/terminal/checkpoint.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100902/terminal/checkpoint.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100902/terminal/checkpoint.gz # expected c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+        },
+        "seed": 2026100902,
+        "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+      },
+      "bytes": 1790689153,
+      "path": "training/2026100902/1000000000/checkpoint.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+    },
+    {
+      "asset": {
+        "actual_nodes": 1000001141,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1034504511,
+        "entries": 41047344,
+        "kind": "current.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/training/2026100902/terminal/current.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100902/terminal/current.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100902/terminal/current.gz # expected 8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+        },
+        "seed": 2026100902,
+        "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+      },
+      "bytes": 1034504511,
+      "path": "training/2026100902/1000000000/current.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+    },
+    {
+      "asset": {
+        "actual_nodes": 1000001141,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1174323849,
+        "entries": 41047344,
+        "kind": "average.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/final/2026100902-terminal/models/1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924.json.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/final/2026100902-terminal/models/1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924.json.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/final/2026100902-terminal/models/1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924.json.gz # expected 1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+        },
+        "seed": 2026100902,
+        "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+      },
+      "bytes": 1174323849,
+      "path": "training/2026100902/1000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000000390,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 2444052184,
+        "entries": 54210037,
+        "kind": "checkpoint.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100902/2000000000/checkpoint.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100902/2000000000/checkpoint.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100902/2000000000/checkpoint.gz # expected 361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e"
+        },
+        "seed": 2026100902,
+        "sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e"
+      },
+      "bytes": 2444052184,
+      "path": "training/2026100902/2000000000/checkpoint.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000000390,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1370834790,
+        "entries": 54210037,
+        "kind": "current.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100902/2000000000/current.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100902/2000000000/current.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100902/2000000000/current.gz # expected 307ec4fbc7483fbf08ee6c77e16d4c4f5b587737db576f7a2751e4f986d33537"
+        },
+        "seed": 2026100902,
+        "sha256": "307ec4fbc7483fbf08ee6c77e16d4c4f5b587737db576f7a2751e4f986d33537"
+      },
+      "bytes": 1370834790,
+      "path": "training/2026100902/2000000000/current.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "307ec4fbc7483fbf08ee6c77e16d4c4f5b587737db576f7a2751e4f986d33537"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000000390,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1593281078,
+        "entries": 54210037,
+        "kind": "average.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100902/2000000000/average.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100902/2000000000/average.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100902/2000000000/average.gz # expected 47006e1bcd7df656dba361c2bec17098a2c9e85cc8e3cddde29eeadf21f70ad5"
+        },
+        "seed": 2026100902,
+        "sha256": "47006e1bcd7df656dba361c2bec17098a2c9e85cc8e3cddde29eeadf21f70ad5"
+      },
+      "bytes": 1593281078,
+      "path": "training/2026100902/2000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "47006e1bcd7df656dba361c2bec17098a2c9e85cc8e3cddde29eeadf21f70ad5"
+    },
+    {
+      "asset": {
+        "actual_nodes": 1000000506,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1779115039,
+        "entries": 40752103,
+        "kind": "checkpoint.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/training/2026100901/terminal/checkpoint.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/terminal/checkpoint.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100901/terminal/checkpoint.gz # expected 5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+        },
+        "seed": 2026100901,
+        "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+      },
+      "bytes": 1779115039,
+      "path": "training/2026100901/1000000000/checkpoint.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+    },
+    {
+      "asset": {
+        "actual_nodes": 1000000506,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1027144114,
+        "entries": 40752103,
+        "kind": "current.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/training/2026100901/terminal/current.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/terminal/current.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100901/terminal/current.gz # expected 81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+        },
+        "seed": 2026100901,
+        "sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+      },
+      "bytes": 1027144114,
+      "path": "training/2026100901/1000000000/current.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+    },
+    {
+      "asset": {
+        "actual_nodes": 1000000506,
+        "archive_id": "1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9",
+        "archive_sha256": "b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+        "archive_url": "https://drive.google.com/file/d/1gNvm6C1lkaxu1M82pVfcsoaYrOlYsYT9/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1167167445,
+        "entries": 40752103,
+        "kind": "average.gz",
+        "manifest_sha256": "53cc1f8e058ea81e8141f50f3a111f8767908a4ee44d8728353dec4f8f44c4ad",
+        "member": "research/final/2026100901-terminal/models/2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b.json.gz",
+        "owning_pr": 215,
+        "reference_index": "docs/reports/hu100-independent-stages-artifacts/model-index.json",
+        "requested_nodes": 1000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected b0be9e7b2b7ad42b40fea6e95977f21f42c9aac4848c75f5a691448f41436edc",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/final/2026100901-terminal/models/2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b.json.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/final/2026100901-terminal/models/2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b.json.gz # expected 2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+        },
+        "seed": 2026100901,
+        "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+      },
+      "bytes": 1167167445,
+      "path": "training/2026100901/1000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000001279,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 2457920373,
+        "entries": 54579477,
+        "kind": "checkpoint.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100901/2000000000/checkpoint.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/2000000000/checkpoint.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100901/2000000000/checkpoint.gz # expected a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0"
+        },
+        "seed": 2026100901,
+        "sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0"
+      },
+      "bytes": 2457920373,
+      "path": "training/2026100901/2000000000/checkpoint.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000001279,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1379368309,
+        "entries": 54579477,
+        "kind": "current.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100901/2000000000/current.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/2000000000/current.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100901/2000000000/current.gz # expected 8b2cb4cecaaf8fc11f4f502001cf68053f2f020a8338c4193f43529fcded168c"
+        },
+        "seed": 2026100901,
+        "sha256": "8b2cb4cecaaf8fc11f4f502001cf68053f2f020a8338c4193f43529fcded168c"
+      },
+      "bytes": 1379368309,
+      "path": "training/2026100901/2000000000/current.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "8b2cb4cecaaf8fc11f4f502001cf68053f2f020a8338c4193f43529fcded168c"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000001279,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 1603078016,
+        "entries": 54579477,
+        "kind": "average.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100901/2000000000/average.gz",
+        "owning_pr": 226,
+        "requested_nodes": 2000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/2000000000/average.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100901/2000000000/average.gz # expected bbc71fe6815ec8745f83288e48f37f605fef61c29dca55ab9d43fa935eca5287"
+        },
+        "seed": 2026100901,
+        "sha256": "bbc71fe6815ec8745f83288e48f37f605fef61c29dca55ab9d43fa935eca5287"
+      },
+      "bytes": 1603078016,
+      "path": "training/2026100901/2000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "bbc71fe6815ec8745f83288e48f37f605fef61c29dca55ab9d43fa935eca5287"
+    },
+    {
+      "asset": {
+        "actual_nodes": 2000000460,
+        "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+        "archive_sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+        "archive_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view",
+        "audit_status": "verified",
+        "bytes": 1603422956,
+        "entries": 54626283,
+        "kind": "average.gz",
+        "member": "research/training/2000000000/average.gz",
+        "owning_pr": 223,
+        "reference_index": "docs/reports/hu100-3b-ladder-artifacts/model-input-index.json",
+        "requested_nodes": 2000000000,
+        "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/average.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000/average.gz # expected e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+        },
+        "seed": 2026100601,
+        "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+      },
+      "bytes": 1603422956,
+      "path": "inputs/2026100601/2000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+    },
+    {
+      "asset": {
+        "actual_nodes": 4000000174,
+        "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+        "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+        "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "archive_upload": "accepted",
+        "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+        "audit_status": "verified",
+        "bytes": 2121415396,
+        "entries": 70466972,
+        "kind": "average.gz",
+        "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+        "member": "research/training/2026100601/4000000000/average.gz",
+        "owning_pr": 226,
+        "requested_nodes": 4000000000,
+        "retrieval_commands": {
+          "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+          "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100601/4000000000/average.gz RESTORE_ROOT",
+          "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100601/4000000000/average.gz # expected 0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+        },
+        "seed": 2026100601,
+        "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+      },
+      "bytes": 2121415396,
+      "path": "inputs/2026100601/4000000000/average.gz",
+      "reference_index": "docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+    }
+  ],
+  "outcomes_used_for_budget": false,
+  "pairs_sha256": "d5f44302b08ac9b7255b95af3981c138c3d8ac9d4d4c700682a2270ebca8d99f",
+  "pilot_root": 202610114501,
+  "planning_sd_bb_per_100": 1113,
+  "primary": [
+    "seed-2026100901-terminal-vs-2b",
+    "seed-2026100902-terminal-vs-2b"
+  ],
+  "primary_confidence": 0.975,
+  "projected_primary_half_width": {
+    "seed-2026100901-terminal-vs-2b": 3.445334151811121,
+    "seed-2026100902-terminal-vs-2b": 4.872452280208421
+  },
+  "quotes_seconds": {
+    "seed-2026100901-terminal-vs-2b": 9932.091823920484,
+    "seed-2026100902-terminal-vs-2b": 5560.689215126193,
+    "terminal-seed-2026100601-vs-2026100901": 9852.648683695406,
+    "terminal-seed-2026100601-vs-2026100902": 8800.811965850517,
+    "terminal-seed-2026100901-vs-2026100902": 5411.941305852648
+  },
+  "reporting_quote_seconds": 15041.850506668197,
+  "scripted_blocks_per_opponent": 4096,
+  "scripted_quote_seconds": 5109.7586827477135,
+  "scripted_root": 202610114504,
+  "scripted_translation": {
+    "max_events": 128,
+    "max_states": 512
+  },
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "storage": {
+    "available_bytes": 49955688448,
+    "required_additional_free_bytes": 44526087552
+  },
+  "timing_rates": {
+    "seed-2026100901-terminal-vs-2b": {
+      "fixed_seconds": 529.3051277919985,
+      "pilot_peak_family_bytes": 4450369536,
+      "raw_bytes_per_block": 2119.625,
+      "seconds_per_block": 0.008462411468826758
+    },
+    "seed-2026100902-terminal-vs-2b": {
+      "fixed_seconds": 524.1954476249994,
+      "pilot_peak_family_bytes": 5260328960,
+      "raw_bytes_per_block": 2257.3125,
+      "seconds_per_block": 0.008606526031258
+    },
+    "terminal-seed-2026100601-vs-2026100901": {
+      "fixed_seconds": 592.6614457509968,
+      "pilot_peak_family_bytes": 4656283648,
+      "raw_bytes_per_block": 2054.8125,
+      "seconds_per_block": 0.008265805999940312
+    },
+    "terminal-seed-2026100601-vs-2026100902": {
+      "fixed_seconds": 596.684254957996,
+      "pilot_peak_family_bytes": 3979657216,
+      "raw_bytes_per_block": 1938.9375,
+      "seconds_per_block": 0.007255023437437558
+    },
+    "terminal-seed-2026100901-vs-2026100902": {
+      "fixed_seconds": 589.388597000001,
+      "pilot_peak_family_bytes": 5288460288,
+      "raw_bytes_per_block": 2159.5625,
+      "seconds_per_block": 0.008074119781213085
+    }
+  }
+}

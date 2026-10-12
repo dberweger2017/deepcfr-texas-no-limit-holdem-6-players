@@ -1,0 +1,18 @@
+{
+  "archival_latch_safe_wrapper_review_deferred": true,
+  "at": 1791765434.2158248,
+  "authorization_sha256": "85f741139c0594e8eaa9a2955934027ea7771e939665cf5af2c4b9c9129b36c6",
+  "frozen_sample_unchanged": true,
+  "helper_sha256": {
+    "continuation_guard.py": "083359771a067f6d656fb475aefa86f0f74601d440c3339a5c7e3c2a76d1c6b0",
+    "continue_pr236.py": "936e451b9b61b371372fc8bc64a5a01da7904aaf7013c71d764b7fb77c4daaee"
+  },
+  "open_findings": [],
+  "partial_outcomes_inspected": false,
+  "preserved_file_identities_verified": 8,
+  "qualification_passed": true,
+  "reviewer": "/root/source_review",
+  "scope": "Narrow owner-authorized continuation update to existing source review; not end evidence review",
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "status": "clear"
+}

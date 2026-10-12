@@ -1,0 +1,280 @@
+{
+  "at": 1791745417.868958,
+  "exact_reference_checkpoint_gates": 4,
+  "exact_reference_model_files": 12,
+  "frozen_max_entries": 69977876,
+  "max_training_family_bytes": 6881771520,
+  "seeds": {
+    "2026100901": [
+      {
+        "actual_nodes": 1000000506,
+        "all_nodes_verified": 40752103,
+        "entries": 40752103,
+        "files": {
+          "average.gz": {
+            "bytes": 1167167445,
+            "sha256": "2842d09776798122fbf753d16b3aa6ec472c32e5ad31da079f78eb80ca4a7e4b"
+          },
+          "checkpoint.gz": {
+            "bytes": 1779115039,
+            "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7"
+          },
+          "current.gz": {
+            "bytes": 1027144114,
+            "sha256": "81591c0c1d1ee4cca61db7f64ae05ad6cd60214a06af82784befdc4574d2f8e2"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "byte-exact",
+        "max_entries": 57658644,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 190627840,
+            "seconds": 918.4026379585266,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 141197312,
+            "seconds": 445.39091086387634,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 3820273664,
+            "seconds": 694.0081260204315,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 1000000000,
+        "sha256": "5f4898d839011d62fda20e3df7e1546150ca1d72dd666654a6d4bfcaaf63a6e7",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": false
+      },
+      {
+        "actual_nodes": 2000001279,
+        "all_nodes_verified": 54579477,
+        "entries": 54579477,
+        "files": {
+          "average.gz": {
+            "bytes": 1603078016,
+            "sha256": "bbc71fe6815ec8745f83288e48f37f605fef61c29dca55ab9d43fa935eca5287"
+          },
+          "checkpoint.gz": {
+            "bytes": 2457920373,
+            "sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0"
+          },
+          "current.gz": {
+            "bytes": 1379368309,
+            "sha256": "8b2cb4cecaaf8fc11f4f502001cf68053f2f020a8338c4193f43529fcded168c"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "byte-exact",
+        "max_entries": 72437552,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 189825024,
+            "seconds": 1229.0696167945862,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 140886016,
+            "seconds": 600.405200958252,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 4873797632,
+            "seconds": 817.2031729221344,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 2000000000,
+        "sha256": "a8d97ae543ff44673312916a4150070f7ecb753c315fa6ffa9b35d093395a4c0",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": false
+      },
+      {
+        "actual_nodes": 3885473598,
+        "all_nodes_verified": 69977886,
+        "entries": 69977886,
+        "files": {
+          "average.gz": {
+            "bytes": 2105039090,
+            "sha256": "2769138651b8fa4400e93bfa64d8d9f8fa35784282fbf07aa1cb6a0ba62968d3"
+          },
+          "checkpoint.gz": {
+            "bytes": 3245525601,
+            "sha256": "2d5647f32d9d9287e02ff8b72893d351776fd30224d62b6c2b13b9030eb04733"
+          },
+          "current.gz": {
+            "bytes": 1771845892,
+            "sha256": "47e066bd1cb1f61df61cead417b3ee8ebbf35a2429e0f30f4af210eaa0b09366"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "new",
+        "max_entries": 69977876,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 189431808,
+            "seconds": 1568.2604417800903,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 140836864,
+            "seconds": 763.6100490093231,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 6819823616,
+            "seconds": 1382.7862269878387,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 4000000000,
+        "sha256": "2d5647f32d9d9287e02ff8b72893d351776fd30224d62b6c2b13b9030eb04733",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": true
+      }
+    ],
+    "2026100902": [
+      {
+        "actual_nodes": 1000001141,
+        "all_nodes_verified": 41047344,
+        "entries": 41047344,
+        "files": {
+          "average.gz": {
+            "bytes": 1174323849,
+            "sha256": "1fa49e52608aa5855a7d3ac71a5e59a5671c7436f9421b7f3574af70d0660924"
+          },
+          "checkpoint.gz": {
+            "bytes": 1790689153,
+            "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4"
+          },
+          "current.gz": {
+            "bytes": 1034504511,
+            "sha256": "8ae3425479bb0b19b6b4b7fdda6c0ba43e20fae9b71fae1f0a595bc97131b345"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "byte-exact",
+        "max_entries": 57658644,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 249823232,
+            "seconds": 923.6131811141968,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 199770112,
+            "seconds": 449.41582894325256,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 3986505728,
+            "seconds": 694.0207378864288,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 1000000000,
+        "sha256": "c21e6dd51694b379b28cb5dcc2ab595fa154092f1b69a4cfd1a9149fc85b23e4",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": false
+      },
+      {
+        "actual_nodes": 2000000390,
+        "all_nodes_verified": 54210037,
+        "entries": 54210037,
+        "files": {
+          "average.gz": {
+            "bytes": 1593281078,
+            "sha256": "47006e1bcd7df656dba361c2bec17098a2c9e85cc8e3cddde29eeadf21f70ad5"
+          },
+          "checkpoint.gz": {
+            "bytes": 2444052184,
+            "sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e"
+          },
+          "current.gz": {
+            "bytes": 1370834790,
+            "sha256": "307ec4fbc7483fbf08ee6c77e16d4c4f5b587737db576f7a2751e4f986d33537"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "byte-exact",
+        "max_entries": 72437552,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 249479168,
+            "seconds": 1209.966080904007,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 199933952,
+            "seconds": 590.8166720867157,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 4916428800,
+            "seconds": 795.217118024826,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 2000000000,
+        "sha256": "361032d94f109f5251a1680106a5bd09c24c0f93a2a02ab14c22e4b73145bc0e",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": false
+      },
+      {
+        "actual_nodes": 3967101196,
+        "all_nodes_verified": 69977900,
+        "entries": 69977900,
+        "files": {
+          "average.gz": {
+            "bytes": 2109645122,
+            "sha256": "80bf1f313188f60d825e53e5d6b09e7900c70f7c25d4530d927dfbc873cc7313"
+          },
+          "checkpoint.gz": {
+            "bytes": 3252700327,
+            "sha256": "d88119b73a1f1f0badd52655eea0ffcb6e67f9cc3f796ac02557e7b29e2f2d33"
+          },
+          "current.gz": {
+            "bytes": 1772752185,
+            "sha256": "85b7ed3d88fbb1d242bc756b358e2c5619ca231857caa7737ee92a329d25d8ba"
+          }
+        },
+        "full_audit_status": "verified",
+        "indexed_reference_status": "new",
+        "max_entries": 69977876,
+        "operations": {
+          "audit": {
+            "peak_family_rss_bytes": 192380928,
+            "seconds": 1599.0118131637573,
+            "soft_stop_requested": false
+          },
+          "export": {
+            "peak_family_rss_bytes": 142802944,
+            "seconds": 766.4142968654633,
+            "soft_stop_requested": false
+          },
+          "train": {
+            "peak_family_rss_bytes": 6881771520,
+            "seconds": 1436.4401800632477,
+            "soft_stop_requested": false
+          }
+        },
+        "requested_nodes": 4000000000,
+        "sha256": "d88119b73a1f1f0badd52655eea0ffcb6e67f9cc3f796ac02557e7b29e2f2d33",
+        "status": "passed",
+        "stop_requested": false,
+        "terminal_capacity_stop": true
+      }
+    ]
+  },
+  "source": "8817a4732eebb05256da0eca544ef9b49840bfbd",
+  "status": "verified",
+  "training_export_audit_seconds": 16884.052292346954
+}

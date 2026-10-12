@@ -1,0 +1,42 @@
+{
+  "at": 1791737935.249443,
+  "closure_provenance": {
+    "preparation_dependency_change": {
+      "averages_retained": true,
+      "checkpoint_current_originals_removed": true,
+      "live_state": "MERGED",
+      "no_parent_checkpoint_current_fresh_hash_claim": true,
+      "owning_cleanup_pr": 237,
+      "resolution": "Restore only the requested unchanged averages, check fresh bytes/hash and average header/lineage; preserve/reuse #226 full audit receipts with explicit source/hash provenance and all3 model indexed pin/count/status/stack/node checks. Fresh new checkpoints still receive complete stream export/audit.",
+      "reviewer_clear": true
+    },
+    "promotion": "Reviewed draft bytes promoted verbatim; all three committed file SHA256s match prior clear review",
+    "resolved_findings": [
+      "Archive workload refresh on either bytes or member count; exclusive separately labeled calibrations.",
+      "Planning authorization/review/quote receipts archived.",
+      "Scripted readout raw hashes and full replay/reproduction hand/action binding.",
+      "Dated live PR/root classification with exact heads rechecked at pilot/freeze.",
+      "Frozen freshness SHA, completed actual totals and measured reporting allowance."
+    ],
+    "reviewed_draft_receipt_path": "planning/source-review-draft-receipt.json",
+    "reviewed_draft_receipt_sha256": "69c7b8f9f1595a9820ea6df6eee963fcd92c8515491cccee210ebf1af7d1bbf5"
+  },
+  "machine": "M4",
+  "native_trainer_diff_empty": true,
+  "open_findings": [],
+  "reviewed_sha256": {
+    "scripts/archive_hu100_4b_seed_replication.py": "067cbda5cb28ecee4384550fc70282b0b22124de3c6bd78cf6aac85caf11d7f5",
+    "scripts/evaluate_hu100_4b_seed_replication.py": "3e5ea2d77119e6cb2483e13fa166cbbe9cf1b238d513c9534135604d43091525",
+    "tests/test_hu100_4b_seed_replication_evaluation.py": "e05b875ff9ab3a82dc200513fac5b2a901659038eef45b2d0229792bb735ac90"
+  },
+  "reviewer": "/root/source_review",
+  "round": "Exact-commit binding closure of the existing one independent source review",
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "status": "clear",
+  "tracked_worktree_clean": true,
+  "validation": {
+    "focused_controls_passed": 11,
+    "no_science_or_pilot_outcomes_inspected_during_binding": true,
+    "validation_basis": "Prior same-review M4 corrected-byte test execution; identical promoted bytes"
+  }
+}

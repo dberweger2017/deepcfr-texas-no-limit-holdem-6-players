@@ -1,0 +1,27 @@
+{
+  "at": 1791778269.867435,
+  "local_member_readback": true,
+  "metadata": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/file/d/1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T/view?usp=drivesdk",
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T",
+    "mime_type": "application/zip",
+    "modified_time": null,
+    "parent_ids": [
+      "1OUNJcDqZLFRXsffKrtjDfliumj_DmdaI"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "208091",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu100-4b-seed-replication-M4-20261012-closeout.zip",
+    "url": "https://drive.google.com/file/d/1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T/view?usp=drivesdk"
+  },
+  "remote_archive_bytes_downloaded": false,
+  "remote_member_content_verified": false,
+  "status": "accepted"
+}

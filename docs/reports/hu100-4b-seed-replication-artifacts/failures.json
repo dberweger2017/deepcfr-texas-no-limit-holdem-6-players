@@ -1,0 +1,34 @@
+{
+  "bootstrap": {
+    "at": 1791727723.974807,
+    "campaign_failure_marker": false,
+    "failed_launch": "results/hu100-4b-seed-replication/seed-2026100902-launch.json",
+    "failed_log": "results/hu100-4b-seed-replication/seed-2026100902-controller.log",
+    "guard_failure_marker": false,
+    "native_trainer_started": false,
+    "reason": "Launcher Path.resolve followed .venv interpreter symlink to base Python; module import failed on missing psutil.",
+    "resolution": "Use absolute .venv/bin/python path without resolving its symlink; new exclusive launch/log paths.",
+    "scientific_retry": false,
+    "seed": 2026100902,
+    "status": "setup-only-launch-failure",
+    "training_output_directory_exists": false
+  },
+  "guard_qualification_initial_failure": "Pre-worker FileExistsError due receipt-path conflict; corrected helper/qualification-v2 passed; both versions preserved",
+  "initial_admissions": {
+    "auth": "HTTP401 fixed by owner",
+    "disk_gib": [
+      27.3,
+      48.0
+    ],
+    "owner_provisioned_gib": 90.02,
+    "provisional_requirement_gib": 77.57
+  },
+  "native_trainer_defect_identified": false,
+  "original_attempt_preserved_byte_exact": true,
+  "original_guard_failure": {
+    "at": 1791753581.581641,
+    "failure": "RuntimeError('Guard breach: tool family exceeds soft ceiling')",
+    "operation": "final-direct-terminal-seed-2026100601-vs-2026100901"
+  },
+  "owner_amendment": "New soft ceiling is 9 gb, continue where it stopped"
+}

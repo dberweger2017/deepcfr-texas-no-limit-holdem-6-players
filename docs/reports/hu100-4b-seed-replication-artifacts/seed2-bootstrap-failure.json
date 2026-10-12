@@ -1,0 +1,14 @@
+{
+  "at": 1791727723.974807,
+  "campaign_failure_marker": false,
+  "failed_launch": "results/hu100-4b-seed-replication/seed-2026100902-launch.json",
+  "failed_log": "results/hu100-4b-seed-replication/seed-2026100902-controller.log",
+  "guard_failure_marker": false,
+  "native_trainer_started": false,
+  "reason": "Launcher Path.resolve followed .venv interpreter symlink to base Python; module import failed on missing psutil.",
+  "resolution": "Use absolute .venv/bin/python path without resolving its symlink; new exclusive launch/log paths.",
+  "scientific_retry": false,
+  "seed": 2026100902,
+  "status": "setup-only-launch-failure",
+  "training_output_directory_exists": false
+}

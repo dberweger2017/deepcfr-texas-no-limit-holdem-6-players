@@ -1,0 +1,23 @@
+{
+  "child_alive_after_cleanup": false,
+  "cleanup_error": null,
+  "command": [
+    "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/.venv/bin/python",
+    "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/planning/archive_continuation.py",
+    "pack-worker"
+  ],
+  "deadline": 1791777027.3696284,
+  "failure": null,
+  "finished": 1791776935.905986,
+  "kernel_command_peak_rss_bytes": 101384192,
+  "name": "archive-final",
+  "peak_family_rss_bytes": 295682048,
+  "returncode": 0,
+  "samples": 580,
+  "sampling_target_seconds": 0.2,
+  "seconds": 116.01334595680237,
+  "soft_stop_requested": false,
+  "started": 1791776819.892641,
+  "status": "complete",
+  "swap_growth_limit_bytes": 3000000000
+}

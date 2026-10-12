@@ -1,0 +1,19 @@
+{
+  "all_outcomes_uninspected": true,
+  "at": 1791765498.3497071,
+  "authorization_sha256": "85f741139c0594e8eaa9a2955934027ea7771e939665cf5af2c4b9c9129b36c6",
+  "eta_window_madrid": [
+    "2026-10-12T06:30:00+02:00",
+    "2026-10-12T07:30:00+02:00"
+  ],
+  "expected_descriptive_seconds": 9362.835,
+  "future_guard_allowance_seconds_excluding_archive": 39107.25246206677,
+  "guard_quotes_unchanged": true,
+  "original_freeze_sha256": "ef7760791186aad61f6e34d111c31e492a60eeb855fb8e75c92ede276260bc40",
+  "posted_before_continuation_hands": true,
+  "pr": 236,
+  "pr_body_sha256": "69c5130248511c6bcb8723fdbf74f5b38ca5e3601066205c4928093855e4dfcd",
+  "readback_matches": true,
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236"
+}

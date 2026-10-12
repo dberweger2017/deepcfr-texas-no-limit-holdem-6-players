@@ -1,0 +1,28 @@
+{
+  "allowance_seconds": 207.52621124990563,
+  "at": 1791776819.2972019,
+  "calibration": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 14318147951,
+    "cloud_upload_accepted": false,
+    "label": "initial",
+    "logical_member_bytes": 14317774629,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "149d31b89e4e137527aff3e89d61ac3acaeca9f44a21fc15eef6a2f98c172738",
+    "measured_at": 1791745411.424122,
+    "members": 542,
+    "path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/archive-calibrations/initial.zip",
+    "receipt_path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/archive-calibrations/initial.json",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 50.079783417000726,
+    "sha256": "2f0be37f6583c8ab11ece4a910d3ad421f5fc247d94ebe0377433f6045f6324e",
+    "status": "locally-verified"
+  },
+  "free_bytes": 43747438592,
+  "headroom_multiplier": 3,
+  "logical_member_bytes": 19777198965,
+  "members": 878,
+  "quote_not_based_on_payoffs": true,
+  "required_free_bytes": 39104551797,
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28"
+}
