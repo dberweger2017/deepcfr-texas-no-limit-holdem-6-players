@@ -1,5 +1,9 @@
 # Remaining Slumbot integration after HU200 support
 
+**Update, October 13, 2026:** the client is complete, and its first live hands are verified: see
+[the Slumbot client report](reports/slumbot-client.md) for the transport, settlement, hand
+runner, login and measured costs. The plan below is kept as written.
+
 [PR213's assessment](hu100-external-benchmark.md) remains the source for observed
 external access and the decision-prefix codec. This task closes fixed-depth
 identity admission for a genuinely trained HU200 model. It makes no new service

@@ -28,6 +28,8 @@ The [research history](research-history.md) indexes completed experiments.
   The [HU200 M1 feasibility report](reports/hu200-feasibility.md),
   [frozen protocol](hu200-feasibility.md) and [Slumbot readiness note](hu200-slumbot-readiness.md)
   pin its distinct 200BB research lineage and remaining external work.
+  `scripts/play_slumbot.py` plays bounded live hands against Slumbot with verified
+  settlements; see the [Slumbot client report](reports/slumbot-client.md).
   `native/hu20-buckets/`: bucket construction and the native card evaluator.
 - `src/arena/`: paired evaluation, scripted opponents, reports and checkpoint
   adapters. Historical network/snapshot adapters still have consumers.
