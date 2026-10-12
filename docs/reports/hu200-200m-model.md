@@ -10,7 +10,7 @@ release, adoption or default-policy claim.
 
 ## Source and recipe
 
-The trainer and readers are unchanged from current main
+The trainer and readers are unchanged from main at the start of this task
 `d5c113f76efa0b4c63dc5956b278a4acbe53f718` (#247). Execution started at the
 documentation-only descendant `16d762a569933abf0411dba787e2e3a2b26004a7`
 (the authoritative full revision is in the archived `admission.json`).
@@ -20,7 +20,9 @@ The native source tree is `25aafbce93956aa54cf885c7275cbe73581810e0`.
 lockfile and binary SHA256
 `8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a`.
 All four focused HU200 tests passed in 5.14s; no game, information-access or
-regret-math source changed.
+regret-math source changed. Main advanced to #246 (`30c4a9dc`) during closeout;
+its HU100 campaign/docs changes are integrated, preserving its index records.
+Native and HU200 inference source remain unchanged.
 
 The recipe is **seed 2026101301**, **200 BB**, **opponent-sampled average**,
 **linear weighting**, **one root per seat**, **v1 cards**, and the existing
@@ -142,9 +144,11 @@ audit, smoke journals/fixtures, raw resources, build receipt, source snapshot an
 exact helpers/runtime. Later archive/upload/report receipts live in Git outside
 the frozen science bundle.
 
-**Native Drive upload acceptance and independent cloud metadata are pending.**
-Final `RESULTS_INDEX.md` and model-index integration will record actual Drive
-locators, archive/member hashes and retrieval commands before PR readiness.
+The [average-only ZIP](https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk) is accepted: native uploaded/no-pending/no-conflicts and independent cloud
+ID/name/800,092,256-byte size/parent agree. The [folder](https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq) is confirmed under the designated Research-Cloud root.
+**The full evidence ZIP upload remains pending.** Final `RESULTS_INDEX.md` and
+model-index integration will add its actual locator and full upload acceptance
+before PR readiness.
 No remote archive bytes have been downloaded or verified.
 
 The local average remains in the ignored directory

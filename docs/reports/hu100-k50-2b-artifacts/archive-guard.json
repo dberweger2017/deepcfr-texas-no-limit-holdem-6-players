@@ -1,0 +1,10 @@
+{
+  "failure": "RuntimeError('Guard breach: 512 MiB swap growth')",
+  "finished": 1791839492.043265,
+  "peak_family_rss_bytes": 238370816,
+  "returncode": 0,
+  "samples": 14,
+  "seconds": 8.01623797416687,
+  "started": 1791839484.027028,
+  "status": "failed"
+}

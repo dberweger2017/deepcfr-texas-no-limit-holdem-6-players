@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-12 22:58:17 UTC",
+  "averages": {
+    "id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+    "mimeType": "application/zip",
+    "name": "hu100-k50-2b-averages-M4-20261012.zip",
+    "parents": [
+      "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+    ],
+    "size": "3488716045",
+    "source_visibility_status": "access_not_verified",
+    "verification": "Independent connector metadata only; archive bytes not downloaded.",
+    "webViewLink": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk"
+  },
+  "full": {
+    "id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+    "mimeType": "application/zip",
+    "name": "hu100-k50-2b-completed-M4-20261012.zip",
+    "parents": [
+      "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+    ],
+    "size": "13402862469",
+    "source_visibility_status": "access_not_verified",
+    "verification": "Independent connector metadata only; archive bytes not downloaded.",
+    "webViewLink": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk"
+  },
+  "remote_archive_bytes_downloaded": false
+}

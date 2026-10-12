@@ -5,14 +5,16 @@ from gzip import open as gzip_open
 import json
 from pathlib import Path
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU100_EQUITY_SCHEMA
 from src.diagnostics.cfr_average import audit, checked_header, checked_row, average_rule
 from src.policies.files import file_hash
 from scripts.prepare_native_hu_campaign import REFERENCE
 
 
-def inspect(checkpoint, current, average, bb, target_nodes=None, *, hu20_reference=True):
-    schema = HU100_SCHEMA if bb == 100 else HU20_UNCAPPED_SCHEMA
+def inspect(checkpoint, current, average, bb, target_nodes=None, *, hu20_reference=True, expected_schema=None):
+    schema = expected_schema or (HU100_SCHEMA if bb == 100 else HU20_UNCAPPED_SCHEMA)
+    if schema not in ((HU100_SCHEMA, HU100_EQUITY_SCHEMA) if bb == 100 else (HU20_UNCAPPED_SCHEMA,)):
+        raise ValueError('Schema and stack depth differ')
     with gzip_open(checkpoint, 'rt') as source:
         header = json.loads(source.readline())
     if bb == 100 and target_nodes is not None:
@@ -49,8 +51,10 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for flag in ('checkpoint', 'current', 'average', 'out'): p.add_argument('--'+flag, type=Path, required=True)
     p.add_argument('--stack-bb', type=int, choices=(20,100), required=True)
-    p.add_argument('--target-nodes', type=int, required=True); a = p.parse_args()
-    result = inspect(a.checkpoint, a.current, a.average, a.stack_bb, a.target_nodes)
+    p.add_argument('--target-nodes', type=int, required=True)
+    p.add_argument('--abstraction', choices=(HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU100_EQUITY_SCHEMA))
+    a = p.parse_args()
+    result = inspect(a.checkpoint, a.current, a.average, a.stack_bb, a.target_nodes, expected_schema=a.abstraction)
     with a.out.open('x') as target: target.write(json.dumps(result, indent=2, sort_keys=True)+'\n')
 
 

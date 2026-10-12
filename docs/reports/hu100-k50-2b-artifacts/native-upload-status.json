@@ -1,0 +1,41 @@
+{
+  "archives": {
+    "averages": {
+      "at": 1791845874.215551,
+      "flags": {
+        "documentSize": 3488716045,
+        "hasUnresolvedConflicts": 0,
+        "isExcludedFromSync": 0,
+        "isSyncPaused": 0,
+        "isTrashed": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "ids": {
+        "archive_id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+        "folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+      },
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-averages-M4-20261012.zip",
+      "upload_error_reported": false
+    },
+    "full": {
+      "at": 1791845874.196165,
+      "flags": {
+        "documentSize": 13402862469,
+        "hasUnresolvedConflicts": 0,
+        "isExcludedFromSync": 0,
+        "isSyncPaused": 0,
+        "isTrashed": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "ids": {
+        "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+        "folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL"
+      },
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-completed-M4-20261012.zip",
+      "upload_error_reported": false
+    }
+  },
+  "at": 1791845874.215613
+}
