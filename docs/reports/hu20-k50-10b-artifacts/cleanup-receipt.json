@@ -1,0 +1,1008 @@
+{
+  "status": "complete",
+  "started": 1791826872.112641,
+  "owner_pr": {
+    "mergeCommit": {
+      "oid": "64e076cf7d431c8f3ab75b4202dc8e89dfc911dd"
+    },
+    "mergedAt": "2026-10-12T17:41:06Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242",
+    "checked_at": 1791826869.078004
+  },
+  "dependency_review": {
+    "checked_at": 1791826872.112638,
+    "active_dependencies": [],
+    "uncertain_owned_metadata": [
+      702
+    ],
+    "denied_unowned_system_metadata": [
+      333,
+      334,
+      335,
+      337,
+      338,
+      341,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      350,
+      352,
+      354,
+      355,
+      356,
+      358,
+      362,
+      363,
+      364,
+      365,
+      368,
+      369,
+      371,
+      372,
+      373,
+      374,
+      375,
+      376,
+      377,
+      378,
+      379,
+      381,
+      382,
+      383,
+      384,
+      385,
+      386,
+      388,
+      389,
+      391,
+      392,
+      393,
+      394,
+      395,
+      396,
+      398,
+      399,
+      400,
+      401,
+      402,
+      403,
+      404,
+      405,
+      406,
+      407,
+      408,
+      409,
+      411,
+      412,
+      413,
+      414,
+      415,
+      416,
+      417,
+      418,
+      419,
+      420,
+      421,
+      422,
+      423,
+      424,
+      425,
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      435,
+      437,
+      438,
+      441,
+      442,
+      443,
+      444,
+      448,
+      449,
+      452,
+      453,
+      455,
+      480,
+      507,
+      509,
+      510,
+      517,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      531,
+      533,
+      534,
+      535,
+      536,
+      538,
+      539,
+      541,
+      542,
+      543,
+      544,
+      545,
+      546,
+      547,
+      548,
+      549,
+      551,
+      552,
+      553,
+      554,
+      555,
+      557,
+      558,
+      560,
+      561,
+      562,
+      564,
+      565,
+      567,
+      568,
+      569,
+      570,
+      571,
+      572,
+      573,
+      574,
+      575,
+      577,
+      578,
+      580,
+      582,
+      584,
+      585,
+      586,
+      587,
+      588,
+      589,
+      590,
+      591,
+      592,
+      593,
+      594,
+      595,
+      596,
+      597,
+      598,
+      601,
+      602,
+      604,
+      605,
+      606,
+      608,
+      609,
+      610,
+      616,
+      617,
+      627,
+      631,
+      633,
+      635,
+      636,
+      637,
+      638,
+      639,
+      640,
+      641,
+      642,
+      643,
+      644,
+      645,
+      649,
+      650,
+      651,
+      652,
+      653,
+      654,
+      656,
+      657,
+      658,
+      659,
+      662,
+      669,
+      671,
+      672,
+      673,
+      684,
+      720,
+      741,
+      742,
+      749,
+      759,
+      760,
+      762,
+      775,
+      782,
+      785,
+      809,
+      830,
+      882,
+      883,
+      892,
+      898,
+      899,
+      902,
+      905,
+      935,
+      938,
+      940,
+      949,
+      958,
+      979,
+      995,
+      1012,
+      1026,
+      1034,
+      1037,
+      1052,
+      1066,
+      1070,
+      1071,
+      1073,
+      1092,
+      1093,
+      1094,
+      1113,
+      1116,
+      1118,
+      1123,
+      1129,
+      1195,
+      1198,
+      1199,
+      1207,
+      1215,
+      1216,
+      1217,
+      1219,
+      1223,
+      1389,
+      1440,
+      1452,
+      1477,
+      1778,
+      1781,
+      1784,
+      1807,
+      1809,
+      1810,
+      1811,
+      1813,
+      1814,
+      1815,
+      1816,
+      1817,
+      1818,
+      1819,
+      1820,
+      1821,
+      1822,
+      1823,
+      1824,
+      1827,
+      1992,
+      2007,
+      2047,
+      2048,
+      2091,
+      2728,
+      2754,
+      2755,
+      2756,
+      2811,
+      2812,
+      2813,
+      2814,
+      2815,
+      4110,
+      4427,
+      4428,
+      4429,
+      4430,
+      4431,
+      5501,
+      8220,
+      12824,
+      15150,
+      15151,
+      26328,
+      32255,
+      32275,
+      58840,
+      59113,
+      59151,
+      59152,
+      59153,
+      59155,
+      59156,
+      59157,
+      62779,
+      63887,
+      64881,
+      71371
+    ],
+    "scope": "Process metadata and own-path handles only; no other work root contents, no unowned RSS reads"
+  },
+  "public_dependency_review": {
+    "checked_at": 1791826869.078885,
+    "prs": [],
+    "query": "open PR bodies mentioning hu20-k50-10b"
+  },
+  "current_native_archive_acceptance": [
+    {
+      "role": "full",
+      "flags": {
+        "documentSize": 3483316284,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      }
+    },
+    {
+      "role": "averages_only",
+      "flags": {
+        "documentSize": 1000556370,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      }
+    }
+  ],
+  "removed": [],
+  "retained": [
+    {
+      "path": "native/hu20-trainer/target/release/hu20-trainer",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_archive.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_cleanup.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_density.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_guard.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_report.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_restore.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "planning/k50_10b_run.py",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100601-10b.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100602-10b.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100603-10b.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/averages-ARCHIVE-MANIFEST.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/averages-archive-receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/canonical-final-plan.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/canonical-plan-posted.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100601.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100601.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100602.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100602.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100603.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100603.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100601.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100601.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100602.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100602.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100603.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100603.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100601.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100601.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100602.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100602.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100603.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100603.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-fresh20m.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-fresh20m.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100601.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100601.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100602.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100602.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100603.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100603.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-resume10m-to20m.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-resume10m-to20m.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100601.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100601.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100602.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100602.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100603.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100603.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct-plan.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-1.hands.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-1.result.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-2.hands.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-2.result.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-3.hands.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-3.result.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/replay.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/replayed-cells.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/summary.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/exports-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/final-readout.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/fresh-10000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/fresh-20000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/fresh.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/resumed-20000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/resumed.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/budget.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/intent.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/receipt.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/resources.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/worker.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/indexed-input-dependencies.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/PR238-ARCHIVE-MANIFEST.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100601-train.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100602-train.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100603-train.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100601.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100602.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100603.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/model-index.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/owning-pr-before-archive.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/play-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100601-10b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100601-10b.current.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100602-10b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100602-10b.current.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100603-10b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/policies/k50-2026100603-10b.current.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/replay-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/resource-summary-before-archive.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/restoration-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/restoration.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/root-reservation.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/setup/build.log",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/setup/coordination-corrections.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/tables-restoration.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/terminal-audits.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training-complete.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training-start.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100601.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100602.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100603.telemetry.jsonl",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/v1-10b-density.json",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100601-5b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100601-5000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100602-5b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100602-5000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100603-5b.average.jsonl.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100603-5000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/bin/hu20-trainer",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/tables/flop-k50.bin",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/tables/river-k50.bin",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/tables/turn-k50.bin",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100601-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100602-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100603-10000000000.json.gz",
+      "reason": "active/uncertain process or public open-PR dependency; retain"
+    }
+  ],
+  "free_disk_before": 92267024384,
+  "archive_or_member_reaudits_for_cleanup": false,
+  "policy": "Standing owner authorization after merged PR, accepted archives, dependency and exact path/size/mtime checks; no synced deletion/offload",
+  "finished": 1791826872.11606,
+  "removed_bytes": 0,
+  "free_disk_after": 92267008000,
+  "dependency_hold": true
+}
