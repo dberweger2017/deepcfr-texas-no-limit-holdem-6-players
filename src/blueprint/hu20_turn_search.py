@@ -82,6 +82,9 @@ class HU20TurnSearchPolicy:
         return self.config.decision_seconds is None and not self.continue_on_defect
 
     def __init__(self, blueprint, solver, config=TurnSearchConfig()):
+        from src.blueprint.abstraction import EQUITY_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in EQUITY_SCHEMAS:
+            raise ValueError("K50 models are not yet supported by HU20 turn search blueprint ranges")
         self.blueprint = blueprint
         self.abstraction = getattr(blueprint, "abstraction", None)
         self.raise_cap = getattr(blueprint, "raise_cap", None)

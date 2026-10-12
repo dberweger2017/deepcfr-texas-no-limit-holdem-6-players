@@ -19,6 +19,8 @@ from src.blueprint.abstraction import (
     HU20_COMPRESSED_SCHEMAS,
     HU20_CARD_V2_SCHEMAS,
     NATIVE_SCHEMAS,
+    EQUITY_SCHEMAS,
+    HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA,
     HU100_SCHEMA,
     HU200_SCHEMA,
     HU100_MENU_VERSION,
@@ -72,8 +74,8 @@ def _identity(config: PilotConfig) -> dict:
     seats = SHORTSTACK_SEATS.get(config.abstraction)
     identity = ({"game": config.game, "players": seats, "stacks": [STACK_BY_SCHEMA[config.abstraction]] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": (HU200_MENU_VERSION if config.abstraction == HU200_SCHEMA else
-                             HU100_MENU_VERSION if config.abstraction == HU100_SCHEMA else
+             "action_menu": (HU200_MENU_VERSION if config.abstraction in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
+                             HU100_MENU_VERSION if config.abstraction in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else
                              HU20_UNCAPPED_MENU_VERSION if config.abstraction in NATIVE_SCHEMAS else
                              HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
              "card_descriptor": HU20_CARD_VERSION} if seats else {})
@@ -84,6 +86,9 @@ def _identity(config: PilotConfig) -> dict:
         identity["raise_cap_semantics"] = "none; native minimum-raise/reopening/stack bounds"
     if config.abstraction in HU20_COMPRESSED_SCHEMAS:
         identity["history_descriptor"] = HU20_HISTORY_VERSION
+    if config.abstraction in EQUITY_SCHEMAS:
+        from src.blueprint.equity_buckets import EQUITY_K50_SHA256
+        identity.update(card_descriptor="equity-histogram-k50-v1", card_tables=dict(EQUITY_K50_SHA256))
     return identity
 
 
@@ -159,6 +164,8 @@ def _table(table: Table) -> dict:
 
 
 def save_training(trainer: BlueprintTrainer, path: Path) -> str:
+    if getattr(trainer, "evaluation_only", False):
+        raise ValueError("Evaluation-only checkpoints must be saved/exported by the native trainer")
     header = {
         "format": _format(trainer.config),
         "abstraction": trainer.config.abstraction,
@@ -198,7 +205,8 @@ def save_training(trainer: BlueprintTrainer, path: Path) -> str:
     return digest.hexdigest()
 
 
-def load_training(path: Path) -> BlueprintTrainer:
+def load_training(path: Path, *, card_buckets: Path | None = None, evaluation_only: bool = False) -> BlueprintTrainer:
+    """K50 checkpoints are read-only in Python; native owns their training recipe."""
     with gzip_open(path, "rt", encoding="utf-8") as source:
         document = loads(source.readline())
         if (
@@ -206,7 +214,9 @@ def load_training(path: Path) -> BlueprintTrainer:
             or document.get("format") not in (FORMAT, *SHORTSTACK_FORMATS.values())
         ):
             raise ValueError("Unknown blueprint artifact format")
-        _checked_schema(document)
+        schema = _checked_schema(document)
+        from src.blueprint.equity_buckets import load_cards
+        cards = load_cards(schema, document.get("identity", {}), card_buckets)
         if document.get("checkpoint_format") == "jsonl-v2":
             rows = (loads(line) for line in source)
         elif "checkpoint_format" not in document:
@@ -217,16 +227,21 @@ def load_training(path: Path) -> BlueprintTrainer:
             )
         else:
             raise ValueError("Unknown blueprint checkpoint format")
-        return _load_training_document(document, rows)
+        trainer = _load_training_document(document, rows, evaluation_only=evaluation_only or schema in EQUITY_SCHEMAS)
+        trainer.equity_cards = cards
+        return trainer
 
 
-def _load_training_document(document: dict, rows) -> BlueprintTrainer:
+def _load_training_document(document: dict, rows, *, evaluation_only=False) -> BlueprintTrainer:
     if document.get("kind") != "training":
         raise ValueError("An inference export cannot resume training")
-    if document.get("average_rule", "traverser-reach") != "traverser-reach":
+    rule = document.get("average_rule", "traverser-reach")
+    if rule not in ("traverser-reach", "opponent-sampled"):
+        raise ValueError("Unknown stored average rule")
+    if not evaluation_only and rule != "traverser-reach":
         # Continuing here would add this trainer's traverser-reach increments to it.
         raise ValueError("Only traverser-reach average checkpoints can resume in Python")
-    if "training_options" in document:
+    if not evaluation_only and "training_options" in document:
         # Python implements only the production update; native options (regret floor, DCFR) cannot continue here.
         raise ValueError("Checkpoints trained with native options cannot resume in Python")
     table_data = document["table"]
@@ -243,6 +258,8 @@ def _load_training_document(document: dict, rows) -> BlueprintTrainer:
     if type(iteration) is not int or iteration < 0:
         raise ValueError("Invalid blueprint iteration")
     trainer.iteration = iteration
+    trainer.evaluation_only = evaluation_only
+    trainer.average_rule = rule
     for key, names, regrets, average, visits in rows:
         if (
             not isinstance(key, str)
@@ -256,6 +273,8 @@ def _load_training_document(document: dict, rows) -> BlueprintTrainer:
             or visits < 0
         ):
             raise ValueError("Invalid blueprint node")
+        if key in trainer.nodes or any(c not in "0123456789abcdef" for c in key) or any(x < 0 for x in average):
+            raise ValueError("Invalid or duplicate blueprint node")
         trainer.nodes[key] = Node(tuple(names), list(regrets), list(average), visits)
     if len(trainer.nodes) > trainer.config.max_entries:
         raise ValueError("Blueprint checkpoint exceeds its entry cap")
@@ -313,12 +332,17 @@ def _checked_policy_node(key, names, probabilities):
 
 
 class FrozenBlueprint:
-    def __init__(self, spec, path: Path):
+    def __init__(self, spec, path: Path, *, card_buckets: Path | None = None):
         self.spec = spec
         self.data = path.read_bytes()
         if sha256(self.data).hexdigest() != spec.sha256:
             raise ValueError("Blueprint export hash mismatch")
         document = _read(path)
+        from src.blueprint.equity_buckets import load_cards
+        self.equity_cards = load_cards(document["abstraction"], document.get("identity", {}), card_buckets)
+        declared = getattr(spec, "abstraction", None)
+        if declared is not None and declared != document["abstraction"]:
+            raise ValueError("Declared blueprint abstraction differs")
         if document.get("kind") != "inference":
             raise ValueError("Training checkpoints are not arena policies")
         if spec.format != document["format"]:
@@ -353,12 +377,17 @@ class FrozenBlueprint:
     def policy(self, seed: int):
         return _Player(self, seed)
 
+    def information_key(self, view, menu):
+        """The policy owns its schema and tables; process registration cannot change it."""
+        return information_key(view, menu, schema=self.abstraction,
+                               equity_cards=getattr(self, "equity_cards", None))
+
     def distribution(self, view):
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
         menu = choices(view, raise_cap=self.raise_cap,
                        free_fold=self.abstraction not in SHORTSTACK_SEATS)
-        key = information_key(view, menu, schema=self.abstraction)
+        key = self.information_key(view, menu)
         saved = self.entries.get(key)
         if saved is None:
             return menu, (1 / len(menu),) * len(menu), False

@@ -1,0 +1,79 @@
+{
+  "archive_id": "1yHj86jLr6qYleIFH10qB29yOo7qTJPST",
+  "archive_sha256": "fe11c7631fd3ed33de717239bfa80a5a7b0eff08286e2d1838e28b95a3640088",
+  "dependencies": {
+    "release": {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "entries": 7227377,
+      "iteration": 19538759,
+      "kind": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+      "num_players": 2,
+      "source_checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+      "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+      "training_seed": 2026100601,
+      "weights_sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+      "zero_mass_entries": 2471072
+    },
+    "tables": {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+      "files": [
+        {
+          "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+          "bytes": 12867944,
+          "member": "hu20-equity-buckets-20261005/flop-k50.bin",
+          "mtime_ns": 1791719319569250258,
+          "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        {
+          "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+          "bytes": 139600524,
+          "member": "hu20-equity-buckets-20261005/turn-k50.bin",
+          "mtime_ns": 1791719327070563089,
+          "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        {
+          "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+          "bytes": 1231562564,
+          "member": "hu20-equity-buckets-20261005/river-k50.bin",
+          "mtime_ns": 1791719333901753468,
+          "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        }
+      ]
+    }
+  },
+  "manifest_sha256": "b0a58ce29200f609e189f971898293c8c7768e21f70bced967a83138f1340130",
+  "members": [
+    {
+      "bytes": 48965799,
+      "mtime_ns": 1791719387627328426,
+      "original_path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/average.gz",
+      "path": "smoke/average.gz",
+      "sha256": "71f561adcb203ec5e4fd9ba5aa8a8d0d5645a67baa182486cf20478617b82ab2"
+    },
+    {
+      "bytes": 69544679,
+      "mtime_ns": 1791719362201969134,
+      "original_path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/checkpoint.gz",
+      "path": "smoke/checkpoint.gz",
+      "sha256": "5884878c0fdc6ca9fffaee02f76479a0582a522adf657be609b8429e8ca089a1"
+    },
+    {
+      "bytes": 42442967,
+      "mtime_ns": 1791719387627938121,
+      "original_path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/current.gz",
+      "path": "smoke/current.gz",
+      "sha256": "0be2b62683eb1df21864e835a2c007b54544f6657adc3faacac83cc527161b03"
+    },
+    {
+      "bytes": 1352416,
+      "mtime_ns": 1791719580278412626,
+      "original_path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-closeout/hu20-trainer",
+      "path": "closeout/hu20-trainer",
+      "sha256": "14e5acc012781a961b7a05ff1f1941cc8216c0797213b9a388c174321aba6d45"
+    }
+  ]
+}

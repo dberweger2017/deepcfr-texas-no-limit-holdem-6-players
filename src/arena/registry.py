@@ -20,11 +20,13 @@ def artifact_suffix(format):
 
 
 def load_frozen(spec, path, *, sorted_average_rows=False):
+    cards = ROOT / spec.card_buckets if spec.card_buckets is not None else None
     if spec.format in AVERAGE_FORMATS:
         from src.blueprint.average import AveragePolicy
         from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA
-        model = AveragePolicy(path, spec.sha256, expected_schema=HU200_SCHEMA if "hu200" in spec.format else
-                              HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA, sorted_rows=sorted_average_rows)
+        model = AveragePolicy(path, spec.sha256, expected_schema=spec.abstraction or (HU200_SCHEMA if "hu200" in spec.format else
+                              HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA),
+                              sorted_rows=sorted_average_rows, card_buckets=cards)
         model.spec = spec
         model.source_path = path
         return model
@@ -33,7 +35,7 @@ def load_frozen(spec, path, *, sorted_average_rows=False):
                         "holdem-hu100-native-reopening-blueprint-v1", "holdem-hu200-native-reopening-blueprint-v1"}:
         from src.blueprint.artifact import FrozenBlueprint
 
-        return FrozenBlueprint(spec, path)
+        return FrozenBlueprint(spec, path, card_buckets=cards)
     if spec.format == "holdem-average-v1":
         from src.arena.snapshots import FrozenAverage
 

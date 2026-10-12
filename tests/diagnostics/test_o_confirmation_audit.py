@@ -8,10 +8,13 @@ from scripts.audit_hu20_cfr_plus_arena import audit
 from scripts.evaluate_hu20_cfr_average import Uniform, play
 from scripts.evaluate_hu20_v041_arena import report
 from src.arena.schedule import digest
-from src.blueprint.abstraction import choices
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
 
 
 class UniformSource:
+    def information_key(self, view, menu):
+        return information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
+
     def distribution(self, view):
         menu = choices(view, raise_cap=None, free_fold=False)
         return menu, [1 / len(menu)] * len(menu), False

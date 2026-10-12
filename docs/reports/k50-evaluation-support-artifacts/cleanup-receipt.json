@@ -1,0 +1,45 @@
+{
+  "at": 1791719776.110632,
+  "checks": [
+    "exact path, size, modification time and SHA256",
+    "no open handles",
+    "owned sessions empty",
+    "native and connected cloud upload accepted"
+  ],
+  "owner_authorization": "Task explicitly directs deleting only own extracted table copies in results after work; specific open-PR action authorized.",
+  "pr": {
+    "headRefOid": "888e8ccc1ef7e6ce348d7168a8fcd9c1bdb0112f",
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235"
+  },
+  "removed": [
+    {
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "bytes": 12867944,
+      "member": "hu20-equity-buckets-20261005/flop-k50.bin",
+      "mtime_ns": 1791719319569250258,
+      "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/flop-k50.bin",
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    {
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "bytes": 139600524,
+      "member": "hu20-equity-buckets-20261005/turn-k50.bin",
+      "mtime_ns": 1791719327070563089,
+      "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/turn-k50.bin",
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    {
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "bytes": 1231562564,
+      "member": "hu20-equity-buckets-20261005/river-k50.bin",
+      "mtime_ns": 1791719333901753468,
+      "path": "/Users/dberweger/Local/k50-evaluation-support/results/k50-smoke/tables/river-k50.bin",
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    }
+  ],
+  "removed_bytes": 1384031032,
+  "restoration_archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view",
+  "retained": "All smoke outputs, downloaded release, source/build and work roots; all synced files and other PR files.",
+  "status": "removed-own-table-copies"
+}

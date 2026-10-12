@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import json
 from math import fsum, isfinite
 
-from src.blueprint.abstraction import HU100_SCHEMA, HU20_UNCAPPED_SCHEMA
+from src.blueprint.abstraction import HU100_SCHEMA, HU20_UNCAPPED_SCHEMA, EQUITY_SCHEMAS
 from src.blueprint.solver import HU100_GAME, HU20_UNCAPPED_GAME
 from src.game.hand import Table
 
@@ -31,6 +31,8 @@ class PlayTable:
                      small_blind=self.small_blind, big_blind=self.big_blind, chip_unit=self.chip_unit)
 
     def validate_policy(self, policy):
+        if policy.abstraction in EQUITY_SCHEMAS:
+            raise ValueError("K50 models are not yet supported by the web runtime; use the evaluation harnesses")
         expected = (HU100_GAME, HU100_SCHEMA) if self.stack == 10000 else (HU20_UNCAPPED_GAME, HU20_UNCAPPED_SCHEMA)
         if ((policy.game, policy.abstraction) != expected
                 or getattr(policy, 'players', 2) != 2 or getattr(policy, 'raise_cap', None) is not None):

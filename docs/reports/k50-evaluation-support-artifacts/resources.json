@@ -1,0 +1,83 @@
+{
+  "k50-closeout": {
+    "admission": {
+      "at": 1791719527.952244,
+      "host": {
+        "ac": true,
+        "disk_free_bytes": 85070671872,
+        "free_percent": 53,
+        "pressure_level": 1,
+        "swap_bytes": 0.0,
+        "system_used_bytes": 6413516800
+      },
+      "inherited_swap_baseline": 0.0,
+      "limits": {
+        "ac": true,
+        "disk_floor": 17179869184,
+        "family": 7516192768,
+        "free_percent": 15,
+        "pressure": 1,
+        "swap_growth": 536870912,
+        "total_swap": 2147483648,
+        "wall_seconds": 1800
+      },
+      "source": "888e8ccc1ef7e6ce348d7168a8fcd9c1bdb0112f"
+    },
+    "all_ac": true,
+    "guard": {
+      "failure": null,
+      "owned_session_empty": true,
+      "peak_family_rss_bytes": 1480474624,
+      "seconds": 56.690210665999984,
+      "status": "complete"
+    },
+    "maximum_swap_bytes": 0.0,
+    "min_free_percent": 51,
+    "minimum_disk_free_bytes": 84908515328,
+    "pressure_levels": [
+      1
+    ],
+    "resources_sha256": "a561dbb7ed292c44f875417b2a5f70d1ab45c99edd5e3ce91ce03f316e8deb5e",
+    "samples": 218
+  },
+  "k50-smoke": {
+    "admission": {
+      "at": 1791718870.435344,
+      "host": {
+        "ac": true,
+        "disk_free_bytes": 88332087296,
+        "free_percent": 61,
+        "pressure_level": 1,
+        "swap_bytes": 0.0,
+        "system_used_bytes": 7429292032
+      },
+      "limits": {
+        "ac": true,
+        "disk_floor": 17179869184,
+        "family": 7516192768,
+        "free_percent": 15,
+        "pressure": 1,
+        "swap_growth": 536870912,
+        "total_swap": 2147483648,
+        "wall_seconds": 1800
+      },
+      "source": "d97d6c789206de74db116c834622ecb0172379b3"
+    },
+    "all_ac": true,
+    "guard": {
+      "failure": null,
+      "owned_session_empty": true,
+      "peak_family_rss_bytes": 1610268672,
+      "seconds": 649.9616644170001,
+      "status": "complete"
+    },
+    "maximum_swap_bytes": 0.0,
+    "min_free_percent": 51,
+    "minimum_disk_free_bytes": 84449267712,
+    "pressure_levels": [
+      1
+    ],
+    "resources_sha256": "97b02bd1ed4683127b0fdb60e514ab390fcfcb6d8035fe35fdbdd4d9112479cc",
+    "samples": 2321
+  }
+}

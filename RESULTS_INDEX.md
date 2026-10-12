@@ -1,3 +1,44 @@
+## PR235 K50 evaluation support — correctness smoke, October11
+
+[PR235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235), branch `feature/k50-evaluation-support`, isolated M1 worktree `/Users/dberweger/Local/k50-evaluation-support`, current-main base `c3869c9d8884cf7eaab66790b17b3e36398a3ac3`.
+Smoke source `d97d6c789206de74db116c834622ecb0172379b3`; audit/archive source `888e8ccc1ef7e6ce348d7168a8fcd9c1bdb0112f` has the same production source. No native trainer changes, M4 use or full-game campaign.
+[Report](docs/reports/k50-evaluation-support.md), [proposal, not run](docs/hu20-k50-full-game-proposal.md), [independent review](docs/reports/k50-evaluation-support-artifacts/source-review.json).
+
+Native 20,000,204 nodes/59,105 iterations/1,693,042 keys; 256 direct v0.4.2 +8 LBR +16 native-pressure hands. All280 hands/1,361 actions replay; Rust/Python real-table keys have zero mismatches. Every stored row's export totals/normalization audited. Correctness only, no strength estimate. Smoke peak whole-family RSS1.50GiB; checkpoint/K50-average/v0.4.2 load11.90/10.09/40.66s. [Summary](docs/reports/k50-evaluation-support-artifacts/smoke-summary.json), [replay](docs/reports/k50-evaluation-support-artifacts/replay-audit.json), [exports](docs/reports/k50-evaluation-support-artifacts/export-audit.json), [both guards/extrema](docs/reports/k50-evaluation-support-artifacts/resources.json). AC/normal pressure, zero swap, minimum51% free memory and78.65GiB disk throughout; owned sessions empty. Initial table FileProvider hydration explains most of the649.96s smoke wall time, with no scientific stop/retry.
+
+**Accepted immutable archive:** [k50-evaluation-smoke-M1-20261011.zip](https://drive.google.com/file/d/1yHj86jLr6qYleIFH10qB29yOo7qTJPST/view), ID `1yHj86jLr6qYleIFH10qB29yOo7qTJPST`, **164,073,954bytes**, SHA256 `fe11c7631fd3ed33de717239bfa80a5a7b0eff08286e2d1838e28b95a3640088`.
+[PR235 folder](https://drive.google.com/drive/folders/1KOsHYBJ2QOPQOgfGItDaZFlJSN9wCQk4), ID `1KOsHYBJ2QOPQOgfGItDaZFlJSN9wCQk4`, under Research-Cloud `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; local path `~/Local/Research-Cloud/PR-235-k50-evaluation-support/k50-evaluation-smoke-M1-20261011.zip`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256 `b0a58ce29200f609e189f971898293c8c7768e21f70bced967a83138f1340130`; all830 member sizes/hashes locally read back. Contains smoke models/telemetry/full hands/guard logs and offline parity/source/helpers/native executable. Mutable outer audit-supervisor streams retain separate compact guard/extrema receipts in Git; original streams remain local. [Local ZIP receipt](docs/reports/k50-evaluation-support-artifacts/archive-receipt.json), [native uploaded/no pending/conflicts](docs/reports/k50-evaluation-support-artifacts/native-upload.json), [connected cloud ID/name/size/parent acceptance](docs/reports/k50-evaluation-support-artifacts/cloud-acceptance.json). No remote archive bytes downloaded.
+
+[Exact model/member index](docs/reports/k50-evaluation-support-artifacts/model-index.json): `smoke/checkpoint.gz`69,544,679bytes SHA256 `5884878c0fdc6ca9fffaee02f76479a0582a522adf657be609b8429e8ca089a1`; `smoke/average.gz`48,965,799bytes SHA256 `71f561adcb203ec5e4fd9ba5aa8a8d0d5645a67baa182486cf20478617b82ab2`; `smoke/current.gz`42,442,967bytes SHA256 `0be2b62683eb1df21864e835a2c007b54544f6657adc3faacac83cc527161b03`; `closeout/hu20-trainer`1,352,416bytes SHA256 `14e5acc012781a961b7a05ff1f1941cc8216c0797213b9a388c174321aba6d45`.
+Download the linked ZIP into an ignored location, verify the whole hash, extract selected members into a fresh ignored root and verify each against the index/manifest:
+
+```sh
+shasum -a 256 ARCHIVE.zip
+python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip smoke/average.gz results/k50-restored
+shasum -a 256 results/k50-restored/smoke/average.gz
+```
+
+**External dependencies, not duplicated:** #163 tables restore from [hu20-equity-buckets-20261005.tar.gz](https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view), ID `1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`,1,991,949,530bytes SHA256 `03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca`, [original folder](https://drive.google.com/drive/folders/1gwungsUq-b9uey8InGy0yOD2GbaMRhp-). [Restoration receipt](docs/reports/k50-evaluation-support-artifacts/restoration.json) pins all three `hu20-equity-buckets-20261005/{flop,turn,river}-k50.bin` members, byte counts and hashes. After whole-archive verification:
+
+```sh
+mkdir -p results/k50-restored/tables
+tar -xzf TABLE_ARCHIVE.tar.gz -C results/k50-restored/tables --strip-components=1 hu20-equity-buckets-20261005/flop-k50.bin hu20-equity-buckets-20261005/turn-k50.bin hu20-equity-buckets-20261005/river-k50.bin
+shasum -a 256 results/k50-restored/tables/*-k50.bin
+```
+
+Compare those hashes to the restoration receipt before any model load. The v0.4.2 reference is the pinned existing release `O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, SHA256 `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`. Retrieve using `gh release download v0.4.2 --repo dberweger2017/deepcfr-texas-no-limit-holdem-6-players --pattern O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz --dir results/k50-restored/release`, then `shasum -a 256` the downloaded file.
+
+**Specific authorized cleanup:** after accepted uploads, all audits and exact path/size/mtime/SHA256/no-open-handle checks, only this worktree's three own extracted `results/k50-smoke/tables/*-k50.bin` files were removed (1,384,031,032bytes). [Exact cleanup receipt/restoration links](docs/reports/k50-evaluation-support-artifacts/cleanup-receipt.json). The owner's task explicitly authorizes this particular open-PR action; no general open-root cleanup occurred. Models, downloaded release, original logs, source/build and all synced files/other PR dependencies remain. A receipt-generation helper initially used `member` instead of the manifest's `path` field; it failed before any cleanup, was corrected, and generated the receipts without changing the archive or rerunning science. CI's unrelated uniform-fixture interface failure and repair are documented in the report and PR issue comment; no failed check is bypassed.
+
+## Storage cleanup for K50 evaluation and HU100 replication — October 11, 2026
+
+Owner-requested cleanup for new M1 #235 /M4 #236 tasks left **M1 86.501 GB free** and **M4 97.866 GB free** at verification. M4 released **42.403 GB native uploaded cache** plus **27.749 GB measured original-removal gain**, exceeding the provisional 77.567 GiB campaign forecast; fresh research admission and pilot refinement remain required.
+
+**49 unchanged merged #226 paths** were removed after current #226/#207/#215/#223 merged status, native/cloud upload acceptance and dependency review. [Receipt/safeguards](docs/artifacts/storage-vacuum-20261011.md), [every removed path and restoration archive/member/hash](docs/artifacts/storage-vacuum-20261011-locators.md), [full cleanup receipt](https://drive.google.com/file/d/1lj6nZVoI8vSlsxY2OYluTdnmPDPCmxp9/view) (444,294 bytes, SHA256 `bc6666cd7ad25c0d9f3a073772462523d97f7214de42a718c2126db2719d4b0b`; confirmed Research-Cloud upload). Existing manifests and byte-exact model receipts were used without remote downloads or repeated research payload audits. Six candidate/reference models, both new work roots, K50 inputs, canonical #207 originals, source/build/Git and changed/unarchived files remain protected.
+
+Four unpinned uploaded cache files retain unchanged cloud files/placeholders with zero allocated blocks. This includes the fully uploaded **incomplete #226 failure ZIP**, whose contents and failure status remain preserved online; it is still unaccepted as a scientific archive, and no original-removal backup depends on it. The accepted recovery ZIP remains #226's scientific backup. The incomplete #207 original cache remains unchanged. Historical “all originals retained” statements are superseded only for the 49 listed paths. No synced deletion, force offload, app shutdown, science retry or unattended maintenance.
+
 ## PR226 HU100 4B and independent 2B direct ladders — October11
 
 [PR226](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226), branch feature/hu100-4b-seed-ladder, isolated M4 root

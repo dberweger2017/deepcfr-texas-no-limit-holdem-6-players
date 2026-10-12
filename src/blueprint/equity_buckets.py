@@ -109,6 +109,24 @@ class EquityCards:
         return self.tables[STREETS[len(board)]].bucket(hole, board)
 
 
+def load_cards(schema, identity, directory):
+    """Bind a reader to explicitly supplied, pinned, memory-mapped tables.
+
+    Never consult the legacy registration used by key/parity fixture builders.
+    """
+    from src.blueprint.abstraction import EQUITY_SCHEMAS
+    if schema not in EQUITY_SCHEMAS:
+        if directory is not None:
+            raise ValueError("Card bucket tables require a K50 schema")
+        return None
+    if directory is None:
+        raise ValueError("K50 models require explicit card_buckets with #163's pinned tables")
+    cards = EquityCards(directory)
+    if identity.get("card_tables") != cards.sha256:
+        raise ValueError("K50 model table SHA256 identity differs from supplied tables")
+    return cards
+
+
 _registered = None
 
 
