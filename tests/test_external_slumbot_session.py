@@ -169,3 +169,17 @@ def test_http_transport_bounds_requests_and_never_retries(server):
     with pytest.raises(ServiceError, match='cap'):
         transport.post('/ok', {})
     assert transport.requests == 5
+
+
+def test_env_file_supplies_only_slumbot_credentials_and_is_never_committed(tmp_path):
+    import subprocess
+    from scripts.play_slumbot import read_env
+    env = tmp_path / '.env'
+    env.write_text('# comment\nSLUMBOT_USERNAME = player\nSLUMBOT_PASSWORD="p=ss"\nOTHER=x\nSLUMBOT_TOKEN=y\n')
+    assert read_env(env) == {'SLUMBOT_USERNAME': 'player', 'SLUMBOT_PASSWORD': 'p=ss'}
+    env.write_text('SLUMBOT_USERNAME=\nSLUMBOT_PASSWORD=\n')
+    assert read_env(env) == {}
+    assert read_env(tmp_path / 'missing') == {}
+    root = Path(__file__).resolve().parents[1]
+    assert subprocess.run(['git', 'check-ignore', '-q', '.env'], cwd=root).returncode == 0
+    assert subprocess.run(['git', 'check-ignore', '-q', '.env.example'], cwd=root).returncode == 1

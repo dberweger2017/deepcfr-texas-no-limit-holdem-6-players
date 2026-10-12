@@ -7,8 +7,9 @@
 The default player is check/call. A trained HU200 average plays with its stored policy and
 uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Any failure stops the run; nothing is retried.
-With --login the username comes from SLUMBOT_USERNAME or a prompt and the password from
-SLUMBOT_PASSWORD or a hidden prompt; neither is stored or printed.
+With --login the username and password come from the environment variables SLUMBOT_USERNAME and
+SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
+prompts, the password hidden. Neither is stored or printed.
 """
 
 import argparse
@@ -25,6 +26,20 @@ from src.arena.external.session import CheckCall, play_hand, summarize
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
 SERVICE = 'https://slumbot.com'
+ENV_FILE = Path(__file__).resolve().parents[1] / '.env'
+CREDENTIALS = ('SLUMBOT_USERNAME', 'SLUMBOT_PASSWORD')
+
+
+def read_env(path: Path) -> dict:
+    """The Slumbot credentials in a KEY=VALUE file; every other line is ignored."""
+    if not path.is_file():
+        return {}
+    found = {}
+    for line in path.read_text().splitlines():
+        key, sep, value = line.strip().partition('=')
+        if sep and key.strip() in CREDENTIALS and value.strip().strip('"\''):
+            found[key.strip()] = value.strip().strip('"\'')
+    return found
 
 
 def load_player(args):
@@ -59,8 +74,9 @@ def main():
     # Ask before the model loads, so nobody waits minutes for the prompt; log in after it, so
     # the session starts fresh.
     if args.login:
-        username = os.environ.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
-        password = os.environ.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
+        stored = {**read_env(ENV_FILE), **{k: os.environ[k] for k in CREDENTIALS if os.environ.get(k)}}
+        username = stored.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
+        password = stored.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
     policy, player, identity = load_player(args)
     transport = HttpTransport(SERVICE, timeout=args.timeout, min_interval=args.min_interval,
                               max_requests=args.max_requests or 60 * args.hands)
