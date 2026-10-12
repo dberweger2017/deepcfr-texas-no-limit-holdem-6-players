@@ -25,7 +25,12 @@ def retrieve(release, archive, destination):
         encoded = z.read(provenance['manifest_member'])
         if hashlib.sha256(encoded).hexdigest() != provenance['manifest_sha256']:
             raise ValueError('Archive member manifest hash differs')
-        records = [r for r in json.loads(encoded)['members'] if r['path'] == provenance['member']]
+        members = json.loads(encoded)['members']
+        # Earlier archives list member records; #226's maps each path to its record.
+        if isinstance(members, dict):
+            records = [members[provenance['member']]] if provenance['member'] in members else []
+        else:
+            records = [r for r in members if r['path'] == provenance['member']]
         if len(records) != 1 or any(records[0][k] != model[k] for k in ('bytes', 'sha256')):
             raise ValueError('Archived model member identity differs')
         if len([i for i in z.infolist() if i.filename == provenance['member']]) != 1:

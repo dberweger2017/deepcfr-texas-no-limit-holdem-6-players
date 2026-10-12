@@ -1,0 +1,10 @@
+{
+  "status": "main-integration-reviewed",
+  "at": 1791818628.9595368,
+  "upstream": "3a3bc4218bab96637d6a27a69b73383ee8bb196c",
+  "frozen_scientific_base": "045c793a4abd2e371d4d77de663fd3dd2f00316b",
+  "conflict": "ROADMAP Current position; retained both entries",
+  "upstream_scope": "HU100 release retrieval/bundle/tests, storage and documentation; no frozen HU20/native source changes",
+  "science_rerun": false,
+  "cleanup": "Only after current merged status and unchanged accepted manifest paths/dependency review"
+}
