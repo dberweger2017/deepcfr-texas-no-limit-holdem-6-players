@@ -51,3 +51,19 @@ def test_no_exception_or_different_failure_stays_terminal(tmp_path,monkeypatch):
     (out/'operations/archive-closeout-sidecar/worker.log').write_text('Guard breach: memory pressure')
     with pytest.raises(ValueError,match='exact archival'):
         approved_archive_repair(out,'archive-closeout-startup-repair',command,approval)
+
+
+def test_inventory_correction_is_limited_to_known_metadata_path_failure(tmp_path,monkeypatch):
+    out,command,approval=setup(tmp_path,monkeypatch)
+    prior=out/'operations/archive-closeout-startup-repair';prior.mkdir()
+    (prior/'receipt.json').write_text(json.dumps({'status':'failed','returncode':1}))
+    expected="FileNotFoundError: [Errno 2] No such file or directory: 'results/hu20-k50-5b/campaign-failure.json'"
+    (prior/'worker.log').write_text(expected)
+    data=json.loads(approval.read_text())
+    data.update(authorized_operation='archive-closeout-corrected-inventory',
+                prior_metadata_failure_receipt_sha256=file_sha(prior/'receipt.json'))
+    approval.write_text(json.dumps(data))
+    assert approved_archive_repair(out,'archive-closeout-corrected-inventory',command,approval)==file_sha(approval)
+    (prior/'worker.log').write_text('Nonfinite scientific result')
+    with pytest.raises(ValueError,match='different metadata failure'):
+        approved_archive_repair(out,'archive-closeout-corrected-inventory',command,approval)

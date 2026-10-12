@@ -48,7 +48,7 @@ def approved_archive_repair(out, name, command, approval):
     log = (out / 'operations/archive-closeout-sidecar/worker.log').read_text()
     worker = Path.cwd() / 'planning/seal-archive-closeout.py'
     expected_command = [str(Path.cwd() / '.venv/bin/python'), str(worker)]
-    if (name != 'archive-closeout-startup-repair'
+    if (name not in ('archive-closeout-startup-repair','archive-closeout-corrected-inventory')
             or record.get('owner_statement') != 'Exception permitted'
             or record.get('authorized_operation') != name
             or command != expected_command or record.get('command') != command
@@ -60,6 +60,14 @@ def approved_archive_repair(out, name, command, approval):
             or file_sha(out / 'budget.json') != record.get('original_budget_sha256')
             or file_sha(worker) != record.get('corrected_worker_sha256')):
         raise ValueError('Owner exception does not match the exact archival startup failure')
+    if name == 'archive-closeout-corrected-inventory':
+        prior = out / 'operations/archive-closeout-startup-repair'
+        second = json.loads((prior / 'receipt.json').read_text())
+        second_log = (prior / 'worker.log').read_text()
+        if (second.get('status') != 'failed' or second.get('returncode') != 1
+                or "FileNotFoundError: [Errno 2] No such file or directory: 'results/hu20-k50-5b/campaign-failure.json'" not in second_log
+                or file_sha(prior / 'receipt.json') != record.get('prior_metadata_failure_receipt_sha256')):
+            raise ValueError('Exception cannot cover a different metadata failure')
     return file_sha(approval)
 
 

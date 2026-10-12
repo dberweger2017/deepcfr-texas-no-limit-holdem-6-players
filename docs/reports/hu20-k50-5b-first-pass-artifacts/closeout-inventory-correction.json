@@ -1,0 +1,14 @@
+{
+  "at": 1791817046.202367,
+  "owner_statement": "Exception permitted",
+  "authorized_operation": "archive-closeout-corrected-inventory",
+  "scope": "Continuation of the same owner-approved metadata-only archival correction; second startup failed on a missing latch path before ZIP creation. Every failed receipt and original guard/deadline remain preserved. No scientific retry.",
+  "command": [
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/.venv/bin/python",
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/planning/seal-archive-closeout.py"
+  ],
+  "original_failure_sha256": "e4d00174939e72645ae04b5340b90faac0c1c7ae3012a359b80cf399cd1a7e66",
+  "original_budget_sha256": "e7eaefd67f5dfaaa977e4ee52d5201e1fb3450955635b9296c1fe81c3ac10585",
+  "corrected_worker_sha256": "5cedcbf15c6700aaabcb47a6866819fbb3e1ada44d181822b3916b3cc7d0d4de",
+  "prior_metadata_failure_receipt_sha256": "0a43573a32f4a8245d4141b54bc88e8bf25a7102f9fecbad1c2ea9c9afa122e0"
+}

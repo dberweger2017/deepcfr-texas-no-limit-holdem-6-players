@@ -23,5 +23,22 @@
   "scientific_results_unchanged": true,
   "main_archive_accepted": true,
   "retry_authorized": false,
-  "failure_latch_preserved": true
+  "failure_latch_preserved": true,
+  "owner_exception": "Exception permitted",
+  "repair_initial_metadata_failure": {
+    "receipt": {
+      "cleanup_error": null,
+      "failure": "RuntimeError('Worker exit 1')",
+      "finished": 1791816909.6910038,
+      "name": "archive-closeout-startup-repair",
+      "peak_family_rss_bytes": 170721280,
+      "returncode": 1,
+      "samples": 5,
+      "seconds": 1.0702269077301025,
+      "started": 1791816908.620777,
+      "status": "failed"
+    },
+    "worker_log": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/planning/seal-archive-closeout.py\", line 15, in <module>\n    receipt=seal(files,folder/'hu20-k50-5b-first-pass-M4-20261012-closeout.zip',{'pr':238,'scope':'Closed main archive guard/receipt/source review/upload-initial provenance','originals_retained':True})\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/scripts/archive_hu100_4b_seed_ladder.py\", line 34, in seal\n    stat = path.stat()\n           ^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.11/3.11.14_3/Frameworks/Python.framework/Versions/3.11/lib/python3.11/pathlib.py\", line 1013, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'results/hu20-k50-5b/campaign-failure.json'\n        0.86 real         0.93 user         0.07 sys\n            98549760  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n               24663  page reclaims\n                  84  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                  13  messages sent\n                  12  messages received\n                  67  signals received\n                  31  voluntary context switches\n                 760  involuntary context switches\n         10974856371  instructions retired\n          3559753592  cycles elapsed\n            72401568  peak memory footprint\n",
+    "sidecar_created": false
+  }
 }
