@@ -155,3 +155,13 @@ Final report: `docs/reports/hu20-k50-5b-first-pass.md`. Update ROADMAP Current p
 when this work lands. Commit/push completed subtasks; stage intended files and run
 `python -m scripts.check_repository_artifacts` before every commit. Review findings
 and all green final checks precede merge; no bypass, release/default/tag/publication.
+
+## Owner storage amendment
+
+The owner answered the preventive storage quote: **“on it, you can start though.”**
+Start individually admitted stages while storage is provisioned; the 38 GiB
+full-campaign entry target is no longer a blanket hold. Each stage still reserves
+its inputs, retained outputs and scratch above the unchanged 16 GiB floor. All
+other guards, gates, samples and the six-hour aggregate limit remain binding.
+No deletion, offloading, paid compute, guard relaxation or extra training recipe
+is authorized by this amendment. Preserve the earlier refusal as provenance.
