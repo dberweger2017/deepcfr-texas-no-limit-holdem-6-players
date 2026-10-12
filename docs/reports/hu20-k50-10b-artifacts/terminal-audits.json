@@ -1,0 +1,161 @@
+{
+  "models": [
+    {
+      "audit": {
+        "all_nodes_verified": 9332257,
+        "average_sha256": "462a2bfaac9a87f1a9a5eae772e756146de1d2d4661735b2649d24ecd3cba340",
+        "checkpoint_sha256": "f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54",
+        "counts": {
+          "entries": 9332257,
+          "positive_mass": 6375602,
+          "zero_mass": 2956655
+        },
+        "current_sha256": "5f12a663655632023d40b94785e9ce5e4c65cad2186a72172f977f448ad6877c",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.3390469174289876
+      },
+      "density": {
+        "count": 9332257,
+        "mean": 208.20107976023377,
+        "quantiles": {
+          "max": 394244,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 29.0,
+          "p90": 156.0,
+          "p99": 3743.0
+        },
+        "zero_fraction": 0.139483192543883
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "actual_nodes": 10000000463,
+        "bytes": 331877769,
+        "card_buckets": "results/hu20-k50-10b/tables",
+        "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+        "checkpoint_sha256": "f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54",
+        "current_path": "results/hu20-k50-10b/policies/k50-2026100601-10b.current.json.gz",
+        "current_sha256": "5f12a663655632023d40b94785e9ce5e4c65cad2186a72172f977f448ad6877c",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 20736432,
+        "name": "K50-2026100601-10000000000.json",
+        "path": "results/hu20-k50-10b/policies/k50-2026100601-10b.average.jsonl.gz",
+        "requested_nodes": 10000000000,
+        "seed": 2026100601,
+        "sha256": "462a2bfaac9a87f1a9a5eae772e756146de1d2d4661735b2649d24ecd3cba340",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    },
+    {
+      "audit": {
+        "all_nodes_verified": 9435432,
+        "average_sha256": "a6910c43332627ca0702817178f0dad92ec49a520fc3825163bda2268aa789b5",
+        "checkpoint_sha256": "f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006",
+        "counts": {
+          "entries": 9435432,
+          "positive_mass": 6441469,
+          "zero_mass": 2993963
+        },
+        "current_sha256": "1422a4772cb6d339db0bf3ac164b88b90c83e83ade6f6ae485df1e25153bae29",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.3383925815087933
+      },
+      "density": {
+        "count": 9435432,
+        "mean": 206.082335286821,
+        "quantiles": {
+          "max": 392982,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 29.0,
+          "p90": 153.0,
+          "p99": 3711.0
+        },
+        "zero_fraction": 0.14127853393464126
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "actual_nodes": 10000000103,
+        "bytes": 335115559,
+        "card_buckets": "results/hu20-k50-10b/tables",
+        "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+        "checkpoint_sha256": "f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006",
+        "current_path": "results/hu20-k50-10b/policies/k50-2026100602-10b.current.json.gz",
+        "current_sha256": "1422a4772cb6d339db0bf3ac164b88b90c83e83ade6f6ae485df1e25153bae29",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 20609741,
+        "name": "K50-2026100602-10000000000.json",
+        "path": "results/hu20-k50-10b/policies/k50-2026100602-10b.average.jsonl.gz",
+        "requested_nodes": 10000000000,
+        "seed": 2026100602,
+        "sha256": "a6910c43332627ca0702817178f0dad92ec49a520fc3825163bda2268aa789b5",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    },
+    {
+      "audit": {
+        "all_nodes_verified": 9401392,
+        "average_sha256": "04cf08faad2bbe14c9dab150d7a63d15a1bef5eead98cb574b0acdd9ff782758",
+        "checkpoint_sha256": "fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14",
+        "counts": {
+          "entries": 9401392,
+          "positive_mass": 6410311,
+          "zero_mass": 2991081
+        },
+        "current_sha256": "09c490150edc94742788ca4f98151dff0da3984d1ef173fdaffa0e6d65c53e46",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.3377781668790497
+      },
+      "density": {
+        "count": 9401392,
+        "mean": 206.7393723184822,
+        "quantiles": {
+          "max": 392146,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 29.0,
+          "p90": 153.0,
+          "p99": 3710.0
+        },
+        "zero_fraction": 0.14336653550878423
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "actual_nodes": 10000000465,
+        "bytes": 333559395,
+        "card_buckets": "results/hu20-k50-10b/tables",
+        "checkpoint_path": "results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+        "checkpoint_sha256": "fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14",
+        "current_path": "results/hu20-k50-10b/policies/k50-2026100603-10b.current.json.gz",
+        "current_sha256": "09c490150edc94742788ca4f98151dff0da3984d1ef173fdaffa0e6d65c53e46",
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "iteration": 20522144,
+        "name": "K50-2026100603-10000000000.json",
+        "path": "results/hu20-k50-10b/policies/k50-2026100603-10b.average.jsonl.gz",
+        "requested_nodes": 10000000000,
+        "seed": 2026100603,
+        "sha256": "04cf08faad2bbe14c9dab150d7a63d15a1bef5eead98cb574b0acdd9ff782758",
+        "strategy": "average"
+      },
+      "status": "verified",
+      "street_mapping": "Stored keys are irreversible hashes without street metadata. Street visit quantiles require independently classified reached keys; no full-table street allocation is inferred."
+    }
+  ],
+  "status": "verified"
+}

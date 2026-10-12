@@ -1,0 +1,300 @@
+{
+  "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+  "byte_identical": true,
+  "finished": 1791820389.023405,
+  "fresh20m": {
+    "audit_status": "unaudited",
+    "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+    "checkpoint_bytes": 69652971,
+    "checkpoint_sha256": "b132f89534e971e67c7e5d0ce260ecdfe8a3199601c964d120f29ec15f1b459a",
+    "completed_nodes": 20000195,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        958288,
+        2068160,
+        3468210,
+        4902740
+      ],
+      "entries": 1698387,
+      "positive_average_mass_keys": 1192804,
+      "traverser_visits": 4164329,
+      "traverser_visits_by_street": [
+        339267,
+        742818,
+        1281320,
+        1800924
+      ],
+      "visits_histogram": {
+        "0": 682758,
+        "1": 526499,
+        "10-99": 82352,
+        "100+": 2231,
+        "2-9": 404547
+      },
+      "zero_average_mass_keys": 505583
+    },
+    "elapsed_seconds_including_writes": 17.659817375,
+    "entries_per_completed_node": 0.08491852204441007,
+    "iteration": 59393,
+    "new_entries": 450331,
+    "nodes_per_second_including_writes": 1132525.5847952957,
+    "nodes_since_previous_save": 10000163,
+    "overshoot_nodes": 195,
+    "path": "results/hu20-k50-10b/gates/fresh-20000000.json.gz",
+    "process_rss_bytes_after_save": 1538736128,
+    "recent_nodes_per_second_including_writes": 1022592.8928829706,
+    "requested_nodes": 20000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791820361.235147,
+    "write_seconds": 4.961290792,
+    "write_started": 1791820356.273873
+  },
+  "load_only_no_iterations_or_saves": true,
+  "loaded_checkpoints": [
+    {
+      "actual_nodes": 5000000783,
+      "bytes": 441190007,
+      "entries": 8303507,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100601
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10536954,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100601-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100601-5000000000.json.gz",
+      "seed": 2026100601,
+      "sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce"
+    },
+    {
+      "actual_nodes": 5000000182,
+      "bytes": 440677004,
+      "entries": 8290014,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100602
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10472679,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100602-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100602-5000000000.json.gz",
+      "seed": 2026100602,
+      "sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be"
+    },
+    {
+      "actual_nodes": 5000000137,
+      "bytes": 440722890,
+      "entries": 8308763,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100603
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10444021,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100603-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100603-5000000000.json.gz",
+      "seed": 2026100603,
+      "sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe"
+    }
+  ],
+  "resumed20m": {
+    "audit_status": "unaudited",
+    "binary_sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+    "checkpoint_bytes": 69652971,
+    "checkpoint_sha256": "b132f89534e971e67c7e5d0ce260ecdfe8a3199601c964d120f29ec15f1b459a",
+    "completed_nodes": 20000195,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        958288,
+        2068160,
+        3468210,
+        4902740
+      ],
+      "entries": 1698387,
+      "positive_average_mass_keys": 1192804,
+      "traverser_visits": 4164329,
+      "traverser_visits_by_street": [
+        339267,
+        742818,
+        1281320,
+        1800924
+      ],
+      "visits_histogram": {
+        "0": 682758,
+        "1": 526499,
+        "10-99": 82352,
+        "100+": 2231,
+        "2-9": 404547
+      },
+      "zero_average_mass_keys": 505583
+    },
+    "elapsed_seconds_including_writes": 9.756286082999999,
+    "entries_per_completed_node": 0.08491852204441007,
+    "iteration": 59393,
+    "new_entries": 450331,
+    "nodes_per_second_including_writes": 1024996.9009646968,
+    "nodes_since_previous_save": 10000163,
+    "overshoot_nodes": 195,
+    "path": "results/hu20-k50-10b/gates/resumed-20000000.json.gz",
+    "process_rss_bytes_after_save": 1534541824,
+    "recent_nodes_per_second_including_writes": 1024996.9009646968,
+    "requested_nodes": 20000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791820375.42073,
+    "write_seconds": 5.003280666,
+    "write_started": 1791820370.417465
+  },
+  "status": "verified"
+}

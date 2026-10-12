@@ -1,0 +1,17 @@
+{
+  "status": "fresh-reserved",
+  "root": 20261012081101,
+  "pr": 242,
+  "reserved_at": 1791820698.630193,
+  "scope": "8192 duplicate blocks per seed, seats rotated; descriptive only; no extension/rerun",
+  "freshness": {
+    "github_issue_search_matches": [],
+    "git_history_only_own_preparation_report": true,
+    "m4_no_ignore_scan_matches": [
+      "/Users/dberweger/Local/hu20-k50-10b-20261012/docs/reports/hu20-k50-10b.md",
+      "/Users/dberweger/Local/hu20-k50-10b-20261012/planning/k50_10b_run.py"
+    ],
+    "matches_are_own_unexecuted_protocol_references": true,
+    "prior_outcome_or_reservation_found": false
+  }
+}

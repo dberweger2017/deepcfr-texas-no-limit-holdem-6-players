@@ -1,0 +1,5 @@
+{
+  "at": 1791825460.686038,
+  "failure": "RuntimeError('Worker exit 1')",
+  "operation": "archive-closeout-metadata"
+}

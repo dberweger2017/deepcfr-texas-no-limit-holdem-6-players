@@ -1,0 +1,11 @@
+{
+  "failure": null,
+  "finished": 1791825581.026638,
+  "name": "archive-closeout-inventory-repair",
+  "peak_family_rss_bytes": 39190528,
+  "returncode": 0,
+  "samples": 2,
+  "seconds": 0.6062831878662109,
+  "started": 1791825580.420356,
+  "status": "complete"
+}

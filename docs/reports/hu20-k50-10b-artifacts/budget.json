@@ -1,0 +1,15 @@
+{
+  "deadline": 1791832623.0,
+  "initial_host": {
+    "ac": true,
+    "at": 1791820163.4141161,
+    "disk_free_bytes": 74132148224,
+    "free_percent": 88,
+    "power_raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22741091)\t80%; AC attached; not charging present: true\n",
+    "pressure_level": 1,
+    "swap_bytes": 925693378,
+    "swap_raw": "vm.swapusage: total = 2048.00M  used = 882.81M  free = 1165.19M  (encrypted)\n"
+  },
+  "started": 1791820023.0,
+  "swap_bytes": 925693378
+}

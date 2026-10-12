@@ -1,0 +1,134 @@
+{
+  "at": 1791825352.533943,
+  "averages_only": {
+    "cloud": {
+      "created_time": null,
+      "current_user_can_share": null,
+      "display_url": "https://drive.google.com/file/d/1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb/view?usp=drivesdk",
+      "drive_id": null,
+      "file_or_folder": "file",
+      "has_augmented_permissions": null,
+      "id": "1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb",
+      "mime_type": "application/zip",
+      "modified_time": null,
+      "parent_ids": [
+        "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+      ],
+      "permissions": null,
+      "shared": null,
+      "size": "1000556370",
+      "source_visibility_status": "access_not_verified",
+      "title": "hu20-k50-10b-averages-M4-20261012.zip",
+      "url": "https://drive.google.com/file/d/1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb/view?usp=drivesdk"
+    },
+    "local_integrity": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 1000556370,
+      "cloud_upload_accepted": false,
+      "logical_member_bytes": 1000552723,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "374f09c3d311f9ea842c79b443dd9912fe6ffbfd0a690790cabfd9f180719bf7",
+      "members": 3,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-averages-M4-20261012.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 1.8938326250063255,
+      "sha256": "0a31114ba0e295e517b48314501a87ddb11c23bc73a05c5a478a1658390bff01",
+      "status": "locally-verified"
+    },
+    "native": {
+      "at": 1791825249.245999,
+      "flags": {
+        "documentSize": 1000556370,
+        "hasUnresolvedConflicts": 0,
+        "isExcludedFromSync": 0,
+        "isSyncPaused": 0,
+        "isTrashed": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "ids": {
+        "archive_id": "1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb",
+        "folder_id": "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+      },
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-averages-M4-20261012.zip",
+      "upload_error_reported": false
+    }
+  },
+  "folder": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/drive/folders/1vrNcioy93qEB54uVrdsk7lMEqIibnLTw",
+    "drive_id": null,
+    "file_or_folder": "folder",
+    "has_augmented_permissions": null,
+    "id": "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw",
+    "mime_type": "application/vnd.google-apps.folder",
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": null,
+    "source_visibility_status": "access_not_verified",
+    "title": "PR-242-hu20-k50-10b",
+    "url": "https://drive.google.com/drive/folders/1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+  },
+  "full": {
+    "cloud": {
+      "created_time": null,
+      "current_user_can_share": null,
+      "display_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "drive_id": null,
+      "file_or_folder": "file",
+      "has_augmented_permissions": null,
+      "id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "mime_type": "application/zip",
+      "modified_time": null,
+      "parent_ids": [
+        "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+      ],
+      "permissions": null,
+      "shared": null,
+      "size": "3483316284",
+      "source_visibility_status": "access_not_verified",
+      "title": "hu20-k50-10b-M4-20261012.zip",
+      "url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk"
+    },
+    "local_integrity": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 3483316284,
+      "cloud_upload_accepted": false,
+      "logical_member_bytes": 3483225530,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "57624c79975fb4bd3cc70579a4de750936ed6cea708baa9db073dca50a3ebcd6",
+      "members": 143,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-M4-20261012.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 10.099733291004668,
+      "sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472",
+      "status": "locally-verified"
+    },
+    "native": {
+      "at": 1791825249.227299,
+      "flags": {
+        "documentSize": 3483316284,
+        "hasUnresolvedConflicts": 0,
+        "isExcludedFromSync": 0,
+        "isSyncPaused": 0,
+        "isTrashed": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "ids": {
+        "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+        "folder_id": "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+      },
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-M4-20261012.zip",
+      "upload_error_reported": false
+    }
+  },
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false,
+  "status": "full-and-average-only-archives-accepted"
+}

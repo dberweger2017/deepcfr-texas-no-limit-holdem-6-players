@@ -1,0 +1,231 @@
+{
+  "archive": {
+    "bytes": 4697444347,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-238-hu20-k50-5b-first-pass/hu20-k50-5b-first-pass-M4-20261012.zip",
+    "sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+  },
+  "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+  "manifest_sha256": "528f23792f27488882a37f76ff6f2ac453af2dcf69fafead3ae6b41b406b3fc0",
+  "models": [
+    {
+      "bytes": 290814688,
+      "kind": "average",
+      "label": "k50",
+      "member": "research/policies/k50-2026100601-5b.average.jsonl.gz",
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100601-5b.average.jsonl.gz",
+      "seed": 2026100601,
+      "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e"
+    },
+    {
+      "actual_nodes": 5000000783,
+      "bytes": 441190007,
+      "entries": 8303507,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100601
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10536954,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100601-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100601-5000000000.json.gz",
+      "seed": 2026100601,
+      "sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce"
+    },
+    {
+      "bytes": 290368705,
+      "kind": "average",
+      "label": "k50",
+      "member": "research/policies/k50-2026100602-5b.average.jsonl.gz",
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100602-5b.average.jsonl.gz",
+      "seed": 2026100602,
+      "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b"
+    },
+    {
+      "actual_nodes": 5000000182,
+      "bytes": 440677004,
+      "entries": 8290014,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100602
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10472679,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100602-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100602-5000000000.json.gz",
+      "seed": 2026100602,
+      "sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be"
+    },
+    {
+      "bytes": 290499150,
+      "kind": "average",
+      "label": "k50",
+      "member": "research/policies/k50-2026100603-5b.average.jsonl.gz",
+      "path": "results/hu20-k50-10b/inputs/policies/k50-2026100603-5b.average.jsonl.gz",
+      "seed": 2026100603,
+      "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258"
+    },
+    {
+      "actual_nodes": 5000000137,
+      "bytes": 440722890,
+      "entries": 8308763,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100603
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 10444021,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        }
+      },
+      "kind": "checkpoint",
+      "label": "k50",
+      "member": "research/training/K50-2026100603-5000000000.json.gz",
+      "path": "results/hu20-k50-10b/inputs/training/K50-2026100603-5000000000.json.gz",
+      "seed": 2026100603,
+      "sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe"
+    },
+    {
+      "bytes": 1349488,
+      "kind": "binary",
+      "member": "research/bin/hu20-trainer",
+      "path": "results/hu20-k50-10b/inputs/bin/hu20-trainer",
+      "sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6"
+    }
+  ],
+  "owner_pr_current_state": "MERGED",
+  "retrieval": "Verify the indexed whole ZIP and manifest, extract only named members to a fresh ignored own directory, verify every member SHA256/bytes before use.",
+  "status": "verified"
+}
