@@ -1,6 +1,6 @@
-## PR242 HU20 K50 5B-to-10B continuation — in progress, October 12
+## PR242 HU20 K50 5B-to-10B continuation — verified, accepted evidence, October 12
 
-[PR242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242), [report](docs/reports/hu20-k50-10b.md), branch `feature/hu20-k50-10b`, task-owned non-synced M4 root `~/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/`. Native base `045c793a4abd2e371d4d77de663fd3dd2f00316b`, exact tree `06f98b959e7b56068918bb0cc7b9c162511c7686`; unchanged source. Three seeds are concurrently continuing from 5B to 10B after verified input/header/load/byte-exact recovery gates. No 10B result, archive upload acceptance, merge, cleanup or release is claimed yet.
+[PR242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242), [report](docs/reports/hu20-k50-10b.md), branch `feature/hu20-k50-10b`, task-owned non-synced M4 root `~/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/`. Native base `045c793a4abd2e371d4d77de663fd3dd2f00316b`, exact tree `06f98b959e7b56068918bb0cc7b9c162511c7686`; unchanged source. Three exact 5B lineages reach 10B concurrently in 52.64 minutes; every current/average row audits. All 49,152 descriptive hands independently replay. **10B versus own 5B +0.22 [−3.98, +4.42] BB/100**, nominal paired 95% conditional on fixed policies: further improvement is inconclusive, not a plateau or release decision. No extension, failed-hand rerun, release confirmation, adoption or model selection. Scientific Python source is pinned to main `600bd34cca328cd19b65f5fb14141fdcb397e966`; task control sources are member-hashed in the full ZIP. Merge and cleanup follow reviewed final-head checks.
 
 The owner explicitly authorized the exact archived executable after the new-root build mismatch caused the required stop. [Restoration receipt](docs/reports/hu20-k50-10b-artifacts/restoration.json) records the accepted #238 [ZIP](https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view), **4,697,444,347 bytes**, SHA256 `2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27`, embedded `ARCHIVE-MANIFEST.json` SHA256 `528f23792f27488882a37f76ff6f2ac453af2dcf69fafead3ae6b41b406b3fc0`. Its executable member `research/bin/hu20-trainer`, **1,349,488 bytes**, SHA256 `aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6`, restores to the own ignored `inputs/bin/hu20-trainer` after whole/archive/member verification and chmod. Failed-build evidence remains preserved.
 
@@ -17,7 +17,42 @@ shasum -a 256 NEW_IGNORED_DIR/hu20-trainer
 chmod 755 NEW_IGNORED_DIR/hu20-trainer
 ```
 
-The [20M fresh/resumed byte identity and three native 5B load checks](docs/reports/hu20-k50-10b-artifacts/gates-complete.json) pass; no load-only iterations/saves occurred. [Fixed budget](docs/reports/hu20-k50-10b-artifacts/budget.json) ends 21:17:03 Madrid /19:17:03 UTC. [Root reservation](docs/reports/hu20-k50-10b-artifacts/root-reservation.json) reserves 20261012081101 before outcomes for exactly 8,192 descriptive duplicate blocks per seed, seats rotated. M4 compute-release ETA **19:20 Madrid**, total-finish ETA **19:50 Madrid**, both October 12 estimates posted at training start; await explicit compute release. Final model index, full and three-average-only ZIPs, independent/native acceptance and cleanup receipts will replace this in-progress record.
+The [20M fresh/resumed byte identity and three native 5B load checks](docs/reports/hu20-k50-10b-artifacts/gates-complete.json) pass; no load-only iterations/saves occurred. [Fixed budget](docs/reports/hu20-k50-10b-artifacts/budget.json) ends 21:17:03 Madrid /19:17:03 UTC. [Root reservation](docs/reports/hu20-k50-10b-artifacts/root-reservation.json) reserves 20261012081101 before outcomes for exactly 8,192 descriptive duplicate blocks per seed, seats rotated. M4 compute was explicitly released **19:20 Madrid /17:20 UTC**, October 12. Total-finish estimate remains **19:50 Madrid /17:50 UTC** pending final checks/merge/cleanup. No scientific work remains. The verified 10B model index and accepted full/three-average-only archives follow; safe cleanup receipts will be recorded after merge.
+
+**Accepted archive folder:** [PR-242-hu20-k50-10b](https://drive.google.com/drive/folders/1vrNcioy93qEB54uVrdsk7lMEqIibnLTw), ID `1vrNcioy93qEB54uVrdsk7lMEqIibnLTw`, Research-Cloud parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, native `~/Local/Research-Cloud/PR-242-hu20-k50-10b/`.
+
+**[Full checkpoint/export/audit/trace ZIP](https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk)**, ID `1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe`: `hu20-k50-10b-M4-20261012.zip`, **3,483,316,284 bytes /143 payload members**, whole SHA256 `b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472`, embedded `ARCHIVE-MANIFEST.json` SHA256 `57624c79975fb4bd3cc70579a4de750936ed6cea708baa9db073dca50a3ebcd6`; every member size/hash reads back locally.
+
+**[Separate three-average-only ZIP](https://drive.google.com/file/d/1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb/view?usp=drivesdk)**, ID `1m6u4L0rmmnKf166LsbW6HFoxI_Qc_Unb`: `hu20-k50-10b-averages-M4-20261012.zip`, **1,000,556,370 bytes /3 payload members**, whole SHA256 `0a31114ba0e295e517b48314501a87ddb11c23bc73a05c5a478a1658390bff01`, embedded `ARCHIVE-MANIFEST.json` SHA256 `374f09c3d311f9ea842c79b443dd9912fe6ffbfd0a690790cabfd9f180719bf7`; every member size/hash reads back locally.
+
+**[Corrected metadata closeout ZIP](https://drive.google.com/file/d/1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9/view?usp=drivesdk)**, ID `1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9`: **133,054 bytes /20 members**, SHA256 `f110f29e34b1d8434957491d3defb46781805ce51ad7d97b44585f8171636efb`, manifest SHA256 `34d5a7e3ae24696885a3c339b7182d3e70861f035f60d7dcdc276ed7f7d7edec`. Initial sidecar inventory failure, failed ZIP and latch remain preserved; normalized-path repair is metadata-only, with no scientific rerun or reset. Failed `hu20-k50-10b-closeout-M4-20261012.zip` remains in the same synced folder and is not an accepted evidence archive.
+
+Separate [native/independent main-average acceptance](docs/reports/hu20-k50-10b-artifacts/archive-acceptance.json) and [corrected closeout acceptance](docs/reports/hu20-k50-10b-artifacts/closeout-archive-acceptance.json) confirm actual IDs/names/sizes/parents and uploaded/no-pending/no-conflicts/not-paused/not-excluded/not-trashed state. **Remote bytes were not downloaded or verified.** Local content integrity and cloud upload acceptance remain distinct. Original indexed inputs are dependencies, not duplicated payloads; [input provenance](docs/reports/hu20-k50-10b-artifacts/indexed-input-dependencies.json) includes the restored #185/#182 v1 10B checkpoints and full member/archive pins.
+
+**Nine 10B model members:** [exact index with bytes, SHA256, parent-5B checkpoint, actual nodes/iteration and per-model retrieval command](docs/reports/hu20-k50-10b-artifacts/model-index.json). Averages use the 1.001-GB ZIP; checkpoints/current policies use the full ZIP.
+
+| Seed | Kind | Archive member | Bytes | SHA256 |
+| --- | --- | --- | ---: | --- |
+| 2026100601 | checkpoint | `research/training/K50-2026100601-10000000000.json.gz` | 506,904,575 | `f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54` |
+| 2026100601 | current | `research/policies/k50-2026100601-10b.current.json.gz` | 236,118,962 | `5f12a663655632023d40b94785e9ce5e4c65cad2186a72172f977f448ad6877c` |
+| 2026100601 | average | `research/policies/k50-2026100601-10b.average.jsonl.gz` | 331,877,769 | `462a2bfaac9a87f1a9a5eae772e756146de1d2d4661735b2649d24ecd3cba340` |
+| 2026100602 | checkpoint | `research/training/K50-2026100602-10000000000.json.gz` | 511,801,980 | `f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006` |
+| 2026100602 | current | `research/policies/k50-2026100602-10b.current.json.gz` | 238,695,972 | `1422a4772cb6d339db0bf3ac164b88b90c83e83ade6f6ae485df1e25153bae29` |
+| 2026100602 | average | `research/policies/k50-2026100602-10b.average.jsonl.gz` | 335,115,559 | `a6910c43332627ca0702817178f0dad92ec49a520fc3825163bda2268aa789b5` |
+| 2026100603 | checkpoint | `research/training/K50-2026100603-10000000000.json.gz` | 509,311,840 | `fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14` |
+| 2026100603 | current | `research/policies/k50-2026100603-10b.current.json.gz` | 237,605,937 | `09c490150edc94742788ca4f98151dff0da3984d1ef173fdaffa0e6d65c53e46` |
+| 2026100603 | average | `research/policies/k50-2026100603-10b.average.jsonl.gz` | 333,559,395 | `04cf08faad2bbe14c9dab150d7a63d15a1bef5eead98cb574b0acdd9ff782758` |
+
+**Example future average retrieval:** download the indexed average-only ZIP to a fresh ignored `ARCHIVE.zip`; verify whole SHA256 `0a31114ba0e295e517b48314501a87ddb11c23bc73a05c5a478a1658390bff01`.
+
+```sh
+unzip -p ARCHIVE.zip ARCHIVE-MANIFEST.json > NEW_IGNORED_DIR/ARCHIVE-MANIFEST.json
+shasum -a 256 NEW_IGNORED_DIR/ARCHIVE-MANIFEST.json
+unzip -p ARCHIVE.zip research/policies/k50-2026100601-10b.average.jsonl.gz > NEW_IGNORED_DIR/k50-2026100601-10b.average.jsonl.gz
+shasum -a 256 NEW_IGNORED_DIR/k50-2026100601-10b.average.jsonl.gz
+```
+
+Verify manifest SHA256 `374f09c3d311f9ea842c79b443dd9912fe6ffbfd0a690790cabfd9f180719bf7`, and the named member’s bytes/SHA256 from the table before use. Restore pinned #163 tables through the indexed dependency receipt; never overwrite an active input. Post-merge cleanup trusts current confirmed uploads and existing manifests/provenance without downloading archives or repeating member audits; exact own path/size/mtime and dependencies remain mandatory. No synced deletion/offload.
 
 ## M4 uploaded archive cache release for open K50 PR238 — October 12, 2026
 

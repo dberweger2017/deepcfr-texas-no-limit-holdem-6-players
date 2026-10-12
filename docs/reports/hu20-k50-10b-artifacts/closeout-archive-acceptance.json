@@ -1,0 +1,56 @@
+{
+  "cloud": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/file/d/1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9/view?usp=drivesdk",
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9",
+    "mime_type": "application/zip",
+    "modified_time": null,
+    "parent_ids": [
+      "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "133054",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu20-k50-10b-closeout-repaired-M4-20261012.zip",
+    "url": "https://drive.google.com/file/d/1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9/view?usp=drivesdk"
+  },
+  "local_integrity": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 133054,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 123667,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "34d5a7e3ae24696885a3c339b7182d3e70861f035f60d7dcdc276ed7f7d7edec",
+    "members": 20,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-closeout-repaired-M4-20261012.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 0.0017412080051144585,
+    "sha256": "f110f29e34b1d8434957491d3defb46781805ce51ad7d97b44585f8171636efb",
+    "status": "locally-verified"
+  },
+  "native": {
+    "at": 1791825679.647635,
+    "flags": {
+      "documentSize": 133054,
+      "hasUnresolvedConflicts": 0,
+      "isExcludedFromSync": 0,
+      "isSyncPaused": 0,
+      "isTrashed": 0,
+      "isUploaded": 1,
+      "isUploading": 0
+    },
+    "ids": {
+      "archive_id": "1WiNxxxlKklwmA_xp6PPjxfI4baioJ-x9",
+      "folder_id": "1vrNcioy93qEB54uVrdsk7lMEqIibnLTw"
+    },
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-242-hu20-k50-10b/hu20-k50-10b-closeout-repaired-M4-20261012.zip",
+    "upload_error_reported": false
+  },
+  "remote_archive_bytes_downloaded": false,
+  "status": "corrected-closeout-archive-accepted"
+}

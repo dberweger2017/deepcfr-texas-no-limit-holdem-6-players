@@ -1,0 +1,354 @@
+{
+  "models": [
+    {
+      "actual_nodes": 10000000355,
+      "archive": {
+        "bytes": 383604666,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-10000000000-milestone.zip",
+        "sha256": "a35a628159cc8d9810802a6f264e35c210c40e4f5fe6ce4a26594b94ad3f1433"
+      },
+      "archive_id": "1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI",
+      "coverage": {
+        "classified_fraction": 0.0012573026147660487,
+        "scope": "v1 keys queried on this descriptive match K50 10B candidate observations; v1 does not act/play. Different from historical #185 playing-policy coverage.",
+        "streets": {
+          "flop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1377,
+              "mean": 83410.04357298475,
+              "quantiles": {
+                "max": 2908130,
+                "median": 19690.0,
+                "min": 18,
+                "p10": 1698.9999999999998,
+                "p25": 5743.0,
+                "p75": 64740.0,
+                "p90": 194542.40000000002,
+                "p99": 1066240.56
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "preflop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1300,
+              "mean": 37057.81230769231,
+              "quantiles": {
+                "max": 178022,
+                "median": 18156.5,
+                "min": 24,
+                "p10": 2786.6,
+                "p25": 8310.5,
+                "p75": 53500.75,
+                "p90": 83660.50000000001,
+                "p99": 177316.04
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "river": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3091,
+              "mean": 39261.881915237784,
+              "quantiles": {
+                "max": 854443,
+                "median": 13458.0,
+                "min": 6,
+                "p10": 1216.0,
+                "p25": 4129.5,
+                "p75": 42314.0,
+                "p90": 101116.0,
+                "p99": 367447.1999999995
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "turn": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3319,
+              "mean": 38479.97348598976,
+              "quantiles": {
+                "max": 1042275,
+                "median": 11916.0,
+                "min": 8,
+                "p10": 806.4000000000001,
+                "p25": 3139.0,
+                "p75": 38044.5,
+                "p90": 95070.60000000002,
+                "p99": 439171.0600000008
+              },
+              "zero_fraction": 0.0
+            }
+          }
+        },
+        "unclassified_table_keys": 7218290,
+        "unique_queried_keys": 9087,
+        "unique_stored_queried_keys": 9087
+      },
+      "density": {
+        "count": 7227377,
+        "mean": 268.75743924801486,
+        "quantiles": {
+          "max": 2908130,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 33.0,
+          "p90": 198.0,
+          "p99": 4127.0
+        },
+        "zero_fraction": 0.15565010653242525
+      },
+      "iteration": 19538759,
+      "manifest_sha256": "b33d49ee2c63683bacd4b23d1e76a13e33e20a4f4c219105b054d0c8f942fa46",
+      "member": "O-2026100601-10000000000.json.gz",
+      "model": {
+        "bytes": 383593179,
+        "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100601-10000000000.json.gz",
+        "sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49"
+      },
+      "retrieval": "Verify this whole milestone ZIP and manifest; extract its named checkpoint to a fresh ignored path; verify bytes/SHA256 before use. See RESULTS_INDEX PR182/185 for Drive locators.",
+      "seed": 2026100601,
+      "status": "verified"
+    },
+    {
+      "actual_nodes": 10000000421,
+      "archive": {
+        "bytes": 387641010,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-10000000000-milestone.zip",
+        "sha256": "122c4970149f1def9dc965d65ef4a8bacaba49101dfe9dddd60b663238348b06"
+      },
+      "archive_id": "1_gyi_b9YdCkm5FOSj3kig2EBIkylLkSI",
+      "coverage": {
+        "classified_fraction": 0.001235762755422866,
+        "scope": "v1 keys queried on this descriptive match K50 10B candidate observations; v1 does not act/play. Different from historical #185 playing-policy coverage.",
+        "streets": {
+          "flop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1380,
+              "mean": 84011.01304347826,
+              "quantiles": {
+                "max": 2942369,
+                "median": 20934.5,
+                "min": 22,
+                "p10": 1734.6000000000001,
+                "p25": 6201.25,
+                "p75": 64954.75,
+                "p90": 200680.70000000022,
+                "p99": 1047488.7100000008
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "preflop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1300,
+              "mean": 36970.53153846154,
+              "quantiles": {
+                "max": 177827,
+                "median": 18106.5,
+                "min": 42,
+                "p10": 2817.5,
+                "p25": 8072.75,
+                "p75": 53587.25,
+                "p90": 84946.3,
+                "p99": 177334.11
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "river": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3088,
+              "mean": 39119.26878238342,
+              "quantiles": {
+                "max": 837550,
+                "median": 13572.5,
+                "min": 1,
+                "p10": 1211.7,
+                "p25": 4079.0,
+                "p75": 42484.25,
+                "p90": 102117.70000000001,
+                "p99": 365950.83
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "turn": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3272,
+              "mean": 39982.05684596577,
+              "quantiles": {
+                "max": 1022890,
+                "median": 12813.5,
+                "min": 8,
+                "p10": 1058.9,
+                "p25": 3878.5,
+                "p75": 40043.25,
+                "p90": 97432.30000000002,
+                "p99": 439104.2999999999
+              },
+              "zero_fraction": 0.0
+            }
+          }
+        },
+        "unclassified_table_keys": 7306280,
+        "unique_queried_keys": 9040,
+        "unique_stored_queried_keys": 9040
+      },
+      "density": {
+        "count": 7315320,
+        "mean": 265.51921200986425,
+        "quantiles": {
+          "max": 2942369,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 33.0,
+          "p90": 196.0,
+          "p99": 4039.0
+        },
+        "zero_fraction": 0.15610062170896147
+      },
+      "iteration": 19544624,
+      "manifest_sha256": "7c7acbbb550aaaa3687e44979cc2b54c5a3963c29083210fdc5c85f79910af9c",
+      "member": "O-2026100602-10000000000.json.gz",
+      "model": {
+        "bytes": 387635205,
+        "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100602-10000000000.json.gz",
+        "sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f"
+      },
+      "retrieval": "Verify this whole milestone ZIP and manifest; extract its named checkpoint to a fresh ignored path; verify bytes/SHA256 before use. See RESULTS_INDEX PR182/185 for Drive locators.",
+      "seed": 2026100602,
+      "status": "verified"
+    },
+    {
+      "actual_nodes": 10000000625,
+      "archive": {
+        "bytes": 387875447,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-10000000000-milestone.zip",
+        "sha256": "e259d84cb5aaad7e2aec33d797fa2e5c6275c04ef7757ff21c19f5d5f34245da"
+      },
+      "archive_id": "1J-YuySbo-b8Zazo9NPzX8AlvxyKd7mb9",
+      "coverage": {
+        "classified_fraction": 0.0012583946532379563,
+        "scope": "v1 keys queried on this descriptive match K50 10B candidate observations; v1 does not act/play. Different from historical #185 playing-policy coverage.",
+        "streets": {
+          "flop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1409,
+              "mean": 82696.44357700497,
+              "quantiles": {
+                "max": 2960138,
+                "median": 19893.0,
+                "min": 31,
+                "p10": 1536.4,
+                "p25": 5532.0,
+                "p75": 64646.0,
+                "p90": 196674.20000000007,
+                "p99": 1034244.4800000014
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "preflop": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 1317,
+              "mean": 37154.36066818527,
+              "quantiles": {
+                "max": 178910,
+                "median": 17510.0,
+                "min": 101,
+                "p10": 3094.2,
+                "p25": 8686.0,
+                "p75": 51113.0,
+                "p90": 85285.8,
+                "p99": 178299.68
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "river": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3126,
+              "mean": 37651.96161228407,
+              "quantiles": {
+                "max": 861895,
+                "median": 13003.5,
+                "min": 3,
+                "p10": 1272.5,
+                "p25": 4233.5,
+                "p75": 38564.5,
+                "p90": 95120.5,
+                "p99": 374605.25
+              },
+              "zero_fraction": 0.0
+            }
+          },
+          "turn": {
+            "missing_queried_keys": 0,
+            "stored_queried_keys": {
+              "count": 3351,
+              "mean": 38818.76514473292,
+              "quantiles": {
+                "max": 1031907,
+                "median": 12212.0,
+                "min": 6,
+                "p10": 955.0,
+                "p25": 3418.5,
+                "p75": 37934.5,
+                "p90": 94137.0,
+                "p99": 439605.5
+              },
+              "zero_fraction": 0.0
+            }
+          }
+        },
+        "unclassified_table_keys": 7304083,
+        "unique_queried_keys": 9203,
+        "unique_stored_queried_keys": 9203
+      },
+      "density": {
+        "count": 7313286,
+        "mean": 265.5369137758321,
+        "quantiles": {
+          "max": 2960138,
+          "median": 5.0,
+          "min": 0,
+          "p10": 0.0,
+          "p25": 1.0,
+          "p75": 33.0,
+          "p90": 196.0,
+          "p99": 4063.0
+        },
+        "zero_fraction": 0.15515255385882626
+      },
+      "iteration": 19658747,
+      "manifest_sha256": "a2f8352bb8657ddaddc6434d0d41847cb32877a85ec16f3817b221c4ec56cc70",
+      "member": "O-2026100603-10000000000.json.gz",
+      "model": {
+        "bytes": 387869638,
+        "path": "results/hu20-k50-10b/inputs/v1-10b/O-2026100603-10000000000.json.gz",
+        "sha256": "71e3683936e69a3b4a4b7c286b2a8526e1eedd02f68aba1b34ae04a45c5e1392"
+      },
+      "retrieval": "Verify this whole milestone ZIP and manifest; extract its named checkpoint to a fresh ignored path; verify bytes/SHA256 before use. See RESULTS_INDEX PR182/185 for Drive locators.",
+      "seed": 2026100603,
+      "status": "verified"
+    }
+  ],
+  "no_additional_play": true,
+  "status": "verified"
+}
