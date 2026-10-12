@@ -64,7 +64,10 @@ jobs:
       - name: Build and check native training parity
         run: |
           cargo test --locked --manifest-path native/hu20-trainer/Cargo.toml --lib
-          cargo build --locked --release --manifest-path native/hu20-trainer/Cargo.toml
+          python -m scripts.build_native_trainer
+          if strings native/hu20-trainer/target/release/hu20-trainer | grep -F -e "$GITHUB_WORKSPACE" -e /tmp/hu20-trainer-build; then
+            echo "The native binary embeds a build path"; exit 1
+          fi
       - name: Run engine, arena and solver tests
         run: python -m pytest -p scripts.ci_shard --ci-shard ${{ matrix.shard }} --ci-shards 2 -q --durations=25 --durations-min=1
       - name: Check the public observation interface end to end
