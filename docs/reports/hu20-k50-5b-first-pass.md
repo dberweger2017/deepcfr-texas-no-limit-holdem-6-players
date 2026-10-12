@@ -1,7 +1,7 @@
 # HU20 K50 5B first pass
 
-**Gates verified; sequential K50 training is underway.** All three v1 5B
-controls are hash-verified and fully audited. No direct pilot or final play has
+**All six terminal 5B models are fully audited; the cost-only pilot is running.**
+All three K50 seeds trained sequentially and exported uniformly. No final play has
 started; there is no strength result or adoption/release decision. [Owner-authorized protocol](../hu20-k50-5b-first-pass.md).
 
 ## M4 release and preparation
@@ -99,3 +99,24 @@ before final play, and independently replays both contrasts before readout.
 Eight source tests pass for cost projection, paired seed/seat weighting,
 independent arithmetic and corrupt replay evidence. Pilot and final play remain
 pending until all three terminal K50 exports pass their full audits.
+
+## Terminal training and density
+
+| Policy / seed | Actual nodes | Iterations | Keys | Mean visits/key | Zero-visit fraction |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| v1 / 2026100601 | 5,000,000,043 | 9,971,555 | 6,315,718 | 153.89 | 17.5539% |
+| v1 / 2026100602 | 5,000,000,208 | 9,809,166 | 6,414,988 | 151.50 | 17.4333% |
+| v1 / 2026100603 | 5,000,000,544 | 10,008,052 | 6,374,215 | 152.30 | 17.5901% |
+| k50 / 2026100601 | 5,000,000,783 | 10,536,954 | 8,303,507 | 117.12 | 16.2143% |
+| k50 / 2026100602 | 5,000,000,182 | 10,472,679 | 8,290,014 | 117.43 | 16.1377% |
+| k50 / 2026100603 | 5,000,000,137 | 10,444,021 | 8,308,763 | 117.04 | 16.4316% |
+
+K50 has 1.29–1.31 times the matched v1 keys at equal actual node budgets,
+with fewer visits per key. This measured ratio is slightly below the anticipated
+1.4; the training work was not adjusted. Whole-table density is exact.
+
+The three-seed sequential train/export/audit guard completed in **9,112.42 s
+(2h32m)** with peak family RSS **2,238,562,304 bytes /2.09 GiB**. No failure or
+cleanup error. [Full model hashes, audits and density](hu20-k50-5b-first-pass-artifacts/terminal-audits.json).
+The cost-only pilot uses the reserved root and will disclose costs and SD only;
+final play still requires its time/precision gate and a canonical plan on PR238.
