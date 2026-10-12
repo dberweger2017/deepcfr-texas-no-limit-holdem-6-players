@@ -9,6 +9,7 @@ from the public actions and both hands and must equal the reported winnings.
 from dataclasses import asdict, dataclass
 import re
 
+from src.arena.external.http import AmbiguousRequest
 from src.arena.external.interface import GameContract, JsonTransport
 from src.blueprint.action_translation import Betting
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, Decision, HandStarted, replay
@@ -207,10 +208,21 @@ class SlumbotConnection:
                 self.token = new_token
             if self.token is None:
                 raise ValueError('Slumbot did not establish a token')
-        except Exception:
+        except Exception as error:
             self.failed = True
+            self.ambiguous = isinstance(error, AmbiguousRequest)
             raise
         return response
+
+    def abandon_hand(self):
+        """After an ambiguous request only: give up the open hand and allow a new one.
+
+        The unanswered request is never resent. Slumbot's session totals still count whatever
+        the abandoned hand cost, so callers can account for it.
+        """
+        if not (self.failed and getattr(self, 'ambiguous', False)) or self.token is None:
+            raise ValueError('Only a hand interrupted by an ambiguous request can be abandoned')
+        self.failed = self.ambiguous = False
 
     def login(self, username: str, password: str):
         """Starts an account session. Credentials go to the transport only, never to evidence."""

@@ -6,7 +6,9 @@
 
 The default player is check/call. A trained HU200 average plays with its stored policy and
 uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
-and verified settlement, plus `summary.json`. Any failure stops the run; nothing is retried.
+and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
+answer abandons only its hand (Slumbot's session total still counts it); more than
+--max-abandoned such hands, or any other failure, stops the run.
 With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
 prompts, the password hidden. Neither is stored or printed.
@@ -22,7 +24,7 @@ import time
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, play_hand, summarize
+from src.arena.external.session import CheckCall, play_hand, session_accounting, summarize
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
 SERVICE = 'https://slumbot.com'
@@ -65,7 +67,9 @@ def main():
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
     parser.add_argument('--min-interval', type=float, default=0.5, help='seconds between requests')
-    parser.add_argument('--timeout', type=float, default=10.0)
+    parser.add_argument('--timeout', type=float, default=30.0)
+    parser.add_argument('--max-abandoned', type=int, default=5,
+                        help='hands given up after an ambiguous request before the run stops')
     parser.add_argument('--login', action='store_true')
     args = parser.parse_args()
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
@@ -85,10 +89,11 @@ def main():
         connection.login(username, password)
         del password
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
+           'max_abandoned': args.max_abandoned,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
     journal = PrefixJournal(args.out / 'journal.jsonl', run)
-    hands, stop, started = [], None, time.monotonic()
+    hands, stop, started, abandoned = [], None, time.monotonic(), 0
     for index in range(args.hands):
         if args.max_seconds is not None and time.monotonic() - started > args.max_seconds:
             stop = 'time limit'
@@ -96,8 +101,12 @@ def main():
         try:
             hands.append(play_hand(connection, player, f'slumbot-{index:06d}', journal))
         except AmbiguousRequest:
-            journal.failure('timeout-ambiguous'); stop = 'ambiguous request'
-            break
+            # Give up this hand without resending anything, and continue with a new one.
+            journal.failure('timeout-ambiguous'); abandoned += 1
+            if abandoned > args.max_abandoned:
+                stop = 'too many ambiguous requests'
+                break
+            connection.abandon_hand()
         except ServiceError:
             journal.failure('service-error'); stop = 'service error'
             break
@@ -108,6 +117,7 @@ def main():
     checked = verify_journal(args.out / 'journal.jsonl')
     latencies = sorted(transport.latencies)
     summary = {**summarize(hands), 'run': run, 'stopped': stop, 'requests': transport.requests,
+               'abandoned_hands': abandoned, 'slumbot_session': session_accounting(hands),
                'seconds': time.monotonic() - started, 'journal': checked,
                'journal_sha256': hashlib.sha256((args.out / 'journal.jsonl').read_bytes()).hexdigest(),
                'latency_seconds': {'median': latencies[len(latencies) // 2], 'p90': latencies[int(len(latencies) * 0.9)],

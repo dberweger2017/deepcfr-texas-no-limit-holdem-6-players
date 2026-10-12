@@ -39,5 +39,5 @@ With `--login`, the username and password come from the environment variables `S
 ## Limits
 
 - **No duplicate pairing:** the service deals fresh cards each hand. The baseline is the variance reduction available.
-- **Any failure stops the run:** an ambiguous timeout, an error status, a protocol mismatch or the request cap. Nothing is retried and no hand is replaced; completed hands and the failure are journaled. A long benchmark may want to start a fresh session after an ambiguous hand instead, recording that hand as abandoned.
+- **A request without a complete answer abandons only its hand.** Nothing is resent; the run starts a new hand. Slumbot's running session total still counts the abandoned hand, so the summary reports Slumbot's net beside our verified net, and their difference is what abandoned hands cost. More than `--max-abandoned` such hands (default 5), an error status, a protocol mismatch or the request cap stops the run. The timeout is 30 s: on Wi-Fi, an account run lost a request after 7 hands with a 10 s timeout.
 - **Service identity:** the service publishes no version, so results are tied to the dates they were played.

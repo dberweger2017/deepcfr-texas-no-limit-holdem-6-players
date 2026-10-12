@@ -183,3 +183,43 @@ def test_env_file_supplies_only_slumbot_credentials_and_is_never_committed(tmp_p
     root = Path(__file__).resolve().parents[1]
     assert subprocess.run(['git', 'check-ignore', '-q', '.env'], cwd=root).returncode == 0
     assert subprocess.run(['git', 'check-ignore', '-q', '.env.example'], cwd=root).returncode == 1
+
+
+def test_an_ambiguous_request_abandons_only_its_hand_and_session_totals_count_it(tmp_path):
+    from src.arena.external.session import session_accounting
+
+    class Script:
+        """Serves responses in order; AMBIGUOUS stands for a request that got no answer."""
+        def __init__(self, outcomes, sent):
+            self.outcomes, self.sent = list(outcomes), list(sent)
+        def post(self, endpoint, body):
+            outcome = self.outcomes.pop(0)
+            if outcome == 'AMBIGUOUS':
+                raise AmbiguousRequest('act gave no complete response')
+            return {k: v for k, v in dict(outcome, token='session-token-7f3a').items() if k != 'sent'}
+        def choose_action(self, view):
+            return decode(self.sent.pop(0))
+
+    a, b, c = (json.loads(json.dumps(h)) for h in (LIVE[1], LIVE[2], LIVE[4]))
+    # Slumbot counted the abandoned hand b as a 100-chip loss before hand c.
+    c[-1]['session_total'] = a[-1]['session_total'] - 100 + c[-1]['winnings']
+    c[-1]['session_num_hands'] = a[-1]['session_num_hands'] + 2
+    script = Script([*a, b[0], 'AMBIGUOUS', *c],
+                    [r['sent'] for r in a[1:]] + [b[1]['sent']] + [r['sent'] for r in c[1:]])
+    connection = SlumbotConnection(script, HU200)
+    journal = PrefixJournal(tmp_path / 'journal.jsonl', {})
+    hands = [play_hand(connection, script, 'h0', journal)]
+    with pytest.raises(AmbiguousRequest):
+        play_hand(connection, script, 'h1', journal)
+    journal.failure('timeout-ambiguous')
+    with pytest.raises(ValueError, match='stopped'):
+        connection.request('new_hand')
+    connection.abandon_hand()
+    hands.append(play_hand(connection, script, 'h2', journal))
+    journal.close()
+    assert not script.outcomes and not script.sent
+    assert verify_journal(tmp_path / 'journal.jsonl')['hands'] == 2
+    accounting = session_accounting(hands)
+    assert accounting['unverified_chips'] == -100 and accounting['slumbot_hands'] == 3
+    with pytest.raises(ValueError, match='abandoned'):
+        connection.abandon_hand()

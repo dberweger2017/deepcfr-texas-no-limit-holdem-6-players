@@ -83,3 +83,21 @@ def ending(terminal) -> str:
     for token in TOKEN.findall(terminal['action'])[:-1]:
         actor = 0 if token == '/' else 1 - actor
     return 'client_fold' if actor == terminal['client_pos'] else 'slumbot_fold'
+
+
+def session_accounting(hands: list[Hand]) -> dict | None:
+    """Slumbot's own running total across the run, which includes abandoned hands.
+
+    Each terminal reports the session total after that hand, so the first one minus its
+    winnings is where the run started. The difference from our verified total is what hands
+    without a verified terminal (abandoned ones) cost, as Slumbot counted them.
+    """
+    terminals = [h.terminal for h in hands]
+    if not terminals or any(type(t.get('session_total')) is not int for t in terminals):
+        return None
+    start = terminals[0]['session_total'] - terminals[0]['winnings']
+    slumbot_net = terminals[-1]['session_total'] - start
+    verified = sum(t['winnings'] for t in terminals)
+    return {'slumbot_net_chips': slumbot_net, 'verified_net_chips': verified,
+            'unverified_chips': slumbot_net - verified,
+            'slumbot_hands': terminals[-1]['session_num_hands'] - terminals[0]['session_num_hands'] + 1}
