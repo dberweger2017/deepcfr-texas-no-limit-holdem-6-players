@@ -1,0 +1,1209 @@
+{
+  "status": "complete",
+  "started": 1791827048.184834,
+  "owner_pr": {
+    "mergeCommit": {
+      "oid": "64e076cf7d431c8f3ab75b4202dc8e89dfc911dd"
+    },
+    "mergedAt": "2026-10-12T17:41:06Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242",
+    "checked_at": 1791827045.379599
+  },
+  "dependency_review": {
+    "checked_at": 1791827048.18483,
+    "active_dependencies": [],
+    "uncertain_owned_metadata": [],
+    "denied_unowned_system_metadata": [
+      333,
+      334,
+      335,
+      337,
+      338,
+      341,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      350,
+      352,
+      354,
+      355,
+      356,
+      358,
+      362,
+      363,
+      364,
+      365,
+      368,
+      369,
+      371,
+      372,
+      373,
+      374,
+      375,
+      376,
+      377,
+      378,
+      379,
+      381,
+      382,
+      383,
+      384,
+      385,
+      386,
+      388,
+      389,
+      391,
+      392,
+      393,
+      394,
+      395,
+      396,
+      398,
+      399,
+      400,
+      401,
+      402,
+      403,
+      404,
+      405,
+      406,
+      407,
+      408,
+      409,
+      411,
+      412,
+      413,
+      414,
+      415,
+      416,
+      417,
+      418,
+      419,
+      420,
+      421,
+      422,
+      423,
+      424,
+      425,
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      435,
+      437,
+      438,
+      441,
+      442,
+      443,
+      444,
+      448,
+      449,
+      452,
+      453,
+      455,
+      480,
+      507,
+      509,
+      510,
+      517,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      531,
+      533,
+      534,
+      535,
+      536,
+      538,
+      539,
+      541,
+      542,
+      543,
+      544,
+      545,
+      546,
+      547,
+      548,
+      549,
+      551,
+      552,
+      553,
+      554,
+      555,
+      557,
+      558,
+      560,
+      561,
+      562,
+      564,
+      565,
+      567,
+      568,
+      569,
+      570,
+      571,
+      572,
+      573,
+      574,
+      575,
+      577,
+      578,
+      580,
+      582,
+      584,
+      585,
+      586,
+      587,
+      588,
+      589,
+      590,
+      591,
+      592,
+      593,
+      594,
+      595,
+      596,
+      597,
+      598,
+      601,
+      602,
+      604,
+      605,
+      606,
+      608,
+      609,
+      610,
+      616,
+      617,
+      627,
+      631,
+      633,
+      635,
+      636,
+      637,
+      638,
+      639,
+      640,
+      641,
+      642,
+      643,
+      644,
+      645,
+      649,
+      650,
+      651,
+      652,
+      653,
+      654,
+      656,
+      657,
+      658,
+      659,
+      662,
+      669,
+      671,
+      672,
+      673,
+      684,
+      720,
+      741,
+      742,
+      749,
+      759,
+      760,
+      762,
+      775,
+      782,
+      785,
+      809,
+      830,
+      882,
+      883,
+      892,
+      898,
+      899,
+      902,
+      905,
+      935,
+      938,
+      940,
+      949,
+      958,
+      979,
+      995,
+      1012,
+      1026,
+      1034,
+      1037,
+      1052,
+      1066,
+      1070,
+      1071,
+      1073,
+      1092,
+      1093,
+      1094,
+      1113,
+      1116,
+      1118,
+      1123,
+      1129,
+      1195,
+      1198,
+      1199,
+      1207,
+      1215,
+      1216,
+      1217,
+      1219,
+      1223,
+      1389,
+      1440,
+      1452,
+      1477,
+      1778,
+      1781,
+      1784,
+      1807,
+      1809,
+      1810,
+      1811,
+      1813,
+      1814,
+      1815,
+      1816,
+      1817,
+      1818,
+      1819,
+      1820,
+      1821,
+      1822,
+      1823,
+      1824,
+      1827,
+      1992,
+      2007,
+      2047,
+      2048,
+      2091,
+      2728,
+      2754,
+      2755,
+      2756,
+      2811,
+      2812,
+      2813,
+      2814,
+      2815,
+      4110,
+      4427,
+      4428,
+      4429,
+      4430,
+      4431,
+      5501,
+      8220,
+      12824,
+      15150,
+      15151,
+      26328,
+      32357,
+      32358,
+      32359,
+      32382,
+      58840,
+      59113,
+      59151,
+      59152,
+      59153,
+      59155,
+      59156,
+      59157,
+      62779,
+      63887,
+      64881,
+      71371
+    ],
+    "verified_unrelated_system_daemon": [
+      {
+        "pid": 702,
+        "name": "ContextStoreAgent",
+        "exe": "/System/Library/PrivateFrameworks/CoreDuetContext.framework/Versions/A/Resources/ContextStoreAgent",
+        "cwd": "/",
+        "create_time": 1791715834.026364,
+        "reason": "Verified Apple system context daemon; initial open_files denial preserved; no research command/cwd or agent dependency"
+      }
+    ],
+    "scope": "Process metadata and own-path handles only; no other work root contents, no unowned RSS reads"
+  },
+  "public_dependency_review": {
+    "checked_at": 1791827045.3805199,
+    "prs": [],
+    "query": "open PR bodies mentioning hu20-k50-10b"
+  },
+  "current_native_archive_acceptance": [
+    {
+      "role": "full",
+      "flags": {
+        "documentSize": 3483316284,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      }
+    },
+    {
+      "role": "averages_only",
+      "flags": {
+        "documentSize": 1000556370,
+        "isUploaded": 1,
+        "isUploading": 0,
+        "hasUnresolvedConflicts": 0,
+        "isTrashed": 0,
+        "isSyncPaused": 0,
+        "isExcludedFromSync": 0
+      }
+    }
+  ],
+  "removed": [
+    {
+      "bytes": 16232398,
+      "sha256": "9ad208ea8f0d10bf1857c166b0b9f66261aa998c1fdb08945875c23ee62936c9",
+      "source_mtime_ns": 1791824173985606141,
+      "source_path": "results/hu20-k50-10b/direct/direct-lineage-1.hands.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/direct/direct-lineage-1.hands.jsonl.gz",
+      "member": "research/direct/direct-lineage-1.hands.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 16271437,
+      "sha256": "54998a0ff5ca4583d53858f71d85514970e6727f240863ee8f1d853ca2f2e3da",
+      "source_mtime_ns": 1791824177389523221,
+      "source_path": "results/hu20-k50-10b/direct/direct-lineage-2.hands.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/direct/direct-lineage-2.hands.jsonl.gz",
+      "member": "research/direct/direct-lineage-2.hands.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 16411497,
+      "sha256": "24f5a8b3fe3054ac7787c4f38885803e7da2962bd37ae25e9637e4e5b15c5263",
+      "source_mtime_ns": 1791824174358887118,
+      "source_path": "results/hu20-k50-10b/direct/direct-lineage-3.hands.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/direct/direct-lineage-3.hands.jsonl.gz",
+      "member": "research/direct/direct-lineage-3.hands.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 148228,
+      "sha256": "718bb1ad99eae59db255b9e366096a5f9f423b82e7cb44fa4694ab8bc83fcc35",
+      "source_mtime_ns": 1791824264956707976,
+      "source_path": "results/hu20-k50-10b/direct/replayed-cells.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/direct/replayed-cells.jsonl.gz",
+      "member": "research/direct/replayed-cells.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 48938509,
+      "sha256": "9abf76241fcf0a865b083cdbe1d365e89f45828153f8d0661d24dc7a3ad25961",
+      "source_mtime_ns": 1791820351455250676,
+      "source_path": "results/hu20-k50-10b/gates/fresh-10000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/gates/fresh-10000000.json.gz",
+      "member": "research/gates/fresh-10000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 69652971,
+      "sha256": "b132f89534e971e67c7e5d0ce260ecdfe8a3199601c964d120f29ec15f1b459a",
+      "source_mtime_ns": 1791820361234580156,
+      "source_path": "results/hu20-k50-10b/gates/fresh-20000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/gates/fresh-20000000.json.gz",
+      "member": "research/gates/fresh-20000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 69652971,
+      "sha256": "b132f89534e971e67c7e5d0ce260ecdfe8a3199601c964d120f29ec15f1b459a",
+      "source_mtime_ns": 1791820375420130777,
+      "source_path": "results/hu20-k50-10b/gates/resumed-20000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/gates/resumed-20000000.json.gz",
+      "member": "research/gates/resumed-20000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 331877769,
+      "sha256": "462a2bfaac9a87f1a9a5eae772e756146de1d2d4661735b2649d24ecd3cba340",
+      "source_mtime_ns": 1791823734439103228,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100601-10b.average.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100601-10b.average.jsonl.gz",
+      "member": "research/policies/k50-2026100601-10b.average.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 236118962,
+      "sha256": "5f12a663655632023d40b94785e9ce5e4c65cad2186a72172f977f448ad6877c",
+      "source_mtime_ns": 1791823734439486600,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100601-10b.current.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100601-10b.current.json.gz",
+      "member": "research/policies/k50-2026100601-10b.current.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 335115559,
+      "sha256": "a6910c43332627ca0702817178f0dad92ec49a520fc3825163bda2268aa789b5",
+      "source_mtime_ns": 1791823735516745791,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100602-10b.average.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100602-10b.average.jsonl.gz",
+      "member": "research/policies/k50-2026100602-10b.average.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 238695972,
+      "sha256": "1422a4772cb6d339db0bf3ac164b88b90c83e83ade6f6ae485df1e25153bae29",
+      "source_mtime_ns": 1791823735517136787,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100602-10b.current.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100602-10b.current.json.gz",
+      "member": "research/policies/k50-2026100602-10b.current.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 333559395,
+      "sha256": "04cf08faad2bbe14c9dab150d7a63d15a1bef5eead98cb574b0acdd9ff782758",
+      "source_mtime_ns": 1791823734868677584,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100603-10b.average.jsonl.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100603-10b.average.jsonl.gz",
+      "member": "research/policies/k50-2026100603-10b.average.jsonl.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 237605937,
+      "sha256": "09c490150edc94742788ca4f98151dff0da3984d1ef173fdaffa0e6d65c53e46",
+      "source_mtime_ns": 1791823734868980873,
+      "source_path": "results/hu20-k50-10b/policies/k50-2026100603-10b.current.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/policies/k50-2026100603-10b.current.json.gz",
+      "member": "research/policies/k50-2026100603-10b.current.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 506904575,
+      "sha256": "f07b0c7a4f827dfbb27d2d82cb4b65c160cb767d7ba029da37d69211af60ba54",
+      "source_mtime_ns": 1791823597312688650,
+      "source_path": "results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/training/K50-2026100601-10000000000.json.gz",
+      "member": "research/training/K50-2026100601-10000000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 511801980,
+      "sha256": "f1338496e1df5c1d8c5404f8c006c80175c8bee2bf8f76c87def086259926006",
+      "source_mtime_ns": 1791823602866611456,
+      "source_path": "results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/training/K50-2026100602-10000000000.json.gz",
+      "member": "research/training/K50-2026100602-10000000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "bytes": 509311840,
+      "sha256": "fc6958b88fcc6aa4b64d0187edd1a1e630e64aed96e0f6837ce11b4ec8391f14",
+      "source_mtime_ns": 1791823595156629034,
+      "source_path": "results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/training/K50-2026100603-10000000000.json.gz",
+      "member": "research/training/K50-2026100603-10000000000.json.gz",
+      "archive_id": "1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe",
+      "archive_url": "https://drive.google.com/file/d/1ujJsK7kwCGtGFDckBZHAzoZ_FJdpTTIe/view?usp=drivesdk",
+      "archive_sha256": "b585f5310405ab4a3772e1cd760827c20e35cbba5f4726a95000f185b9885472"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/policies/k50-2026100601-5b.average.jsonl.gz",
+      "bytes": 290814688,
+      "sha256": "d400f4f0b64876f6c3992dc4d72fda91a0a36939ef0ed188c6334923ea7cbe3e",
+      "source_mtime_ns": 1791820165520124529,
+      "member": "research/policies/k50-2026100601-5b.average.jsonl.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/training/K50-2026100601-5000000000.json.gz",
+      "bytes": 441190007,
+      "sha256": "e96468dada80e752b847da69cb0e36283acc3263d0cfceda35e76f7f47e325ce",
+      "source_mtime_ns": 1791820165720425422,
+      "member": "research/training/K50-2026100601-5000000000.json.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/policies/k50-2026100602-5b.average.jsonl.gz",
+      "bytes": 290368705,
+      "sha256": "af5b0fb1277c803024f6bea531a937317387d8160263f0011ea3747c4a77939b",
+      "source_mtime_ns": 1791820168485833795,
+      "member": "research/policies/k50-2026100602-5b.average.jsonl.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/training/K50-2026100602-5000000000.json.gz",
+      "bytes": 440677004,
+      "sha256": "1c2819e1c83ef83692217af91a342a5cd6b24bf6ab0314620012d4c11c48b0be",
+      "source_mtime_ns": 1791820168679365168,
+      "member": "research/training/K50-2026100602-5000000000.json.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/policies/k50-2026100603-5b.average.jsonl.gz",
+      "bytes": 290499150,
+      "sha256": "9cb12145936d061859faf5311c5336f17d4f8e95bce55a6e0f01f50a157b3258",
+      "source_mtime_ns": 1791820171443306629,
+      "member": "research/policies/k50-2026100603-5b.average.jsonl.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/training/K50-2026100603-5000000000.json.gz",
+      "bytes": 440722890,
+      "sha256": "aad904725790a7d4fdc52a18362e2cf1cd758bb2c00b3a0eba4339f5f4181bfe",
+      "source_mtime_ns": 1791820171651224914,
+      "member": "research/training/K50-2026100603-5000000000.json.gz",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/bin/hu20-trainer",
+      "bytes": 1349488,
+      "sha256": "aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6",
+      "source_mtime_ns": 1791820174386650842,
+      "member": "research/bin/hu20-trainer",
+      "archive_id": "1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-",
+      "archive_url": "https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view?usp=drivesdk",
+      "archive_sha256": "2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/tables/flop-k50.bin",
+      "bytes": 12867944,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "source_mtime_ns": 1791820175194627308,
+      "member": "hu20-equity-buckets-20261005/flop-k50.bin",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/tables/river-k50.bin",
+      "bytes": 1231562564,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "source_mtime_ns": 1791820179793713948,
+      "member": "hu20-equity-buckets-20261005/river-k50.bin",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/tables/turn-k50.bin",
+      "bytes": 139600524,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+      "source_mtime_ns": 1791820180831651002,
+      "member": "hu20-equity-buckets-20261005/turn-k50.bin",
+      "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+      "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view?usp=drivesdk",
+      "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/v1-10b/O-2026100601-10000000000.json.gz",
+      "bytes": 383593179,
+      "sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+      "source_mtime_ns": 1791824601616877047,
+      "member": "O-2026100601-10000000000.json.gz",
+      "archive_id": "1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI",
+      "archive_url": "https://drive.google.com/file/d/1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI/view?usp=drivesdk",
+      "archive_sha256": "a35a628159cc8d9810802a6f264e35c210c40e4f5fe6ce4a26594b94ad3f1433"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/v1-10b/O-2026100602-10000000000.json.gz",
+      "bytes": 387635205,
+      "sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f",
+      "source_mtime_ns": 1791824712686080067,
+      "member": "O-2026100602-10000000000.json.gz",
+      "archive_id": "1_gyi_b9YdCkm5FOSj3kig2EBIkylLkSI",
+      "archive_url": "https://drive.google.com/file/d/1_gyi_b9YdCkm5FOSj3kig2EBIkylLkSI/view?usp=drivesdk",
+      "archive_sha256": "122c4970149f1def9dc965d65ef4a8bacaba49101dfe9dddd60b663238348b06"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/inputs/v1-10b/O-2026100603-10000000000.json.gz",
+      "bytes": 387869638,
+      "sha256": "71e3683936e69a3b4a4b7c286b2a8526e1eedd02f68aba1b34ae04a45c5e1392",
+      "source_mtime_ns": 1791824823043282626,
+      "member": "O-2026100603-10000000000.json.gz",
+      "archive_id": "1J-YuySbo-b8Zazo9NPzX8AlvxyKd7mb9",
+      "archive_url": "https://drive.google.com/file/d/1J-YuySbo-b8Zazo9NPzX8AlvxyKd7mb9/view?usp=drivesdk",
+      "archive_sha256": "e259d84cb5aaad7e2aec33d797fa2e5c6275c04ef7757ff21c19f5d5f34245da"
+    }
+  ],
+  "retained": [
+    {
+      "path": "native/hu20-trainer/target/release/hu20-trainer",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_archive.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_cleanup.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_density.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_guard.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_report.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_restore.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "planning/k50_10b_run.py",
+      "reason": "outside own ignored research root"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100601-10b.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100602-10b.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/audits/k50-2026100603-10b.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/averages-ARCHIVE-MANIFEST.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/averages-archive-receipt.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/canonical-final-plan.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/canonical-plan-posted.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100601.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100601.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100602.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100602.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100603.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/direct-2026100603.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100601.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100601.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100602.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100602.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100603.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-2026100603.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100601.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100601.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100602.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100602.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100603.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/export-audit-worker-2026100603.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-fresh20m.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-fresh20m.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100601.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100601.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100602.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100602.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100603.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-load-2026100603.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-resume10m-to20m.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/gate-resume10m-to20m.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100601.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100601.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100602.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100602.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100603.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/commands/train-2026100603.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct-plan.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-1.result.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-2.result.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/direct-lineage-3.result.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/replay.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/direct/summary.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/exports-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/final-readout.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/fresh.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/gates/resumed.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/budget.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-descriptive-direct-play/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/concurrent-exports-and-audits/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/freeze-descriptive-plan/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/generate-science-report/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/historical-v1-density/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/independent-all-hand-replay/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/restore-inputs/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/resume-gates/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/three-concurrent-10b-lineages/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/intent.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/receipt.json",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/resources.jsonl",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/guards/operations/verified-descriptive-readout/worker.log",
+      "reason": "retain guard/budget/failure history"
+    },
+    {
+      "path": "results/hu20-k50-10b/indexed-input-dependencies.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/PR238-ARCHIVE-MANIFEST.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100601-train.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100602-train.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/stage-intents/k50-2026100603-train.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100601.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100602.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/inputs/pr238-provenance/training/2026100603.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/model-index.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/owning-pr-before-archive.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/play-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/replay-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/resource-summary-before-archive.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/restoration-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/restoration.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/root-reservation.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/setup/build.log",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/setup/coordination-corrections.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/tables-restoration.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/terminal-audits.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/training-complete.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/training-start.json",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100601.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100602.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/training/2026100603.telemetry.jsonl",
+      "reason": "retain compact metadata/source controls"
+    },
+    {
+      "path": "results/hu20-k50-10b/v1-10b-density.json",
+      "reason": "retain compact metadata/source controls"
+    }
+  ],
+  "free_disk_before": 92262567936,
+  "archive_or_member_reaudits_for_cleanup": false,
+  "policy": "Standing owner authorization after merged PR, accepted archives, dependency and exact path/size/mtime checks; no synced deletion/offload",
+  "finished": 1791827048.5116968,
+  "removed_bytes": 8217050986,
+  "free_disk_after": 100550189056,
+  "dependency_hold": false
+}
