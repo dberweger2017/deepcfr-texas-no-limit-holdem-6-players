@@ -78,6 +78,12 @@ hashes, budgets, machine requirements and stopping conditions. A past permission
 or resource quote does not authorize a new run. In particular, do not launch an
 old controller simply because its script is still present.
 
+Build the native trainer with `python -m scripts.build_native_trainer`. A plain `cargo build`
+embeds the checkout's absolute paths, so the same source gives different bytes in each
+worktree. This build gives the same bytes from any checkout, given the same toolchain, linker
+and Cargo home, and prints a receipt naming them. Compare binaries by their receipts: a
+different toolchain or linker explains a different hash.
+
 For native training start with the [native CLI](../native/hu20-trainer/src/main.rs)
 and the command/source pins in the current campaign protocol; for inference extraction see
 `scripts/extract_hu20_cfr_average.py`; for paired average-policy evaluation see
