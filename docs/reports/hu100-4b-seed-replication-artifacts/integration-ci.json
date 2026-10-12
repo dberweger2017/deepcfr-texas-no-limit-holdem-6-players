@@ -1,0 +1,56 @@
+{
+  "at": 1791778079.8235,
+  "headRefOid": "427cb7098382ddba343116b8d7bb43c9642c5cf3",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-12T03:55:28Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/38201666349/job/114656206144",
+      "name": "scope",
+      "startedAt": "2026-10-12T03:55:18Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-12T04:04:16Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/38201666349/job/114656248121",
+      "name": "full (0)",
+      "startedAt": "2026-10-12T03:55:30Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-12T04:02:29Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/38201666349/job/114656248134",
+      "name": "full (1)",
+      "startedAt": "2026-10-12T03:55:30Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-12T04:04:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/38201666349/job/114658086471",
+      "name": "test",
+      "startedAt": "2026-10-12T04:04:18Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-12T03:55:17Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.gitguardian.com",
+      "name": "GitGuardian Security Checks",
+      "startedAt": "2026-10-12T03:55:13Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ]
+}

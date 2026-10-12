@@ -1,0 +1,26 @@
+{
+  "actual_guard_breach": false,
+  "at_utc": "2026-10-11T11:41:22.603706+00:00",
+  "available_output_volumes": [
+    "Macintosh HD"
+  ],
+  "disk": {
+    "free": 51489984512,
+    "total": 494384795648,
+    "used": 442894811136
+  },
+  "final_hands": 0,
+  "floor_bytes": 17179869184,
+  "github_authentication": "gh auth status succeeds for dberweger2017",
+  "initial_receipt": "docs/reports/hu100-4b-seed-replication-artifacts/storage-admission.json",
+  "other_pr_files_modified": false,
+  "pilot_hands": 0,
+  "quote_status": "historical-size planning; timing pilots and final freeze pending",
+  "required_initial_free_bytes": 83287347085,
+  "shortfall_bytes": 31797362573,
+  "soma": "Provide approximately30GiB additional M4 free space or an attached working volume, then remeasure admission.",
+  "source": "4bbc47acf1d0d2f8c764ecc22b78b63e79255b3c",
+  "status": "preventive-disk-inadmission",
+  "synced_files_modified": false,
+  "training_started": false
+}

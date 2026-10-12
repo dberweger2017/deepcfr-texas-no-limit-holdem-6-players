@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 near-4B seed replication ([#236](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236)):** fresh 3.885B/3.967B capacity terminals beat their 2B averages +18.67/+19.42 with positive 97.5% bounds; the original 4B candidate has no severe translated scripted flag, but pot pressure still wins. All final hands replay/reproduce. [Report](docs/reports/hu100-4b-seed-replication.md) preserves the 7 GiB stop and owner-authorized 9 GB continuation. Evidence only; no release or default change.
+
 - **K50 evaluation support ([#235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235)):** explicit pinned loaders, mixed-schema play and LBR pass 280 guarded M1 smoke hands and every-row/key/replay audits. Search/web refuse K50; [full-game proposal](docs/hu20-k50-full-game-proposal.md) awaits owner go. No strength or release change. [Report](docs/reports/k50-evaluation-support.md).
 
 - **Storage for new K50 evaluation /HU100 replication:** owner-requested cleanup releases 70.152 GB on M4; verified M1 86.501 GB /M4 97.866 GB free, above the provisional M4 77.567 GiB requirement. Six candidate/reference models and active inputs remain protected. [Receipt](docs/artifacts/storage-vacuum-20261011.md) records all 49 removals and four native cache releases, including preserved online failure evidence.
@@ -81,7 +83,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 - **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
-*Updated October 11, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+*Updated October 12, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **v0.5.1 published and verified:** [stable Latest](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) since October 11, tag at #233's merge `dca7547e`; draft and public downloads verify byte for byte ([publication record](docs/releases/v0.5.1/PUBLICATION.md)). The owner authorized releasing #223's 2B HU100 average as v0.5.1. `--hu100-release` now loads any verified HU100 release bundle (v0.5.0 and v0.5.1); `hu100_bundle.py` pins both. [Notes](docs/releases/v0.5.1/RELEASE_NOTES.md), [model card](docs/releases/v0.5.1/MODEL_CARD.md).
 

@@ -1,0 +1,12 @@
+{
+  "at": 1791745707.172972,
+  "pilot_scaled_expected_final_play_hours": 4.870081823668877,
+  "posted_before_final_hands": true,
+  "pr": 236,
+  "pr_body_sha256": "b1ac7ac58e2d92fc2eb31f2e19adb2366e185446c3cfe5f22d090994a6a96cef",
+  "quote_sha256": "ef7760791186aad61f6e34d111c31e492a60eeb855fb8e75c92ede276260bc40",
+  "readback_matches": true,
+  "remaining_operation_allowance_hours": 16.643644538120412,
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236"
+}

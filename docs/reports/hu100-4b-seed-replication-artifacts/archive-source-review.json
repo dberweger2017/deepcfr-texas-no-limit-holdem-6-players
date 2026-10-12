@@ -1,0 +1,12 @@
+{
+  "at": 1791776751.457849,
+  "closed_guard_upload_sidecar_required": true,
+  "helper_sha256": "6124814b844636d1a4474488e8d48fc393ee695429aac03f5978278ff4d100ff",
+  "live_guard_outside_inventory": true,
+  "open_findings": [],
+  "original_failure_preserved": true,
+  "reviewer": "/root/source_review",
+  "scope": "Narrow archival-only closure of the existing source review",
+  "source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "status": "clear"
+}

@@ -1,0 +1,23 @@
+{
+  "artifact_guard_checked_at": 1791778457.954287,
+  "at": 1791777187.2394948,
+  "final_artifact_guard_pending": false,
+  "final_head_ci_pending": true,
+  "integration_main": "5554c382a33dab11179e5ca0c5e258e3681f8863",
+  "prior_source_tests": {
+    "focused_python": 19,
+    "native": 14,
+    "promoted_controls": 11
+  },
+  "scientific_source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "staged_artifact_guard_passed": true,
+  "staged_diff_check_passed": true,
+  "tests": {
+    "commands": [
+      ".venv/bin/python -m pytest -q tests/test_hu100_4b_seed_replication_evaluation.py tests/test_hu100_4b_seed_replication.py tests/test_k50_evaluation.py"
+    ],
+    "passed": 21,
+    "skipped": 3,
+    "skipped_reason": "Optional K50 retained model paths; inherited current-main checks, not HU100 science tests"
+  }
+}

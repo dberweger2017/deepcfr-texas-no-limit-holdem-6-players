@@ -1,0 +1,394 @@
+{
+  "at": 1791776554.571059,
+  "guards": "7GiBsoft/9GiBhard initially; owner-amended9e9soft/9GiBhard continuation; total3e9swap normal/free15/disk16GiB/AC",
+  "includes_original_failed_attempt": true,
+  "operations": {
+    "guards/operations/archive-calibration-initial": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 292487168,
+      "max_total_swap_bytes": 1327696445.44,
+      "min_disk_free_bytes": 49965047808,
+      "min_free_percent": 84,
+      "samples": 334
+    },
+    "guards/operations/audit-2026100901-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 190627840,
+      "max_total_swap_bytes": 466154946.56,
+      "min_disk_free_bytes": 90512199680,
+      "min_free_percent": 66,
+      "samples": 4592
+    },
+    "guards/operations/audit-2026100901-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 189825024,
+      "max_total_swap_bytes": 440989122.56,
+      "min_disk_free_bytes": 83638714368,
+      "min_free_percent": 72,
+      "samples": 6145
+    },
+    "guards/operations/audit-2026100901-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 189431808,
+      "max_total_swap_bytes": 433124802.56,
+      "min_disk_free_bytes": 74994036736,
+      "min_free_percent": 72,
+      "samples": 7841
+    },
+    "guards/operations/audit-2026100902-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 249823232,
+      "max_total_swap_bytes": 418706882.56,
+      "min_disk_free_bytes": 73811406848,
+      "min_free_percent": 75,
+      "samples": 4618
+    },
+    "guards/operations/audit-2026100902-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 249479168,
+      "max_total_swap_bytes": 427944837.12,
+      "min_disk_free_bytes": 67060297728,
+      "min_free_percent": 75,
+      "samples": 6050
+    },
+    "guards/operations/audit-2026100902-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 192380928,
+      "max_total_swap_bytes": 427944837.12,
+      "min_disk_free_bytes": 58332454912,
+      "min_free_percent": 81,
+      "samples": 7995
+    },
+    "guards/operations/export-2026100901-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 141197312,
+      "max_total_swap_bytes": 221647994.88,
+      "min_disk_free_bytes": 94619152384,
+      "min_free_percent": 72,
+      "samples": 2227
+    },
+    "guards/operations/export-2026100901-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 140886016,
+      "max_total_swap_bytes": 440989122.56,
+      "min_disk_free_bytes": 89068056576,
+      "min_free_percent": 70,
+      "samples": 3002
+    },
+    "guards/operations/export-2026100901-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 140836864,
+      "max_total_swap_bytes": 424211906.56,
+      "min_disk_free_bytes": 81933742080,
+      "min_free_percent": 76,
+      "samples": 3818
+    },
+    "guards/operations/export-2026100902-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 199770112,
+      "max_total_swap_bytes": 418706882.56,
+      "min_disk_free_bytes": 77908672512,
+      "min_free_percent": 84,
+      "samples": 2247
+    },
+    "guards/operations/export-2026100902-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 199933952,
+      "max_total_swap_bytes": 410318274.56,
+      "min_disk_free_bytes": 72463597568,
+      "min_free_percent": 75,
+      "samples": 2954
+    },
+    "guards/operations/export-2026100902-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 142802944,
+      "max_total_swap_bytes": 427944837.12,
+      "min_disk_free_bytes": 65311059968,
+      "min_free_percent": 81,
+      "samples": 3832
+    },
+    "guards/operations/final-direct-seed-2026100901-terminal-vs-2b": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 7342227456,
+      "max_total_swap_bytes": 1227819581.44,
+      "min_disk_free_bytes": 48519966720,
+      "min_free_percent": 49,
+      "samples": 17638
+    },
+    "guards/operations/final-direct-seed-2026100902-terminal-vs-2b": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 6693371904,
+      "max_total_swap_bytes": 791549050.88,
+      "min_disk_free_bytes": 48007634944,
+      "min_free_percent": 57,
+      "samples": 10126
+    },
+    "guards/operations/final-direct-terminal-seed-2026100601-vs-2026100901": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 7516454912,
+      "max_total_swap_bytes": 791549050.88,
+      "min_disk_free_bytes": 46572871680,
+      "min_free_percent": 61,
+      "samples": 6742
+    },
+    "guards/operations/final-scripted": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3686760448,
+      "max_total_swap_bytes": 791549050.88,
+      "min_disk_free_bytes": 46951944192,
+      "min_free_percent": 74,
+      "samples": 4599
+    },
+    "guards/operations/freeze": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 1376944128,
+      "max_total_swap_bytes": 1311705661.44,
+      "min_disk_free_bytes": 49934561280,
+      "min_free_percent": 89,
+      "samples": 697
+    },
+    "guards/operations/pilot-freshness": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 1414266880,
+      "max_total_swap_bytes": 352447365.12,
+      "min_disk_free_bytes": 65390706688,
+      "min_free_percent": 82,
+      "samples": 576
+    },
+    "guards/operations/pilot-seed-2026100901-terminal-vs-2b-32": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4450369536,
+      "max_total_swap_bytes": 352447365.12,
+      "min_disk_free_bytes": 65378959360,
+      "min_free_percent": 65,
+      "samples": 2651
+    },
+    "guards/operations/pilot-seed-2026100901-terminal-vs-2b-512": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4097458176,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65381466112,
+      "min_free_percent": 67,
+      "samples": 2657
+    },
+    "guards/operations/pilot-seed-2026100902-terminal-vs-2b-32": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4468408320,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65371308032,
+      "min_free_percent": 69,
+      "samples": 2608
+    },
+    "guards/operations/pilot-seed-2026100902-terminal-vs-2b-512": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 5260328960,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65391448064,
+      "min_free_percent": 75,
+      "samples": 2639
+    },
+    "guards/operations/pilot-terminal-seed-2026100601-vs-2026100901-32": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4656283648,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65388883968,
+      "min_free_percent": 62,
+      "samples": 2959
+    },
+    "guards/operations/pilot-terminal-seed-2026100601-vs-2026100901-512": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4517167104,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65381842944,
+      "min_free_percent": 48,
+      "samples": 2982
+    },
+    "guards/operations/pilot-terminal-seed-2026100601-vs-2026100902-32": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3979657216,
+      "max_total_swap_bytes": 327281541.12,
+      "min_disk_free_bytes": 65384820736,
+      "min_free_percent": 64,
+      "samples": 2955
+    },
+    "guards/operations/pilot-terminal-seed-2026100601-vs-2026100902-512": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3729965056,
+      "max_total_swap_bytes": 318892933.12,
+      "min_disk_free_bytes": 65386315776,
+      "min_free_percent": 60,
+      "samples": 3002
+    },
+    "guards/operations/pilot-terminal-seed-2026100901-vs-2026100902-32": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4994449408,
+      "max_total_swap_bytes": 318892933.12,
+      "min_disk_free_bytes": 65375563776,
+      "min_free_percent": 62,
+      "samples": 2952
+    },
+    "guards/operations/pilot-terminal-seed-2026100901-vs-2026100902-512": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 5288460288,
+      "max_total_swap_bytes": 318892933.12,
+      "min_disk_free_bytes": 65367212032,
+      "min_free_percent": 65,
+      "samples": 2963
+    },
+    "guards/operations/prepare-model-specs": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 298418176,
+      "max_total_swap_bytes": 352447365.12,
+      "min_disk_free_bytes": 65401376768,
+      "min_free_percent": 83,
+      "samples": 24
+    },
+    "guards/operations/restore-candidate-inputs": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 346456064,
+      "max_total_swap_bytes": 352447365.12,
+      "min_disk_free_bytes": 65401532416,
+      "min_free_percent": 84,
+      "samples": 22
+    },
+    "guards/operations/scripted-pilot": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3078012928,
+      "max_total_swap_bytes": 318892933.12,
+      "min_disk_free_bytes": 65364631552,
+      "min_free_percent": 71,
+      "samples": 2693
+    },
+    "guards/operations/timing-training": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 244891648,
+      "max_total_swap_bytes": 238425210.88,
+      "min_disk_free_bytes": 97883324416,
+      "min_free_percent": 85,
+      "samples": 8
+    },
+    "guards/operations/train-2026100901-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3820273664,
+      "max_total_swap_bytes": 238425210.88,
+      "min_disk_free_bytes": 93664157696,
+      "min_free_percent": 80,
+      "samples": 3470
+    },
+    "guards/operations/train-2026100901-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4873797632,
+      "max_total_swap_bytes": 449377730.56,
+      "min_disk_free_bytes": 92086075392,
+      "min_free_percent": 68,
+      "samples": 4086
+    },
+    "guards/operations/train-2026100901-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 6819823616,
+      "max_total_swap_bytes": 424211906.56,
+      "min_disk_free_bytes": 85844815872,
+      "min_free_percent": 71,
+      "samples": 6914
+    },
+    "guards/operations/train-2026100902-1000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 3986505728,
+      "max_total_swap_bytes": 418706882.56,
+      "min_disk_free_bytes": 80125820928,
+      "min_free_percent": 84,
+      "samples": 3470
+    },
+    "guards/operations/train-2026100902-2000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 4916428800,
+      "max_total_swap_bytes": 410318274.56,
+      "min_disk_free_bytes": 75421282304,
+      "min_free_percent": 75,
+      "samples": 3976
+    },
+    "guards/operations/train-2026100902-4000000000": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 6881771520,
+      "max_total_swap_bytes": 427944837.12,
+      "min_disk_free_bytes": 69187776512,
+      "min_free_percent": 70,
+      "samples": 7182
+    },
+    "owner-authorized-continuation-v1/guards/operations/final-direct-terminal-seed-2026100601-vs-2026100901": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 8235925504,
+      "max_total_swap_bytes": 707662970.88,
+      "min_disk_free_bytes": 45383516160,
+      "min_free_percent": 56,
+      "samples": 18329
+    },
+    "owner-authorized-continuation-v1/guards/operations/final-direct-terminal-seed-2026100601-vs-2026100902": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 8199913472,
+      "max_total_swap_bytes": 699274362.88,
+      "min_disk_free_bytes": 44292890624,
+      "min_free_percent": 57,
+      "samples": 18421
+    },
+    "owner-authorized-continuation-v1/guards/operations/final-direct-terminal-seed-2026100901-vs-2026100902": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 7438319616,
+      "max_total_swap_bytes": 699274362.88,
+      "min_disk_free_bytes": 43749310464,
+      "min_free_percent": 59,
+      "samples": 10643
+    },
+    "owner-authorized-continuation-v1/guards/operations/final-readout": {
+      "all_ac": true,
+      "all_normal_pressure": true,
+      "max_family_bytes": 626688000,
+      "max_total_swap_bytes": 699274362.88,
+      "min_disk_free_bytes": 43749228544,
+      "min_free_percent": 82,
+      "samples": 295
+    }
+  }
+}

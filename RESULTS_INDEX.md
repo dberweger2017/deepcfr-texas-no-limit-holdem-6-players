@@ -1,3 +1,42 @@
+## PR236 HU100 near-4B seed replication and translated safeguard — October12
+
+[PR236](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/236), branch feature/hu100-4b-seed-replication; isolated M4 run /Users/dberweger/Local/hu100-4b-seed-replication-20261011. **Final verified evidence with disclosed owner-authorized continuation.** Training source8817a4732eebb05256da0eca544ef9b49840bfbd; science/main-archive source9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28; basec3869c9d8884cf7eaab66790b17b3e36398a3ac3. Later current-main integration427cb7098382ddba343116b8d7bb43c9642c5cf3 does not change or rerun the frozen science.
+
+[Protocol](docs/hu100-4b-seed-replication.md), [report](docs/reports/hu100-4b-seed-replication.md), [20-asset model/restoration index](docs/reports/hu100-4b-seed-replication-artifacts/model-index.json). Fixed capacity terminals3,885,473,598 /3,967,101,196 nodes improve over2B by +18.67[15.94,21.40] /+19.42[15.58,23.25] BB/100, two97.5% Bonferroni primary intervals. Not nominal4B or a training-seed population effect. Original seed0601 full4B vs2B scripted panel has no severe95%-upper<-20 flag; pot pressure still wins. All4,358,144 final hands/22,185,262 actions replay/reproduce.
+
+**Accepted main archive:** [hu100-4b-seed-replication-M4-20261011.zip](https://drive.google.com/file/d/1SsCcSHSsXNPKW0q9rq7rqlXv8jzXPGK4/view?usp=drivesdk), ID `1SsCcSHSsXNPKW0q9rq7rqlXv8jzXPGK4`, **19,777,801,324 bytes**, SHA256 `7cce272f16d292c62c62cdb0ac6b27e007fb51ef1460bb8e04fd9934f686ecb5`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256 `3bfe24115e1ee069dc0f146812bbc3ac93d2f72c97dc21ffe05bbf096c45400c`; all878 member sizes/SHA256 read back locally.
+**Accepted administrative archive:** [hu100-4b-seed-replication-M4-20261012-closeout.zip](https://drive.google.com/file/d/1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T/view?usp=drivesdk), ID `1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T`, **208,091 bytes**, SHA256 `582591cc5cfd867112e707bddbccd3e762dc4ce875006f47b16daff09a2bebf7`; embedded manifestSHA `290d8dbafe51c56c2b721ab4753522d889fad35c30692bd616c5ba38ee9e5894`, all17 members read back. Contains closed archive guard/resource/log, upload/source/review calculation and CI provenance, no models.
+
+[Designated Drive folder](https://drive.google.com/drive/folders/1OUNJcDqZLFRXsffKrtjDfliumj_DmdaI), ID1OUNJcDqZLFRXsffKrtjDfliumj_DmdaI under Research-Cloud parent188bEt6i0RHqegCCdvpf3wPzUiRw78N2s. Separate [native](docs/reports/hu100-4b-seed-replication-artifacts/native-upload-status.json)/[cloud](docs/reports/hu100-4b-seed-replication-artifacts/cloud-acceptance.json) and [admin-native](docs/reports/hu100-4b-seed-replication-artifacts/admin-native-upload.json)/[admin-cloud](docs/reports/hu100-4b-seed-replication-artifacts/admin-cloud-acceptance.json) receipts confirm uploaded/no-pending/no-conflicts and independent actual ID/name/bytes/parent metadata. **No remote archive bytes downloaded or verified**; local full content audits and upload acceptance are separate.
+
+**Required models:** six new terminal files are in the main ZIP under research/training/2026100901/4000000000/ and research/training/2026100902/4000000000/ (directory milestone name does not imply4B actual nodes). Exact member/byte/SHA rows:
+
+| Seed | Kind | Bytes | SHA256 |
+| --- | --- | ---: | --- |
+| 2026100901 | average.gz | 2,105,039,090 | `2769138651b8fa4400e93bfa64d8d9f8fa35784282fbf07aa1cb6a0ba62968d3` |
+| 2026100901 | checkpoint.gz | 3,245,525,601 | `2d5647f32d9d9287e02ff8b72893d351776fd30224d62b6c2b13b9030eb04733` |
+| 2026100901 | current.gz | 1,771,845,892 | `47e066bd1cb1f61df61cead417b3ee8ebbf35a2429e0f30f4af210eaa0b09366` |
+| 2026100902 | average.gz | 2,109,645,122 | `80bf1f313188f60d825e53e5d6b09e7900c70f7c25d4530d927dfbc873cc7313` |
+| 2026100902 | checkpoint.gz | 3,252,700,327 | `d88119b73a1f1f0badd52655eea0ffcb6e67f9cc3f796ac02557e7b29e2f2d33` |
+| 2026100902 | current.gz | 1,772,752,185 | `85b7ed3d88fbb1d242bc756b358e2c5619ca231857caa7737ee92a329d25d8ba` |
+
+The other fourteen required assets are not duplicated: fresh lower-gate checkpoints/current/average files match indexed #215/#226 bytes, and original seed0601 4B/2B averages restore through accepted #226/#223 archives. Every row in the20-asset index resolves an exact prior archive/member/hash/byte/retrieval command; see also [#226 index](docs/reports/hu100-4b-seed-ladder-artifacts/model-index.json), [#215 index](docs/reports/hu100-independent-stages-artifacts/model-index.json), [#223/#207 input index](docs/reports/hu100-3b-ladder-artifacts/model-input-index.json). Both original candidate/comparator averages were restored from retained hash-verified M4 originals; historical full audits reused explicitly, no absent old checkpoint/current fresh-audit claim.
+
+**Restoration:** download the observed main archive URL into a fresh ignored ARCHIVE.zip, verify the whole SHA, extract only the required member into a fresh RESTORE_ROOT, then verify its model SHA. For seed0901 terminal average:
+
+```sh
+shasum -a 256 ARCHIVE.zip
+python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100901/4000000000/average.gz RESTORE_ROOT
+shasum -a 256 RESTORE_ROOT/research/training/2026100901/4000000000/average.gz
+```
+
+Expected whole SHA is7cce272f16d292c62c62cdb0ac6b27e007fb51ef1460bb8e04fd9934f686ecb5; expected member SHA2769138651b8fa4400e93bfa64d8d9f8fa35784282fbf07aa1cb6a0ba62968d3. Per-asset commands in the index cover all20inputs. Reconstruct science from Git9516 and continuation sources from research/owner-authorized-continuation-v1/source/; original frozen models/roots/samples and owner authorization are archived. No overwriting active inputs.
+
+**Failures and provenance retained:** initial401 and preventive27.3/48GiB disk refusals; seed0902 pre-native Python-symlink bootstrap import error; original7GiB descriptive stop at7,516,454,912bytes and its interrupted trace; explicit owner9GB soft-ceiling continuation, identical fixed descriptive rerun in a new folder, primaries/scripted reused unchanged; continuation pre-worker qualification receipt-path failure and corrected qualification. [Failures](docs/reports/hu100-4b-seed-replication-artifacts/failures.json), [authorization](docs/reports/hu100-4b-seed-replication-artifacts/owner-continuation-authorization.json), [resources](docs/reports/hu100-4b-seed-replication-artifacts/resources.json). Initial latch/partials remain archived; this is not an uninterrupted original-protocol run.
+
+No release/tag/publication, native-trainer edit, M1 science, paid compute or cleanup. All working originals/open dependencies retained; no synced deletion/eviction. Compact final evidence-review and exact-head CI receipts live with the report.
+
 ## PR235 K50 evaluation support — correctness smoke, October11
 
 [PR235](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/235), branch `feature/k50-evaluation-support`, isolated M1 worktree `/Users/dberweger/Local/k50-evaluation-support`, current-main base `c3869c9d8884cf7eaab66790b17b3e36398a3ac3`.

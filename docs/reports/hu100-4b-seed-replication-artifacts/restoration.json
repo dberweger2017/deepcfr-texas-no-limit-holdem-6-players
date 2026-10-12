@@ -1,0 +1,88 @@
+{
+  "assets": [
+    {
+      "actual_nodes": 2000000460,
+      "actual_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "archive_id": "15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd",
+      "archive_sha256": "e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+      "archive_url": "https://drive.google.com/file/d/15DBpUxBH2MYbyr1bgKLPyAqSvuwtkFGd/view",
+      "audit_status": "verified",
+      "bytes": 1603422956,
+      "command": "ln '/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/2000000000/average.gz' '/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/2000000000/average.gz'; shasum -a 256 '/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/2000000000/average.gz'",
+      "entries": 54626283,
+      "historical_full_audit_reused": true,
+      "historical_full_audit_sha256": "f777281309a2bd5fb2dbef8746bdaff73788ed71fc5e44ace4ca557f8f820a9a",
+      "historical_full_audit_source_path": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/2000000000/audit.json",
+      "historical_streamed_export_reused": true,
+      "kind": "average.gz",
+      "member": "research/training/2000000000/average.gz",
+      "method": "hash-verified hardlink; shared bytes remain read-only",
+      "owning_pr": 223,
+      "reference_index": "docs/reports/hu100-3b-ladder-artifacts/model-input-index.json",
+      "requested_nodes": 2000000000,
+      "restored_path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/2000000000/average.gz",
+      "retrieval": "Download the named archive as ARCHIVE.zip into a fresh ignored directory. Verify the whole SHA256, extract only the named member into RESTORE_ROOT, then verify the model before use. Existing indexed #207 originals are also valid after their recorded size/SHA256 checks.",
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected e7836f6400e39b589723191c4b6f24ceafdea45cfb8e077843294212fe5e48fb",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000/average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000/average.gz # expected e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+      },
+      "seed": 2026100601,
+      "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "source_mtime_ns": 1791636679964101989,
+      "source_path": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/2000000000/average.gz"
+    },
+    {
+      "actual_nodes": 4000000174,
+      "actual_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "archive_id": "1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E",
+      "archive_name": "hu100-4b-seed-ladder-M4-20261010-recovery-20261011.zip",
+      "archive_sha256": "ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+      "archive_upload": "accepted",
+      "archive_url": "https://drive.google.com/file/d/1qfgsSf9CodCtYE6rjH57zI1ovbT0t23E/view?usp=drivesdk",
+      "audit_status": "verified",
+      "bytes": 2121415396,
+      "command": "ln '/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/4000000000/average.gz' '/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/4000000000/average.gz'; shasum -a 256 '/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/4000000000/average.gz'",
+      "entries": 70466972,
+      "historical_full_audit_reused": true,
+      "historical_full_audit_sha256": "01777b8d4c0017967bb936e87b2e07241bb62f48387a2f36acc2f0b59a4ba098",
+      "historical_full_audit_source_path": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/4000000000/audit.json",
+      "historical_streamed_export_reused": true,
+      "kind": "average.gz",
+      "manifest_sha256": "5dad61abfe120225592fb3b29f11bb812febc6ca438635ccb1d333b9ea4dd664",
+      "member": "research/training/2026100601/4000000000/average.gz",
+      "method": "hash-verified hardlink; shared bytes remain read-only",
+      "owning_pr": 226,
+      "requested_nodes": 4000000000,
+      "restored_path": "/Users/dberweger/Local/hu100-4b-seed-replication-20261011/results/hu100-4b-seed-replication/inputs/2026100601/4000000000/average.gz",
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected ea58899645688f3fb391c12b501dc0941754878e96eec165b835e1847b4105b1",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2026100601/4000000000/average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2026100601/4000000000/average.gz # expected 0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+      },
+      "seed": 2026100601,
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_mtime_ns": 1791640176136898978,
+      "source_path": "/Users/dberweger/Local/hu100-4b-seed-ladder-20261010/results/hu100-4b-seed-ladder/training/2026100601/4000000000/average.gz"
+    }
+  ],
+  "live_owning_pr": {
+    "mergedAt": "2026-10-11T10:46:25Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226"
+  },
+  "owning_pr_live_states": {
+    "223": {
+      "mergedAt": "2026-10-10T02:48:17Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/223"
+    },
+    "226": {
+      "mergedAt": "2026-10-11T10:46:25Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226"
+    }
+  },
+  "remote_bytes_downloaded": false,
+  "status": "verified"
+}

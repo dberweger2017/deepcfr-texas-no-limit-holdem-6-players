@@ -1,0 +1,131 @@
+{
+  "at": 1791778606.21623,
+  "exclusions": [
+    "This review does not authorize a release, tag, publication or model/default change",
+    "No new science, model rerun or other-PR cleanup performed",
+    "Review receipt itself excluded from file hash binding to avoid self-reference"
+  ],
+  "final_document_commit_binding": "Pending verbatim committed-byte check; content and archive evidence are clear",
+  "independent_checks": {
+    "actual_terminal_nodes": {
+      "2026100901": 3885473598,
+      "2026100902": 3967101196
+    },
+    "administrative_archive": {
+      "bytes": 208091,
+      "closed_guard_samples_verified": 580,
+      "id": "1_QHe6UZCyYp4P8oDP1uBgMPzpfJOsx0T",
+      "manifest_sha256": "290d8dbafe51c56c2b721ab4753522d889fad35c30692bd616c5ba38ee9e5894",
+      "members": 17,
+      "sha256": "582591cc5cfd867112e707bddbccd3e762dc4ce875006f47b16daff09a2bebf7",
+      "whole_and_every_member_independently_rehashed": true
+    },
+    "coverage_visit_cells": 120,
+    "csv": "Git LF normalization only; research and archived CSV untouched",
+    "direct_results": "All five raw paired-block means and Student-t intervals reproduced; primaries use two-contrast Bonferroni 97.5%, descriptives ordinary95%",
+    "documents": "Final report and short Roadmap entry accurately label near4B capacities, original confidence families, severe-rule limits and owner-authorized retry; RESULTS_INDEX retains all prior text verbatim",
+    "final_actions": 22185262,
+    "final_hands": 4358144,
+    "freshness": {
+      "independently_regenerated_physical_seeds": true,
+      "new": 2120512,
+      "new_seedset_hashes_verified": 17,
+      "prior": 4099776
+    },
+    "historical_inputs": "Both restored average identities and preserved full-audit hashes/all3asset pins bound; full historical audits and streamed exports explicitly reused",
+    "integration_ci": "All5checks successful at427cb709; final document-head CI still required before merge",
+    "main_archive": {
+      "bytes": 19777801324,
+      "id": "1SsCcSHSsXNPKW0q9rq7rqlXv8jzXPGK4",
+      "manifest_sha256": "3bfe24115e1ee069dc0f146812bbc3ac93d2f72c97dc21ffe05bbf096c45400c",
+      "member_content_readback_basis": "Reviewed seal operation complete all-member readback, bound by independently checked whole archive hash",
+      "members": 878,
+      "sha256": "7cce272f16d292c62c62cdb0ac6b27e007fb51ef1460bb8e04fd9934f686ecb5",
+      "whole_hash_and_manifest_inventory_independently_verified": true
+    },
+    "missing_and_stored_zero_visits_separated": true,
+    "model_index": "20restorable assets:6new mainZIP members and14exact prior archive references; full byte/hash/member/archive/retrieval commands consistent; no indexed model payload duplicated",
+    "native_trainer_unchanged": true,
+    "original_failure_and_owner_continuation": "Original7GiBfailure/partial and setup failures retained; owner9GBdecimal amendment, identical-schedule failed descriptive retry and completed-stage reuse explicitly disclosed",
+    "primary_results": {
+      "2026100901": {
+        "bb_per_100": 18.668699264526367,
+        "blocks": 524288,
+        "interval": [
+          15.936885965883087,
+          21.400512563169645
+        ]
+      },
+      "2026100902": {
+        "bb_per_100": 19.416236877441406,
+        "blocks": 262144,
+        "interval": [
+          15.583677364567755,
+          23.248796390315057
+        ]
+      }
+    },
+    "quote": "Original and owner-amended posting/readback receipts precede dependent final hands; frozen pairs/specs/root/count hashes unchanged",
+    "resource_samples": {
+      "max_family_bytes": 8235925504,
+      "max_total_swap_bytes": 1327696445.44,
+      "min_disk_free_bytes": 43749228544,
+      "min_system_free_percent": 48,
+      "normal_pressure_and_ac": true,
+      "original_failed_soft_guard_separately_disclosed": true,
+      "rows": 203934,
+      "science_and_preparation_operations": 43
+    },
+    "scripted": "All ten absolutes and five paired95% differences reproduced at4096blocks/opponent and512states/128events; no difference upper bound below-20",
+    "training": "All six new full-audit receipts/counts/nodes/telemetry consistent;12reference checkpoint/current/average pins exact; growth cap unchanged69977876 with terminal overshoots10/24",
+    "upload_acceptance": "Both current native uploaded/no-pending/no-conflicts/no-pause/no-exclusion/no-trash receipts and independent cloud ID/name/size/designated-parent metadata match local identities",
+    "verification": "Rehashed all accepted direct/reproduction raw file pins and scripted output pins; reconciled complete replay/reproduction counts and sum-zero hands"
+  },
+  "integration_head": "427cb7098382ddba343116b8d7bb43c9642c5cf3",
+  "machine": "M4",
+  "open_findings": [],
+  "provenance": "Independent raw-stat calculation source/log preserved in accepted administrative sidecar; final compact review and byte/commit binding retained in Git",
+  "remote_archive_bytes_downloaded": false,
+  "remote_member_content_verified": false,
+  "review_round": "One end evidence review, with narrow archive/document closure",
+  "reviewed_file_sha256": {
+    "RESULTS_INDEX.md": "4c07f8c4c28ca9c35fc15bbff07330e3da073459b94d43e913855db8021e9550",
+    "ROADMAP.md": "086e39f91eeecbf6091d3ef0ad94cdb9ee9b2ed577290fd970b7fb688ab9847a",
+    "docs/hu100-4b-seed-replication.md": "0d7cd23defe2be82bef53fc0ff80d620c8baa205646fcd4b7851c5e3a6a2e98a",
+    "docs/reports/hu100-4b-seed-replication-artifacts/admin-archive-receipt.json": "40617cfbee3b5087b26d27c5c5e0a2c42b6c63c59e87e23b843b4c80320f4da9",
+    "docs/reports/hu100-4b-seed-replication-artifacts/admin-cloud-acceptance.json": "7e2950a5e85df8abd7898dee6eb2ebf2f3ba313264bc842cb18aee0ed295b215",
+    "docs/reports/hu100-4b-seed-replication-artifacts/admin-native-upload.json": "3d594b348a70dbefac78757e260cde3db7c3a5d3afeb437ad6656f365979b10b",
+    "docs/reports/hu100-4b-seed-replication-artifacts/admission-recheck-20261011.json": "6c60e978fee8d7d6fceca6df7a9cd28cd83363274c87ec55bd24561b419af9fc",
+    "docs/reports/hu100-4b-seed-replication-artifacts/archive-admission.json": "1dde1997c3233c500c27f6b5e7520beb6de40132b868bd2163751da08698d54c",
+    "docs/reports/hu100-4b-seed-replication-artifacts/archive-guard-receipt.json": "950e6c47f72bdde5cb871e17c00e6338854445717e9370756824bdb68c4bc0de",
+    "docs/reports/hu100-4b-seed-replication-artifacts/archive-receipt.json": "b767e0d026cc20630a8e54bd9bc0f16446e704d19bfc93327eb58d83c99b210c",
+    "docs/reports/hu100-4b-seed-replication-artifacts/archive-source-review.json": "7f53650619998ef0dd61508220c4dbd3c683006ec0527e8b144c038d2bf22df6",
+    "docs/reports/hu100-4b-seed-replication-artifacts/cloud-acceptance.json": "94e27614090b835336c2e316bff697a09354d0e28aaeccf3e10af9a56cffffc0",
+    "docs/reports/hu100-4b-seed-replication-artifacts/continuation-quote-posted.json": "0150117212121e95ad12c41b3c8e569e61aa217167248dc86b31f519c9341ce7",
+    "docs/reports/hu100-4b-seed-replication-artifacts/continuation-source-review.json": "3c9aefdbc10c0e135f7539818c7ce3e3843fa04ea316118d8bef902e306906ab",
+    "docs/reports/hu100-4b-seed-replication-artifacts/coverage-visits.csv": "07a03a4dc672016e5f5be7258517cbd2bbc780089f6ada09ca76a76eade70348",
+    "docs/reports/hu100-4b-seed-replication-artifacts/failures.json": "bec2c573c43e196c5c2b4155bb95d9a457c8aaae4bb285ba3f4b0c4410a3c9e8",
+    "docs/reports/hu100-4b-seed-replication-artifacts/final-quote-posted.json": "d65abd181aeb00b3080811052ee9a42bf9a03aad1bc48f4ce99dc83f2e396485",
+    "docs/reports/hu100-4b-seed-replication-artifacts/final-verification.json": "86a8293efc516dedd37ad75f494c5cdae22f78a30c411ca16b1a4b44e931b7d1",
+    "docs/reports/hu100-4b-seed-replication-artifacts/frozen-final.json": "ef7760791186aad61f6e34d111c31e492a60eeb855fb8e75c92ede276260bc40",
+    "docs/reports/hu100-4b-seed-replication-artifacts/integration-ci.json": "03f208cf1ab28416b4a1ae09bb9ee809ecaefd3f1f2775fbbca87e1b227e6255",
+    "docs/reports/hu100-4b-seed-replication-artifacts/model-index.json": "cf54f28bf1ef4e3048f6d7a19e2955d75240aee24858da37dfafb81d6ecbfe75",
+    "docs/reports/hu100-4b-seed-replication-artifacts/native-upload-status.json": "31dea56527ba292349efb7e008474e77a126edc38fa90e2fae9215af7fd4d972",
+    "docs/reports/hu100-4b-seed-replication-artifacts/original-campaign-failure.json": "df840c2bad69372cc8bc86e40154fbf2aecade450d4b323e369ef6953a62f29d",
+    "docs/reports/hu100-4b-seed-replication-artifacts/original-descriptive-failure-receipt.json": "bc0ce884537120cc1fff7693982428bec3b0f26323dc16f34819174bab5a74ac",
+    "docs/reports/hu100-4b-seed-replication-artifacts/owner-continuation-authorization.json": "85f741139c0594e8eaa9a2955934027ea7771e939665cf5af2c4b9c9129b36c6",
+    "docs/reports/hu100-4b-seed-replication-artifacts/resources.json": "861e887d6e5547ec0988abee072b883872c8667aee44efba1bdc9576d9dd6dd4",
+    "docs/reports/hu100-4b-seed-replication-artifacts/restoration.json": "9940c2fcee025c3c1bf65b22cd97cb256fe566f697b8e940102c95534332453a",
+    "docs/reports/hu100-4b-seed-replication-artifacts/seed2-bootstrap-failure.json": "649dbfb2805b85602e37915e7e28eae0a51c8c3264939aaeca4e9bf1b98625a1",
+    "docs/reports/hu100-4b-seed-replication-artifacts/source-review.json": "3605939ea1bed539fd7a98f2c73cd898eee5f75c62e945cbc9e97e798fc1750d",
+    "docs/reports/hu100-4b-seed-replication-artifacts/storage-admission.json": "69ed34357aecca7524959c2951d0c6744ed5947d7e79a7fb02bcd08de5c7427c",
+    "docs/reports/hu100-4b-seed-replication-artifacts/summary.json": "f611d6d7a707b21c24d6ff8b8a5e8b0b51e206373f250a6bd7e053000d15bf26",
+    "docs/reports/hu100-4b-seed-replication-artifacts/training-summary.json": "34967a9e16afb74b6db7e67b413993ab890416d5c1d1c02328df4d19b6acecf4",
+    "docs/reports/hu100-4b-seed-replication-artifacts/validation.json": "14f319fc66f0ab5d127e174b39172985f32946bda2660d29e207daf94b9275f7",
+    "docs/reports/hu100-4b-seed-replication.md": "1c0303ed9fe63fa01bb642dbc17083614f60833410e1a84e2aae86a2607c4633"
+  },
+  "reviewer": "/root/source_review",
+  "scientific_and_main_archive_source": "9516eecfef73ecbaf4e0a9e4c683f27cf1be4c28",
+  "status": "clear",
+  "training_source": "8817a4732eebb05256da0eca544ef9b49840bfbd"
+}
