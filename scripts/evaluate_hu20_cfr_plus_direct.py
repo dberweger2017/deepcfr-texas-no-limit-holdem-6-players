@@ -46,10 +46,12 @@ def run(plan, policies, out, lineage):
         if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss > 6 * 1024**3:
             raise MemoryError('Direct-match RSS guard')
     failure = None
+    load_seconds = None
     try:
         guard()
         candidate = load(spec['candidate'], policies)
         reference = load(spec['reference'], policies)
+        load_seconds = perf_counter() - started
         with gzip.open(out / f'{name}.hands.jsonl.gz', 'xt') as stream:
             for block in range(plan['blocks']):
                 for rotation in (0, 1):
@@ -73,8 +75,10 @@ def run(plan, policies, out, lineage):
                     hands += 1
     except Exception as exc:
         failure = f'{type(exc).__name__}: {exc}'
+    seconds = perf_counter() - started
     result = {'status': 'incomplete' if failure else 'complete', 'failure': failure, 'hands': hands,
-              'seconds': perf_counter() - started, 'peak_rss_bytes': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+              'seconds': seconds, 'load_seconds': load_seconds,
+              'play_seconds': seconds - load_seconds if load_seconds is not None else None, 'peak_rss_bytes': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
               'plan_sha256': digest(plan), 'lineage': lineage}
     (out / f'{name}.result.json').write_text(json.dumps(result, indent=2) + '\n')
     return result
