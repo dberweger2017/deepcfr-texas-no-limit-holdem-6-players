@@ -2,6 +2,7 @@
 import argparse
 import fcntl
 import json
+import hashlib
 import os
 from pathlib import Path
 import signal
@@ -31,10 +32,52 @@ def violation(sample, rss, baseline, now):
     return None
 
 
+def file_sha(path):
+    with path.open('rb') as source:
+        return hashlib.file_digest(source, 'sha256').hexdigest()
+
+
+def approved_archive_repair(out, name, command, approval):
+    """The owner's exception permits one metadata-only startup repair."""
+    if approval is None:
+        raise ValueError('Terminal campaign failure; no retry')
+    record = json.loads(approval.read_text())
+    failed = out / 'campaign-failure.json'
+    original = json.loads(failed.read_text())
+    receipt = json.loads((out / 'operations/archive-closeout-sidecar/receipt.json').read_text())
+    log = (out / 'operations/archive-closeout-sidecar/worker.log').read_text()
+    worker = Path.cwd() / 'planning/seal-archive-closeout.py'
+    expected_command = [str(Path.cwd() / '.venv/bin/python'), str(worker)]
+    if (name != 'archive-closeout-startup-repair'
+            or record.get('owner_statement') != 'Exception permitted'
+            or record.get('authorized_operation') != name
+            or command != expected_command or record.get('command') != command
+            or original.get('operation') != 'archive-closeout-sidecar'
+            or original.get('failure') != "RuntimeError('Worker exit 1')"
+            or receipt.get('status') != 'failed' or receipt.get('returncode') != 1
+            or "ModuleNotFoundError: No module named 'scripts'" not in log
+            or file_sha(failed) != record.get('original_failure_sha256')
+            or file_sha(out / 'budget.json') != record.get('original_budget_sha256')
+            or file_sha(worker) != record.get('corrected_worker_sha256')):
+        raise ValueError('Owner exception does not match the exact archival startup failure')
+    return file_sha(approval)
+
+
+def record_failure(out, folder, name, failure):
+    detail = {'operation': name, 'at': time(), 'failure': failure}
+    if (out / 'campaign-failure.json').exists():
+        # Preserve the original terminal latch byte-for-byte, including during
+        # the one owner-approved archival repair.
+        write(folder / 'failure.json', detail)
+    else:
+        write(out / 'campaign-failure.json', detail)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--name', required=True)
+    p.add_argument('--archive-startup-approval', type=Path)
     p.add_argument('command', nargs=argparse.REMAINDER)
     a = p.parse_args()
     if a.command[:1] == ['--']:
@@ -44,8 +87,11 @@ def main():
     identity = subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string', 'hw.memsize', 'hw.ncpu'], text=True).splitlines()
     machine_identity('m4', identity)
     a.out.mkdir(parents=True, exist_ok=True)
+    approval_sha = None
     if (a.out / 'campaign-failure.json').exists():
-        raise ValueError('Terminal campaign failure; no retry')
+        approval_sha = approved_archive_repair(a.out, a.name, a.command, a.archive_startup_approval)
+    elif a.archive_startup_approval is not None:
+        raise ValueError('Archival exception requires its preserved original failure')
     folder = a.out / 'operations' / a.name
     folder.mkdir(parents=True, exist_ok=False)
     known = {}; child = None; peak = 0; samples = 0; failure = None; cleanup = None
@@ -63,7 +109,8 @@ def main():
                                      'swap_bytes': initial['swap_bytes'], 'initial_host': initial})
             baseline = json.loads(baseline_file.read_text())
             write(folder / 'intent.json', {'command': a.command, 'source': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
-                                         'started': started, 'baseline': baseline, 'identity': identity})
+                                         'started': started, 'baseline': baseline, 'identity': identity,
+                                         'archive_startup_owner_approval_sha256': approval_sha})
             if problem := violation(initial, psutil.Process().memory_info().rss, baseline, time()):
                 raise RuntimeError('Admission refused: ' + problem)
             with (folder / 'worker.log').open('x') as log, (folder / 'resources.jsonl').open('x') as raw:
@@ -96,7 +143,7 @@ def main():
                     sleep(.2)
         except BaseException as exc:
             failure = repr(exc)
-            write(a.out / 'campaign-failure.json', {'operation': a.name, 'at': time(), 'failure': failure})
+            record_failure(a.out, folder, a.name, failure)
             raise
         finally:
             try:
@@ -107,7 +154,7 @@ def main():
                 cleanup = repr(exc)
                 if failure is None:
                     failure = cleanup
-                    write(a.out / 'campaign-failure.json', {'operation': a.name, 'at': time(), 'failure': failure})
+                    record_failure(a.out, folder, a.name, failure)
             for s, handler in previous.items():
                 signal.signal(s, handler)
             write(folder / 'receipt.json', {'name': a.name, 'status': 'failed' if failure else 'complete', 'started': started,
