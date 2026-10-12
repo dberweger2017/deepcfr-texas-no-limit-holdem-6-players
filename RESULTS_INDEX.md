@@ -1,3 +1,24 @@
+## PR242 HU20 K50 5B-to-10B continuation — in progress, October 12
+
+[PR242](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/242), [report](docs/reports/hu20-k50-10b.md), branch `feature/hu20-k50-10b`, task-owned non-synced M4 root `~/Local/hu20-k50-10b-20261012/results/hu20-k50-10b/`. Native base `045c793a4abd2e371d4d77de663fd3dd2f00316b`, exact tree `06f98b959e7b56068918bb0cc7b9c162511c7686`; unchanged source. Three seeds are concurrently continuing from 5B to 10B after verified input/header/load/byte-exact recovery gates. No 10B result, archive upload acceptance, merge, cleanup or release is claimed yet.
+
+The owner explicitly authorized the exact archived executable after the new-root build mismatch caused the required stop. [Restoration receipt](docs/reports/hu20-k50-10b-artifacts/restoration.json) records the accepted #238 [ZIP](https://drive.google.com/file/d/1FdnBZP2pRu-JB0JtHgtTuijNlXhxNmh-/view), **4,697,444,347 bytes**, SHA256 `2b7e5f8bf41ebdd8f8a9f8dcd5ed0d1d174e865ab62c49962bea4089a6241f27`, embedded `ARCHIVE-MANIFEST.json` SHA256 `528f23792f27488882a37f76ff6f2ac453af2dcf69fafead3ae6b41b406b3fc0`. Its executable member `research/bin/hu20-trainer`, **1,349,488 bytes**, SHA256 `aa7d3a5ef197f113c82a3e861abdc3081af9f5262f96f991e093d6d5a7a0add6`, restores to the own ignored `inputs/bin/hu20-trainer` after whole/archive/member verification and chmod. Failed-build evidence remains preserved.
+
+Required 5B checkpoints and averages restore from the same accepted ZIP, using only the six named K50 members in [#238's exact model index](docs/reports/hu20-k50-5b-first-pass-artifacts/model-index.json). All bytes and SHA256s reverify; hashes/schema/iterations/key counts and original telemetry agree. [Table receipt](docs/reports/hu20-k50-10b-artifacts/tables-restoration.json) records the whole-hash-verified #163 archive and every table member; see its existing indexed Drive ID `1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`. No payload is copied from another open PR root or committed to Git.
+
+Manual executable retrieval into a fresh ignored directory, after verifying the whole ZIP hash:
+
+```sh
+unzip -p ARCHIVE.zip ARCHIVE-MANIFEST.json > NEW_IGNORED_DIR/ARCHIVE-MANIFEST.json
+shasum -a 256 NEW_IGNORED_DIR/ARCHIVE-MANIFEST.json
+unzip -p ARCHIVE.zip research/bin/hu20-trainer > NEW_IGNORED_DIR/hu20-trainer
+shasum -a 256 NEW_IGNORED_DIR/hu20-trainer
+# Verify 1,349,488 bytes and the exact manifest/member hashes above before chmod/use.
+chmod 755 NEW_IGNORED_DIR/hu20-trainer
+```
+
+The [20M fresh/resumed byte identity and three native 5B load checks](docs/reports/hu20-k50-10b-artifacts/gates-complete.json) pass; no load-only iterations/saves occurred. [Fixed budget](docs/reports/hu20-k50-10b-artifacts/budget.json) ends 21:17:03 Madrid /19:17:03 UTC. [Root reservation](docs/reports/hu20-k50-10b-artifacts/root-reservation.json) reserves 20261012081101 before outcomes for exactly 8,192 descriptive duplicate blocks per seed, seats rotated. M4 compute-release ETA **19:20 Madrid**, total-finish ETA **19:50 Madrid**, both October 12 estimates posted at training start; await explicit compute release. Final model index, full and three-average-only ZIPs, independent/native acceptance and cleanup receipts will replace this in-progress record.
+
 ## M4 uploaded archive cache release for open K50 PR238 — October 12, 2026
 
 Owner-requested cleanup released **19.778 GB** of native cache from merged #236's uploaded main ZIP. **M4 43.364 GB /40.386 GiB free**, above #238's original 38 GiB entry target; **M1 80.039 GB free**, no cleanup needed. Same Drive ID/name/logical size/parent and dataless local placeholder remain, with 6,787,072 allocated bytes. No research originals were removed; active #238 inputs and all #236 originals remain. No synced deletion, force offload, unpinning, app shutdown or research/schedule change.
