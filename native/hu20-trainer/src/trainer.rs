@@ -19,6 +19,11 @@ use serde_json::json;
 use std::io::Write;
 use std::path::Path;
 
+/// Two workers for the production setting's two traversals: the global pool would wake every
+/// idle worker on each ~0.3 ms iteration.
+static PAIR: std::sync::LazyLock<rayon::ThreadPool> =
+    std::sync::LazyLock::new(|| rayon::ThreadPoolBuilder::new().num_threads(2).build().unwrap());
+
 pub const GAME: &str = "hu20-native-reopening-20bb-52card-no-ante-rake-v1";
 pub const FORMAT: &str = "holdem-hu20-native-reopening-blueprint-v1";
 
@@ -85,10 +90,15 @@ impl Trainer {
             traversal.run(&mut hand);
             (traversal.deltas, traversal.nodes, traversal.decisions_by_street, traversal.traverser_visits_by_street)
         };
-        let results: Vec<(Table, u64, [u64; 4], [u64; 4])> = if tasks.len() > 2 {
-            tasks.par_iter().zip(scratch.into_par_iter()).map(run).collect()
+        // Every task reads the same table and draws from its own streams, and deltas merge in task
+        // order below, so running the production setting's two traversals at once changes nothing.
+        let results: Vec<(Table, u64, [u64; 4], [u64; 4])> = if tasks.len() == 2 {
+            let mut scratch = scratch.into_iter();
+            let (a, b) = (scratch.next().unwrap(), scratch.next().unwrap());
+            let (x, y) = PAIR.install(|| rayon::join(|| run((&tasks[0], a)), || run((&tasks[1], b))));
+            vec![x, y]
         } else {
-            tasks.iter().zip(scratch).map(run).collect()
+            tasks.par_iter().zip(scratch.into_par_iter()).map(run).collect()
         };
         let nodes: u64 = results.iter().map(|r| r.1).sum();
         for (_, _, decisions, visits) in &results {
