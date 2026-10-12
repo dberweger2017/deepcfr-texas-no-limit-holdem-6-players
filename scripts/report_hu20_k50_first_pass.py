@@ -26,8 +26,10 @@ def generate():
         raise ValueError('No report before completed final replay/readout')
     posted=read(BASE/'canonical-plan-posted.json')
     quote=read(BASE/'pilot-quote.json')
+    primary=final['contrasts']['primary']['overall']
     rows=['# HU20 K50 5B first pass','',
-          '**'+final['primary_decision']+'.** Primary and secondary results below use the frozen, '
+          f"**K50 stronger at 5B: {primary['bb_per_100']:+.2f} BB/100 {interval(primary)}.** "
+          +final['primary_decision']+'. Primary and secondary results below use the frozen, '
           'equally weighted three-seed/two-seat duplicate-block schedule. '
           'All 393,216 final hands independently replay before numerical readout. '
           'This answers the equal-node first-pass question; the owner decides next.','',
@@ -82,7 +84,8 @@ def generate():
         rows += ['','### '+name,'',
                  '| Street | Stored reached keys | Mean visits | Min | p10 | p25 | Median | p75 | p90 | p99 | Max |',
                  '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
-        for street,s in c['streets'].items():
+        for street in ('preflop','flop','turn','river'):
+            s=c['streets'][street]
             d=s['stored_reached_keys'];q=d['quantiles'] or {}
             rows += [f"| {street} | {d['count']:,} | {fmt(d['mean'])} | "+' | '.join(fmt(q.get(k)) for k in ('min','p10','p25','median','p75','p90','p99','max'))+' |']
     rows += ['','## Correctness, cost and resource evidence','',
