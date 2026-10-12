@@ -132,8 +132,8 @@ Both archives are locally verified under
 
 | Archive | Bytes | Whole SHA256 |
 |---|---:|---|
-| `HU200-200M-M1-evidence-20261013.zip` | 4,132,696,783 | `f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794` |
-| `HU200-200M-average-only-20261013.zip` | 800,092,256 | `6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2` |
+| [HU200-200M-M1-evidence-20261013.zip](https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk) | 4,132,696,783 | `f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794` |
+| [HU200-200M-average-only-20261013.zip](https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk) | 800,092,256 | `6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2` |
 
 All **73 evidence members** and the average-only ZIP's **single member** passed
 local byte-count/SHA256 readback. Embedded `ARCHIVE-MANIFEST.json` SHA256 is
@@ -144,11 +144,24 @@ audit, smoke journals/fixtures, raw resources, build receipt, source snapshot an
 exact helpers/runtime. Later archive/upload/report receipts live in Git outside
 the frozen science bundle.
 
-The [average-only ZIP](https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk) is accepted: native uploaded/no-pending/no-conflicts and independent cloud
-ID/name/800,092,256-byte size/parent agree. The [folder](https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq) is confirmed under the designated Research-Cloud root.
-**The full evidence ZIP upload remains pending.** Final `RESULTS_INDEX.md` and
-model-index integration will add its actual locator and full upload acceptance
-before PR readiness.
+Both the [full evidence ZIP](https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk)
+and [average-only ZIP](https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk)
+are **accepted uploaded** in the [PR248 folder](https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq),
+under the designated Research-Cloud root. Native uploaded/not-uploading/not-paused,
+stable sizes/mtime, no reported upload error and zero unresolved conflicts agree
+with independent cloud IDs, exact names, byte counts and parent IDs.
+[Native acceptance](hu200-200m-model-artifacts/native-upload-acceptance.json) and
+[cloud metadata](hu200-200m-model-artifacts/cloud-confirmation.json) are separate
+from local archive/member verification. Drive completed its transfer after the
+local science/archive closeout; no additional scientific work ran while waiting.
+
+The [model index](hu200-200m-model-artifacts/model-index.json) records all four
+100M/200M model files, three recovery checkpoints, native runtime and source
+snapshot, with exact archive/member bytes, SHA256, Drive locators and fresh-path
+retrieval commands. The average-only ZIP contains exactly the average export;
+the common embedded manifest and Git model index pin that single member.
+[RESULTS_INDEX](../../RESULTS_INDEX.md#pr248-hu200-200m-pipeline-model--verified-and-uploaded-october-13)
+is the canonical retrieval/retention entry.
 No remote archive bytes have been downloaded or verified.
 
 The local average remains in the ignored directory
