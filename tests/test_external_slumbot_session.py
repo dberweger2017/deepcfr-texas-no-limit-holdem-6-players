@@ -169,7 +169,9 @@ def server():
             body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
             if self.path == '/stall':
                 time.sleep(1.0)
-            code, payload = {'/error': (500, b'{}'), '/text': (200, b'not json')}.get(self.path, (200, json.dumps({'echo': body}).encode()))
+            code, payload = {'/error': (500, b'{}'), '/text': (200, b'not json'),
+                             '/refused': (400, b'{"error_msg": "No hand for token 0123456789abcdef0123"}')
+                             }.get(self.path, (200, json.dumps({'echo': body}).encode()))
             self.send_response(code); self.end_headers(); self.wfile.write(payload)
         def log_message(self, *args): pass
     httpd = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
@@ -185,14 +187,40 @@ def test_http_transport_bounds_requests_and_never_retries(server):
         transport.post('/error', {'token': 'secret'})
     with pytest.raises(ServiceError, match='not JSON'):
         transport.post('/text', {})
+    with pytest.raises(ServiceError) as refused:
+        transport.post('/refused', {'token': 'secret'})
+    assert refused.value.status == 400 and str(refused.value) == '/refused returned HTTP 400: No hand for token ...'
     with pytest.raises(AmbiguousRequest) as error:
         transport.post('/stall', {'token': 'secret'})
     assert 'secret' not in str(error.value)
-    assert transport.requests == 4
+    assert transport.requests == 5
+    transport = HttpTransport(server, timeout=0.3, min_interval=0.05, max_requests=1)
     transport.post('/ok', {})
     with pytest.raises(ServiceError, match='cap'):
         transport.post('/ok', {})
-    assert transport.requests == 5
+    assert transport.requests == 1
+
+
+def test_a_rejected_request_abandons_only_its_hand_but_an_unreadable_answer_does_not():
+    class Refusing:
+        def __init__(self, error): self.error, self.calls = error, 0
+        def post(self, endpoint, body):
+            self.calls += 1
+            if self.calls == 2:
+                raise self.error
+            return dict(LIVE[1][0], token='session-token-7f3a')
+    connection = SlumbotConnection(Refusing(ServiceError('act returned HTTP 400', status=400)), HU200)
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.abandon_hand()
+    assert connection.request('new_hand')['token'] == 'session-token-7f3a'
+    unreadable = SlumbotConnection(Refusing(ServiceError('act returned a body that is not JSON')), HU200)
+    unreadable.request('new_hand')
+    with pytest.raises(ServiceError):
+        unreadable.request('act', 'c')
+    with pytest.raises(ValueError, match='abandoned'):
+        unreadable.abandon_hand()
 
 
 def test_env_file_supplies_only_slumbot_credentials_and_is_never_committed(tmp_path):

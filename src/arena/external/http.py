@@ -2,11 +2,13 @@
 
 One request at a time, a fixed timeout, a minimum interval between requests and a request
 cap. Nothing is retried: a POST that times out may or may not have acted, so it raises
-`AmbiguousRequest` and the caller ends that hand. Errors name the endpoint and status only;
-request and response bodies can carry tokens or credentials and never enter messages.
+`AmbiguousRequest` and the caller ends that hand. Errors name the endpoint and status, plus a
+JSON error body's short `error_msg` with anything token-like removed; request and response
+bodies can carry tokens or credentials and never enter messages otherwise.
 """
 
 import json
+import re
 import socket
 import time
 import urllib.error
@@ -19,6 +21,20 @@ class AmbiguousRequest(Exception):
 
 class ServiceError(Exception):
     """The service answered with an error status or an unreadable body."""
+    def __init__(self, message: str, status: int | None = None):
+        super().__init__(message)
+        self.status = status
+
+
+def service_reason(raw: bytes) -> str | None:
+    """A JSON error body's `error_msg`, shortened, with runs that could be tokens removed."""
+    try:
+        message = json.loads(raw).get('error_msg')
+    except (ValueError, AttributeError):
+        return None
+    if not isinstance(message, str):
+        return None
+    return re.sub(r'[A-Za-z0-9_-]{16,}', '...', message)[:120] or None
 
 
 class HttpTransport:
@@ -41,7 +57,12 @@ class HttpTransport:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
                 raw = response.read()
         except urllib.error.HTTPError as error:
-            raise ServiceError(f'{endpoint} returned HTTP {error.code}') from None
+            try:
+                reason = service_reason(error.read())
+            except OSError:
+                reason = None
+            raise ServiceError(f'{endpoint} returned HTTP {error.code}' + (f': {reason}' if reason else ''),
+                               status=error.code) from None
         except (TimeoutError, socket.timeout, urllib.error.URLError, ConnectionError):
             raise AmbiguousRequest(f'{endpoint} gave no complete response') from None
         finally:

@@ -8,8 +8,9 @@
 The default player is check/call. A trained HU200 average, v1 or K50 cards, plays with its
 stored policy and uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
-answer abandons only its hand (Slumbot's session total still counts it); more than
---max-abandoned such hands, or any other failure, stops the run.
+answer, or one Slumbot refuses with an error status, abandons only its hand (Slumbot's session
+total still counts it); more than --max-abandoned or --max-rejected such hands, or any other
+failure, stops the run.
 Progress goes to stderr: a line per stage, then a bar with BB/100 so far. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
 prompts, the password hidden. Neither is stored or printed.
@@ -87,6 +88,8 @@ def main():
     parser.add_argument('--timeout', type=float, default=30.0)
     parser.add_argument('--max-abandoned', type=int, default=5,
                         help='hands given up after an ambiguous request before the run stops')
+    parser.add_argument('--max-rejected', type=int, default=10,
+                        help='hands given up after Slumbot refused a request before the run stops')
     parser.add_argument('--login', action='store_true')
     args = parser.parse_args()
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
@@ -123,11 +126,11 @@ def main():
         say('Logged in')
     say(f'Playing {args.hands} hands; journal {args.out / "journal.jsonl"}')
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
-           'max_abandoned': args.max_abandoned,
+           'max_abandoned': args.max_abandoned, 'max_rejected': args.max_rejected,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
     journal = PrefixJournal(args.out / 'journal.jsonl', run)
-    hands, stop, started, abandoned = [], None, time.monotonic(), 0
+    hands, stop, started, abandoned, rejections = [], None, time.monotonic(), 0, []
     bar = tqdm(total=args.hands, unit='hand', file=sys.stderr, dynamic_ncols=True)
     for index in range(args.hands):
         if args.max_seconds is not None and time.monotonic() - started > args.max_seconds:
@@ -144,14 +147,22 @@ def main():
                 break
             connection.abandon_hand()
         except ServiceError as error:
-            # The message names only the endpoint and status: safe to keep.
-            journal.failure('service-error'); stop = f'service error: {error}'
-            break
+            # The message names the endpoint, status and Slumbot's reason without tokens: safe to keep.
+            if error.status is None:
+                journal.failure('service-error'); stop = f'service error: {error}'
+                break
+            # Slumbot answered and refused the request: the hand is lost, nothing is in doubt.
+            journal.failure('service-rejected'); rejections.append({'hand': index, 'error': str(error)})
+            bar.write(f'Hand {index} abandoned: Slumbot refused a request, {error} ({len(rejections)} so far)')
+            if len(rejections) > args.max_rejected:
+                stop = 'too many rejected requests'
+                break
+            connection.abandon_hand()
         except ValueError:
             journal.failure('protocol-error'); stop = 'protocol error'
             break
         finally:
-            bar.set_postfix_str(progress(hands, abandoned), refresh=False)
+            bar.set_postfix_str(progress(hands, abandoned + len(rejections)), refresh=False)
             bar.update(1)
     bar.close()
     if stop is not None:
@@ -160,13 +171,14 @@ def main():
     checked = verify_journal(args.out / 'journal.jsonl')
     latencies = sorted(transport.latencies)
     summary = {**summarize(hands), 'run': run, 'stopped': stop, 'requests': transport.requests,
-               'abandoned_hands': abandoned, 'slumbot_session': session_accounting(hands),
+               'abandoned_hands': abandoned, 'rejected_hands': len(rejections), 'rejections': rejections,
+               'slumbot_session': session_accounting(hands),
                'seconds': time.monotonic() - started, 'journal': checked,
                'journal_sha256': hashlib.sha256((args.out / 'journal.jsonl').read_bytes()).hexdigest(),
                'latency_seconds': {'median': latencies[len(latencies) // 2], 'p90': latencies[int(len(latencies) * 0.9)],
                                    'max': latencies[-1]} if latencies else None}
     (args.out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
-    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands')}))
+    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands', 'rejected_hands')}))
     if stop is not None and stop != 'time limit':
         raise SystemExit(1)
 

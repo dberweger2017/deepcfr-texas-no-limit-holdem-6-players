@@ -6,7 +6,8 @@ from pathlib import Path
 
 from src.arena.external.slumbot import verify_record, verify_terminal
 
-FAILURES = ('timeout-ambiguous', 'protocol-error', 'incompatible-game', 'resource-stop', 'service-error')
+FAILURES = ('timeout-ambiguous', 'protocol-error', 'incompatible-game', 'resource-stop', 'service-error',
+            'service-rejected')
 
 
 def canonical(value):
