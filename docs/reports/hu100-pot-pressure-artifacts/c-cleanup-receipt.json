@@ -1,0 +1,132 @@
+{
+  "archive_member_hash_audit_repeated": false,
+  "bytes_removed": 8983554470,
+  "cloud_current": {
+    "files": [
+      {
+        "can_download": true,
+        "can_list_children": false,
+        "created_time": "2026-10-13T00:51:21.203Z",
+        "current_user_can_share": null,
+        "display_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk",
+        "drive_id": null,
+        "file_or_folder": "file",
+        "has_augmented_permissions": null,
+        "id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+        "mime_type": "application/zip",
+        "modified_time": "2026-10-13T00:51:23.750Z",
+        "parent_ids": null,
+        "permissions": null,
+        "shared": false,
+        "size": "2221371477",
+        "source_visibility_status": "not_shared",
+        "title": "hu200-k50-first-averages-M4-20261013.zip",
+        "url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk"
+      },
+      {
+        "can_download": true,
+        "can_list_children": false,
+        "created_time": "2026-10-13T00:50:47.773Z",
+        "current_user_can_share": null,
+        "display_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+        "drive_id": null,
+        "file_or_folder": "file",
+        "has_augmented_permissions": null,
+        "id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+        "mime_type": "application/zip",
+        "modified_time": "2026-10-13T00:51:11.294Z",
+        "parent_ids": null,
+        "permissions": null,
+        "shared": false,
+        "size": "11207049594",
+        "source_visibility_status": "not_shared",
+        "title": "hu200-k50-first-full-M4-20261013.zip",
+        "url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk"
+      }
+    ],
+    "folder_url": "https://drive.google.com/drive/folders/1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+    "parent_confirmation": "direct-folder-listing"
+  },
+  "dependencies": "No live C worktree/selected-file process; terminal average, tables, source, receipts, shared Git, other PR roots and all synced files retained.",
+  "native_current": {
+    "at": 1791855905.829581,
+    "bytes": 11207049594,
+    "cloud_file_id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+    "cloud_folder_id": "1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "name": "hu200-k50-first-full-M4-20261013.zip",
+    "native_accepted": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-full-M4-20261013.zip",
+    "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536871039;\n            contentModificationDate = \"2026-10-13 00:51:11 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-13 00:50:47 +0000\";\n            displayName = \"hu200-k50-first-full-M4-20261013.zip\";\n            documentSize = 11207049594;\n            filename = \"hu200-k50-first-full-M4-20261013.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 1;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 1;\n            isRecursivelyDownloaded = 1;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 84879;\n            lastUsedDate = \"2026-10-13 00:51:27 +0000\";\n            parentItemIdentifier = 84877;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 454d6b74 ... 4a475956 56725051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpfetT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+    "remote_archive_bytes_downloaded": false
+  },
+  "owner": {
+    "mergedAt": "2026-10-13T01:33:03Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/250"
+  },
+  "remote_archive_bytes_downloaded": false,
+  "removed": [
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 270143830,
+      "member": "research/gates/fresh20m.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/gates/fresh20m.gz",
+      "recorded_mtime_ns": 1791848693832690401,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+    },
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 148448690,
+      "member": "research/gates/prefix10m.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/gates/prefix10m.gz",
+      "recorded_mtime_ns": 1791848711975418735,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db"
+    },
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 270143830,
+      "member": "research/gates/resumed20m.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/gates/resumed20m.gz",
+      "recorded_mtime_ns": 1791848743978633331,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+    },
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 2124578171,
+      "member": "research/training/1000000000.current.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.current.gz",
+      "recorded_mtime_ns": 1791850580773705939,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+    },
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 3442723146,
+      "member": "research/training/1000000000.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.gz",
+      "recorded_mtime_ns": 1791849658011038591,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+    },
+    {
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 2727516803,
+      "member": "research/training/500000000.gz",
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/500000000.gz",
+      "recorded_mtime_ns": 1791849221463712343,
+      "restoration": "Download pinned archive, verify indexed whole SHA256, extract this exact member and verify its recorded size/SHA256.",
+      "sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d"
+    }
+  ],
+  "retained": []
+}
