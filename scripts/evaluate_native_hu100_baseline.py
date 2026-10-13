@@ -17,7 +17,7 @@ from src.arena.registry import PolicyRegistry
 from src.arena.report import performance, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, schedule_document, stream_seed
-from src.blueprint.abstraction import HU100_SCHEMA, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, MENU_V2_SCHEMAS, schema_choices, information_key
 from src.blueprint.action_translation import TranslationOptions
 from src.policies.files import file_hash
 
@@ -31,7 +31,9 @@ def action_seed(root, block, rotation, arm, logical_player):
 
 
 def make_plan(settings, opponent, blocks, root):
-    model = Checkpoint(**{k: settings['model'][k] for k in ('name', 'path', 'sha256', 'format')})
+    model = Checkpoint(**{k: settings['model'][k] for k in
+                         ('name', 'path', 'sha256', 'format', 'abstraction', 'card_buckets')
+                         if k in settings['model']})
     return Plan((Scenario(opponent, (10000, 10000)),), candidate=model.name,
                 baseline=REFERENCE, opponents=(opponent,), blocks=blocks,
                 root_seed=root, split='test', max_decisions=1000, models=(model,))
@@ -50,12 +52,19 @@ class Probe:
         row = {**self.context, 'hand_id': view.hand_id, 'seat': view.seat,
                'street': view.street.value, 'action': asdict(action), 'seconds': elapsed}
         if self.context['logical_player'] == 0:
-            if getattr(self.model, 'record_translation', False) and hasattr(self.player, 'last_decision'):
+            own_baseline = (self.context['arm'] == 'baseline'
+                            and getattr(self.model, 'abstraction', None) in MENU_V2_SCHEMAS)
+            if own_baseline:
+                menu = schema_choices(view, HU100_SCHEMA)
+                probabilities, known = (1 / len(menu),) * len(menu), False
+            elif getattr(self.model, 'record_translation', False) and hasattr(self.player, 'last_decision'):
                 menu, probabilities, known, translation = self.player.last_decision
                 row['translation'] = json.loads(canonical(translation))
             else:
                 menu, probabilities, known = self.model.distribution(view)
-            key = information_key(view, menu, schema=HU100_SCHEMA)
+            # Existing v1 traces diagnose candidate coverage even in the uniform arm.
+            key = (information_key(view, menu, schema=HU100_SCHEMA) if own_baseline
+                   else self.model.information_key(view, menu))
             row.update(key=key, lookup='missing-key' if not known else
                        'zero-mass' if key in self.model.zero_mass else 'positive-mass-known-key',
                        menu=[asdict(item) for item in menu],
