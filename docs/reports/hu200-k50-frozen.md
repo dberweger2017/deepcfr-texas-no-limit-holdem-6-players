@@ -3,10 +3,12 @@
 [PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265)
 · [Protocol](../hu200-k50-frozen-protocol.md)
 
-**Campaign running; reproduction gates passed.** Current-main M4 training
+**20B training complete; export audits and archival pending.** Current-main M4 training
 exactly reproduces #250's fresh and resumed 20M checkpoints, its 500M save and
 its 752,593,175-node cap terminal. Frozen continuation started October 13 at
-17:38:41 UTC on the same 85,373,907-key table. The undertraining hypothesis
+17:38:41 UTC on the same 85,373,907-key table and saved its final checkpoint at
+20:46:01 UTC (22:46:01 Madrid), reaching **20,000,002,032 nodes /16,670,844
+iterations** with all keys unchanged. The undertraining hypothesis
 remains open until the owner's separate playing evaluation. Tonight measures
 stored-key visit density, averaging and missing-decision diagnostics.
 
@@ -45,9 +47,10 @@ All **85,373,907** keys were scanned, with strict sorted uniqueness, in 42.06 s.
 
 ## Learning curve
 
-The frozen 2B, 5B and 10B saves pass full byte/count and sorted-key checks.
-The 20B save remains pending. Every frozen save must retain exactly the
-stage-1 sorted key list and 85,373,907 entries.
+The frozen 2B, 5B, 10B and 20B saves pass full byte/count and sorted-key checks.
+Every frozen save retains exactly the stage-1 sorted key list and 85,373,907
+entries. The native run returned zero with no stop request; this is a reached
+20B result. [Terminal receipt](hu200-k50-frozen-artifacts/frozen-complete.json).
 [Learning-curve receipts](hu200-k50-frozen-artifacts/learning-curve.json).
 
 | Save | Actual nodes | Iterations | Entries | Mean traverser visits/key | Zero-visit share | RSS after save GiB | Write s |
@@ -57,6 +60,7 @@ stage-1 sorted key list and 85,373,907 entries.
 | Frozen 2B | 2,000,001,632 | 1,401,734 | 85,373,907 | 4.1448 | 34.90% | 2.440 | 284.55 |
 | Frozen 5B | 5,000,000,031 | 3,748,464 | 85,373,907 | 9.7324 | 26.41% | 2.730 | 299.92 |
 | Frozen 10B | 10,000,002,915 | 7,924,855 | 85,373,907 | 18.9536 | 21.00% | 2.107 | 314.41 |
+| Frozen 20B | 20,000,002,032 | 16,670,844 | 85,373,907 | 37.3753 | 16.57% | 1.704 | 328.63 |
 
 At 2B, cumulative discarded traverser visits are **38,421,899** and discarded
 merged updates **87,931,122**; the freeze began at iteration 493,496. The 2B
@@ -73,14 +77,24 @@ updates **630,701,771**; this interval adds **150,533,596 visits /326,114,882
 updates**. The checkpoint is **4,674,655,846 bytes**, SHA256
 `da85e75ecd12c316d0de86d670220e2e228de349185bb4ce129ffb579fab6551`.
 
+At 20B, cumulative discarded traverser visits reach **566,739,555** and merged
+updates **1,223,130,425**; this interval adds **281,877,030 visits /592,428,654
+updates**. The checkpoint is **4,960,844,586 bytes**, SHA256
+`c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f`.
+
 Interval missing-decision shares rise in every street/role in the first frozen
 segment compared with the final growing-table segment. At 5B, all street/role
 shares remain above that pre-cap baseline. Across the first two frozen
 intervals, all traverser shares rise; opponent preflop/flop/turn
 shares rise while river falls slightly from 14.679% to 14.442%. From 5B to 10B,
 every street/role share falls. Traverser shares remain above the pre-cap
-baseline; opponent river falls below it (12.416% versus 13.050%). These are
-different policy/time intervals; the final save will extend this comparison.
+baseline; opponent river falls below it (12.416% versus 13.050%). Every
+street/role share falls again in the 10B-to-20B interval. Final traverser
+preflop and river shares are below the pre-cap baseline; traverser flop/turn
+and opponent preflop/flop/turn remain above it. Opponent river remains below
+baseline. The shares thus rise immediately after freezing, then decline as
+the policy evolves; they do not rise monotonically. These are different
+policy/time intervals, not paired playing evaluations.
 Pre-freeze misses are recorded before new keys receive their
 complete-iteration updates.
 
@@ -94,13 +108,16 @@ complete-iteration updates.
 | 2B to 5B frozen | Opponent | 0.643% | 1.394% | 5.167% | 14.442% |
 | 5B to 10B frozen | Traverser | 1.021% | 2.759% | 9.724% | 20.265% |
 | 5B to 10B frozen | Opponent | 0.484% | 1.096% | 4.400% | 12.416% |
+| 10B to 20B frozen | Traverser | 0.669% | 2.501% | 9.383% | 19.180% |
+| 10B to 20B frozen | Opponent | 0.222% | 0.811% | 3.751% | 10.916% |
 
 The first frozen segment runs at **2,023,708 nodes/s** excluding the write,
 from native elapsed 616.3975 s. The first 2B write began 10m16.4s after loading;
 the native CLI emits counters only at saves, so no exact 10-minute node count
 was available. The retained first-window observation and first completed
-segment establish the early rate, which appears compatible with 20B inside
-the admitted training budget. The fixed recipe and milestones remain unchanged.
+segment establish the early rate. Native continuation completed in
+**11,153.1061 s including its four writes**, inside the admitted training
+budget. The fixed recipe and milestones remained unchanged.
 [Early throughput](hu200-k50-frozen-artifacts/early-throughput.json),
 [first-window timing](hu200-k50-frozen-artifacts/first-ten-minute-throughput.json).
 
