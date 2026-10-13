@@ -1,0 +1,46 @@
+{
+  "status": "accepted",
+  "recorded_at_utc": "2026-10-13T08:50:20.128Z",
+  "method": "independent Google Drive files.get metadata, no content download",
+  "file": {
+    "id": "1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8",
+    "title": "hu100-k50-vs-v052-M4-20261013.zip",
+    "mime_type": "application/zip",
+    "size": "2115058522",
+    "url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder": {
+    "id": "1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-",
+    "title": "PR-254-hu100-k50-vs-v052",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-",
+    "display_url": "https://drive.google.com/drive/folders/1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "remote_archive_bytes_downloaded": false
+}

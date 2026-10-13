@@ -1,0 +1,566 @@
+{
+  "absolute_direct": {
+    "k50": {
+      "big_blind": 7.6213836669921875,
+      "button": 38.99192810058594,
+      "overall": 23.306655883789062
+    },
+    "v052": {
+      "big_blind": -38.99192810058594,
+      "button": -7.6213836669921875,
+      "overall": -23.306655883789062
+    }
+  },
+  "all_raw_hashes_match_receipts": true,
+  "all_statistics_match_summary": true,
+  "arm_counts": {
+    "k50_off": {
+      "decisions": 332411,
+      "hands": 81920
+    },
+    "v052_off": {
+      "decisions": 329516,
+      "hands": 81920
+    },
+    "v052_on": {
+      "decisions": 329938,
+      "hands": 81920
+    }
+  },
+  "canonical_plan_sha256": "78e71e60720132edebff831abe3d78938411d06c9742ca755eb431549f35ff2a",
+  "coverage": {
+    "k50/flop": {
+      "decisions": 387424,
+      "lookup": {
+        "positive-mass-known-key": 387424
+      },
+      "visit_bands": {
+        "0": 1,
+        "1-9": 98,
+        "10-99": 2775,
+        "100+": 384550
+      }
+    },
+    "k50/preflop": {
+      "decisions": 551396,
+      "lookup": {
+        "positive-mass-known-key": 551396
+      },
+      "visit_bands": {
+        "0": 2,
+        "1-9": 50,
+        "10-99": 1572,
+        "100+": 549772
+      }
+    },
+    "k50/river": {
+      "decisions": 182651,
+      "lookup": {
+        "missing-key": 17,
+        "positive-mass-known-key": 182603,
+        "zero-mass": 31
+      },
+      "visit_bands": {
+        "0": 185,
+        "1-9": 2277,
+        "10-99": 15860,
+        "100+": 164329
+      }
+    },
+    "k50/turn": {
+      "decisions": 275871,
+      "lookup": {
+        "positive-mass-known-key": 275864,
+        "zero-mass": 7
+      },
+      "visit_bands": {
+        "0": 23,
+        "1-9": 687,
+        "10-99": 8824,
+        "100+": 266337
+      }
+    },
+    "v052/flop": {
+      "decisions": 385215,
+      "lookup": {
+        "missing-key": 3,
+        "positive-mass-known-key": 385211,
+        "zero-mass": 1
+      },
+      "visit_bands": {
+        "0": 16,
+        "1-9": 238,
+        "10-99": 2271,
+        "100+": 382690
+      }
+    },
+    "v052/preflop": {
+      "decisions": 569569,
+      "lookup": {
+        "positive-mass-known-key": 569569
+      },
+      "visit_bands": {
+        "1-9": 12,
+        "10-99": 1067,
+        "100+": 568490
+      }
+    },
+    "v052/river": {
+      "decisions": 184438,
+      "lookup": {
+        "missing-key": 4,
+        "positive-mass-known-key": 184427,
+        "zero-mass": 7
+      },
+      "visit_bands": {
+        "0": 106,
+        "1-9": 1137,
+        "10-99": 6677,
+        "100+": 176518
+      }
+    },
+    "v052/turn": {
+      "decisions": 273960,
+      "lookup": {
+        "missing-key": 11,
+        "positive-mass-known-key": 273944,
+        "zero-mass": 5
+      },
+      "visit_bands": {
+        "0": 114,
+        "1-9": 1180,
+        "10-99": 7695,
+        "100+": 264971
+      }
+    }
+  },
+  "decisions": {
+    "direct": 2810524,
+    "scripted": 991865
+  },
+  "full_original_reproduction_rows_equal": true,
+  "guards": {
+    "final": {
+      "max_contiguous_breach_seconds": {
+        "critical": 0.0,
+        "free": 0.0,
+        "rss": 0.0,
+        "swap": 0.0
+      },
+      "max_swap_growth_gb": -0.025165824,
+      "min_disk_gib": 82.7699089050293,
+      "min_free_percent": 53,
+      "peak_family_gib": 8.396621704101562,
+      "pressure_levels": [
+        1
+      ],
+      "samples": 3488,
+      "seconds": 3617.586490869522
+    },
+    "pilot": {
+      "max_contiguous_breach_seconds": {
+        "critical": 0.0,
+        "free": 0.0,
+        "rss": 0.0,
+        "swap": 0.0
+      },
+      "max_swap_growth_gb": -0.008388608,
+      "min_disk_gib": 84.82830429077148,
+      "min_free_percent": 63,
+      "peak_family_gib": 3.827972412109375,
+      "pressure_levels": [
+        1
+      ],
+      "samples": 1440,
+      "seconds": 1493.2099599838257
+    },
+    "prepare": {
+      "max_contiguous_breach_seconds": {
+        "critical": 0.0,
+        "free": 0.0,
+        "rss": 0.0,
+        "swap": 0.0
+      },
+      "max_swap_growth_gb": 0.0,
+      "min_disk_gib": 86.83747863769531,
+      "min_free_percent": 86,
+      "peak_family_gib": 1.8838958740234375,
+      "pressure_levels": [
+        1
+      ],
+      "samples": 1223,
+      "seconds": 1320.7540888786316
+    },
+    "readout": {
+      "max_contiguous_breach_seconds": {
+        "critical": 0.0,
+        "free": 0.0,
+        "rss": 0.0,
+        "swap": 0.0
+      },
+      "max_swap_growth_gb": -0.033554432,
+      "min_disk_gib": 82.76877212524414,
+      "min_free_percent": 83,
+      "peak_family_gib": 0.359649658203125,
+      "pressure_levels": [
+        1
+      ],
+      "samples": 15,
+      "seconds": 14.650583267211914
+    }
+  },
+  "hands": {
+    "direct": 524288,
+    "scripted_harness": 245760,
+    "total": 770048
+  },
+  "primary": {
+    "bb_per_100": 23.306655883789062,
+    "blocks": 262144,
+    "ci95": [
+      20.117309722156005,
+      26.49600204542212
+    ],
+    "sd": 833.1467863769732
+  },
+  "raw_files_hashed": 238,
+  "report_sha256_at_read": "3fbc1bc5abf8ef95f31e4e325c7f4da3666cfde72963cc57f7e2b2cd1866d774",
+  "review_did_not_execute_scientific_hands": true,
+  "review_finished_at": 1791881018.0320451,
+  "scripted_absolute": {
+    "k50_off": {
+      "check_call": {
+        "bb_per_100": 173.4619140625,
+        "blocks": 4096,
+        "ci95": [
+          147.0815712028097,
+          199.8422569221903
+        ],
+        "sd": 861.1601709688789
+      },
+      "loose_aggressive": {
+        "bb_per_100": 75.54931640625,
+        "blocks": 4096,
+        "ci95": [
+          42.88486759193013,
+          108.21376522056987
+        ],
+        "sd": 1066.2985873669616
+      },
+      "pot_pressure": {
+        "bb_per_100": -103.729248046875,
+        "blocks": 4096,
+        "ci95": [
+          -141.2532501717284,
+          -66.20524592202159
+        ],
+        "sd": 1224.9338932835497
+      },
+      "random": {
+        "bb_per_100": 67.401123046875,
+        "blocks": 4096,
+        "ci95": [
+          -8.965069037369062,
+          143.76731513111906
+        ],
+        "sd": 2492.8987231624583
+      },
+      "tight_aggressive": {
+        "bb_per_100": 64.27001953125,
+        "blocks": 4096,
+        "ci95": [
+          48.9727477886234,
+          79.56729127387659
+        ],
+        "sd": 499.36428875482653
+      }
+    },
+    "v052_off": {
+      "check_call": {
+        "bb_per_100": 125.89111328125,
+        "blocks": 4096,
+        "ci95": [
+          104.37081307726092,
+          147.41141348523908
+        ],
+        "sd": 702.5088908638387
+      },
+      "loose_aggressive": {
+        "bb_per_100": 59.173583984375,
+        "blocks": 4096,
+        "ci95": [
+          25.27524445505258,
+          93.07192351369741
+        ],
+        "sd": 1106.5777279657045
+      },
+      "pot_pressure": {
+        "bb_per_100": -94.476318359375,
+        "blocks": 4096,
+        "ci95": [
+          -132.65114984689984,
+          -56.301486871850166
+        ],
+        "sd": 1246.1795733799252
+      },
+      "random": {
+        "bb_per_100": 89.642333984375,
+        "blocks": 4096,
+        "ci95": [
+          15.134916151390343,
+          164.14975181735966
+        ],
+        "sd": 2432.220878279214
+      },
+      "tight_aggressive": {
+        "bb_per_100": 51.568603515625,
+        "blocks": 4096,
+        "ci95": [
+          33.856773844042635,
+          69.28043318720736
+        ],
+        "sd": 578.1851414622057
+      }
+    },
+    "v052_on": {
+      "check_call": {
+        "bb_per_100": 125.89111328125,
+        "blocks": 4096,
+        "ci95": [
+          104.37081307726092,
+          147.41141348523908
+        ],
+        "sd": 702.5088908638387
+      },
+      "loose_aggressive": {
+        "bb_per_100": 59.173583984375,
+        "blocks": 4096,
+        "ci95": [
+          25.27524445505258,
+          93.07192351369741
+        ],
+        "sd": 1106.5777279657045
+      },
+      "pot_pressure": {
+        "bb_per_100": -18.731689453125,
+        "blocks": 4096,
+        "ci95": [
+          -49.67514106574019,
+          12.211762159490192
+        ],
+        "sd": 1010.1183378402744
+      },
+      "random": {
+        "bb_per_100": 89.642333984375,
+        "blocks": 4096,
+        "ci95": [
+          15.134916151390343,
+          164.14975181735966
+        ],
+        "sd": 2432.220878279214
+      },
+      "tight_aggressive": {
+        "bb_per_100": 51.568603515625,
+        "blocks": 4096,
+        "ci95": [
+          33.856773844042635,
+          69.28043318720736
+        ],
+        "sd": 578.1851414622057
+      }
+    }
+  },
+  "scripted_paired_differences": {
+    "check_call": {
+      "v052_off": {
+        "bb_per_100": 47.57080078125,
+        "blocks": 4096,
+        "ci95": [
+          22.712984075339257,
+          72.42861748716075
+        ],
+        "sd": 811.4588122766517
+      },
+      "v052_on": {
+        "bb_per_100": 47.57080078125,
+        "blocks": 4096,
+        "ci95": [
+          22.712984075339257,
+          72.42861748716075
+        ],
+        "sd": 811.4588122766517
+      }
+    },
+    "loose_aggressive": {
+      "v052_off": {
+        "bb_per_100": 16.375732421875,
+        "blocks": 4096,
+        "ci95": [
+          -18.939269088154127,
+          51.69073393190413
+        ],
+        "sd": 1152.8232555541513
+      },
+      "v052_on": {
+        "bb_per_100": 16.375732421875,
+        "blocks": 4096,
+        "ci95": [
+          -18.939269088154127,
+          51.69073393190413
+        ],
+        "sd": 1152.8232555541513
+      }
+    },
+    "pot_pressure": {
+      "v052_off": {
+        "bb_per_100": -9.2529296875,
+        "blocks": 4096,
+        "ci95": [
+          -41.01270271084722,
+          22.506843335847222
+        ],
+        "sd": 1036.7663419761768
+      },
+      "v052_on": {
+        "bb_per_100": -84.99755859375,
+        "blocks": 4096,
+        "ci95": [
+          -121.87808628759547,
+          -48.11703089990453
+        ],
+        "sd": 1203.928307648511
+      }
+    },
+    "random": {
+      "v052_off": {
+        "bb_per_100": -22.2412109375,
+        "blocks": 4096,
+        "ci95": [
+          -56.248878360141035,
+          11.766456485141035
+        ],
+        "sd": 1110.1466287871485
+      },
+      "v052_on": {
+        "bb_per_100": -22.2412109375,
+        "blocks": 4096,
+        "ci95": [
+          -56.248878360141035,
+          11.766456485141035
+        ],
+        "sd": 1110.1466287871485
+      }
+    },
+    "tight_aggressive": {
+      "v052_off": {
+        "bb_per_100": 12.701416015625,
+        "blocks": 4096,
+        "ci95": [
+          -4.351700219493601,
+          29.7545322507436
+        ],
+        "sd": 556.68209358365
+      },
+      "v052_on": {
+        "bb_per_100": 12.701416015625,
+        "blocks": 4096,
+        "ci95": [
+          -4.351700219493601,
+          29.7545322507436
+        ],
+        "sd": 556.68209358365
+      }
+    }
+  },
+  "seats": {
+    "big_blind": {
+      "bb_per_100": 7.6213836669921875,
+      "blocks": 262144,
+      "ci95": [
+        2.1417318157937757,
+        13.1010355181906
+      ],
+      "sd": 1431.438952977424
+    },
+    "button": {
+      "bb_per_100": 38.99192810058594,
+      "blocks": 262144,
+      "ci95": [
+        33.285847745599305,
+        44.69800845557257
+      ],
+      "sd": 1490.5884371396285
+    }
+  },
+  "severe_regressions": {
+    "check_call": {
+      "v052_off": false,
+      "v052_on": false
+    },
+    "loose_aggressive": {
+      "v052_off": false,
+      "v052_on": false
+    },
+    "pot_pressure": {
+      "v052_off": false,
+      "v052_on": true
+    },
+    "random": {
+      "v052_off": false,
+      "v052_on": false
+    },
+    "tight_aggressive": {
+      "v052_off": false,
+      "v052_on": false
+    }
+  },
+  "source": "23af700ba79b62693cef1f5cf09d8693a1ec064e",
+  "status": "clear-numerical-evidence",
+  "translation_on_minus_off": {
+    "check_call": {
+      "bb_per_100": 0.0,
+      "blocks": 4096,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "sd": 0.0
+    },
+    "loose_aggressive": {
+      "bb_per_100": 0.0,
+      "blocks": 4096,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "sd": 0.0
+    },
+    "pot_pressure": {
+      "bb_per_100": 75.74462890625,
+      "blocks": 4096,
+      "ci95": [
+        43.627641685711794,
+        107.8616161267882
+      ],
+      "sd": 1048.4272457317359
+    },
+    "random": {
+      "bb_per_100": 0.0,
+      "blocks": 4096,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "sd": 0.0
+    },
+    "tight_aggressive": {
+      "bb_per_100": 0.0,
+      "blocks": 4096,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "sd": 0.0
+    }
+  }
+}

@@ -31,7 +31,9 @@ def action_seed(root, block, rotation, arm, logical_player):
 
 
 def make_plan(settings, opponent, blocks, root):
-    model = Checkpoint(**{k: settings['model'][k] for k in ('name', 'path', 'sha256', 'format')})
+    model = Checkpoint(**{k: settings['model'][k] for k in
+                         ('name', 'path', 'sha256', 'format', 'abstraction', 'card_buckets')
+                         if k in settings['model']})
     return Plan((Scenario(opponent, (10000, 10000)),), candidate=model.name,
                 baseline=REFERENCE, opponents=(opponent,), blocks=blocks,
                 root_seed=root, split='test', max_decisions=1000, models=(model,))
@@ -55,7 +57,7 @@ class Probe:
                 row['translation'] = json.loads(canonical(translation))
             else:
                 menu, probabilities, known = self.model.distribution(view)
-            key = information_key(view, menu, schema=HU100_SCHEMA)
+            key = self.model.information_key(view, menu)
             row.update(key=key, lookup='missing-key' if not known else
                        'zero-mass' if key in self.model.zero_mass else 'positive-mass-known-key',
                        menu=[asdict(item) for item in menu],

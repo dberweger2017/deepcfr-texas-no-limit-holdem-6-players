@@ -1,0 +1,8 @@
+{
+  "all_report_statistical_and_coverage_and_guard_rows_match_independent_recomputation": true,
+  "all_three_scripted_arms_share_identical_block_schedules": true,
+  "prior_report_opening_finding_resolved": true,
+  "report_sha256": "3fbc1bc5abf8ef95f31e4e325c7f4da3666cfde72963cc57f7e2b2cd1866d774",
+  "severe_safeguard_failure_prominent_in_opening": true,
+  "status": "clear"
+}
