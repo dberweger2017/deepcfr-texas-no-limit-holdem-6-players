@@ -263,16 +263,44 @@ def readout():
         'all_final_hands_replayed_and_reproduced':True,'canonical_plan_sha256':file_hash(BASE/'canonical-plan.json')})
 
 
+def archive(pr):
+    from scripts.archive_hu100_4b_seed_ladder import seal
+    owner = json.loads(subprocess.check_output(['gh','pr','view',str(pr),'--repo',REPO,
+        '--json','state,headRefName,headRefOid,url'],text=True))
+    if owner['headRefName']!=subprocess.check_output(['git','branch','--show-current'],text=True).strip():
+        raise ValueError('Only the authorized owning campaign may be archived')
+    if not (BASE/'summary.json').exists() and not (BASE/'failure.json').exists():
+        raise ValueError('Complete or explicitly failed evidence required')
+    files = []
+    for path in sorted(BASE.rglob('*')):
+        if not path.is_file() or path.is_symlink():
+            continue
+        rel = path.relative_to(BASE)
+        if rel.parts[0] in ('tables','models','release-v0.5.2') or rel.parts[:2]==('guards','archive') or path.name.startswith('archive-receipt'):
+            continue
+        files.append((path,'research/'+rel.as_posix()))
+    for name in subprocess.check_output(['git','diff','--name-only','a9b213bcc86747925f3179628575ee702baca27b','HEAD'],text=True).splitlines():
+        path = ROOT/name
+        if path.is_file() and path.stat().st_size<=1024**2:
+            files.append((path,'source/'+name))
+    metadata = {'pr':pr,'owner':owner,'source':revision(),'inputs':read(BASE/'inputs.json'),
+        'canonical_plan':read(BASE/'canonical-plan.json') if (BASE/'canonical-plan.json').exists() else None,
+        'originals_retained':True,'remote_archive_bytes_downloaded':False,
+        'excluded':'indexed models, release bundle and PR163 tables; live archive guard retained separately'}
+    cloud = Path.home()/f'Local/Research-Cloud/PR-{pr}-hu100-k50-vs-v052'
+    put(BASE/'archive-receipt.json',seal(files,cloud/'hu100-k50-vs-v052-M4-20261013.zip',metadata))
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('stage',choices=('prepare','pilot','freeze','final','readout','guard'))
-    p.add_argument('--pr',type=int); p.add_argument('--worker',choices=('prepare','pilot','final','readout'))
+    p.add_argument('stage',choices=('prepare','pilot','freeze','final','readout','archive','guard'))
+    p.add_argument('--pr',type=int); p.add_argument('--worker',choices=('prepare','pilot','final','readout','archive'))
     args = p.parse_args(); BASE.mkdir(parents=True,exist_ok=True)
     if args.stage=='guard':
         command = [sys.executable,'-m','scripts.run_hu100_k50_v052',args.worker]
         if args.pr is not None: command += ['--pr',str(args.pr)]
         guard(BASE,args.worker,command)
-    elif args.stage in ('prepare','freeze'):
+    elif args.stage in ('prepare','freeze','archive'):
         globals()[args.stage](args.pr)
     elif args.stage in ('pilot','final'):
         play(args.stage=='pilot')
