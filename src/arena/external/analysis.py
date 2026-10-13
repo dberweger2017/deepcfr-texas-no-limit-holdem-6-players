@@ -90,8 +90,10 @@ def response(selected: str, view) -> str:
     return 'all-in' if int(selected[1:]) == view.legal_actions.max_raise_to else 'raise'
 
 
-def analyze(journal, *, model=None, workers: int = 4) -> dict:
+def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None) -> dict:
     """One journal, or several runs of the same player pooled, each verified on its own."""
+    if model is not None and missing_key_fallback is not None and missing_key_fallback != model.missing_key_fallback:
+        raise ValueError('Model fallback differs from analysis option')
     journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
     checked, parts, identities = [], [], []
     decisions, terminals, failures = [], [], Counter()
@@ -102,7 +104,9 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
             payload = json.loads(line)['payload']
             if 'identity' in payload:
                 identity = payload['identity']; identities.append(identity)
-                if model is not None and identity.get('missing_key_fallback', 'uniform') != model.missing_key_fallback:
+                expected = missing_key_fallback if missing_key_fallback is not None else (model.missing_key_fallback if model is not None else None)
+                played = identity.get('missing_key_fallback', 'uniform')
+                if played not in ('uniform', 'check-call') or (expected is not None and played != expected):
                     raise ValueError('Journal fallback differs from analysis option')
             elif 'decision' in payload:
                 decisions.append(payload['decision'])
@@ -165,6 +169,7 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
     show = lambda rows: [{'winnings': w, 'all_in_adjusted': a, 'action': t['action'], 'client_pos': t['client_pos'],
                           'hole': t['hole_cards'], 'slumbot': t['bot_hole_cards'], 'board': t['board']} for w, a, t in rows]
     result = {
+        'missing_key_fallback': identities[0].get('missing_key_fallback', 'uniform'),
         'run_identities': identities, 'journal': checked[0] if len(checked) == 1 else checked, 'hands': len(terminals), 'decisions': len(decisions), 'failures': dict(failures),
         'bb_per_100': interval(raw), 'all_in_adjusted_bb_per_100': interval(adjusted),
         'all_in_hands': {STREETS[s]: sum(1 for t in terminals if allin_street(t['action']) == s) for s in range(4)},

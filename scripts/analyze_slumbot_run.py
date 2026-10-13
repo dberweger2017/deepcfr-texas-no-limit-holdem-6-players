@@ -32,7 +32,8 @@ def main():
         parser.error('Pooling several runs needs --out')
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
                           missing_key_fallback=args.missing_key_fallback) if args.model else None
-    result = analyze([run / 'journal.jsonl' for run in args.runs], model=model, workers=args.workers)
+    result = analyze([run / 'journal.jsonl' for run in args.runs], model=model, workers=args.workers,
+                     missing_key_fallback=args.missing_key_fallback)
     with (args.out or args.runs[0] / 'analysis.json').open('x') as stream:
         stream.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
     print(json.dumps({k: result[k] for k in ('hands', 'bb_per_100', 'all_in_adjusted_bb_per_100', 'all_in_hands')}, ensure_ascii=False))

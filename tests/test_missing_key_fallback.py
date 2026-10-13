@@ -159,3 +159,12 @@ def test_hu200_default_main_trace_sha256(tmp_path, monkeypatch):
                 'decisions.jsonl.gz': '8a74f8bb5fa2bf4ce61665b8d47d41ab5370883a0bb1a44f084dbefd869dd584'}
     assert {name: hashlib.sha256(gzip.decompress((tmp_path/'play'/name).read_bytes())).hexdigest()
             for name in expected} == expected
+
+
+def test_analysis_checks_requested_option_even_without_loading_a_model(tmp_path):
+    from src.arena.external.analysis import analyze
+    from src.arena.external.journal import PrefixJournal
+    journal = PrefixJournal(tmp_path/'journal.jsonl', {'missing_key_fallback': 'check-call'})
+    journal.close()
+    with pytest.raises(ValueError, match='fallback'):
+        analyze(tmp_path/'journal.jsonl', workers=1, missing_key_fallback='uniform')

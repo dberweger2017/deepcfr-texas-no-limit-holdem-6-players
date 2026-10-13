@@ -52,7 +52,14 @@ fallback; their historical outcomes cannot be attributed to check-call.
 Main `c53f7935` versus the branch, fixed 32-block HU100 and HU200 matches, root
 202610130701, rung `identity`: all decompressed hand and decision SHA256 values
 match. Gzip envelope timestamps/output names are nondeterministic and excluded;
-all canonical trace bytes are identical. [Exact hashes and fixtures](hu200-missing-key-fallback-artifacts/default-identity.json).
+all canonical trace bytes are identical. A separate 32-block /64-hand HU200 match
+uses the **actual 752M model and pinned K50 tables**, root 2026101309051, main
+`c53f7935ebbc45180e179e5a3aea74af48bff783` versus scientific source
+`134719693a3204dedb0c92ba7b59f5add563837e`: hand SHA256
+`a92f72d673df506be41479db2ddd7b3890d78a9a995e97920c93afa720c547e8`, decision
+SHA256 `4f236b8cdba2f8f9a9d06c5b54f59aaa00bf9e22689506e4274a52f6647fefc8`
+on both. [Real-model identity receipt](hu200-missing-key-fallback-artifacts/real-hu200-default-identity.json).
+Only hashes, never outcomes, were read from this separate identity check. [Exact hashes and fixtures](hu200-missing-key-fallback-artifacts/default-identity.json).
 
 The paired decision rule is predeclared: recommend a 5,000-hand owner-started
 Slumbot confirmation only if the direct paired nominal lower 95% bound is above
