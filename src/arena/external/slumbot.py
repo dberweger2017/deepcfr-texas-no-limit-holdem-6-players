@@ -228,6 +228,16 @@ class SlumbotConnection:
             raise ValueError('Only a hand interrupted by an ambiguous or rejected request can be abandoned')
         self.failed = self.ambiguous = self.rejected = False
 
+    def new_session(self, username: str | None = None, password: str | None = None):
+        """After a rejected request only: drop the token and start afresh, logged in again when
+        credentials are given. An expired session can make Slumbot refuse every request.
+        """
+        if not (self.failed and getattr(self, 'rejected', False)):
+            raise ValueError('Only a rejected request starts a new session')
+        self.token, self.failed, self.ambiguous, self.rejected = None, False, False, False
+        if username is not None:
+            self.login(username, password)
+
     def login(self, username: str, password: str):
         """Starts an account session. Credentials go to the transport only, never to evidence."""
         if self.token is not None or self.failed:

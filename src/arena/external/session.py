@@ -97,18 +97,23 @@ def ending(terminal) -> str:
 
 
 def session_accounting(hands: list[Hand]) -> dict | None:
-    """Slumbot's own running total across the run, which includes abandoned hands.
+    """Slumbot's own running totals across the run, which include abandoned hands.
 
-    Each terminal reports the session total after that hand, so the first one minus its
-    winnings is where the run started. The difference from our verified total is what hands
-    without a verified terminal (abandoned ones) cost, as Slumbot counted them.
+    Each terminal reports the session total after that hand, so a session's first one minus its
+    winnings is where that session started. A new session (after a login or a refused request)
+    restarts the hand count. The difference from our verified total is what hands without a
+    verified terminal (abandoned ones) cost, as Slumbot counted them.
     """
     terminals = [h.terminal for h in hands]
     if not terminals or any(type(t.get('session_total')) is not int for t in terminals):
         return None
-    start = terminals[0]['session_total'] - terminals[0]['winnings']
-    slumbot_net = terminals[-1]['session_total'] - start
+    sessions = [[terminals[0]]]
+    for previous, terminal in zip(terminals, terminals[1:]):
+        if terminal['session_num_hands'] <= previous['session_num_hands']:
+            sessions.append([])
+        sessions[-1].append(terminal)
+    slumbot_net = sum(s[-1]['session_total'] - (s[0]['session_total'] - s[0]['winnings']) for s in sessions)
     verified = sum(t['winnings'] for t in terminals)
     return {'slumbot_net_chips': slumbot_net, 'verified_net_chips': verified,
-            'unverified_chips': slumbot_net - verified,
-            'slumbot_hands': terminals[-1]['session_num_hands'] - terminals[0]['session_num_hands'] + 1}
+            'unverified_chips': slumbot_net - verified, 'sessions': len(sessions),
+            'slumbot_hands': sum(s[-1]['session_num_hands'] - s[0]['session_num_hands'] + 1 for s in sessions)}

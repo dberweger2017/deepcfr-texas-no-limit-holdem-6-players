@@ -9,7 +9,7 @@ The default player is check/call. A trained HU200 average, v1 or K50 cards, play
 stored policy and uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
 answer, or one Slumbot refuses with an error status, abandons only its hand (Slumbot's session
-total still counts it); more than --max-abandoned or --max-rejected such hands, or any other
+total still counts it); a refusal also starts a new session, logged in again with --login; more than --max-abandoned or --max-rejected such hands, or any other
 failure, stops the run.
 Progress goes to stderr: a line per stage, then a bar with BB/100 so far. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
@@ -121,8 +121,8 @@ def main():
     connection = SlumbotConnection(transport, policy)
     if args.login:
         say('Logging in to Slumbot')
+        # The password stays in memory only, to log in again if Slumbot refuses a request.
         connection.login(username, password)
-        del password
         say('Logged in')
     say(f'Playing {args.hands} hands; journal {args.out / "journal.jsonl"}')
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
@@ -157,7 +157,13 @@ def main():
             if len(rejections) > args.max_rejected:
                 stop = 'too many rejected requests'
                 break
-            connection.abandon_hand()
+            # A refusal can mean the session expired: start a fresh one, logged in again for
+            # account runs.
+            try:
+                connection.new_session(*((username, password) if args.login else ()))
+            except (ValueError, AmbiguousRequest, ServiceError) as failure:
+                stop = f'new session failed: {failure}'
+                break
         except ValueError:
             journal.failure('protocol-error'); stop = 'protocol error'
             break

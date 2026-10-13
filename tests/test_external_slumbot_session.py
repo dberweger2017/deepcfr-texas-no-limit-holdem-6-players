@@ -215,12 +215,51 @@ def test_a_rejected_request_abandons_only_its_hand_but_an_unreadable_answer_does
         connection.request('act', 'c')
     connection.abandon_hand()
     assert connection.request('new_hand')['token'] == 'session-token-7f3a'
+    with pytest.raises(ValueError, match='rejected'):
+        connection.new_session()
+    refused = Refusing(ServiceError('act returned HTTP 400', status=400))
+    connection = SlumbotConnection(refused, HU200)
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.new_session()
+    assert connection.token is None and connection.request('new_hand')['token'] == 'session-token-7f3a'
     unreadable = SlumbotConnection(Refusing(ServiceError('act returned a body that is not JSON')), HU200)
     unreadable.request('new_hand')
     with pytest.raises(ServiceError):
         unreadable.request('act', 'c')
     with pytest.raises(ValueError, match='abandoned'):
         unreadable.abandon_hand()
+    with pytest.raises(ValueError, match='rejected'):
+        unreadable.new_session()
+
+
+def test_a_new_session_logs_in_again_and_session_totals_restart():
+    from src.arena.external.session import Hand, session_accounting
+
+    class Account:
+        def __init__(self): self.bodies, self.calls = [], 0
+        def post(self, endpoint, body):
+            self.calls += 1; self.bodies.append((endpoint, body))
+            if endpoint.endswith('login'):
+                return {'token': f'account-token-{self.calls}'}
+            if self.calls == 3:
+                raise ServiceError('act returned HTTP 400', status=400)
+            return dict(LIVE[1][0], token=body['token'])
+    account = Account()
+    connection = SlumbotConnection(account, HU200)
+    connection.login('name', 'secret')
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.new_session('name', 'secret')
+    assert connection.token == 'account-token-4' and account.bodies[3] == ('/slumbot/api/login', {'username': 'name', 'password': 'secret'})
+    terminal = lambda total, count, won: Hand('h', [], {'session_total': total, 'session_num_hands': count, 'winnings': won})
+    # Session one: two verified hands. Session two restarts the count; its second hand was abandoned,
+    # and Slumbot counted it as -50.
+    hands = [terminal(50, 1, 50), terminal(250, 2, 200), terminal(-50, 1, -50), terminal(50, 3, 150)]
+    assert session_accounting(hands) == {'slumbot_net_chips': 300, 'verified_net_chips': 350,
+                                         'unverified_chips': -50, 'sessions': 2, 'slumbot_hands': 5}
 
 
 def test_env_file_supplies_only_slumbot_credentials_and_is_never_committed(tmp_path):
