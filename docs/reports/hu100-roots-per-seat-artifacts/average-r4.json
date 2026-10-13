@@ -1,0 +1,11 @@
+{
+  "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+  "bytes": 1159868169,
+  "entries": 40858142,
+  "format": "holdem-hu100-stored-cfr-average-research-v1",
+  "iteration": 221223,
+  "name": "r4-1b",
+  "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/training/4/average.gz",
+  "sha256": "db5104eb8c1d0f73fb1cbb50374e76b8add1b36ff27e3554b07ccc46e32c1c29",
+  "source_checkpoint_sha256": "b1c2c8299de03048be22313072389fb5541c0a2ff966e43ff8ff1a8b26edbd0d"
+}
