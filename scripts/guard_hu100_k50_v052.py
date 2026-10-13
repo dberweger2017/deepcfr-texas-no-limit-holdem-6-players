@@ -31,10 +31,19 @@ def sustained(sample, rss, baseline, now, since):
 
 def family(known):
     """Enumerate without /bin/ps; unreadable unrelated processes are harmless."""
-    children = {}
-    for process in psutil.process_iter(['pid', 'ppid']):
+    # Validate retained identities before traversing their descendants: an old
+    # PID may now belong to another task, whose children must never be annexed.
+    for pid, created in list(known.items()):
+        try:
+            if psutil.Process(pid).create_time() != created:
+                known.pop(pid)
+        except (psutil.NoSuchProcess, psutil.ZombieProcess):
+            known.pop(pid, None)
+    children = {}; observed = {}
+    for process in psutil.process_iter(['pid', 'ppid', 'create_time']):
         try:
             children.setdefault(process.info['ppid'], []).append(process.pid)
+            observed[process.pid] = process.info.get('create_time')
         except (psutil.AccessDenied, psutil.NoSuchProcess, psutil.ZombieProcess):
             continue
     pending = [os.getpid(), *known]
@@ -48,6 +57,8 @@ def family(known):
         try:
             process = psutil.Process(pid)
             created = process.create_time()
+            if observed.get(pid) is not None and observed[pid] != created:
+                raise RuntimeError('Owned identity changed during family discovery')
             if pid in known and known[pid] != created:
                 known.pop(pid)
                 if pid not in seen:
@@ -60,6 +71,7 @@ def family(known):
 
 
 def stop(known):
+    family(known)
     live = []
     for pid, created in list(known.items()):
         try:

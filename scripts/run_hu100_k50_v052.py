@@ -226,6 +226,18 @@ def readout():
     verified = read(BASE/'all-final-verified.json'); frozen = read(BASE/'canonical-plan.json')
     if verified['status']!='verified' or verified['source']!=frozen['source']:
         raise ValueError('Full verification before readout required')
+    for complete in (BASE/'final').rglob('complete.json'):
+        done = read(complete)
+        if done['status']!='complete':
+            raise ValueError('Final incomplete receipt')
+        if 'files' in done:
+            pins = done['files']
+        else:
+            pins = read(complete.parent/'output-files.json')
+        for name, expected in pins.items():
+            path = complete.parent/name
+            if path.stat().st_size!=expected['bytes'] or file_hash(path)!=expected['sha256']:
+                raise ValueError('Final bytes changed after replay: '+str(path))
     folder = BASE/'final/direct'; n = frozen['primary_blocks']; cells = {}; positions = {'button':[],'big_blind':[]}
     models = frozen['models']; pair = [models['k50'],models['v052']]
     buttons = {b.index:b.button for b in build_schedule(direct.make_plan(pair,n,ROOTS['primary'],'k50-v052'))}

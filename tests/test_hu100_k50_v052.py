@@ -1,4 +1,4 @@
-from scripts.guard_hu100_k50_v052 import GIB, sustained
+from scripts.guard_hu100_k50_v052 import GIB, sustained, family
 from scripts.run_hu100_k50_v052 import ARMS, configuration
 from scripts.evaluate_native_hu100_baseline import make_plan
 
@@ -41,3 +41,21 @@ def test_explicit_k50_scripted_plan_and_translation_arms():
     assert plan.scenarios[0].stacks==(10000,10000)
     assert ARMS['k50_off'][1] is None and ARMS['v052_off'][1] is None
     assert ARMS['v052_on'][1]==dict(max_states=512,max_events=128)
+
+
+def test_reused_pid_cannot_annex_other_tasks_children(monkeypatch):
+    from scripts import guard_hu100_k50_v052 as guard
+    class Process:
+        def __init__(self, pid=None):
+            self.pid = 1 if pid is None else pid
+        def create_time(self):
+            return 200 if self.pid==9 else 100
+    class Row:
+        pid = 10
+        info = dict(pid=10,ppid=9)
+    monkeypatch.setattr(guard.os,'getpid',lambda:1)
+    monkeypatch.setattr(guard.psutil,'Process',Process)
+    monkeypatch.setattr(guard.psutil,'process_iter',lambda attrs:iter([Row()]))
+    known = {9:100}
+    assert [p.pid for p in family(known)]==[1]
+    assert known=={}
