@@ -8,6 +8,7 @@
 //! roots per seat run in parallel.
 
 use crate::cards::Cards;
+use crate::key::MenuVersion;
 use crate::cfr::{AverageRule, Discounts, Key, Node, Options, Sampler, Table, Traversal};
 use crate::store::{Shard, Store, SHARDS};
 use crate::streams::{engine_deck, python_seed, Mt};
@@ -32,6 +33,8 @@ pub struct Trainer {
     pub table: Store,
     /// v1 cards unless chosen otherwise; set on every root hand.
     pub cards: Cards,
+    /// The v1 menu unless chosen otherwise; set on every root hand.
+    pub menu: MenuVersion,
     /// Per-task delta maps, emptied and reused every iteration.
     scratch: Vec<Table>,
     pub iteration: u64,
@@ -50,7 +53,7 @@ pub struct Trainer {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { game: Game::Hu20, table: Store::new(), cards: Cards::V1, scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
+        Trainer { game: Game::Hu20, table: Store::new(), cards: Cards::V1, menu: MenuVersion::V1, scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
 
@@ -76,6 +79,7 @@ impl Trainer {
         let average = self.average;
         let options = self.options;
         let cards = self.cards;
+        let menu = self.menu;
         let (regret_weight, average_weight) = options.weights(iteration);
         let mut scratch = std::mem::take(&mut self.scratch);
         scratch.resize_with(tasks.len(), Table::default);
@@ -83,6 +87,7 @@ impl Trainer {
             let (mut hand, sampler) = root(iteration, seat, sample);
             assert_eq!(hand.game, self.game, "root belongs to another game");
             hand.core.cards = cards;
+            hand.core.menu = menu;
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
             traversal.average = average;
             traversal.regret_weight = regret_weight;
@@ -178,6 +183,10 @@ impl Trainer {
         nodes
     }
 
+    pub fn schema(&self) -> &'static str {
+        crate::key::schema(self.game, matches!(self.cards, Cards::Equity(_)), self.menu)
+    }
+
     /// `node` with its regrets brought to the current iteration's discount. Reads never write the
     /// table, so how often a run exports or saves cannot change its training.
     pub fn caught_up(&self, node: &Node) -> Node {
@@ -201,14 +210,14 @@ impl Trainer {
         let config = json!({
             "seed": self.seed, "raise_cap": null, "roots_per_seat": self.roots_per_seat,
             "max_nodes": max_nodes, "max_entries": max_entries, "max_seconds": 900.0,
-            "abstraction": self.cards.schema(self.game), "game": self.game.id(),
+            "abstraction": self.schema(), "game": self.game.id(),
         });
         let header = json!({
-            "format": self.game.format(), "abstraction": self.cards.schema(self.game), "kind": "training",
+            "format": self.game.format(), "abstraction": self.schema(), "kind": "training",
             "checkpoint_format": "jsonl-v2", "iteration": self.iteration, "config": config,
             "table": {"player_ids": ["player-0", "player-1"], "stacks": [self.game.stack(), self.game.stack()], "button": 0,
                       "small_blind": 50, "big_blind": 100, "chip_unit": "0.01"},
-            "identity": crate::checkpoint::identity(self.game, self.cards.descriptor(), self.cards.tables()),
+            "identity": crate::checkpoint::identity(self.game, self.cards.descriptor(), self.cards.tables(), self.menu),
         });
         let mut header = header;
         if recovery || self.game != Game::Hu20 {

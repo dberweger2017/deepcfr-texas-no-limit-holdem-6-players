@@ -13,7 +13,7 @@ from time import perf_counter
 from src.blueprint.action_translation import TranslationOptions, version_for_schema, translate
 from src.blueprint.abstraction import choices, information_key
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, EQUITY_SCHEMAS, STACK_BY_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, EQUITY_SCHEMAS, MENU_V2_SCHEMAS, STACK_BY_SCHEMA, menu_sizes
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema, _Player
 from src.blueprint.compact_policy import CompactBuilder
 from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME
@@ -25,8 +25,7 @@ HU200_FORMAT = 'holdem-hu200-stored-cfr-average-research-v1'
 
 
 def format_for_schema(schema):
-    return {HU100_SCHEMA: HU100_FORMAT, HU100_EQUITY_SCHEMA: HU100_FORMAT,
-            HU200_SCHEMA: HU200_FORMAT, HU200_EQUITY_SCHEMA: HU200_FORMAT}.get(schema, FORMAT)
+    return {10000: HU100_FORMAT, 20000: HU200_FORMAT}.get(STACK_BY_SCHEMA.get(schema), FORMAT)
 
 EXTRACTION = 'normalize-lifetime-iteration-own-reach-accumulator-v1'
 # Native checkpoints may name a non-production average in their header. Its accumulator
@@ -57,10 +56,9 @@ def average_rule(header):
 
 
 def checked_header(header, spec, *, expected_schema=HU20_UNCAPPED_SCHEMA):
-    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, *EQUITY_SCHEMAS):
+    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, *EQUITY_SCHEMAS, *MENU_V2_SCHEMAS):
         raise ValueError('Unknown A/C diagnostic schema')
-    game = {HU100_SCHEMA: HU100_GAME, HU100_EQUITY_SCHEMA: HU100_GAME,
-            HU200_SCHEMA: HU200_GAME, HU200_EQUITY_SCHEMA: HU200_GAME}.get(expected_schema, HU20_UNCAPPED_GAME)
+    game = {20000: HU200_GAME, 10000: HU100_GAME}.get(STACK_BY_SCHEMA[expected_schema], HU20_UNCAPPED_GAME)
     stack = STACK_BY_SCHEMA[expected_schema]
     if (_checked_schema(header)!=expected_schema or header.get('kind')!='training'
         or type(header.get('iteration')) is not int or header['iteration']<1
@@ -149,7 +147,7 @@ class AveragePolicy(FrozenBlueprint):
         started = perf_counter()
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
-        menu = choices(view, raise_cap=self.raise_cap, free_fold=False)
+        menu = choices(view, raise_cap=self.raise_cap, free_fold=False, menu_sizes=menu_sizes(self.abstraction))
         key = self.information_key(view, menu)
         saved = self.entries.get(key)
         known = saved is not None

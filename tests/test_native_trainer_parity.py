@@ -253,3 +253,67 @@ def test_zero_mass_current_fallback_matches_between_exporters_and_loads(tmp_path
     assert any(r[2] != [1 / len(r[1])] * len(r[1]) for r in fallback)
     policy = AveragePolicy(average, file_hash(average))
     assert policy.description["zero_mass_rule"] == "current" and len(policy.zero_mass) == len(fallback)
+
+
+@pytest.mark.parametrize("stack_bb,equity", [(20, False), (100, False), (200, False), (100, True)])
+def test_overbet_menu_keys_match_the_python_engine(tmp_path, stack_bb, equity):
+    """The v2 menu adds half-pot and 1.5x and 2x pot raises, with history labels for each size."""
+    import json
+    seed, hands = 202610130100, 300
+    common = ["--hands", str(hands), "--seed", str(seed), "--passive", "0.4", "--stack-bb", str(stack_bb)]
+    cards = []
+    if equity:
+        from tests.native_equity_tables import fixture_situations, write_tables
+        tables = write_tables(tmp_path, fixture_situations(range(seed, seed + hands)))
+        cards = ["--card-buckets", str(tables), "--card-tables-unpinned"]
+    v2, v1 = tmp_path / "v2.jsonl", tmp_path / "v1.jsonl"
+    run("-m", "scripts.native_parity_fixtures", *common, *cards, "--menu", "v2", "--out", str(v2))
+    out = subprocess.run([str(BINARY), "parity", str(v2), *cards, "--menu", "v2"], capture_output=True, text=True)
+    assert out.returncode == 0, out.stderr
+    assert f"hands {hands} " in out.stdout and "mismatched_hands 0" in out.stdout
+    names = {name for line in v2.read_text().splitlines() for d in json.loads(line)["decisions"] for name, _ in d["menu"]}
+    assert {"half", "pot", "pot-1.5", "pot-2"} <= names
+    # The same seeds under v1 give other menus and keys; v1's own parity is unchanged.
+    run("-m", "scripts.native_parity_fixtures", *common, *cards, "--out", str(v1))
+    first = lambda path: json.loads(path.read_text().splitlines()[0])["decisions"][0]
+    assert first(v1)["key"] != first(v2)["key"]
+    out = subprocess.run([str(BINARY), "parity", str(v1), *cards], capture_output=True, text=True)
+    assert out.returncode == 0 and "mismatched_hands 0" in out.stdout
+
+
+def test_menu_v2_checkpoints_name_their_menu_resume_only_with_it_and_load_in_python(tmp_path):
+    import gzip
+    import json
+    from src.blueprint.abstraction import HU100_MENU_V2_SCHEMA, HU100_SCHEMA
+    from src.blueprint.average import AveragePolicy
+    from src.diagnostics.saved_hu20 import file_hash
+    from src.game.hand import Hand, Table
+    train = lambda *args: subprocess.run([str(BINARY), "train", "--stack-bb", "100", "--seed", "5",
+                                          "--average-rule", "opponent-sampled", *args], capture_output=True, text=True)
+    full, half, resumed = tmp_path / "full.json.gz", tmp_path / "half.json.gz", tmp_path / "resumed.json.gz"
+    assert train("--menu", "v2", "--nodes", "400000", "--out", str(full)).returncode == 0
+    assert train("--menu", "v2", "--nodes", "200000", "--out", str(half)).returncode == 0
+    resume = ["--resume", str(half), "--resume-sha256", file_hash(half), "--nodes", "400000"]
+    assert train("--menu", "v1", *resume, "--out", str(tmp_path / "v1.json.gz")).returncode != 0
+    assert train("--menu", "v2", *resume, "--out", str(resumed)).returncode == 0
+    assert file_hash(full) == file_hash(resumed)
+    header = json.loads(gzip.open(full, "rt").readline())
+    assert header["abstraction"] == header["config"]["abstraction"] == HU100_MENU_V2_SCHEMA
+    assert header["identity"]["action_menu"] == "hu100-min-half-pot-overbet-conditional-jam-native-reopening-v2"
+    average = tmp_path / "average.jsonl.gz"
+    subprocess.run([str(BINARY), "export", str(full), "--average", str(average)], check=True, capture_output=True)
+    with pytest.raises(ValueError):
+        AveragePolicy(average, file_hash(average), expected_schema=HU100_SCHEMA, sorted_rows=True)
+    model = AveragePolicy(average, file_hash(average), expected_schema=HU100_MENU_V2_SCHEMA, sorted_rows=True)
+    from random import Random
+    found = 0
+    for seed in range(40):   # a short run has trained some preflop classes, not all
+        deck = [r + s for r in "23456789TJQKA" for s in "cdhs"]
+        Random(seed).shuffle(deck)
+        hand = Hand.from_deck(Table(("a", "b"), (10000, 10000), button=0), hand_id="x", deck=tuple(deck))
+        menu, probabilities, known = model.distribution(hand.observe(hand.actor))
+        # The opening menu: half-pot equals the min-raise there, so it is skipped.
+        assert [c.name for c in menu] == ["fold", "call", "min", "pot", "pot-1.5", "pot-2"]
+        assert abs(sum(probabilities) - 1) < 1e-9
+        found += known
+    assert found > 0

@@ -25,6 +25,9 @@ from src.blueprint.abstraction import (
     HU200_SCHEMA,
     HU100_MENU_VERSION,
     HU200_MENU_VERSION,
+    MENU_V2_SCHEMAS,
+    MENU_V2_VERSIONS,
+    menu_sizes,
     STACK_BY_SCHEMA,
     HU20_HISTORY_VERSION,
     HU20_UNCAPPED_MENU_VERSION,
@@ -74,7 +77,9 @@ def _identity(config: PilotConfig) -> dict:
     seats = SHORTSTACK_SEATS.get(config.abstraction)
     identity = ({"game": config.game, "players": seats, "stacks": [STACK_BY_SCHEMA[config.abstraction]] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": (HU200_MENU_VERSION if config.abstraction in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
+             "action_menu": (MENU_V2_VERSIONS[STACK_BY_SCHEMA[config.abstraction] // 100]
+                             if config.abstraction in MENU_V2_SCHEMAS else
+                             HU200_MENU_VERSION if config.abstraction in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
                              HU100_MENU_VERSION if config.abstraction in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else
                              HU20_UNCAPPED_MENU_VERSION if config.abstraction in NATIVE_SCHEMAS else
                              HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
@@ -386,7 +391,8 @@ class FrozenBlueprint:
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
         menu = choices(view, raise_cap=self.raise_cap,
-                       free_fold=self.abstraction not in SHORTSTACK_SEATS)
+                       free_fold=self.abstraction not in SHORTSTACK_SEATS,
+                       menu_sizes=menu_sizes(self.abstraction))
         key = self.information_key(view, menu)
         saved = self.entries.get(key)
         if saved is None:
