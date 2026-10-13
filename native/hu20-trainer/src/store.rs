@@ -144,6 +144,10 @@ impl Shard {
         self.store(i, &node);
     }
 
+    pub fn contains(&self, key: &Key) -> bool {
+        self.find(key).is_some()
+    }
+
     pub fn len(&self) -> usize {
         self.index.len()
     }

@@ -1,0 +1,520 @@
+{
+  "baseline_sha256": "1d907872b96346ba42aff696908099a659df7ac614559f4cdbacb1e1ae4e6416",
+  "candidate_sha256": "ce02db4da15427abe04c150c12f9ade07892d68e8d322f84b76710b4d007b62d",
+  "main_revision": "ac19e29a",
+  "real_model": {
+    "coverage_verified": true,
+    "final_keys": {
+      "entries": 7883678,
+      "sorted_key_sha256": "e2a21320e123229a52d0941d200c07fe885dafa104fe9cdc3087269c2c9dbafb",
+      "stored_visits": 3907064
+    },
+    "fresh": {
+      "bytes": 270143830,
+      "file": "hu200-k50-fresh20m.gz",
+      "frozen_table": null,
+      "iteration": 8728,
+      "nodes": 20002695,
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+    },
+    "fresh_operation": {
+      "command": [
+        "/Users/dberweger/Local/native-frozen-table/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--seed",
+        "2026101302",
+        "--roots-per-seat",
+        "1",
+        "--average-rule",
+        "opponent-sampled",
+        "--card-buckets",
+        "/Users/dberweger/Local/slumbot-k50-20261013/tables",
+        "--freeze-at-cap",
+        "--nodes",
+        "20000000",
+        "--max-entries",
+        "85373862",
+        "--out",
+        "results/frozen-table/gates/hu200-k50-fresh20m.gz",
+        "--telemetry",
+        "results/frozen-table/gates/hu200-k50-fresh20m.telemetry.jsonl"
+      ],
+      "exit_code": 0,
+      "failure": null,
+      "family_peak_rss_bytes": 2060484608,
+      "sample_period_seconds": 0.2,
+      "seconds": 65.00315858400427
+    },
+    "frozen": {
+      "bytes": 270343154,
+      "file": "hu200-k50-frozen20m2.gz",
+      "frozen_table": {
+        "discarded_traverser_visits": 23763,
+        "discarded_updates": 63052,
+        "entries": 7883678,
+        "since_iteration": 8728,
+        "version": 1
+      },
+      "iteration": 8811,
+      "nodes": 20200258,
+      "sha256": "6835968c723cfb5247a8f2b6402493ccb73ee996300ef2b39efd74a80e63f1a2"
+    },
+    "frozen_operation": {
+      "command": [
+        "/Users/dberweger/Local/native-frozen-table/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--seed",
+        "2026101302",
+        "--roots-per-seat",
+        "1",
+        "--average-rule",
+        "opponent-sampled",
+        "--card-buckets",
+        "/Users/dberweger/Local/slumbot-k50-20261013/tables",
+        "--freeze-at-cap",
+        "--nodes",
+        "20200000",
+        "--max-entries",
+        "7883678",
+        "--resume",
+        "results/frozen-table/gates/hu200-k50-fresh20m.gz",
+        "--resume-sha256",
+        "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b",
+        "--out",
+        "results/frozen-table/gates/hu200-k50-frozen20m2.gz",
+        "--telemetry",
+        "results/frozen-table/gates/hu200-k50-frozen20m2.telemetry.jsonl"
+      ],
+      "exit_code": 0,
+      "failure": null,
+      "family_peak_rss_bytes": 1968537600,
+      "sample_period_seconds": 0.2,
+      "seconds": 63.8465589999978
+    },
+    "initial_keys": {
+      "entries": 7883678,
+      "sorted_key_sha256": "e2a21320e123229a52d0941d200c07fe885dafa104fe9cdc3087269c2c9dbafb",
+      "stored_visits": 3892221
+    },
+    "tables": {
+      "flop": {
+        "bytes": 12867944,
+        "path": "/Users/dberweger/Local/slumbot-k50-20261013/tables/flop-k50.bin",
+        "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+      },
+      "river": {
+        "bytes": 1231562564,
+        "path": "/Users/dberweger/Local/slumbot-k50-20261013/tables/river-k50.bin",
+        "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+      },
+      "turn": {
+        "bytes": 139600524,
+        "path": "/Users/dberweger/Local/slumbot-k50-20261013/tables/turn-k50.bin",
+        "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      }
+    }
+  },
+  "small": [
+    {
+      "bb": 20,
+      "checkpoints": [
+        {
+          "bytes": 9028577,
+          "file": "hu20-main.gz",
+          "frozen_table": null,
+          "iteration": 2617,
+          "nodes": 1000394,
+          "sha256": "64b465010e4a2d402b453b964e861b47ba1d8dc17df96a3b9b0ceaa3aa61c985"
+        },
+        {
+          "bytes": 9028577,
+          "file": "hu20-candidate.gz",
+          "frozen_table": null,
+          "iteration": 2617,
+          "nodes": 1000394,
+          "sha256": "64b465010e4a2d402b453b964e861b47ba1d8dc17df96a3b9b0ceaa3aa61c985"
+        },
+        {
+          "bytes": 9028577,
+          "file": "hu20-enabled.gz",
+          "frozen_table": null,
+          "iteration": 2617,
+          "nodes": 1000394,
+          "sha256": "64b465010e4a2d402b453b964e861b47ba1d8dc17df96a3b9b0ceaa3aa61c985"
+        },
+        {
+          "bytes": 873738,
+          "file": "hu20-frozen-1000000.gz",
+          "frozen_table": {
+            "discarded_traverser_visits": 157142,
+            "discarded_updates": 437832,
+            "entries": 20025,
+            "since_iteration": 94,
+            "version": 1
+          },
+          "iteration": 2597,
+          "nodes": 1000575,
+          "sha256": "4ca9489735b863ad1a9ca60b9aa7fe1f4c339f11eadf6d252a21068a23d5283e"
+        }
+      ],
+      "frozen_operation": {
+        "command": [
+          "/Users/dberweger/Local/native-frozen-table/native/hu20-trainer/target/release/hu20-trainer",
+          "train",
+          "--stack-bb",
+          "20",
+          "--seed",
+          "5",
+          "--average-rule",
+          "opponent-sampled",
+          "--recovery",
+          "--nodes",
+          "1000000",
+          "--freeze-at-cap",
+          "--max-entries",
+          "20000",
+          "--milestones",
+          "500000",
+          "--out",
+          "results/frozen-table/gates/hu20-frozen-{nodes}.gz",
+          "--telemetry",
+          "results/frozen-table/gates/hu20-frozen.telemetry.jsonl"
+        ],
+        "exit_code": 0,
+        "failure": null,
+        "family_peak_rss_bytes": 38666240,
+        "sample_period_seconds": 0.2,
+        "seconds": 1.0231127919978462
+      },
+      "terminal_telemetry": {
+        "completed_nodes": 1000575,
+        "frozen_table": {
+          "discarded_traverser_visits_since_previous_save": 82084,
+          "discarded_updates_since_previous_save": 227978,
+          "interval_start_iteration": 1273,
+          "missing_opponent_by_street": [
+            11356,
+            16152,
+            45789,
+            73826
+          ],
+          "missing_opponent_share_by_street": [
+            0.6772827577980557,
+            0.46760465520236233,
+            0.8440679840731455,
+            0.9422831469852453
+          ],
+          "missing_traverser_by_street": [
+            6054,
+            10124,
+            25298,
+            40608
+          ],
+          "missing_traverser_share_by_street": [
+            0.6780154552581477,
+            0.5057195664119087,
+            0.8512972372715953,
+            0.9431000046448976
+          ],
+          "opponent_decisions_by_street": [
+            16767,
+            34542,
+            54248,
+            78348
+          ],
+          "state": {
+            "discarded_traverser_visits": 157142,
+            "discarded_updates": 437832,
+            "entries": 20025,
+            "since_iteration": 94,
+            "version": 1
+          },
+          "streets": [
+            "preflop",
+            "flop",
+            "turn",
+            "river"
+          ],
+          "traverser_decisions_by_street": [
+            8929,
+            20019,
+            29717,
+            43058
+          ]
+        },
+        "nodes_per_second_including_writes": 1027652.9270494815,
+        "process_rss_bytes_after_save": 9027584,
+        "write_seconds": 0.127667916
+      }
+    },
+    {
+      "bb": 100,
+      "checkpoints": [
+        {
+          "bytes": 15097494,
+          "file": "hu100-main.gz",
+          "frozen_table": null,
+          "iteration": 660,
+          "nodes": 1000908,
+          "sha256": "45ef3d3ccc44c69cb458e6b8fb050a61f03132f62d1f166f2f626d7b7c655151"
+        },
+        {
+          "bytes": 15097494,
+          "file": "hu100-candidate.gz",
+          "frozen_table": null,
+          "iteration": 660,
+          "nodes": 1000908,
+          "sha256": "45ef3d3ccc44c69cb458e6b8fb050a61f03132f62d1f166f2f626d7b7c655151"
+        },
+        {
+          "bytes": 15097494,
+          "file": "hu100-enabled.gz",
+          "frozen_table": null,
+          "iteration": 660,
+          "nodes": 1000908,
+          "sha256": "45ef3d3ccc44c69cb458e6b8fb050a61f03132f62d1f166f2f626d7b7c655151"
+        },
+        {
+          "bytes": 689854,
+          "file": "hu100-frozen-1000000.gz",
+          "frozen_table": {
+            "discarded_traverser_visits": 181887,
+            "discarded_updates": 522310,
+            "entries": 20561,
+            "since_iteration": 22,
+            "version": 1
+          },
+          "iteration": 658,
+          "nodes": 1001295,
+          "sha256": "cebb08e0a54261d7018ba054c7dce510dfa2eda1f387548c6dd1587eee099663"
+        }
+      ],
+      "frozen_operation": {
+        "command": [
+          "/Users/dberweger/Local/native-frozen-table/native/hu20-trainer/target/release/hu20-trainer",
+          "train",
+          "--stack-bb",
+          "100",
+          "--seed",
+          "5",
+          "--average-rule",
+          "opponent-sampled",
+          "--recovery",
+          "--nodes",
+          "1000000",
+          "--freeze-at-cap",
+          "--max-entries",
+          "20000",
+          "--milestones",
+          "500000",
+          "--out",
+          "results/frozen-table/gates/hu100-frozen-{nodes}.gz",
+          "--telemetry",
+          "results/frozen-table/gates/hu100-frozen.telemetry.jsonl"
+        ],
+        "exit_code": 0,
+        "failure": null,
+        "family_peak_rss_bytes": 42418176,
+        "sample_period_seconds": 0.2,
+        "seconds": 0.8213789580040611
+      },
+      "terminal_telemetry": {
+        "completed_nodes": 1001295,
+        "frozen_table": {
+          "discarded_traverser_visits_since_previous_save": 94537,
+          "discarded_updates_since_previous_save": 271034,
+          "interval_start_iteration": 329,
+          "missing_opponent_by_street": [
+            5616,
+            17024,
+            48551,
+            106271
+          ],
+          "missing_opponent_share_by_street": [
+            0.9106534781903681,
+            0.8403593642017968,
+            0.9748218050396547,
+            0.9928528719309391
+          ],
+          "missing_traverser_by_street": [
+            2975,
+            9155,
+            25794,
+            56613
+          ],
+          "missing_traverser_share_by_street": [
+            0.9244872591671845,
+            0.861890416117492,
+            0.9803131650957738,
+            0.9940127120132036
+          ],
+          "opponent_decisions_by_street": [
+            6167,
+            20258,
+            49805,
+            107036
+          ],
+          "state": {
+            "discarded_traverser_visits": 181887,
+            "discarded_updates": 522310,
+            "entries": 20561,
+            "since_iteration": 22,
+            "version": 1
+          },
+          "streets": [
+            "preflop",
+            "flop",
+            "turn",
+            "river"
+          ],
+          "traverser_decisions_by_street": [
+            3218,
+            10622,
+            26312,
+            56954
+          ]
+        },
+        "nodes_per_second_including_writes": 1419642.539085823,
+        "process_rss_bytes_after_save": 11681792,
+        "write_seconds": 0.105378375
+      }
+    },
+    {
+      "bb": 200,
+      "checkpoints": [
+        {
+          "bytes": 16104998,
+          "file": "hu200-main.gz",
+          "frozen_table": null,
+          "iteration": 417,
+          "nodes": 1002437,
+          "sha256": "1074d5ce91f4940bf8dfe2697d3847bbd33e98ea1180ab8292f494269c3b2f15"
+        },
+        {
+          "bytes": 16104998,
+          "file": "hu200-candidate.gz",
+          "frozen_table": null,
+          "iteration": 417,
+          "nodes": 1002437,
+          "sha256": "1074d5ce91f4940bf8dfe2697d3847bbd33e98ea1180ab8292f494269c3b2f15"
+        },
+        {
+          "bytes": 16104998,
+          "file": "hu200-enabled.gz",
+          "frozen_table": null,
+          "iteration": 417,
+          "nodes": 1002437,
+          "sha256": "1074d5ce91f4940bf8dfe2697d3847bbd33e98ea1180ab8292f494269c3b2f15"
+        },
+        {
+          "bytes": 672705,
+          "file": "hu200-frozen-1000000.gz",
+          "frozen_table": {
+            "discarded_traverser_visits": 181736,
+            "discarded_updates": 525704,
+            "entries": 21237,
+            "since_iteration": 15,
+            "version": 1
+          },
+          "iteration": 405,
+          "nodes": 1000140,
+          "sha256": "287bfab0d160621107b6dffb453857f7b453699437b116a7b396db2480e0325b"
+        }
+      ],
+      "frozen_operation": {
+        "command": [
+          "/Users/dberweger/Local/native-frozen-table/native/hu20-trainer/target/release/hu20-trainer",
+          "train",
+          "--stack-bb",
+          "200",
+          "--seed",
+          "5",
+          "--average-rule",
+          "opponent-sampled",
+          "--recovery",
+          "--nodes",
+          "1000000",
+          "--freeze-at-cap",
+          "--max-entries",
+          "20000",
+          "--milestones",
+          "500000",
+          "--out",
+          "results/frozen-table/gates/hu200-frozen-{nodes}.gz",
+          "--telemetry",
+          "results/frozen-table/gates/hu200-frozen.telemetry.jsonl"
+        ],
+        "exit_code": 0,
+        "failure": null,
+        "family_peak_rss_bytes": 42926080,
+        "sample_period_seconds": 0.2,
+        "seconds": 0.8215022500080522
+      },
+      "terminal_telemetry": {
+        "completed_nodes": 1000140,
+        "frozen_table": {
+          "discarded_traverser_visits_since_previous_save": 93975,
+          "discarded_updates_since_previous_save": 271962,
+          "interval_start_iteration": 202,
+          "missing_opponent_by_street": [
+            3992,
+            14447,
+            45885,
+            114323
+          ],
+          "missing_opponent_share_by_street": [
+            0.957084631982738,
+            0.9012476606363069,
+            0.9889861194930597,
+            0.9976525411896119
+          ],
+          "missing_traverser_by_street": [
+            2047,
+            7522,
+            23919,
+            60487
+          ],
+          "missing_traverser_share_by_street": [
+            0.9547574626865671,
+            0.9017022296811317,
+            0.987613031091292,
+            0.9965894487099219
+          ],
+          "opponent_decisions_by_street": [
+            4171,
+            16030,
+            46396,
+            114592
+          ],
+          "state": {
+            "discarded_traverser_visits": 181736,
+            "discarded_updates": 525704,
+            "entries": 21237,
+            "since_iteration": 15,
+            "version": 1
+          },
+          "streets": [
+            "preflop",
+            "flop",
+            "turn",
+            "river"
+          ],
+          "traverser_decisions_by_street": [
+            2144,
+            8342,
+            24219,
+            60694
+          ]
+        },
+        "nodes_per_second_including_writes": 1442814.7401810826,
+        "process_rss_bytes_after_save": 11976704,
+        "write_seconds": 0.1018685
+      }
+    }
+  ],
+  "status": "passed"
+}

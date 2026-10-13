@@ -5,7 +5,7 @@ use std::collections::BTreeMap;
 const CARDS: &[&str] = &["--card-buckets", "--card-tables-unpinned"];
 const TRAIN: &[&str] = &["--nodes", "--iterations", "--seed", "--roots-per-seat", "--out", "--milestones",
     "--stack-bb", "--max-entries", "--max-seconds", "--stop-file", "--telemetry", "--resume",
-    "--resume-sha256", "--completed-nodes", "--average-rule", "--regret-floor", "--recovery", "--menu"];
+    "--resume-sha256", "--completed-nodes", "--average-rule", "--regret-floor", "--recovery", "--menu", "--freeze-at-cap"];
 const BENCH: &[&str] = &["--roots", "--seed", "--iterations", "--lineage", "--variant", "--out",
     "--checkpoints", "--regret-floor", "--dcfr"];
 const EXPORT: &[&str] = &["--current", "--average", "--zero-mass"];
@@ -118,7 +118,7 @@ pub fn parse(args: &[String]) -> Result<Command, String> {
                 return Err(format!("{command}: unknown or unsupported flag {flag}"));
             }
             if supplied.contains_key(flag) { return Err(format!("{command}: duplicate flag {flag}")); }
-            let boolean = matches!(flag, "--recovery" | "--card-tables-unpinned");
+            let boolean = matches!(flag, "--recovery" | "--card-tables-unpinned" | "--freeze-at-cap");
             let parsed = if boolean { json!(true) } else {
                 i += 1;
                 let raw = args.get(i).filter(|s| !s.starts_with("--"))
@@ -191,6 +191,7 @@ pub fn parse(args: &[String]) -> Result<Command, String> {
     }
     if command == "train" {
         options.entry("recovery").or_insert(json!(false));
+        options.entry("freeze_at_cap").or_insert(json!(false));
     }
     if command == "bench-train" {
         options.insert("menu".into(), json!("v1"));
@@ -258,4 +259,21 @@ mod tests {
         }
     }
 
+}
+
+#[cfg(test)]
+mod freeze_tests {
+    use super::*;
+    fn args(s: &str) -> Vec<String> { std::iter::once("hu20-trainer").chain(s.split_whitespace()).map(str::to_string).collect() }
+    #[test]
+    fn freeze_is_a_train_only_boolean_with_an_explicit_default() {
+        assert_eq!(parse(&args("train")).unwrap().config["options"]["freeze_at_cap"], false);
+        assert_eq!(parse(&args("train --freeze-at-cap")).unwrap().config["options"]["freeze_at_cap"], true);
+        let resume = format!("train --resume cp --resume-sha256 {} --freeze-at-cap", "a".repeat(64));
+        assert!(parse(&args(&resume)).is_ok());
+        for s in ["train --freeze-at-cap true", "train --freeze-at-cap --freeze-at-cap",
+            "export cp --freeze-at-cap", "parity cp --freeze-at-cap", "bench-train --freeze-at-cap"] {
+            assert!(parse(&args(s)).is_err(), "accepted {s}");
+        }
+    }
 }
