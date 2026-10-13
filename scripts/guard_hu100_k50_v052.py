@@ -99,7 +99,9 @@ def stop(known):
         raise RuntimeError('Owned workers survived cleanup')
 
 
-def guard(base: Path, name: str, command: list[str]):
+def guard(base: Path, name: str, command: list[str], *, sample_seconds=1, deadline=None):
+    if sample_seconds <= 0:
+        raise ValueError('Positive sampling interval required')
     identity = subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string','hw.memsize','hw.ncpu'], text=True).splitlines()
     machine_identity('m4', identity)
     if (base/'failure.json').exists() and name!='archive':
@@ -140,6 +142,8 @@ def guard(base: Path, name: str, command: list[str]):
                         except (psutil.NoSuchProcess, psutil.ZombieProcess):
                             pass
                     now = time(); reason = sustained(sample,rss,baseline,now,since)
+                    if deadline is not None and now >= deadline:
+                        reason = 'whole-campaign deadline'
                     peak = max(peak,rss); count += 1
                     raw.write(json.dumps(dict(sample,family_rss_bytes=rss,breach_since=dict(since)))+'\n'); raw.flush()
                     if reason:
@@ -151,7 +155,7 @@ def guard(base: Path, name: str, command: list[str]):
                         if child.returncode:
                             raise RuntimeError('Worker exit '+str(child.returncode))
                         break
-                    sleep(1)
+                    sleep(sample_seconds)
         except BaseException as exc:
             failure = repr(exc)
             if not (base/'failure.json').exists():

@@ -54,6 +54,7 @@ def test_resolved_json_and_resume_inherited_values(tmp_path):
     config = json.loads(result.stderr)
     assert config['command'] == 'train'
     assert config['options']['menu'] == 'v2' and config['options']['stack_bb'] == 100
+    assert config['options']['schema'] == 'hu100-native-reopening-ordered-history-card-menu-v2'
     assert config['options']['recovery']
     assert result.stdout.startswith('milestone 1 iterations ')
     resumed = tmp_path/'resumed.gz'
