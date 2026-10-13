@@ -1,5 +1,5 @@
 """Schema-owned menus must agree during training, play, tracing and independent replay."""
-from dataclasses import replace
+from pathlib import Path
 import gzip
 import json
 import subprocess
@@ -152,3 +152,35 @@ def test_live_blueprint_keeps_v1_trainer_distribution():
     wrapped = LiveBlueprint(trainer)
     view = Hand.start(table, hand_id="live", seed=17).observe(0)
     assert wrapped.distribution(view) == TableDistribution(trainer).distribution(view)
+
+
+@pytest.mark.parametrize('schema', [HU100_SCHEMA, HU100_MENU_V2_SCHEMA])
+def test_scripted_play_replays_candidate_and_v1_uniform_reference(tmp_path, monkeypatch, schema):
+    from scripts import evaluate_native_hu100_baseline as scripted, audit_native_hu100_baseline as audit_scripted
+    spec = synthetic(tmp_path/'model', schema, 'candidate')
+    config = json.loads(Path('configs/arena/hu100-playing-baseline-v1.json').read_text())
+    config['model'].update(spec)
+    config['action_translation'] = None
+    config_path = tmp_path/'config.json'
+    config_path.write_text(json.dumps(config))
+    source = dev_source(monkeypatch)
+    done = scripted.execute(config_path, tmp_path/'play', 2, 12345, source)
+    result = audit_scripted.audit(tmp_path/'play', tmp_path/'audit.json')
+    assert result['status'] == 'verified'
+    assert result['hands_replayed'] == done['hands'] == 40
+
+
+def test_v1_k50_uniform_trace_keeps_candidate_key_context():
+    from src.blueprint.abstraction import HU100_EQUITY_SCHEMA
+    from scripts.evaluate_native_hu100_baseline import Probe
+    from src.arena.policies import NativeHU100Uniform
+    from types import SimpleNamespace
+    table = Table(('a', 'b'), (10000, 10000))
+    view = Hand.start(table, hand_id='legacy-context', seed=17).observe(0)
+    menu = schema_choices(view, HU100_EQUITY_SCHEMA)
+    model = SimpleNamespace(abstraction=HU100_EQUITY_SCHEMA, zero_mass=set(),
+        distribution=lambda v: (menu, (1/len(menu),)*len(menu), False),
+        information_key=lambda v,m: information_key(v,m,schema=HU100_EQUITY_SCHEMA))
+    rows=[]
+    Probe(NativeHU100Uniform(17), model, {'logical_player':0,'arm':'baseline'}, rows.append).choose_action(view)
+    assert rows[0]['key'] == information_key(view, menu, schema=HU100_EQUITY_SCHEMA)
