@@ -21,9 +21,11 @@ def main():
     parser.add_argument('--model', type=Path)
     parser.add_argument('--model-sha256')
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
+    parser.add_argument('--policy-cache', type=Path,
+                        help='folder for a verified binary cache of the model: the first load writes it, later ones take seconds')
     parser.add_argument('--workers', type=int, default=4)
     args = parser.parse_args()
-    model = hu200_average(args.model, args.model_sha256, args.card_buckets) if args.model else None
+    model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache) if args.model else None
     result = analyze(args.run / 'journal.jsonl', model=model, workers=args.workers)
     with (args.run / 'analysis.json').open('x') as stream:
         stream.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')

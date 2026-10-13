@@ -15,6 +15,7 @@ from src.blueprint.abstraction import choices, information_key
 
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, EQUITY_SCHEMAS, MENU_V2_SCHEMAS, STACK_BY_SCHEMA, menu_sizes
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema, _Player
+from src.blueprint import policy_cache
 from src.blueprint.compact_policy import CompactBuilder
 from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME, HU200_GAME
 from src.policies.files import file_hash
@@ -96,7 +97,9 @@ def checked_row(row, iteration, bounded=True):
 
 class AveragePolicy(FrozenBlueprint):
     """Read stored averages with the same observation/key/menu inference as current policies."""
-    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None, sorted_rows: bool = False, card_buckets=None):
+    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None, sorted_rows: bool = False, card_buckets=None, cache=None):
+        """With `cache`, a folder: rows parse once into a verified binary cache there, and later loads
+        map it instead (see policy_cache). Hash, header and tables are checked either way."""
         if file_hash(path)!=expected_sha256:raise ValueError('Diagnostic average hash differs')
         # Compact storage: a 10B-node average needs about 50 bytes per key instead of about 800.
         rows=CompactBuilder();count=0
@@ -108,7 +111,8 @@ class AveragePolicy(FrozenBlueprint):
             rule=average_rule(header);extraction=EXTRACTIONS[rule];zero_mass=zero_mass_rule(metadata)
             if (metadata.get('format')!=format_for_schema(expected_schema) or metadata.get('kind')!='diagnostic-inference'
                 or metadata.get('extraction')!=extraction):raise ValueError('Unknown diagnostic extraction')
-            for line in source:
+            cached=None if cache is None else policy_cache.load(cache,expected_sha256,expected_schema)
+            for line in source if cached is None else ():
                 key,names,p,total,visits=json.loads(line)
                 checked_row([key,names,[0]*len(names),[total/len(names)]*len(names),visits],header['iteration'],rule=='traverser-reach')
                 if (len(names)!=len(p)
@@ -116,10 +120,18 @@ class AveragePolicy(FrozenBlueprint):
                     or abs(fsum(p)-1)>1e-8 or (not total and zero_mass=='uniform' and p!=[1/len(names)]*len(names))):raise ValueError('Invalid diagnostic policy row')
                 rows.add(key,names,[float(x) for x in p],visits,not total);count+=1
                 if count>header['config']['max_entries']:raise ValueError('Diagnostic export exceeds entry cap')
-        try:
-            self.entries,self.zero_mass,self.visits=rows.build_sorted() if sorted_rows else rows.build()
-        except ValueError as duplicate:
-            raise ValueError('Invalid diagnostic policy row') from duplicate
+        if cached is None:
+            try:
+                cached=rows.build_sorted() if sorted_rows else rows.build()
+            except ValueError as duplicate:
+                raise ValueError('Invalid diagnostic policy row') from duplicate
+            del rows
+            if cache is not None:
+                # Continue from the mapped copy, so even this first load releases its parsed arrays.
+                policy_cache.save(cache,expected_sha256,expected_schema,cached)
+                cached=policy_cache.load(cache,expected_sha256,expected_schema)
+        elif len(cached[0])>header['config']['max_entries']:raise ValueError('Diagnostic export exceeds entry cap')
+        self.entries,self.zero_mass,self.visits=cached
         self.players=2;self.raise_cap=None;self.abstraction=expected_schema;self.game=header['config']['game'];self.identity=header['identity']
         self.description={'kind':metadata['format'],'weights_sha256':expected_sha256,'num_players':2,'iteration':header['iteration'],
             'training_seed':header['config']['seed'],'strategy':extraction,'abstraction':self.abstraction,

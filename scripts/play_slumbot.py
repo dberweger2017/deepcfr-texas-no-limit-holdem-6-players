@@ -55,7 +55,7 @@ def load_player(args):
     if args.model is None:
         player = CheckCall()
         return player, player, {'player': player.name}
-    model = hu200_average(args.model, args.model_sha256, args.card_buckets)
+    model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
                                             'abstraction': model.abstraction, 'description': model.description}
@@ -81,6 +81,8 @@ def main():
     parser.add_argument('--model', type=Path)
     parser.add_argument('--model-sha256')
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
+    parser.add_argument('--policy-cache', type=Path,
+                        help='folder for a verified binary cache of the model: the first load writes it, later ones take seconds')
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
@@ -112,7 +114,9 @@ def main():
             say(f'Login check failed: {error}')
             raise SystemExit(1)
         say('Credentials accepted')
-    say(f'Loading {args.model.name} (a few minutes for large models)' if args.model else 'Using the check/call player')
+    cached = args.model and args.policy_cache and any(args.policy_cache.glob(f'{args.model_sha256}-*'))
+    say((f'Loading {args.model.name} from its cache' if cached else
+         f'Loading {args.model.name} (a few minutes for large models)') if args.model else 'Using the check/call player')
     loading = time.monotonic()
     policy, player, identity = load_player(args)
     if args.model:
