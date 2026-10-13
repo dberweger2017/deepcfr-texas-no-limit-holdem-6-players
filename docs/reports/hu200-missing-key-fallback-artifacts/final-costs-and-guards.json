@@ -1,0 +1,398 @@
+{
+  "evaluation": {
+    "baseline_swap_bytes": 4294729728,
+    "failure": null,
+    "guard_summary": {
+      "max_active_workers": 4,
+      "max_owned_family_pss_bytes": 5469806592,
+      "max_owned_family_rss_bytes": 13544435712,
+      "max_swap_growth_bytes": 233472,
+      "min_available_bytes": 7378391040,
+      "min_disk_free_bytes": 95069376512,
+      "readings": 475
+    },
+    "jobs": {
+      "check_call": {
+        "blocks": 16384,
+        "opponent": "check_call",
+        "primary": {
+          "decisions": 513728,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 11997972,
+              "sha256": "44de43a102affabf84fb522ea02a60b5918be42a4ff3593d32ea7b5bab841a77"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 6260992,
+              "sha256": "7016bcef4fff35cf734c53356e8db354f693732c16bbe202c2a2373e4b297802"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 20.20706550218165,
+          "play_seconds": 281.0874626627192,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 301.81962876953185,
+          "status": "complete"
+        },
+        "replay_seconds": 138.90132655203342,
+        "reproduction": {
+          "decisions": 513728,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 11997972,
+              "sha256": "37edf864ce95a43bad7a84e8e72195e6f00088e50a0266fc6ea9e6b73003922b"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 6260992,
+              "sha256": "870026bfc22ef6754bcd00c365b8e7719fbfd996039e6d2dbc8c693241f81af5"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 6.543407597579062,
+          "play_seconds": 298.541923224926,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 305.7332942178473,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 746.7973571233451,
+        "status": "verified"
+      },
+      "direct": {
+        "blocks": 131072,
+        "opponent": null,
+        "primary": {
+          "decisions": 1221430,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 85032045,
+              "sha256": "ee18781bbd62705057a2b2c09195f410c07fc61a1d20b0a3d659f512c488a774"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 25246636,
+              "sha256": "c391a6cf6e775e77bd52bf4b9f3f3268234618b6d35de16d9364a3c76765dd52"
+            }
+          },
+          "hands": 262144,
+          "load_or_validation_seconds": 20.332158005796373,
+          "play_seconds": 1079.1738071953878,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 1104.0102295549586,
+          "status": "complete"
+        },
+        "replay_seconds": 396.0699870586395,
+        "reproduction": {
+          "decisions": 1221430,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 85032045,
+              "sha256": "3367234588323199e09dda49e0dcc955da5e26272e29e2b2ec05dc165ddaa322"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 25246636,
+              "sha256": "0029b27be965f26c6b6e29f25c113bd04601c60e8d2846ddf89e97cfe82bb30e"
+            }
+          },
+          "hands": 262144,
+          "load_or_validation_seconds": 5.153616297990084,
+          "play_seconds": 1006.8131552841514,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1015.8442099010572,
+          "status": "complete"
+        },
+        "root": 2026101309001,
+        "seconds": 2516.685572637245,
+        "status": "verified"
+      },
+      "half_pot_pressure": {
+        "blocks": 16384,
+        "opponent": "half_pot_pressure",
+        "primary": {
+          "decisions": 174217,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4649050,
+              "sha256": "193aa4a6f8816544d11fd789fb0d2ec24bbe0accb55e4b80283ac1ae453ed16a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4489955,
+              "sha256": "1fa5f691e4d3c8e205852599b159159ca0081fb13004473b77ae965fdf80cd25"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 20.96713770739734,
+          "play_seconds": 92.54886208940297,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 114.01325374562293,
+          "status": "complete"
+        },
+        "replay_seconds": 58.66118522267789,
+        "reproduction": {
+          "decisions": 174217,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4649050,
+              "sha256": "f781ba7f84796028707639c119c2307dc9d35d60e2232dcf61395cbabcc8f9f8"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4489955,
+              "sha256": "0ba30ac8d25ece495ce27bd147fabcd3311a062e216f20f15a9bd084d11f1d97"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 5.562404489144683,
+          "play_seconds": 113.04837358742952,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 119.19269425887614,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 292.1287614526227,
+        "status": "verified"
+      },
+      "loose_aggressive": {
+        "blocks": 16384,
+        "opponent": "loose_aggressive",
+        "primary": {
+          "decisions": 247472,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 6658999,
+              "sha256": "8232212809acfde462d9e2ab6ba9f62031a3f656e60c9501f69959ebb87133d1"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 5108381,
+              "sha256": "0ca6666d5a33264661cb78375223d9d6900c505d7464fd28604bcb98d423bca6"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 21.027058953419328,
+          "play_seconds": 133.56430915463716,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 155.14573532156646,
+          "status": "complete"
+        },
+        "replay_seconds": 78.92100548092276,
+        "reproduction": {
+          "decisions": 247472,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 6658999,
+              "sha256": "4fcf76f37bf949f58cb941257e0e3682bb9e3b4ca9dee261a2d86a1cc864bdf3"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 5108381,
+              "sha256": "012e2917666915f4a00f8e379dee523794c9f28e23f5c56eea4c47b7eee4d41d"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 5.292681263759732,
+          "play_seconds": 155.3453554706648,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 161.15117130428553,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 395.55672993697226,
+        "status": "verified"
+      },
+      "matched_pot_pressure": {
+        "blocks": 16384,
+        "opponent": "matched_pot_pressure",
+        "primary": {
+          "decisions": 167860,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4497156,
+              "sha256": "b6e473b46c81b1fbc780a6021799bef7580d9df46b660f1ead2220d39b3f1e26"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4432901,
+              "sha256": "a09263fb509af7265eb76d2fc16ebddb2d1e172d88df36f33ad5e5bb319860a4"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 18.050566968508065,
+          "play_seconds": 85.57095894869417,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 104.13578425068408,
+          "status": "complete"
+        },
+        "replay_seconds": 55.9863113258034,
+        "reproduction": {
+          "decisions": 167860,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4497156,
+              "sha256": "253bbe7c6f109a2de103b49af9759b3c39f5a1bdf215e03518c642c408492f75"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4432901,
+              "sha256": "28b3f1c3a0ba4d826004f094a45bf22718bc413e9c5a3d0a1fc4a55ea68b4f15"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 4.186071103438735,
+          "play_seconds": 106.7401858009398,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 111.47322897799313,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 271.8653007186949,
+        "status": "verified"
+      },
+      "pot_pressure": {
+        "blocks": 16384,
+        "opponent": "pot_pressure",
+        "primary": {
+          "decisions": 177733,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4483150,
+              "sha256": "7ba5e756d8c6e41db4a761290c46b81e6fbffabc1281ff482a1f429ebbeb7359"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4791120,
+              "sha256": "6db92f631d97ec5a8c056de18ca5bcba51be46fff25935c74aa1654bff57300a"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 19.258368083275855,
+          "play_seconds": 90.98894061241299,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 110.81588281132281,
+          "status": "complete"
+        },
+        "replay_seconds": 65.1593018732965,
+        "reproduction": {
+          "decisions": 177733,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 4483150,
+              "sha256": "346461cc3ed6e610289f3d318541c0c0cd57246860c544b587ebc3057baa8a2a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4791120,
+              "sha256": "a74b7f511d8ba7efd58f2336ec5823556d6ef626bdaba7039ca574b63fbb0ad6"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 7.151137578301132,
+          "play_seconds": 107.66698237881064,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 115.36296634748578,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 291.5830498887226,
+        "status": "verified"
+      },
+      "random": {
+        "blocks": 16384,
+        "opponent": "random",
+        "primary": {
+          "decisions": 202954,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 5461309,
+              "sha256": "57ebf71ea8e1f7e45affc8bf3495196842a998394cb085c855b6d9c6072c9dbd"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4973911,
+              "sha256": "5d7ae6937184dabcef4275834e20980f96fc53a5ef8fb89c13af46bba1aca315"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 20.491838828660548,
+          "play_seconds": 111.04349992889911,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 132.11577149108052,
+          "status": "complete"
+        },
+        "replay_seconds": 69.36482000350952,
+        "reproduction": {
+          "decisions": 202954,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 5461309,
+              "sha256": "df9d22ef843adf37f4c84f3e284c284c3d4427a20516bca5e843cf23aa11e7d1"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4973911,
+              "sha256": "6fc24add5b3afa077da82cb15e613ac347aa4fa22333c08763795a477d76a850"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 5.337792705744505,
+          "play_seconds": 117.75923335924745,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 123.63437034748495,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 325.3245492009446,
+        "status": "verified"
+      },
+      "tight_aggressive": {
+        "blocks": 16384,
+        "opponent": "tight_aggressive",
+        "primary": {
+          "decisions": 149786,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 3842431,
+              "sha256": "c2bde0dfa383af5748e9d94763ff77eb7ced5c8ef65c25c4ee187ee61a236ef3"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4207843,
+              "sha256": "a250228e375f6d0c38815ea20205608ca32e7f520442d0f136bacdd4d456b83c"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 20.317598439753056,
+          "play_seconds": 82.01710556261241,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 102.82925763446838,
+          "status": "complete"
+        },
+        "replay_seconds": 51.20203085895628,
+        "reproduction": {
+          "decisions": 149786,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 3842431,
+              "sha256": "fae21539c36ae0a542243d2c4777bdd5ae72fe3c0b25f6d913980c730aae74e6"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 4207843,
+              "sha256": "721804fc5e5ddd5c97eda9e88473694b217c69f510f6cc3499ba03b520e59186"
+            }
+          },
+          "hands": 65536,
+          "load_or_validation_seconds": 8.934732854366302,
+          "play_seconds": 88.32191242370754,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 97.85935827624053,
+          "status": "complete"
+        },
+        "root": 2026101309002,
+        "seconds": 252.22431360464543,
+        "status": "verified"
+      }
+    },
+    "pilot": false,
+    "plan_sha256": "714de3de7a497ae1b89ec404ececdc988c344ef98fbc0cf15fbdff28027ac181",
+    "seconds": 2523.3650344200432,
+    "source": "134719693a3204dedb0c92ba7b59f5add563837e",
+    "status": "verified"
+  },
+  "readout": {
+    "max_swap_growth_bytes": 520192,
+    "min_available_bytes": 7909478400,
+    "min_disk_free_bytes": 95062405120,
+    "readings": 170,
+    "seconds": 862.7706420104951
+  },
+  "total_seconds": 3386.1356764305383
+}

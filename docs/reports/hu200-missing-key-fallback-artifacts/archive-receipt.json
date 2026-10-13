@@ -1,0 +1,14 @@
+{
+  "status": "locally-verified",
+  "path": "/home/davide/deepcfr-eval/missing-key-cc/hu200-missing-key-fallback-PR267-20261013.zip",
+  "bytes": 375510415,
+  "sha256": "04c3f863b8a450b41dbabf2980a3a7207b62bf70647056d8129132088256c5bd",
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "50c6bc8d2e92446928886d6977afb93624506f643446c72a2bb1c44573dccfed",
+  "members": 282,
+  "all_member_sizes_and_hashes_readback": true,
+  "seconds_including_source_hash_pack_readback_whole_hash": 2.4470027508214116,
+  "logical_member_bytes": 375372738,
+  "cloud_upload_accepted": false,
+  "remote_archive_bytes_downloaded": false
+}

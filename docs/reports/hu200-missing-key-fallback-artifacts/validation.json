@@ -1,0 +1,29 @@
+{
+  "scientific_source": "134719693a3204dedb0c92ba7b59f5add563837e",
+  "local_full_run": {
+    "passed": 2058,
+    "skipped": 113,
+    "subtests": 54,
+    "seconds": 523.9,
+    "failures": "three source-admission checks saw report edits made during the run; no behavior failure"
+  },
+  "clean_checkout_rerun": {
+    "passed": 3,
+    "seconds": 4.68,
+    "tests": [
+      "test_native_hu100_baseline::test_full_small_adapter_replay_and_deterministic_reproduction",
+      "test_native_hu100_learning_curves::test_reuse_reference_plays_candidate_only_and_reproduces",
+      "test_native_hu_followup::test_pilot_reserves_all_eight_jobs_and_binds_coordinator"
+    ]
+  },
+  "focused_scientific_source": {
+    "passed": 134,
+    "seconds": 13.58
+  },
+  "later_analysis_identity_fix": {
+    "passed": 59,
+    "seconds": 3.38
+  },
+  "experiment_stops": [],
+  "descriptive_initial_guard_omission": "Initial read-only descriptive pass preceded the guard controller. The exact same anchored server prefix was subsequently reverified with all guard readings retained, matching the original result exactly. No pilot or final evaluation was unguarded."
+}
