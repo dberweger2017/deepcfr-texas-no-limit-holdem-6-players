@@ -27,6 +27,19 @@ selected group. Unfinished/abandoned decisions are excluded from hand groups.
 | M1 #261 | 191 | −296,150 | −15.51 [−27.61, −3.40] | 4,809 | −107,800 | −0.22 [−0.55, +0.10] |
 | Dedicated account prefix | 829 | −1,354,750 | −16.34 [−22.13, −10.55] | 22,323 | −377,300 | −0.17 [−0.35, +0.01] |
 
+Hands touching a miss on each street (columns overlap when one hand misses on
+several streets), followed by the first-miss partition:
+
+| Sample | Preflop | Flop | Turn | River | First miss: preflop/flop/turn/river |
+|---|---:|---:|---:|---:|---|
+| M1 #261 | 46 | 67 | 81 | 86 | 46 / 43 / 49 / 53 |
+| Dedicated prefix | 151 | 236 | 346 | 449 | 151 / 157 / 241 / 280 |
+
+The completed M1 hands contain 320 missing decisions and one stored zero-mass
+decision. The dedicated prefix contains 1,312 missing decisions and two stored
+zero-mass decisions. These categories are distinct; a stored key with no average
+mass is not a missing key.
+
 **This is selection-biased:** missing keys arise in unusual, big-pot lines. It
 motivates the test but does not measure the fallback. Both samples played uniform
 fallback; their historical outcomes cannot be attributed to check-call.
@@ -51,8 +64,13 @@ A cost-only pilot uses 1,024 direct duplicate blocks and 64 blocks per scripted
 opponent. It exposes time, memory and paired SDs without outcome inspection.
 Target final counts are 131,072 direct blocks and 16,384 per scripted opponent;
 one reduction is permitted before outcomes only if projected wall time exceeds
-12 hours at up to four workers. Canonical final source, counts and fresh roots
-will be published in the PR body before final admission.
+12 hours at up to four workers. The canonical plan was published and read back from [#267](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/267)
+before final admission. Scientific source `134719693a3204dedb0c92ba7b59f5add563837e`,
+direct root 2026101309001, panel root 2026101309002; the plan keeps the target
+counts, totaling 720,896 primary hands plus exact reproduction. The cost-only
+pilot completed in 97.39 seconds; the conservative four-worker projection,
+including a second serial replay for readout, is 3.795 hours, below 12 hours.
+No counts were reduced. [Pilot costs/SDs/guard summary](hu200-missing-key-fallback-artifacts/pilot-quote.json).
 
 All server jobs run detached in our own tmux sessions at nice 10. Every resource
 reading is retained at five-second intervals. Stop at available memory below

@@ -1,0 +1,28 @@
+{
+  "baseline_swap_bytes": 4294602752,
+  "command": [
+    "/home/davide/deepcfr-eval/missing-key-cc/venv/bin/python",
+    "-m",
+    "scripts.reanalyze_slumbot_missing",
+    "/home/davide/deepcfr-slumbot/runs/k50-752m-20261013-1218/journal.jsonl",
+    "--prefix-bytes",
+    "160954373",
+    "--model",
+    "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+    "--model-sha256",
+    "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+    "--card-buckets",
+    "/home/davide/deepcfr-slumbot/inputs/tables",
+    "--policy-cache",
+    "/home/davide/deepcfr-slumbot/cache",
+    "--out",
+    "/home/davide/deepcfr-eval/missing-key-cc/server-reanalysis-guarded.json"
+  ],
+  "failure": null,
+  "max_swap_growth_bytes": 344064,
+  "min_available_bytes": 7592960000,
+  "min_disk_free_bytes": 95729397760,
+  "readings": 19,
+  "seconds": 91.95310550369322,
+  "status": "verified"
+}
