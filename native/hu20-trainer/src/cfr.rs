@@ -13,7 +13,8 @@ use std::collections::HashMap;
 use std::hash::{BuildHasherDefault, Hasher};
 
 pub type Key = [u8; 16];
-pub const MAX_ACTIONS: usize = 5;
+/// The overbet menu: fold or check, call, and up to six raises.
+pub const MAX_ACTIONS: usize = 8;
 
 /// Keys are already uniform BLAKE2b digests, so their first eight bytes are the hash.
 #[derive(Default)]
@@ -35,10 +36,10 @@ pub type Table = HashMap<Key, Node, BuildHasherDefault<KeyHasher>>;
 
 /// Read access to a strategy table during traversals: a stored key's menu code and regrets.
 pub trait Lookup: Sync {
-    fn regrets(&self, key: &Key) -> Option<(u8, &[f64])>;
+    fn regrets(&self, key: &Key) -> Option<(u16, &[f64])>;
 }
 impl Lookup for Table {
-    fn regrets(&self, key: &Key) -> Option<(u8, &[f64])> {
+    fn regrets(&self, key: &Key) -> Option<(u16, &[f64])> {
         self.get(key).map(|node| (node.code, &node.regrets[..node.len as usize]))
     }
 }
@@ -110,7 +111,7 @@ pub fn regret_match(regrets: &[f64]) -> [f64; MAX_ACTIONS] {
 #[derive(Clone, Copy, Debug)]
 pub struct Node {
     /// Menu bitmask (`key::NAMES`); stored to catch any key whose menu changes.
-    pub code: u8,
+    pub code: u16,
     pub len: u8,
     pub regrets: [f64; MAX_ACTIONS],
     pub average: [f64; MAX_ACTIONS],
@@ -120,7 +121,7 @@ pub struct Node {
 }
 
 impl Node {
-    pub fn empty(code: u8, len: usize) -> Node {
+    pub fn empty(code: u16, len: usize) -> Node {
         Node { code, len: len as u8, regrets: [0.0; MAX_ACTIONS], average: [0.0; MAX_ACTIONS], visits: 0, stamp: 0 }
     }
     pub fn names(&self) -> Vec<&'static str> {

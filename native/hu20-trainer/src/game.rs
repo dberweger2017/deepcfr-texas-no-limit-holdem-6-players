@@ -12,6 +12,7 @@
 //! and the key's public-history JSON is appended as events happen.
 
 use crate::cards::Cards;
+use crate::key::MenuVersion;
 use hu20_buckets::evaluate;
 
 pub const STACK: u32 = 2000;
@@ -131,6 +132,8 @@ pub struct Core {
     pub game: Game,
     /// The key's card descriptor; it changes no rule or event.
     pub cards: Cards,
+    /// The abstract menu's raise sizes; they change the key's history labels, not the rules.
+    pub menu: MenuVersion,
     pub button: u8,
     pub holes: [[u8; 2]; 2],
     pub board: [u8; 5],
@@ -197,6 +200,7 @@ impl Hand {
         let mut core = Core {
             game,
             cards: Cards::V1,
+            menu: MenuVersion::V1,
             button,
             holes,
             board,
@@ -231,7 +235,7 @@ impl Hand {
 
 impl Core {
     pub fn schema(&self) -> &'static str {
-        self.cards.schema(self.game)
+        crate::key::schema(self.game, matches!(self.cards, Cards::Equity(_)), self.menu)
     }
 
     pub fn finished(&self) -> bool {
@@ -315,6 +319,7 @@ impl Hand {
         let legal = c.legal();
         let pot_before = c.contributed[0] + c.contributed[1];
         let stack_before = c.stack[a];
+        let max_before = c.max_bet;
         let paid = match action.kind {
             Kind::Fold => {
                 assert!(legal.fold);
@@ -348,6 +353,17 @@ impl Hand {
         // Key token: street, actor relative to the button, label with the raise-size bucket.
         let relative: &[u8] = if (a as u8 + 2 - c.button) % 2 == 0 { b"0" } else { b"1" };
         let label: &[u8] = match action.kind {
+            Kind::Raise if c.menu == MenuVersion::V2 => {
+                // The raise above a call as a fraction of the pot after calling, as the menu sizes
+                // it, with bounds between the menu's sizes: 0.35, 0.75, 1.25, 1.75 and 2.5.
+                let (num, den) = ((action.raise_to - max_before) as u64, (pot_before + legal.call_amount) as u64);
+                let size = if 20 * num < 7 * den { 0 } else if 4 * num < 3 * den { 1 } else if 4 * num < 5 * den { 2 }
+                           else if 4 * num < 7 * den { 3 } else if 2 * num < 5 * den { 4 } else { 5 };
+                let all_in = paid == stack_before;
+                [[&b"raise-s"[..], b"raise-s-all-in"], [b"raise-h", b"raise-h-all-in"], [b"raise-p", b"raise-p-all-in"],
+                 [b"raise-o15", b"raise-o15-all-in"], [b"raise-o2", b"raise-o2-all-in"], [b"raise-x", b"raise-x-all-in"]]
+                    [size][all_in as usize]
+            }
             Kind::Raise => {
                 let base = pot_before.max(BIG_BLIND);
                 let all_in = paid == stack_before;
