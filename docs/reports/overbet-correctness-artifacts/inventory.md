@@ -8,7 +8,7 @@ Baseline main `9fc168414f5205f7483d0c6d474919afd7f9b777`. Python AST inspection 
 | `scripts/audit_hu20_cfr_plus_arena.py:106` | Fixed HU20_UNCAPPED_SCHEMA key; frozen v1 campaign model loader. |
 | `scripts/audit_hu20_k50_first_pass_direct.py:56` | Each replay actor uses its own schema; all equity schemas, including K50/menu-v2, discover and receive explicit pinned tables. |
 | `scripts/audit_hu20_turn_search.py:63` | Fixed v1 search protocol; source/search admission rejects v2. |
-| `scripts/audit_native_hu100_baseline.py:106` | Candidate schema/tables; uniform baseline stays explicitly v1. |
+| `scripts/audit_native_hu100_baseline.py:106` | Candidate schema/tables; v1 baseline keeps historical candidate-key coverage context, while v2 uses the uniform reference's own fixed v1 menu/keys. |
 | `scripts/check_exact_lbr_ranker.py:45` | Independent v1 attacker-menu diagnostic; no schema argument. |
 | `scripts/continue_hu20_history.py:87` | Explicit v2 rejection; comparison corpus requires a shared v1 menu. |
 | `scripts/diagnose_native_hu100.py:132,228` | Explicit native card-v1 admission in replay; support-witness history/fixtures are v1. |
