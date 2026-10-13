@@ -15,18 +15,28 @@ fn card_option(args: &[String]) -> hu20_trainer::cards::Cards {
     }
 }
 
+/// `--menu v2` adds half-pot and 1.5× and 2× pot raises to the abstract menu; v1 otherwise.
+fn menu_option(args: &[String]) -> hu20_trainer::key::MenuVersion {
+    match args.iter().position(|a| a == "--menu").map(|i| args[i + 1].as_str()) {
+        None | Some("v1") => hu20_trainer::key::MenuVersion::V1,
+        Some("v2") => hu20_trainer::key::MenuVersion::V2,
+        Some(other) => panic!("unknown --menu {other}: use v1 or v2"),
+    }
+}
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     match args.get(1).map(String::as_str) {
         Some("parity") => {
             let file = std::fs::File::open(&args[2]).expect("fixtures");
             let cards = card_option(&args);
+            let menu = menu_option(&args);
             let (mut hands, mut decisions, mut failures) = (0u64, 0u64, 0u64);
             for line in std::io::BufReader::new(file).lines() {
                 let record: serde_json::Value = serde_json::from_str(&line.unwrap()).unwrap();
                 hands += 1;
                 decisions += record["decisions"].as_array().unwrap().len() as u64;
-                if let Some(problem) = hu20_trainer::parity::check_hand(&record, cards) {
+                if let Some(problem) = hu20_trainer::parity::check_hand(&record, cards, menu) {
                     failures += 1;
                     if failures <= 5 {
                         eprintln!("{problem}");
@@ -85,6 +95,7 @@ fn main() {
             milestones.dedup();
             let game = hu20_trainer::game::Game::from_bb(arg("--stack-bb", "20").parse().unwrap());
             let cards = card_option(&args);
+            let menu = menu_option(&args);
             let max_entries: u64 = arg("--max-entries", "1000000000").parse().unwrap();
             let max_seconds: f64 = arg("--max-seconds", "inf").parse().unwrap();
             let stop_file = args.iter().position(|a| a == "--stop-file").map(|i| std::path::PathBuf::from(&args[i + 1]));
@@ -103,7 +114,7 @@ fn main() {
                 assert_eq!(expected.len(), 64, "resume requires --resume-sha256");
                 assert_eq!(hu20_trainer::export::sha256_file(path), expected, "resume hash differs");
                 let completed = args.iter().position(|a| a == "--completed-nodes").map(|i| args[i + 1].parse().unwrap());
-                let loaded = hu20_trainer::checkpoint::load(path, game, cards, completed, max_entries).expect("resume checkpoint");
+                let loaded = hu20_trainer::checkpoint::load(path, game, cards, menu, completed, max_entries).expect("resume checkpoint");
                 for (flag, value) in [("--seed", loaded.seed.to_string()), ("--roots-per-seat", loaded.roots_per_seat.to_string()),
                                       ("--average-rule", loaded.average.name().to_string())] {
                     if args.iter().any(|a| a == flag) { assert_eq!(arg(flag, ""), value, "resume config differs: {flag}"); }
@@ -114,6 +125,7 @@ fn main() {
                 let mut fresh = hu20_trainer::trainer::Trainer::new(seed, roots);
                 fresh.game = game;
                 fresh.cards = cards;
+                fresh.menu = menu;
                 fresh.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
                 fresh
             };
@@ -255,7 +267,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl [--card-buckets DIR] | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--stack-bb 20|100|200] [--resume PATH --resume-sha256 HASH [--completed-nodes N]] [--recovery] [--max-entries N] [--max-seconds S] [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] [--card-buckets DIR] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] [--card-buckets DIR] --out FOLDER");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl [--card-buckets DIR] [--menu v1|v2] | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--stack-bb 20|100|200] [--resume PATH --resume-sha256 HASH [--completed-nodes N]] [--recovery] [--max-entries N] [--max-seconds S] [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] [--card-buckets DIR] [--menu v1|v2] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] [--card-buckets DIR] --out FOLDER");
             std::process::exit(2);
         }
     }

@@ -64,7 +64,7 @@ struct Entry {
     average: u32,
     regrets: u32,
     stamp: u32,
-    code: u8,
+    code: u16,
     len: u8,
 }
 
@@ -199,7 +199,7 @@ impl Store {
 }
 
 impl Lookup for Store {
-    fn regrets(&self, key: &Key) -> Option<(u8, &[f64])> {
+    fn regrets(&self, key: &Key) -> Option<(u16, &[f64])> {
         let shard = &self.0[Self::shard(key)];
         shard.find(key).map(|i| {
             let e = shard.entry(i);
@@ -212,14 +212,14 @@ impl Lookup for Store {
 mod tests {
     use super::*;
 
-    fn node(code: u8, len: usize, regrets: &[f64], average: &[f64], visits: u64) -> Node {
+    fn node(code: u16, len: usize, regrets: &[f64], average: &[f64], visits: u64) -> Node {
         let mut node = Node { visits, ..Node::empty(code, len) };
         node.regrets[..len].copy_from_slice(regrets);
         node.average[..len].copy_from_slice(average);
         node
     }
 
-    fn bits(node: &Node) -> (u8, u8, Vec<u64>, Vec<u64>, u64, u32) {
+    fn bits(node: &Node) -> (u16, u8, Vec<u64>, Vec<u64>, u64, u32) {
         let n = node.len as usize;
         (node.code, node.len, node.regrets[..n].iter().map(|v| v.to_bits()).collect(),
          node.average[..n].iter().map(|v| v.to_bits()).collect(), node.visits, node.stamp)
@@ -261,7 +261,7 @@ mod tests {
         for i in 0..count {
             let len = 1 + (i % 5) as usize;
             let values: Vec<f64> = (0..len).map(|j| (i * 7 + j as u64) as f64 - 3.0).collect();
-            assert!(store.insert(key(i), node((1u8 << len) - 1, len, &values, &values, i)));
+            assert!(store.insert(key(i), node((1u16 << len) - 1, len, &values, &values, i)));
         }
         assert_eq!(store.len(), count as usize);
         for i in (0..count).step_by(97) {

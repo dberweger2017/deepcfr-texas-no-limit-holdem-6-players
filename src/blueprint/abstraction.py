@@ -41,14 +41,28 @@ HU20_HISTORY_VERSION = "hu20-earlier-streets-public-summary-v1"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
+# The overbet menu: half-pot and 1.5x and 2x pot raises besides min, pot and the conditional jam,
+# with history labels that tell each size apart. Its schemas mirror v1's and K50's.
+HU20_MENU_V2_SCHEMA = "hu20-native-reopening-ordered-history-card-menu-v2"
+HU100_MENU_V2_SCHEMA = "hu100-native-reopening-ordered-history-card-menu-v2"
+HU200_MENU_V2_SCHEMA = "hu200-native-reopening-ordered-history-card-menu-v2"
+HU20_EQUITY_MENU_V2_SCHEMA = "hu20-native-reopening-ordered-history-equity-k50-menu-v2"
+HU100_EQUITY_MENU_V2_SCHEMA = "hu100-native-reopening-ordered-history-equity-k50-menu-v2"
+HU200_EQUITY_MENU_V2_SCHEMA = "hu200-native-reopening-ordered-history-equity-k50-menu-v2"
+MENU_V2_SCHEMAS = (HU20_MENU_V2_SCHEMA, HU100_MENU_V2_SCHEMA, HU200_MENU_V2_SCHEMA,
+                   HU20_EQUITY_MENU_V2_SCHEMA, HU100_EQUITY_MENU_V2_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA)
+EQUITY_SCHEMAS = (*EQUITY_SCHEMAS, HU20_EQUITY_MENU_V2_SCHEMA, HU100_EQUITY_MENU_V2_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA)
+MENU_V2_VERSIONS = {20: "hu20-min-half-pot-overbet-conditional-jam-native-reopening-v2",
+                    100: "hu100-min-half-pot-overbet-conditional-jam-native-reopening-v2",
+                    200: "hu200-min-half-pot-overbet-conditional-jam-native-reopening-v2"}
 SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, HU20_CARD_V2_SCHEMA: 2, HU20_COMPRESSED_CARD_V2_SCHEMA: 2, TP20_SCHEMA: 3}
 SHORTSTACK_SEATS[HU100_SCHEMA] = 2
 SHORTSTACK_SEATS[HU200_SCHEMA] = 2
-SHORTSTACK_SEATS.update({schema: 2 for schema in EQUITY_SCHEMAS})
-STACK_BY_SCHEMA = {schema: 20000 if schema in (HU200_SCHEMA, HU200_EQUITY_SCHEMA) else
-                   10000 if schema in (HU100_SCHEMA, HU100_EQUITY_SCHEMA) else 2000
+SHORTSTACK_SEATS.update({schema: 2 for schema in (*EQUITY_SCHEMAS, *MENU_V2_SCHEMAS)})
+STACK_BY_SCHEMA = {schema: 20000 if schema.startswith("hu200-") else 10000 if schema.startswith("hu100-") else 2000
                    for schema in SHORTSTACK_SEATS}
-NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA, HU200_SCHEMA, *EQUITY_SCHEMAS)
+NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA, HU200_SCHEMA, *EQUITY_SCHEMAS, HU20_MENU_V2_SCHEMA,
+                  HU100_MENU_V2_SCHEMA, HU200_MENU_V2_SCHEMA)
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -63,8 +77,15 @@ class Choice:
 
 
 def choices(view: Observation, *, raise_cap: int | None = 2,
-            free_fold: bool = True) -> tuple[Choice, ...]:
-    """Use a small legal menu, with no speculative 100 BB open shove."""
+            free_fold: bool = True, menu_sizes: str = "v1") -> tuple[Choice, ...]:
+    """Use a small legal menu, with no speculative 100 BB open shove.
+
+    `menu_sizes="v2"` adds half-pot and 1.5x and 2x pot raises. Each size is the raise above
+    a call as a fraction of the pot after calling, clamped to the legal bounds; a target
+    already offered by an earlier name is skipped.
+    """
+    if menu_sizes not in ("v1", "v2"):
+        raise ValueError("Unknown menu sizes")
     if view.finished or view.actor != view.seat:
         raise ValueError("An abstract action menu needs the acting player's view")
     if raise_cap is not None and (type(raise_cap) is not int or raise_cap < 0):
@@ -87,9 +108,17 @@ def choices(view: Observation, *, raise_cap: int | None = 2,
         matched = player.street_bet + legal.call_amount
         after_call = view.pot + legal.call_amount
         low, high = legal.min_raise_to, legal.max_raise_to
+        sized = lambda increment: min(high, max(low, matched + increment))
         targets = (
             ("min", low),
-            ("pot", min(high, max(low, matched + after_call))),
+            ("pot", sized(after_call)),
+            ("jam", high),
+        ) if menu_sizes == "v1" else (
+            ("min", low),
+            ("half", sized(after_call // 2)),
+            ("pot", sized(after_call)),
+            ("pot-1.5", sized(3 * after_call // 2)),
+            ("pot-2", sized(2 * after_call)),
             ("jam", high),
         )
         used = set()
@@ -106,6 +135,17 @@ def choices(view: Observation, *, raise_cap: int | None = 2,
     if not result:
         raise ValueError("The abstraction has no legal action")
     return tuple(result)
+
+
+def menu_sizes(schema: str) -> str:
+    return "v2" if schema in MENU_V2_SCHEMAS else "v1"
+
+
+def schema_choices(view: Observation, schema: str) -> tuple[Choice, ...]:
+    """The menu a native schema's keys were trained with: uncapped raises, no free fold."""
+    if schema not in NATIVE_SCHEMAS and schema not in MENU_V2_SCHEMAS:
+        raise ValueError("Only native schemas have a fixed native menu")
+    return choices(view, raise_cap=None, free_fold=False, menu_sizes=menu_sizes(schema))
 
 
 def _preflop(cards: tuple[str, str]) -> str:
@@ -131,20 +171,43 @@ def _postflop(cards: tuple[str, str], board: tuple[str, ...]) -> tuple[int, ...]
     return (rank, top_band, flush_draw, straight_draw, board_paired)
 
 
-def _history(view: Observation, label_overrides: dict[int, str] | None = None) -> tuple[tuple, ...]:
+V2_RAISE_LABELS = ("raise-s", "raise-h", "raise-p", "raise-o15", "raise-o2", "raise-x")
+
+
+def _v2_raise_size(raise_to: int, max_bet: int, after_call: int) -> int:
+    """The raise above a call as a fraction of the pot after calling, bucketed between the
+    overbet menu's sizes at 0.35, 0.75, 1.25, 1.75 and 2.5, in exact integer arithmetic."""
+    num, den = raise_to - max_bet, after_call
+    return (0 if 20 * num < 7 * den else 1 if 4 * num < 3 * den else 2 if 4 * num < 5 * den
+            else 3 if 4 * num < 7 * den else 4 if 2 * num < 5 * den else 5)
+
+
+def _history(view: Observation, label_overrides: dict[int, str] | None = None,
+             sizes: str = "v1") -> tuple[tuple, ...]:
     """Keep order and actors; bucket public raise sizes without inspecting the deck."""
     pot = 0
     remaining = list(view.history[0].stacks)
+    street_bet = [0] * len(remaining)
     result = []
     for index, event in enumerate(view.history):
         if isinstance(event, BlindPosted):
             pot += event.amount
             remaining[event.seat] -= event.amount
+            street_bet[event.seat] += event.amount
         elif isinstance(event, BoardDealt):
             result.append((event.street.value, "board"))
+            street_bet = [0] * len(remaining)
         elif isinstance(event, ActionTaken):
             label = event.action.kind.value
-            if event.action.kind == ActionKind.RAISE:
+            if event.action.kind == ActionKind.RAISE and sizes == "v2":
+                max_bet = max(street_bet)
+                after_call = pot + max_bet - street_bet[event.seat]
+                label = V2_RAISE_LABELS[_v2_raise_size(event.action.raise_to, max_bet, after_call)]
+                if event.paid == remaining[event.seat]:
+                    label += "-all-in"
+                if label_overrides and index in label_overrides:
+                    label = label_overrides[index]
+            elif event.action.kind == ActionKind.RAISE:
                 ratio = event.paid / max(pot, view.big_blind)
                 size = 0 if ratio < 0.5 else 1 if ratio < 1.5 else 2 if ratio < 3 else 3
                 label = f"raise-{size}"
@@ -161,6 +224,7 @@ def _history(view: Observation, label_overrides: dict[int, str] | None = None) -
             )
             pot += event.paid
             remaining[event.seat] -= event.paid
+            street_bet[event.seat] += event.paid
     return tuple(result)
 
 
@@ -300,7 +364,7 @@ def information_key(
         ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema in SHORTSTACK_SEATS else
         tuple((p.folded, p.all_in) for p in view.players),
         compressed_history(view, history_label_overrides) if schema in HU20_COMPRESSED_SCHEMAS else
-        _history(view, history_label_overrides) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
+        _history(view, history_label_overrides, menu_sizes(schema)) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
         tuple(item.name for item in menu),
     )
     return blake2b(

@@ -105,6 +105,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **Overbet menu (engineering):** `--menu v2` adds half-pot, 1.5× and 2× pot raises with history labels for each size, identically in the native trainer and the Python key; v1 checkpoints stay byte-identical. At equal nodes a v2 iteration's tree is about 3× larger and the table about 1.7× bigger (HU100, 20M nodes). Whether it learns as well per node, and whether it fixes the pot-pressure leak (#251), is the next test. [Report](docs/reports/overbet-menu.md).
+
 - **First Slumbot benchmark ([#253](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/253)):** #248's 200M HU200 model, 1,796 hands: −103 ± 110 BB/100 raw. A pipeline benchmark, not a v0.5.5 result. Losses come from showdowns and cheap folds; uniform fallback is rare. Slumbot's baseline follows our actions and is not used. [Report](docs/reports/hu200-200m-slumbot-benchmark.md).
 
 - **Slumbot client:** complete hands against Slumbot's live public API, each settlement recomputed from the public actions and both revealed hands and checked against the reported winnings. `scripts/play_slumbot.py` plays a scripted player or a pinned HU200 average, with an optional account login. 32 live protocol hands verify; about 9.4 s per hand. Slumbot's per-hand baseline follows our own actions, so it is not a skill measure: benchmarks report raw winnings. [Report](docs/reports/slumbot-client.md).
