@@ -111,6 +111,7 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             let cards = card_option(&args);
             let menu = menu_option(&args);
             let max_entries: u64 = arg("--max-entries", "1000000000").parse().unwrap();
+            let freeze_at_cap = args.iter().any(|a| a == "--freeze-at-cap");
             let max_seconds: f64 = arg("--max-seconds", "inf").parse().unwrap();
             let stop_file = args.iter().position(|a| a == "--stop-file").map(|i| std::path::PathBuf::from(&args[i + 1]));
             let telemetry = args.iter().position(|a| a == "--telemetry").map(|i| std::path::PathBuf::from(&args[i + 1]));
@@ -143,6 +144,8 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
                 fresh.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
                 fresh
             };
+            assert!(freeze_at_cap || trainer.frozen_table.is_none(), "frozen checkpoint resume requires --freeze-at-cap");
+            if freeze_at_cap { trainer.freeze_at_cap(max_entries); }
             let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game != hu20_trainer::game::Game::Hu20;
             // CFR+'s floor keeps the production average weights, so exports and their bounds are unchanged.
             // DCFR reweights the average and stays bench-only.
@@ -164,6 +167,7 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             let started = std::time::Instant::now();
             let initial_nodes = trainer.nodes;
             let (mut previous_nodes, mut previous_entries, mut previous_seconds) = (trainer.nodes, trainer.table.len(), 0.0);
+            let mut previous_freeze = hu20_trainer::telemetry::FreezeSnapshot::new(&trainer);
             for milestone in milestones {
                 if milestone <= initial_nodes { continue; }
                 let mut stopped = false;
@@ -171,7 +175,8 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
                     if started.elapsed().as_secs_f64() >= max_seconds
                         || stop_file.as_ref().map_or(false, |path| path.exists()) { stopped = true; break; }
                     trainer.step();
-                    if trainer.table.len() as u64 >= max_entries { stopped = true; break; }
+                    if freeze_at_cap { trainer.freeze_at_cap(max_entries); }
+                    else if trainer.table.len() as u64 >= max_entries { stopped = true; break; }
                 }
                 let seconds = started.elapsed().as_secs_f64();
                 let path = std::path::PathBuf::from(out.replace("{nodes}", &milestone.to_string()));
@@ -200,9 +205,11 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
                         "entries_per_completed_node": trainer.table.len() as f64 / trainer.nodes.max(1) as f64,
                         "nodes_since_previous_save": trainer.nodes - previous_nodes,
                         "diagnostics": hu20_trainer::telemetry::diagnostics(&trainer),
+                        "frozen_table": hu20_trainer::telemetry::freeze_receipt(&trainer, &previous_freeze),
                         "stop_requested": stop_file.as_ref().map_or(false, |path| path.exists()),
                         "audit_status": "unaudited"});
                     hu20_trainer::telemetry::append(receipts, &record).expect("checkpoint telemetry");
+                    previous_freeze = hu20_trainer::telemetry::FreezeSnapshot::new(&trainer);
                     previous_nodes = trainer.nodes; previous_entries = trainer.table.len(); previous_seconds = elapsed;
                 }
                 println!("milestone {} iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0} path {}",

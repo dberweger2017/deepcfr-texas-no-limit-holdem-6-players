@@ -303,6 +303,9 @@ pub struct Traversal<'a, S: Sampler, L: Lookup = Table> {
     pub terminals: u64,
     pub decisions_by_street: [u64; 4],
     pub traverser_visits_by_street: [u64; 4],
+    /// Table misses, including opponent-only stored keys as hits even without regret storage.
+    pub missing_traverser_by_street: [u64; 4],
+    pub missing_opponent_by_street: [u64; 4],
 }
 
 impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
@@ -315,7 +318,7 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
         deltas.clear();
         let t = iteration as f64;
         Traversal { table, iteration, traverser, sampler, average: AverageRule::TraverserReach, regret_weight: t,
-                    average_weight: t, deltas, nodes: 0, terminals: 0, decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4] }
+                    average_weight: t, deltas, nodes: 0, terminals: 0, decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4], missing_traverser_by_street: [0; 4], missing_opponent_by_street: [0; 4] }
     }
 
     pub fn run(&mut self, hand: &mut Hand) -> f64 {
@@ -339,7 +342,13 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
                 assert!(code == options.code, "a v1 key changed its action menu");
                 regret_match(regrets)
             }
-            None => [1.0 / n as f64; MAX_ACTIONS],
+            None => {
+                let misses = if hand.actor.unwrap() as usize == self.traverser {
+                    &mut self.missing_traverser_by_street
+                } else { &mut self.missing_opponent_by_street };
+                misses[hand.street as usize] += 1;
+                [1.0 / n as f64; MAX_ACTIONS]
+            },
         };
         if hand.actor.unwrap() as usize != self.traverser {
             if self.average == AverageRule::OpponentSampled {
