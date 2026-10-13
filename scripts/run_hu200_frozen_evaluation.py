@@ -88,8 +88,16 @@ def admission(config, out):
     if not config.get('release_confirmed') or not statement or not any(statement in s for s in texts):
         raise ValueError('Explicit live PR265 agent release statement required')
     found = []
+    own = {psutil.Process().pid, *[p.pid for p in psutil.Process().parents()]}
     for process in psutil.process_iter(['pid', 'ppid', 'create_time', 'cmdline'], ad_value=None):
-        command = ' '.join(process.info['cmdline'] or [])
+        if process.info['pid'] in own:
+            continue
+        arguments = process.info['cmdline'] or []
+        # An existing venv can serve a different campaign. The interpreter's
+        # location alone does not make that process PR265-owned.
+        if arguments and '/.venv/' in arguments[0]:
+            arguments = arguments[1:]
+        command = ' '.join(arguments)
         if 'hu200-k50-frozen-20261013' in command or 'planning/hu200-k50-frozen/' in command:
             found.append(process.info)
     receipt = {'pr265': live, 'affirmative_release_statement': statement,

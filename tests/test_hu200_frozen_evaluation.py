@@ -56,3 +56,15 @@ def test_pr265_process_blocks_admission_without_signaling(tmp_path, monkeypatch)
     with pytest.raises(ValueError, match='still running'):
         campaign.admission({'release_statement': 'M4 released for compute', 'release_confirmed': True}, tmp_path)
     assert campaign.read(tmp_path/'admission.json')['occupancy'][0]['pid'] == 265
+
+
+def test_shared_interpreter_does_not_imply_pr265_ownership(tmp_path, monkeypatch):
+    monkeypatch.setattr(campaign, 'time', lambda: campaign.OPEN+1)
+    monkeypatch.setattr(campaign, 'gh', lambda *args: '{"body":"M4 released for compute","comments":[]}')
+    class Process:
+        info = {'pid': 987654, 'ppid': 1, 'create_time': 100, 'cmdline': [
+            '/Users/dberweger/Local/hu200-k50-frozen-20261013/.venv/bin/python',
+            '-m', 'scripts.run_hu200_frozen_evaluation', 'run']}
+    monkeypatch.setattr(campaign.psutil, 'process_iter', lambda *args, **kwargs: [Process()])
+    campaign.admission({'release_statement': 'M4 released for compute', 'release_confirmed': True}, tmp_path)
+    assert campaign.read(tmp_path/'admission.json')['occupancy'] == []
