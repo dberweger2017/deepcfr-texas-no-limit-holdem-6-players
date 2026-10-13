@@ -382,3 +382,19 @@ def test_analysis_pools_runs_and_keeps_each_part(tmp_path):
                 'responses_by_bet_size'):
         assert pooled[key] == whole[key]
     assert 'parts' not in whole
+
+
+
+def test_a_run_for_one_account_refuses_another_username_before_any_request(tmp_path, monkeypatch, capsys):
+    import scripts.play_slumbot as play
+    monkeypatch.setattr(play, 'ENV_FILE', tmp_path / 'missing.env')
+    for key in ('SLUMBOT_USERNAME', 'SLUMBOT_PASSWORD'):
+        monkeypatch.delenv(key, raising=False)
+    monkeypatch.setattr('builtins.input', lambda prompt: 'someone-else')
+    monkeypatch.setattr(play.getpass, 'getpass', lambda prompt: pytest.fail('asked for a password'))
+    monkeypatch.setattr(play, 'HttpTransport', lambda *a, **k: pytest.fail('made a request'))
+    monkeypatch.setattr('sys.argv', ['play_slumbot', '--hands', '1', '--login', '--account', 'deepcfr-model',
+                                     '--out', str(tmp_path / 'run')])
+    with pytest.raises(SystemExit) as stop:
+        play.main()
+    assert stop.value.code == 1 and 'for the Slumbot account deepcfr-model, not someone-else' in capsys.readouterr().err
