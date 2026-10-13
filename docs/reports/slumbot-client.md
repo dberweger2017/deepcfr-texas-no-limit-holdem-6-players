@@ -37,6 +37,15 @@ python -m scripts.play_slumbot --hands 1000 --model K50-AVERAGE.gz --model-sha25
 
 With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. The login is checked before the model loads, and a refusal shows Slumbot's reason. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
 
+## Accounts
+
+Slumbot's site totals and leaderboard count per account, so a model gets its own account when its entry should describe that model alone. Each account is named after its model. Probes and tests run anonymously. Credentials never enter the repository.
+
+| Account | Use | Played |
+|---|---|---|
+| `dberwegerch` | The owner's own account, for tests and benchmarks. It mixes models, so its site totals describe none of them. | October 13: #248's 200M HU200 model (1,796 hands, [#253](hu200-200m-slumbot-benchmark.md)); #250's K50 752M average (a 5,000-hand benchmark in parts). |
+| `deepcfr-k50-752m` | Dedicated to #250's K50 HU200 terminal average, 752,593,175 nodes, SHA256 `60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c`, with #163's pinned tables. | From October 13: one run of up to 200,000 hands or 70 hours. |
+
 ## Limits
 
 - **No duplicate pairing:** the service deals fresh cards each hand, and its baseline is no substitute (see above). Variance reduction has to be our own.
