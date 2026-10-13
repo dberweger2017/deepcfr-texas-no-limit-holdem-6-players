@@ -1,0 +1,127 @@
+{
+  "elapsed_excluding_save_seconds": 213.02891729100003,
+  "milestones": [
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a",
+      "checkpoint_bytes": 759275650,
+      "checkpoint_sha256": "f340b44cbaad923be4851cd7628f3513a937d900d7e5039dbabfea105ecfc2de",
+      "completed_nodes": 100003185,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          1431657,
+          4923486,
+          13762913,
+          35198175
+        ],
+        "entries": 20495916,
+        "positive_average_mass_keys": 13563124,
+        "traverser_visits": 19795588,
+        "traverser_visits_by_street": [
+          507967,
+          1759989,
+          4932680,
+          12594952
+        ],
+        "visits_histogram": {
+          "0": 10935438,
+          "1": 6844749,
+          "10-99": 214239,
+          "100+": 4190,
+          "2-9": 2497300
+        },
+        "zero_average_mass_keys": 6932792
+      },
+      "elapsed_seconds_including_writes": 208.85201775,
+      "entries_per_completed_node": 0.20495263225866256,
+      "iteration": 51354,
+      "new_entries": 20495916,
+      "nodes_per_second_including_writes": 478823.16904261755,
+      "nodes_since_previous_save": 100003185,
+      "overshoot_nodes": 3185,
+      "path": "/Users/dberweger/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-100000000.gz",
+      "process_rss_bytes_after_save": 988233728,
+      "recent_nodes_per_second_including_writes": 478823.16904261755,
+      "requested_nodes": 100000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791844394.78051,
+      "write_seconds": 102.762438042,
+      "write_started": 1791844292.019639
+    },
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a",
+      "checkpoint_bytes": 1206916078,
+      "checkpoint_sha256": "bfe4d7295a88489683d96f7b9881e316b5cb6cb0ab0f3086ee6a78bfce665d0a",
+      "completed_nodes": 200001087,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          2804371,
+          9442521,
+          27112264,
+          71160245
+        ],
+        "entries": 31582921,
+        "positive_average_mass_keys": 20911828,
+        "traverser_visits": 39718083,
+        "traverser_visits_by_street": [
+          989368,
+          3339027,
+          9745255,
+          25644433
+        ],
+        "visits_histogram": {
+          "0": 16034762,
+          "1": 10357510,
+          "10-99": 539707,
+          "100+": 13353,
+          "2-9": 4637589
+        },
+        "zero_average_mass_keys": 10671093
+      },
+      "elapsed_seconds_including_writes": 462.1532755,
+      "entries_per_completed_node": 0.15791374673878647,
+      "iteration": 111844,
+      "new_entries": 11087005,
+      "nodes_per_second_including_writes": 432759.2112889828,
+      "nodes_since_previous_save": 99997902,
+      "overshoot_nodes": 1087,
+      "path": "/Users/dberweger/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-200000000.gz",
+      "process_rss_bytes_after_save": 1072267264,
+      "recent_nodes_per_second_including_writes": 394778.5450741608,
+      "requested_nodes": 200000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791844648.077905,
+      "write_seconds": 146.361920167,
+      "write_started": 1791844501.718217
+    }
+  ],
+  "native_elapsed_seconds": 462.1532755,
+  "recipe": "fresh HU200, opponent-sampled, linear, one root per seat, v1 cards, existing menu",
+  "scope": "Native elapsed excluding save includes traversal and between-save hashing/diagnostics; no strength claim.",
+  "seed": 2026101301,
+  "sum_save_seconds": 249.12435820899998,
+  "supervised_train": {
+    "failure": null,
+    "kernel_command_peak_rss_bytes": 2813755392,
+    "peak_family_rss_bytes": 2834317312,
+    "returncode": 0,
+    "seconds": 470.4705989590002,
+    "soft_stop_requested": false,
+    "status": "complete"
+  }
+}

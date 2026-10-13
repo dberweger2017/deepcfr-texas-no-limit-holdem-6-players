@@ -1,0 +1,92 @@
+{
+  "status": "cloud-metadata-confirmed",
+  "archives": [
+    {
+      "id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+      "name": "HU200-200M-M1-evidence-20261013.zip",
+      "bytes": 4132696783,
+      "parents": [
+        "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq"
+      ],
+      "url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+      "metadata": {
+        "id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+        "title": "HU200-200M-M1-evidence-20261013.zip",
+        "mime_type": "application/zip",
+        "size": "4132696783",
+        "url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "id": "1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc",
+      "name": "HU200-200M-average-only-20261013.zip",
+      "bytes": 800092256,
+      "parents": [
+        "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq"
+      ],
+      "url": "https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk",
+      "metadata": {
+        "id": "1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc",
+        "title": "HU200-200M-average-only-20261013.zip",
+        "mime_type": "application/zip",
+        "size": "800092256",
+        "url": "https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    }
+  ],
+  "folder": {
+    "id": "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+    "name": "PR-248-hu200-200m-model",
+    "url": "https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+    "parents": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "metadata": {
+      "id": "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "title": "PR-248-hu200-200m-model",
+      "mime_type": "application/vnd.google-apps.folder",
+      "size": null,
+      "url": "https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "display_url": "https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "file_or_folder": "folder",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    }
+  },
+  "remote_archive_bytes_downloaded": false
+}

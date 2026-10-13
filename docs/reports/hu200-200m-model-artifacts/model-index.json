@@ -1,0 +1,176 @@
+{
+  "archives": {
+    "average-only": {
+      "bytes": 800092256,
+      "drive_id": "1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc",
+      "drive_url": "https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk",
+      "folder_id": "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "folder_url": "https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "manifest_path": null,
+      "manifest_sha256": null,
+      "members_readback": "every size and SHA256 agrees",
+      "name": "HU200-200M-average-only-20261013.zip",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-average-only-20261013.zip",
+      "remote_bytes_downloaded": false,
+      "sha256": "6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2",
+      "verified_members": 1
+    },
+    "full": {
+      "bytes": 4132696783,
+      "drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+      "drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+      "folder_id": "13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "folder_url": "https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq",
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "6da6a8b48e65f838d5cdcdeb61e1f556d4a89a843f3dae8dd013a31469a0ab12",
+      "members_readback": "every size and SHA256 agrees",
+      "name": "HU200-200M-M1-evidence-20261013.zip",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip",
+      "remote_bytes_downloaded": false,
+      "sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+      "verified_members": 73
+    }
+  },
+  "binary_sha256": "8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a",
+  "execution_start_revision": "16d762a569933abf0411dba787e2e3a2b26004a7",
+  "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+  "local_average": {
+    "bytes": 800092100,
+    "loader": "AveragePolicy(path, expected_sha256, expected_schema=HU200_SCHEMA, sorted_rows=True)",
+    "path": "/Users/dberweger/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-200000000.gz.average.gz",
+    "retained": true,
+    "sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402"
+  },
+  "member_manifest": {
+    "path": "ARCHIVE-MANIFEST.json",
+    "readback": "Every member size/SHA256 verified locally; average-only ZIP contains exactly one export. Common full manifest and this index pin that member.",
+    "sha256": "6da6a8b48e65f838d5cdcdeb61e1f556d4a89a843f3dae8dd013a31469a0ab12"
+  },
+  "models": [
+    {
+      "actual_nodes": 100003185,
+      "entries": 20495916,
+      "files": {
+        "checkpoint": {
+          "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+          "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+          "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+          "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+          "bytes": 759275650,
+          "member_path": "HU200-100000000.gz",
+          "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-100000000-checkpoint-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"HU200-100000000.gz\"\nwith ZipFile(archive) as z, z.open(\"HU200-100000000.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==759275650 and sha(target)==\"f340b44cbaad923be4851cd7628f3513a937d900d7e5039dbabfea105ecfc2de\"\nprint(target.resolve())\nPY",
+          "sha256": "f340b44cbaad923be4851cd7628f3513a937d900d7e5039dbabfea105ecfc2de"
+        }
+      },
+      "iteration": 51354,
+      "mean_traverser_visits_per_key": 0.9658308513754643,
+      "target": 100000000,
+      "zero_visit_fraction": 0.5335422920351547
+    },
+    {
+      "actual_nodes": 200001087,
+      "entries": 31582921,
+      "files": {
+        "average": {
+          "archive_drive_id": "1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc",
+          "archive_drive_url": "https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk",
+          "archive_name": "HU200-200M-average-only-20261013.zip",
+          "archive_sha256": "6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2",
+          "bytes": 800092100,
+          "member_path": "HU200-200000000.gz.average.gz",
+          "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-average-only-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==800092256 and sha(archive)==\"6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2\"\ndestination=Path(\"results/retrieved/pr248-200m-average-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"HU200-200000000.gz.average.gz\"\nwith ZipFile(archive) as z, z.open(\"HU200-200000000.gz.average.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==800092100 and sha(target)==\"b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402\"\nprint(target.resolve())\nPY",
+          "sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402"
+        },
+        "checkpoint": {
+          "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+          "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+          "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+          "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+          "bytes": 1206916078,
+          "member_path": "HU200-200000000.gz",
+          "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-200000000-checkpoint-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"HU200-200000000.gz\"\nwith ZipFile(archive) as z, z.open(\"HU200-200000000.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==1206916078 and sha(target)==\"bfe4d7295a88489683d96f7b9881e316b5cb6cb0ab0f3086ee6a78bfce665d0a\"\nprint(target.resolve())\nPY",
+          "sha256": "bfe4d7295a88489683d96f7b9881e316b5cb6cb0ab0f3086ee6a78bfce665d0a"
+        },
+        "current": {
+          "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+          "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+          "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+          "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+          "bytes": 777323215,
+          "member_path": "HU200-200000000.gz.current.gz",
+          "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-200m-current-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"HU200-200000000.gz.current.gz\"\nwith ZipFile(archive) as z, z.open(\"HU200-200000000.gz.current.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==777323215 and sha(target)==\"b25b02eb855e07b23d86c83b23036b0c0eaa30d7ceb7246ce025257f56fe7503\"\nprint(target.resolve())\nPY",
+          "sha256": "b25b02eb855e07b23d86c83b23036b0c0eaa30d7ceb7246ce025257f56fe7503"
+        }
+      },
+      "iteration": 111844,
+      "mean_traverser_visits_per_key": 1.2575810514803238,
+      "target": 200000000,
+      "zero_visit_fraction": 0.5077035781459226
+    }
+  ],
+  "native_tree": "25aafbce93956aa54cf885c7275cbe73581810e0",
+  "no_slumbot_requests": true,
+  "no_strength_claim": true,
+  "originals_retained": true,
+  "owning_pr": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/248",
+  "purpose": "200M is far below any release budget; pipeline exercise only",
+  "recovery_files": [
+    {
+      "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+      "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+      "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+      "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+      "bytes": 227890921,
+      "member_path": "recovery-full-20m.gz",
+      "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-recovery-full-20m-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"recovery-full-20m.gz\"\nwith ZipFile(archive) as z, z.open(\"recovery-full-20m.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==227890921 and sha(target)==\"c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5\"\nprint(target.resolve())\nPY",
+      "sha256": "c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5"
+    },
+    {
+      "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+      "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+      "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+      "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+      "bytes": 128886941,
+      "member_path": "recovery-part-10m.gz",
+      "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-recovery-part-10m-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"recovery-part-10m.gz\"\nwith ZipFile(archive) as z, z.open(\"recovery-part-10m.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==128886941 and sha(target)==\"a39746c376656f3e5e2b6b6199e3054692ce1d07e073f8568c291e774d3347e1\"\nprint(target.resolve())\nPY",
+      "sha256": "a39746c376656f3e5e2b6b6199e3054692ce1d07e073f8568c291e774d3347e1"
+    },
+    {
+      "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+      "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+      "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+      "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+      "bytes": 227890921,
+      "member_path": "recovery-resumed-20m.gz",
+      "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-recovery-resumed-20m-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"recovery-resumed-20m.gz\"\nwith ZipFile(archive) as z, z.open(\"recovery-resumed-20m.gz\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==227890921 and sha(target)==\"c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5\"\nprint(target.resolve())\nPY",
+      "sha256": "c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5"
+    }
+  ],
+  "remote_archive_bytes_downloaded": false,
+  "retrieval": "Commands read the accepted archive through the existing native Drive shortcut; opening it may materialize a synced file. Alternatively download the observed Drive URL to a fresh ignored archive path and change only the archive variable. Whole archive and member size/SHA256 are required. Never overwrite an active input or automatically start training.",
+  "runtime": {
+    "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+    "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+    "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+    "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+    "bytes": 1400416,
+    "member_path": "runtime/hu20-trainer",
+    "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-runtime-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"hu20-trainer\"\nwith ZipFile(archive) as z, z.open(\"runtime/hu20-trainer\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==1400416 and sha(target)==\"8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a\"\nprint(target.resolve())\nPY",
+    "sha256": "8c50f67b6628a33f3fddd02a692a15ff06c9bfde82b9e6db0ba594095d32b94a"
+  },
+  "schema": "hu200-native-reopening-ordered-history-card-v1",
+  "seed": 2026101301,
+  "source_main": "d5c113f76efa0b4c63dc5956b278a4acbe53f718",
+  "source_snapshot": {
+    "archive_drive_id": "1z0vFrM0ChRs1TIErlnxip467IIWaUfqM",
+    "archive_drive_url": "https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk",
+    "archive_name": "HU200-200M-M1-evidence-20261013.zip",
+    "archive_sha256": "f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794",
+    "bytes": 993280,
+    "member_path": "source.tar",
+    "retrieval_command": "python - <<'PY'\nfrom pathlib import Path\nfrom zipfile import ZipFile\nimport hashlib, shutil\narchive=Path.home()/\"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-M1-evidence-20261013.zip\"\ndef sha(path):\n    h=hashlib.sha256()\n    with path.open('rb') as f:\n        for block in iter(lambda:f.read(1024**2),b''):h.update(block)\n    return h.hexdigest()\nassert archive.stat().st_size==4132696783 and sha(archive)==\"f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794\"\ndestination=Path(\"results/retrieved/pr248-source-NEW\")\ndestination.mkdir(parents=True,exist_ok=False)\ntarget=destination/\"source.tar\"\nwith ZipFile(archive) as z, z.open(\"source.tar\") as source, target.open('xb') as output:\n    shutil.copyfileobj(source,output,1024**2)\nassert target.stat().st_size==993280 and sha(target)==\"43bc42a96a4387ef17b696df693c68086c531b6b4ef795d6bf0ad9f4d2ef5484\"\nprint(target.resolve())\nPY",
+    "sha256": "43bc42a96a4387ef17b696df693c68086c531b6b4ef795d6bf0ad9f4d2ef5484"
+  },
+  "stack_bb": 200,
+  "status": "final-verified-uploaded"
+}

@@ -1,0 +1,17 @@
+{
+  "base_main": "30c4a9dcd2da8e936e23d278cd912c4bac276b3b",
+  "checks": [
+    "all source/native pins match execution code",
+    "all actual nodes/iterations/entry and visit arithmetic agrees",
+    "all 31,582,921 checkpoint/current/average rows audited",
+    "64 unique hands and 452 independent native decisions replay",
+    "native/cloud archive IDs names bytes parents agree",
+    "all nine model/recovery/runtime/source retrieval commands parse and pin archive/member hashes",
+    "only own docs/roadmap/index additions vs main; other research index entries preserved",
+    "all observed M1 guards pass; no Slumbot/live/strength/release action"
+  ],
+  "model_average_sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402",
+  "required_ci": "Current final-head checks must pass before merge",
+  "review_type": "diff and evidence self-review; no rules/information/regret-math changes",
+  "status": "clear"
+}
