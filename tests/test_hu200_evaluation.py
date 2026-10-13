@@ -114,6 +114,19 @@ def test_panel_all_opponents_pairs_arms_and_reports_only_costs_in_pilot(tmp_path
                         assert streams=={direct.action_seed(202610130703,block,r,role)}
     checked=direct.audit(tmp_path/'panel'/'half_pot_pressure'/'play',tmp_path/'report.json',report=True)
     assert 'bonferroni_seven_ci' in checked and set(checked['arms'])=={'candidate','baseline'}
+    # Independently recount block means; neither correlated seats nor arms are samples.
+    from statistics import mean, stdev
+    from math import sqrt
+    from scipy.stats import t
+    rows=list(map(json.loads,gzip.open(tmp_path/'panel/half_pot_pressure/play/hands.jsonl.gz','rt')))
+    chip={(r['block'],r['rotation'],r['arm']):r['candidate_chips'] for r in rows}
+    sample=[sum(chip[b,r,'candidate']-chip[b,r,'baseline'] for r in (0,1))/2 for b in range(3)]
+    center,sd=mean(sample),stdev(sample)
+    assert checked['bb_per_100']==center and checked['paired_sd_bb_per_100']==sd
+    margin=float(t.ppf(1-.05/14,2))*sd/sqrt(3)
+    assert checked['bonferroni_seven_ci']==[center-margin,center+margin]
+    for arm in ('candidate','baseline'):
+        assert checked['arms'][arm]['bb_per_100']==mean([sum(chip[b,r,arm] for r in (0,1))/2 for b in range(3)])
 
 
 def test_size_controls_only_change_wager_and_preserve_rng():
