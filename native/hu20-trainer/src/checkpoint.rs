@@ -3,7 +3,7 @@ use crate::cards::{Cards, EQUITY_DESCRIPTOR, V1_DESCRIPTOR};
 use crate::cfr::{AverageRule, Node};
 use crate::game::Game;
 use crate::key::MenuVersion;
-use crate::trainer::Trainer;
+use crate::trainer::{FrozenTable, Trainer};
 use flate2::read::GzDecoder;
 use serde_json::{json, Value};
 use std::io::{BufRead, BufReader};
@@ -42,7 +42,24 @@ pub fn header_menu(h: &Value, game: Game) -> Result<MenuVersion, String> {
     h["identity"]["action_menu"].as_str().and_then(|name| MenuVersion::parse(name, game)).ok_or_else(|| "unsupported action menu".into())
 }
 
+/// Validate the optional extension without changing admission of old checkpoint headers.
+pub fn frozen_table(h: &Value) -> Result<Option<FrozenTable>, String> {
+    let Some(state) = h.get("frozen_table") else { return Ok(None); };
+    if state.as_object().map_or(true, |s| s.len() != 5) || state["version"] != 1 || h.get("native_state").is_none() {
+        return Err("invalid frozen table version/fields or missing recovery state".into());
+    }
+    let count = |field: &str| state[field].as_u64().ok_or_else(|| format!("invalid frozen table {field}"));
+    let frozen = FrozenTable { since_iteration: count("since_iteration")?, entries: count("entries")?,
+        discarded_traverser_visits: count("discarded_traverser_visits")?, discarded_updates: count("discarded_updates")? };
+    if frozen.since_iteration > h["iteration"].as_u64().ok_or("invalid iteration")? || frozen.entries == 0
+        || (frozen.discarded_traverser_visits > 0 && frozen.discarded_updates == 0) {
+        return Err("inconsistent frozen table counters".into());
+    }
+    Ok(Some(frozen))
+}
+
 pub fn header_game(h: &Value) -> Result<Game, String> {
+    frozen_table(h)?;
     let game = match h["config"]["game"].as_str() {
         Some(crate::trainer::GAME) => Game::Hu20,
         Some("hu100-native-reopening-100bb-52card-no-ante-rake-v1") => Game::Hu100,
@@ -130,6 +147,7 @@ pub fn load(path: &Path, expected: Game, cards: Cards, menu: MenuVersion, comple
     trainer.menu = menu;
     trainer.iteration = h["iteration"].as_u64().unwrap();
     trainer.nodes = nodes;
+    trainer.frozen_table = frozen_table(&h)?;
     if let Some(state) = h.get("native_state") {
         let baseline = state["coverage_start"].as_array().ok_or("missing coverage baseline")?;
         if baseline.len() != 3 { return Err("invalid coverage baseline".into()); }
@@ -153,15 +171,20 @@ pub fn load(path: &Path, expected: Game, cards: Cards, menu: MenuVersion, comple
             return Err("checkpoint exceeds entry cap".into());
         }
     }
+    if trainer.frozen_table.map_or(false, |state| state.entries != trainer.table.len() as u64) {
+        return Err("frozen table entry count differs".into());
+    }
     let total_visits = trainer.table.iter().try_fold(0u64, |sum, (_, node)| sum.checked_add(node.visits)).ok_or("visit counter overflow")?;
     if h.get("native_state").is_none() {
         trainer.coverage_start = [trainer.iteration, trainer.nodes, total_visits];
     }
     let decisions = trainer.decisions_by_street.iter().try_fold(0u64, |sum, &n| sum.checked_add(n)).ok_or("coverage overflow")?;
     let visits = trainer.traverser_visits_by_street.iter().try_fold(0u64, |sum, &n| sum.checked_add(n)).ok_or("coverage overflow")?;
+    let discarded_visits = trainer.frozen_table.map_or(0, |state| state.discarded_traverser_visits);
+    let accounted_visits = total_visits.checked_add(discarded_visits).ok_or("visit counter overflow")?;
     if trainer.coverage_start[0] > trainer.iteration || trainer.coverage_start[1] > trainer.nodes
         || decisions > trainer.nodes - trainer.coverage_start[1]
-        || trainer.coverage_start[2].checked_add(visits) != Some(total_visits)
+        || trainer.coverage_start[2].checked_add(visits) != Some(accounted_visits)
         || trainer.traverser_visits_by_street.iter().zip(trainer.decisions_by_street).any(|(&v, d)| v > d)
     { return Err("inconsistent native coverage counters".into()); }
     Ok(trainer)
