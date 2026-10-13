@@ -52,8 +52,6 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Ground rules
 
-- **Slumbot comparison on dedicated accounts ([#264](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/264)):** 5,000 hands each: K50 752M −81 ± 56, 200M v1 −172 ± 72, random legal −297 ± 87 BB/100. The expected order; most of the model gap is at showdown. Both models fold to Slumbot's half-pot bets as often as to pot bets, a hypothesis to test. [Report](docs/reports/slumbot-account-benchmarks.md).
-
 - **Information:** the agent receives an immutable observation of what its seat legitimately knows — its cards, the board, every observed action and amount, legal action bounds, revealed cards and its own history with each player. It never sees other players' hidden cards, the deck, seeds, future outcomes or evaluator data. Training may use simulated payoffs and counterfactual branches as targets, never as inputs; search samples hidden worlds from legal beliefs, never from the real deal. Details: [observations](docs/observations.md).
 - **Rules:** cash-game no-limit Hold'em under the profile in [docs/rules.md](docs/rules.md). Tournament rules, ICM, straddles, rake and multiple runouts are separate scope decisions, never silent approximations.
 - **Architecture:** rules engine, session manager, agent (observation in, legal action out), solver/trainer, evaluation arena, search/adaptation — small explicit boundaries. Native code where profiling justifies it.
@@ -110,6 +108,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 - **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
 *Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+
+- **Slumbot comparison on dedicated accounts ([#264](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/264)):** 5,000 hands each: K50 752M −81 ± 56, 200M v1 −172 ± 72, random legal −297 ± 87 BB/100. The expected order; most of the model gap is at showdown. Both models fold to Slumbot's half-pot bets as often as to pot bets, a hypothesis to test. [Report](docs/reports/slumbot-account-benchmarks.md).
 
 - **K50 752M against Slumbot ([#261](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/261)):** #250's K50 HU200 average, 5,000 hands on the owner's account: −81 ± 56 BB/100 raw, −74 ± 51 all-in adjusted. Not detectably different from the 200M model (−103 ± 110). Showdowns cost much less; postflop folds cost more. Slumbot rarely overbets. Dedicated accounts per model are now used for leaderboard entries. [Report](docs/reports/hu200-k50-752m-slumbot-benchmark.md).
 
