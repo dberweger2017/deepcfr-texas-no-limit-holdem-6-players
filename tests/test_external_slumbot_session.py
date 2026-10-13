@@ -360,3 +360,41 @@ def test_analysis_of_the_live_fixture_journal(tmp_path):
     assert result['all_in_adjusted_bb_per_100']['mean'] == result['bb_per_100']['mean']
     assert sum(v['hands'] for v in result['endings'].values()) == 12
     assert sum(sum(c.values()) for c in result['actions_by_street'].values()) == result['decisions']
+
+
+
+def test_analysis_pools_runs_and_keeps_each_part(tmp_path):
+    from src.arena.external.analysis import analyze
+
+    def run(name, hands):
+        replay = Replay(hands)
+        connection = SlumbotConnection(replay, HU200)
+        journal = PrefixJournal(tmp_path / f'{name}.jsonl', {'fixture': name})
+        for i in range(len(hands)):
+            play_hand(connection, replay, f'{name}{i}', journal)
+        journal.close()
+        return tmp_path / f'{name}.jsonl'
+
+    whole = analyze(run('whole', LIVE), workers=1)
+    pooled = analyze([run('a', LIVE[:5]), run('b', LIVE[5:])], workers=1)
+    assert [p['hands'] for p in pooled['parts']] == [5, 7] and len(pooled['journal']) == 2
+    for key in ('hands', 'decisions', 'bb_per_100', 'all_in_adjusted_bb_per_100', 'endings', 'actions_by_street',
+                'responses_by_bet_size'):
+        assert pooled[key] == whole[key]
+    assert 'parts' not in whole
+
+
+
+def test_a_run_for_one_account_refuses_another_username_before_any_request(tmp_path, monkeypatch, capsys):
+    import scripts.play_slumbot as play
+    monkeypatch.setattr(play, 'ENV_FILE', tmp_path / 'missing.env')
+    for key in ('SLUMBOT_USERNAME', 'SLUMBOT_PASSWORD'):
+        monkeypatch.delenv(key, raising=False)
+    monkeypatch.setattr('builtins.input', lambda prompt: 'someone-else')
+    monkeypatch.setattr(play.getpass, 'getpass', lambda prompt: pytest.fail('asked for a password'))
+    monkeypatch.setattr(play, 'HttpTransport', lambda *a, **k: pytest.fail('made a request'))
+    monkeypatch.setattr('sys.argv', ['play_slumbot', '--hands', '1', '--login', '--account', 'deepcfr-model',
+                                     '--out', str(tmp_path / 'run')])
+    with pytest.raises(SystemExit) as stop:
+        play.main()
+    assert stop.value.code == 1 and 'for the Slumbot account deepcfr-model, not someone-else' in capsys.readouterr().err

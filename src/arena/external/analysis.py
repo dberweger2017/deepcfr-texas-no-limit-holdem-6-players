@@ -90,17 +90,24 @@ def response(selected: str, view) -> str:
     return 'all-in' if int(selected[1:]) == view.legal_actions.max_raise_to else 'raise'
 
 
-def analyze(journal: Path, *, model=None, workers: int = 4) -> dict:
-    checked = verify_journal(journal)
+def analyze(journal, *, model=None, workers: int = 4) -> dict:
+    """One journal, or several runs of the same player pooled, each verified on its own."""
+    journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
+    checked, parts = [], []
     decisions, terminals, failures = [], [], Counter()
-    for line in journal.open():
-        payload = json.loads(line)['payload']
-        if 'decision' in payload:
-            decisions.append(payload['decision'])
-        elif 'terminal' in payload:
-            terminals.append(payload['terminal'])
-        elif 'failure' in payload:
-            failures[payload['failure']] += 1
+    for path in journals:
+        checked.append(verify_journal(path))
+        part = []
+        for line in path.open():
+            payload = json.loads(line)['payload']
+            if 'decision' in payload:
+                decisions.append(payload['decision'])
+            elif 'terminal' in payload:
+                part.append(payload['terminal'])
+            elif 'failure' in payload:
+                failures[payload['failure']] += 1
+        terminals += part
+        parts.append({'journal': str(path), 'hands': len(part), 'bb_per_100': interval([t['winnings'] for t in part])})
 
     # All-in equity, exact; preflop runouts are many, so hands run in parallel.
     jobs = []
@@ -144,7 +151,7 @@ def analyze(journal: Path, *, model=None, workers: int = 4) -> dict:
     show = lambda rows: [{'winnings': w, 'all_in_adjusted': a, 'action': t['action'], 'client_pos': t['client_pos'],
                           'hole': t['hole_cards'], 'slumbot': t['bot_hole_cards'], 'board': t['board']} for w, a, t in rows]
     result = {
-        'journal': checked, 'hands': len(terminals), 'decisions': len(decisions), 'failures': dict(failures),
+        'journal': checked[0] if len(checked) == 1 else checked, 'hands': len(terminals), 'decisions': len(decisions), 'failures': dict(failures),
         'bb_per_100': interval(raw), 'all_in_adjusted_bb_per_100': interval(adjusted),
         'all_in_hands': {STREETS[s]: sum(1 for t in terminals if allin_street(t['action']) == s) for s in range(4)},
         'by_seat': {k: interval(v) for k, v in by_seat.items()},
@@ -154,6 +161,8 @@ def analyze(journal: Path, *, model=None, workers: int = 4) -> dict:
         'responses_by_bet_size': {b: dict(facing[b]) for b in ('≤½ pot', '½–¾ pot', '~pot', '1.2–2× pot', '>2× pot', 'all-in') if b in facing},
         'biggest_losses': show(swings[:10]), 'biggest_wins': show(swings[-5:][::-1]),
     }
+    if len(parts) > 1:
+        result['parts'] = parts
     if model is not None:
         result['stored_policy_by_street'] = {s: {'stored': known[(s, True)], 'uniform_fallback': known[(s, False)]}
                                              for s in STREETS if known[(s, True)] + known[(s, False)]}

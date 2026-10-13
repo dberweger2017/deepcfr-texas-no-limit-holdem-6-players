@@ -94,9 +94,12 @@ def main():
     parser.add_argument('--max-rejected', type=int, default=10,
                         help='hands given up after Slumbot refused a request before the run stops')
     parser.add_argument('--login', action='store_true')
+    parser.add_argument('--account', help='with --login: the only Slumbot username this run may use')
     args = parser.parse_args()
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
         parser.error('Give a positive --hands, and --model together with --model-sha256')
+    if args.account is not None and not args.login:
+        parser.error('--account needs --login')
     if args.card_buckets is not None and args.model is None:
         parser.error('--card-buckets needs a K50 --model')
     args.out.mkdir(parents=True)
@@ -105,6 +108,9 @@ def main():
     if args.login:
         stored = {**read_env(ENV_FILE), **{k: os.environ[k] for k in CREDENTIALS if os.environ.get(k)}}
         username = stored.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
+        if args.account is not None and username.strip() != args.account:
+            say(f'This run is for the Slumbot account {args.account}, not {username.strip()}')
+            raise SystemExit(1)
         password = stored.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
         say('Credentials read' + (' from .env or the environment' if 'SLUMBOT_PASSWORD' in stored else ''))
         try:
@@ -131,6 +137,7 @@ def main():
         say('Logged in')
     say(f'Playing {args.hands} hands; journal {args.out / "journal.jsonl"}')
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
+           'account': args.account,
            'max_abandoned': args.max_abandoned, 'max_rejected': args.max_rejected,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
