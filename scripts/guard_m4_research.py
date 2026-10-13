@@ -152,7 +152,9 @@ def main():
     baseline = json.loads(baseline_path.read_text())
     known = {}
     held_path = args.stage/'guard-held.json'
-    since = json.loads(held_path.read_text()) if held_path.exists() else {}
+    state = json.loads(held_path.read_text()) if held_path.exists() else {}
+    since = state.get('held', state)
+    last_sample = state.get('last_monotonic')
     child, failure, reason = None, None, []
     peak = count = 0
     started = time.time()
@@ -172,8 +174,14 @@ def main():
                 processes, readings, denied = family(known)
                 sample = dict(host(args.stage), processes=readings, access_denied_other_pids=denied,
                               family_rss_bytes=sum(p['rss'] for p in readings))
+                # A gap without observations cannot establish a continuous breach.
+                gap = None if last_sample is None else sample['monotonic']-last_sample
+                if gap is None or gap > 10 or gap < 0:
+                    since.clear()
+                sample['continuity_reset'] = gap is None or gap > 10 or gap < 0
                 active, stop = sustained(sample, baseline, since)
-                held_path.write_text(json.dumps(since, sort_keys=True)+'\n')
+                last_sample = sample['monotonic']
+                held_path.write_text(json.dumps({'held': since, 'last_monotonic': last_sample}, sort_keys=True)+'\n')
                 sample.update(breaches=active, held_seconds={k: sample['monotonic']-v for k,v in since.items()}, stop=stop)
                 resources.write(json.dumps(sample, sort_keys=True)+'\n'); resources.flush()
                 peak = max(peak, sample['family_rss_bytes']); count += 1
@@ -182,7 +190,10 @@ def main():
                     cpu_peaks[key] = max(cpu_peaks.get(key, 0), p['cpu_seconds'])
                 if stop and not reason:
                     reason = stop
-                    put(args.stage/'STOP.json', {'operation': args.name, 'at': time.time(), 'reasons': reason, 'sample': sample})
+                    if not (args.stage/'STOP.json').exists():
+                        put(args.stage/'STOP.json', {'operation': args.name, 'at': time.time(), 'reasons': reason, 'sample': sample})
+                    else:
+                        put(operation/'preservation-stop.json', {'at': time.time(), 'reasons': reason, 'sample': sample})
                     if child is None:
                         break
                     if args.stop_file:
