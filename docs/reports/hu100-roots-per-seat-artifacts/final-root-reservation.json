@@ -1,0 +1,28 @@
+{
+  "at": 1791864861.547335,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu100-roots-per-seat",
+      "headRefOid": "f2115d717a96f5c876a5cb3b7c963d6094abd38c",
+      "number": 252,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/252"
+    },
+    {
+      "headRefName": "feature/slumbot-client",
+      "headRefOid": "67a6c35d0509f3bd22cfa6f8bde119e24d44bfc5",
+      "number": 249,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/249"
+    }
+  ],
+  "pr": 252,
+  "roots": [
+    20261013200102
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "7b0090242767bfe93e24a7501a4a87664bef7f9d",
+    "pr249": "67a6c35d0509f3bd22cfa6f8bde119e24d44bfc5"
+  }
+}

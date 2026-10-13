@@ -1,0 +1,130 @@
+{
+  "blocks": 131072,
+  "inputs_sha256": "35efe0bd59f04067d3b611aa3b896652c404892857fc02eded6e9b230cfd41a9",
+  "native_build_receipt": {
+    "binary": "native/hu20-trainer/target/release/hu20-trainer",
+    "binary_bytes": 1397168,
+    "binary_sha256": "10a6fce897637cfd76a7dcc494469a5c39e3c65e10abeab00db850326e3b5fd7",
+    "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2",
+    "linker": "@(#)PROGRAM:ld PROJECT:ld-1266.8",
+    "native_tree": "25aafbce93956aa54cf885c7275cbe73581810e0",
+    "native_tree_clean": true,
+    "remapped_prefixes": [
+      "native",
+      "cargo-home"
+    ],
+    "rustc": [
+      "rustc 1.89.0 (29483883e 2025-08-04)",
+      "binary: rustc",
+      "commit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2",
+      "commit-date: 2025-08-04",
+      "host: aarch64-apple-darwin",
+      "release: 1.89.0",
+      "LLVM version: 20.1.7"
+    ]
+  },
+  "native_main_base": "7b0090242767bfe93e24a7501a4a87664bef7f9d",
+  "no_extension": true,
+  "no_failed_hand_reruns": true,
+  "pairs": {
+    "r4-r1": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 1159868169,
+        "entries": 40858142,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 221223,
+        "name": "r4-1b",
+        "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/training/4/average.gz",
+        "sha256": "db5104eb8c1d0f73fb1cbb50374e76b8add1b36ff27e3554b07ccc46e32c1c29",
+        "source_checkpoint_sha256": "b1c2c8299de03048be22313072389fb5541c0a2ff966e43ff8ff1a8b26edbd0d"
+      },
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 1173264021,
+        "entries": 41010014,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 885307,
+        "name": "v050-r1",
+        "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+        "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+        "source_checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+      }
+    ],
+    "r8-r1": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 1159757391,
+        "entries": 41049696,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 111532,
+        "name": "r8-1b",
+        "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/training/8/average.gz",
+        "sha256": "ef4002afa076f2f1c687ecb5d82b31127b3b64d872a546c75b35cddc345b8f30",
+        "source_checkpoint_sha256": "81bbf0993d630588332cc80514338d98299bf1d3711109b76a7177db3e1648c3"
+      },
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 1173264021,
+        "entries": 41010014,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 885307,
+        "name": "v050-r1",
+        "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+        "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+        "source_checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec"
+      }
+    ]
+  },
+  "pilot_costs": {
+    "blocks": 128,
+    "costs": {
+      "r4-r1": {
+        "load_seconds": 341.1036499160109,
+        "play_seconds": 0.2647064169868827,
+        "repeat_seconds": 0.2713996669917833,
+        "replay_seconds": 0.135349791002227
+      },
+      "r8-r1": {
+        "load_seconds": 341.5351268330123,
+        "play_seconds": 0.277317458007019,
+        "repeat_seconds": 0.2931730829877779,
+        "replay_seconds": 0.13767208301578648
+      }
+    },
+    "payoffs_inspected": false,
+    "root": 20261013200101,
+    "source": "f2115d717a96f5c876a5cb3b7c963d6094abd38c",
+    "status": "verified"
+  },
+  "pilot_root": 20261013200101,
+  "pr": 252,
+  "question": "R4/R8 learning per node relative to published R1; report upper loss bound = minus lower gain bound",
+  "recipe": {
+    "average_rule": "opponent-sampled",
+    "stack_bb": 100,
+    "weighting": "linear",
+    "zero_mass": "uniform"
+  },
+  "reference_release": {
+    "require_publication": true,
+    "tag": "v0.5.0",
+    "verified_source": "b9c9bd161422e87371a2641ae4c60304c66eed79"
+  },
+  "root": 20261013200102,
+  "root_reservation_sha256": "cad76e293c2eedb87c21694801fc3b08e6be250dd3f63983459f4bd22841ad2c",
+  "roots_per_seat": [
+    4,
+    8
+  ],
+  "seed": 2026100601,
+  "seed_hashes": {
+    "20261013200101/r4-r1": "e798c4583083bda908782ad09e5126cacea713f38584c0df84f6db39595b7558",
+    "20261013200101/r8-r1": "2ee2b4f36d5962d419faafab5d075fe9ed7e665194c38d110194bd4ca67ae52e",
+    "20261013200102/r4-r1": "434b5af4bbee9bafe74cbc93416e286d7e918795b53b9fa113d558abd4d514b8",
+    "20261013200102/r8-r1": "2c76549751109616a96c1b9c2a263d1c5a0f5ae9f721517c2e4234397c702986"
+  },
+  "source": "f2115d717a96f5c876a5cb3b7c963d6094abd38c",
+  "statistics": "nominal paired duplicate-block Student-t 95%",
+  "translation": null
+}

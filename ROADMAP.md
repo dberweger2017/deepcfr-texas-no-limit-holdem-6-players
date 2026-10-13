@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 roots per seat ([#252](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/252)):** fresh R=4/R=8 each reach1B with full current/average audits. Direct gains over v0.5.0 are −0.49 [−6.26,5.29] and −2.09 [−7.78,3.61] BB/100; no detectable loss, but upper loss bounds6.26/7.78 do not establish equal per-node strength. Matched100M training speedups1.92×/2.68×; all524,288 hands replay/reproduce. [Report](docs/reports/hu100-roots-per-seat.md). No recipe adoption or release change.
+
 - **HU100 pot-pressure diagnosis ([#251](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/251)):** v0.5.2 baseline −26.37 [−41.78, −10.96] BB/100; 1× rather than 1.5× pot gains +72.36 [58.58, 86.13], missing-key check-else-call +17.95 [4.58, 31.32]. Folding and translation-off K50−v1 inconclusive. All 196,608 final hands replay/reproduce. [Report](docs/reports/hu100-pot-pressure-diagnosis.md). No release/default change; Stage B follows after archival closeout.
 
 - **First HU200 K50 model ([#250](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/250)):** seed 2026101302 stops cleanly at **752,593,175 nodes /85,373,907 entries** under the fixed cap; 1B unreached. Terminal current/average fully audited, 1.745 mean traverser visits/key /44.29% zero visits. Full and terminal-only average archives accepted and indexed. [Report](docs/reports/hu200-k50-first.md). No matches, release or strength claim; Slumbot later. M4 only; PR246 roots/uploads unchanged.
