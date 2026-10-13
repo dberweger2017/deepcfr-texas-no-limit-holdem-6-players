@@ -274,6 +274,16 @@ def verify_record(record):
     elif re.fullmatch(r'b[1-9][0-9]*', selected): action = Action(ActionKind.RAISE, int(selected[1:]))
     else: action = Action({'k': ActionKind.CHECK, 'c': ActionKind.CALL, 'f': ActionKind.FOLD}[selected])
     import json
-    if json.loads(json.dumps(replay_record(public, record['hand_id'], action))) != json.loads(json.dumps(record)):
+    if json.loads(json.dumps(replay_record(public, record['hand_id'], action))) != json.loads(json.dumps({k: v for k, v in record.items() if k != 'policy_telemetry'})):
         raise ValueError('External replay record differs')
+    if 'policy_telemetry' in record:
+        info = record['policy_telemetry']
+        if (set(info) != {'reason', 'missing_key_fallback', 'fallback_applied', 'street'}
+                or info['missing_key_fallback'] != 'check-call'
+                or info['reason'] not in ('missing-key', 'zero-mass', 'positive-mass')
+                or type(info['fallback_applied']) is not bool
+                or info['fallback_applied'] != (info['reason'] == 'missing-key')
+                or info['street'] != view.street.value
+                or (info['fallback_applied'] and selected != ('k' if ActionKind.CHECK in view.legal_actions.kinds else 'c'))):
+            raise ValueError('External fallback telemetry differs')
     return view

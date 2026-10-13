@@ -18,6 +18,7 @@ from src.arena.runner import public_events, run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest, stream_seed
 from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA, STACK_BY_SCHEMA, EQUITY_SCHEMAS, schema_choices, information_key
 from src.blueprint.equity_buckets import EquityCards
+from src.blueprint.average import missing_check_call
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -76,6 +77,7 @@ def validate(registry,specs,plan):
                 or model.identity['game']!=model.game):
             raise ValueError('Pinned direct model/game differs')
         model.configure_translation(None)
+        model.configure_missing_key_fallback(spec.get("missing_key_fallback", "uniform"))
 
 
 class Probe:
@@ -89,10 +91,13 @@ class Probe:
         if not any(c.action==action and p>0 for c,p in zip(menu,probabilities)):
             raise ValueError('Direct action outside positive-probability native menu')
         visits=int(self.model.visits.get(key,0))
-        self.emit({**self.context,'hand_id':view.hand_id,'seat':view.seat,'street':view.street.value,
+        row = {**self.context,'hand_id':view.hand_id,'seat':view.seat,'street':view.street.value,
             'action':asdict(action),'key':key,'menu':[asdict(c) for c in menu],'probabilities':list(probabilities),
             'lookup':'missing-key' if not known else 'zero-mass' if key in self.model.zero_mass else 'positive-mass-known-key',
-            'visits':visits})
+            'visits':visits}
+        if self.model.missing_key_fallback != 'uniform':
+            row.update(missing_key_fallback=self.model.missing_key_fallback, fallback_applied=not known)
+        self.emit(row)
         return action
 
 
@@ -106,7 +111,7 @@ class ScriptedProbe:
         return action
 
 
-def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, stack_bb=100, opponent=None, cache=None):
+def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, stack_bb=100, opponent=None, cache=None, cache_read_only=False):
     if subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()!=source:
         raise ValueError('Source differs')
     if subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],text=True).strip():
@@ -115,7 +120,8 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
     plan=make_plan(specs,blocks,root,rung,stack_bb=stack_bb,opponent=opponent)
     cache=local_cache(cache)
     started=perf_counter();tick=started
-    if registry is None:registry=PolicyRegistry(plan,sorted_average_rows=True,policy_cache=cache)
+    if registry is None:registry=PolicyRegistry(plan,sorted_average_rows=True,policy_cache=cache,
+                                                share_average_storage=True,cache_read_only=cache_read_only)
     registry.plan=plan
     validate(registry,specs,plan)
     load_seconds=perf_counter()-tick
@@ -238,11 +244,21 @@ def audit(out,output,report=False,cost_only=False):
                         raise ValueError('Direct private stream/menu/probability/key differs')
                     if d['lookup'] not in ('missing-key','zero-mass','positive-mass-known-key') or d['visits']<0:
                         raise ValueError('Unknown direct coverage classification')
-                    if d['lookup']!='positive-mass-known-key' and d['probabilities']!=[1/len(menu)]*len(menu):
-                        raise ValueError('Direct fallback differs')
+                    fallback = next(s for s in inputs['models'] if s['name'] == policy).get('missing_key_fallback', 'uniform')
+                    applied = fallback == 'check-call' and d['lookup'] == 'missing-key'
+                    if fallback not in ('uniform', 'check-call'):
+                        raise ValueError('Unknown direct fallback')
+                    if fallback != 'uniform' and (d.get('missing_key_fallback') != fallback
+                            or d.get('fallback_applied') != applied):
+                        raise ValueError('Direct fallback telemetry differs')
+                    if d['lookup'] != 'positive-mass-known-key':
+                        expected_distribution = list(missing_check_call(view, menu)) if applied else [1/len(menu)]*len(menu)
+                        if d['probabilities'] != expected_distribution: raise ValueError('Direct fallback differs')
                     band='0' if d['visits']==0 else '1-9' if d['visits']<10 else '10-99' if d['visits']<100 else '100+'
                     cell=coverage.setdefault(d['policy']+'/'+d['street'],{'decisions':0,'lookup':{},'visit_bands':{}})
                     cell['decisions']+=1
+                    if fallback != 'uniform':
+                        cell['fallback_decisions'] = cell.get('fallback_decisions', 0) + int(applied)
                     for key,value in (('lookup',d['lookup']),('visit_bands',band)):
                         cell[key][value]=cell[key].get(value,0)+1
                 hand=hand.apply(action);actions+=1
@@ -296,12 +312,13 @@ def main():
     p.add_argument('--pilot',action='store_true')
     p.add_argument('--stack-bb',type=int,choices=(100,200),default=100)
     p.add_argument('--policy-cache',type=Path)
+    p.add_argument('--cache-read-only',action='store_true')
     a=p.parse_args()
     if a.stack_bb==200 and a.policy_cache is None:p.error('HU200 requires an explicit --policy-cache outside synced storage')
     specs=json.loads(a.specs.read_text());tick=perf_counter()
-    registry,primary=execute(specs,a.blocks,a.root,a.rung,a.out/'play',a.source,stack_bb=a.stack_bb,cache=a.policy_cache)
+    registry,primary=execute(specs,a.blocks,a.root,a.rung,a.out/'play',a.source,stack_bb=a.stack_bb,cache=a.policy_cache,cache_read_only=a.cache_read_only)
     checked=audit(a.out/'play',a.out/'replay.json',report=not a.pilot,cost_only=a.pilot)
-    _,repeat=execute(specs,a.blocks,a.root,a.rung,a.out/'reproduction',a.source,registry,a.out/'play',stack_bb=a.stack_bb,cache=a.policy_cache)
+    _,repeat=execute(specs,a.blocks,a.root,a.rung,a.out/'reproduction',a.source,registry,a.out/'play',stack_bb=a.stack_bb,cache=a.policy_cache,cache_read_only=a.cache_read_only)
     put(a.out/'costs.json',{'seconds':perf_counter()-tick,'primary':primary,'repeat':repeat,
         'audit_seconds':checked['seconds'],
         **({'paired_sd_bb_per_100':checked['paired_sd_bb_per_100']} if a.pilot else {}),'blocks':a.blocks,'outcomes_inspected_for_quote':False})

@@ -1,0 +1,149 @@
+{
+  "groups": {
+    "missing": {
+      "bb_per_hand": -16.341978287092886,
+      "chips": -1354750,
+      "ci95_bb_per_hand": [
+        -22.13471385834593,
+        -10.549242715839842
+      ],
+      "hands": 829
+    },
+    "no_missing": {
+      "bb_per_hand": -0.16901850109752276,
+      "chips": -377300,
+      "ci95_bb_per_hand": [
+        -0.34847011265991085,
+        0.010433110464865336
+      ],
+      "hands": 22323
+    }
+  },
+  "interpretation": "Missing keys arise in unusual, big-pot lines. This split motivates a test; it does not measure a fallback.",
+  "interval": "nominal Student t 95%, independent verified completed hands within each selected class",
+  "missing_key_fallback": "uniform",
+  "model": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 85373907,
+    "iteration": 493496,
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026101302,
+    "weights_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+    "zero_mass_entries": 30901710
+  },
+  "parts": [
+    {
+      "coverage_completed_hands": {
+        "flop": {
+          "missing": 274,
+          "positive_mass": 14966,
+          "zero_mass": 0
+        },
+        "preflop": {
+          "missing": 158,
+          "positive_mass": 24839,
+          "zero_mass": 0
+        },
+        "river": {
+          "missing": 494,
+          "positive_mass": 6486,
+          "zero_mass": 0
+        },
+        "turn": {
+          "missing": 386,
+          "positive_mass": 9486,
+          "zero_mass": 2
+        }
+      },
+      "decisions_without_terminal": 2,
+      "failures": {},
+      "first_missing_street": {
+        "flop": 157,
+        "preflop": 151,
+        "river": 280,
+        "turn": 241
+      },
+      "groups": {
+        "missing": {
+          "bb_per_hand": -16.341978287092886,
+          "chips": -1354750,
+          "ci95_bb_per_hand": [
+            -22.13471385834593,
+            -10.549242715839842
+          ],
+          "hands": 829
+        },
+        "no_missing": {
+          "bb_per_hand": -0.16901850109752276,
+          "chips": -377300,
+          "ci95_bb_per_hand": [
+            -0.34847011265991085,
+            0.010433110464865336
+          ],
+          "hands": 22323
+        }
+      },
+      "identity": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "account_session": true,
+        "contract": {
+          "ante": 0,
+          "bet_convention": "street-raise-to",
+          "big_blind": 100,
+          "players": 2,
+          "rake": 0,
+          "reset_each_hand": true,
+          "small_blind": 50,
+          "stack": 20000
+        },
+        "description": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 85373907,
+          "iteration": 493496,
+          "kind": "holdem-hu200-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026101302,
+          "weights_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+          "zero_mass_entries": 30901710
+        },
+        "hands_requested": 200000,
+        "max_abandoned": 10000,
+        "max_rejected": 2000,
+        "max_requests": 12000000,
+        "min_interval_seconds": 0.0,
+        "model_bytes": 2221370011,
+        "model_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+        "player": "hu200-average",
+        "policy_seed": 2026101309,
+        "service": "https://slumbot.com",
+        "timeout_seconds": 30.0
+      },
+      "missing_hands_by_street": {
+        "flop": 236,
+        "preflop": 151,
+        "river": 449,
+        "turn": 346
+      },
+      "path": "/home/davide/deepcfr-slumbot/runs/k50-752m-20261013-1218/journal.jsonl",
+      "prefix_bytes": 160954373,
+      "prefix_sha256": "f5077d7ce0a6ac7fefd0f81285c929890345dc95f581e3c1803ca0bc4d3d13b9",
+      "tail_sha256": "5fdb50dbc239781fc4bad7a5e8cc695e73010ec525de353dcf588af83cb3fcdf"
+    }
+  ],
+  "selection_biased": true
+}

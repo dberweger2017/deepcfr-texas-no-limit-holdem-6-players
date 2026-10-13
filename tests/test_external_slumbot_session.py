@@ -146,9 +146,9 @@ def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch):
     hu200_average('m.gz', 'sha')
     hu200_average('m.gz', 'sha', Path('tables'))
     assert calls == [(('m.gz', 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None,
-                                        'cache': None}),
+                                        'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False}),
                      (('m.gz', 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
-                                        'card_buckets': Path('tables'), 'cache': None})]
+                                        'card_buckets': Path('tables'), 'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False})]
 
 
 def test_login_sends_credentials_only_to_the_transport_and_fails_closed():

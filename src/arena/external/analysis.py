@@ -93,14 +93,18 @@ def response(selected: str, view) -> str:
 def analyze(journal, *, model=None, workers: int = 4) -> dict:
     """One journal, or several runs of the same player pooled, each verified on its own."""
     journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
-    checked, parts = [], []
+    checked, parts, identities = [], [], []
     decisions, terminals, failures = [], [], Counter()
     for path in journals:
         checked.append(verify_journal(path))
         part = []
         for line in path.open():
             payload = json.loads(line)['payload']
-            if 'decision' in payload:
+            if 'identity' in payload:
+                identity = payload['identity']; identities.append(identity)
+                if model is not None and identity.get('missing_key_fallback', 'uniform') != model.missing_key_fallback:
+                    raise ValueError('Journal fallback differs from analysis option')
+            elif 'decision' in payload:
                 decisions.append(payload['decision'])
             elif 'terminal' in payload:
                 part.append(payload['terminal'])
@@ -137,6 +141,7 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
     actions = defaultdict(Counter)
     facing = defaultdict(Counter)
     known = Counter()
+    coverage = Counter()
     for record in decisions:
         view = verify_record(record)
         street = view.street.value if hasattr(view.street, 'value') else str(view.street)
@@ -145,13 +150,20 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
         if view.legal_actions.call_amount > 0 and not (street == 'preflop' and view.pot <= 150):
             facing[bet_bucket(view)][choice] += 1
         if model is not None:
-            known[(street, model.distribution(view)[2])] += 1
+            menu, _, stored = model.distribution(view)
+            key = model.information_key(view, menu)
+            lookup = 'missing' if not stored else 'zero_mass' if key in model.zero_mass else 'positive_mass'
+            known[(street, stored)] += 1
+            coverage[street, lookup] += 1
+            info = record.get('policy_telemetry')
+            if info is not None and info['fallback_applied'] != (lookup == 'missing'):
+                raise ValueError('Journal fallback coverage differs from model')
 
     swings = sorted(zip(raw, adjusted, terminals), key=lambda x: x[0])
     show = lambda rows: [{'winnings': w, 'all_in_adjusted': a, 'action': t['action'], 'client_pos': t['client_pos'],
                           'hole': t['hole_cards'], 'slumbot': t['bot_hole_cards'], 'board': t['board']} for w, a, t in rows]
     result = {
-        'journal': checked[0] if len(checked) == 1 else checked, 'hands': len(terminals), 'decisions': len(decisions), 'failures': dict(failures),
+        'run_identities': identities, 'journal': checked[0] if len(checked) == 1 else checked, 'hands': len(terminals), 'decisions': len(decisions), 'failures': dict(failures),
         'bb_per_100': interval(raw), 'all_in_adjusted_bb_per_100': interval(adjusted),
         'all_in_hands': {STREETS[s]: sum(1 for t in terminals if allin_street(t['action']) == s) for s in range(4)},
         'by_seat': {k: interval(v) for k, v in by_seat.items()},
@@ -164,6 +176,9 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
     if len(parts) > 1:
         result['parts'] = parts
     if model is not None:
+        result['missing_key_fallback'] = model.missing_key_fallback
+        result['coverage_by_street'] = {s: {k: coverage[s, k] for k in ('missing', 'zero_mass', 'positive_mass')} for s in STREETS}
+        result['fallback_decisions_by_street'] = {s: coverage[s, 'missing'] if model.missing_key_fallback == 'check-call' else 0 for s in STREETS}
         result['stored_policy_by_street'] = {s: {'stored': known[(s, True)], 'uniform_fallback': known[(s, False)]}
                                              for s in STREETS if known[(s, True)] + known[(s, False)]}
     return result
