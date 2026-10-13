@@ -16,7 +16,7 @@ import pytest
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, ending, hu200_average, play_hand, summarize
+from src.arena.external.session import CheckCall, ending, hu200_average, play_hand, summarize, without_decisions
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection, settle, terminal_record, verify_terminal
 from src.blueprint.abstraction import HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA, HU200_SCHEMA, HU20_EQUITY_SCHEMA
 from src.blueprint.solver import HU20_UNCAPPED_GAME
@@ -119,6 +119,15 @@ def test_scripted_players_are_admitted_and_other_depths_are_not():
     CONTRACT.admit(HU200)
     with pytest.raises(ValueError):
         CONTRACT.admit(SimpleNamespace(game=HU100_GAME, abstraction=HU100_SCHEMA, players=2, raise_cap=None))
+
+
+def test_runs_keep_only_terminals_and_decision_counts():
+    from src.arena.external.session import Hand
+    hand = Hand('h', [{'observation': 'large'}, {'observation': 'large'}], {'winnings': 100, 'client_pos': 0,
+                'baseline_winnings': 0, 'action': 'b200f'})
+    slim = without_decisions(hand)
+    assert slim.terminal is hand.terminal and slim.decisions == [None, None]
+    assert summarize([slim]) == summarize([hand])
 
 
 def test_k50_hu200_policies_are_admitted_and_k50_at_other_depths_are_not():

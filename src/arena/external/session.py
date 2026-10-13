@@ -68,6 +68,12 @@ def interval(values):
             'half_width_95': 1.96 * statistics.stdev(values) / math.sqrt(len(values))}
 
 
+def without_decisions(hand: Hand) -> Hand:
+    """The hand with only its decision count: the journal already holds every decision record,
+    and keeping them in memory grows by about 20 KB a hand over long runs."""
+    return Hand(hand.hand_id, [None] * len(hand.decisions), hand.terminal)
+
+
 def summarize(hands: list[Hand]) -> dict:
     """BB/100 equals mean chips per hand, since the big blind is 100 chips."""
     terminals = [h.terminal for h in hands]

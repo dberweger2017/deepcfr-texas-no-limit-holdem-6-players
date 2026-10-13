@@ -30,7 +30,8 @@ from tqdm import tqdm
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, hu200_average, play_hand, session_accounting, summarize
+from src.arena.external.session import (CheckCall, hu200_average, play_hand, session_accounting, summarize,
+                                        without_decisions)
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
 SERVICE = 'https://slumbot.com'
@@ -137,7 +138,7 @@ def main():
             stop = 'time limit'
             break
         try:
-            hands.append(play_hand(connection, player, f'slumbot-{index:06d}', journal))
+            hands.append(without_decisions(play_hand(connection, player, f'slumbot-{index:06d}', journal)))
         except AmbiguousRequest:
             # Give up this hand without resending anything, and continue with a new one.
             journal.failure('timeout-ambiguous'); abandoned += 1
