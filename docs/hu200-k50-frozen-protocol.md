@@ -38,7 +38,8 @@ Resume only the reproduced terminal, hash-pinned, with `--freeze-at-cap` and
 Target 20B cumulative nodes; recoverable saves at 2B, 5B, 10B and 20B.
 Use telemetry and a fresh stop file. No additional training-recipe change.
 
-The nine-hour clock starts with this campaign's first detached build.
+The nine-hour clock starts with this campaign's first detached build at
+17:18:59 UTC; its deadline is October 14 02:18:59 UTC /04:18:59 Madrid.
 Reserve two hours for both current/average exports and full audits, plus
 15 minutes for the terminal save; calculate `--max-seconds` from the remaining
 fixed clock and loading allowance. A detached deadline guard requests a clean
