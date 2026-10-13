@@ -46,6 +46,16 @@ def family(known):
             observed[process.pid] = process.info.get('create_time')
         except (psutil.AccessDenied, psutil.NoSuchProcess, psutil.ZombieProcess):
             continue
+    # Bind traversal roots to this snapshot as well as their retained identity.
+    # Recycling between the first validation and enumeration must not let the
+    # replacement's children enter the owned set.
+    for pid, created in list(known.items()):
+        try:
+            if (psutil.Process(pid).create_time()!=created or
+                    observed.get(pid) is not None and observed[pid]!=created):
+                known.pop(pid)
+        except (psutil.NoSuchProcess, psutil.ZombieProcess):
+            known.pop(pid,None)
     pending = [os.getpid(), *known]
     seen = {os.getpid()}
     while pending:
@@ -92,7 +102,7 @@ def stop(known):
 def guard(base: Path, name: str, command: list[str]):
     identity = subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string','hw.memsize','hw.ncpu'], text=True).splitlines()
     machine_identity('m4', identity)
-    if (base/'failure.json').exists():
+    if (base/'failure.json').exists() and name!='archive':
         raise ValueError('Stopped campaign; preserve partials, no retry')
     folder = base/'guards'/name
     folder.mkdir(parents=True, exist_ok=False)

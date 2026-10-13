@@ -59,3 +59,27 @@ def test_reused_pid_cannot_annex_other_tasks_children(monkeypatch):
     known = {9:100}
     assert [p.pid for p in family(known)]==[1]
     assert known=={}
+
+
+def test_pid_recycled_during_enumeration_cannot_annex_children(monkeypatch):
+    from scripts import guard_hu100_k50_v052 as guard
+    recycled = False
+    class Process:
+        def __init__(self,pid=None):
+            self.pid = 1 if pid is None else pid
+        def create_time(self):
+            return 200 if self.pid==9 and recycled else 100
+    class Row:
+        def __init__(self,pid,parent,created):
+            self.pid = pid
+            self.info = dict(pid=pid,ppid=parent,create_time=created)
+    def iterate(attrs):
+        nonlocal recycled
+        recycled = True
+        return iter([Row(9,99,200),Row(10,9,100)])
+    monkeypatch.setattr(guard.os,'getpid',lambda:1)
+    monkeypatch.setattr(guard.psutil,'Process',Process)
+    monkeypatch.setattr(guard.psutil,'process_iter',iterate)
+    known = {9:100}
+    assert [p.pid for p in family(known)]==[1]
+    assert known=={}
