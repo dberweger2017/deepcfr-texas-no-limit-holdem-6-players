@@ -2,6 +2,20 @@
 
 Owner-authorized cleanup for [PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265) removed **38 unchanged files /28,373,295,553 bytes** from merged, inactive PR207/254/260 unsynced results roots. Current native accepted upload and independent Drive ID/name/size/direct-parent acceptance preceded deletion; recorded original paths/sizes/mtime and live dependencies were checked. Two uncertain PR207 files were retained. [Receipt and all restoration links/commands](docs/artifacts/pr265-m4-storage-20261013.md), [per-file archive/member/hash receipt](docs/reports/hu200-k50-frozen-artifacts/m4-cleanup-receipt.json), [dependency review](docs/reports/hu200-k50-frozen-artifacts/m4-cleanup-dependency-review.json). PR207 retry ZIP ID `1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj` now has current confirmed acceptance, superseding its earlier upload-pending snapshot. No repeated archive/member hash audit, synced deletion, eviction or forced offload. Source/environments/tables/shared Git and active inputs remain. After removal the filesystem reported 101,546,766,336 free bytes; removed-file bytes are the accountable cleanup total, not the entire observed free-space change. Historical originals-retained statements are superseded only for the receipt paths.
 
+## Uploaded cache pass — October 13 evening
+
+Owner-requested storage pass releases **32.176 GB** from
+nine confirmed uploaded archive caches and one inactive #258 Rust debug cache.
+Verified free **M1 59.940 GB /M4 73.163 GB**.
+[Exact cache paths/restoration and safeguards](docs/artifacts/storage-vacuum-20261013-evening.md),
+[private receipt](https://drive.google.com/file/d/1CFS_jPYS8vpoiFv49W4KNdsNRSkrVcAK/view?usp=drivesdk) (ID `1CFS_jPYS8vpoiFv49W4KNdsNRSkrVcAK`, 26,988 bytes,
+SHA256 `8a431cf112236d90f8ff707d8f2d1f75b9d265f04c9376ff1e30b1f9af86e8d5`; current confirmed Research-Cloud upload).
+Active #265 and its lineage/engineering/evaluation/table dependencies remain.
+Its authorized original cleanup is separate; this pass removes no research
+originals and credits no other agent's reclamation. Same-ID/same-size cloud
+copies and placeholders remain; no synced deletion, force offload, unpinning,
+archive download, repeated payload hashing or research/schedule change.
+
 ## PR260 — capped HU100 K50 overbet menu (October 13)
 
 [PR260](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260), [report](docs/reports/hu100-k50-v2.md). **Final scientific evidence and accepted archives.** Source `d7e03e36bdaed5f3d8972d4320cc04ce73289325`, base current main `f4049b545fd106c8c3ba93d6045a417ef497306e`; run `results/hu100-k50-v2` on M4. The fixed cap stops at **332,894,788 actual nodes /97,290,578 entries**; 500M/1B unreached. All terminal current/average rows audit, exact 20M recovery passes, and all **688,128** final harness hands independently replay and exactly reproduce. Pot contrast −17.85 [−60.10,24.41] descriptively closes 79% of #254's earlier point gap; tight/loose severe regressions fail the candidate rule. No release/default/tag; owner subsequently authorized merge after final checks.
