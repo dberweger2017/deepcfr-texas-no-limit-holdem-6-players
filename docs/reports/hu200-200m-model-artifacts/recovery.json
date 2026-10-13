@@ -1,0 +1,207 @@
+{
+  "comparison": "direct chunk-by-chunk compressed byte equality",
+  "full_bytes": 227890921,
+  "full_header": {
+    "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 1000000000,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101301
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "legacy-postflop-descriptor-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 8687,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 20002603,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        272595,
+        1025052,
+        2823572,
+        6972189
+      ],
+      "traverser_visits_by_street": [
+        95316,
+        369906,
+        996639,
+        2452968
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "full_sha256": "c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5",
+  "parent_header": {
+    "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 1000000000,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101301
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "legacy-postflop-descriptor-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 4182,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 10000462,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        134716,
+        523845,
+        1424947,
+        3470638
+      ],
+      "traverser_visits_by_street": [
+        46747,
+        188388,
+        498772,
+        1214225
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "parent_sha256": "a39746c376656f3e5e2b6b6199e3054692ce1d07e073f8568c291e774d3347e1",
+  "resumed_header": {
+    "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-card-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 1000000000,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101301
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "legacy-postflop-descriptor-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 8687,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 20002603,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        272595,
+        1025052,
+        2823572,
+        6972189
+      ],
+      "traverser_visits_by_street": [
+        95316,
+        369906,
+        996639,
+        2452968
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "resumed_sha256": "c60977f8cff235886914377a2c8483a25af1bb894d731aaded4e60ab11c475f5",
+  "seed": 2026101301,
+  "status": "byte-identical"
+}

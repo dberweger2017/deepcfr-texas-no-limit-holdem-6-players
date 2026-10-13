@@ -1,0 +1,19 @@
+{
+  "at": 1791848493.822932,
+  "local_average": {
+    "bytes": 800092100,
+    "loader": "AveragePolicy(path, expected_sha256, expected_schema=HU200_SCHEMA, sorted_rows=True)",
+    "path": "/Users/dberweger/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-200000000.gz.average.gz",
+    "retained": true,
+    "sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402"
+  },
+  "local_closeout_seconds": 2379.3941049575806,
+  "native_and_cloud_upload_accepted": true,
+  "no_slumbot_requests": true,
+  "no_strength_claim": true,
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false,
+  "science_and_local_archive_within_60_minute_cap": true,
+  "science_seconds": 2152.587577750004,
+  "status": "fully-verified-uploaded-indexed"
+}

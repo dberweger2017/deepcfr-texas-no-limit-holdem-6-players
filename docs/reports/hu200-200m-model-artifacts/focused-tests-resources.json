@@ -1,0 +1,9 @@
+{
+  "failure": null,
+  "kernel_command_peak_rss_bytes": 73531392,
+  "peak_family_rss_bytes": 102858752,
+  "returncode": 0,
+  "seconds": 5.635229583000182,
+  "soft_stop_requested": false,
+  "status": "complete"
+}

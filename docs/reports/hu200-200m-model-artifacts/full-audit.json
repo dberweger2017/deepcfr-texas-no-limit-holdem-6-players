@@ -1,0 +1,15 @@
+{
+  "all_nodes_verified": 31582921,
+  "average_sha256": "b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402",
+  "checkpoint_sha256": "bfe4d7295a88489683d96f7b9881e316b5cb6cb0ab0f3086ee6a78bfce665d0a",
+  "counts": {
+    "entries": 31582921,
+    "positive_mass": 20911828,
+    "zero_mass": 10671093
+  },
+  "current_sha256": "b25b02eb855e07b23d86c83b23036b0c0eaa30d7ceb7246ce025257f56fe7503",
+  "maximum_tv": 1.0000000000000002,
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "status": "verified",
+  "unweighted_mean_current_average_tv": 0.2255166693064234
+}

@@ -1,3 +1,46 @@
+## PR248 HU200 200M pipeline model — verified and uploaded, October 13
+
+[PR248](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/248), [report](docs/reports/hu200-200m-model.md), [model/dependency index](docs/reports/hu200-200m-model-artifacts/model-index.json). Final research-only record. M1 worktree `~/Local/hu200-200m-model-20261013/`, ignored root `results/hu200-200m-20261013/`. Source main `d5c113f76efa0b4c63dc5956b278a4acbe53f718`, execution start `16d762a569933abf0411dba787e2e3a2b26004a7`, native tree `25aafbce93956aa54cf885c7275cbe73581810e0`; archive source snapshot `0850baa7`. Fresh seed **2026101301**, HU200 200 BB, opponent-sampled average, linear weighting, one root per seat, v1 cards and existing menu. **200,001,087 nodes /111,844 iterations /31,582,921 entries**. A 200M-node model is far below any release budget and exists to exercise the pipeline. No Slumbot requests, external matches, strength claim, adoption or release.
+
+20M full/resumed compressed bytes agree; all 200M checkpoint/current/average rows audit. Compact load and all 64 internal hands replay/reproduce; independent native replay verifies 452 decisions with zero mismatched hands. Mean traverser visits/key **1.2576**, zero visits **50.7704%**; [#216 comparison and actual timers/RSS](docs/reports/hu200-200m-model.md#recovery-and-measured-training). Science closes in **35.88 minutes**; initial disk refusal/setup probe preserved, no failed scientific stage or retry.
+
+[Folder](https://drive.google.com/drive/folders/13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq), ID **13IqBjF7qfu7zpIUkSPAM_qVvYlBZVcOq**, Research-Cloud parent **188bEt6i0RHqegCCdvpf3wPzUiRw78N2s**, native path `~/Local/Research-Cloud/PR-248-hu200-200m-model/`.
+
+| Archive / Drive ID | Bytes | Whole SHA256 | Verified payload members |
+|---|---:|---|---:|
+| [Full evidence](https://drive.google.com/file/d/1z0vFrM0ChRs1TIErlnxip467IIWaUfqM/view?usp=drivesdk), `1z0vFrM0ChRs1TIErlnxip467IIWaUfqM`, `HU200-200M-M1-evidence-20261013.zip` | 4,132,696,783 | `f3f169bd93e67d6b72d195747bff5989789ebd4a0eaafdaf4984af0481aef794` | 73 |
+| [Average only](https://drive.google.com/file/d/1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc/view?usp=drivesdk), `1jIH2tfKsjTcYTv_YyCQb9qarIRXREDyc`, `HU200-200M-average-only-20261013.zip` | 800,092,256 | `6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2` | 1 |
+
+Embedded `ARCHIVE-MANIFEST.json` SHA256 **6da6a8b48e65f838d5cdcdeb61e1f556d4a89a843f3dae8dd013a31469a0ab12**. All local member sizes/SHA256s agree. Current native **uploaded /not uploading /not paused /stable size+mtime /no upload error /zero conflicts**, plus independent cloud **ID/name/size/parent** confirmation, accept both ZIPs. [Native receipt](docs/reports/hu200-200m-model-artifacts/native-upload-acceptance.json), [cloud receipt](docs/reports/hu200-200m-model-artifacts/cloud-confirmation.json), [local readback receipt](docs/reports/hu200-200m-model-artifacts/archive-receipt.json). **No remote archive bytes were downloaded or verified.** Local integrity and remote upload acceptance remain distinct claims; upload delay did not trigger further science.
+
+The [model index](docs/reports/hu200-200m-model-artifacts/model-index.json) gives every required model/recovery/runtime/source member path, bytes, SHA256, archive Drive URL/ID and safe retrieval command. The small ZIP's only member is `HU200-200000000.gz.average.gz`, **800,092,100 bytes**, SHA256 **b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402**. Retained local average: `~/Local/hu200-200m-model-20261013/results/hu200-200m-20261013/HU200-200000000.gz.average.gz`. Require hash verification before reuse; load with `AveragePolicy(..., expected_schema=HU200_SCHEMA, sorted_rows=True)`.
+
+Example average-only retrieval through the existing native Drive shortcut, in the supported Python environment (or download the observed Drive URL to a fresh ignored archive path and change the archive variable):
+
+```sh
+python - <<'PY'
+from pathlib import Path
+from zipfile import ZipFile
+import hashlib, shutil
+archive=Path.home()/"Local/Research-Cloud/PR-248-hu200-200m-model/HU200-200M-average-only-20261013.zip"
+def sha(path):
+    h=hashlib.sha256()
+    with path.open('rb') as f:
+        for block in iter(lambda:f.read(1024**2),b''):h.update(block)
+    return h.hexdigest()
+assert archive.stat().st_size==800092256 and sha(archive)=="6930374dc65ac59f7167c62e5501275926732cec257d19a04bcebf8af3cc72d2"
+destination=Path("results/retrieved/pr248-200m-average-NEW")
+destination.mkdir(parents=True,exist_ok=False)
+target=destination/"HU200-200000000.gz.average.gz"
+with ZipFile(archive) as z, z.open("HU200-200000000.gz.average.gz") as source, target.open('xb') as output:
+    shutil.copyfileobj(source,output,1024**2)
+assert target.stat().st_size==800092100 and sha(target)=="b7c15eb642f2edec82df04983b28a8f80b8c3db310f3d6ea53e21aab6d120402"
+print(target.resolve())
+PY
+```
+
+All own originals remain, including the active average. No source deletion, synced deletion/eviction, other-PR cleanup, M4 access, binary Git addition or unattended work. The full manifest records original paths, sizes, SHA256s and mtime identities for later authorized cleanup. Local source/provenance and accepted restoration archives remain dependencies; no automatic retraining or live run follows retrieval.
+
 ## PR246 — HU100 K50 at equal 1B and 2B training (October 12–13)
 
 K50 at 2B versus v1 at 2B is **+31.14 [+27.79, +34.50] BB/100**, a nominal paired 95% interval. Recommend K50 for HU200; the owner decides.
