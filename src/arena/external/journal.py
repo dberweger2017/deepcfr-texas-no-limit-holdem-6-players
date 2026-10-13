@@ -4,7 +4,9 @@ from hashlib import sha256
 import json
 from pathlib import Path
 
-from src.arena.external.slumbot import verify_record
+from src.arena.external.slumbot import verify_record, verify_terminal
+
+FAILURES = ('timeout-ambiguous', 'protocol-error', 'incompatible-game', 'resource-stop', 'service-error')
 
 
 def canonical(value):
@@ -17,7 +19,7 @@ class PrefixJournal:
         self.file = path.open('x', encoding='utf-8')
         self.previous = '0' * 64
         self.sequence = 0
-        self._write({'identity': identity, 'scope': 'public decision prefixes; not terminal settlement verification'})
+        self._write({'identity': identity, 'scope': 'public decision prefixes and terminal settlements'})
 
     def _write(self, payload):
         row = {'sequence': self.sequence, 'previous': self.previous, 'payload': payload}
@@ -29,10 +31,14 @@ class PrefixJournal:
         verify_record(json.loads(canonical(record)))
         self._write({'decision': record})
 
+    def terminal(self, record):
+        verify_terminal(json.loads(canonical(record)))
+        self._write({'terminal': record})
+
     def failure(self, reason: str):
         # Caller supplies a fixed classification, never an exception string or raw
         # transport body that could contain credentials or future hidden data.
-        if reason not in ('timeout-ambiguous', 'protocol-error', 'incompatible-game', 'resource-stop'):
+        if reason not in FAILURES:
             raise ValueError('Use a known failure classification')
         self._write({'failure': reason})
 
@@ -41,7 +47,7 @@ class PrefixJournal:
 
 
 def verify_journal(path: Path, *, expected_tail=None):
-    previous = '0' * 64; count = 0; rows = 0
+    previous = '0' * 64; count = 0; rows = 0; hands = 0
     with path.open(encoding='utf-8') as source:
         for sequence, line in enumerate(source):
             rows += 1
@@ -54,10 +60,11 @@ def verify_journal(path: Path, *, expected_tail=None):
                 if set(payload) != {'identity', 'scope'}: raise ValueError('Missing evaluation identity')
             elif set(payload) == {'decision'}:
                 verify_record(payload['decision']); count += 1
-            elif set(payload) != {'failure'} or payload['failure'] not in (
-                    'timeout-ambiguous', 'protocol-error', 'incompatible-game', 'resource-stop'):
+            elif set(payload) == {'terminal'}:
+                verify_terminal(payload['terminal']); hands += 1
+            elif set(payload) != {'failure'} or payload['failure'] not in FAILURES:
                 raise ValueError('Invalid external journal payload')
             previous = expected
     if rows == 0 or (expected_tail is not None and expected_tail != previous):
         raise ValueError('Missing journal or anchored tail differs')
-    return {'decisions': count, 'tail_sha256': previous}
+    return {'decisions': count, 'hands': hands, 'tail_sha256': previous}

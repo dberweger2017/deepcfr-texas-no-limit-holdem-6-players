@@ -21,8 +21,12 @@ class GameContract:
     bet_convention: str = 'street-raise-to'
 
     def admit(self, policy):
-        expected = {HU200_GAME: (20000, HU200_SCHEMA), HU100_GAME: (10000, HU100_SCHEMA), HU20_UNCAPPED_GAME: (2000, HU20_UNCAPPED_SCHEMA)}.get(policy.game)
-        if (expected is None or (self.stack, policy.abstraction) != expected
+        # Scripted policies read the legal actions at any depth; trained ones only at their own.
+        scripted = getattr(policy, 'scripted', False) is True
+        expected = (self.stack, None) if scripted else {
+            HU200_GAME: (20000, HU200_SCHEMA), HU100_GAME: (10000, HU100_SCHEMA),
+            HU20_UNCAPPED_GAME: (2000, HU20_UNCAPPED_SCHEMA)}.get(policy.game)
+        if (expected is None or (self.stack, None if scripted else policy.abstraction) != expected
                 or type(self.stack) is not int or type(self.small_blind) is not int
                 or type(self.big_blind) is not int or (self.small_blind, self.big_blind) != (50, 100)
                 or type(self.players) is not int or self.players != 2
