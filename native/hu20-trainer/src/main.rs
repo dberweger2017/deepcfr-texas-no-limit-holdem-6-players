@@ -1,5 +1,6 @@
 //! hu20-trainer parity FIXTURES.jsonl
 use std::io::BufRead;
+mod cli;
 
 /// `--card-buckets DIR` keys cards by #163's K=50 equity tables; `--card-tables-unpinned`
 /// admits other tables, for test fixtures only. v1 cards otherwise.
@@ -26,6 +27,22 @@ fn menu_option(args: &[String]) -> hu20_trainer::key::MenuVersion {
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
+    let mut command = cli::parse(&args).unwrap_or_else(|problem| {
+        eprintln!("hu20-trainer: {problem}");
+        std::process::exit(2);
+    });
+    // Operational failures also report their cause without a panic backtrace.
+    std::panic::set_hook(Box::new(|_| {}));
+    if let Err(problem) = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| run(args, &mut command))) {
+        let message = problem.downcast_ref::<String>().map(String::as_str)
+            .or_else(|| problem.downcast_ref::<&str>().copied()).unwrap_or("command failed");
+        eprintln!("hu20-trainer: {message}");
+        std::process::exit(2);
+    }
+}
+
+fn run(args: Vec<String>, command: &mut cli::Command) {
+    if args[1] != "train" { eprintln!("{}", command.config); }
     match args.get(1).map(String::as_str) {
         Some("parity") => {
             let file = std::fs::File::open(&args[2]).expect("fixtures");
@@ -136,6 +153,13 @@ fn main() {
             if let Err(problem) = trainer.options.check(0) {
                 panic!("{problem}");
             }
+            // Resume inherits these values unless the caller explicitly pins them.
+            let resolved = &mut command.config["options"];
+            resolved["seed"] = serde_json::json!(trainer.seed);
+            resolved["roots_per_seat"] = serde_json::json!(trainer.roots_per_seat);
+            resolved["average_rule"] = serde_json::json!(trainer.average.name());
+            resolved["recovery"] = serde_json::json!(recovery);
+            eprintln!("{}", command.config);
             let started = std::time::Instant::now();
             let initial_nodes = trainer.nodes;
             let (mut previous_nodes, mut previous_entries, mut previous_seconds) = (trainer.nodes, trainer.table.len(), 0.0);
