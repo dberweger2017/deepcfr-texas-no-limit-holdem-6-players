@@ -5,7 +5,7 @@
     python -m scripts.play_slumbot ... --card-buckets TABLES   # a K50 average and its pinned tables
     python -m scripts.play_slumbot ... --login        # account session; asks for the password
 
-The default player is check/call. A trained HU200 average, v1 or K50 cards, plays with its
+The default player is check/call; --player random plays uniformly among legal actions. A trained HU200 average, v1 or K50 cards, plays with its
 stored policy and uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
 answer, or one Slumbot refuses with an error status, abandons only its hand (Slumbot's session
@@ -30,7 +30,7 @@ from tqdm import tqdm
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import (CheckCall, hu200_average, play_hand, session_accounting, summarize,
+from src.arena.external.session import (CheckCall, RandomLegal, hu200_average, play_hand, session_accounting, summarize,
                                         without_decisions)
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
@@ -53,8 +53,8 @@ def read_env(path: Path) -> dict:
 
 def load_player(args):
     if args.model is None:
-        player = CheckCall()
-        return player, player, {'player': player.name}
+        player = RandomLegal(args.seed) if args.player == 'random' else CheckCall()
+        return player, player, {'player': player.name, **({'policy_seed': args.seed} if args.player == 'random' else {})}
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
@@ -79,6 +79,8 @@ def main():
     parser.add_argument('--hands', type=int, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--model', type=Path)
+    parser.add_argument('--player', choices=('check-call', 'random'), default='check-call',
+                        help='scripted player when no --model is given; random uses --seed')
     parser.add_argument('--model-sha256')
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--policy-cache', type=Path,
@@ -100,6 +102,8 @@ def main():
         parser.error('Give a positive --hands, and --model together with --model-sha256')
     if args.account is not None and not args.login:
         parser.error('--account needs --login')
+    if args.model is not None and args.player != 'check-call':
+        parser.error('--player is for scripted players; a --model plays itself')
     if args.card_buckets is not None and args.model is None:
         parser.error('--card-buckets needs a K50 --model')
     args.out.mkdir(parents=True)
@@ -122,7 +126,7 @@ def main():
         say('Credentials accepted')
     cached = args.model and args.policy_cache and any(args.policy_cache.glob(f'{args.model_sha256}-*'))
     say((f'Loading {args.model.name} from its cache' if cached else
-         f'Loading {args.model.name} (a few minutes for large models)') if args.model else 'Using the check/call player')
+         f'Loading {args.model.name} (a few minutes for large models)') if args.model else f'Using the {args.player} player')
     loading = time.monotonic()
     policy, player, identity = load_player(args)
     if args.model:

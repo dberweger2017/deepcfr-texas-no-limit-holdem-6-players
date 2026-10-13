@@ -398,3 +398,25 @@ def test_a_run_for_one_account_refuses_another_username_before_any_request(tmp_p
     with pytest.raises(SystemExit) as stop:
         play.main()
     assert stop.value.code == 1 and 'for the Slumbot account deepcfr-model, not someone-else' in capsys.readouterr().err
+
+
+def test_random_legal_plays_legal_actions_reproducibly_and_never_folds_for_free():
+    from src.arena.external.session import RandomLegal
+    from src.game.hand import Hand as GameHand, Table
+
+    def actions(seed):
+        player, chosen = RandomLegal(seed), []
+        for deal in range(40):
+            hand = GameHand.start(Table(('a', 'b'), (20000, 20000)), hand_id=f'r{deal}', seed=deal)
+            while not hand.finished:
+                view = hand.observe(hand.actor)
+                action = player.choose_action(view)
+                view.legal_actions.validate(action)
+                assert not (action.kind == ActionKind.FOLD and view.legal_actions.call_amount == 0)
+                chosen.append(action)
+                hand = hand.apply(action)
+        return chosen
+
+    first = actions(7)
+    assert first == actions(7) and first != actions(8)
+    assert {a.kind for a in first} >= {ActionKind.FOLD, ActionKind.CALL, ActionKind.RAISE}
