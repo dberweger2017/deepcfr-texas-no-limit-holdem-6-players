@@ -1,0 +1,47 @@
+{
+  "at": 1791880780.716386,
+  "outcomes_inspected": false,
+  "paired_scripted_sds": null,
+  "quotes": {
+    "direct": {
+      "blocks": 262144,
+      "load_seconds": 587.5157383329934,
+      "play_seconds": 608.4137835420261,
+      "replay_seconds": 324.1967676670174,
+      "reproduction_seconds": 642.8815883329953,
+      "reproduction_validation_seconds": 1.6709937079867814
+    },
+    "k50_off": {
+      "actions_replayed": 332411,
+      "blocks": 4096,
+      "hands_replayed": 81920,
+      "load_seconds": 291.6690553340013,
+      "play_seconds": 73.98568808301934,
+      "replay_seconds": 35.660864500008756,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 75.77575283299666
+    },
+    "v052_off": {
+      "actions_replayed": 329516,
+      "blocks": 4096,
+      "hands_replayed": 81920,
+      "load_seconds": 293.27988979098154,
+      "play_seconds": 74.41604408301646,
+      "replay_seconds": 35.551717583002755,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 76.19486908399267
+    },
+    "v052_on": {
+      "actions_replayed": 329938,
+      "blocks": 4096,
+      "hands_replayed": 81920,
+      "load_seconds": 295.6846293330018,
+      "play_seconds": 76.21282724998309,
+      "replay_seconds": 35.66322341701016,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 78.37115945800906
+    }
+  },
+  "source": "23af700ba79b62693cef1f5cf09d8693a1ec064e",
+  "status": "verified"
+}

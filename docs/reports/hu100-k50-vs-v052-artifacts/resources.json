@@ -1,0 +1,66 @@
+{
+  "final": {
+    "failure": null,
+    "finished": 1791880781.410513,
+    "max_swap_growth_bytes": -25165824,
+    "min_disk_free_bytes": 88873512960,
+    "min_free_percent": 53,
+    "peak_family_rss_bytes": 9015803904,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_any_sustained_line": 0,
+    "samples": 3488,
+    "seconds": 3617.586490869522,
+    "started": 1791877163.824022,
+    "status": "complete"
+  },
+  "pilot": {
+    "failure": null,
+    "finished": 1791877022.661004,
+    "max_swap_growth_bytes": -8388608,
+    "min_disk_free_bytes": 91083698176,
+    "min_free_percent": 63,
+    "peak_family_rss_bytes": 4110254080,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_any_sustained_line": 0,
+    "samples": 1440,
+    "seconds": 1493.2099599838257,
+    "started": 1791875529.451044,
+    "status": "complete"
+  },
+  "prepare": {
+    "failure": null,
+    "finished": 1791875458.4742799,
+    "max_swap_growth_bytes": 0,
+    "min_disk_free_bytes": 93241032704,
+    "min_free_percent": 86,
+    "peak_family_rss_bytes": 2022817792,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_any_sustained_line": 0,
+    "samples": 1223,
+    "seconds": 1320.7540888786316,
+    "started": 1791874137.720191,
+    "status": "complete"
+  },
+  "readout": {
+    "failure": null,
+    "finished": 1791880812.3117352,
+    "max_swap_growth_bytes": -33554432,
+    "min_disk_free_bytes": 88872292352,
+    "min_free_percent": 83,
+    "peak_family_rss_bytes": 386170880,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_any_sustained_line": 0,
+    "samples": 15,
+    "seconds": 14.650583267211914,
+    "started": 1791880797.661152,
+    "status": "complete"
+  }
+}

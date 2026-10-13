@@ -214,7 +214,7 @@ def freeze(pr):
     url = subprocess.check_output(['gh','pr','comment',str(pr),'--repo',REPO,'--body-file',str(body)],text=True).strip()
     comments = json.loads(subprocess.check_output(['gh','api',f'repos/{REPO}/issues/{pr}/comments','--paginate'],text=True))
     posted = next(c for c in comments if c['html_url']==url)
-    if posted['body']!=body.read_text().rstrip():
+    if posted['body']!=body.read_text():
         raise ValueError('Canonical PR posting readback differs')
     put(BASE/'plan-posted.json',{'url':url,'comment_id':posted['id'],'sha256':file_hash(BASE/'canonical-plan.json'),'body_sha256':file_hash(body),'readback_verified':True,'at':time()})
 

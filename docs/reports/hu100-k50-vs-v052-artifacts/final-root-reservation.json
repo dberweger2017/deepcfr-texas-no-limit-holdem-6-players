@@ -1,0 +1,30 @@
+{
+  "at": 1791877076.3507059,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/slumbot-k50",
+      "headRefOid": "7d32f9c62924db8421c412403614d834e7e35552",
+      "number": 257,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/257"
+    },
+    {
+      "headRefName": "feature/hu100-k50-vs-v052",
+      "headRefOid": "23af700ba79b62693cef1f5cf09d8693a1ec064e",
+      "number": 254,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/254"
+    }
+  ],
+  "pr": 254,
+  "roots": [
+    20261013101101,
+    20261013101102,
+    20261013101103
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "9fc168414f5205f7483d0c6d474919afd7f9b777",
+    "pr257": "7d32f9c62924db8421c412403614d834e7e35552"
+  }
+}

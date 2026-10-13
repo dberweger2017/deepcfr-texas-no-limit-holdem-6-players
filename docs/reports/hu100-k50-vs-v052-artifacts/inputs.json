@@ -1,0 +1,122 @@
+{
+  "k50_restoration": {
+    "archive": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 3488716045,
+      "cloud_archive_id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+      "cloud_archive_url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk",
+      "cloud_folder_id": "1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_folder_url": "https://drive.google.com/drive/folders/1yk7cz-WqjB2DEnIpaCIievrxbe5uiXGL",
+      "cloud_upload_accepted": true,
+      "logical_member_bytes": 3488714721,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "7840c4f40015bfb018b7febd1f1f04762c587794be3f7390dfbda8b8c46bf915",
+      "members": 2,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-246-hu100-k50-2b/hu100-k50-2b-averages-M4-20261012.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 10.349342166999122,
+      "sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+      "status": "locally-verified"
+    },
+    "indexed": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "actual_nodes": 2000000978,
+      "alternative_average_archive": {
+        "archive_sha256": "278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c",
+        "id": "14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn",
+        "member": "averages/2000000000.average.gz",
+        "member_verification": "shasum -a 256 RESTORE_ROOT/averages/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+        "retrieval_command": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' AVERAGES_ARCHIVE.zip averages/2000000000.average.gz RESTORE_ROOT",
+        "url": "https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view?usp=drivesdk"
+      },
+      "archive_id": "1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg",
+      "archive_sha256": "42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+      "archive_url": "https://drive.google.com/file/d/1TR5HaryZUk8dpH1Jq6RPzctPxv2ILPmg/view?usp=drivesdk",
+      "bytes": 2004530099,
+      "entries": 69531154,
+      "iterations": 1919544,
+      "kind": "average",
+      "member": "research/training/2000000000.average.gz",
+      "original_source_mtime_ns": 1791836502571800217,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 42d3106440c57b2061e7e4ff85de65af68e52e1ce7960514ecf0b3151914ccb4",
+        "download": "Download the named archive into a fresh ignored nonsynced directory as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/2000000000.average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/2000000000.average.gz # expected dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8"
+      },
+      "seed": 2026100601,
+      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+      "sha256_provenance": "completed full native export audit"
+    },
+    "member": "averages/2000000000.average.gz",
+    "method": "whole/archive/member verified ZIP restoration",
+    "original_path": "/Users/dberweger/Local/hu100-k50-2b-20261012/results/hu100-k50-2b/training/2000000000.average.gz"
+  },
+  "models": {
+    "k50": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 2004530099,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/tables",
+      "entries": 69531154,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1919544,
+      "name": "k50",
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/models/2000000000.average.gz",
+      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+      "source_checkpoint_sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
+    },
+    "v052": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 2121415396,
+      "entries": 70466972,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 3716073,
+      "name": "v052",
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368"
+    }
+  },
+  "owners": {
+    "163": {
+      "mergedAt": "2026-10-05T08:15:20Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163"
+    },
+    "226": {
+      "mergedAt": "2026-10-11T10:46:25Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/226"
+    },
+    "240": {
+      "mergedAt": "2026-10-12T14:09:16Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/240"
+    },
+    "246": {
+      "mergedAt": "2026-10-12T23:15:57Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/246"
+    }
+  },
+  "release_source": "3a3bc4218bab96637d6a27a69b73383ee8bb196c",
+  "release_verification_stdout": "{\"hashes\": {\"INSTALL.md\": \"c0d0a2fcd7e6fe724b041881c15b360f8869d2fb01ece35c6ad9e3e706954fe0\", \"MODEL_CARD.md\": \"21819e27ef83aabb1bf2b287510dd224dbab6d1193180e1b22a657ec468b86c9\", \"O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"RELEASE_NOTES.md\": \"55a3a7f09045039813bdab116fc82ac1f70bf4bc565e55c7fe679285e63bdae6\", \"release-manifest.json\": \"0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b\", \"verify_hu100_bundle.py\": \"e27a621be82e533dc5bdc29646fec6944b26e501cbc1bd871859b84f7e3bd817\"}, \"inference\": {\"adapter\": \"hu100-public-menu-translation-v1\", \"translation\": {\"max_events\": 128, \"max_states\": 512, \"version\": \"hu100-public-menu-translation-v1\"}}, \"model_sha256\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"package_source_commit\": \"3a3bc4218bab96637d6a27a69b73383ee8bb196c\", \"release\": \"v0.5.2\", \"status\": \"owner-approved-publication\"}\n",
+  "source": "98fd29057e35d1bb54e7ecd17fbc5410dee2f2aa",
+  "tables": {
+    "flop": {
+      "bytes": 12867944,
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/tables/flop-k50.bin",
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    "river": {
+      "bytes": 1231562564,
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/tables/river-k50.bin",
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    "turn": {
+      "bytes": 139600524,
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/tables/turn-k50.bin",
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    }
+  }
+}
