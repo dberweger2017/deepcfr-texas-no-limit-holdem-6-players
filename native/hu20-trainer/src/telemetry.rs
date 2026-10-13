@@ -72,3 +72,44 @@ mod tests {
         assert_eq!(d["visits_histogram"]["10-99"], 1);
     }
 }
+
+/// A receipt interval starts at process admission or the previous successful save.
+/// Miss counters restart on recovery; cumulative discard counters live in the checkpoint.
+pub struct FreezeSnapshot {
+    iteration: u64,
+    discarded: [u64; 2],
+    decisions: [u64; 4],
+    traverser: [u64; 4],
+    missing_traverser: [u64; 4],
+    missing_opponent: [u64; 4],
+}
+
+impl FreezeSnapshot {
+    pub fn new(trainer: &Trainer) -> Self {
+        let discarded = trainer.frozen_table.map_or([0; 2], |s| [s.discarded_traverser_visits, s.discarded_updates]);
+        Self { iteration: trainer.iteration, discarded, decisions: trainer.decisions_by_street,
+            traverser: trainer.traverser_visits_by_street, missing_traverser: trainer.missing_traverser_by_street,
+            missing_opponent: trainer.missing_opponent_by_street }
+    }
+}
+
+pub fn freeze_receipt(trainer: &Trainer, previous: &FreezeSnapshot) -> Value {
+    let state = trainer.frozen_table;
+    let counts = state.map_or([0; 2], |s| [s.discarded_traverser_visits, s.discarded_updates]);
+    let decisions = std::array::from_fn::<_, 4, _>(|i| trainer.decisions_by_street[i] - previous.decisions[i]);
+    let traverser = std::array::from_fn::<_, 4, _>(|i| trainer.traverser_visits_by_street[i] - previous.traverser[i]);
+    let opponent = std::array::from_fn::<_, 4, _>(|i| decisions[i] - traverser[i]);
+    let missing_traverser = std::array::from_fn::<_, 4, _>(|i| trainer.missing_traverser_by_street[i] - previous.missing_traverser[i]);
+    let missing_opponent = std::array::from_fn::<_, 4, _>(|i| trainer.missing_opponent_by_street[i] - previous.missing_opponent[i]);
+    let share = |missing: [u64; 4], total: [u64; 4]| {
+        (0..4).map(|i| if total[i] == 0 { Value::Null } else { json!(missing[i] as f64 / total[i] as f64) }).collect::<Vec<_>>()
+    };
+    json!({"state": state.map(|s| s.header()), "interval_start_iteration": previous.iteration,
+        "discarded_traverser_visits_since_previous_save": counts[0] - previous.discarded[0],
+        "discarded_updates_since_previous_save": counts[1] - previous.discarded[1],
+        "streets": ["preflop", "flop", "turn", "river"],
+        "traverser_decisions_by_street": traverser, "opponent_decisions_by_street": opponent,
+        "missing_traverser_by_street": missing_traverser, "missing_opponent_by_street": missing_opponent,
+        "missing_traverser_share_by_street": share(missing_traverser, traverser),
+        "missing_opponent_share_by_street": share(missing_opponent, opponent)})
+}

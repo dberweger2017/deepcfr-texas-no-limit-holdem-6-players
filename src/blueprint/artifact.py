@@ -232,7 +232,7 @@ def load_training(path: Path, *, card_buckets: Path | None = None, evaluation_on
             )
         else:
             raise ValueError("Unknown blueprint checkpoint format")
-        trainer = _load_training_document(document, rows, evaluation_only=evaluation_only or schema in EQUITY_SCHEMAS)
+        trainer = _load_training_document(document, rows, evaluation_only=evaluation_only or schema in EQUITY_SCHEMAS or "frozen_table" in document)
         trainer.equity_cards = cards
         return trainer
 

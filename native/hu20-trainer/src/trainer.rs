@@ -16,7 +16,7 @@ use crate::game::{Game, Hand};
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use rayon::prelude::*;
-use serde_json::json;
+use serde_json::{json, Value};
 use std::io::Write;
 use std::path::Path;
 
@@ -27,6 +27,25 @@ static PAIR: std::sync::LazyLock<rayon::ThreadPool> =
 
 pub const GAME: &str = "hu20-native-reopening-20bb-52card-no-ante-rake-v1";
 pub const FORMAT: &str = "holdem-hu20-native-reopening-blueprint-v1";
+
+/// Permanent table boundary and cumulative accounting; absent until freezing actually happens.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FrozenTable {
+    pub since_iteration: u64,
+    pub entries: u64,
+    pub discarded_traverser_visits: u64,
+    /// One update is one missing key's merged delta in one complete iteration, including opponent-only deltas.
+    pub discarded_updates: u64,
+}
+
+impl FrozenTable {
+    pub fn header(self) -> Value {
+        json!({"version": 1, "since_iteration": self.since_iteration, "entries": self.entries,
+            "discarded_traverser_visits": self.discarded_traverser_visits, "discarded_updates": self.discarded_updates})
+    }
+}
+
+type TraversalResult = (Table, u64, [u64; 4], [u64; 4], [u64; 4], [u64; 4]);
 
 pub struct Trainer {
     pub game: Game,
@@ -44,6 +63,10 @@ pub struct Trainer {
     pub coverage_start: [u64; 3], // iteration, completed nodes, traverser visits before telemetry
     pub decisions_by_street: [u64; 4],
     pub traverser_visits_by_street: [u64; 4],
+    pub frozen_table: Option<FrozenTable>,
+    /// Process-local telemetry; deliberately absent from checkpoints so enabling receipts cannot change bytes.
+    pub missing_traverser_by_street: [u64; 4],
+    pub missing_opponent_by_street: [u64; 4],
     /// The production rule unless chosen otherwise; regrets and play are the same under both.
     pub average: AverageRule,
     /// Training changes beyond the production rule; none by default.
@@ -54,7 +77,16 @@ pub struct Trainer {
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
         Trainer { game: Game::Hu20, table: Store::new(), cards: Cards::V1, menu: MenuVersion::V1, scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
+                  frozen_table: None, missing_traverser_by_street: [0; 4], missing_opponent_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
+    }
+
+    /// Called before the first resumed step and after each complete iteration. Never unfreezes.
+    pub fn freeze_at_cap(&mut self, max_entries: u64) {
+        if self.frozen_table.is_none() && self.table.len() as u64 >= max_entries {
+            self.frozen_table = Some(FrozenTable { since_iteration: self.iteration,
+                entries: self.table.len() as u64, discarded_traverser_visits: 0, discarded_updates: 0 });
+        }
     }
 
     pub fn step(&mut self) -> u64 {
@@ -93,11 +125,12 @@ impl Trainer {
             traversal.regret_weight = regret_weight;
             traversal.average_weight = average_weight;
             traversal.run(&mut hand);
-            (traversal.deltas, traversal.nodes, traversal.decisions_by_street, traversal.traverser_visits_by_street)
+            (traversal.deltas, traversal.nodes, traversal.decisions_by_street, traversal.traverser_visits_by_street,
+             traversal.missing_traverser_by_street, traversal.missing_opponent_by_street)
         };
         // Every task reads the same table and draws from its own streams, and deltas merge in task
         // order below, so running the production setting's two traversals at once changes nothing.
-        let results: Vec<(Table, u64, [u64; 4], [u64; 4])> = if tasks.len() == 2 {
+        let results: Vec<TraversalResult> = if tasks.len() == 2 {
             let mut scratch = scratch.into_iter();
             let (a, b) = (scratch.next().unwrap(), scratch.next().unwrap());
             let (x, y) = PAIR.install(|| rayon::join(|| run((&tasks[0], a)), || run((&tasks[1], b))));
@@ -106,14 +139,16 @@ impl Trainer {
             tasks.par_iter().zip(scratch.into_par_iter()).map(run).collect()
         };
         let nodes: u64 = results.iter().map(|r| r.1).sum();
-        for (_, _, decisions, visits) in &results {
+        for (_, _, decisions, visits, missing_traverser, missing_opponent) in &results {
             for i in 0..4 {
                 self.decisions_by_street[i] += decisions[i];
                 self.traverser_visits_by_street[i] += visits[i];
+                self.missing_traverser_by_street[i] += missing_traverser[i];
+                self.missing_opponent_by_street[i] += missing_opponent[i];
             }
         }
         // Group each task's deltas by shard, keeping task order inside every shard.
-        let group = |(deltas, _, _, _): &(Table, u64, [u64; 4], [u64; 4])| {
+        let group = |(deltas, _, _, _, _, _): &TraversalResult| {
                 let mut by_shard: Vec<Vec<(Key, Node)>> = vec![Vec::new(); SHARDS];
                 for (key, delta) in deltas {
                     by_shard[Store::shard(key)].push((*key, *delta));
@@ -126,6 +161,7 @@ impl Trainer {
             self.discounts.extend([alpha, beta], iteration);
         }
         let discounts = &self.discounts;
+        let frozen = self.frozen_table.is_some();
         // Per shard: merge tasks in order, then apply. Each key sees Python's addition order.
         let apply = |(shard, table): (usize, &mut Shard)| {
             let mut merged = Table::default();
@@ -140,7 +176,14 @@ impl Trainer {
                     target.visits += delta.visits;
                 }
             }
+            let (mut discarded_visits, mut discarded_updates) = (0u64, 0u64);
             for (key, delta) in merged {
+                // Filter only by membership, never visits: existing opponent-only keys still learn their average.
+                if frozen && !table.contains(&key) {
+                    discarded_visits += delta.visits;
+                    discarded_updates += 1;
+                    continue;
+                }
                 let fresh = || Node { stamp: (iteration - 1).min(u32::MAX as u64) as u32, ..Node::empty(delta.code, delta.len as usize) };
                 table.update(key, fresh, |node| {
                     assert!(node.code == delta.code, "an abstract infoset changed its action labels");
@@ -170,14 +213,21 @@ impl Trainer {
                     node.visits += delta.visits;
                 });
             }
+            (discarded_visits, discarded_updates)
         };
         // Two traversals per iteration (the production setting) are cheaper to apply serially.
-        if tasks.len() > 2 {
-            self.table.0.par_iter_mut().enumerate().for_each(apply);
+        let sum = |a: (u64, u64), b: (u64, u64)| (a.0 + b.0, a.1 + b.1);
+        let discarded = if tasks.len() > 2 {
+            self.table.0.par_iter_mut().enumerate().map(apply).reduce(|| (0, 0), sum)
         } else {
-            self.table.0.iter_mut().enumerate().for_each(apply);
+            self.table.0.iter_mut().enumerate().map(apply).fold((0, 0), sum)
+        };
+        if let Some(state) = &mut self.frozen_table {
+            state.discarded_traverser_visits += discarded.0;
+            state.discarded_updates += discarded.1;
+            assert_eq!(self.table.len() as u64, state.entries, "frozen key set grew");
         }
-        self.scratch = results.into_iter().map(|(deltas, _, _, _)| deltas).collect();
+        self.scratch = results.into_iter().map(|(deltas, _, _, _, _, _)| deltas).collect();
         self.iteration = iteration;
         self.nodes += nodes;
         nodes
@@ -220,7 +270,10 @@ impl Trainer {
             "identity": crate::checkpoint::identity(self.game, self.cards.descriptor(), self.cards.tables(), self.menu),
         });
         let mut header = header;
-        if recovery || self.game != Game::Hu20 {
+        if let Some(state) = self.frozen_table {
+            header["frozen_table"] = state.header();
+        }
+        if recovery || self.game != Game::Hu20 || self.frozen_table.is_some() {
             header["native_state"] = json!({"version": 1, "completed_nodes": self.nodes,
                 "coverage_start": self.coverage_start, "decisions_by_street": self.decisions_by_street, "traverser_visits_by_street": self.traverser_visits_by_street});
         }
@@ -246,5 +299,79 @@ impl Trainer {
             out.finish()?.flush()?;
         }
         std::fs::rename(temporary, path)
+    }
+}
+
+#[cfg(test)]
+mod frozen_tests {
+    use super::*;
+
+    #[test]
+    fn frozen_merge_keeps_every_existing_update_including_opponent_only() {
+        for roots in [1, 4] {
+            let make = || {
+                let mut t = Trainer::new(5, roots);
+                t.average = AverageRule::OpponentSampled;
+                for _ in 0..12 { t.step(); }
+                t
+            };
+            let mut frozen = make();
+            let before: Table = frozen.table.iter().collect();
+            frozen.freeze_at_cap(before.len() as u64);
+            let mut reference = make();
+            let mut changed_opponent_only = 0;
+            let mut changed_regrets = 0;
+            let mut acquired_regrets = 0;
+            for _ in 0..8 {
+                // Rebuild the unfrozen reference's input with exactly the frozen key set each time.
+                reference.table = Store::new();
+                for (key, node) in frozen.table.iter() { reference.table.insert(key, node); }
+                reference.iteration = frozen.iteration;
+                reference.nodes = frozen.nodes;
+                let previous: Table = frozen.table.iter().collect();
+                let nodes = frozen.step();
+                assert_eq!(reference.step(), nodes);
+                assert_eq!(frozen.table.len(), before.len());
+                for (key, node) in frozen.table.iter() {
+                    let expected = reference.table.get(&key).unwrap();
+                    let old = previous.get(&key).unwrap();
+                    assert_eq!(node.regrets.map(f64::to_bits), expected.regrets.map(f64::to_bits));
+                    assert_eq!(node.average.map(f64::to_bits), expected.average.map(f64::to_bits));
+                    assert_eq!(node.visits, expected.visits);
+                    changed_regrets += usize::from(node.regrets != old.regrets);
+                    changed_opponent_only += usize::from(old.visits == 0 && node.visits == 0 && node.average != old.average);
+                    acquired_regrets += usize::from(old.visits == 0 && node.visits > 0 && node.regrets != old.regrets);
+                }
+            }
+            assert!(changed_regrets > 0 && changed_opponent_only > 0 && acquired_regrets > 0);
+            let state = frozen.frozen_table.unwrap();
+            assert!(state.discarded_traverser_visits > 0 && state.discarded_updates > 0);
+            let stored: u64 = frozen.table.iter().map(|(_, n)| n.visits).sum();
+            assert_eq!(stored + state.discarded_traverser_visits, frozen.traverser_visits_by_street.iter().sum::<u64>());
+        }
+    }
+
+    #[test]
+    fn frozen_recovery_preserves_bytes_and_validates_accounting() {
+        let mut full = Trainer::new(7, 1);
+        full.average = AverageRule::OpponentSampled;
+        for _ in 0..5 { full.step(); }
+        full.freeze_at_cap(1);
+        for _ in 0..5 { full.step(); }
+        let dir = std::env::temp_dir().join(format!("frozen-recovery-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let checkpoint = dir.join("half.gz");
+        full.save_recoverable(&checkpoint, 1000000000, 1000000).unwrap();
+        let mut resumed = crate::checkpoint::load(&checkpoint, full.game, full.cards, full.menu, None, 1000000).unwrap();
+        assert_eq!(resumed.frozen_table, full.frozen_table);
+        for _ in 0..10 { full.step(); resumed.step(); }
+        for (t, name) in [(&full, "full.gz"), (&resumed, "resumed.gz")] {
+            t.save_recoverable(&dir.join(name), 1000000000, 1000000).unwrap();
+        }
+        assert_eq!(std::fs::read(dir.join("full.gz")).unwrap(), std::fs::read(dir.join("resumed.gz")).unwrap());
+        resumed.frozen_table.as_mut().unwrap().discarded_traverser_visits += 1;
+        resumed.save_recoverable(&checkpoint, 1000000000, 1000000).unwrap();
+        assert!(crate::checkpoint::load(&checkpoint, full.game, full.cards, full.menu, None, 1000000).is_err());
+        std::fs::remove_dir_all(dir).unwrap();
     }
 }
