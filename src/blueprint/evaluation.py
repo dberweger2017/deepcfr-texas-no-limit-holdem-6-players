@@ -8,7 +8,7 @@ from src.arena.policies import make_policy
 from src.arena.report import summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, build_schedule, digest
-from src.blueprint.abstraction import choices, information_key
+from src.blueprint.abstraction import choices, menu_sizes, information_key
 from src.blueprint.solver import BlueprintTrainer, regret_match
 
 
@@ -20,7 +20,9 @@ class _TablePolicy:
         self.uniform = uniform
 
     def choose_action(self, view):
-        menu = choices(view, raise_cap=self.trainer.config.raise_cap)
+        menu = choices(view, raise_cap=self.trainer.config.raise_cap,
+                       free_fold=menu_sizes(self.trainer.config.abstraction) != "v2",
+                       menu_sizes=menu_sizes(self.trainer.config.abstraction))
         key = information_key(view, menu, schema=self.trainer.config.abstraction)
         node = self.trainer.nodes.get(key)
         if node is not None and node.names != tuple(item.name for item in menu):

@@ -59,6 +59,9 @@ class NearestOpponentRaiseLookup:
     """Use translated abstract-history labels only if they find a valid node."""
 
     def __init__(self, target):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if target.source.abstraction in MENU_V2_SCHEMAS:
+            raise ValueError("Nearest-raise translation does not support menu-v2 schemas")
         self.target = target
         self.source = target.source
         self.raise_cap = target.raise_cap

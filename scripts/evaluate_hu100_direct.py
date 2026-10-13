@@ -14,7 +14,7 @@ from src.arena.catalog import Checkpoint
 from src.arena.registry import PolicyRegistry
 from src.arena.runner import public_events, run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest, schedule_document, stream_seed
-from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, schema_choices, information_key
 from src.blueprint.equity_buckets import EquityCards
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -162,9 +162,9 @@ def audit(out,output,report=False,cost_only=False):
                 view=hand.observe(hand.actor);d=json.loads(next(traces));role=int(view.player_id!='player-0')
                 action=Action(ActionKind(event['action']['kind']),event['action']['raise_to'])
                 view.legal_actions.validate(action)
-                menu=choices(view,raise_cap=None,free_fold=False)
                 policy=plan.candidate if role==0 else plan.baseline
                 spec=models[policy]
+                menu=schema_choices(view,spec.abstraction or HU100_SCHEMA)
                 key=information_key(view,menu,schema=spec.abstraction or HU100_SCHEMA,equity_cards=cards.get(policy))
                 if (d['block']!=block.index or d['rotation']!=rotation or d['role']!=role
                         or d['seed']!=action_seed(plan.root_seed,block,rotation,role)

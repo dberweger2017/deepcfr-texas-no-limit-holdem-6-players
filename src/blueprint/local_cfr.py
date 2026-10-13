@@ -264,6 +264,9 @@ class _LocalSolver:
     def __init__(self, blueprint, view: Observation, random: Random, config: LocalCFRConfig,
                  deadline: float, coverage: Counter, *, root_ranges=None,
                  snapshot_seconds: tuple[float, ...] = (), rss_limit_bytes: int | None = None):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Search does not support menu-v2 schemas")
         self.blueprint = blueprint
         self.view = view
         self.random = random
@@ -535,6 +538,9 @@ class LocalCFRPlayer:
         self, blueprint, seed: int, config: LocalCFRConfig = LocalCFRConfig(),
         other_search_config: SearchConfig = SearchConfig(variant="corrected"),
     ):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Search does not support menu-v2 schemas")
         self.blueprint = blueprint
         self.seed = seed
         self.config = config

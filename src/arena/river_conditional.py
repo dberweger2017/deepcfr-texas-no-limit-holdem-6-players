@@ -61,6 +61,9 @@ class ConditionalRiverRollout:
             raise ValueError("Conditional river control requires corrected rollout")
         if worlds_override is not None and not 1 <= worlds_override <= 16_384:
             raise ValueError("Evaluation-only worlds override must be in [1, 16384]")
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Conditional river search does not support menu-v2 schemas")
         self.blueprint = blueprint
         self.game = game
         self.config = config

@@ -198,6 +198,8 @@ def replay(inputs, out, stage, *, search_seconds=120):
             for op in OPPONENTS:
                 panel = inputs / PREFIX / stage / str(nodes) / op
                 manifest = json.loads((panel / 'manifest.json').read_text()); plan = Plan.from_dict(manifest['plan'])
+                if any(m.abstraction not in (None, HU100_SCHEMA) for m in plan.models):
+                    raise ValueError('HU100 support-witness diagnosis supports only the HU100 menu-v1 card schema')
                 blocks = {b.index: b for b in build_schedule(plan)}
                 seen = set(); misses = Counter(); offmenu = Counter(); exposures = defaultdict(lambda: [0, 0.])
                 cells = defaultdict(Cell); target_n = 0; raw_net = 0; support_totals = Counter()

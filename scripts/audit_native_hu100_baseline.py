@@ -14,7 +14,8 @@ from scipy.stats import t
 
 from src.arena.runner import public_events
 from src.arena.schedule import Plan, build_schedule, canonical, digest, schedule_document, stream_seed
-from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, schema_choices, information_key
+from src.blueprint.equity_buckets import EquityCards
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -68,6 +69,9 @@ def audit(root, output):
                 or plan.scenarios[0].stacks != (10000, 10000) or m['revision'] != inputs['source']
                 or canonical(json.loads((panel / 'schedule.json').read_text())) != canonical(schedule_document(plan))):
             raise ValueError('Pinned schedule/identity differs')
+        spec = next(m for m in plan.models if m.name == plan.candidate)
+        schema = spec.abstraction or HU100_SCHEMA
+        cards = EquityCards(Path(spec.card_buckets)) if schema in EQUITY_SCHEMAS else None
         blocks = {b.index: b for b in build_schedule(plan)}
         expected = {(b, r, arm) for b in blocks for r in (0, 1) for arm in ('candidate', 'baseline')}
         seen = set(); values = defaultdict(lambda: defaultdict(list)); raw_decisions = []
@@ -103,9 +107,9 @@ def audit(root, output):
                     action = Action(ActionKind(event['action']['kind']), event['action']['raise_to'])
                     view.legal_actions.validate(action)
                     if role == 0:
-                        menu = choices(view, raise_cap=None, free_fold=False)
+                        menu = schema_choices(view, schema if row["arm"] == "candidate" else HU100_SCHEMA)
                         if (d['menu'] != json.loads(canonical([asdict(c) for c in menu]))
-                                or d['key'] != information_key(view, menu, schema=HU100_SCHEMA)
+                                or d['key'] != information_key(view, menu, schema=schema if row["arm"] == "candidate" else HU100_SCHEMA, equity_cards=cards if row["arm"] == "candidate" else None)
                                 or d['lookup'] not in ('positive-mass-known-key', 'zero-mass', 'missing-key')
                                 or len(d['probabilities']) != len(menu)
                                 or any(not isfinite(p) or p < 0 for p in d['probabilities'])

@@ -14,7 +14,7 @@ from src.arena.heuristics import STYLES, Style, StylePolicy
 from src.arena.registry import PolicyRegistry
 from src.arena.runner import public_events, run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest
-from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, schema_choices, information_key
 from src.blueprint.action_translation import TranslationOptions
 from src.blueprint.equity_buckets import EquityCards
 from src.game.hand import Hand, Table
@@ -158,7 +158,7 @@ def audit(out, output, *, cost_only=False):
                     raise ValueError('Private stream/action trace differs')
                 final_street = view.street.value
                 if role==0:
-                    menu = choices(view,raise_cap=None,free_fold=False)
+                    menu = schema_choices(view,spec["abstraction"])
                     key = information_key(view,menu,schema=spec['abstraction'],equity_cards=cards)
                     info = d['translation']; probs = d['effective_probabilities']
                     unresolved = info['mode']=='uniform' and info['reason']=='missing-key'

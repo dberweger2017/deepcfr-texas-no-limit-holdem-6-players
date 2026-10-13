@@ -10,7 +10,7 @@ from scripts.play_hu20 import _display, _label, _table, replay_history
 from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import choices
+from src.blueprint.abstraction import schema_choices
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
 from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.game.hand import Hand
@@ -35,7 +35,7 @@ def play(policy, sha256, history, *, seed=2026146001, max_hands=None, input_fn=i
                 view=hand.observe(hand.actor)
                 if hand.actor==0:
                     _display(view,output)
-                    menu=choices(view,raise_cap=source.raise_cap,free_fold=False)
+                    menu=schema_choices(view,base.abstraction)
                     for i,c in enumerate(menu,1):output(f'  {i}. {_label(c.action)}')
                     while True:
                         answer=input_fn('Choose action number: ').strip()

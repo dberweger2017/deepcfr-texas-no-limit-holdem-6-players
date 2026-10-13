@@ -12,7 +12,7 @@ from random import Random
 
 from src.blueprint.abstraction import (BUTTON_ZERO_COMPAT_LOOKUP, HU20_CARD_VERSION,
                                        HU20_MENU_VERSION, HU20_SCHEMA,
-                                       LEGACY_LOOKUP, choices, information_key)
+                                       LEGACY_LOOKUP, MENU_V2_SCHEMAS, choices, information_key)
 from src.blueprint.solver import HU20_GAME, regret_match
 from src.game.hand import Hand
 from src.game.types import Street
@@ -64,6 +64,8 @@ def collect_one(root, target: int, random: Random, adapter, counters: dict):
 
 class NativePreflopAdapter:
     def __init__(self, trainer):
+        if trainer.config.abstraction in MENU_V2_SCHEMAS:
+            raise ValueError("Windowed extraction does not support menu-v2 schemas")
         self.trainer = trainer
 
     def stop(self, hand, target):
@@ -226,6 +228,8 @@ def build_index(snapshots: list[Path], counters: dict, path: Path) -> dict:
 class WindowedDistribution:
     """Hash-verified, read-only SQLite probability index for C/P/F/A."""
     def __init__(self, path: Path, manifest: dict, arm: str):
+        if manifest.get("abstraction") in MENU_V2_SCHEMAS:
+            raise ValueError("Windowed extraction does not support menu-v2 schemas")
         if arm not in ("C", "P", "F", "A"):
             raise ValueError("Unknown extraction arm")
         if manifest.get("schema") != EXTRACTION or _hash(path) != manifest.get("artifact_sha256"):

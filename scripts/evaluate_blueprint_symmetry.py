@@ -19,7 +19,7 @@ from src.arena.policies import make_policy
 from src.arena.runner import _fixed, public_events
 from src.arena.schedule import Plan, build_schedule, digest, schedule_document
 from src.blueprint.abstraction import (
-    BUTTON_ZERO_COMPAT_LOOKUP, LEGACY_LOOKUP, choices, information_key,
+    BUTTON_ZERO_COMPAT_LOOKUP, LEGACY_LOOKUP, choices, menu_sizes, information_key,
 )
 from src.blueprint.artifact import load_training
 from src.blueprint.lookup import NoFreeFoldDistribution, TableDistribution
@@ -78,7 +78,9 @@ class CoverageProbe:
         self.decisions = 0
 
     def record(self, view, arm):
-        menu = choices(view, raise_cap=self.trainer.config.raise_cap)
+        menu = choices(view, raise_cap=self.trainer.config.raise_cap,
+                       free_fold=menu_sizes(self.trainer.config.abstraction) != "v2",
+                       menu_sizes=menu_sizes(self.trainer.config.abstraction))
         street, button = view.street.value, view.button
         found = {}
         for mode in MODES:
