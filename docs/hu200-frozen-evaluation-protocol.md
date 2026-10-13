@@ -76,12 +76,14 @@ script). Direct blocks have two seat-swapped hands; panel blocks have four
 hands, pairing both model arms on shared deals. Every primary hand is also
 independently replayed and exactly reproduced.
 
-Cost pilots: 1,024 direct blocks for each distinct pair, 64 blocks per script
+Cost pilots: 1,024 direct blocks for final minus 752M, 64 blocks per script
 for final minus 752M. Expose only time, memory and paired SDs to sizing, not
 means, intervals, directions or pilot coverage. Keep raw pilots archived,
 separate from final data. Measure fixed setup plus play/replay/reproduction,
 use a 1.25 planning multiplier and the remaining fixed clock. Cache construction
-has already consumed clock before sizing. Include trace/archive disk headroom.
+has already consumed clock before sizing. Build all three caches serially
+without playing hands before the pilot. Use the measured primary direct cost
+as the declared planning proxy for the 5B pair. Include trace/archive disk headroom.
 
 Before any final outcome, select once along this ordered ladder:
 
