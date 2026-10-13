@@ -1,0 +1,23 @@
+{
+  "blocks": 32,
+  "branch_decisions": 289,
+  "branch_hands": 64,
+  "branch_rows": {
+    "decisions.jsonl.gz": "1b901eff25b5e8e61000e48dc2c35aae3295b681c5f2e08137eb3665ea54e22c",
+    "hands.jsonl.gz": "e0b6f3f138ff0737d12142b3054391be244e7e4848944c1b7a3e3682978dcbf6"
+  },
+  "branch_source": "f0b3d46f7d3b2dec95b6bba38bb9d6f1f2bf6047",
+  "decisions": 289,
+  "hands": 64,
+  "public_events_sha256": {
+    "hu100-branch": "23d0fcb4c556e9f4e9d258261ad83ae82a63fe6822a42e1b8ac4e7ed3af9cb59",
+    "hu100-main": "23d0fcb4c556e9f4e9d258261ad83ae82a63fe6822a42e1b8ac4e7ed3af9cb59"
+  },
+  "root": 202610130701,
+  "rows": {
+    "decisions.jsonl.gz": "1b901eff25b5e8e61000e48dc2c35aae3295b681c5f2e08137eb3665ea54e22c",
+    "hands.jsonl.gz": "e0b6f3f138ff0737d12142b3054391be244e7e4848944c1b7a3e3682978dcbf6"
+  },
+  "rung": "identity",
+  "source": "ac19e29abb89b90312ebab4bf68036c3964df482"
+}

@@ -1,0 +1,169 @@
+{
+  "direct": {
+    "pilot_blocks": 128,
+    "final_blocks": 262144,
+    "primary_hands": 524288,
+    "all_played_hands": 1048576,
+    "paired_sd_bb_per_100": 1717.8077119038323,
+    "nominal_95_half_width_bb_per_100": 6.575982647131858,
+    "primary_ms_per_block": 11.275164390553982,
+    "reproduction_ms_per_block": 3.600178710939872,
+    "audit_ms_per_block_including_fixed_table_hashes": 15.10443717961607,
+    "end_to_end_linear_seconds": 7878.376529801288,
+    "planning_seconds_2x": 15756.753059602575,
+    "estimated_compressed_raw_bytes": 415698944.0
+  },
+  "panel": {
+    "check_call": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 785.8629938871599,
+      "arm_sd_bb_per_100": {
+        "baseline": 795.7406141450869,
+        "candidate": 718.0966525610288
+      },
+      "nominal_95_half_width_bb_per_100": 12.033527093897135,
+      "primary_ms_per_block": 15.300960937565833,
+      "reproduction_ms_per_block": 9.358511718346563,
+      "audit_ms_per_block_including_fixed_table_hashes": 36.37352993791865,
+      "end_to_end_linear_seconds": 1002.8458285393135,
+      "planning_seconds_2x": 2005.691657078627,
+      "estimated_compressed_raw_bytes": 43471872.0
+    },
+    "half_pot_pressure": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 1766.3607338070794,
+      "arm_sd_bb_per_100": {
+        "baseline": 2895.81601246077,
+        "candidate": 2473.7104360802987
+      },
+      "nominal_95_half_width_bb_per_100": 27.047398736420902,
+      "primary_ms_per_block": 4.781561187883199,
+      "reproduction_ms_per_block": 3.898486999787565,
+      "audit_ms_per_block_including_fixed_table_hashes": 27.27899349974905,
+      "end_to_end_linear_seconds": 591.7258934226702,
+      "planning_seconds_2x": 1183.4517868453404,
+      "estimated_compressed_raw_bytes": 23654400.0
+    },
+    "loose_aggressive": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 5384.262227817589,
+      "arm_sd_bb_per_100": {
+        "baseline": 4687.15852250817,
+        "candidate": 1794.878010220355
+      },
+      "nominal_95_half_width_bb_per_100": 82.44651536345683,
+      "primary_ms_per_block": 7.247963561894721,
+      "reproduction_ms_per_block": 4.628720031178091,
+      "audit_ms_per_block_including_fixed_table_hashes": 28.52507940679061,
+      "end_to_end_linear_seconds": 664.5289720317523,
+      "planning_seconds_2x": 1329.0579440635047,
+      "estimated_compressed_raw_bytes": 28142592.0
+    },
+    "matched_pot_pressure": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 1818.761431623535,
+      "arm_sd_bb_per_100": {
+        "baseline": 1819.0523942160726,
+        "candidate": 162.98006013006622
+      },
+      "nominal_95_half_width_bb_per_100": 27.84978442173538,
+      "primary_ms_per_block": 5.5565338752785465,
+      "reproduction_ms_per_block": 4.347606749433908,
+      "audit_ms_per_block_including_fixed_table_hashes": 35.04527343739028,
+      "end_to_end_linear_seconds": 739.4651296185039,
+      "planning_seconds_2x": 1478.9302592370077,
+      "estimated_compressed_raw_bytes": 24073216.0
+    },
+    "pot_pressure": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 296.20839846733014,
+      "arm_sd_bb_per_100": {
+        "baseline": 1620.891013119417,
+        "candidate": 1473.524540539648
+      },
+      "nominal_95_half_width_bb_per_100": 4.535691101530992,
+      "primary_ms_per_block": 3.4252838750035153,
+      "reproduction_ms_per_block": 2.7360273443264305,
+      "audit_ms_per_block_including_fixed_table_hashes": 26.603436187542684,
+      "end_to_end_linear_seconds": 539.3421423881955,
+      "planning_seconds_2x": 1078.684284776391,
+      "estimated_compressed_raw_bytes": 18279424.0
+    },
+    "random": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 3258.812107318624,
+      "arm_sd_bb_per_100": {
+        "baseline": 4388.956928285669,
+        "candidate": 5367.752932781001
+      },
+      "nominal_95_half_width_bb_per_100": 49.900560393316425,
+      "primary_ms_per_block": 7.369377593931858,
+      "reproduction_ms_per_block": 4.801652343303431,
+      "audit_ms_per_block_including_fixed_table_hashes": 35.149471344084304,
+      "end_to_end_linear_seconds": 785.4366462841572,
+      "planning_seconds_2x": 1570.8732925683144,
+      "estimated_compressed_raw_bytes": 25363456.0
+    },
+    "tight_aggressive": {
+      "pilot_blocks": 32,
+      "final_blocks": 16384,
+      "primary_hands": 65536,
+      "all_played_hands": 131072,
+      "paired_sd_bb_per_100": 1773.4346800816006,
+      "arm_sd_bb_per_100": {
+        "baseline": 1783.8086462090946,
+        "candidate": 35.03310646213231
+      },
+      "nominal_95_half_width_bb_per_100": 27.155718538749507,
+      "primary_ms_per_block": 3.1164440006250516,
+      "reproduction_ms_per_block": 2.693315093893034,
+      "audit_ms_per_block_including_fixed_table_hashes": 26.373102875368204,
+      "end_to_end_linear_seconds": 529.8797596395889,
+      "planning_seconds_2x": 1059.7595192791778,
+      "estimated_compressed_raw_bytes": 18050048.0
+    }
+  },
+  "panel_total_linear_seconds": 4853.2243719241815,
+  "panel_total_planning_seconds_2x": 9706.448743848363,
+  "measurement": {
+    "host": "dberweger-m1",
+    "source": "f0b3d46f7d3b2dec95b6bba38bb9d6f1f2bf6047",
+    "seconds": 62.64219879099983,
+    "peak_rss_bytes": 1033715712,
+    "pressure_levels": [
+      1
+    ],
+    "model_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+    "direct_comparison": "same K50 average with private role streams",
+    "panel_comparison": "K50 average against tiny uniform fixture, paired against each script",
+    "cache_bytes_per_85373907_entry_model": 5115547961,
+    "table_bytes": 1384031032,
+    "M4_measured": false,
+    "outcomes_reported": false
+  },
+  "assumptions": [
+    "No M4 speed credit; linear M1 timing, including replay and reproduction.",
+    "Audit scaling includes fixed table hashing at every pilot-sized chunk; deliberately conservative.",
+    "2x is a planning margin, not a bound or compute authorization.",
+    "Two distinct learned models and v2 menus may change lookup locality, decision counts and variance.",
+    "Panel variance is a uniform-fixture contrast, not the variance of tomorrow\u2019s learned-model pair."
+  ]
+}

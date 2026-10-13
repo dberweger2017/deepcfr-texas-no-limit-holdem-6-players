@@ -1,6 +1,6 @@
 """Card-aware style controls. Scores are hand-selection heuristics, not equities."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from random import Random
 
 from src.game.observation import Observation
@@ -26,6 +26,11 @@ STYLES = {
     "pot_pressure": Style(0.40, 0.60, 0.95, 0.20, 3),
     "train_pressure": Style(0.35, 0.58, 0.60, 0.10, 1),
 }
+
+
+# Size controls for pot_pressure: identical selection and sampler, only wager size differs.
+STYLES["half_pot_pressure"] = replace(STYLES["pot_pressure"], pot_numerator=1)
+STYLES["matched_pot_pressure"] = replace(STYLES["pot_pressure"], pot_numerator=2)
 
 
 def hand_score(view: Observation) -> float:
