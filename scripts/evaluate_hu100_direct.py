@@ -126,8 +126,12 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
     validate(registry,specs,plan)
     load_seconds=perf_counter()-tick
     schedule=build_schedule(plan)
-    put(out/'inputs.json',{'source':source,'models':specs,'plan':asdict(plan),'translation':None,
-        'plan_sha256':digest(asdict(plan)),**({'scripted_opponent':opponent,'opponent_style':asdict(STYLES[opponent]) if opponent in STYLES else None} if opponent else {})})
+    inputs = {'source':source,'models':specs,'plan':asdict(plan),'translation':None,
+        'plan_sha256':digest(asdict(plan)),**({'scripted_opponent':opponent,'opponent_style':asdict(STYLES[opponent]) if opponent in STYLES else None} if opponent else {})}
+    if any('missing_key_fallback' in s for s in specs):
+        inputs['play_options'] = {s['name']: {'missing_key_fallback': s.get('missing_key_fallback', 'uniform')} for s in specs}
+        inputs['run_identity_sha256'] = digest(inputs)
+    put(out/'inputs.json', inputs)
     contexts={}
     private_seeds=set()
     def seed_factory(block,rotation,arm,role):
@@ -180,6 +184,11 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
 def audit(out,output,report=False,cost_only=False):
     tick=perf_counter()
     inputs=json.loads((out/'inputs.json').read_text());done=json.loads((out/'complete.json').read_text())
+    if any('missing_key_fallback' in s for s in inputs['models']):
+        options = {s['name']: {'missing_key_fallback': s.get('missing_key_fallback', 'uniform')} for s in inputs['models']}
+        if inputs.get('play_options') != options or inputs.get('run_identity_sha256') != digest(
+                {k: v for k, v in inputs.items() if k != 'run_identity_sha256'}):
+            raise ValueError('Direct fallback run identity differs')
     plan=Plan.from_dict(inputs['plan'])
     stack=plan.scenarios[0].stacks[0]
     opponent=inputs.get('scripted_opponent')

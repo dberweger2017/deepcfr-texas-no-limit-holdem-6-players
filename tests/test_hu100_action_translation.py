@@ -22,6 +22,7 @@ def model(entries=(), zero=(), enabled=True):
     value.players = 2; value.raise_cap = None; value.abstraction = HU100_SCHEMA
     value.game = HU100_GAME
     value.entries = dict(entries); value.zero_mass = set(zero); value.description = {}
+    value.configure_missing_key_fallback("uniform")
     value.configure_translation(TranslationOptions() if enabled else None)
     return value
 

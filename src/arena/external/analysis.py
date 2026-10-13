@@ -156,6 +156,8 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
             known[(street, stored)] += 1
             coverage[street, lookup] += 1
             info = record.get('policy_telemetry')
+            if model.missing_key_fallback != 'uniform' and info is None:
+                raise ValueError('Check-call journal is missing decision telemetry')
             if info is not None and info['fallback_applied'] != (lookup == 'missing'):
                 raise ValueError('Journal fallback coverage differs from model')
 
@@ -179,6 +181,6 @@ def analyze(journal, *, model=None, workers: int = 4) -> dict:
         result['missing_key_fallback'] = model.missing_key_fallback
         result['coverage_by_street'] = {s: {k: coverage[s, k] for k in ('missing', 'zero_mass', 'positive_mass')} for s in STREETS}
         result['fallback_decisions_by_street'] = {s: coverage[s, 'missing'] if model.missing_key_fallback == 'check-call' else 0 for s in STREETS}
-        result['stored_policy_by_street'] = {s: {'stored': known[(s, True)], 'uniform_fallback': known[(s, False)]}
+        result['stored_policy_by_street'] = {s: {'stored': known[(s, True)], ('uniform_fallback' if model.missing_key_fallback == 'uniform' else 'check_call_fallback'): known[(s, False)]}
                                              for s in STREETS if known[(s, True)] + known[(s, False)]}
     return result

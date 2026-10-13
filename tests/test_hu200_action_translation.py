@@ -24,6 +24,7 @@ def model(entries=(), zero=(), enabled=True):
     m=AveragePolicy.__new__(AveragePolicy)
     m.players=2;m.raise_cap=None;m.abstraction=HU200_SCHEMA;m.game=HU200_GAME
     m.entries=dict(entries);m.zero_mass=set(zero);m.description={}
+    m.configure_missing_key_fallback("uniform")
     m.configure_translation(TranslationOptions() if enabled else None)
     return m
 

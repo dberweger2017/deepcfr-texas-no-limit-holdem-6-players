@@ -11,6 +11,8 @@ from pathlib import Path
 import signal
 import subprocess
 import sys
+from urllib.request import Request, urlopen
+from urllib.parse import urlparse
 from time import monotonic, sleep
 
 import psutil
@@ -80,8 +82,14 @@ def campaign(a):
         receipt = json.loads(a.publication.read_text())
         if receipt['plan_sha256'] != file_hash(a.plan) or a.plan.read_text() not in receipt['body']:
             raise ValueError('Canonical plan publication differs')
-        body = subprocess.check_output(['gh', 'pr', 'view', receipt['pr_url'], '--json', 'body'], text=True)
-        if json.loads(body)['body'] != receipt['body']: raise ValueError('Published plan changed before admission')
+        parsed = urlparse(receipt['pr_url'])
+        owner, repo, kind, number = parsed.path.strip('/').split('/')
+        if parsed.netloc != 'github.com' or kind != 'pull' or not number.isdigit():
+            raise ValueError('Invalid publication PR URL')
+        request = Request(f'https://api.github.com/repos/{owner}/{repo}/pulls/{number}',
+                          headers={'User-Agent': 'deepcfr-evaluation-plan-verifier'})
+        with urlopen(request, timeout=30) as response: published = json.load(response)
+        if published['body'] != receipt['body']: raise ValueError('Published plan changed before admission')
     a.out.mkdir(parents=True, exist_ok=False)
     baseline_swap = psutil.swap_memory().used
     started = monotonic(); low_since = None; processes = []; handles = []; results = {}; samples = []
