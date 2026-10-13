@@ -1,0 +1,55 @@
+{
+  "fixed_main_native_base": "7b0090242767bfe93e24a7501a4a87664bef7f9d",
+  "native_telemetry_training_seconds_definition": "elapsed before checkpoint write; CPU core equivalents include training/save/hash/diagnostics; time -l kernel RSS is bytes on macOS",
+  "runs": {
+    "1": {
+      "actual_nodes": 100001959,
+      "average_cpu_core_equivalents_including_save": 1.124643078833023,
+      "checkpoint_sha256": "91c9618a0c0bbefcb154f468dea1accef41b92c1ac0f80557c000eae4e22bc6a",
+      "end_to_end_speedup_over_matched_current_r1": 1.0,
+      "entries": 13291612,
+      "iteration": 82474,
+      "kernel_peak_rss_bytes": 1137033216,
+      "native_telemetry_elapsed_including_write_seconds": 78.967965208,
+      "process_system_seconds": 1.47,
+      "process_user_seconds": 89.12,
+      "process_wall_seconds": 80.55,
+      "save_seconds": 41.0897105,
+      "training_seconds": 37.87825470799999,
+      "training_speedup_over_matched_current_r1": 1.0
+    },
+    "4": {
+      "actual_nodes": 100002512,
+      "average_cpu_core_equivalents_including_save": 2.093344025661588,
+      "checkpoint_sha256": "a36675cff9537d1757c4f0cdb07c224e49fc7f5832eea05f6106cb38c841bee3",
+      "end_to_end_speedup_over_matched_current_r1": 1.2919005613472332,
+      "entries": 13316181,
+      "iteration": 20833,
+      "kernel_peak_rss_bytes": 1144668160,
+      "native_telemetry_elapsed_including_write_seconds": 60.744555625,
+      "process_system_seconds": 22.19,
+      "process_user_seconds": 108.33,
+      "process_wall_seconds": 62.35,
+      "save_seconds": 41.043516667,
+      "training_seconds": 19.701038957999998,
+      "training_speedup_over_matched_current_r1": 1.922663279403539
+    },
+    "8": {
+      "actual_nodes": 100001665,
+      "average_cpu_core_equivalents_including_save": 2.222241589681018,
+      "checkpoint_sha256": "a5ad86e8feadda6d394c7db01577a1dbc7a43a4616442b04be17300b3a89a333",
+      "end_to_end_speedup_over_matched_current_r1": 1.4040439253965487,
+      "entries": 13349348,
+      "iteration": 10323,
+      "kernel_peak_rss_bytes": 1151090688,
+      "native_telemetry_elapsed_including_write_seconds": 55.763963458,
+      "process_system_seconds": 14.98,
+      "process_user_seconds": 112.51,
+      "process_wall_seconds": 57.37,
+      "save_seconds": 41.607372958,
+      "training_seconds": 14.1565905,
+      "training_speedup_over_matched_current_r1": 2.6756543779459254
+    }
+  },
+  "scope": "cost-only matched 100M runs, same current native binary/seed/machine/single-save schedule; no poker payoffs"
+}

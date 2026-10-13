@@ -1,0 +1,37 @@
+{
+  "max_entries": 85373862,
+  "milestones": [
+    {
+      "actual_nodes": 500000140,
+      "checkpoint_write_seconds": 240.82829925,
+      "cumulative_peak_sampled_family_rss_bytes": 7871578112,
+      "entries": 69084815,
+      "iterations": 321139,
+      "mean_traverser_visits_per_key": 1.4334502741304294,
+      "nodes_per_second_including_writes": 1085186.3707680448,
+      "requested_nodes": 500000000,
+      "zero_average_mass_fraction": 0.3572168355665424,
+      "zero_visit_fraction": 0.4644661782766589
+    },
+    {
+      "actual_nodes": 752593175,
+      "checkpoint_write_seconds": 303.445437708,
+      "cumulative_peak_sampled_family_rss_bytes": 8851587072,
+      "entries": 85373907,
+      "iterations": 493496,
+      "mean_traverser_visits_per_key": 1.744624396772658,
+      "nodes_per_second_including_writes": 838733.6254091698,
+      "requested_nodes": 1000000000,
+      "zero_average_mass_fraction": 0.36195731325731645,
+      "zero_visit_fraction": 0.44291429698772017
+    }
+  ],
+  "terminal_reason": "entry-cap",
+  "unreached_nodes": [
+    1000000000,
+    1500000000,
+    2000000000,
+    2500000000,
+    3000000000
+  ]
+}

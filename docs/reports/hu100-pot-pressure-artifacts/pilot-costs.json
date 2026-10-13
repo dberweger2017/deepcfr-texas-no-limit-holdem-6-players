@@ -1,0 +1,45 @@
+{
+  "blocks": 128,
+  "payoffs_inspected": false,
+  "quotes": {
+    "baseline": {
+      "load_seconds": 295.5140523330192,
+      "play_seconds": 0.14425416599260643,
+      "replay_seconds": 0.07786587500595488,
+      "reproduction_seconds": 0.1571223750070203
+    },
+    "folding": {
+      "load_seconds": 0.7162991670193151,
+      "play_seconds": 0.13574749999679625,
+      "replay_seconds": 0.07679608400212601,
+      "reproduction_seconds": 0.15474204198108055
+    },
+    "k50": {
+      "load_seconds": 294.3880754589918,
+      "play_seconds": 0.11866933302371763,
+      "replay_seconds": 0.5517578750150278,
+      "reproduction_seconds": 0.13457691701478325
+    },
+    "passive": {
+      "load_seconds": 0.7164278329873923,
+      "play_seconds": 0.14802316602435894,
+      "replay_seconds": 0.07889066700590774,
+      "reproduction_seconds": 0.16876854200381786
+    },
+    "size1x": {
+      "load_seconds": 0.7169779170071706,
+      "play_seconds": 0.11683479099883698,
+      "replay_seconds": 0.07749187498120591,
+      "reproduction_seconds": 0.13695979199837893
+    },
+    "v1": {
+      "load_seconds": 231.485779834009,
+      "play_seconds": 0.1061657499813009,
+      "replay_seconds": 0.07162974998936988,
+      "reproduction_seconds": 0.12197870900854468
+    }
+  },
+  "root": 20261013100101,
+  "source": "ff2e0521098a8b4a32b29da903c02dd7c84e077b",
+  "status": "verified"
+}

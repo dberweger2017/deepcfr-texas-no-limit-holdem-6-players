@@ -1,0 +1,641 @@
+{
+  "all_operations": {
+    "maximum_observed_held_seconds": {
+      "critical_pressure": 0,
+      "family_rss": 0,
+      "free_disk": 0,
+      "free_memory": 0,
+      "swap_growth": 0
+    },
+    "maximum_swap_growth_bytes": 329378693,
+    "minimum_disk_free_bytes": 20864512000,
+    "minimum_free_percent": 77,
+    "peak_family_rss_bytes": 4809064448,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_each_line": {
+      "critical_pressure": 0,
+      "family_rss": 0,
+      "free_disk": 0,
+      "free_memory": 0,
+      "swap_growth": 0
+    },
+    "samples": 1347
+  },
+  "baseline": {
+    "at": 1791860430.875515,
+    "disk_free_bytes": 32470863872,
+    "free_percent": 88,
+    "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 88%\n",
+    "identity": "Apple M4",
+    "monotonic": 144690.199308,
+    "pressure_level": 1,
+    "swap_bytes": 1235421757,
+    "swap_raw": "vm.swapusage: total = 2048.00M  used = 1178.19M  free = 869.81M  (encrypted)\n"
+  },
+  "operations": {
+    "archive": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 329378693,
+      "minimum_disk_free_bytes": 20865232896,
+      "minimum_free_percent": 86,
+      "peak_family_rss_bytes": 116195328,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(47178, 1791868046.308104)": 0.40318825599999997,
+          "(47184, 1791868046.396271)": 33.631700992
+        },
+        "failure": null,
+        "finished": 1791868111.96552,
+        "peak_family_rss_bytes": 116195328,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 14,
+        "started": 1791868046.361975,
+        "status": "complete",
+        "wall_seconds": 65.60354590415955
+      },
+      "samples": 14
+    },
+    "build": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 0,
+      "minimum_disk_free_bytes": 38125649920,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 354484224,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(39172, 1791860430.818747)": 0.11458987200000001,
+          "(39207, 1791860436.053767)": 0.023030791,
+          "(39208, 1791860436.077148)": 0.149653456,
+          "(39309, 1791860438.812001)": 2.268700168
+        },
+        "failure": null,
+        "finished": 1791860446.1468632,
+        "peak_family_rss_bytes": 354484224,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 3,
+        "started": 1791860436.0214489,
+        "status": "complete",
+        "wall_seconds": 10.125414371490479
+      },
+      "samples": 3
+    },
+    "cleanup-a": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 0,
+      "minimum_disk_free_bytes": 32470847488,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 20398080,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(39174, 1791860430.828843)": 0.107384332
+        },
+        "failure": null,
+        "finished": 1791860435.979284,
+        "peak_family_rss_bytes": 20398080,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 2,
+        "started": 1791860430.877574,
+        "status": "complete",
+        "wall_seconds": 5.101710081100464
+      },
+      "samples": 2
+    },
+    "cleanup-c-average": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": -16777216,
+      "minimum_disk_free_bytes": 25635233792,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 20185088,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(41818, 1791862730.509234)": 0.09633462400000001
+        },
+        "failure": null,
+        "finished": 1791862735.657135,
+        "peak_family_rss_bytes": 20185088,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 2,
+        "started": 1791862730.5615911,
+        "status": "complete",
+        "wall_seconds": 5.09554386138916
+      },
+      "samples": 2
+    },
+    "exports-r4": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": -16777216,
+      "minimum_disk_free_bytes": 25632763904,
+      "minimum_free_percent": 87,
+      "peak_family_rss_bytes": 124502016,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(40700, 1791861737.323123)": 3.892832256,
+          "(40706, 1791861737.412099)": 764.716079616,
+          "(40708, 1791861737.832949)": 430.92986841600003
+        },
+        "failure": null,
+        "finished": 1791862949.5528479,
+        "peak_family_rss_bytes": 124502016,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 242,
+        "started": 1791861737.377741,
+        "status": "complete",
+        "wall_seconds": 1212.1751067638397
+      },
+      "samples": 242
+    },
+    "exports-r8": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 116318536,
+      "minimum_disk_free_bytes": 25610039296,
+      "minimum_free_percent": 77,
+      "peak_family_rss_bytes": 123961344,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(42144, 1791862954.301353)": 3.883944192,
+          "(42150, 1791862954.392554)": 765.436459008,
+          "(42152, 1791862954.893841)": 431.36882483200003
+        },
+        "failure": null,
+        "finished": 1791864166.5594618,
+        "peak_family_rss_bytes": 123961344,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 242,
+        "started": 1791862954.3567889,
+        "status": "complete",
+        "wall_seconds": 1212.202674150467
+      },
+      "samples": 242
+    },
+    "final": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 15655240,
+      "minimum_disk_free_bytes": 29316538368,
+      "minimum_free_percent": 85,
+      "peak_family_rss_bytes": 4809064448,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(44445, 1791865404.961537)": 6.624444287999999,
+          "(44451, 1791865405.025313)": 2082.2512896
+        },
+        "failure": null,
+        "finished": 1791867492.322701,
+        "peak_family_rss_bytes": 4809064448,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 416,
+        "started": 1791865404.993375,
+        "status": "complete",
+        "wall_seconds": 2087.329327106476
+      },
+      "samples": 416
+    },
+    "freeze": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 15655240,
+      "minimum_disk_free_bytes": 29705113600,
+      "minimum_free_percent": 89,
+      "peak_family_rss_bytes": 176472064,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(44185, 1791864858.21476)": 0.1090165,
+          "(44191, 1791864858.299122)": 2.8026207
+        },
+        "failure": null,
+        "finished": 1791864868.390799,
+        "peak_family_rss_bytes": 176472064,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 3,
+        "started": 1791864858.266266,
+        "status": "complete",
+        "wall_seconds": 10.12453293800354
+      },
+      "samples": 3
+    },
+    "pilot": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 24043848,
+      "minimum_disk_free_bytes": 29701644288,
+      "minimum_free_percent": 79,
+      "peak_family_rss_bytes": 3055452160,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(43462, 1791864169.029496)": 2.2685577599999998,
+          "(43468, 1791864169.121985)": 684.387139584
+        },
+        "failure": null,
+        "finished": 1791864858.206624,
+        "peak_family_rss_bytes": 3055452160,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 138,
+        "started": 1791864169.085876,
+        "status": "complete",
+        "wall_seconds": 689.1207489967346
+      },
+      "samples": 138
+    },
+    "prepare": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 0,
+      "minimum_disk_free_bytes": 37045837824,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 169050112,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(39347, 1791860478.842214)": 0.75340224,
+          "(39353, 1791860478.922953)": 0.922486488,
+          "(39378, 1791860483.433439)": 7.521533183999999
+        },
+        "failure": null,
+        "finished": 1791860554.864985,
+        "peak_family_rss_bytes": 169050112,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 16,
+        "started": 1791860478.889767,
+        "status": "complete",
+        "wall_seconds": 75.97521924972534
+      },
+      "samples": 16
+    },
+    "readout": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": -85008056,
+      "minimum_disk_free_bytes": 31948697600,
+      "minimum_free_percent": 87,
+      "peak_family_rss_bytes": 291848192,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(46700, 1791867497.378617)": 0.996865536,
+          "(46706, 1791867497.460818)": 292.191519616
+        },
+        "failure": null,
+        "finished": 1791867794.210708,
+        "peak_family_rss_bytes": 291848192,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 60,
+        "started": 1791867497.420607,
+        "status": "complete",
+        "wall_seconds": 296.7901020050049
+      },
+      "samples": 60
+    },
+    "timing": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 0,
+      "minimum_disk_free_bytes": 35441512448,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 1267433472,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(39522, 1791860622.91507)": 0.727490128,
+          "(39528, 1791860623.006191)": 0.8224099680000001,
+          "(39530, 1791860623.40726)": 0.001823625,
+          "(39531, 1791860623.411394)": 90.099718784,
+          "(39619, 1791860703.96204)": 0.00125475,
+          "(39620, 1791860703.964142)": 128.0399872,
+          "(39701, 1791860766.321234)": 0.001514791,
+          "(39702, 1791860766.324214)": 122.983068672
+        },
+        "failure": null,
+        "finished": 1791860824.213753,
+        "peak_family_rss_bytes": 1267433472,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 41,
+        "started": 1791860622.971369,
+        "status": "complete",
+        "wall_seconds": 201.24238395690918
+      },
+      "samples": 41
+    },
+    "train-r4": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 0,
+      "minimum_disk_free_bytes": 33696665600,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 3902406656,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(39849, 1791860946.031823)": 1.360471488,
+          "(39855, 1791860946.121566)": 0.8264520719999999,
+          "(39857, 1791860946.529456)": 0.001518582,
+          "(39858, 1791860946.532559)": 1117.102129152
+        },
+        "failure": null,
+        "finished": 1791861333.515698,
+        "peak_family_rss_bytes": 3902406656,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 78,
+        "started": 1791860946.086296,
+        "status": "complete",
+        "wall_seconds": 387.42940282821655
+      },
+      "samples": 78
+    },
+    "train-r8": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": -8388608,
+      "minimum_disk_free_bytes": 31933640704,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 3922034688,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(40321, 1791861378.74475)": 1.1632606079999999,
+          "(40327, 1791861378.835082)": 1.2544743520000001,
+          "(40329, 1791861379.243927)": 0.001483416,
+          "(40330, 1791861379.246918)": 1079.32663808
+        },
+        "failure": null,
+        "finished": 1791861700.8684201,
+        "peak_family_rss_bytes": 3922034688,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 65,
+        "started": 1791861378.798851,
+        "status": "complete",
+        "wall_seconds": 322.06956911087036
+      },
+      "samples": 65
+    },
+    "upload-wait": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 279047045,
+      "minimum_disk_free_bytes": 20864512000,
+      "minimum_free_percent": 88,
+      "peak_family_rss_bytes": 127860736,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(47377, 1791868356.482293)": 1.154219168,
+          "(47383, 1791868356.593618)": 0.853329472,
+          "(47444, 1791868417.313838)": 0.029513416
+        },
+        "failure": null,
+        "finished": 1791868478.116469,
+        "peak_family_rss_bytes": 127860736,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 25,
+        "started": 1791868356.54784,
+        "status": "complete",
+        "wall_seconds": 121.56862878799438
+      },
+      "samples": 25
+    }
+  },
+  "scope": "sampled whole-family peaks; retained streams contain every reading",
+  "stop_record": null,
+  "stopped": false
+}

@@ -1,0 +1,34 @@
+{
+  "actual_nodes": 752593175,
+  "all_nodes_verified": 85373907,
+  "average_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+  "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+  "counts": {
+    "entries": 85373907,
+    "positive_mass": 54472197,
+    "zero_mass": 30901710
+  },
+  "current_sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee",
+  "files": {
+    "average": {
+      "bytes": 2221370011,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.average.gz",
+      "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+    },
+    "checkpoint": {
+      "bytes": 3442723146,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.gz",
+      "sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+    },
+    "current": {
+      "bytes": 2124578171,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.current.gz",
+      "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+    }
+  },
+  "maximum_tv": 1.0000000000000002,
+  "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "status": "verified",
+  "unweighted_mean_current_average_tv": 0.25413469526729277
+}

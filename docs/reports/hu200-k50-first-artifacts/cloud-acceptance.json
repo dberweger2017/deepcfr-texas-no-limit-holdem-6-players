@@ -1,0 +1,47 @@
+{
+  "folder_url": "https://drive.google.com/drive/folders/1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+  "parent_confirmation": "direct-folder-listing",
+  "remote_archive_bytes_downloaded": false,
+  "files": [
+    {
+      "id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+      "title": "hu200-k50-first-averages-M4-20261013.zip",
+      "mime_type": "application/zip",
+      "size": "2221371477",
+      "url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": "2026-10-13T00:51:21.203Z",
+      "modified_time": "2026-10-13T00:51:23.750Z",
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": false,
+      "permissions": null,
+      "source_visibility_status": "not_shared",
+      "can_download": true,
+      "can_list_children": false
+    },
+    {
+      "id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+      "title": "hu200-k50-first-full-M4-20261013.zip",
+      "mime_type": "application/zip",
+      "size": "11207049594",
+      "url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": "2026-10-13T00:50:47.773Z",
+      "modified_time": "2026-10-13T00:51:11.294Z",
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": false,
+      "permissions": null,
+      "source_visibility_status": "not_shared",
+      "can_download": true,
+      "can_list_children": false
+    }
+  ]
+}

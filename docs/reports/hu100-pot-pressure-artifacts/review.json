@@ -1,0 +1,10 @@
+{
+  "admission_failures_before_any_hand": 2,
+  "final_hands": 196608,
+  "no_failed_hand_reruns": true,
+  "review": "Own full diff review: public Observation boundary, unchanged src/native, original sampler draw, unresolved-only interventions, common schedule/action streams, frozen source/plan admission, independent hand replay and paired-block analysis checked. No open findings.",
+  "scientific_source": "ff2e0521098a8b4a32b29da903c02dd7c84e077b",
+  "source_base": "8eb5f9dd048126c8b27002c6b48156740e2564d1",
+  "source_rules_information_regret_math_unchanged": true,
+  "tests": "15 passed: test_pot_pressure_diagnostic.py + test_guard_m4_research.py"
+}

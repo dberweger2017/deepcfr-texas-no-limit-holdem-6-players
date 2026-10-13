@@ -1,0 +1,15 @@
+{
+  "new_paid_compute": false,
+  "preflight_observations": [
+    "Attached T3 shell was dberweger-m1 /Apple M1. No build, training or match ran there; all research uses ssh m4.",
+    "Main checkout virtualenv lacked psutil. Used the existing merged-PR226 M4 research virtualenv read-only through a symlink; no shared environment mutation.",
+    "Initial M4 Git push failed with locked credential helper (-25308). No PR was created by the failed create attempt. Pushed with per-command gh credential helper and created PR250 successfully."
+  ],
+  "protected": [
+    "PR246 root",
+    "PR246 Drive uploads"
+  ],
+  "research_compute_host": "Apple M4",
+  "scientific_failures": [],
+  "source_base": "30c4a9dcd2da8e936e23d278cd912c4bac276b3b"
+}

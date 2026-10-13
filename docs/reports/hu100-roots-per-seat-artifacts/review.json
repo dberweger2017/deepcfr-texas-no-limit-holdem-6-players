@@ -1,0 +1,10 @@
+{
+  "final_hands": 524288,
+  "no_failed_hand_reruns": true,
+  "no_resource_breaches_before_archive": true,
+  "review": "Own full diff review: production recipe differs only in roots; native/src/direct harness unchanged. Verified reference publication, every export row, clean frozen source/input admission, exact pre-hand plan publication, all final hand replay/reproduction, nominal paired block readout and signed loss bounds reviewed. No open findings.",
+  "scientific_source": "f2115d717a96f5c876a5cb3b7c963d6094abd38c",
+  "scope": "one fixed training seed/models, two internal direct contrasts; no equivalence/adoption/release claim",
+  "source_base": "7b0090242767bfe93e24a7501a4a87664bef7f9d",
+  "validation": "6 guard tests and CLI imports pass locally; all five CI checks passed on scientific head f2115d717a96f5c876a5cb3b7c963d6094abd38c; final closeout head must pass before merge."
+}

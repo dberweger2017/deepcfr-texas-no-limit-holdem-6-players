@@ -1,0 +1,94 @@
+{
+  "average_cpu_core_equivalents_including_save": 2.9214364121060057,
+  "guard_receipt": {
+    "cpu_seconds_by_identity": {
+      "(39849, 1791860946.031823)": 1.360471488,
+      "(39855, 1791860946.121566)": 0.8264520719999999,
+      "(39857, 1791860946.529456)": 0.001518582,
+      "(39858, 1791860946.532559)": 1117.102129152
+    },
+    "failure": null,
+    "finished": 1791861333.515698,
+    "peak_family_rss_bytes": 3902406656,
+    "reasons": [],
+    "returncode": 0,
+    "samples": 78,
+    "started": 1791860946.086296,
+    "status": "complete",
+    "wall_seconds": 387.42940282821655
+  },
+  "kernel_peak_rss_bytes": 3786129408,
+  "mean_traverser_visits_per_key": 4.860175775981198,
+  "process_system_seconds": 233.5,
+  "process_user_seconds": 884.3,
+  "process_wall_seconds": 382.62,
+  "roots_per_seat": 4,
+  "seed": 2026100601,
+  "telemetry": {
+    "audit_status": "unaudited",
+    "binary_sha256": "10a6fce897637cfd76a7dcc494469a5c39e3c65e10abeab00db850326e3b5fd7",
+    "checkpoint_bytes": 1757713674,
+    "checkpoint_sha256": "b1c2c8299de03048be22313072389fb5541c0a2ff966e43ff8ff1a8b26edbd0d",
+    "completed_nodes": 1000002794,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        14989836,
+        48956690,
+        141858970,
+        354167960
+      ],
+      "entries": 40858142,
+      "positive_average_mass_keys": 27679311,
+      "traverser_visits": 198577752,
+      "traverser_visits_by_street": [
+        4921795,
+        16273229,
+        49837275,
+        127545453
+      ],
+      "visits_histogram": {
+        "0": 15768906,
+        "1": 11886426,
+        "10-99": 3114504,
+        "100+": 228009,
+        "2-9": 9860297
+      },
+      "zero_average_mass_keys": 13178831
+    },
+    "elapsed_seconds_including_writes": 376.181851791,
+    "entries_per_completed_node": 0.04085802784267021,
+    "iteration": 221223,
+    "new_entries": 40858142,
+    "nodes_per_second_including_writes": 2658296.218275793,
+    "nodes_since_previous_save": 1000002794,
+    "overshoot_nodes": 2794,
+    "path": "/Users/dberweger/Local/hu100-roots-per-seat-20261013/results/hu100-roots-per-seat/training/4/checkpoint.gz",
+    "process_rss_bytes_after_save": 3786129408,
+    "recent_nodes_per_second_including_writes": 2658296.218275793,
+    "requested_nodes": 1000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791861322.714859,
+    "write_seconds": 140.989773916,
+    "write_started": 1791861181.726405
+  },
+  "training_sampled_native_cpu": {
+    "identity": [
+      39858,
+      1791860946.532559
+    ],
+    "mean_core_equivalents": 4.118354948800231,
+    "peak_five_second_interval_core_equivalents": 4.514759490825061,
+    "samples": 46,
+    "scope": "Five-second observed native-only CPU before checkpoint serialization; time -l totals include save/hash/diagnostics.",
+    "window_seconds": 226.40061378479004
+  },
+  "training_seconds_excluding_checkpoint_write": 235.192077875,
+  "zero_traverser_visit_fraction": 0.38594280669933545
+}
