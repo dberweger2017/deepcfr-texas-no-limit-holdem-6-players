@@ -68,7 +68,7 @@ Street accounting below is over all 32,768 baseline hands. “Terminal” is the
 
 ## Safety and preserved setup records
 
-Before archival: 448 five-second readings, peak family RSS 3.315 GiB, minimum free memory 86%, maximum swap growth 0.000 GB from A’s baseline, minimum free disk 27.61 GiB, pressure levels [1]. No guard line was crossed. Final play/replay/reproduction took 1,111.61 seconds and peaked at 2.887 GiB. Every reading and operation receipt is preserved; final closeout resource summary includes archive work.
+Before archival: 448 five-second readings, peak family RSS 3.315 GiB, minimum free memory 86%, maximum swap growth 0.000 GB from A’s baseline, minimum free disk 27.61 GiB, pressure levels [1]. No guard line was crossed. Final play/replay/reproduction took 1,111.61 seconds and peaked at 2.887 GiB. Every reading and operation receipt is preserved; The [final closeout summary](hu100-pot-pressure-artifacts/resource-summary-final.json) includes archive work: 453 readings, peak 3.315 GiB, free memory ≥86%, swap growth ≤0.044 GB, disk ≥27.61 GiB; all over-line counts and held seconds are zero.
 
 Two setup/admission failures are retained. Initial input preparation used a full-archive member namespace for PR246’s small ZIP; exact small-member mapping was corrected after checking its manifest. The subsequent comment-post command lacked `gh` in PATH; a prematurely launched final command was rejected by the missing publication receipt before any hand. The unchanged plan was then posted and exact readback verified before the admitted final run. Both failures played **zero hands**, had no resource breach and were recorded as setup/admission failures rather than sustained resource stops. No failed scientific hand was retried.
 
