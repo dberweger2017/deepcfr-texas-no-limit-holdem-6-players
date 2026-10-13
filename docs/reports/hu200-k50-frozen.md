@@ -155,10 +155,21 @@ These are sampled values; after-save process RSS is distinct from family peak.
 
 ## Exports and evidence
 
-5B/final current and average exports, every-row audits, average SHA256s and
-archive/upload acceptance are pending. The detached M4 worker is configured to
-export with `--zero-mass uniform`, audit all 85,373,907 rows using
-`src.diagnostics.cfr_average.audit`, and seal full and average-only ZIPs with
+The **5B current and average exports pass all 85,373,907 rows** through
+`src.diagnostics.cfr_average.audit`, with `--zero-mass uniform`. The audit
+checks all stored totals and current regrets; it does not reconstruct historical
+increments. The sorted-key digest remains the stage-1 baseline. The average has
+**62,094,574 positive-mass rows /23,279,333 uniform-fallback rows**. Audit time
+was **1,641.72 s**; unweighted mean current/average total variation was 0.3038193.
+[Every-row 5B audit](hu200-k50-frozen-artifacts/5000000000.audit.json).
+
+| 5B export | Bytes | SHA256 |
+|---|---:|---|
+| Average | 2,756,501,598 | `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512` |
+| Current | 2,289,968,280 | `b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7` |
+
+Final exports/audit and archive/upload acceptance remain pending. The detached
+M4 worker will seal full and average-only ZIPs with
 embedded manifests and complete local readback under
 `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`.
 
