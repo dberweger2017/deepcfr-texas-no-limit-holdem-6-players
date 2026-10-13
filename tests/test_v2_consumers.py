@@ -116,3 +116,11 @@ def test_unfinished_consumers_refuse_v2_before_work(tmp_path):
     with pytest.raises(ValueError, match='menu-v2'): reach_corpus(plan, tmp_path, tmp_path/'reach')
     from types import SimpleNamespace
     with pytest.raises(ValueError, match='menu-v2'): HU20TurnSearchPolicy(SimpleNamespace(abstraction=HU100_MENU_V2_SCHEMA), None)
+
+
+def test_hu200_witness_diagnosis_refuses_v2_identity():
+    from types import SimpleNamespace
+    from scripts.evaluate_hu200_diagnosis import play_hand
+    from src.blueprint.abstraction import HU200_MENU_V2_SCHEMA
+    with pytest.raises(ValueError, match="menu-v1"):
+        play_hand(SimpleNamespace(abstraction=HU200_MENU_V2_SCHEMA), 1, "check_call", 0, 0, {}, [0.])

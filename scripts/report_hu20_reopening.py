@@ -65,7 +65,7 @@ def verify_hand(row,spec,source):
     for item in row['actions']:
         if item['seat']!=hand.actor:raise ValueError('Replay actor')
         v=hand.observe(hand.actor);action=Action(ActionKind(item['kind']),item['raise_to'])
-        old=choices(v,free_fold=False);own=choices(v,raise_cap=source.raise_cap,free_fold=False,menu_sizes=menu_sizes(source.abstraction))
+        old=choices(v,free_fold=False);own=choices(v,raise_cap=source.raise_cap,free_fold=False,menu_sizes=menu_sizes(spec["abstraction"]))
         old_member=action in [c.action for c in old];own_member=action in [c.action for c in own]
         if item['on_original_cap2_menu']!=old_member or item['on_target_menu']!=own_member:
             raise ValueError('Dual action-contract telemetry')
