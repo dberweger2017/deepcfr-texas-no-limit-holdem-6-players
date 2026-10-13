@@ -6,7 +6,7 @@ Baseline main `9fc168414f5205f7483d0c6d474919afd7f9b777`. Python AST inspection 
 |---|---|
 | `scripts/audit_hu20_cards_v2.py:53` | Fixed HU20 card descriptor v1/v2 comparison, both use menu-v1 (card-v2 is not menu-v2). |
 | `scripts/audit_hu20_cfr_plus_arena.py:106` | Fixed HU20_UNCAPPED_SCHEMA key; frozen v1 campaign model loader. |
-| `scripts/audit_hu20_k50_first_pass_direct.py:56` | Each replay actor uses its own schema; existing pinned K50 table admission. |
+| `scripts/audit_hu20_k50_first_pass_direct.py:56` | Each replay actor uses its own schema; all equity schemas, including K50/menu-v2, discover and receive explicit pinned tables. |
 | `scripts/audit_hu20_turn_search.py:63` | Fixed v1 search protocol; source/search admission rejects v2. |
 | `scripts/audit_native_hu100_baseline.py:106` | Candidate schema/tables; uniform baseline stays explicitly v1. |
 | `scripts/check_exact_lbr_ranker.py:45` | Independent v1 attacker-menu diagnostic; no schema argument. |
@@ -61,7 +61,7 @@ Baseline main `9fc168414f5205f7483d0c6d474919afd7f9b777`. Python AST inspection 
 | `src/play_api/service.py:276,435` | validate_policy admits only HU20/HU100 card-v1; human restricted menu is v1. |
 | `src/play_api/uniform_random.py:45` | Versioned independent uniform v1 runtime reference; no policy schema argument. |
 
-The additional search entry points (`search.BlueprintSearchPolicy`, `HU20TurnSearchPolicy`, `HU20RiverPlayer`, `RiverProfileCache`, `public_ranges`, `RiverCFRPlayer` and `ConditionalRiverBestResponse`) now refuse menu-v2 before building v1 trees. K50 reference training remains explicitly refused by `step()`.
+The LiveBlueprint wrapper rejects v2 at its boundary; the additional search entry points (`search.SearchPlayer`, `HU20TurnSearchPolicy`, `HU20RiverPlayer`, `RiverProfileCache`, `public_ranges`, `RiverCFRPlayer` and `ConditionalRiverBestResponse`) now refuse menu-v2 before building v1 trees. K50 reference training remains explicitly refused by `step()`.
 
 ## Native command admission
 
@@ -74,7 +74,7 @@ The additional search entry points (`search.BlueprintSearchPolicy`, `HU20TurnSea
 | export | checkpoint path before flags | current, average, zero-mass | none | uses checkpoint identity; --menu rejected |
 | engine-deal | one or more integer seeds | none | none | no tree; --menu rejected |
 
-Unknown/wrong-command flags, duplicates, missing values, misplaced positionals and unparseable values fail with exit 2 and a message on stderr before outputs. Numeric/enum/list arguments are validated even when they would not affect an iteration-limited/resumed run. Resume flags must appear together, `completed-nodes` requires resume, and unpinned tables require a table path. Valid execution prints exactly one resolved configuration JSON line on stderr (resume seed/roots/averaging inherited from the checkpoint). Existing stdout and serialization code are unchanged; runtime failures report their cause without panic backtraces. Resource-stop exit 3 is unchanged.
+Unknown/wrong-command flags, duplicates, missing values, misplaced positionals and unparseable values fail with exit 2 and a message on stderr before outputs. Numeric/enum/list arguments are validated even when they would not affect an iteration-limited/resumed run. Resume flags must appear together, `completed-nodes` requires resume, and unpinned tables require a table path. Valid execution prints exactly one resolved configuration JSON line on stderr (resume seed/roots/averaging inherited from the checkpoint). Raw lineage/save-threshold requests are separate from effective options; lineage and schedules consumed by the runner are the receipt values, with completed train milestones removed on resume. Cheap DCFR domains are shared with numerical validation and checked before inputs. Existing stdout and serialization code are unchanged; runtime failures report their cause without panic backtraces. Resource-stop exit 3 is unchanged.
 
 ## Binary invocations on main
 

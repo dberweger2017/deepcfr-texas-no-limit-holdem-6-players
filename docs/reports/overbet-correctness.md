@@ -65,3 +65,16 @@ Failures are preserved in the archive: an initial harness recipe omitted PYTHONP
 [Archive receipt](overbet-correctness-artifacts/archive-receipt.json) and [retrieval index](../../RESULTS_INDEX.md) retain the raw comparisons, binaries, test logs (including failures), source/provenance and exact reproduction recipes. Research payloads stay out of Git.
 
 Archive upload is pending in native Drive (no conflicts); independent cloud discovery has no item IDs yet. Parent [Research-Cloud](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s) is confirmed. No cloud upload acceptance or remote-byte verification is claimed; all originals remain.
+
+## Owner review corrections
+
+The four remaining owner-review findings are fixed at `e59bdf4202371b754ade2e6e56f3e1569362bbde`:
+
+| Finding | Result and regression |
+|---|---|
+| LiveBlueprint hid v2 from search guards | The actual live wrapper rejects menu-v2 before it can reach SearchPlayer, LocalCFRPlayer, HU20RiverPlayer or RiverCFRPlayer. Tests construct real HU20/HU100/HU200 v2 trainers; v1 wrapped distribution is unchanged. |
+| K50/v2 replay missed its tables | Discovery and key construction recognize equity schemas and explicitly pass the pinned tables. Passive postflop v2/card-v1 matches in both directions and K50/v2-vs-K50/v1 replay to river with global registration cleared. |
+| Resolved receipts reflected requested values | `requested` preserves raw lineage and thresholds; `options` holds the parsed lineage and sorted, deduplicated, eligible schedule. Runner and receipt use the same resolved values. Resume removes completed milestones and records initial nodes/iteration. Early resource/iteration stops can truncate the eligible schedule. Tests compare receipt lineage/iterations against actual exports and train/resume stdout. |
+| DCFR domains were checked after input loading | Admission calls the same cheap `Options.check_domain` used by numerical `Options.check`. Alpha, gamma and iteration restrictions reject before opening nonexistent roots or emitting configuration. Full discount-prefix validation remains authoritative and separate from the cheap domain checks. |
+
+Post-review verification: **32 Python consumer/replay/search tests**, **71 native CLI/bench/parity tests**, and **14 Rust library + 4 CLI tests** pass. The new binary was built with the path-independent builder: SHA256 `1d907872b96346ba42aff696908099a659df7ac614559f4cdbacb1e1ae4e6416`, committed native tree `0aeb9974f32a99b141e9eabe3e641e819320d242`. All 15 complete native checkpoint/export/resume files and all four fixed-clock compressed harness streams retain the main hashes above. Six tiny bench exports (numeric lineage 3, requested checkpoints 2,2,0,99 → effective 2,3) also match main's binary byte-for-byte. [Review build, output hashes and model-member receipts](overbet-correctness-artifacts/review-identity.json), [archive receipt](overbet-correctness-artifacts/review-archive-receipt.json). Upload acceptance remains pending; originals are retained. This verification changes no training recipe, policy or release.
