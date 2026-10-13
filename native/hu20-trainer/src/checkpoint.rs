@@ -1,7 +1,8 @@
 //! Streaming checkpoint validation shared by recovery and inference export.
-use crate::cards::{equity_schema, Cards, EQUITY_DESCRIPTOR, V1_DESCRIPTOR};
+use crate::cards::{Cards, EQUITY_DESCRIPTOR, V1_DESCRIPTOR};
 use crate::cfr::{AverageRule, Node};
 use crate::game::Game;
+use crate::key::MenuVersion;
 use crate::trainer::Trainer;
 use flate2::read::GzDecoder;
 use serde_json::{json, Value};
@@ -9,10 +10,10 @@ use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 /// A checkpoint's game identity; equity-bucket keys also name their tables' SHA256s.
-pub fn identity(game: Game, descriptor: &str, tables: Option<Value>) -> Value {
+pub fn identity(game: Game, descriptor: &str, tables: Option<Value>, menu: MenuVersion) -> Value {
     let mut identity = json!({"game": game.id(), "players": 2,
         "stacks": [game.stack(), game.stack()], "small_blind": 50, "big_blind": 100,
-        "action_menu": game.menu(), "card_descriptor": descriptor,
+        "action_menu": menu.name(game), "card_descriptor": descriptor,
         "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds"});
     if let Some(tables) = tables {
         identity["card_tables"] = tables;
@@ -36,6 +37,11 @@ pub fn header_cards(h: &Value) -> Result<(&'static str, Option<Value>), String> 
     }
 }
 
+/// The menu a checkpoint's keys were built with.
+pub fn header_menu(h: &Value, game: Game) -> Result<MenuVersion, String> {
+    h["identity"]["action_menu"].as_str().and_then(|name| MenuVersion::parse(name, game)).ok_or_else(|| "unsupported action menu".into())
+}
+
 pub fn header_game(h: &Value) -> Result<Game, String> {
     let game = match h["config"]["game"].as_str() {
         Some(crate::trainer::GAME) => Game::Hu20,
@@ -44,8 +50,9 @@ pub fn header_game(h: &Value) -> Result<Game, String> {
         _ => return Err("unsupported native game".into()),
     };
     let (descriptor, tables) = header_cards(h)?;
-    let schema = if tables.is_some() { equity_schema(game) } else { game.schema() };
-    let identity = identity(game, descriptor, tables);
+    let menu = header_menu(h, game)?;
+    let schema = crate::key::schema(game, tables.is_some(), menu);
+    let identity = identity(game, descriptor, tables, menu);
     let ids = h["table"]["player_ids"].as_array().ok_or("invalid table players")?;
     let config = &h["config"];
     if h["format"] != game.format() || h["abstraction"] != schema
@@ -79,15 +86,15 @@ pub fn row_node(row: &Value) -> Result<([u8; 16], Node), String> {
     let regrets = row[2].as_array().ok_or("invalid regrets")?;
     let average = row[3].as_array().ok_or("invalid average")?;
     let visits = row[4].as_u64().ok_or("invalid visits")?;
-    if names.is_empty() || names.len() > 5 || regrets.len() != names.len() || average.len() != names.len() {
+    if names.is_empty() || names.len() > crate::cfr::MAX_ACTIONS || regrets.len() != names.len() || average.len() != names.len() {
         return Err("invalid node dimensions".into());
     }
-    let mut code = 0u8;
+    let mut code = 0u16;
     let mut last = None;
     for name in names {
-        let i = crate::key::NAMES.iter().position(|&n| Some(n) == name.as_str()).ok_or("invalid menu name")?;
-        if last.map_or(false, |p| p >= i) { return Err("noncanonical or duplicate menu".into()); }
-        code |= 1 << i; last = Some(i);
+        let (bit, rank) = name.as_str().and_then(crate::key::bit_and_rank).ok_or("invalid menu name")?;
+        if last.map_or(false, |r| r >= rank) { return Err("noncanonical or duplicate menu".into()); }
+        code |= 1 << bit; last = Some(rank);
     }
     let mut node = Node::empty(code, names.len());
     for i in 0..names.len() {
@@ -100,12 +107,13 @@ pub fn row_node(row: &Value) -> Result<([u8; 16], Node), String> {
 
 /// Resume only the unchanged linear recipe. No partial iteration or RNG state is needed:
 /// both independent root streams are derived from seed/iteration/seat/sample.
-pub fn load(path: &Path, expected: Game, cards: Cards, completed_nodes: Option<u64>, max_entries: u64) -> Result<Trainer, String> {
+pub fn load(path: &Path, expected: Game, cards: Cards, menu: MenuVersion, completed_nodes: Option<u64>, max_entries: u64) -> Result<Trainer, String> {
     let source = BufReader::new(GzDecoder::new(std::fs::File::open(path).map_err(|e| e.to_string())?));
     let mut lines = source.lines();
     let h: Value = serde_json::from_str(&lines.next().ok_or("empty checkpoint")?.map_err(|e| e.to_string())?).map_err(|e| e.to_string())?;
     if header_game(&h)? != expected { return Err("resume game differs from --stack-bb".into()); }
     if header_cards(&h)? != (cards.descriptor(), cards.tables()) { return Err("resume card tables differ from the checkpoint's".into()); }
+    if header_menu(&h, expected)? != menu { return Err("resume menu differs from the checkpoint's".into()); }
     if h.get("training_options").is_some() { return Err("resume supports linear CFR without training options only".into()); }
     if h["table"]["button"] != 0 || h["table"]["player_ids"] != json!(["player-0", "player-1"]) {
         return Err("resume requires native root table".into());
@@ -119,6 +127,7 @@ pub fn load(path: &Path, expected: Game, cards: Cards, completed_nodes: Option<u
     let mut trainer = Trainer::new(h["config"]["seed"].as_u64().unwrap(), h["config"]["roots_per_seat"].as_u64().unwrap() as usize);
     trainer.game = expected;
     trainer.cards = cards;
+    trainer.menu = menu;
     trainer.iteration = h["iteration"].as_u64().unwrap();
     trainer.nodes = nodes;
     if let Some(state) = h.get("native_state") {
@@ -185,21 +194,21 @@ mod tests {
             let path = std::env::temp_dir().join(format!("hu-resume-{}-{}.gz", std::process::id(), game.stack()));
             trainer.save_recoverable(&path, 1000, 1000).unwrap();
             let other = if game == Game::Hu20 { Game::Hu100 } else { Game::Hu20 };
-            assert!(load(&path, other, Cards::V1, None, 1000).is_err());
-            assert!(load(&path, game, Cards::V1, Some(trainer.nodes + 1), 1000).is_err());
-            let mut resumed = load(&path, game, Cards::V1, None, 1000).unwrap();
+            assert!(load(&path, other, Cards::V1, MenuVersion::V1, None, 1000).is_err());
+            assert!(load(&path, game, Cards::V1, MenuVersion::V1, Some(trainer.nodes + 1), 1000).is_err());
+            let mut resumed = load(&path, game, Cards::V1, MenuVersion::V1, None, 1000).unwrap();
             assert_eq!(resumed.coverage_start, [0; 3]);
             // Legacy checkpoints can recover only with independently retained completed nodes.
             // Their subsequent telemetry starts here, rather than claiming past street coverage.
             trainer.save(&path, 1000, 1000).unwrap();
             if game == Game::Hu20 {
-                assert!(load(&path, game, Cards::V1, None, 1000).is_err());
-                let mut legacy = load(&path, game, Cards::V1, Some(trainer.nodes), 1000).unwrap();
+                assert!(load(&path, game, Cards::V1, MenuVersion::V1, None, 1000).is_err());
+                let mut legacy = load(&path, game, Cards::V1, MenuVersion::V1, Some(trainer.nodes), 1000).unwrap();
                 assert_eq!(legacy.coverage_start[0], trainer.iteration);
                 assert_eq!(legacy.coverage_start[1], trainer.nodes);
                 step(&mut legacy);
                 legacy.save_recoverable(&path, 1000, 1000).unwrap();
-                assert!(load(&path, game, Cards::V1, None, 1000).is_ok());
+                assert!(load(&path, game, Cards::V1, MenuVersion::V1, None, 1000).is_ok());
             }
             std::fs::remove_file(path).unwrap();
             step(&mut trainer); step(&mut resumed);
@@ -215,7 +224,7 @@ mod tests {
             let path = std::env::temp_dir().join(format!("hu-bad-coverage-{}-{}.gz", std::process::id(), game.stack()));
             trainer.traverser_visits_by_street[0] = trainer.nodes + 1;
             trainer.save_recoverable(&path, 1000, 1000).unwrap();
-            assert!(load(&path, game, Cards::V1, None, 1000).is_err());
+            assert!(load(&path, game, Cards::V1, MenuVersion::V1, None, 1000).is_err());
             std::fs::remove_file(path).unwrap();
         }
     }
@@ -246,9 +255,9 @@ mod tests {
         let header: Value = serde_json::from_str(&BufReader::new(GzDecoder::new(std::fs::File::open(&path).unwrap())).lines().next().unwrap().unwrap()).unwrap();
         assert_eq!(header["abstraction"], "hu20-native-reopening-ordered-history-equity-k50-v1");
         assert_eq!(header["identity"]["card_tables"], cards.tables().unwrap());
-        assert!(load(&path, game, Cards::V1, None, 1000).is_err(), "v1 cannot resume bucket keys");
-        assert!(load(&path, game, other, None, 1000).is_err(), "other tables cannot resume them");
-        let resumed = load(&path, game, cards, None, 1000).unwrap();
+        assert!(load(&path, game, Cards::V1, MenuVersion::V1, None, 1000).is_err(), "v1 cannot resume bucket keys");
+        assert!(load(&path, game, other, MenuVersion::V1, None, 1000).is_err(), "other tables cannot resume them");
+        let resumed = load(&path, game, cards, MenuVersion::V1, None, 1000).unwrap();
         assert_eq!(resumed.table.len(), trainer.table.len());
         // The v1 run of the same hands stores none of the same keys.
         let mut v1 = Trainer::new(5, 1);

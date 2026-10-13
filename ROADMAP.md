@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 K50 2B versus v0.5.2 ([#254](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/254)):** direct translation-off gain **+23.31 [20.12, 26.50] BB/100**, nominal paired 95%, 262,144 blocks. Direct-only candidate rule passes; K50 without translation has a severe pot-pressure regression against released translation-on v0.5.2: **−85.00 [−121.88, −48.12]**. Off-control difference is inconclusive; v0.5.2 translation gains +75.74 [43.63, 107.86] against pressure. All 770,048 final harness hands replay/reproduce. [Report](docs/reports/hu100-k50-2b-vs-v052.md). Owner decides; no release, tag, default change or training.
+
 - **Storage pass (October 13):** 88.890 GB of uploaded research cache/unchanged merged evidence retired, plus 19.529 GB of separately authorized personal cache; M1 65.986 GB /M4 104.323 GB free. Live Slumbot model and preserved dependencies remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261013.md).
 
 - **HU100 roots per seat ([#252](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/252)):** fresh R=4/R=8 each reach 1B with full current/average audits. Direct gains over v0.5.0 are −0.49 [−6.26, 5.29] and −2.09 [−7.78, 3.61] BB/100; no detectable loss, but upper loss bounds 6.26/7.78 do not establish equal per-node strength. Matched 100M training speedups 1.92×/2.68×; all 524,288 hands replay/reproduce. Full archive accepted and indexed. [Report](docs/reports/hu100-roots-per-seat.md). No recipe adoption or release change.
@@ -104,6 +106,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 - **K50 scoring ([#230](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/230)), owner-requested partial analysis:** nine-root matched contrast −0.1485 [−0.3181, +0.0341] BB; fold disagreement and rising K50 loss across checkpoints. AC stop preserved; 31 roots missing, item 4.3 unresolved. [Analysis](docs/reports/hu20-equity-bench-partial-analysis.md).
 
 *Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+
+- **Overbet menu (engineering):** `--menu v2` adds half-pot, 1.5× and 2× pot raises with history labels for each size, identically in the native trainer and the Python key; v1 checkpoints stay byte-identical. At equal nodes a v2 iteration's tree is about 3× larger and the table about 1.7× bigger (HU100, 20M nodes). Whether it learns as well per node, and whether it fixes the pot-pressure leak (#251), is the next test. [Report](docs/reports/overbet-menu.md).
 
 - **First Slumbot benchmark ([#253](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/253)):** #248's 200M HU200 model, 1,796 hands: −103 ± 110 BB/100 raw. A pipeline benchmark, not a v0.5.5 result. Losses come from showdowns and cheap folds; uniform fallback is rare. Slumbot's baseline follows our actions and is not used. [Report](docs/reports/hu200-200m-slumbot-benchmark.md).
 

@@ -1,0 +1,69 @@
+{
+  "at": 1791877021.932791,
+  "outcomes_inspected": false,
+  "paired_scripted_sds": {
+    "check_call": {
+      "v052_off": 554.419473306045,
+      "v052_on": 554.419473306045
+    },
+    "loose_aggressive": {
+      "v052_off": 1262.1104199132385,
+      "v052_on": 1262.1104199132385
+    },
+    "pot_pressure": {
+      "v052_off": 728.774448084286,
+      "v052_on": 1037.3463233622867
+    },
+    "random": {
+      "v052_off": 1512.4368161241835,
+      "v052_on": 1512.4368161241835
+    },
+    "tight_aggressive": {
+      "v052_off": 70.21791477646966,
+      "v052_on": 70.21791477646966
+    }
+  },
+  "quotes": {
+    "direct": {
+      "blocks": 1024,
+      "load_seconds": 582.1876260410063,
+      "paired_sd_bb_per_100": 840.7274170109617,
+      "play_seconds": 3.0340702079993207,
+      "replay_seconds": 1.7008264590112958,
+      "reproduction_seconds": 2.2791536249860656,
+      "reproduction_validation_seconds": 1.5762072080106009
+    },
+    "k50_off": {
+      "actions_replayed": 5087,
+      "blocks": 64,
+      "hands_replayed": 1280,
+      "load_seconds": 290.7712488339748,
+      "play_seconds": 2.840840583026875,
+      "replay_seconds": 1.0518328330072109,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 2.7595085839857347
+    },
+    "v052_off": {
+      "actions_replayed": 5081,
+      "blocks": 64,
+      "hands_replayed": 1280,
+      "load_seconds": 295.9522773329809,
+      "play_seconds": 2.783681291999528,
+      "replay_seconds": 0.5070398750249296,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 2.8238280000223313
+    },
+    "v052_on": {
+      "actions_replayed": 5086,
+      "blocks": 64,
+      "hands_replayed": 1280,
+      "load_seconds": 295.0068354580144,
+      "play_seconds": 2.8313149159948807,
+      "replay_seconds": 0.5115312499983702,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 2.849304667004617
+    }
+  },
+  "source": "98fd29057e35d1bb54e7ecd17fbc5410dee2f2aa",
+  "status": "verified"
+}

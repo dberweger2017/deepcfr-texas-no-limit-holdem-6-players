@@ -1,0 +1,14 @@
+{
+  "canonical_plan_sha256": "78e71e60720132edebff831abe3d78938411d06c9742ca755eb431549f35ff2a",
+  "experiments_or_tests_run": false,
+  "outcomes_or_traces_inspected": false,
+  "reviewed_head": "23af700ba79b62693cef1f5cf09d8693a1ec064e",
+  "status": "clear",
+  "verified": [
+    "input and reservation hashes",
+    "all roots and fixed counts",
+    "elapsed-inclusive five-hour projection",
+    "complete posted and retained comment body equality",
+    "administrative newline failure preserved without changing frozen plan"
+  ]
+}

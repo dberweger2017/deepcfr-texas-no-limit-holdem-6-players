@@ -1,0 +1,8 @@
+{
+  "at": 1791877163.3968132,
+  "cause": "Expected body alone was rstripped; GitHub retained its newline",
+  "final_hands_before_resolution": 0,
+  "original_failure": "Canonical PR posting readback differs",
+  "resolution": "Exact complete body equality verified; original canonical bytes/counts/roots/source remain unchanged",
+  "stage": "freeze-readback"
+}
