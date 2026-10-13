@@ -1,3 +1,15 @@
+## PR261 Slumbot benchmark of the K50 752M HU200 model — October 13, 2026
+
+[PR261](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/261): #250's K50 HU200 terminal average against Slumbot's live API, 5,000 verified hands in three parts on the owner's account: **−81 ± 56 BB/100** raw, −74 ± 51 all-in adjusted. [Report](docs/reports/hu200-k50-752m-slumbot-benchmark.md).
+
+Archive `~/Local/Research-Cloud/PR-261-hu200-k50-752m-slumbot-benchmark/hu200-k50-752m-slumbot-benchmark-20261013.zip`, **1,914,314 bytes**, SHA256 `2695052be90e8eb488a30a2a315c2698f9dad7b4b9dc100272b54d73231421ac`; embedded `ARCHIVE-MANIFEST.json` SHA256 `f19a570b41a47cc014836446a7acdebc8f7a4dfff85e0e072407d4d54026a033`. Every member was read back against the manifest before copying:
+- `research/account-5000/`, `account-5000-part2b/`, `account-5000-part3/`: each part's `journal.jsonl` and `summary.json` (part 3's journal 32,116,972 bytes).
+- `research/benchmark-5000-analysis.json`: the pooled analysis.
+- `research/anonymous-smoke-10/`: the anonymous 10-hand check of K50 loading.
+- `research/server-account-dberwegerch-81-hands/journal.jsonl`: 81 hands this model played on the owner's account from the Linux server by mistake; not part of the benchmark.
+
+Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr261`, check the manifest, then reproduce with `python -m scripts.analyze_slumbot_run` on the three part directories with `--out`, the model and tables from [#250's index](docs/reports/hu200-k50-first-artifacts/model-index.json). Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Local originals are kept in `~/Local/slumbot-k50-20261013/`.
+
 ## PR253 first Slumbot benchmark of the 200M HU200 model — October 13, 2026
 
 [PR253](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/253): #248's 200M HU200 average against Slumbot's live API, 1,796 verified hands on the owner's account: **−103 ± 110 BB/100** raw, −112 ± 99 all-in adjusted. Plus 300 anonymous random-bot hands showing Slumbot's baseline follows the client's actions. [Report](docs/reports/hu200-200m-slumbot-benchmark.md).
