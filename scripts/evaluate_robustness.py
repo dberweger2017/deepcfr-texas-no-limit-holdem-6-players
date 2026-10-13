@@ -67,7 +67,8 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
             view=hand.observe(hand.actor);who=logical[view.seat]
             original_menu=choices(view,free_fold=False)
             target_menu=choices(view,raise_cap=getattr(source,'raise_cap',2),free_fold=False,
-                                menu_sizes=menu_sizes(source.abstraction))
+                                menu_sizes=menu_sizes(getattr(source, "abstraction",
+                                    spec.get("abstraction", HU20_SCHEMA if n == 2 else TP20_SCHEMA))))
             menu=original_menu;trained=None
             begin=perf_counter()
             if who==0:
