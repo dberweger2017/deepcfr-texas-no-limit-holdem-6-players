@@ -31,7 +31,7 @@ Every five-second reading is retained. RSS >13 GiB, critical pressure, free memo
 
 Through scientific closeout: sampled family peak **8.244 GiB**, minimum free **51%**, maximum swap growth **0.385 GB**, minimum disk **38.995 GiB**, pressure levels [1]. No guard stop. Archive/upload readings and final acceptance are added to the indexed closeout; these are sampled peaks, not kernel maxima.
 
-Initial preflight found the attached M1 shell, a main-checkout environment without psutil and a locked M4 Git credential helper. All were corrected before the main scientific run, with no failed hands or scientific retry. [Retained setup notes](hu200-k50-first-artifacts/setup-notes.json). Five guard regressions and the repository artifact check pass; final reviewed-head CI is required before merge.
+Initial preflight found the attached M1 shell, a main-checkout environment without psutil and a locked M4 Git credential helper. All were corrected before the main scientific run, with no failed hands or scientific retry. [Retained setup notes](hu200-k50-first-artifacts/setup-notes.json). Six guard regressions and the repository artifact check pass; final reviewed-head CI is required before merge.
 
 ## Artifacts
 
