@@ -9,7 +9,8 @@ uniform play where it has none. Each run writes a fresh hash-chained journal of 
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
 answer abandons only its hand (Slumbot's session total still counts it); more than
 --max-abandoned such hands, or any other failure, stops the run.
-With --login the username and password come from the environment variables SLUMBOT_USERNAME and
+Progress goes to stderr: a line per stage, then a bar with BB/100 so far, raw and against
+Slumbot's baseline. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
 prompts, the password hidden. Neither is stored or printed.
 """
@@ -20,7 +21,11 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import statistics
+import sys
 import time
+
+from tqdm import tqdm
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
@@ -57,6 +62,22 @@ def load_player(args):
                                             'description': model.description}
 
 
+def say(message):
+    print(time.strftime('%H:%M:%S'), message, file=sys.stderr, flush=True)
+
+
+def progress(hands, abandoned):
+    """BB/100 so far, raw and against Slumbot's baseline, with 95% half-widths."""
+    def show(values):
+        if len(values) < 2:
+            return '-'
+        return f'{statistics.fmean(values):+.0f}±{1.96 * statistics.stdev(values) / len(values) ** 0.5:.0f}'
+    raw = [h.terminal['winnings'] for h in hands]
+    adjusted = [h.terminal['winnings'] - h.terminal['baseline_winnings'] for h in hands
+                if h.terminal['baseline_winnings'] is not None]
+    return f'BB/100 {show(raw)} | vs baseline {show(adjusted)} | abandoned {abandoned}'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--hands', type=int, required=True)
@@ -66,7 +87,8 @@ def main():
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
-    parser.add_argument('--min-interval', type=float, default=0.5, help='seconds between requests')
+    parser.add_argument('--min-interval', type=float, default=0.0,
+                        help='extra seconds between requests; one is ever in flight')
     parser.add_argument('--timeout', type=float, default=30.0)
     parser.add_argument('--max-abandoned', type=int, default=5,
                         help='hands given up after an ambiguous request before the run stops')
@@ -81,19 +103,28 @@ def main():
         stored = {**read_env(ENV_FILE), **{k: os.environ[k] for k in CREDENTIALS if os.environ.get(k)}}
         username = stored.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
         password = stored.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
+        say('Credentials read' + (' from .env or the environment' if 'SLUMBOT_PASSWORD' in stored else ''))
+    say(f'Loading {args.model.name} (a few minutes for large models)' if args.model else 'Using the check/call player')
+    loading = time.monotonic()
     policy, player, identity = load_player(args)
+    if args.model:
+        say(f'Model loaded in {time.monotonic() - loading:.0f}s')
     transport = HttpTransport(SERVICE, timeout=args.timeout, min_interval=args.min_interval,
                               max_requests=args.max_requests or 60 * args.hands)
     connection = SlumbotConnection(transport, policy)
     if args.login:
+        say('Logging in to Slumbot')
         connection.login(username, password)
         del password
+        say('Logged in')
+    say(f'Playing {args.hands} hands; journal {args.out / "journal.jsonl"}')
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
            'max_abandoned': args.max_abandoned,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
     journal = PrefixJournal(args.out / 'journal.jsonl', run)
     hands, stop, started, abandoned = [], None, time.monotonic(), 0
+    bar = tqdm(total=args.hands, unit='hand', file=sys.stderr, dynamic_ncols=True)
     for index in range(args.hands):
         if args.max_seconds is not None and time.monotonic() - started > args.max_seconds:
             stop = 'time limit'
@@ -103,6 +134,7 @@ def main():
         except AmbiguousRequest:
             # Give up this hand without resending anything, and continue with a new one.
             journal.failure('timeout-ambiguous'); abandoned += 1
+            bar.write(f'Hand {index} abandoned: a request got no complete answer ({abandoned} so far)')
             if abandoned > args.max_abandoned:
                 stop = 'too many ambiguous requests'
                 break
@@ -113,6 +145,12 @@ def main():
         except ValueError:
             journal.failure('protocol-error'); stop = 'protocol error'
             break
+        finally:
+            bar.set_postfix_str(progress(hands, abandoned), refresh=False)
+            bar.update(1)
+    bar.close()
+    if stop is not None:
+        say(f'Stopped: {stop}')
     journal.close()
     checked = verify_journal(args.out / 'journal.jsonl')
     latencies = sorted(transport.latencies)

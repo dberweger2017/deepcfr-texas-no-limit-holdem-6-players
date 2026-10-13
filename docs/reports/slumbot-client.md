@@ -21,7 +21,7 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 
 **Measured costs:**
 - Median latency is 1.12 s per request (90th percentile 1.22 s, maximum 2.77 s), with about 5.8 requests per hand.
-- With the default 0.5 s spacing, a hand takes 9.4 s: **about 2.6 hours per 1,000 hands**.
+- With 0.5 s spacing between requests, a hand took 9.4 s: **about 2.6 hours per 1,000 hands**. The spacing now defaults to none; only one request is ever in flight. Three check/call hands then took 4.4 s each, so expect roughly 1.5 hours per 1,000 hands.
 - Requests are mostly waiting on the network, so the M1 or the M4 can run other work alongside.
 
 **Slumbot's baseline cuts the noise considerably.** Every terminal response carries `baseline_winnings`, Slumbot's own variance-reduction baseline for the hand. On the 20 check/call hands, the 95% half-width of winnings minus baseline was **252 BB/100, against 656 for raw winnings**: about 2.6× narrower, worth roughly 7× as many hands. A benchmark should report both, with the adjusted figure as the precise one. Twenty hands of a check/call bot show nothing about strength; the ratio is the point.
