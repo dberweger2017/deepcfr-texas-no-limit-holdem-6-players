@@ -33,7 +33,9 @@ Each stage records its starting swap baseline; transient readings are logged.
 Stop after 60 seconds continuously above 13 GiB whole-family RSS, critical macOS
 pressure, below 8% free memory, or above 4,000,000,000 bytes swap growth from that
 baseline. Warning pressure is allowed. Free disk below 16 GiB stops immediately.
-Native training receives a stop file to save its complete iteration. Guards
+Native training receives a stop file with at most ten seconds of grace; disk
+floor stops terminate immediately. Preserve prior milestones and interrupted
+write prefixes if the save cannot finish. Guards
 persist their breach clocks across operations. Broken accounting or failed
 commands preserve a failure receipt and admit no scientific rerun.
 

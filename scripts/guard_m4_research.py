@@ -156,6 +156,7 @@ def main():
     since = state.get('held', state)
     last_sample = state.get('last_monotonic')
     child, failure, reason = None, None, []
+    stop_requested_at = None
     peak = count = 0
     started = time.time()
     cpu_peaks = {}
@@ -196,11 +197,16 @@ def main():
                         put(operation/'preservation-stop.json', {'at': time.time(), 'reasons': reason, 'sample': sample})
                     if child is None:
                         break
-                    if args.stop_file:
+                    if args.stop_file and 'free_disk' not in reason:
                         put(args.stop_file, {'guard_stop': reason})
+                        stop_requested_at = sample['monotonic']
                     else:
                         terminate(known)
                         break
+                if stop_requested_at is not None and child.poll() is None and sample['monotonic']-stop_requested_at >= 10:
+                    # Recovery writes can take minutes; machine protection has priority.
+                    terminate(known)
+                    break
                 if child is None:
                     child = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
                     try:
