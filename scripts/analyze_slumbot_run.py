@@ -25,13 +25,17 @@ def main():
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--policy-cache', type=Path,
                         help='folder for a verified binary cache of the model: the first load writes it, later ones take seconds')
+    parser.add_argument('--cache-read-only', action='store_true',
+                        help='require an existing verified cache; never create it')
     parser.add_argument('--missing-key-fallback', choices=('uniform', 'check-call'), default='uniform')
     parser.add_argument('--workers', type=int, default=4)
     args = parser.parse_args()
     if len(args.runs) > 1 and args.out is None:
         parser.error('Pooling several runs needs --out')
+    if args.cache_read_only and (args.model is None or args.policy_cache is None):
+        parser.error('--cache-read-only needs --model and --policy-cache')
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
-                          missing_key_fallback=args.missing_key_fallback) if args.model else None
+                          missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only) if args.model else None
     result = analyze([run / 'journal.jsonl' for run in args.runs], model=model, workers=args.workers,
                      missing_key_fallback=args.missing_key_fallback)
     with (args.out or args.runs[0] / 'analysis.json').open('x') as stream:

@@ -168,3 +168,12 @@ def test_analysis_checks_requested_option_even_without_loading_a_model(tmp_path)
     journal.close()
     with pytest.raises(ValueError, match='fallback'):
         analyze(tmp_path/'journal.jsonl', workers=1, missing_key_fallback='uniform')
+
+
+def test_slumbot_read_only_cache_flag_rejects_missing_inputs_before_credentials(tmp_path, monkeypatch):
+    from scripts import play_slumbot as play
+    monkeypatch.setattr('sys.argv', ['play_slumbot', '--hands', '1', '--login', '--cache-read-only',
+                                     '--out', str(tmp_path/'run')])
+    monkeypatch.setattr('builtins.input', lambda *_: pytest.fail('requested credentials'))
+    with pytest.raises(SystemExit) as error: play.main()
+    assert error.value.code == 2 and not (tmp_path/'run').exists()

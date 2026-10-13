@@ -56,7 +56,7 @@ def load_player(args):
         player = RandomLegal(args.seed) if args.player == 'random' else CheckCall()
         return player, player, {'player': player.name, **({'policy_seed': args.seed} if args.player == 'random' else {})}
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
-                          missing_key_fallback=args.missing_key_fallback)
+                          missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
                                             'abstraction': model.abstraction, 'description': model.description,
@@ -87,6 +87,8 @@ def main():
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--policy-cache', type=Path,
                         help='folder for a verified binary cache of the model: the first load writes it, later ones take seconds')
+    parser.add_argument('--cache-read-only', action='store_true',
+                        help='require an existing verified cache; never create it')
     parser.add_argument('--missing-key-fallback', choices=('uniform', 'check-call'), default='uniform',
                         help='missing keys only; omitted identity fields mean uniform')
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
@@ -112,6 +114,8 @@ def main():
         parser.error('--card-buckets needs a K50 --model')
     if args.missing_key_fallback != 'uniform' and args.model is None:
         parser.error('--missing-key-fallback needs --model')
+    if args.cache_read_only and (args.model is None or args.policy_cache is None):
+        parser.error('--cache-read-only needs --model and --policy-cache')
     args.out.mkdir(parents=True)
     # Ask and check the credentials before the model loads, so nobody waits minutes to learn of
     # a typo; the playing session logs in again after the load, so it starts fresh.
