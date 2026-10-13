@@ -14,7 +14,8 @@ from scipy.stats import t
 
 from src.arena.runner import public_events
 from src.arena.schedule import Plan, build_schedule, canonical, digest, schedule_document, stream_seed
-from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU100_SCHEMA, EQUITY_SCHEMAS, choices, information_key
+from src.blueprint.equity_buckets import EquityCards
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -29,7 +30,7 @@ def independent_estimate(values):
     return rate, interval
 
 
-def audit(root, output):
+def audit(root, output, *, cost_only=False):
     started = perf_counter()
     inputs = json.loads((root / 'inputs.json').read_text())
     complete = json.loads((root / 'complete.json').read_text())
@@ -49,6 +50,9 @@ def audit(root, output):
         raise ValueError('Reused reference identity changed')
     hands = actions = 0
     comparisons = {}
+    spec = inputs['config']['model']
+    schema = spec.get('abstraction') or HU100_SCHEMA
+    cards = EquityCards(Path(spec['card_buckets'])) if schema in EQUITY_SCHEMAS else None
     for opponent in inputs['config']['opponents']:
         panel = root / opponent
         if reference:
@@ -105,7 +109,7 @@ def audit(root, output):
                     if role == 0:
                         menu = choices(view, raise_cap=None, free_fold=False)
                         if (d['menu'] != json.loads(canonical([asdict(c) for c in menu]))
-                                or d['key'] != information_key(view, menu, schema=HU100_SCHEMA)
+                                or d['key'] != information_key(view, menu, schema=schema, equity_cards=cards)
                                 or d['lookup'] not in ('positive-mass-known-key', 'zero-mass', 'missing-key')
                                 or len(d['probabilities']) != len(menu)
                                 or any(not isfinite(p) or p < 0 for p in d['probabilities'])
@@ -116,7 +120,8 @@ def audit(root, output):
                         if translation.get('mode') == 'translated':
                             if (row['arm'] != 'candidate' or d['lookup'] != 'missing-key'
                                     or not 0 < translation['states'] <= 4096
-                                    or translation['selected_key'] != information_key(view, menu, schema=HU100_SCHEMA,
+                                    or schema != HU100_SCHEMA
+                                    or translation['selected_key'] != information_key(view, menu, schema=schema,
                                         history_label_overrides={int(i): label for i, label in translation['overrides']})):
                                 raise ValueError('Translated key trace differs')
                         if row['arm'] == 'baseline' or (d['lookup'] != 'positive-mass-known-key'
@@ -159,7 +164,8 @@ def audit(root, output):
                 for k, rate in g['lookup_rates'].items():
                     if rate != sum(d['lookup'] == k for d in selected) / len(selected):
                         raise ValueError('Lookup decision rate differs')
-        comparisons[opponent] = {arm: recorded[arm] for arm in computed}
+        comparisons[opponent] = ({'absolute_sd_bb_per_100': stdev(computed['candidate'])}
+                                if cost_only else {arm: recorded[arm] for arm in computed})
     if hands != complete['hands'] or actions != complete['decisions']:
         raise ValueError('Incomplete totals')
     result = {'status': 'verified', 'hands_replayed': hands, 'actions_replayed': actions,
