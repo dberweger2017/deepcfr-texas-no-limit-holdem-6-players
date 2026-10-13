@@ -30,6 +30,27 @@ def independent_estimate(values):
     return rate, interval
 
 
+def baseline_inputs(root: Path, inputs: dict) -> dict:
+    """Find the fresh run that wrote retained traces, checking each pinned identity."""
+    seen = {root.resolve()}
+    current = inputs
+    while current.get('reference_run'):
+        reference = Path(current['reference_run']).resolve()
+        if reference in seen:
+            raise ValueError('Cyclic reused reference provenance')
+        seen.add(reference)
+        path = reference / 'inputs.json'
+        if file_hash(path) != current['reference_inputs_sha256']:
+            raise ValueError('Reused reference identity changed')
+        original = json.loads(path.read_text())
+        if (any(original[k] != inputs[k] for k in ('root', 'blocks_per_opponent', 'source'))
+                or original['config']['opponents'] != inputs['config']['opponents']
+                or original['config']['reference'] != inputs['config']['reference']):
+            raise ValueError('Reused reference schedule/source differs')
+        current = original
+    return current
+
+
 def audit(root, output, *, cost_only=False):
     started = perf_counter()
     inputs = json.loads((root / 'inputs.json').read_text())
@@ -46,13 +67,22 @@ def audit(root, output, *, cost_only=False):
         if name.startswith('models/'):
             model_hash_seconds += perf_counter() - hash_started
     reference = Path(inputs['reference_run']) if inputs.get('reference_run') else None
-    if reference and file_hash(reference / 'inputs.json') != inputs['reference_inputs_sha256']:
-        raise ValueError('Reused reference identity changed')
+    origin = baseline_inputs(root, inputs)
     hands = actions = 0
     comparisons = {}
     spec = inputs['config']['model']
     schema = spec.get('abstraction') or HU100_SCHEMA
     cards = EquityCards(Path(spec['card_buckets'])) if schema in EQUITY_SCHEMAS else None
+    baseline_spec = origin['config']['model']
+    origin_schema = baseline_spec.get('abstraction') or HU100_SCHEMA
+    # Fresh v1 traces historically used candidate keys; fresh v2 traces use plain v1.
+    # Reuse copies those rows verbatim, so later candidates cannot change their context.
+    baseline_schema = HU100_SCHEMA if origin_schema in MENU_V2_SCHEMAS else origin_schema
+    baseline_cards = None
+    if baseline_schema in EQUITY_SCHEMAS:
+        directory = Path(baseline_spec['card_buckets'])
+        baseline_cards = (cards if cards is not None and directory.resolve() == Path(spec['card_buckets']).resolve()
+                          else EquityCards(directory))
     for opponent in inputs['config']['opponents']:
         panel = root / opponent
         if reference:
@@ -107,13 +137,12 @@ def audit(root, output, *, cost_only=False):
                     action = Action(ActionKind(event['action']['kind']), event['action']['raise_to'])
                     view.legal_actions.validate(action)
                     if role == 0:
-                        # v1 baseline traces retain their candidate-key coverage context.
-                        # A v2 candidate has a different menu, so its uniform reference owns v1 keys.
-                        own_baseline = row['arm'] == 'baseline' and schema in MENU_V2_SCHEMAS
-                        trace_schema = HU100_SCHEMA if own_baseline else schema
+                        is_baseline = row['arm'] == 'baseline'
+                        trace_schema = baseline_schema if is_baseline else schema
+                        trace_cards = baseline_cards if is_baseline else cards
                         menu = schema_choices(view, trace_schema)
                         if (d['menu'] != json.loads(canonical([asdict(c) for c in menu]))
-                                or d['key'] != information_key(view, menu, schema=trace_schema, equity_cards=None if own_baseline else cards)
+                                or d['key'] != information_key(view, menu, schema=trace_schema, equity_cards=trace_cards)
                                 or d['lookup'] not in ('positive-mass-known-key', 'zero-mass', 'missing-key')
                                 or len(d['probabilities']) != len(menu)
                                 or any(not isfinite(p) or p < 0 for p in d['probabilities'])

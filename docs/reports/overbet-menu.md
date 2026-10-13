@@ -68,4 +68,4 @@ In Python, `schema_choices(view, schema)` gives the menu a native schema was tra
 - Translation (`hu100-public-menu-translation-v1`), turn search and the web runtime are v1-only.
 - Windowed extraction, subgame-bench exports and historical HU100/HU200 support-witness diagnostics remain v1-only and explicitly refuse v2. Native bench/traversal/run parity reject `--menu`; their fixture formats remain v1.
 
-[PR #258](overbet-correctness.md) adds schema-derived Python reference training and direct/scripted/pot-pressure replay, including mixed v1/v2 matches. Fixed v1 harness streams and small native HU20/HU100 v1/v2 checkpoint/export/resume files match main exactly.
+[PR #258](overbet-correctness.md) adds schema-derived Python reference training and direct/scripted/pot-pressure replay, including mixed v1/v2 matches and retained baseline reuse across schemas. Independent replay follows pinned reuse ancestry to the original baseline's schema and tables. Fixed v1 harness streams and small native HU20/HU100 v1/v2 checkpoint/export/resume files match main exactly.
