@@ -9,8 +9,8 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 - **Hand runner** (`src/arena/external/session.py`): `new_hand`, one `act` per client decision, then the terminal response. The final action string must continue exactly what the client saw and sent, and the seat and hole cards must not change.
 - **Journal:** the existing hash-chained journal now also holds verified terminal records. Rotating tokens never enter it.
 - **Login:** `SlumbotConnection.login` starts an account session. The credentials go to the transport only.
-- **Admission:** scripted players, which read the legal actions at any depth, are admitted. Trained policies still must be HU200.
-- **CLI:** `scripts/play_slumbot.py`, with check/call by default or a pinned HU200 average, a fresh journal and `summary.json` per run.
+- **Admission:** scripted players, which read the legal actions at any depth, are admitted. Trained policies still must be HU200, with v1 or K50 cards.
+- **CLI:** `scripts/play_slumbot.py`, with check/call by default or a pinned HU200 average, a fresh journal and `summary.json` per run. A K50 average also needs `--card-buckets` with #163's pinned table directory; the loader checks the tables' SHA256s against the model's identity. `scripts/analyze_slumbot_run.py` takes the same flag.
 
 ## Live checks (October 13, 2026, anonymous)
 
@@ -32,12 +32,22 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 python -m scripts.play_slumbot --hands 20 --out DIR
 python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR
 python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR --login
+python -m scripts.play_slumbot --hands 1000 --model K50-AVERAGE.gz --model-sha256 SHA --card-buckets TABLES --out DIR
 ```
 
-With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
+With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. The login is checked before the model loads, and a refusal shows Slumbot's reason. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
+
+## Accounts
+
+Slumbot's site totals and leaderboard count per account, so a model gets its own account when its entry should describe that model alone. Each account is named after its model. Probes and tests run anonymously. Credentials never enter the repository.
+
+| Account | Use | Played |
+|---|---|---|
+| `dberwegerch` | The owner's own account, for tests and benchmarks. It mixes models, so its site totals describe none of them. | October 13: #248's 200M HU200 model (1,796 hands, [#253](hu200-200m-slumbot-benchmark.md)); #250's K50 752M average (a 5,000-hand benchmark in parts). |
+| `deepcfr-k50-752m` | Dedicated to #250's K50 HU200 terminal average, 752,593,175 nodes, SHA256 `60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c`, with #163's pinned tables. | From October 13: one run of up to 200,000 hands or 70 hours. |
 
 ## Limits
 
 - **No duplicate pairing:** the service deals fresh cards each hand, and its baseline is no substitute (see above). Variance reduction has to be our own.
-- **A request without a complete answer abandons only its hand.** Nothing is resent; the run starts a new hand. Slumbot's running session total still counts the abandoned hand, so the summary reports Slumbot's net beside our verified net, and their difference is what abandoned hands cost. More than `--max-abandoned` such hands (default 5), an error status, a protocol mismatch or the request cap stops the run. The timeout is 30 s: on Wi-Fi, an account run lost a request after 7 hands with a 10 s timeout.
+- **A request without a complete answer, or one Slumbot refuses with an error status, abandons only its hand.** A refusal keeps Slumbot's short reason, with anything token-like removed, in the summary; a refusal also starts a fresh session, logged in again on account runs, since an expired session may refuse everything; session accounting follows each session. More than `--max-rejected` (default 10) stops the run. On October 13 an account run stopped when Slumbot refused a legal call with HTTP 400 after 228 hands. Nothing is resent; the run starts a new hand. Slumbot's running session total still counts the abandoned hand, so the summary reports Slumbot's net beside our verified net, and their difference is what abandoned hands cost. More than `--max-abandoned` such hands (default 5), an error status, a protocol mismatch or the request cap stops the run. The timeout is 30 s: on Wi-Fi, an account run lost a request after 7 hands with a 10 s timeout.
 - **Service identity:** the service publishes no version, so results are tied to the dates they were played.

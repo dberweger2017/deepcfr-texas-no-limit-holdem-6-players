@@ -64,7 +64,7 @@ Facing a Slumbot bet or raise, by its size relative to the pot before it (blind-
 - **Slumbot folds a lot to our pressure:** +355,350 chips from its folds. The aggression wins small pots and loses big ones.
 - **Unseen situations are rare** in this sample, up to 8% on the river. They don't explain the loss; the stored strategy does. That fits a model with only 200M training nodes.
 
-Precision needs many more hands or stronger variance reduction: raw ±50 BB/100 takes about 16,000 hands. The next useful benchmark is a stronger model, such as [#250](hu200-k50-first.md)'s K50 HU200, on the same footing.
+Precision needs many more hands or stronger variance reduction: at this run's spread, raw ±50 BB/100 takes about 8,700 hands. The next useful benchmark is a stronger model, such as [#250](hu200-k50-first.md)'s K50 HU200, on the same footing.
 
 ## Reproduce
 

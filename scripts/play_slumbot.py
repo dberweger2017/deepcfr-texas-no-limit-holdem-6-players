@@ -2,13 +2,15 @@
 
     python -m scripts.play_slumbot --hands 20 --out DIR
     python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR
+    python -m scripts.play_slumbot ... --card-buckets TABLES   # a K50 average and its pinned tables
     python -m scripts.play_slumbot ... --login        # account session; asks for the password
 
-The default player is check/call. A trained HU200 average plays with its stored policy and
-uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
+The default player is check/call. A trained HU200 average, v1 or K50 cards, plays with its
+stored policy and uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
-answer abandons only its hand (Slumbot's session total still counts it); more than
---max-abandoned such hands, or any other failure, stops the run.
+answer, or one Slumbot refuses with an error status, abandons only its hand (Slumbot's session
+total still counts it); a refusal also starts a new session, logged in again with --login; more than --max-abandoned or --max-rejected such hands, or any other
+failure, stops the run.
 Progress goes to stderr: a line per stage, then a bar with BB/100 so far. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
 prompts, the password hidden. Neither is stored or printed.
@@ -28,7 +30,8 @@ from tqdm import tqdm
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, play_hand, session_accounting, summarize
+from src.arena.external.session import (CheckCall, hu200_average, play_hand, session_accounting, summarize,
+                                        without_decisions)
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
 SERVICE = 'https://slumbot.com'
@@ -52,13 +55,10 @@ def load_player(args):
     if args.model is None:
         player = CheckCall()
         return player, player, {'player': player.name}
-    from src.blueprint.abstraction import HU200_SCHEMA
-    from src.blueprint.average import AveragePolicy
-    # Native exports are written in key order; the sorted reader checks that as it loads.
-    model = AveragePolicy(args.model, args.model_sha256, expected_schema=HU200_SCHEMA, sorted_rows=True)
+    model = hu200_average(args.model, args.model_sha256, args.card_buckets)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
-                                            'description': model.description}
+                                            'abstraction': model.abstraction, 'description': model.description}
 
 
 def say(message):
@@ -80,6 +80,7 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--model', type=Path)
     parser.add_argument('--model-sha256')
+    parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
@@ -88,18 +89,29 @@ def main():
     parser.add_argument('--timeout', type=float, default=30.0)
     parser.add_argument('--max-abandoned', type=int, default=5,
                         help='hands given up after an ambiguous request before the run stops')
+    parser.add_argument('--max-rejected', type=int, default=10,
+                        help='hands given up after Slumbot refused a request before the run stops')
     parser.add_argument('--login', action='store_true')
     args = parser.parse_args()
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
         parser.error('Give a positive --hands, and --model together with --model-sha256')
+    if args.card_buckets is not None and args.model is None:
+        parser.error('--card-buckets needs a K50 --model')
     args.out.mkdir(parents=True)
-    # Ask before the model loads, so nobody waits minutes for the prompt; log in after it, so
-    # the session starts fresh.
+    # Ask and check the credentials before the model loads, so nobody waits minutes to learn of
+    # a typo; the playing session logs in again after the load, so it starts fresh.
     if args.login:
         stored = {**read_env(ENV_FILE), **{k: os.environ[k] for k in CREDENTIALS if os.environ.get(k)}}
         username = stored.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
         password = stored.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
         say('Credentials read' + (' from .env or the environment' if 'SLUMBOT_PASSWORD' in stored else ''))
+        try:
+            SlumbotConnection(HttpTransport(SERVICE, timeout=args.timeout, max_requests=1), CheckCall()).login(username, password)
+        except (ValueError, AmbiguousRequest, ServiceError) as error:
+            # Messages name the endpoint, status or Slumbot's reason, never the password.
+            say(f'Login check failed: {error}')
+            raise SystemExit(1)
+        say('Credentials accepted')
     say(f'Loading {args.model.name} (a few minutes for large models)' if args.model else 'Using the check/call player')
     loading = time.monotonic()
     policy, player, identity = load_player(args)
@@ -110,23 +122,23 @@ def main():
     connection = SlumbotConnection(transport, policy)
     if args.login:
         say('Logging in to Slumbot')
+        # The password stays in memory only, to log in again if Slumbot refuses a request.
         connection.login(username, password)
-        del password
         say('Logged in')
     say(f'Playing {args.hands} hands; journal {args.out / "journal.jsonl"}')
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
-           'max_abandoned': args.max_abandoned,
+           'max_abandoned': args.max_abandoned, 'max_rejected': args.max_rejected,
            'hands_requested': args.hands, 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
     journal = PrefixJournal(args.out / 'journal.jsonl', run)
-    hands, stop, started, abandoned = [], None, time.monotonic(), 0
+    hands, stop, started, abandoned, rejections = [], None, time.monotonic(), 0, []
     bar = tqdm(total=args.hands, unit='hand', file=sys.stderr, dynamic_ncols=True)
     for index in range(args.hands):
         if args.max_seconds is not None and time.monotonic() - started > args.max_seconds:
             stop = 'time limit'
             break
         try:
-            hands.append(play_hand(connection, player, f'slumbot-{index:06d}', journal))
+            hands.append(without_decisions(play_hand(connection, player, f'slumbot-{index:06d}', journal)))
         except AmbiguousRequest:
             # Give up this hand without resending anything, and continue with a new one.
             journal.failure('timeout-ambiguous'); abandoned += 1
@@ -136,14 +148,28 @@ def main():
                 break
             connection.abandon_hand()
         except ServiceError as error:
-            # The message names only the endpoint and status: safe to keep.
-            journal.failure('service-error'); stop = f'service error: {error}'
-            break
+            # The message names the endpoint, status and Slumbot's reason without tokens: safe to keep.
+            if error.status is None:
+                journal.failure('service-error'); stop = f'service error: {error}'
+                break
+            # Slumbot answered and refused the request: the hand is lost, nothing is in doubt.
+            journal.failure('service-rejected'); rejections.append({'hand': index, 'error': str(error)})
+            bar.write(f'Hand {index} abandoned: Slumbot refused a request, {error} ({len(rejections)} so far)')
+            if len(rejections) > args.max_rejected:
+                stop = 'too many rejected requests'
+                break
+            # A refusal can mean the session expired: start a fresh one, logged in again for
+            # account runs.
+            try:
+                connection.new_session(*((username, password) if args.login else ()))
+            except (ValueError, AmbiguousRequest, ServiceError) as failure:
+                stop = f'new session failed: {failure}'
+                break
         except ValueError:
             journal.failure('protocol-error'); stop = 'protocol error'
             break
         finally:
-            bar.set_postfix_str(progress(hands, abandoned), refresh=False)
+            bar.set_postfix_str(progress(hands, abandoned + len(rejections)), refresh=False)
             bar.update(1)
     bar.close()
     if stop is not None:
@@ -152,13 +178,14 @@ def main():
     checked = verify_journal(args.out / 'journal.jsonl')
     latencies = sorted(transport.latencies)
     summary = {**summarize(hands), 'run': run, 'stopped': stop, 'requests': transport.requests,
-               'abandoned_hands': abandoned, 'slumbot_session': session_accounting(hands),
+               'abandoned_hands': abandoned, 'rejected_hands': len(rejections), 'rejections': rejections,
+               'slumbot_session': session_accounting(hands),
                'seconds': time.monotonic() - started, 'journal': checked,
                'journal_sha256': hashlib.sha256((args.out / 'journal.jsonl').read_bytes()).hexdigest(),
                'latency_seconds': {'median': latencies[len(latencies) // 2], 'p90': latencies[int(len(latencies) * 0.9)],
                                    'max': latencies[-1]} if latencies else None}
     (args.out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
-    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands')}))
+    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands', 'rejected_hands')}))
     if stop is not None and stop != 'time limit':
         raise SystemExit(1)
 

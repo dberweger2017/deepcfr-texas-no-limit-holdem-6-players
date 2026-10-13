@@ -16,9 +16,10 @@ import pytest
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, ending, play_hand, summarize
+from src.arena.external.session import CheckCall, ending, hu200_average, play_hand, summarize, without_decisions
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection, settle, terminal_record, verify_terminal
-from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA
+from src.blueprint.abstraction import HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA, HU200_SCHEMA, HU20_EQUITY_SCHEMA
+from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.blueprint.solver import HU100_GAME, HU200_GAME
 from src.game.types import Action, ActionKind
 
@@ -120,6 +121,34 @@ def test_scripted_players_are_admitted_and_other_depths_are_not():
         CONTRACT.admit(SimpleNamespace(game=HU100_GAME, abstraction=HU100_SCHEMA, players=2, raise_cap=None))
 
 
+def test_runs_keep_only_terminals_and_decision_counts():
+    from src.arena.external.session import Hand
+    hand = Hand('h', [{'observation': 'large'}, {'observation': 'large'}], {'winnings': 100, 'client_pos': 0,
+                'baseline_winnings': 0, 'action': 'b200f'})
+    slim = without_decisions(hand)
+    assert slim.terminal is hand.terminal and slim.decisions == [None, None]
+    assert summarize([slim]) == summarize([hand])
+
+
+def test_k50_hu200_policies_are_admitted_and_k50_at_other_depths_are_not():
+    CONTRACT.admit(SimpleNamespace(game=HU200_GAME, abstraction=HU200_EQUITY_SCHEMA, players=2, raise_cap=None))
+    for game, schema in ((HU100_GAME, HU100_EQUITY_SCHEMA), (HU20_UNCAPPED_GAME, HU20_EQUITY_SCHEMA),
+                         (HU200_GAME, HU100_EQUITY_SCHEMA), (HU200_GAME, HU100_SCHEMA)):
+        with pytest.raises(ValueError):
+            CONTRACT.admit(SimpleNamespace(game=game, abstraction=schema, players=2, raise_cap=None))
+
+
+def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch):
+    calls = []
+    import src.blueprint.average as average
+    monkeypatch.setattr(average, 'AveragePolicy', lambda *a, **k: calls.append((a, k)))
+    hu200_average('m.gz', 'sha')
+    hu200_average('m.gz', 'sha', Path('tables'))
+    assert calls == [(('m.gz', 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None}),
+                     (('m.gz', 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
+                                        'card_buckets': Path('tables')})]
+
+
 def test_login_sends_credentials_only_to_the_transport_and_fails_closed():
     class Login:
         def __init__(self, response): self.response, self.bodies = response, []
@@ -134,7 +163,11 @@ def test_login_sends_credentials_only_to_the_transport_and_fails_closed():
     failed = SlumbotConnection(Login({'error_msg': 'bad password'}), HU200)
     with pytest.raises(ValueError) as error:
         failed.login('name', 'secret')
-    assert 'secret' not in str(error.value) and failed.failed
+    assert 'bad password' in str(error.value) and 'secret' not in str(error.value) and failed.failed
+    echoed = SlumbotConnection(Login({'error_msg': 'no user with password secret'}), HU200)
+    with pytest.raises(ValueError) as error:
+        echoed.login('name', 'secret')
+    assert 'secret' not in str(error.value)
 
 
 @pytest.fixture
@@ -145,7 +178,9 @@ def server():
             body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
             if self.path == '/stall':
                 time.sleep(1.0)
-            code, payload = {'/error': (500, b'{}'), '/text': (200, b'not json')}.get(self.path, (200, json.dumps({'echo': body}).encode()))
+            code, payload = {'/error': (500, b'{}'), '/text': (200, b'not json'),
+                             '/refused': (400, b'{"error_msg": "No hand for token 0123456789abcdef0123"}')
+                             }.get(self.path, (200, json.dumps({'echo': body}).encode()))
             self.send_response(code); self.end_headers(); self.wfile.write(payload)
         def log_message(self, *args): pass
     httpd = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
@@ -161,14 +196,79 @@ def test_http_transport_bounds_requests_and_never_retries(server):
         transport.post('/error', {'token': 'secret'})
     with pytest.raises(ServiceError, match='not JSON'):
         transport.post('/text', {})
+    with pytest.raises(ServiceError) as refused:
+        transport.post('/refused', {'token': 'secret'})
+    assert refused.value.status == 400 and str(refused.value) == '/refused returned HTTP 400: No hand for token ...'
     with pytest.raises(AmbiguousRequest) as error:
         transport.post('/stall', {'token': 'secret'})
     assert 'secret' not in str(error.value)
-    assert transport.requests == 4
+    assert transport.requests == 5
+    transport = HttpTransport(server, timeout=0.3, min_interval=0.05, max_requests=1)
     transport.post('/ok', {})
     with pytest.raises(ServiceError, match='cap'):
         transport.post('/ok', {})
-    assert transport.requests == 5
+    assert transport.requests == 1
+
+
+def test_a_rejected_request_abandons_only_its_hand_but_an_unreadable_answer_does_not():
+    class Refusing:
+        def __init__(self, error): self.error, self.calls = error, 0
+        def post(self, endpoint, body):
+            self.calls += 1
+            if self.calls == 2:
+                raise self.error
+            return dict(LIVE[1][0], token='session-token-7f3a')
+    connection = SlumbotConnection(Refusing(ServiceError('act returned HTTP 400', status=400)), HU200)
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.abandon_hand()
+    assert connection.request('new_hand')['token'] == 'session-token-7f3a'
+    with pytest.raises(ValueError, match='rejected'):
+        connection.new_session()
+    refused = Refusing(ServiceError('act returned HTTP 400', status=400))
+    connection = SlumbotConnection(refused, HU200)
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.new_session()
+    assert connection.token is None and connection.request('new_hand')['token'] == 'session-token-7f3a'
+    unreadable = SlumbotConnection(Refusing(ServiceError('act returned a body that is not JSON')), HU200)
+    unreadable.request('new_hand')
+    with pytest.raises(ServiceError):
+        unreadable.request('act', 'c')
+    with pytest.raises(ValueError, match='abandoned'):
+        unreadable.abandon_hand()
+    with pytest.raises(ValueError, match='rejected'):
+        unreadable.new_session()
+
+
+def test_a_new_session_logs_in_again_and_session_totals_restart():
+    from src.arena.external.session import Hand, session_accounting
+
+    class Account:
+        def __init__(self): self.bodies, self.calls = [], 0
+        def post(self, endpoint, body):
+            self.calls += 1; self.bodies.append((endpoint, body))
+            if endpoint.endswith('login'):
+                return {'token': f'account-token-{self.calls}'}
+            if self.calls == 3:
+                raise ServiceError('act returned HTTP 400', status=400)
+            return dict(LIVE[1][0], token=body['token'])
+    account = Account()
+    connection = SlumbotConnection(account, HU200)
+    connection.login('name', 'secret')
+    connection.request('new_hand')
+    with pytest.raises(ServiceError):
+        connection.request('act', 'c')
+    connection.new_session('name', 'secret')
+    assert connection.token == 'account-token-4' and account.bodies[3] == ('/slumbot/api/login', {'username': 'name', 'password': 'secret'})
+    terminal = lambda total, count, won: Hand('h', [], {'session_total': total, 'session_num_hands': count, 'winnings': won})
+    # Session one: two verified hands. Session two restarts the count; its second hand was abandoned,
+    # and Slumbot counted it as -50.
+    hands = [terminal(50, 1, 50), terminal(250, 2, 200), terminal(-50, 1, -50), terminal(50, 3, 150)]
+    assert session_accounting(hands) == {'slumbot_net_chips': 300, 'verified_net_chips': 350,
+                                         'unverified_chips': -50, 'sessions': 2, 'slumbot_hands': 5}
 
 
 def test_env_file_supplies_only_slumbot_credentials_and_is_never_committed(tmp_path):

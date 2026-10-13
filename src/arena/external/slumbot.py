@@ -1,6 +1,6 @@
 """Official Slumbot wire codec: 200BB, street-local bet-to, public-only parsing.
 
-Admission requires a matching HU200 identity and rejects fixed HU100 policies.
+Admission requires a matching HU200 identity, v1 or K50 cards, and rejects fixed HU100 policies.
 Terminal winnings are evaluator data; terminal responses never become policy inputs.
 Slumbot reveals its hole cards when every hand ends, so each settlement is recomputed
 from the public actions and both hands and must equal the reported winnings.
@@ -9,7 +9,7 @@ from the public actions and both hands and must equal the reported winnings.
 from dataclasses import asdict, dataclass
 import re
 
-from src.arena.external.http import AmbiguousRequest
+from src.arena.external.http import AmbiguousRequest, ServiceError
 from src.arena.external.interface import GameContract, JsonTransport
 from src.blueprint.action_translation import Betting
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, Decision, HandStarted, replay
@@ -211,18 +211,32 @@ class SlumbotConnection:
         except Exception as error:
             self.failed = True
             self.ambiguous = isinstance(error, AmbiguousRequest)
+            # The service answered with an error status: it refused the request, so the hand is lost
+            # but nothing is in doubt.
+            self.rejected = isinstance(error, ServiceError) and error.status is not None
             raise
         return response
 
     def abandon_hand(self):
-        """After an ambiguous request only: give up the open hand and allow a new one.
+        """After an ambiguous or rejected request only: give up the open hand and allow a new one.
 
-        The unanswered request is never resent. Slumbot's session totals still count whatever
-        the abandoned hand cost, so callers can account for it.
+        The failed request is never resent. Slumbot's session totals still count whatever the
+        abandoned hand cost, so callers can account for it.
         """
-        if not (self.failed and getattr(self, 'ambiguous', False)) or self.token is None:
-            raise ValueError('Only a hand interrupted by an ambiguous request can be abandoned')
-        self.failed = self.ambiguous = False
+        if (not (self.failed and (getattr(self, 'ambiguous', False) or getattr(self, 'rejected', False)))
+                or self.token is None):
+            raise ValueError('Only a hand interrupted by an ambiguous or rejected request can be abandoned')
+        self.failed = self.ambiguous = self.rejected = False
+
+    def new_session(self, username: str | None = None, password: str | None = None):
+        """After a rejected request only: drop the token and start afresh, logged in again when
+        credentials are given. An expired session can make Slumbot refuse every request.
+        """
+        if not (self.failed and getattr(self, 'rejected', False)):
+            raise ValueError('Only a rejected request starts a new session')
+        self.token, self.failed, self.ambiguous, self.rejected = None, False, False, False
+        if username is not None:
+            self.login(username, password)
 
     def login(self, username: str, password: str):
         """Starts an account session. Credentials go to the transport only, never to evidence."""
@@ -232,7 +246,10 @@ class SlumbotConnection:
             response = self.transport.post('/slumbot/api/login', {'username': username, 'password': password})
             token = response.get('token') if isinstance(response, dict) else None
             if not isinstance(token, str) or not token or 'error_msg' in response:
-                raise ValueError('Slumbot login failed')
+                # Slumbot's own reason, shortened and never echoing the password.
+                reason = response.get('error_msg') if isinstance(response, dict) else None
+                reason = reason[:200].replace(password, '***') if isinstance(reason, str) and password else None
+                raise ValueError('Slumbot login failed' + (f': {reason}' if reason else ''))
         except Exception:
             self.failed = True
             raise
