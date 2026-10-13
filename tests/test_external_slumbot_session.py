@@ -223,3 +223,39 @@ def test_an_ambiguous_request_abandons_only_its_hand_and_session_totals_count_it
     assert accounting['unverified_chips'] == -100 and accounting['slumbot_hands'] == 3
     with pytest.raises(ValueError, match='abandoned'):
         connection.abandon_hand()
+
+
+def test_all_in_streets_and_exact_equity():
+    from src.arena.external.analysis import allin_equity, allin_street
+    assert allin_street('b20000c') == 0
+    assert allin_street('b200b20000c///') == 0
+    assert allin_street('b200c/b19800c//') == 1
+    assert allin_street('b200c/kk/b19800c/') == 2
+    assert allin_street('b200c/kk/kk/b19800c') == 3
+    assert allin_street('b20000f') is None and allin_street('b200c/kk/kk/kk') is None
+    royal = ['As', 'Ks', 'Qs', 'Js']
+    assert allin_equity(['2c', '3d'], ['4h', '5c'], royal + ['Ts']) == 0.5      # every runout ties
+    assert allin_equity(['Ts', '2c'], ['4h', '5c'], royal) == 1.0               # already a royal flush
+    # Turn: aces against kings, whose only outs are the two remaining kings.
+    assert allin_equity(['Ah', 'Ad'], ['Kh', 'Kd'], ['2c', '7s', '9d', 'Jc']) == 42 / 44
+    # Flop: an exact count over all 990 turn and river runouts.
+    flop = allin_equity(['Ah', 'Ad'], ['Kh', 'Kd'], ['2c', '7s', '9d'])
+    assert 0.90 < flop < 0.93 and abs(flop * 1980 - round(flop * 1980)) < 1e-9
+
+
+def test_analysis_of_the_live_fixture_journal(tmp_path):
+    from src.arena.external.analysis import analyze
+    replay = Replay(LIVE)
+    connection = SlumbotConnection(replay, HU200)
+    journal = PrefixJournal(tmp_path / 'journal.jsonl', {'fixture': True})
+    for i in range(len(LIVE)):
+        play_hand(connection, replay, f'h{i}', journal)
+    journal.close()
+    result = analyze(tmp_path / 'journal.jsonl', workers=1)
+    assert result['hands'] == 12 and result['bb_per_100']['n'] == 12
+    # ck/kk/b100b19900c/ is all-in on the turn with the client already drawing dead to a straight,
+    # so its equity is 0 and the adjusted result equals the raw one.
+    assert result['all_in_hands']['turn'] == 1
+    assert result['all_in_adjusted_bb_per_100']['mean'] == result['bb_per_100']['mean']
+    assert sum(v['hands'] for v in result['endings'].values()) == 12
+    assert sum(sum(c.values()) for c in result['actions_by_street'].values()) == result['decisions']

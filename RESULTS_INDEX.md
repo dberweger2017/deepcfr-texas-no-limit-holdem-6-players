@@ -1,3 +1,33 @@
+## PR253 first Slumbot benchmark of the 200M HU200 model — October 13, 2026
+
+[PR253](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/253): #248's 200M HU200 average against Slumbot's live API, 1,796 verified hands on the owner's account: **−103 ± 110 BB/100** raw, −112 ± 99 all-in adjusted. Plus 300 anonymous random-bot hands showing Slumbot's baseline follows the client's actions. [Report](docs/reports/hu200-200m-slumbot-benchmark.md).
+
+Archive `~/Local/Research-Cloud/PR-253-hu200-slumbot-benchmark/hu200-200m-slumbot-benchmark-20261013.zip`, **695,367 bytes**, SHA256 `5b49db306132ba4755bb809c71a0368dbbcb0443f641845837705314a02e32d3`; embedded `ARCHIVE-MANIFEST.json` SHA256 `80d5ee72e951432a0e6f684149281ab65eb5eddf1287c8b2e8291d22b00e08d9`. Every member was read back against the manifest before copying:
+- `research/journal.jsonl` (11,194,028 bytes), `research/summary.json`, `research/analysis.json`: the benchmark run.
+- `research/random-sanity/journal.jsonl` and `summary.json`: the random-bot check.
+- `research/hu200-200m-3000-20261013.log`: the log of an anonymous start stopped during model loading at the owner's request, before any hand; the benchmark itself ran in the owner's terminal.
+
+Restore with `python3 -m zipfile -e ~/Local/Research-Cloud/PR-253-hu200-slumbot-benchmark/hu200-200m-slumbot-benchmark-20261013.zip results/retrieved/pr253`, check the manifest, then reproduce the analysis with `python -m scripts.analyze_slumbot_run` on a copy of the run directory without `analysis.json`, passing the model and its SHA256 from [#248's index](docs/reports/hu200-200m-model.md). Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked.
+
+## Post-merge M1/M4 storage pass — October 13, 2026
+
+Owner-requested cleanup retires **88.890 GB** of existing research copies:
+13 uploaded native cache releases and **36 unchanged own #246/#252 evidence paths**.
+Separately authorized uploaded personal backup cache releases **19.529 GB** on M1;
+public records omit personal filenames. Verified free **M1 65.986 GB /M4 104.323 GB**.
+
+[Safeguards and receipt](docs/artifacts/storage-vacuum-20261013.md),
+[every removed path and exact archive/member/hash locator](docs/artifacts/storage-vacuum-20261013-locators.md),
+[full private research receipt](https://drive.google.com/file/d/1SDqMIa6b-aBNfGqvG7Wx9iUgUzrA01gM/view?usp=drivesdk) (ID `1SDqMIa6b-aBNfGqvG7Wx9iUgUzrA01gM`, 66,745 bytes,
+SHA256 `307e8062e2c182514983ca21ef25816e692b319dc178a2a7830b43d71fd5ec03`; current confirmed Research-Cloud upload).
+Current merged/upload/dependency/path/size/modification-history and open-handle
+checks precede removal. Existing manifests are trusted without remote downloads
+or repeated payload audits. Live Slumbot #248 model/root, source/shared Git,
+tables, installed release caches and uncertain/changed/unarchived files remain.
+Incomplete #246 prefix remains unchanged online; no original removal relies on
+it. No synced deletion, forced offload, unpinning or research/schedule change.
+Earlier retained-original snapshots are superseded only for the 36 locator rows.
+
 ## PR249 Slumbot client live protocol checks — October 13, 2026
 
 [PR249](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/249) played 32 anonymous live hands against Slumbot's public API to check the client: 12 probe-bot hands and 20 check/call hands through `scripts.play_slumbot`. No model and no strength claim. [Report](docs/reports/slumbot-client.md).
