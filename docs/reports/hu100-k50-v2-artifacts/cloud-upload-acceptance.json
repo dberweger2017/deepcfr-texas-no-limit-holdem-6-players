@@ -1,25 +1,68 @@
 {
-  "at": 1791906992.609728,
+  "at_utc": "2026-10-13T16:48:00Z",
   "files": {
+    "average": {
+      "created_time": "2026-10-13T15:30:24.420Z",
+      "id": "1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q",
+      "mime_type": "application/zip",
+      "modified_time": "2026-10-13T15:30:26.102Z",
+      "parent_ids": [
+        "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+      ],
+      "size": "2363016534",
+      "title": "hu100-k50-v2-terminal-average.zip",
+      "url": "https://drive.google.com/file/d/1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q/view?usp=drivesdk"
+    },
     "closeout": {
+      "created_time": "2026-10-13T15:53:41.202Z",
       "id": "1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg",
+      "mime_type": "application/zip",
+      "modified_time": "2026-10-13T15:53:41.203Z",
       "parent_ids": [
         "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
       ],
       "size": "16200",
       "title": "hu100-k50-v2-archive-closeout.zip",
       "url": "https://drive.google.com/file/d/1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg/view?usp=drivesdk"
+    },
+    "full": {
+      "created_time": "2026-10-13T15:30:31.615Z",
+      "id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "mime_type": "application/zip",
+      "modified_time": "2026-10-13T15:31:12.559Z",
+      "parent_ids": [
+        "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+      ],
+      "size": "10465963508",
+      "title": "hu100-k50-v2-evidence.zip",
+      "url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk"
+    },
+    "metadata": {
+      "id": "1leoWMGtGonX-dSR47Ill-NthznsdoBKf",
+      "mime_type": "application/zip",
+      "parent_ids": [
+        "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+      ],
+      "size": "130468",
+      "title": "hu100-k50-v2-upload-metadata.zip",
+      "url": "https://drive.google.com/file/d/1leoWMGtGonX-dSR47Ill-NthznsdoBKf/view?usp=drivesdk"
     }
   },
   "folder": {
+    "created_time": "2026-10-13T15:30:23.563Z",
     "id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+    "mime_type": "application/vnd.google-apps.folder",
+    "modified_time": "2026-10-13T15:53:41.203Z",
     "parent_ids": [
       "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
     ],
+    "size": null,
     "title": "PR-260-hu100-k50-v2",
     "url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
   },
-  "method": "Connected Drive folder discovery and independent files.get metadata; main/average not yet listed",
+  "metadata_native_receipt": "metadata-native-upload.json",
+  "method": "Independent connected Drive files.get ID/name/size/direct-parent confirmation plus current native uploaded/no-pending/no-conflicts receipt",
+  "receipt_created_utc": "2026-10-13T16:49:11.710250+00:00",
   "remote_archive_bytes_downloaded": false,
-  "status": "pending"
+  "status": "accepted"
 }

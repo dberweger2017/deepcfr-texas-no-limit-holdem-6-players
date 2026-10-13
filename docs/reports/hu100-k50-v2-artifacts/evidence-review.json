@@ -12,10 +12,11 @@
     "report counts, density, cap arithmetic and decision rule against receipts"
   ],
   "status": "reviewed-no-open-findings",
-  "storage": "main and average upload acceptance pending; originals retained",
+  "storage": "All four ZIPs have complete local member readback, current native acceptance and independent Drive metadata confirmation; new remote bytes not downloaded",
   "validation": {
     "focused_m4_tests": 55,
     "initial_head_ci": "five checks green; results-head CI pending",
+    "results_head_ci": "all five checks green on dac51cc537d39aa9faacb1c17e0b9610cda0f3b0; storage-only commit requires final CI",
     "skips": 0
   }
 }
