@@ -100,7 +100,8 @@ def play(pilot=False):
     if pilot: blocks,root=128,PILOT_ROOT
     else:
         freeze = read(BASE/'canonical-plan.json'); posted = read(BASE/'plan-posted.json')
-        if freeze['source']!=source or file_hash(BASE/'canonical-plan.json')!=posted['sha256'] or freeze['pairs']!=pairs():
+        if (freeze['source']!=source or file_hash(BASE/'canonical-plan.json')!=posted['sha256']
+                or freeze['pairs']!=pairs() or freeze['inputs_sha256']!=file_hash(BASE/'inputs.json')):
             raise ValueError('Final source/plan/inputs differ')
         blocks,root = 131072,FINAL_ROOT
     costs = {}
@@ -127,7 +128,12 @@ def freeze(pr):
             if len(seeds)!=n or seen&seeds: raise ValueError('Duplicate physical schedule')
             seen.update(seeds); seed_hashes[str(root)+'/'+rung] = digest(sorted(seeds))
     put(BASE/'canonical-plan.json',{'pr':pr,'source':revision(),'blocks':131072,'pilot_root':PILOT_ROOT,'root':FINAL_ROOT,
-        'pairs':pairs(),'seed_hashes':seed_hashes,'translation':None,'statistics':'nominal paired duplicate-block Student-t 95%',
+        'pairs':pairs(),'seed_hashes':seed_hashes,'translation':None,
+        'inputs_sha256':file_hash(BASE/'inputs.json'),'native_build_receipt':read(BASE/'build-receipt.json'),
+        'native_main_base':SOURCE_BASE,'seed':SEED,'roots_per_seat':[4,8],
+        'recipe':{'stack_bb':100,'average_rule':'opponent-sampled','weighting':'linear','zero_mass':'uniform'},
+        'reference_release':{'tag':'v0.5.0','verified_source':'b9c9bd161422e87371a2641ae4c60304c66eed79','require_publication':True},
+        'root_reservation_sha256':file_hash(BASE/'final-root-reservation.json'),'statistics':'nominal paired duplicate-block Student-t 95%',
         'question':'R4/R8 learning per node relative to published R1; report upper loss bound = minus lower gain bound',
         'no_extension':True,'no_failed_hand_reruns':True,'pilot_costs':read(BASE/'pilot-costs.json')})
 
