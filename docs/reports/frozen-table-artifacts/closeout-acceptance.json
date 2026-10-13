@@ -1,0 +1,83 @@
+{
+  "archive": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 605951,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 599572,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "a141ad2ce3b6380b2b72115b3f4ac02516a09b8fa43dc72bfbf5dd87af255815",
+    "members": 12,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-262-frozen-table/frozen-table-closeout-M1-20261013.zip",
+    "remote_archive_bytes_downloaded": false,
+    "seconds_including_source_hash_pack_readback_whole_hash": 0.010134500014828518,
+    "sha256": "091167082bd623c2e7f1fb1a5538b91fe2d9e51e883f284439258ab595cff265",
+    "status": "locally-verified"
+  },
+  "independent_cloud": {
+    "folder_url": "https://drive.google.com/drive/folders/16hQk2pijcEii5S3iozRYSs42nxFKLQEM",
+    "listing": {
+      "files": [
+        {
+          "can_download": true,
+          "can_list_children": false,
+          "created_time": "2026-10-13T14:28:25.585Z",
+          "current_user_can_share": null,
+          "display_url": "https://drive.google.com/file/d/1OcCMwcE5bZIHWQklOaUxlq8YE8RS0_V_/view?usp=drivesdk",
+          "drive_id": null,
+          "file_or_folder": "file",
+          "has_augmented_permissions": null,
+          "id": "1OcCMwcE5bZIHWQklOaUxlq8YE8RS0_V_",
+          "mime_type": "application/zip",
+          "modified_time": "2026-10-13T14:28:25.587Z",
+          "parent_ids": null,
+          "permissions": null,
+          "shared": false,
+          "size": "605951",
+          "source_visibility_status": "not_shared",
+          "title": "frozen-table-closeout-M1-20261013.zip",
+          "url": "https://drive.google.com/file/d/1OcCMwcE5bZIHWQklOaUxlq8YE8RS0_V_/view?usp=drivesdk"
+        },
+        {
+          "can_download": true,
+          "can_list_children": false,
+          "created_time": "2026-10-13T14:19:58.814Z",
+          "current_user_can_share": null,
+          "display_url": "https://drive.google.com/file/d/1cOtEtzdpo7EP25ocJJAzOYpDJE5avmpS/view?usp=drivesdk",
+          "drive_id": null,
+          "file_or_folder": "file",
+          "has_augmented_permissions": null,
+          "id": "1cOtEtzdpo7EP25ocJJAzOYpDJE5avmpS",
+          "mime_type": "application/zip",
+          "modified_time": "2026-10-13T14:19:59.026Z",
+          "parent_ids": null,
+          "permissions": null,
+          "shared": false,
+          "size": "669195073",
+          "source_visibility_status": "not_shared",
+          "title": "frozen-table-evidence-M1-20261013.zip",
+          "url": "https://drive.google.com/file/d/1cOtEtzdpo7EP25ocJJAzOYpDJE5avmpS/view?usp=drivesdk"
+        }
+      ]
+    }
+  },
+  "independent_membership_confirmation": "direct containing-folder listing",
+  "native": {
+    "at": 1791901756.399913,
+    "bytes": 605951,
+    "cloud_file_id": "1OcCMwcE5bZIHWQklOaUxlq8YE8RS0_V_",
+    "cloud_folder_id": "16hQk2pijcEii5S3iozRYSs42nxFKLQEM",
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "name": "frozen-table-closeout-M1-20261013.zip",
+    "native_accepted": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-262-frozen-table/frozen-table-closeout-M1-20261013.zip",
+    "remote_archive_bytes_downloaded": false
+  },
+  "remote_archive_bytes_downloaded": false,
+  "status": "accepted"
+}
