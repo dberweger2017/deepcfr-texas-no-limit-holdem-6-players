@@ -99,7 +99,7 @@ def test_runner_replays_live_hands_into_a_verified_journal(tmp_path):
     summary = summarize(hands)
     assert summary['net_chips'] == sum(h[-1]['winnings'] for h in LIVE)
     assert summary['bb_per_100']['mean'] == pytest.approx(summary['net_chips'] / 12)
-    assert summary['baseline_adjusted_bb_per_100']['n'] == 12
+    assert summary['baseline_difference_bb_per_100']['n'] == 12
     assert sum(summary['endings'].values()) == 12
 
 

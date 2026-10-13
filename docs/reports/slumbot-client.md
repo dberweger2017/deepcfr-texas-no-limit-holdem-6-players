@@ -24,7 +24,7 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 - With 0.5 s spacing between requests, a hand took 9.4 s: **about 2.6 hours per 1,000 hands**. The spacing now defaults to none; only one request is ever in flight. Three check/call hands then took 4.4 s each, so expect roughly 1.5 hours per 1,000 hands.
 - Requests are mostly waiting on the network, so the M1 or the M4 can run other work alongside.
 
-**Slumbot's baseline cuts the noise considerably.** Every terminal response carries `baseline_winnings`, Slumbot's own variance-reduction baseline for the hand. On the 20 check/call hands, the 95% half-width of winnings minus baseline was **252 BB/100, against 656 for raw winnings**: about 2.6× narrower, worth roughly 7× as many hands. A benchmark should report both, with the adjusted figure as the precise one. Twenty hands of a check/call bot show nothing about strength; the ratio is the point.
+**Slumbot's per-hand `baseline_winnings` is not a skill measure.** It follows the client's own actions, so winnings minus baseline cancels much of the client's play along with the luck. A random-action bot, 300 anonymous hands on October 13: raw −365 ± 411 BB/100, baseline mean −490 ± 452, and winnings minus baseline **+125 ± 192**, which no random player could truly achieve against Slumbot. In one hand the bot raised to 15,295 preflop with Q9 and folded to an all-in; the baseline was −17,095, a line Slumbot would never play itself. Across every run so far the baseline correlates 0.86–0.97 with our winnings. Benchmarks therefore report raw winnings. Precision needs either many hands or our own variance reduction, such as all-in equity adjustment. The summary keeps the difference as `baseline_difference_bb_per_100`, for reference only.
 
 ## Use
 
@@ -38,6 +38,6 @@ With `--login`, the username and password come from the environment variables `S
 
 ## Limits
 
-- **No duplicate pairing:** the service deals fresh cards each hand. The baseline is the variance reduction available.
+- **No duplicate pairing:** the service deals fresh cards each hand, and its baseline is no substitute (see above). Variance reduction has to be our own.
 - **A request without a complete answer abandons only its hand.** Nothing is resent; the run starts a new hand. Slumbot's running session total still counts the abandoned hand, so the summary reports Slumbot's net beside our verified net, and their difference is what abandoned hands cost. More than `--max-abandoned` such hands (default 5), an error status, a protocol mismatch or the request cap stops the run. The timeout is 30 s: on Wi-Fi, an account run lost a request after 7 hands with a 10 s timeout.
 - **Service identity:** the service publishes no version, so results are tied to the dates they were played.

@@ -69,7 +69,9 @@ def summarize(hands: list[Hand]) -> dict:
         'decisions': sum(len(h.decisions) for h in hands),
         'net_chips': sum(t['winnings'] for t in terminals),
         'bb_per_100': interval([t['winnings'] for t in terminals]),
-        'baseline_adjusted_bb_per_100': interval(adjusted),
+        # Slumbot's baseline follows the client's own actions (see docs/reports/slumbot-client.md),
+        # so this difference is kept for reference only; it does not measure skill.
+        'baseline_difference_bb_per_100': interval(adjusted),
         'bb_per_100_by_seat': {('big_blind' if seat == 0 else 'small_blind_button'): interval(v) for seat, v in by_seat.items()},
         'endings': {kind: sum(1 for t in terminals if ending(t) == kind) for kind in ('client_fold', 'slumbot_fold', 'showdown')},
     }

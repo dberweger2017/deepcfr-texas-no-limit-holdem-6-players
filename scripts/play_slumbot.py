@@ -9,8 +9,7 @@ uniform play where it has none. Each run writes a fresh hash-chained journal of 
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
 answer abandons only its hand (Slumbot's session total still counts it); more than
 --max-abandoned such hands, or any other failure, stops the run.
-Progress goes to stderr: a line per stage, then a bar with BB/100 so far, raw and against
-Slumbot's baseline. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
+Progress goes to stderr: a line per stage, then a bar with BB/100 so far. With --login the username and password come from the environment variables SLUMBOT_USERNAME and
 SLUMBOT_PASSWORD, else from the repository's git-ignored `.env` (see `.env.example`), else from
 prompts, the password hidden. Neither is stored or printed.
 """
@@ -67,15 +66,12 @@ def say(message):
 
 
 def progress(hands, abandoned):
-    """BB/100 so far, raw and against Slumbot's baseline, with 95% half-widths."""
-    def show(values):
-        if len(values) < 2:
-            return '-'
-        return f'{statistics.fmean(values):+.0f}±{1.96 * statistics.stdev(values) / len(values) ** 0.5:.0f}'
+    """BB/100 so far with its 95% half-width."""
     raw = [h.terminal['winnings'] for h in hands]
-    adjusted = [h.terminal['winnings'] - h.terminal['baseline_winnings'] for h in hands
-                if h.terminal['baseline_winnings'] is not None]
-    return f'BB/100 {show(raw)} | vs baseline {show(adjusted)} | abandoned {abandoned}'
+    if len(raw) < 2:
+        return f'BB/100 - | abandoned {abandoned}'
+    return (f'BB/100 {statistics.fmean(raw):+.0f}±{1.96 * statistics.stdev(raw) / len(raw) ** 0.5:.0f}'
+            f' | abandoned {abandoned}')
 
 
 def main():
@@ -162,7 +158,7 @@ def main():
                'latency_seconds': {'median': latencies[len(latencies) // 2], 'p90': latencies[int(len(latencies) * 0.9)],
                                    'max': latencies[-1]} if latencies else None}
     (args.out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
-    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'baseline_adjusted_bb_per_100', 'stopped', 'requests')}))
+    print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands')}))
     if stop is not None and stop != 'time limit':
         raise SystemExit(1)
 

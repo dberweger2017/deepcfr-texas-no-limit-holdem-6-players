@@ -98,7 +98,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
-- **Slumbot client:** complete hands against Slumbot's live public API, each settlement recomputed from the public actions and both revealed hands and checked against the reported winnings. `scripts/play_slumbot.py` plays a scripted player or a pinned HU200 average, with an optional account login. 32 live protocol hands verify; about 9.4 s per hand. Slumbot's per-hand baseline narrows the interval about 2.6× and should be the headline benchmark figure. [Report](docs/reports/slumbot-client.md).
+- **Slumbot client:** complete hands against Slumbot's live public API, each settlement recomputed from the public actions and both revealed hands and checked against the reported winnings. `scripts/play_slumbot.py` plays a scripted player or a pinned HU200 average, with an optional account login. 32 live protocol hands verify; about 9.4 s per hand. Slumbot's per-hand baseline follows our own actions, so it is not a skill measure: benchmarks report raw winnings. [Report](docs/reports/slumbot-client.md).
 
 - **Reproducible native builds:** `python -m scripts.build_native_trainer` builds the trainer byte-identically from any checkout, given the same toolchain, linker and Cargo home, and prints a receipt naming them. A plain `cargo build` embeds the checkout path, which blocked #242's fresh-build gate. Campaign binary gates should use this build or the archived executable.
 
