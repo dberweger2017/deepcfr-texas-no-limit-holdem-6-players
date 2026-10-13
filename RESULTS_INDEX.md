@@ -1,3 +1,13 @@
+## PR264 Slumbot comparison on dedicated accounts — October 13, 2026
+
+[PR264](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/264): 5,000 hands each against Slumbot: #248's 200M HU200 model on `deepcfr-v1-200m` **−172 ± 72 BB/100**, the random-legal floor on `dberwegerch` **−297 ± 87**, beside #261's K50 752M (−81 ± 56). [Report](docs/reports/slumbot-account-benchmarks.md).
+
+Archive `~/Local/Research-Cloud/PR-264-slumbot-account-benchmarks/slumbot-account-benchmarks-20261013.zip`, **2,955,270 bytes**, SHA256 `150380088bba60a55c905669dde1e479185e64cfc5eb2831299bf40f91e59cdd`; embedded `ARCHIVE-MANIFEST.json` SHA256 `5dcc3de7d963ea6ead656800d73f6a09bcb381ad82948b9a9633cd471119aff4`. Every member was read back against the manifest before copying:
+- `research/hu200-200m-20261013-1343/`: `journal.jsonl` (31,367,647 bytes), `summary.json`, `analysis.json`.
+- `research/random-legal-20261013-1415/`: `journal.jsonl` (20,735,511 bytes), `summary.json`, `analysis.json`.
+
+K50 752M's journals are in PR261's archive. Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr264` and check the manifest; reproduce with `python -m scripts.analyze_slumbot_run` (the 200M model and its SHA256 are in [#248's index](docs/reports/hu200-200m-model.md)) and `python -m scripts.plot_slumbot_runs`. Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Local originals are kept in `~/Local/slumbot-k50-20261013/accounts/` and on the Linux server.
+
 ## PR262 frozen native training table — October 13
 
 [PR262](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/262), open/unmerged; [report and #250 resume command](docs/reports/frozen-table.md), [validation](docs/reports/frozen-table-artifacts/validation.json). Code source `e7798c7f18ce81f65a8b5c5e9ac145ea03f58d52`, main baseline `ac19e29a`, clean native tree `f664895f23acedbbf95ef27686cd7c8713afedfd`. M1-only bounded engineering: #250's fresh K50 20M recovery hash/size reproduced exactly, then 20.2M frozen resume preserves all 7,883,678 sorted keys and reconciles stored/discarded visits. No large continuation, playing evaluation, M4 access, release or merge. Own ignored working root `/Users/dberweger/Local/native-frozen-table/results/frozen-table/` and all originals remain; open-root archival is explicitly requested by the owner for this task. No cleanup authorization follows.

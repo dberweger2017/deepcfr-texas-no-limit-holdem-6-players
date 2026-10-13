@@ -111,6 +111,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 13, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **Slumbot comparison on dedicated accounts ([#264](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/264)):** 5,000 hands each: K50 752M −81 ± 56, 200M v1 −172 ± 72, random legal −297 ± 87 BB/100. The expected order; most of the model gap is at showdown. Both models fold to Slumbot's half-pot bets as often as to pot bets, a hypothesis to test. [Report](docs/reports/slumbot-account-benchmarks.md).
+
 - **K50 752M against Slumbot ([#261](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/261)):** #250's K50 HU200 average, 5,000 hands on the owner's account: −81 ± 56 BB/100 raw, −74 ± 51 all-in adjusted. Not detectably different from the 200M model (−103 ± 110). Showdowns cost much less; postflop folds cost more. Slumbot rarely overbets. Dedicated accounts per model are now used for leaderboard entries. [Report](docs/reports/hu200-k50-752m-slumbot-benchmark.md).
 
 - **Overbet menu (engineering):** `--menu v2` adds half-pot, 1.5× and 2× pot raises with history labels for each size, identically in the native trainer and the Python key; v1 checkpoints stay byte-identical. At equal nodes a v2 iteration's tree is about 3× larger and the table about 1.7× bigger (HU100, 20M nodes). Whether it learns as well per node, and whether it fixes the pot-pressure leak (#251), is the next test. [Report](docs/reports/overbet-menu.md).

@@ -7,6 +7,7 @@ action must continue exactly what the client saw and sent.
 
 from dataclasses import dataclass
 import math
+import random
 import statistics
 
 from src.arena.external.slumbot import TOKEN, SlumbotAdapter, replay_record, terminal_record
@@ -31,6 +32,24 @@ def hu200_average(path, sha256: str, card_buckets=None, cache=None):
     # Native exports are written in key order; the sorted reader checks that as it loads.
     return AveragePolicy(path, sha256, expected_schema=HU200_SCHEMA if card_buckets is None else HU200_EQUITY_SCHEMA,
                          sorted_rows=True, card_buckets=card_buckets, cache=cache)
+
+
+class RandomLegal:
+    """A uniform legal action, never folding when it could check; raises to a uniform size
+    between the min-raise and all-in. #253's floor for Slumbot results."""
+    scripted = True
+    name = 'random-legal'
+
+    def __init__(self, seed: int):
+        self.rng = random.Random(seed)
+
+    def choose_action(self, view):
+        legal = view.legal_actions
+        kinds = [k for k in legal.kinds if not (k == ActionKind.FOLD and legal.call_amount == 0)]
+        kind = self.rng.choice(kinds)
+        if kind == ActionKind.RAISE:
+            return Action(kind, self.rng.randint(legal.min_raise_to, legal.max_raise_to))
+        return Action(kind)
 
 
 @dataclass
