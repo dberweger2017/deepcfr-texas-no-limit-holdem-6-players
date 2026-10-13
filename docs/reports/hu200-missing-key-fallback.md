@@ -104,7 +104,6 @@ intervals; the panel's seven-comparison Bonferroni intervals are also shown.
 
 | Opponent | Blocks | Direct win rate or scripted difference BB/100 [nominal 95%] | Seven-panel corrected 95% |
 |---|---:|---:|---:|
-
 | Direct duplicate | 131,072 | −4.43 [−14.27, +5.42] | — |
 | Random | 16,384 | +131.50 [+59.76, +203.25] | [+33.02, +229.98] |
 | Check/call | 16,384 | 0.00 [0.00, 0.00] | [0.00, 0.00] |
