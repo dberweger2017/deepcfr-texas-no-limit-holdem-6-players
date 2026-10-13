@@ -7,6 +7,7 @@ before each one after the first.
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import statistics
 from pathlib import Path
 import threading
 import time
@@ -420,3 +421,20 @@ def test_random_legal_plays_legal_actions_reproducibly_and_never_folds_for_free(
     first = actions(7)
     assert first == actions(7) and first != actions(8)
     assert {a.kind for a in first} >= {ActionKind.FOLD, ActionKind.CALL, ActionKind.RAISE}
+
+
+def test_run_charts_read_verified_winnings_and_running_intervals(tmp_path):
+    from scripts.plot_slumbot_runs import running, winnings
+    replay = Replay(LIVE)
+    connection = SlumbotConnection(replay, HU200)
+    run = tmp_path / 'run'; run.mkdir()
+    journal = PrefixJournal(run / 'journal.jsonl', {'fixture': True})
+    for i in range(len(LIVE)):
+        play_hand(connection, replay, f'h{i}', journal)
+    journal.close()
+    hands = winnings([run])
+    assert hands == [hand[-1]['winnings'] for hand in LIVE]
+    rows = running(hands)
+    assert rows[-1][0] == sum(hands) / 100 and rows[0][2] is None
+    assert rows[-1][1] == pytest.approx(sum(hands) / len(hands))
+    assert rows[-1][2] == pytest.approx(1.96 * statistics.stdev(hands) / len(hands) ** 0.5)
