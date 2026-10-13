@@ -1,4 +1,20 @@
 {
+  "archive": {
+    "failure": null,
+    "finished": 1791881119.558,
+    "max_swap_growth_bytes": 682948034,
+    "min_disk_free_bytes": 86748491776,
+    "min_free_percent": 84,
+    "peak_family_rss_bytes": 198017024,
+    "pressure_levels": [
+      1
+    ],
+    "readings_over_any_sustained_line": 0,
+    "samples": 8,
+    "seconds": 7.431732177734375,
+    "started": 1791881112.126268,
+    "status": "complete"
+  },
   "final": {
     "failure": null,
     "finished": 1791880781.410513,
