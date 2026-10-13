@@ -58,3 +58,19 @@ def test_reused_pid_cannot_adopt_unowned_children(monkeypatch):
     known = {99112233:1}
     guard.family(known)
     assert not known
+
+
+def test_launch_identity_requires_own_parent(monkeypatch):
+    import os
+    import pytest
+    from types import SimpleNamespace
+    from scripts import guard_m4_research as guard
+    known = {}
+    process = SimpleNamespace(ppid=lambda:-1,create_time=lambda:17.0)
+    monkeypatch.setattr(guard.psutil,'Process',lambda pid:process)
+    with pytest.raises(RuntimeError,match='identity changed'):
+        guard.remember_child(99112233,known)
+    assert not known
+    process.ppid = os.getpid
+    guard.remember_child(99112233,known)
+    assert known == {99112233:17.0}

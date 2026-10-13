@@ -14,13 +14,13 @@ import psutil
 GIB = 1024**3
 
 
-def put(path, value):
+def put(path: Path, value: dict) -> None:
     with Path(path).open('x') as stream:
         json.dump(value, stream, indent=2, sort_keys=True)
         stream.write('\n')
 
 
-def host(path):
+def host(path: Path) -> dict:
     def output(*args):
         return subprocess.check_output(args, text=True, timeout=10)
     swap = output('sysctl', 'vm.swapusage')
@@ -33,7 +33,7 @@ def host(path):
             'swap_raw': swap, 'free_raw': free}
 
 
-def family(known):
+def family(known: dict[int, float]) -> tuple[list, list[dict], list[int]]:
     """Never require access to privileged macOS helpers or confuse reused PIDs."""
     rows, denied = [], []
     for process in psutil.process_iter(['pid', 'ppid', 'create_time'], ad_value=None):
@@ -89,7 +89,7 @@ def family(known):
     return processes, readings, denied
 
 
-def breaches(sample, baseline):
+def breaches(sample: dict, baseline: dict) -> dict[str, bool]:
     return {'family_rss': sample['family_rss_bytes'] > 13*GIB,
             'critical_pressure': sample['pressure_level'] == 4,
             'free_memory': sample['free_percent'] < 8,
@@ -97,7 +97,7 @@ def breaches(sample, baseline):
             'free_disk': sample['disk_free_bytes'] < 16*GIB}
 
 
-def sustained(sample, baseline, since):
+def sustained(sample: dict, baseline: dict, since: dict[str, float]) -> tuple[dict[str, bool], list[str]]:
     active = breaches(sample, baseline)
     for key, breached in active.items():
         if breached:
@@ -108,7 +108,7 @@ def sustained(sample, baseline, since):
     return active, stop
 
 
-def terminate(known):
+def terminate(known: dict[int, float]) -> None:
     alive = []
     for pid, created in list(known.items()):
         try:
@@ -126,6 +126,13 @@ def terminate(known):
         except (psutil.NoSuchProcess, psutil.ZombieProcess):
             pass
     psutil.wait_procs(alive, timeout=5)
+
+
+def remember_child(pid: int, known: dict[int, float]) -> None:
+    process = psutil.Process(pid)
+    if process.ppid() != os.getpid():
+        raise RuntimeError('Launched child identity changed')
+    known[pid] = process.create_time()
 
 
 def main():
@@ -210,7 +217,7 @@ def main():
                 if child is None:
                     child = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
                     try:
-                        p = psutil.Process(child.pid); known[p.pid] = p.create_time()
+                        remember_child(child.pid, known)
                     except psutil.NoSuchProcess:
                         pass
                 if child.poll() is not None:
