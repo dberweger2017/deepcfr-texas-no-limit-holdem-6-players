@@ -30,6 +30,7 @@ from src.policies.files import file_hash
 REPO = 'dberweger2017/deepcfr-texas-no-limit-holdem-6-players'
 BASELINE = '60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c'
 ENTRIES = 85_373_907
+KEY_SHA256 = '0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c'
 # October 14, 2026 UTC; Madrid is UTC+02:00 on this date.
 OPEN, LAST_START, SCIENCE_END, END = 1791932400, 1791946800, 1791963000, 1791964800
 ROOTS = {'direct_pilot': 20261014091501, 'panel_pilot': 20261014091502,
@@ -150,6 +151,11 @@ def prepare(config, out):
             raise ValueError('Wrong baseline')
         if label == 'five' and not 5_000_000_000 <= nodes < 5_001_000_000:
             raise ValueError('Wrong audited 5B milestone')
+        if label != 'baseline':
+            keys = audit['keys']; frozen = header['frozen_table']
+            if (keys['entries'] != ENTRIES or keys['sha256'] != KEY_SHA256
+                    or frozen['entries'] != ENTRIES or frozen['since_iteration'] != 493496):
+                raise ValueError('Frozen key set or parent iteration differs')
         table_dir = Path(item['card_buckets']).expanduser().resolve()
         tables = {street: {'path': str(table_dir/(street+'-k50.bin')),
                           'sha256': file_hash(table_dir/(street+'-k50.bin'))}
@@ -168,6 +174,8 @@ def prepare(config, out):
         if (header['config']['seed'] != 2026101302 or header['table']['stacks'] != [20000, 20000]
                 or header['config']['roots_per_seat'] != 1):
             raise ValueError('Fixed recipe differs')
+        if header.get('training_options') is not None:
+            raise ValueError('Nonlinear/default training options are outside this lineage')
     for field in ('abstraction', 'average_rule', 'table', 'identity'):
         if any(h[field] != headers[0][field] for h in headers[1:]):
             raise ValueError('Recipe identity differs: ' + field)
