@@ -1,0 +1,155 @@
+{
+  "arms": {
+    "baseline": [
+      "v052",
+      3,
+      null,
+      true
+    ],
+    "folding": [
+      "v052",
+      3,
+      "fold",
+      true
+    ],
+    "k50": [
+      "k50",
+      3,
+      null,
+      false
+    ],
+    "passive": [
+      "v052",
+      3,
+      "call",
+      true
+    ],
+    "size1x": [
+      "v052",
+      2,
+      null,
+      true
+    ],
+    "v1": [
+      "v051",
+      3,
+      null,
+      false
+    ]
+  },
+  "blocks": 16384,
+  "deal_seeds_sha256": "e8348f5224ff94992c751856221a17dba0b36b8b199383d4488a02b9a462b3bb",
+  "inputs_sha256": "fa8bb42ef5a71ead306a248bd9b0f4a44f70a2141109d1b13d62867f5a54c6b5",
+  "missing_definition": "unresolved missing exact key after released translation; translated witnesses are a separate category",
+  "models": {
+    "k50": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 2004530099,
+      "card_buckets": "/Users/dberweger/Local/hu100-pot-pressure-20261013/results/hu100-pot-pressure/tables",
+      "entries": 69531154,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1919544,
+      "name": "k50",
+      "path": "/Users/dberweger/Local/hu100-pot-pressure-20261013/results/hu100-pot-pressure/k50/average.gz",
+      "sha256": "dbc6772a1f3a2b5d39dea7b01af163d508211cc5c593a2b8e6fba2ceaab828d8",
+      "source_checkpoint_sha256": "b28604914c0799cc87dcd78e9311a9d0995c239a037937081244ba0e9989f5cd"
+    },
+    "v051": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 1603422956,
+      "entries": 54626283,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1812907,
+      "name": "v051",
+      "path": "/Users/dberweger/Local/hu100-pot-pressure-20261013/results/hu100-pot-pressure/releases/v0.5.1/O2B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "source_checkpoint_sha256": "e84039c7a934a966a2c01f237748a23951124a8b665edc2585ef4809e5681676"
+    },
+    "v052": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 2121415396,
+      "entries": 70466972,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 3716073,
+      "name": "v052",
+      "path": "/Users/dberweger/Local/hu100-pot-pressure-20261013/results/hu100-pot-pressure/releases/v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368"
+    }
+  },
+  "no_failed_hand_reruns": true,
+  "no_outcome_driven_extension": true,
+  "pairing": "PR236 scripted action_seed and Plan; same deals/opponent seeds for every arm, rotations 0/1",
+  "pilot_costs": {
+    "blocks": 128,
+    "payoffs_inspected": false,
+    "quotes": {
+      "baseline": {
+        "load_seconds": 295.5140523330192,
+        "play_seconds": 0.14425416599260643,
+        "replay_seconds": 0.07786587500595488,
+        "reproduction_seconds": 0.1571223750070203
+      },
+      "folding": {
+        "load_seconds": 0.7162991670193151,
+        "play_seconds": 0.13574749999679625,
+        "replay_seconds": 0.07679608400212601,
+        "reproduction_seconds": 0.15474204198108055
+      },
+      "k50": {
+        "load_seconds": 294.3880754589918,
+        "play_seconds": 0.11866933302371763,
+        "replay_seconds": 0.5517578750150278,
+        "reproduction_seconds": 0.13457691701478325
+      },
+      "passive": {
+        "load_seconds": 0.7164278329873923,
+        "play_seconds": 0.14802316602435894,
+        "replay_seconds": 0.07889066700590774,
+        "reproduction_seconds": 0.16876854200381786
+      },
+      "size1x": {
+        "load_seconds": 0.7169779170071706,
+        "play_seconds": 0.11683479099883698,
+        "replay_seconds": 0.07749187498120591,
+        "reproduction_seconds": 0.13695979199837893
+      },
+      "v1": {
+        "load_seconds": 231.485779834009,
+        "play_seconds": 0.1061657499813009,
+        "replay_seconds": 0.07162974998936988,
+        "reproduction_seconds": 0.12197870900854468
+      }
+    },
+    "root": 20261013100101,
+    "source": "ff2e0521098a8b4a32b29da903c02dd7c84e077b",
+    "status": "verified"
+  },
+  "pilot_root": 20261013100101,
+  "pr": 251,
+  "projected_seconds": 1153.5568392989808,
+  "root": 20261013100102,
+  "root_reservation_sha256": "02c597076391e46be55087bbdaf70fa29fcc160039a0a0c7dd6eb7b02424aeb2",
+  "source": "ff2e0521098a8b4a32b29da903c02dd7c84e077b",
+  "statistics": "nominal Student-t paired duplicate-block 95%, contrasts size1x-baseline,passive-baseline,folding-baseline,k50-v1",
+  "style_baseline": {
+    "bluff_frequency": 0.2,
+    "continue_at": 0.4,
+    "pot_denominator": 2,
+    "pot_numerator": 3,
+    "raise_at": 0.6,
+    "raise_frequency": 0.95
+  },
+  "style_control": {
+    "bluff_frequency": 0.2,
+    "continue_at": 0.4,
+    "pot_denominator": 2,
+    "pot_numerator": 2,
+    "raise_at": 0.6,
+    "raise_frequency": 0.95
+  },
+  "translation": {
+    "max_events": 128,
+    "max_states": 512
+  }
+}

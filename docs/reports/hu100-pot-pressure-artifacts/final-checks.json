@@ -1,0 +1,164 @@
+{
+  "baseline": {
+    "actions_replayed": 91755,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 91755,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 4607034,
+          "sha256": "9490a446cf4d69b9e2214d573bba5291fa0c4e3df840147777690454e623084a"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3572575,
+          "sha256": "8998604d82e57e2b74d9dc16866f2a1dc2cc244e6670420e10744bd2b5d41d8c"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.7275950420007575,
+      "play_seconds": 21.43892266700277,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 22.16708979199757,
+      "status": "complete"
+    },
+    "seconds": 10.85325066599762,
+    "status": "verified"
+  },
+  "folding": {
+    "actions_replayed": 90480,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 90480,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 4574843,
+          "sha256": "443ff183a2dea2603898136fffdfdc92c2c441b5e25809bade0eba484f8e9a95"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3537929,
+          "sha256": "299c9cbee09e44be458abf46b1b8cd5616bfad8408049dc96081d798580c19b7"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.7236582920013461,
+      "play_seconds": 21.106006667017937,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 21.83025525000994,
+      "status": "complete"
+    },
+    "seconds": 10.772372457984602,
+    "status": "verified"
+  },
+  "k50": {
+    "actions_replayed": 90349,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 90349,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 3939005,
+          "sha256": "04dab960cd95be9be160f926c3ce3654a984dde091734acd1ce0e9b3a88d11ad"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3571765,
+          "sha256": "7b6efeb7f3a9785570bfe85009e749784e763e72835bfe4f28ddd5ba11368e3a"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.6833247909962665,
+      "play_seconds": 17.930347542016534,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 18.614310542005114,
+      "status": "complete"
+    },
+    "seconds": 10.815468666987726,
+    "status": "verified"
+  },
+  "passive": {
+    "actions_replayed": 92939,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 92939,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 4665988,
+          "sha256": "b37a9a49312889af57d761a736dcb1a0a2f28d7428c0ce6e64897d6197ba9f34"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3587692,
+          "sha256": "a289efe57a6f0870066223854e0df575f8758b07eb80c90b7f56f753335bf070"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.7223681670147926,
+      "play_seconds": 22.476180792000378,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 23.199111166992225,
+      "status": "complete"
+    },
+    "seconds": 11.07873558299616,
+    "status": "verified"
+  },
+  "size1x": {
+    "actions_replayed": 91860,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 91860,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 4415725,
+          "sha256": "23dd9ead87f452461722a4308ee88c4149422a5ae96517d33dffad054a859788"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3527113,
+          "sha256": "6e11a6d3b034774b461174b8c44fb48bfe34558ef64ce3810573eac3a1785c56"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.7220319999905769,
+      "play_seconds": 18.578329792013392,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 19.300924500013934,
+      "status": "complete"
+    },
+    "seconds": 10.790674957999727,
+    "status": "verified"
+  },
+  "v1": {
+    "actions_replayed": 88130,
+    "all_opponent_actions_independently_reproduced": true,
+    "all_settlements_replayed": true,
+    "hands_replayed": 32768,
+    "reproduction": {
+      "decisions": 88130,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 3826892,
+          "sha256": "38dcb59bc596c3592f896b42c9c8aa03b917c296d69d23b1fef9c1753e597d60"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 3555964,
+          "sha256": "1cb3a6e2f2e214e5a17613b53bcb5cb4e9ac61696969b2798956dcb466e9cc53"
+        }
+      },
+      "hands": 32768,
+      "load_seconds": 0.5455639589927159,
+      "play_seconds": 17.741856667009415,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 18.28803137500654,
+      "status": "complete"
+    },
+    "seconds": 10.30721800000174,
+    "status": "verified"
+  }
+}

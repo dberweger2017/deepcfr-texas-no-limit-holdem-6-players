@@ -1,0 +1,29 @@
+{
+  "at": 1791855741.86705,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu100-pot-pressure-diagnosis",
+      "headRefOid": "bd1ccb760b15756017062d4e7a522cda8f9721ec",
+      "number": 251,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/251"
+    },
+    {
+      "headRefName": "feature/slumbot-client",
+      "headRefOid": "67a6c35d0509f3bd22cfa6f8bde119e24d44bfc5",
+      "number": 249,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/249"
+    }
+  ],
+  "pr": 251,
+  "roots": [
+    20261013100101,
+    20261013100102
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "8eb5f9dd048126c8b27002c6b48156740e2564d1",
+    "pr249": "67a6c35d0509f3bd22cfa6f8bde119e24d44bfc5"
+  }
+}

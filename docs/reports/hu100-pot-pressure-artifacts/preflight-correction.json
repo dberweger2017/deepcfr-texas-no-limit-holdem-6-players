@@ -1,0 +1,9 @@
+{
+  "classification": "Input-locator preflight failure, not a sustained guard or failed-hand experiment stop",
+  "hands_played": 0,
+  "no_scientific_retry": true,
+  "original_stop_record": "prepare-failure-001.json",
+  "repair": "Preserve original downloads/logs/baseline; reverify the bundles and restore the exact averages/2000000000.average.gz member",
+  "resource_breaches": false,
+  "root_counts_inputs_unchanged": true
+}

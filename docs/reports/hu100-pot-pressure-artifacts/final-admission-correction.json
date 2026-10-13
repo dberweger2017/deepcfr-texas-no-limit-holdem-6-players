@@ -1,0 +1,8 @@
+{
+  "cause": "Comment publication command lacked gh in PATH. Premature final command was rejected before any hand by plan-posted admission.",
+  "correction": "Posted unchanged canonical plan and verified exact readback before a fresh final-operation directory",
+  "hands_played": 0,
+  "no_failed_hand_rerun": true,
+  "original_record": "final-admission-failure-001.json",
+  "stage_resource_stop": false
+}

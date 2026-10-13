@@ -1,0 +1,206 @@
+{
+  "all_hands_replayed_and_reproduced": true,
+  "baseline_action_mix": {
+    "known_zero_mass": {
+      "call": 1,
+      "fold": 2
+    },
+    "missing": {
+      "call": 479,
+      "check": 29,
+      "fold": 520,
+      "raise": 646
+    },
+    "positive_mass_exact": {
+      "call": 6756,
+      "check": 6602,
+      "fold": 4176,
+      "raise": 12385
+    },
+    "translated": {
+      "call": 2846,
+      "check": 1512,
+      "fold": 2260,
+      "raise": 1908
+    }
+  },
+  "baseline_chips_committed_by_street": {
+    "flop": 2962700,
+    "preflop": 7770950,
+    "river": 2981500,
+    "turn": 3350700
+  },
+  "baseline_chips_committed_in_losing_hands_by_street": {
+    "flop": 1091700,
+    "preflop": 2780550,
+    "river": 1436500,
+    "turn": 1520600
+  },
+  "baseline_gross_chips_lost_by_terminal_street": {
+    "flop": 1200700,
+    "preflop": 1598750,
+    "river": 2497400,
+    "turn": 1532500
+  },
+  "baseline_hand_classes": {
+    "exact_or_zero_mass": {
+      "conditional_bb_per_100": 53.41178184997632,
+      "fraction": 0.837677001953125,
+      "hands": 27449,
+      "net_contribution_bb_per_100": {
+        "alpha": 0.05,
+        "bb_per_100": 44.7418212890625,
+        "blocks": 16384,
+        "interval": [
+          41.883231090774544,
+          47.600411487350456
+        ]
+      }
+    },
+    "missing": {
+      "conditional_bb_per_100": -1940.0,
+      "fraction": 0.03997802734375,
+      "hands": 1310,
+      "net_contribution_bb_per_100": {
+        "alpha": 0.05,
+        "bb_per_100": -77.557373046875,
+        "blocks": 16384,
+        "interval": [
+          -91.7844521730014,
+          -63.3302939207486
+        ]
+      }
+    },
+    "translated_only": {
+      "conditional_bb_per_100": 52.68146669992517,
+      "fraction": 0.122344970703125,
+      "hands": 4009,
+      "net_contribution_bb_per_100": {
+        "alpha": 0.05,
+        "bb_per_100": 6.4453125,
+        "blocks": 16384,
+        "interval": [
+          0.16275147316435934,
+          12.72787352683564
+        ]
+      }
+    }
+  },
+  "baseline_net_chips_by_terminal_street": {
+    "flop": -20600,
+    "preflop": 387100,
+    "river": -875500,
+    "turn": -355100
+  },
+  "blocks": 16384,
+  "inference_conditions_on_fixed_models": true,
+  "paired_differences": {
+    "folding-baseline": {
+      "alpha": 0.05,
+      "bb_per_100": 11.1083984375,
+      "blocks": 16384,
+      "interval": [
+        -2.7377329836445483,
+        24.95452985864455
+      ]
+    },
+    "k50-v1": {
+      "alpha": 0.05,
+      "bb_per_100": -1.28936767578125,
+      "blocks": 16384,
+      "interval": [
+        -18.237989140937895,
+        15.659253789375395
+      ]
+    },
+    "passive-baseline": {
+      "alpha": 0.05,
+      "bb_per_100": 17.950439453125,
+      "blocks": 16384,
+      "interval": [
+        4.583760709324052,
+        31.317118196925946
+      ]
+    },
+    "size1x-baseline": {
+      "alpha": 0.05,
+      "bb_per_100": 72.357177734375,
+      "blocks": 16384,
+      "interval": [
+        58.581023826983355,
+        86.13333164176665
+      ]
+    }
+  },
+  "positive_mass_exact_only_hands": {
+    "conditional_bb_per_100": 53.41178184997632,
+    "hands": 27449,
+    "net_contribution_bb_per_100": {
+      "alpha": 0.05,
+      "bb_per_100": 44.7418212890625,
+      "blocks": 16384,
+      "interval": [
+        41.883231090774544,
+        47.600411487350456
+      ]
+    }
+  },
+  "results": {
+    "baseline": {
+      "alpha": 0.05,
+      "bb_per_100": -26.3702392578125,
+      "blocks": 16384,
+      "interval": [
+        -41.783722339135934,
+        -10.956756176489069
+      ]
+    },
+    "folding": {
+      "alpha": 0.05,
+      "bb_per_100": -15.2618408203125,
+      "blocks": 16384,
+      "interval": [
+        -24.06928091349278,
+        -6.454400727132221
+      ]
+    },
+    "k50": {
+      "alpha": 0.05,
+      "bb_per_100": -112.05596923828125,
+      "blocks": 16384,
+      "interval": [
+        -131.27769652804145,
+        -92.83424194852105
+      ]
+    },
+    "passive": {
+      "alpha": 0.05,
+      "bb_per_100": -8.4197998046875,
+      "blocks": 16384,
+      "interval": [
+        -25.171707764030735,
+        8.332108154655735
+      ]
+    },
+    "size1x": {
+      "alpha": 0.05,
+      "bb_per_100": 45.9869384765625,
+      "blocks": 16384,
+      "interval": [
+        34.76609560685846,
+        57.20778134626654
+      ]
+    },
+    "v1": {
+      "alpha": 0.05,
+      "bb_per_100": -110.7666015625,
+      "blocks": 16384,
+      "interval": [
+        -129.35823390089624,
+        -92.17496922410376
+      ]
+    }
+  },
+  "status": "verified",
+  "total_final_hands": 196608
+}
