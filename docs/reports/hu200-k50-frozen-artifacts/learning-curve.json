@@ -67,6 +67,74 @@
       "write_seconds": 284.552799333,
       "zero_average_mass_share": 0.3146567955476139,
       "zero_visit_share": 0.34897285420005436
+    },
+    {
+      "actual_nodes": 5000000031,
+      "checkpoint_bytes": 4357232664,
+      "checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721",
+      "entries": 85373907,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 95907030,
+        "discarded_updates_since_previous_save": 216655767,
+        "interval_start_iteration": 1401734,
+        "missing_opponent_by_street": [
+          159780,
+          1245031,
+          14208987,
+          105687382
+        ],
+        "missing_opponent_share_by_street": [
+          0.006429160851665442,
+          0.013937447962559283,
+          0.051668289091458215,
+          0.1444235812405631
+        ],
+        "missing_traverser_by_street": [
+          125959,
+          1173363,
+          13580217,
+          81027491
+        ],
+        "missing_traverser_share_by_street": [
+          0.011323736010296806,
+          0.02840541946206854,
+          0.09804199475827356,
+          0.21211582701630458
+        ],
+        "opponent_decisions_by_street": [
+          24852388,
+          89329912,
+          275004016,
+          731787573
+        ],
+        "state": {
+          "discarded_traverser_visits": 134328929,
+          "discarded_updates": 304586889,
+          "entries": 85373907,
+          "since_iteration": 493496,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          11123449,
+          41307716,
+          138514287,
+          381996441
+        ]
+      },
+      "iterations": 3748464,
+      "mean_traverser_visits_per_key": 9.732383642697762,
+      "requested_nodes": 5000000000,
+      "rss_bytes_after_save": 2931032064,
+      "status": "saved",
+      "write_seconds": 299.92461875,
+      "zero_average_mass_share": 0.2726750340710072,
+      "zero_visit_share": 0.26414255587482954
     }
   ],
   "sorted_key_sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c",

@@ -45,8 +45,8 @@ All **85,373,907** keys were scanned, with strict sorted uniqueness, in 42.06 s.
 
 ## Learning curve
 
-The first frozen 2B save passes its full byte/count and sorted-key checks.
-5B/10B/20B saves remain pending. Every frozen save must retain exactly the
+The frozen 2B and 5B saves pass full byte/count and sorted-key checks.
+10B/20B saves remain pending. Every frozen save must retain exactly the
 stage-1 sorted key list and 85,373,907 entries.
 [Learning-curve receipts](hu200-k50-frozen-artifacts/learning-curve.json).
 
@@ -55,16 +55,23 @@ stage-1 sorted key list and 85,373,907 entries.
 | Reproduced 500M | 500,000,140 | 321,139 | 69,084,815 | 1.4335 | 46.45% | 3.340 | 242.62 |
 | Reproduced cap | 752,593,175 | 493,496 | 85,373,907 | 1.7446 | 44.29% | 2.865 | 299.37 |
 | Frozen 2B | 2,000,001,632 | 1,401,734 | 85,373,907 | 4.1448 | 34.90% | 2.440 | 284.55 |
+| Frozen 5B | 5,000,000,031 | 3,748,464 | 85,373,907 | 9.7324 | 26.41% | 2.730 | 299.92 |
 
 At 2B, cumulative discarded traverser visits are **38,421,899** and discarded
 merged updates **87,931,122**; the freeze began at iteration 493,496. The 2B
 checkpoint is 3,905,686,824 bytes, SHA256
 `cd77408951361bffd5a0df992db4bc9fd2b21cc1282f6fb3978730a9df8fc02d`.
 
+At 5B, cumulative discarded traverser visits reach **134,328,929** and merged
+updates **304,586,889**; this interval adds **95,907,030 visits /216,655,767
+updates**. The checkpoint is **4,357,232,664 bytes**, SHA256
+`56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721`.
+
 Interval missing-decision shares rise in every street/role in the first frozen
-segment compared with the final growing-table segment. These are different
-policy/time intervals; the later frozen saves will show whether the rise
-continues. Pre-freeze misses are recorded before new keys receive their
+segment compared with the final growing-table segment. At 5B, all street/role shares remain above that pre-cap baseline. Across
+the two frozen intervals, all traverser shares rise; opponent preflop/flop/turn
+shares rise while river falls slightly from 14.679% to 14.442%. These are
+different policy/time intervals; later saves will extend this comparison. Pre-freeze misses are recorded before new keys receive their
 complete-iteration updates.
 
 | Save interval | Role | Preflop | Flop | Turn | River |
@@ -73,6 +80,8 @@ complete-iteration updates.
 | Cap to 2B frozen | Traverser | 1.111% | 2.462% | 8.757% | 20.177% |
 | 500M to cap | Opponent | 0.085% | 0.630% | 3.568% | 13.050% |
 | Cap to 2B frozen | Opponent | 0.581% | 1.289% | 4.995% | 14.679% |
+| 2B to 5B frozen | Traverser | 1.132% | 2.841% | 9.804% | 21.212% |
+| 2B to 5B frozen | Opponent | 0.643% | 1.394% | 5.167% | 14.442% |
 
 The first frozen segment runs at **2,023,708 nodes/s** excluding the write,
 from native elapsed 616.3975 s. The first 2B write began 10m16.4s after loading;
