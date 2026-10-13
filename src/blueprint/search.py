@@ -33,6 +33,8 @@ class LiveBlueprint:
                  checkpoint_sha256: str | None = None,
                  lineage: dict | None = None):
         from src.blueprint.abstraction import EQUITY_SCHEMAS, MENU_V2_SCHEMAS
+        if trainer.config.abstraction in MENU_V2_SCHEMAS:
+            raise ValueError("Live search blueprints do not support menu-v2 schemas")
         if trainer.config.abstraction in EQUITY_SCHEMAS:
             raise ValueError("K50 models are not yet supported by rollout search blueprint ranges")
         self.trainer = trainer

@@ -124,3 +124,31 @@ def test_hu200_witness_diagnosis_refuses_v2_identity():
     from src.blueprint.abstraction import HU200_MENU_V2_SCHEMA
     with pytest.raises(ValueError, match="menu-v1"):
         play_hand(SimpleNamespace(abstraction=HU200_MENU_V2_SCHEMA), 1, "check_call", 0, 0, {}, [0.])
+
+
+@pytest.mark.parametrize("schema", [
+    "hu20-native-reopening-ordered-history-card-menu-v2",
+    "hu100-native-reopening-ordered-history-card-menu-v2",
+    "hu200-native-reopening-ordered-history-card-menu-v2",
+])
+def test_live_blueprint_rejects_actual_v2_trainer_before_search_wrappers(schema):
+    from src.blueprint.abstraction import STACK_BY_SCHEMA
+    from src.blueprint.search import LiveBlueprint
+    from src.blueprint.solver import SHORTSTACK_GAMES
+    stack = STACK_BY_SCHEMA[schema]
+    trainer = BlueprintTrainer(Table(("a", "b"), (stack, stack)),
+        PilotConfig(raise_cap=None, abstraction=schema, game=SHORTSTACK_GAMES[schema]))
+    with pytest.raises(ValueError, match="menu-v2"):
+        LiveBlueprint(trainer)
+
+
+def test_live_blueprint_keeps_v1_trainer_distribution():
+    from src.blueprint.search import LiveBlueprint
+    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+    from src.blueprint.solver import HU20_UNCAPPED_GAME
+    table = Table(("a", "b"), (2000, 2000))
+    trainer = BlueprintTrainer(table, PilotConfig(raise_cap=None, abstraction=HU20_UNCAPPED_SCHEMA,
+                                                 game=HU20_UNCAPPED_GAME))
+    wrapped = LiveBlueprint(trainer)
+    view = Hand.start(table, hand_id="live", seed=17).observe(0)
+    assert wrapped.distribution(view) == TableDistribution(trainer).distribution(view)

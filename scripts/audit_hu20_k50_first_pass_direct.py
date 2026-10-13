@@ -8,7 +8,7 @@ from time import perf_counter
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest, stream_seed
-from src.blueprint.abstraction import schema_choices, information_key, HU20_EQUITY_SCHEMA, HU20_UNCAPPED_SCHEMA
+from src.blueprint.abstraction import schema_choices, information_key, EQUITY_SCHEMAS, HU20_UNCAPPED_SCHEMA
 from src.blueprint.equity_buckets import EquityCards
 from src.diagnostics.stackoff_tails import public_context
 from src.game.hand import Hand, Table
@@ -21,7 +21,7 @@ def replay(plan,out,root):
     started=perf_counter()
     cells={};decisions=0;files=[];reached=defaultdict(dict);models={}
     table_paths={pair[role]['card_buckets'] for pair in plan['pairs'] for role in ('candidate','reference')
-                 if pair[role].get('abstraction')==HU20_EQUITY_SCHEMA}
+                 if pair[role].get('abstraction') in EQUITY_SCHEMAS}
     if len(table_paths)>1:raise ValueError('Mixed K50 table dependencies')
     cards=EquityCards(root/next(iter(table_paths))) if table_paths else None
     for lineage,pair in enumerate(plan['pairs'],1):
@@ -55,7 +55,7 @@ def replay(plan,out,root):
                     role='candidate' if hand.actor==row['rotation'] else 'reference'
                     spec=pair[role];menu=schema_choices(view,spec.get("abstraction",HU20_UNCAPPED_SCHEMA))
                     key=information_key(view,menu,schema=spec.get('abstraction',HU20_UNCAPPED_SCHEMA),
-                                        equity_cards=cards if spec.get('abstraction')==HU20_EQUITY_SCHEMA else None)
+                                        equity_cards=cards if spec.get('abstraction') in EQUITY_SCHEMAS else None)
                     if role=='candidate':
                         key_recorded=record['target_key'];p=obs['probabilities'];visits=record['training_visits'];known=obs['trained']
                     else:
