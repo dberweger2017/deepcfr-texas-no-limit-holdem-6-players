@@ -1,0 +1,51 @@
+{
+  "status": "locally-verified",
+  "archive": "/Users/dberweger/Local/hu200-evaluation-harness-20261013/results/hu200-harness/archive-hu200-evaluation-harness-M1-20261013.zip",
+  "name": "hu200-evaluation-harness-M1-20261013.zip",
+  "bytes": 780220,
+  "sha256": "9fe0e564fdbab16cf129fcf9cc2789688327bbff2222ae388713711a6f88fab9",
+  "members_verified": 196,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "b9bfb1ebb94e191d9e8a0e56760edec232d27c502488bec18ff35f167f289b92",
+  "source": "f0b3d46f7d3b2dec95b6bba38bb9d6f1f2bf6047",
+  "folder_id": "1zya8Fvw6QwEgm2N2I_h2tDTRQDdJOCrG",
+  "folder_url": "https://drive.google.com/drive/folders/1zya8Fvw6QwEgm2N2I_h2tDTRQDdJOCrG",
+  "cloud_parent": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "remote_bytes_downloaded": false,
+  "originals_retained": true,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-263-hu200-evaluation-harness/hu200-evaluation-harness-M1-20261013.zip",
+  "archive_id": "15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE",
+  "archive_url": "https://drive.google.com/file/d/15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE/view?usp=drivesdk",
+  "upload_accepted": true,
+  "native_status": {
+    "isUploaded": 1,
+    "isUploading": 0,
+    "documentSize": 780220
+  },
+  "conflicts": {
+    "exists": true,
+    "nil": false,
+    "unresolved_count": 0
+  },
+  "cloud_metadata": {
+    "id": "15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE",
+    "title": "hu200-evaluation-harness-M1-20261013.zip",
+    "mime_type": "application/zip",
+    "size": "780220",
+    "url": "https://drive.google.com/file/d/15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1zya8Fvw6QwEgm2N2I_h2tDTRQDdJOCrG"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "independent_folder_membership_confirmed": true
+}
