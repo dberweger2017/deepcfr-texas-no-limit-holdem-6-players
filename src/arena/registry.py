@@ -19,14 +19,14 @@ def artifact_suffix(format):
     return ".json.gz" if "blueprint" in format or format in AVERAGE_FORMATS else ".pt"
 
 
-def load_frozen(spec, path, *, sorted_average_rows=False):
+def load_frozen(spec, path, *, sorted_average_rows=False, policy_cache=None):
     cards = ROOT / spec.card_buckets if spec.card_buckets is not None else None
     if spec.format in AVERAGE_FORMATS:
         from src.blueprint.average import AveragePolicy
         from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA
         model = AveragePolicy(path, spec.sha256, expected_schema=spec.abstraction or (HU200_SCHEMA if "hu200" in spec.format else
                               HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA),
-                              sorted_rows=sorted_average_rows, card_buckets=cards)
+                              sorted_rows=sorted_average_rows, card_buckets=cards, cache=policy_cache)
         model.spec = spec
         model.source_path = path
         return model
@@ -46,7 +46,7 @@ def load_frozen(spec, path, *, sorted_average_rows=False):
 
 
 class PolicyRegistry:
-    def __init__(self, plan: Plan, *, artifact_dir: Path | None = None, sorted_average_rows: bool = False):
+    def __init__(self, plan: Plan, *, artifact_dir: Path | None = None, sorted_average_rows: bool = False, policy_cache: Path | None = None):
         self.plan = plan
         self.models = {}
         used = {plan.candidate, plan.baseline, *plan.opponents}
@@ -62,7 +62,7 @@ class PolicyRegistry:
                 if artifact_dir
                 else ROOT / spec.path
             )
-            model = load_frozen(spec, path, sorted_average_rows=sorted_average_rows)
+            model = load_frozen(spec, path, sorted_average_rows=sorted_average_rows, policy_cache=policy_cache)
             for scenario in plan.scenarios:
                 if scenario.mode != "fixed" or len(scenario.stacks) != model.players:
                     raise ValueError(

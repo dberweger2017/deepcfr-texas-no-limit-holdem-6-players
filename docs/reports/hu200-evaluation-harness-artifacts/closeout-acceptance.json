@@ -1,0 +1,44 @@
+{
+  "name": "hu200-evaluation-harness-closeout-M1-20261013.zip",
+  "bytes": 192513,
+  "sha256": "ed3b355ff6a701a2c732e45cd6b702eae11fc49f0df9837b1ccedc240b35f3d4",
+  "manifest_sha256": "6afb583afd76e94bccfb196cb158ba339cad8006fde18b47e12db10e69b79937",
+  "members_verified": 12,
+  "source": "27a6366dac0a2f7627bef3f3b5bc259eb8b60944",
+  "folder_id": "1zya8Fvw6QwEgm2N2I_h2tDTRQDdJOCrG",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-263-hu200-evaluation-harness/hu200-evaluation-harness-closeout-M1-20261013.zip",
+  "archive_id": "1OxylAtrZh0nQJXkGMI8nFE_czHhNB6xd",
+  "archive_url": "https://drive.google.com/file/d/1OxylAtrZh0nQJXkGMI8nFE_czHhNB6xd/view?usp=drivesdk",
+  "upload_accepted": true,
+  "native_status": {
+    "isUploaded": 1,
+    "isUploading": 0,
+    "documentSize": 192513
+  },
+  "conflicts": {
+    "nil": false,
+    "unresolved_count": 0
+  },
+  "cloud_metadata": {
+    "id": "1OxylAtrZh0nQJXkGMI8nFE_czHhNB6xd",
+    "title": "hu200-evaluation-harness-closeout-M1-20261013.zip",
+    "mime_type": "application/zip",
+    "size": "192513",
+    "url": "https://drive.google.com/file/d/1OxylAtrZh0nQJXkGMI8nFE_czHhNB6xd/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1OxylAtrZh0nQJXkGMI8nFE_czHhNB6xd/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1zya8Fvw6QwEgm2N2I_h2tDTRQDdJOCrG"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  }
+}
