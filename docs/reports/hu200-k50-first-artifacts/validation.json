@@ -7,6 +7,12 @@
     "Current native and independent cloud upload acceptance pass",
     "Staged repository artifact guard passes"
   ],
+  "current_main_integration": {
+    "conflict": "ROADMAP adjacent Current position additions",
+    "main": "cae93c0d",
+    "native_and_src_changes_from_upstream": [],
+    "resolution": "Preserved both PR248 and PR250 entries and both evidence indices"
+  },
   "native_and_src_diff_against_pinned_main": [],
   "open_findings": [],
   "reviewed_source_parent": "f65e693ce7a0135df42202b218d3c98a7f6463c1",

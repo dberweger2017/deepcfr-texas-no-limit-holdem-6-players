@@ -1,0 +1,15 @@
+{
+  "build_started": false,
+  "host": {
+    "ac": true,
+    "at": 1791843721.219765,
+    "available_bytes": 4612669440,
+    "disk_free_bytes": 8872615936,
+    "free_percent": 54,
+    "pressure": 1,
+    "swap_bytes": 247788994
+  },
+  "reason": "free disk below 16 GiB",
+  "status": "refused",
+  "training_started": false
+}

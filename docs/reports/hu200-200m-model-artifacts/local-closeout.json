@@ -1,0 +1,13 @@
+{
+  "all_workers_exited": true,
+  "journal_integrity": "64 unique scheduled hands, 452 actions/native decisions and 211 candidate decisions agree; all row digests checked",
+  "local_closeout_seconds": 2379.3941049575806,
+  "native_replay": "hands 64 decisions 452 mismatched_hands 0",
+  "no_slumbot_requests": true,
+  "no_strength_claim": true,
+  "originals_retained": true,
+  "science_seconds": 2152.587577750004,
+  "status": "verified-locally-archived",
+  "upload_acceptance": "pending",
+  "within_60_minute_cap": true
+}
