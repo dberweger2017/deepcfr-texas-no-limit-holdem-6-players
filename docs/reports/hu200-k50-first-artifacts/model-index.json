@@ -1,0 +1,182 @@
+{
+  "actual_nodes": 752593175,
+  "archive_source": "1fbc71fe5e07ab406bca22cfb6f0db79fad757db",
+  "archives": {
+    "averages": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 2221371477,
+      "cloud_archive_id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+      "cloud_archive_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk",
+      "cloud_folder_id": "1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+      "cloud_folder_url": "https://drive.google.com/drive/folders/1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+      "cloud_upload_accepted": true,
+      "independent_parent_confirmation": "direct-folder-listing",
+      "logical_member_bytes": 2221370011,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "78b893820f2fcfb18af69e3da99ee68798d373ac90a543dc8c9205edb27e10db",
+      "members": 1,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-averages-M4-20261013.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 5.02837487499346,
+      "sha256": "4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+      "status": "locally-verified"
+    },
+    "full": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 11207049594,
+      "cloud_archive_id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+      "cloud_archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "cloud_folder_id": "1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+      "cloud_folder_url": "https://drive.google.com/drive/folders/1XU7Ac4LWDD0mzFwibLz2JMed65d52Dvw",
+      "cloud_upload_accepted": true,
+      "independent_parent_confirmation": "direct-folder-listing",
+      "logical_member_bytes": 11207020465,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "9b2f2e6873b0c98127d740da2e8d2c10eb3582ba8f3e83048105b3d7799653dc",
+      "members": 62,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-full-M4-20261013.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 36.54845466700499,
+      "sha256": "3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+      "status": "locally-verified"
+    }
+  },
+  "inputs": {
+    "archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+    "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+    "archive_url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view",
+    "folder_id": "1gwungsUq-b9uey8InGy0yOD2GbaMRhp-",
+    "owning_pr": 163,
+    "provenance_note": "Original retrieval receipt archive_id names the folder. This record binds the independently observed archive file ID without rewriting that original receipt.",
+    "retrieval": "Download the indexed PR163 archive to a fresh ignored path, verify whole SHA256, then tar -xzf ARCHIVE.tar.gz -C NEW_TABLES --strip-components 1 hu20-equity-buckets-20261005/flop-k50.bin hu20-equity-buckets-20261005/turn-k50.bin hu20-equity-buckets-20261005/river-k50.bin; verify the three full table hashes.",
+    "tables": {
+      "flop": {
+        "bytes": 12867944,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/flop-k50.bin",
+        "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+      },
+      "river": {
+        "bytes": 1231562564,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/river-k50.bin",
+        "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+      },
+      "turn": {
+        "bytes": 139600524,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/turn-k50.bin",
+        "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      }
+    }
+  },
+  "max_entries": 85373862,
+  "models": [
+    {
+      "actual_nodes": 752593175,
+      "archive_id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+      "archive_sha256": "4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+      "archive_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view?usp=drivesdk",
+      "bytes": 2221370011,
+      "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+      "entries": 85373907,
+      "iterations": 493496,
+      "kind": "average",
+      "member": "research/training/1000000000.average.gz",
+      "requested_nodes": 1000000000,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+        "download": "Download the pinned Drive archive into a fresh ignored nonsynced path as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.average.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.average.gz # expected 60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+      },
+      "role": "terminal",
+      "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+      "source_mtime_ns": 1791850580771612109,
+      "source_path": "results/hu200-k50-first/training/1000000000.average.gz"
+    },
+    {
+      "actual_nodes": 752593175,
+      "archive_id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+      "archive_sha256": "3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 2124578171,
+      "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+      "entries": 85373907,
+      "iterations": 493496,
+      "kind": "current",
+      "member": "research/training/1000000000.current.gz",
+      "requested_nodes": 1000000000,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+        "download": "Download the pinned Drive archive into a fresh ignored nonsynced path as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.current.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.current.gz # expected e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+      },
+      "role": "terminal",
+      "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee",
+      "source_mtime_ns": 1791850580773705939,
+      "source_path": "results/hu200-k50-first/training/1000000000.current.gz"
+    },
+    {
+      "actual_nodes": 752593175,
+      "archive_id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+      "archive_sha256": "3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 3442723146,
+      "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+      "entries": 85373907,
+      "iterations": 493496,
+      "kind": "checkpoint",
+      "member": "research/training/1000000000.gz",
+      "requested_nodes": 1000000000,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+        "download": "Download the pinned Drive archive into a fresh ignored nonsynced path as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/1000000000.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/1000000000.gz # expected 4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+      },
+      "role": "terminal",
+      "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+      "source_mtime_ns": 1791849658011038591,
+      "source_path": "results/hu200-k50-first/training/1000000000.gz"
+    },
+    {
+      "actual_nodes": 500000140,
+      "archive_id": "1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW",
+      "archive_sha256": "3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+      "archive_url": "https://drive.google.com/file/d/1Lrsw5tYJ6lQExmBJpZEQ6xILqOcsVvKW/view?usp=drivesdk",
+      "bytes": 2727516803,
+      "checkpoint_sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d",
+      "entries": 69084815,
+      "iterations": 321139,
+      "kind": "checkpoint",
+      "member": "research/training/500000000.gz",
+      "requested_nodes": 500000000,
+      "retrieval_commands": {
+        "archive_hash": "shasum -a 256 ARCHIVE.zip # expected 3cc16676c4c61b896560f463f01617427fa452502ff0a771dfe7985a1e9f2a69",
+        "download": "Download the pinned Drive archive into a fresh ignored nonsynced path as ARCHIVE.zip.",
+        "extract": "python -c 'import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])' ARCHIVE.zip research/training/500000000.gz RESTORE_ROOT",
+        "member_hash": "shasum -a 256 RESTORE_ROOT/research/training/500000000.gz # expected 2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d"
+      },
+      "role": "500m",
+      "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d",
+      "source_mtime_ns": 1791849221463712343,
+      "source_path": "results/hu200-k50-first/training/500000000.gz"
+    }
+  ],
+  "native_source_base": "30c4a9dcd2da8e936e23d278cd912c4bac276b3b",
+  "originals_retained": true,
+  "pr": 250,
+  "record": "verified-cap-terminal",
+  "remote_archive_bytes_downloaded": false,
+  "seed": 2026101302,
+  "unreached_nodes": [
+    1000000000,
+    1500000000,
+    2000000000,
+    2500000000,
+    3000000000
+  ]
+}
