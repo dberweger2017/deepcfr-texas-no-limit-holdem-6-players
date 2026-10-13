@@ -35,7 +35,7 @@ python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SH
 python -m scripts.play_slumbot --hands 1000 --model K50-AVERAGE.gz --model-sha256 SHA --card-buckets TABLES --out DIR
 ```
 
-With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
+With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. The login is checked before the model loads, and a refusal shows Slumbot's reason. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
 
 ## Limits
 

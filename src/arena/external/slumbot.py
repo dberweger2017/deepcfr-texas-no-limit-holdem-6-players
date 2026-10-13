@@ -232,7 +232,10 @@ class SlumbotConnection:
             response = self.transport.post('/slumbot/api/login', {'username': username, 'password': password})
             token = response.get('token') if isinstance(response, dict) else None
             if not isinstance(token, str) or not token or 'error_msg' in response:
-                raise ValueError('Slumbot login failed')
+                # Slumbot's own reason, shortened and never echoing the password.
+                reason = response.get('error_msg') if isinstance(response, dict) else None
+                reason = reason[:200].replace(password, '***') if isinstance(reason, str) and password else None
+                raise ValueError('Slumbot login failed' + (f': {reason}' if reason else ''))
         except Exception:
             self.failed = True
             raise

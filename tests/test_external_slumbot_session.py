@@ -154,7 +154,11 @@ def test_login_sends_credentials_only_to_the_transport_and_fails_closed():
     failed = SlumbotConnection(Login({'error_msg': 'bad password'}), HU200)
     with pytest.raises(ValueError) as error:
         failed.login('name', 'secret')
-    assert 'secret' not in str(error.value) and failed.failed
+    assert 'bad password' in str(error.value) and 'secret' not in str(error.value) and failed.failed
+    echoed = SlumbotConnection(Login({'error_msg': 'no user with password secret'}), HU200)
+    with pytest.raises(ValueError) as error:
+        echoed.login('name', 'secret')
+    assert 'secret' not in str(error.value)
 
 
 @pytest.fixture

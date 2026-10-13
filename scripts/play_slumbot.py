@@ -94,13 +94,20 @@ def main():
     if args.card_buckets is not None and args.model is None:
         parser.error('--card-buckets needs a K50 --model')
     args.out.mkdir(parents=True)
-    # Ask before the model loads, so nobody waits minutes for the prompt; log in after it, so
-    # the session starts fresh.
+    # Ask and check the credentials before the model loads, so nobody waits minutes to learn of
+    # a typo; the playing session logs in again after the load, so it starts fresh.
     if args.login:
         stored = {**read_env(ENV_FILE), **{k: os.environ[k] for k in CREDENTIALS if os.environ.get(k)}}
         username = stored.get('SLUMBOT_USERNAME') or input('Slumbot username: ')
         password = stored.get('SLUMBOT_PASSWORD') or getpass.getpass('Slumbot password: ')
         say('Credentials read' + (' from .env or the environment' if 'SLUMBOT_PASSWORD' in stored else ''))
+        try:
+            SlumbotConnection(HttpTransport(SERVICE, timeout=args.timeout, max_requests=1), CheckCall()).login(username, password)
+        except (ValueError, AmbiguousRequest, ServiceError) as error:
+            # Messages name the endpoint, status or Slumbot's reason, never the password.
+            say(f'Login check failed: {error}')
+            raise SystemExit(1)
+        say('Credentials accepted')
     say(f'Loading {args.model.name} (a few minutes for large models)' if args.model else 'Using the check/call player')
     loading = time.monotonic()
     policy, player, identity = load_player(args)
