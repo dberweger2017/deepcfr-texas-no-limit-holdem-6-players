@@ -1,3 +1,67 @@
+## PR265 — exact HU200 K50 frozen continuation (October 13–14)
+
+[PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265), [report](docs/reports/hu200-k50-frozen.md). **Scientific result final; merge owner-authorized with full upload in progress.** M4 source `c53f7935ebbc45180e179e5a3aea74af48bff783`, run `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen`. Exact #250 20M recovery and 752M cap reproduction; frozen continuation reaches **20,000,002,032 nodes /16,670,844 iterations /85,373,907 unchanged keys**. Both 5B/final current and average exports pass every row. Playing evaluation is separate; no release/tag/default change. Scientific exports/audits finished within nine hours. M4 compute released October 14 **00:40:27 Madrid**. The owner authorized merge while the full ZIP is uploading; its upload acceptance remains pending and originals stay retained. No further cleanup is performed by this campaign.
+
+Destination `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`; [observed Drive folder](https://drive.google.com/drive/folders/1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK), ID `1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK`, independently confirmed parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+
+| ZIP | Bytes | Whole SHA256 | ARCHIVE-MANIFEST.json SHA256 | Members | Cloud acceptance |
+|---|---:|---|---|---:|---|
+| `hu200-k50-frozen-full-M4-20261013.zip` | 26,698,069,587 | `5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f` | `26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce` | 98 | Pending; uploading1, uploaded0; file ID unknown |
+| [hu200-k50-frozen-averages-M4-20261013.zip](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view?usp=drivesdk) | 5,921,067,848 | `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943` | `d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5` | 2 | Accepted; ID `1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh` |
+| [hu200-k50-frozen-closeout-M4-20261014.zip](https://drive.google.com/file/d/1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf/view?usp=drivesdk) | 5,996,895 | `f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0` | `2e797040d914d72a86a65b56748aa06746d66dc47f89d34da175665a9fa0fde5` | 27 | Accepted; ID `1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf` |
+
+All members of each local ZIP passed complete size/SHA256 readback, followed by whole hashing. [Local receipts](docs/reports/hu200-k50-frozen-artifacts/archive-receipt.json), [average receipt](docs/reports/hu200-k50-frozen-artifacts/averages-receipt.json), [closeout receipt](docs/reports/hu200-k50-frozen-artifacts/closeout-receipt.json). Primary ZIP snapshots the closed scientific prefix; the closeout ZIP supplies every closed stage2/retention resource reading, completion/sealing receipts and the original failed optional plotting attempt. Scientific bytes passed on their first attempt. Models, tables and partial closeout evidence remain in this campaign's unsynced root; only earlier frozen checkpoints were removed after verified successors. No synced deletion or eviction.
+
+[Native observation](docs/reports/hu200-k50-frozen-artifacts/native-upload-observation.json) records uploaded1/uploading0/conflicts0 for the averages and closeout ZIPs. [Independent metadata](docs/reports/hu200-k50-frozen-artifacts/cloud-upload-observation.json) confirms their exact IDs/names/sizes/direct parent. The full upload observation remains pending, not accepted. Null file IDs are unknown. **Remote archive bytes were not downloaded or verified.**
+
+Required model members (exact pins also in the [model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json)):
+
+| Model | Full ZIP member | Bytes | SHA256 |
+|---|---|---:|---|
+| Fresh 20M gate | `research/gates/fresh20m.gz` | 270,143,830 | `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b` |
+| Recovered 20M gate | `research/gates/resumed20m.gz` | 270,143,830 | `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b` |
+| Reproduced cap | `research/stage1/1000000000.gz` | 3,442,723,146 | `4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4` |
+| 5B checkpoint | `research/frozen/5000000000.gz` | 4,357,232,664 | `56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721` |
+| 5B current | `research/frozen/5000000000.current.gz` | 2,289,968,280 | `b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7` |
+| 5B average | `research/frozen/5000000000.average.gz` | 2,756,501,598 | `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512` |
+| Final checkpoint | `research/frozen/20000000000.gz` | 4,960,844,586 | `c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f` |
+| Final current | `research/frozen/20000000000.current.gz` | 2,301,966,028 | `352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688` |
+| Final average | `research/frozen/20000000000.average.gz` | 3,164,563,975 | `9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6` |
+
+The average-only ZIP uses `averages/5000000000.average.gz` and `averages/20000000000.average.gz` with identical model sizes/hashes. Tables are not duplicated: use the [accepted PR163 table record](#pr163-full-deck-equity-buckets--october-5-closeout) and [this campaign's full input pins](docs/reports/hu200-k50-frozen-artifacts/inputs.json). The target-named stage1 `1000000000.gz` contains 752,593,175 actual nodes; it did not reach 1B.
+
+Retrieval: download the linked averages ZIP to a fresh ignored `results/` directory, or read the local synced archive on M4. Verify the whole ZIP before extracting, then verify every selected model's size/SHA256. This command reads the local archive, creates a unique ignored restore root and never launches science:
+
+```sh
+python - <<'PY'
+import hashlib, json, tempfile
+from pathlib import Path
+from zipfile import ZipFile
+z = Path.home() / 'Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-averages-M4-20261013.zip'
+def sha(p):
+    h = hashlib.sha256()
+    with p.open('rb') as f:
+        for chunk in iter(lambda: f.read(1024**2), b''): h.update(chunk)
+    return h.hexdigest()
+assert sha(z) == 'fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943'
+Path('results').mkdir(exist_ok=True)
+dest = Path(tempfile.mkdtemp(prefix='pr265-restore-', dir='results'))
+pins = json.loads(Path('docs/reports/hu200-k50-frozen-artifacts/model-index.json').read_text())['required_model_members']
+with ZipFile(z) as archive:
+    for name in ['averages/5000000000.average.gz', 'averages/20000000000.average.gz']:
+        p = Path(archive.extract(name, dest))
+        assert p.stat().st_size == pins[name]['bytes'] and sha(p) == pins[name]['sha256']
+        print(p)
+PY
+```
+
+For the full ZIP use its filename/whole hash above and select the exact `research/…` model members from the table. For the closeout ZIP use its filename/whole hash and extract `research/stage2-resources.jsonl` and `research/retention-resources.jsonl`. The full ZIP awaits an accepted Drive file locator; retain its current M4 originals in the meantime.
+
+
+## PR265 M4 inactive-evidence cleanup — October 13, 2026
+
+Owner-authorized cleanup for [PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265) removed **38 unchanged files /28,373,295,553 bytes** from merged, inactive PR207/254/260 unsynced results roots. Current native accepted upload and independent Drive ID/name/size/direct-parent acceptance preceded deletion; recorded original paths/sizes/mtime and live dependencies were checked. Two uncertain PR207 files were retained. [Receipt and all restoration links/commands](docs/artifacts/pr265-m4-storage-20261013.md), [per-file archive/member/hash receipt](docs/reports/hu200-k50-frozen-artifacts/m4-cleanup-receipt.json), [dependency review](docs/reports/hu200-k50-frozen-artifacts/m4-cleanup-dependency-review.json). PR207 retry ZIP ID `1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj` now has current confirmed acceptance, superseding its earlier upload-pending snapshot. No repeated archive/member hash audit, synced deletion, eviction or forced offload. Source/environments/tables/shared Git and active inputs remain. After removal the filesystem reported 101,546,766,336 free bytes; removed-file bytes are the accountable cleanup total, not the entire observed free-space change. Historical originals-retained statements are superseded only for the receipt paths.
+
 ## Uploaded cache pass — October 13 evening
 
 Owner-requested storage pass releases **32.176 GB** from

@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 5996895,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 5983865,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "2e797040d914d72a86a65b56748aa06746d66dc47f89d34da175665a9fa0fde5",
+  "members": 27,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-closeout-M4-20261014.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 0.021442958008265123,
+  "sha256": "f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0",
+  "status": "locally-verified"
+}

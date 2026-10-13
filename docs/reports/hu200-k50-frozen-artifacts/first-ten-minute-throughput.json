@@ -1,0 +1,10 @@
+{
+  "config_emitted_at": 1791913208.7886682,
+  "crossed_within_ten_minutes_after_load": false,
+  "crossing_seconds_after_load": 616.3968403339386,
+  "estimated_nodes_per_second": 2023707.3641133625,
+  "first_2B_write_started_at": 1791913825.1855085,
+  "method": "resolved-config log mtime to checkpoint temporary-file birthtime",
+  "observed_at": 1791913828.979269,
+  "uncertainty": "includes pre-write key sorting and complete-iteration overshoot; five-second discovery"
+}

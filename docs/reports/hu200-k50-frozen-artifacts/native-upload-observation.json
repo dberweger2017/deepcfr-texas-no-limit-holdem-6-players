@@ -1,0 +1,53 @@
+{
+  "archive-receipt.json": {
+    "at": 1791932751.263817,
+    "bytes": 26698069587,
+    "cloud_file_id": null,
+    "cloud_folder_id": null,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "is_uploaded": 0,
+    "is_uploading": 1,
+    "name": "hu200-k50-frozen-full-M4-20261013.zip",
+    "native_accepted": false,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+    "remote_archive_bytes_downloaded": false
+  },
+  "averages-receipt.json": {
+    "at": 1791932751.332265,
+    "bytes": 5921067848,
+    "cloud_file_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+    "cloud_folder_id": "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK",
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "name": "hu200-k50-frozen-averages-M4-20261013.zip",
+    "native_accepted": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-averages-M4-20261013.zip",
+    "remote_archive_bytes_downloaded": false
+  },
+  "closeout-receipt.json": {
+    "at": 1791932751.397969,
+    "bytes": 5996895,
+    "cloud_file_id": "1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf",
+    "cloud_folder_id": "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK",
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "name": "hu200-k50-frozen-closeout-M4-20261014.zip",
+    "native_accepted": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-closeout-M4-20261014.zip",
+    "remote_archive_bytes_downloaded": false
+  }
+}
