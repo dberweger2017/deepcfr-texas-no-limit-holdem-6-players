@@ -3,7 +3,7 @@
 [PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265)
 · [Protocol](../hu200-k50-frozen-protocol.md)
 
-**20B training complete; export audits and archival pending.** Current-main M4 training
+**20B training and every-row export audits complete; cloud archive acceptance pending.** Current-main M4 training
 exactly reproduces #250's fresh and resumed 20M checkpoints, its 500M save and
 its 752,593,175-node cap terminal. Frozen continuation started October 13 at
 17:38:41 UTC on the same 85,373,907-key table and saved its final checkpoint at
@@ -153,6 +153,15 @@ growth **0 bytes**, normal pressure and no guard stop over **212 samples**.
 Six existing guard regressions pass. [Stage1 resource summary](hu200-k50-frozen-artifacts/stage1-resource-summary.json).
 These are sampled values; after-save process RSS is distinct from family peak.
 
+The closed stage-2 stream has **3,328 samples**, peak family RSS **8.790 GiB**,
+minimum free memory **33%**, maximum swap growth **834,792,325 bytes** and
+minimum free disk **41.446 GiB**. It records 27 warning-pressure samples,
+zero critical-pressure samples and no stops. The retention stream adds
+**2,175 readings**, with the main family plus its helper peaking at **8.803 GiB**;
+it has 28 warning readings, no critical readings and no stops. Maximum observed
+gaps are 5.08 s and 7.27 s respectively. Every closed reading is retained in
+the closeout ZIP. [Closed resource summary](hu200-k50-frozen-artifacts/stage2-resource-summary.json).
+
 ## Exports and evidence
 
 The **5B current and average exports pass all 85,373,907 rows** through
@@ -168,10 +177,48 @@ was **1,641.72 s**; unweighted mean current/average total variation was 0.303819
 | Average | 2,756,501,598 | `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512` |
 | Current | 2,289,968,280 | `b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7` |
 
-Final exports/audit and archive/upload acceptance remain pending. The detached
-M4 worker will seal full and average-only ZIPs with
-embedded manifests and complete local readback under
+The **final current and average exports also pass all 85,373,907 audit rows**.
+The final average has **66,360,840 positive-mass rows /19,013,067
+uniform-fallback rows**. Audit time was **1,669.22 s**; unweighted mean
+current/average total variation was 0.3307384. These row-weighted policy
+differences do not measure playing strength.
+[Every-row final audit](hu200-k50-frozen-artifacts/20000000000.audit.json),
+[completed exports](hu200-k50-frozen-artifacts/exports-complete.json).
+
+| Final export | Bytes | SHA256 |
+|---|---:|---|
+| Average | 3,164,563,975 | `9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6` |
+| Current | 2,301,966,028 | `352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688` |
+
+Exports and audits finished October 13 **22:15:09 UTC**, within the original
+nine-hour clock. Full and average-only ZIPs passed embedded-manifest and
+complete local member size/SHA256 readback under
 `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`.
+
+| Archive | Bytes | SHA256 |
+|---|---:|---|
+| Full | 26,698,069,587 | `5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f` |
+| Averages only | 5,921,067,848 | `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943` |
+| Closed logs and receipts | 5,996,895 | `f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0` |
+
+[Full local receipt](hu200-k50-frozen-artifacts/archive-receipt.json),
+[averages local receipt](hu200-k50-frozen-artifacts/averages-receipt.json).
+[Closeout local receipt](hu200-k50-frozen-artifacts/closeout-receipt.json).
+The supplement preserves the complete closed stage-2/retention readings,
+supervisor/retention/sealing receipts and the failed optional plotting attempt.
+The learning curve is retained as the table above and its exact JSON;
+the unavailable plotting dependency caused no scientific retry or model changes.
+The average-only ZIP has native uploaded1/uploading0/conflicts0 status and
+independent Drive ID/name/size/direct-parent confirmation. Full and closeout
+upload acceptance remain pending. [Native observation](hu200-k50-frozen-artifacts/native-upload-observation.json),
+[independent metadata observation](hu200-k50-frozen-artifacts/cloud-upload-observation.json).
+No remote archive bytes were downloaded or verified.
+
+**M4 compute released:** verified October 13 **22:40:27 UTC /October 14
+00:40:27 Madrid** after all owned campaign/closeout jobs exited. Its compute
+reservation was available and no matching campaign jobs were observed.
+[Release receipt](hu200-k50-frozen-artifacts/compute-release.json).
+Cloud upload acceptance and PR closeout continue without reserving M4 compute.
 
 Owner-authorized inactive evidence cleanup removed 38 unchanged manifested
 files /28,373,295,553 bytes after current merged-owner, native upload, independent

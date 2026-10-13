@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 26698069587,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 26698021108,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce",
+  "members": 98,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 110.96853416599333,
+  "sha256": "5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f",
+  "status": "locally-verified"
+}

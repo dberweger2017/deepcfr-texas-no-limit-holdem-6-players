@@ -1,0 +1,99 @@
+{
+  "exports": [
+    {
+      "actual_nodes": 5000000031,
+      "all_nodes_verified": 85373907,
+      "average_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+      "checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721",
+      "counts": {
+        "entries": 85373907,
+        "positive_mass": 62094574,
+        "zero_mass": 23279333
+      },
+      "current_sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7",
+      "files": {
+        "average": {
+          "bytes": 2756501598,
+          "mtime_ns": 1791925402731513882,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+          "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+        },
+        "checkpoint": {
+          "bytes": 4357232664,
+          "mtime_ns": 1791915945383770296,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+          "sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721"
+        },
+        "current": {
+          "bytes": 2289968280,
+          "mtime_ns": 1791925402733828656,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.current.gz",
+          "sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7"
+        }
+      },
+      "keys": {
+        "entries": 85373907,
+        "header_iteration": 3748464,
+        "method": "SHA256 of concatenated sorted 32-character serialized keys",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+        "seconds": 48.4314968585968,
+        "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+      },
+      "maximum_tv": 1.0000000000000002,
+      "requested_nodes": 5000000000,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "seconds": 1641.7245268821716,
+      "status": "verified",
+      "unweighted_mean_current_average_tv": 0.30381934643844416
+    },
+    {
+      "actual_nodes": 20000002032,
+      "all_nodes_verified": 85373907,
+      "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+      "counts": {
+        "entries": 85373907,
+        "positive_mass": 66360840,
+        "zero_mass": 19013067
+      },
+      "current_sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688",
+      "files": {
+        "average": {
+          "bytes": 3164563975,
+          "mtime_ns": 1791928039103998939,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+          "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+        },
+        "checkpoint": {
+          "bytes": 4960844586,
+          "mtime_ns": 1791924361873579506,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+          "sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+        },
+        "current": {
+          "bytes": 2301966028,
+          "mtime_ns": 1791928039105011360,
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.current.gz",
+          "sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688"
+        }
+      },
+      "keys": {
+        "entries": 85373907,
+        "header_iteration": 16670844,
+        "method": "SHA256 of concatenated sorted 32-character serialized keys",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+        "seconds": 48.04470086097717,
+        "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+      },
+      "maximum_tv": 1.0000000000000002,
+      "requested_nodes": 20000000000,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "seconds": 1669.2184610366821,
+      "status": "verified",
+      "unweighted_mean_current_average_tv": 0.3307383970540339
+    }
+  ],
+  "finished": 1791929709.126092,
+  "status": "every-row-verified",
+  "within_nine_hours": true
+}

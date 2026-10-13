@@ -1,0 +1,42 @@
+{
+  "nine_hour_deadline": 1791944339.445917,
+  "retention-resources.jsonl": {
+    "first_at": 1791913465.3465269,
+    "last_at": 1791924439.066356,
+    "maximum_sample_gap_seconds": 7.267427921295166,
+    "maximum_swap_growth_bytes": 0,
+    "minimum_disk_free_bytes": 83802497024,
+    "minimum_free_percent": 33,
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/retention-resources.jsonl",
+    "peak_family_rss_bytes": 9452535808,
+    "pressure_samples": {
+      "1": 2147,
+      "2": 28,
+      "4": 0
+    },
+    "raw_samples_retained": true,
+    "samples": 2175,
+    "stops": []
+  },
+  "science_wall_seconds": 17769.680175065994,
+  "scientific_exports_finished": 1791929709.126092,
+  "stage2-resources.jsonl": {
+    "first_at": 1791913119.874413,
+    "last_at": 1791929846.607695,
+    "maximum_sample_gap_seconds": 5.0772881507873535,
+    "maximum_swap_growth_bytes": 834792325,
+    "minimum_disk_free_bytes": 44501872640,
+    "minimum_free_percent": 33,
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/stage2-resources.jsonl",
+    "peak_family_rss_bytes": 9437872128,
+    "pressure_samples": {
+      "1": 3301,
+      "2": 27,
+      "4": 0
+    },
+    "raw_samples_retained": true,
+    "samples": 3328,
+    "stops": []
+  },
+  "within_nine_hours": true
+}

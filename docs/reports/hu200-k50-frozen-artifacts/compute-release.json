@@ -1,0 +1,34 @@
+{
+  "at": 1791931227.932021,
+  "utc": "2026-10-13T22:40:27.932022+00:00",
+  "own_compute_released": true,
+  "research_reservation_available": true,
+  "identities": [
+    {
+      "claim": "stage2-claim.json",
+      "pid": 13468,
+      "create_time": 1791913119.222847,
+      "owned_identity_alive": false
+    },
+    {
+      "claim": "retention-claim.json",
+      "pid": 13883,
+      "create_time": 1791913464.767998,
+      "owned_identity_alive": false
+    },
+    {
+      "claim": "closeout-claim.json",
+      "pid": 37690,
+      "create_time": 1791931112.004949,
+      "owned_identity_alive": false
+    },
+    {
+      "claim": "closeout-seal-claim.json",
+      "pid": 37745,
+      "create_time": 1791931166.502901,
+      "owned_identity_alive": false
+    }
+  ],
+  "other_matching_campaign_processes": [],
+  "cloud_upload_pending_does_not_hold_campaign_compute": true
+}
