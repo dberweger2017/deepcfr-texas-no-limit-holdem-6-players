@@ -182,8 +182,8 @@ impl Options {
         (!parts.is_empty()).then(|| parts.join("+"))
     }
 
-    /// Rejects settings whose arithmetic would leave f64 within `iterations`, before any training.
-    pub fn check(&self, iterations: u64) -> Result<(), String> {
+    /// Cheap domain checks shared by argument admission and numerical validation.
+    pub fn check_domain(&self, iterations: u64) -> Result<(), String> {
         if let Some(floor) = self.regret_floor {
             if !floor.is_finite() {
                 return Err("--regret-floor must be finite".into());
@@ -203,17 +203,24 @@ impl Options {
         if iterations > u32::MAX as u64 {
             return Err("--dcfr runs stop before 2^32 iterations".into());
         }
-        // Catch-up subtracts prefix endpoints, so every prefix through the run must be finite.
-        let mut discounts = Discounts::default();
-        discounts.extend([alpha, beta], iterations);
-        if !discounts.0.iter().all(|p| p.iter().all(|v| v.is_finite())) {
-            return Err("--dcfr exponents overflow the discount prefixes within --iterations".into());
-        }
         // Average weights t^gamma for gamma in [0, 8] are at least 1, so they never underflow, and below
         // (2^32)^8 = 2^256, so even 2^64 contributions of them sum far inside f64. Larger or negative gamma
         // would need rescaled accumulators; DCFR's recommended gamma is 2.
         if !(0.0..=8.0).contains(&gamma) {
             return Err("--dcfr needs gamma in [0, 8] so iterations^gamma weights and their sums stay in range".into());
+        }
+        Ok(())
+    }
+
+    /// Rejects settings whose arithmetic would leave f64 within `iterations`, before any training.
+    pub fn check(&self, iterations: u64) -> Result<(), String> {
+        self.check_domain(iterations)?;
+        let Some([alpha, beta, _]) = self.dcfr else { return Ok(()) };
+        // Catch-up subtracts prefix endpoints, so every prefix through the run must be finite.
+        let mut discounts = Discounts::default();
+        discounts.extend([alpha, beta], iterations);
+        if !discounts.0.iter().all(|p| p.iter().all(|v| v.is_finite())) {
+            return Err("--dcfr exponents overflow the discount prefixes within --iterations".into());
         }
         Ok(())
     }

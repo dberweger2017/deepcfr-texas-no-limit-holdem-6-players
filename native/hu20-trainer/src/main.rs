@@ -105,11 +105,8 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             let out = arg("--out", "native-checkpoint.json.gz");
             // Optional earlier saves, like Python's milestones: the first complete iteration at or past each count.
             // A `{nodes}` placeholder in `--out` names each save by its milestone.
-            let mut milestones: Vec<u64> = arg("--milestones", "").split(',').filter(|s| !s.is_empty())
-                .map(|s| s.parse().unwrap()).filter(|&m| m < nodes).collect();
-            milestones.push(nodes);
-            milestones.sort_unstable();
-            milestones.dedup();
+            let milestones: Vec<u64> = command.config["options"]["milestones"].as_array().unwrap()
+                .iter().map(|v| v.as_u64().unwrap()).collect();
             let game = hu20_trainer::game::Game::from_bb(arg("--stack-bb", "20").parse().unwrap());
             let cards = card_option(&args);
             let menu = menu_option(&args);
@@ -153,8 +150,12 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             if let Err(problem) = trainer.options.check(0) {
                 panic!("{problem}");
             }
+            let milestones: Vec<u64> = milestones.into_iter().filter(|&m| m > trainer.nodes).collect();
             // Resume inherits these values unless the caller explicitly pins them.
             let resolved = &mut command.config["options"];
+            resolved["milestones"] = serde_json::json!(milestones);
+            resolved["initial_nodes"] = serde_json::json!(trainer.nodes);
+            resolved["initial_iteration"] = serde_json::json!(trainer.iteration);
             resolved["seed"] = serde_json::json!(trainer.seed);
             resolved["roots_per_seat"] = serde_json::json!(trainer.roots_per_seat);
             resolved["average_rule"] = serde_json::json!(trainer.average.name());
@@ -226,17 +227,11 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             let roots: Vec<bench::FrozenRoot> = document.as_array().unwrap().iter().map(bench::FrozenRoot::from_json).collect();
             let seed: u64 = required("--seed").parse().unwrap();
             let iterations: u64 = required("--iterations").parse().unwrap();
-            // A JSON value, as #149's manifests give it (an integer seed), else a plain string.
-            let raw = required("--lineage");
-            let lineage = serde_json::from_str(&raw).unwrap_or(serde_json::Value::String(raw));
+            let lineage = command.config["options"]["lineage"].clone();
             let variant = arg("--variant").unwrap_or("base".into());
             let out = std::path::PathBuf::from(required("--out"));
-            // Like Python's sorted(set(checkpoints) | {iterations}); iteration 0 is never exported.
-            let mut checkpoints: Vec<u64> = arg("--checkpoints").unwrap_or_default().split(',').filter(|s| !s.is_empty())
-                .map(|s| s.parse().unwrap()).filter(|&c| 0 < c && c < iterations).collect();
-            checkpoints.push(iterations);
-            checkpoints.sort_unstable();
-            checkpoints.dedup();
+            let checkpoints: Vec<u64> = command.config["options"]["checkpoints"].as_array().unwrap()
+                .iter().map(|v| v.as_u64().unwrap()).collect();
             let options = hu20_trainer::cfr::Options {
                 regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
                 dcfr: arg("--dcfr").map(|v| {

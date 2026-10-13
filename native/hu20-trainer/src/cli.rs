@@ -14,6 +14,15 @@ pub struct Command {
     pub config: Value,
 }
 
+/// Canonical save thresholds: positive, below the final target, unique and ordered.
+pub fn schedule(requested: &[u64], final_target: u64) -> Vec<u64> {
+    let mut effective: Vec<u64> = requested.iter().copied().filter(|&n| n > 0 && n < final_target).collect();
+    effective.push(final_target);
+    effective.sort_unstable();
+    effective.dedup();
+    effective
+}
+
 fn integer(flag: &str, value: &str) -> Result<u64, String> {
     value.parse::<u64>().map_err(|_| format!("{flag} requires an unsigned integer, got {value:?}"))
 }
@@ -155,6 +164,14 @@ pub fn parse(args: &[String]) -> Result<Command, String> {
             if !supplied.contains_key(flag) { return Err(format!("bench-train: {flag} is required")); }
         }
         if supplied["--iterations"] == json!(0) { return Err("bench-train: --iterations must be positive".into()); }
+        let training = hu20_trainer::cfr::Options {
+            regret_floor: supplied.get("--regret-floor").map(|v| v.as_f64().unwrap()),
+            dcfr: supplied.get("--dcfr").map(|v| {
+                let v = v.as_array().unwrap();
+                [v[0].as_f64().unwrap(), v[1].as_f64().unwrap(), v[2].as_f64().unwrap()]
+            }),
+        };
+        training.check_domain(supplied["--iterations"].as_u64().unwrap())?;
     }
     let mut options = Map::new();
     let defaults: &[(&str, &str)] = match command {
@@ -184,7 +201,20 @@ pub fn parse(args: &[String]) -> Result<Command, String> {
         let key = flag[2..].replace('-', "_");
         options.entry(key).or_insert(Value::Null);
     }
-    Ok(Command { config: json!({"command": command, "positionals": positionals, "options": options}) })
+    let mut config = json!({"command": command, "positionals": positionals, "options": options});
+    if matches!(command, "train" | "bench-train") {
+        let (field, target) = if command == "train" { ("milestones", "nodes") } else { ("checkpoints", "iterations") };
+        let requested = config["options"][field].clone();
+        let thresholds: Vec<u64> = requested.as_array().unwrap().iter().map(|v| v.as_u64().unwrap()).collect();
+        config["requested"] = json!({field: requested});
+        config["options"][field] = json!(schedule(&thresholds, config["options"][target].as_u64().unwrap()));
+        if command == "bench-train" {
+            let raw = config["options"]["lineage"].as_str().unwrap().to_string();
+            config["requested"]["lineage"] = json!(raw);
+            config["options"]["lineage"] = serde_json::from_str(&raw).unwrap_or(Value::String(raw));
+        }
+    }
+    Ok(Command { config })
 }
 
 #[cfg(test)]
@@ -210,4 +240,22 @@ mod tests {
         assert_eq!(c.config["options"]["menu"], "v2");
         assert_eq!(c.config["options"]["average_rule"], "traverser-reach");
     }
+    #[test]
+    fn resolves_schedule_and_lineage_with_requested_values_retained() {
+        let c = parse(&args("bench-train --roots roots --seed 1 --iterations 3 --lineage 3 --checkpoints 2,2,0,99 --out out")).unwrap();
+        assert_eq!(c.config["requested"]["checkpoints"], json!([2, 2, 0, 99]));
+        assert_eq!(c.config["options"]["checkpoints"], json!([2, 3]));
+        assert_eq!(c.config["requested"]["lineage"], "3");
+        assert_eq!(c.config["options"]["lineage"], 3);
+        let c = parse(&args("train --nodes 3 --milestones 2,2,0,99")).unwrap();
+        assert_eq!(c.config["options"]["milestones"], json!([2, 3]));
+    }
+    #[test]
+    fn refuses_dcfr_domains_during_admission() {
+        for flags in ["--dcfr 1,0,2 --iterations 1", "--dcfr 1.5,0,9 --iterations 1",
+                      "--dcfr 1.5,0,2 --iterations 4294967296"] {
+            assert!(parse(&args(&format!("bench-train --roots absent --seed 1 --lineage 3 --out out {flags}"))).is_err());
+        }
+    }
+
 }

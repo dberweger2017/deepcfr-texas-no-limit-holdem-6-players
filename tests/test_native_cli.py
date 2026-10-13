@@ -69,3 +69,67 @@ def test_engine_deal_stdout_is_unchanged_and_json_goes_to_stderr():
     result = subprocess.run([str(BINARY),'engine-deal','1','2'],capture_output=True,text=True,check=True)
     assert len(result.stdout.splitlines()) == 2
     assert json.loads(result.stderr) == {'command':'engine-deal','options':{},'positionals':['1','2']}
+
+
+@pytest.mark.parametrize('lineage,expected', [('3', 3), ('"3"', '3'), ('L', 'L')])
+def test_bench_receipt_matches_export_identity_and_schedule(tmp_path, lineage, expected):
+    from tests.test_native_bench_parity import roots
+    root_file = tmp_path/'roots.json'
+    root_file.write_text(json.dumps([r.to_native() for r in roots(1, 3)]))
+    result = subprocess.run([str(BINARY),'bench-train','--roots',str(root_file),'--seed','1',
+                             '--iterations','3','--checkpoints','2,2,0,99','--lineage',lineage,
+                             '--out',str(tmp_path/'out')],capture_output=True,text=True,check=True)
+    config = json.loads(result.stderr)
+    assert config['requested']['lineage'] == lineage
+    assert config['requested']['checkpoints'] == [2, 2, 0, 99]
+    assert config['options']['lineage'] == expected
+    assert config['options']['checkpoints'] == [2, 3]
+    assert [int(line.split()[1]) for line in result.stdout.splitlines()] == config['options']['checkpoints']
+    assert sorted(p.name for p in (tmp_path/'out').iterdir()) == ['iteration-2', 'iteration-3']
+    for checkpoint in config['options']['checkpoints']:
+        for path in (tmp_path/'out'/f'iteration-{checkpoint}').glob('*.json'):
+            document = json.loads(path.read_text())
+            assert document['lineage'] == config['options']['lineage']
+            assert document['iteration'] == checkpoint
+            assert all(row['lineage'] == document['lineage'] for row in document['groups'])
+
+
+def test_train_receipt_matches_filtered_milestones_and_resume(tmp_path):
+    import gzip
+    from src.policies.files import file_hash
+    result = subprocess.run([str(BINARY),'train','--nodes','3','--milestones','2,2,0,99',
+                             '--recovery','--out',str(tmp_path/'checkpoint-{nodes}.gz')],
+                            capture_output=True,text=True,check=True)
+    config = json.loads(result.stderr)
+    assert config['requested']['milestones'] == [2, 2, 0, 99]
+    assert config['options']['milestones'] == [2, 3]
+    assert [int(line.split()[1]) for line in result.stdout.splitlines()] == config['options']['milestones']
+    checkpoint = tmp_path/'checkpoint-3.gz'
+    header = json.loads(gzip.open(checkpoint, 'rt').readline())
+    completed = header['native_state']['completed_nodes']
+    target = completed + 1
+    result = subprocess.run([str(BINARY),'train','--nodes',str(target),
+                             '--milestones',f'0,2,{completed},{target},{target+1}',
+                             '--resume',str(checkpoint),'--resume-sha256',file_hash(checkpoint),
+                             '--out',str(tmp_path/'resumed-{nodes}.gz')],
+                            capture_output=True,text=True,check=True)
+    config = json.loads(result.stderr)
+    assert config['options']['initial_nodes'] == completed
+    assert config['options']['initial_iteration'] == header['iteration']
+    assert config['options']['milestones'] == [target]
+    assert [int(line.split()[1]) for line in result.stdout.splitlines()] == [target]
+
+
+@pytest.mark.parametrize('dcfr,iterations,message', [
+    ('1,0,2', '1', 'alpha > 1'),
+    ('1.5,0,9', '1', 'gamma in [0, 8]'),
+    ('1.5,0,2', '4294967296', 'before 2^32 iterations'),
+])
+def test_dcfr_domain_errors_precede_input_loading(tmp_path, dcfr, iterations, message):
+    result = subprocess.run([str(BINARY.resolve()),'bench-train','--roots',str(tmp_path/'absent-roots'),
+                             '--seed','1','--iterations',iterations,'--lineage','3',
+                             '--dcfr',dcfr,'--out',str(tmp_path/'out')],capture_output=True,text=True)
+    assert result.returncode == 2
+    assert message in result.stderr
+    assert 'No such file' not in result.stderr
+    assert not result.stderr.startswith('{') and not result.stdout and not list(tmp_path.iterdir())
