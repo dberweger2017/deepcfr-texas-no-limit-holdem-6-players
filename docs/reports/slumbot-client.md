@@ -35,6 +35,18 @@ python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SH
 python -m scripts.play_slumbot --hands 1000 --model K50-AVERAGE.gz --model-sha256 SHA --card-buckets TABLES --out DIR
 ```
 
+For an average, `--missing-key-fallback uniform` is the unchanged default;
+`check-call` checks when legal and calls otherwise at missing keys only. Stored
+zero-mass and positive-mass keys retain their play. Omitted legacy identity fields
+mean uniform; check-call journals identify the option and applied decisions by
+street. Analysis accepts the same flag and reports missing and zero-mass coverage
+separately. `--cache-read-only` requires an existing verified cache and prevents
+cache creation, useful for shared read-only research inputs.
+
+The [#267 paired test](hu200-missing-key-fallback.md) improves against random and
+half-pot pressure but does not pass its direct comparison gate. It proposes no
+Slumbot confirmation or new account; the account table below is unchanged.
+
 With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. The login is checked before the model loads, and a refusal shows Slumbot's reason. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
 
 ## Accounts

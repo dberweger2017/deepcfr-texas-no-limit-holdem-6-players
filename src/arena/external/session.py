@@ -24,14 +24,15 @@ class CheckCall:
         return Action(ActionKind.CHECK if ActionKind.CHECK in kinds else ActionKind.CALL)
 
 
-def hu200_average(path, sha256: str, card_buckets=None, cache=None):
+def hu200_average(path, sha256: str, card_buckets=None, cache=None, *, missing_key_fallback="uniform", cache_read_only=False):
     """A pinned HU200 average: v1 cards, or K50 with the pinned table directory; `cache` is an
     optional folder for the verified binary cache that makes later loads take seconds."""
     from src.blueprint.abstraction import HU200_EQUITY_SCHEMA, HU200_SCHEMA
     from src.blueprint.average import AveragePolicy
     # Native exports are written in key order; the sorted reader checks that as it loads.
     return AveragePolicy(path, sha256, expected_schema=HU200_SCHEMA if card_buckets is None else HU200_EQUITY_SCHEMA,
-                         sorted_rows=True, card_buckets=card_buckets, cache=cache)
+                         sorted_rows=True, card_buckets=card_buckets, cache=cache,
+                         missing_key_fallback=missing_key_fallback, cache_read_only=cache_read_only)
 
 
 class RandomLegal:
@@ -66,6 +67,10 @@ def play_hand(connection, player, hand_id: str, journal) -> Hand:
     while 'winnings' not in response:
         view = adapter.observation(response, hand_id)
         record = replay_record(response, hand_id, player.choose_action(view))
+        if getattr(getattr(player, 'blueprint', None), 'missing_key_fallback', 'uniform') != 'uniform':
+            info = player.last_decision[3]
+            record['policy_telemetry'] = {k: info[k] for k in ('reason', 'missing_key_fallback', 'fallback_applied')}
+            record['policy_telemetry']['street'] = view.street.value
         journal.append(record)
         decisions.append(record)
         response = connection.request('act', record['selected'])

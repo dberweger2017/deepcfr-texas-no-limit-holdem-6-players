@@ -1,0 +1,14 @@
+{
+  "baseline_swap_bytes": 4294848512,
+  "command": [
+    "/home/davide/deepcfr-eval/missing-key-cc/venv/bin/python",
+    "/home/davide/deepcfr-eval/missing-key-cc/pack-evidence.py"
+  ],
+  "failure": null,
+  "max_swap_growth_bytes": 0,
+  "min_available_bytes": 8365682688,
+  "min_disk_free_bytes": 95048073216,
+  "readings": 2,
+  "seconds": 5.025794459506869,
+  "status": "verified"
+}

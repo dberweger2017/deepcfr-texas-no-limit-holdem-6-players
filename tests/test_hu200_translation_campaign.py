@@ -15,6 +15,7 @@ from src.blueprint.solver import HU200_GAME
 def uniform():
     m=AveragePolicy.__new__(AveragePolicy);m.players=2;m.raise_cap=None;m.abstraction=HU200_SCHEMA;m.game=HU200_GAME
     m.entries={};m.zero_mass=set();m.visits={};m.description={'entries':0};m.record_translation=True;m.configure_translation(None)
+    m.configure_missing_key_fallback("uniform")
     return m
 
 

@@ -1,6 +1,7 @@
 """Resolve and pin every policy before an experiment starts dealing."""
 
 from contextlib import nullcontext
+from copy import copy
 from hashlib import sha256
 from pathlib import Path
 from shutil import copyfile
@@ -19,14 +20,14 @@ def artifact_suffix(format):
     return ".json.gz" if "blueprint" in format or format in AVERAGE_FORMATS else ".pt"
 
 
-def load_frozen(spec, path, *, sorted_average_rows=False, policy_cache=None):
+def load_frozen(spec, path, *, sorted_average_rows=False, policy_cache=None, cache_read_only=False):
     cards = ROOT / spec.card_buckets if spec.card_buckets is not None else None
     if spec.format in AVERAGE_FORMATS:
         from src.blueprint.average import AveragePolicy
         from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA
         model = AveragePolicy(path, spec.sha256, expected_schema=spec.abstraction or (HU200_SCHEMA if "hu200" in spec.format else
                               HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA),
-                              sorted_rows=sorted_average_rows, card_buckets=cards, cache=policy_cache)
+                              sorted_rows=sorted_average_rows, card_buckets=cards, cache=policy_cache, cache_read_only=cache_read_only)
         model.spec = spec
         model.source_path = path
         return model
@@ -45,12 +46,18 @@ def load_frozen(spec, path, *, sorted_average_rows=False, policy_cache=None):
     return FrozenNetwork(spec, path)
 
 
+def cards_path(spec):
+    return str((ROOT / spec.card_buckets).resolve()) if spec.card_buckets is not None else None
+
+
 class PolicyRegistry:
-    def __init__(self, plan: Plan, *, artifact_dir: Path | None = None, sorted_average_rows: bool = False, policy_cache: Path | None = None):
+    def __init__(self, plan: Plan, *, artifact_dir: Path | None = None, sorted_average_rows: bool = False, policy_cache: Path | None = None,
+                 share_average_storage: bool = False, cache_read_only: bool = False):
         self.plan = plan
         self.models = {}
         used = {plan.candidate, plan.baseline, *plan.opponents}
         builtins = set(POLICIES) | set(STYLES)
+        loaded_averages = {}
         for spec in plan.models:
             if spec.name in builtins or spec.name not in used:
                 raise ValueError(
@@ -62,7 +69,15 @@ class PolicyRegistry:
                 if artifact_dir
                 else ROOT / spec.path
             )
-            model = load_frozen(spec, path, sorted_average_rows=sorted_average_rows, policy_cache=policy_cache)
+            storage_key = (path.resolve(), spec.sha256, spec.format, spec.abstraction, cards_path(spec))
+            if share_average_storage and spec.format in AVERAGE_FORMATS and storage_key in loaded_averages:
+                model = copy(loaded_averages[storage_key])
+                model.description = dict(model.description)
+                model.spec = spec
+            else:
+                model = load_frozen(spec, path, sorted_average_rows=sorted_average_rows,
+                                    policy_cache=policy_cache, cache_read_only=cache_read_only)
+                if spec.format in AVERAGE_FORMATS: loaded_averages[storage_key] = model
             for scenario in plan.scenarios:
                 if scenario.mode != "fixed" or len(scenario.stacks) != model.players:
                     raise ValueError(

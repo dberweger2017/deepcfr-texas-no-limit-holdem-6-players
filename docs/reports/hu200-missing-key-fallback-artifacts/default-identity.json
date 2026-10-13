@@ -1,0 +1,30 @@
+{
+  "main_revision": "c53f7935",
+  "blocks_per_depth": 32,
+  "root": 202610130701,
+  "rung": "identity",
+  "payload": "SHA256 of decompressed canonical hand and decision JSONL bytes; gzip headers contain output paths/time and are excluded",
+  "main": {
+    "100": {
+      "hands.jsonl.gz": "e0b6f3f138ff0737d12142b3054391be244e7e4848944c1b7a3e3682978dcbf6",
+      "decisions.jsonl.gz": "1b901eff25b5e8e61000e48dc2c35aae3295b681c5f2e08137eb3665ea54e22c"
+    },
+    "200": {
+      "hands.jsonl.gz": "3362aaf7038fd138b6315998c790f5cbd61cd52ba0892deac33eec092becd70e",
+      "decisions.jsonl.gz": "8a74f8bb5fa2bf4ce61665b8d47d41ab5370883a0bb1a44f084dbefd869dd584"
+    }
+  },
+  "branch": {
+    "100": {
+      "hands.jsonl.gz": "e0b6f3f138ff0737d12142b3054391be244e7e4848944c1b7a3e3682978dcbf6",
+      "decisions.jsonl.gz": "1b901eff25b5e8e61000e48dc2c35aae3295b681c5f2e08137eb3665ea54e22c"
+    },
+    "200": {
+      "hands.jsonl.gz": "3362aaf7038fd138b6315998c790f5cbd61cd52ba0892deac33eec092becd70e",
+      "decisions.jsonl.gz": "8a74f8bb5fa2bf4ce61665b8d47d41ab5370883a0bb1a44f084dbefd869dd584"
+    }
+  },
+  "all_equal": true,
+  "fixtures": "tests.test_hu100_direct.specs; tests.test_hu200_evaluation.fixture_spec, names left/right",
+  "command": "PYTHONPATH=. python /tmp/missing-default-identity.py OUTPUT in main and branch; source in evidence default-identity-command.py"
+}

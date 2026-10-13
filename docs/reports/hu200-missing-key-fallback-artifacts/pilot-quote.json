@@ -1,0 +1,44 @@
+{
+  "pilot_source": "d8199c8dd4b7b5f8099a37d8d4cb6acbb9f9f058",
+  "pilot_wall_seconds": 97.3878412200138,
+  "guard_summary": {
+    "max_active_workers": 4,
+    "max_owned_family_pss_bytes": 2078509056,
+    "max_owned_family_rss_bytes": 3364548608,
+    "max_swap_growth_bytes": 176128,
+    "min_available_bytes": 7730638848,
+    "min_disk_free_bytes": 95732748288,
+    "readings": 19
+  },
+  "projected_jobs_seconds": {
+    "check_call": 1965.2293394980952,
+    "direct": 5072.042179449461,
+    "half_pot_pressure": 1483.7307014195248,
+    "loose_aggressive": 1597.7766125295311,
+    "matched_pot_pressure": 1273.1529970774427,
+    "pot_pressure": 1465.8942009964958,
+    "random": 1310.2813046006486,
+    "tight_aggressive": 1241.489012026228
+  },
+  "projected_worker_loads_seconds": [
+    5072.042179449461,
+    3238.382336575538,
+    4149.546929156408,
+    2949.6249024160206
+  ],
+  "projected_sequential_readout_seconds": 8588.898770809174,
+  "projected_total_wall_seconds": 13660.940950258635,
+  "counts_reduced": false,
+  "method": "Keep measured load/validation constant. Scale primary play, replay and reproduction play by block ratio. Greedy four-worker schedule; conservatively scale the full replay cost again for serial readout, including fixed table verification.",
+  "paired_sd_bb_per_100": {
+    "check_call": 0.0,
+    "direct": 1575.6824350429972,
+    "half_pot_pressure": 1925.0,
+    "loose_aggressive": 0.0,
+    "matched_pot_pressure": 0.0,
+    "pot_pressure": 2338.6248195525045,
+    "random": 4824.736749027934,
+    "tight_aggressive": 0.0
+  },
+  "outcomes_inspected": false
+}

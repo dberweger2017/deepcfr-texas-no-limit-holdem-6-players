@@ -1,0 +1,14 @@
+{
+  "baseline_swap_bytes": 4294832128,
+  "command": [
+    "bash",
+    "/home/davide/deepcfr-eval/missing-key-cc/run-real-default-identity.sh"
+  ],
+  "failure": null,
+  "max_swap_growth_bytes": 131072,
+  "min_available_bytes": 7451881472,
+  "min_disk_free_bytes": 95221379072,
+  "readings": 13,
+  "seconds": 60.506055359728634,
+  "status": "verified"
+}

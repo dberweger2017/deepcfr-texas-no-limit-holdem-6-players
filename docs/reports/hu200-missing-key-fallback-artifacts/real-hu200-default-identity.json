@@ -1,0 +1,25 @@
+{
+  "main": {
+    "source": "c53f7935ebbc45180e179e5a3aea74af48bff783",
+    "root": 2026101309051,
+    "blocks": 32,
+    "hands": 64,
+    "model_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+    "trace_sha256": {
+      "hands.jsonl.gz": "a92f72d673df506be41479db2ddd7b3890d78a9a995e97920c93afa720c547e8",
+      "decisions.jsonl.gz": "4f236b8cdba2f8f9a9d06c5b54f59aaa00bf9e22689506e4274a52f6647fefc8"
+    }
+  },
+  "branch": {
+    "source": "134719693a3204dedb0c92ba7b59f5add563837e",
+    "root": 2026101309051,
+    "blocks": 32,
+    "hands": 64,
+    "model_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+    "trace_sha256": {
+      "hands.jsonl.gz": "a92f72d673df506be41479db2ddd7b3890d78a9a995e97920c93afa720c547e8",
+      "decisions.jsonl.gz": "4f236b8cdba2f8f9a9d06c5b54f59aaa00bf9e22689506e4274a52f6647fefc8"
+    }
+  },
+  "all_equal": true
+}

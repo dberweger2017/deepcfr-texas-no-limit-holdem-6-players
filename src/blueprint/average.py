@@ -95,11 +95,26 @@ def checked_row(row, iteration, bounded=True):
 
 
 
+def missing_check_call(view, menu):
+    """PR251's diagnostic_action(view, 'call'): check if legal, else call.
+
+    Sampling this point mass still consumes one draw, as PR251's override did.
+    Stored rows, including zero-mass rows, never use this distribution.
+    """
+    from src.game.types import Action, ActionKind
+    kind = ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL
+    action = Action(kind)
+    if sum(c.action == action for c in menu) != 1:
+        raise ValueError('Missing-key check/call action is absent or ambiguous')
+    return tuple(float(c.action == action) for c in menu)
+
+
 class AveragePolicy(FrozenBlueprint):
     """Read stored averages with the same observation/key/menu inference as current policies."""
-    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None, sorted_rows: bool = False, card_buckets=None, cache=None):
+    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None, sorted_rows: bool = False, card_buckets=None, cache=None, missing_key_fallback="uniform", cache_read_only=False):
         """With `cache`, a folder: rows parse once into a verified binary cache there, and later loads
         map it instead (see policy_cache). Hash, header and tables are checked either way."""
+        self.configure_missing_key_fallback(missing_key_fallback)
         if file_hash(path)!=expected_sha256:raise ValueError('Diagnostic average hash differs')
         # Compact storage: a 10B-node average needs about 50 bytes per key instead of about 800.
         rows=CompactBuilder();count=0
@@ -112,6 +127,8 @@ class AveragePolicy(FrozenBlueprint):
             if (metadata.get('format')!=format_for_schema(expected_schema) or metadata.get('kind')!='diagnostic-inference'
                 or metadata.get('extraction')!=extraction):raise ValueError('Unknown diagnostic extraction')
             cached=None if cache is None else policy_cache.load(cache,expected_sha256,expected_schema)
+            if cache_read_only and cached is None:
+                raise ValueError("Read-only policy cache is missing")
             for line in source if cached is None else ():
                 key,names,p,total,visits=json.loads(line)
                 checked_row([key,names,[0]*len(names),[total/len(names)]*len(names),visits],header['iteration'],rule=='traverser-reach')
@@ -140,7 +157,18 @@ class AveragePolicy(FrozenBlueprint):
         if self.equity_cards is not None:
             self.description["card_tables"] = dict(self.equity_cards.sha256)
         if zero_mass!='uniform':self.description['zero_mass_rule']=zero_mass
+        self.configure_missing_key_fallback(missing_key_fallback)
         self.configure_translation(translation)
+
+
+    def configure_missing_key_fallback(self, option: str):
+        """Omitted metadata means uniform, preserving legacy default trace bytes."""
+        if option not in ('uniform', 'check-call'):
+            raise ValueError('Unknown missing-key fallback')
+        self.missing_key_fallback = option
+        if hasattr(self, 'description'):
+            if option == 'uniform': self.description.pop('missing_key_fallback', None)
+            else: self.description['missing_key_fallback'] = option
 
 
     def configure_translation(self, options: TranslationOptions | None):
@@ -177,16 +205,20 @@ class AveragePolicy(FrozenBlueprint):
         probabilities = (1 / len(menu),) * len(menu) if saved is None else saved[1]
         if saved is not None and saved[0] != tuple(c.name for c in menu):
             raise ValueError("Blueprint action labels differ from the observation")
+        if self.missing_key_fallback != 'uniform':
+            applied = saved is None
+            if applied: probabilities = missing_check_call(view, menu)
+            info.update(missing_key_fallback=self.missing_key_fallback, fallback_applied=applied)
         info['lookup_seconds'] = perf_counter() - started
         return menu, probabilities, known, info
 
     def policy(self, seed: int):
-        if self.translation is None and not getattr(self, "record_translation", False):
+        if self.missing_key_fallback == "uniform" and self.translation is None and not getattr(self, "record_translation", False):
             return super().policy(seed)
         return _AveragePlayer(self, seed)
 
     def distribution(self, view):
-        if self.translation is None and not getattr(self, "record_translation", False):
+        if self.missing_key_fallback == "uniform" and self.translation is None and not getattr(self, "record_translation", False):
             return super().distribution(view)
         menu, probabilities, known, _ = self.distribution_with_telemetry(view)
         return menu, probabilities, known
@@ -195,5 +227,9 @@ class AveragePolicy(FrozenBlueprint):
 class _AveragePlayer(_Player):
     def choose_action(self, view):
         self.last_decision = self.blueprint.distribution_with_telemetry(view)
-        menu, probabilities, _, _ = self.last_decision
+        menu, probabilities, _, info = self.last_decision
+        if info.get('fallback_applied'):
+            if not hasattr(self, 'fallback_decisions_by_street'): self.fallback_decisions_by_street = {}
+            street = view.street.value
+            self.fallback_decisions_by_street[street] = self.fallback_decisions_by_street.get(street, 0) + 1
         return self.random.choices(menu, weights=probabilities, k=1)[0].action

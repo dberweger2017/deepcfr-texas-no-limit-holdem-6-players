@@ -1,0 +1,158 @@
+{
+  "archive": "PR-267-HU200-missing-key-fallback in Research-Cloud if M1 on normal network; otherwise retained server paths/hashes for owner",
+  "cost_admission": {
+    "counts_reduced": false,
+    "guard_summary": {
+      "max_active_workers": 4,
+      "max_owned_family_pss_bytes": 2078509056,
+      "max_owned_family_rss_bytes": 3364548608,
+      "max_swap_growth_bytes": 176128,
+      "min_available_bytes": 7730638848,
+      "min_disk_free_bytes": 95732748288,
+      "readings": 19
+    },
+    "method": "Keep measured load/validation constant. Scale primary play, replay and reproduction play by block ratio. Greedy four-worker schedule; conservatively scale the full replay cost again for serial readout, including fixed table verification.",
+    "outcomes_inspected": false,
+    "paired_sd_bb_per_100": {
+      "check_call": 0.0,
+      "direct": 1575.6824350429972,
+      "half_pot_pressure": 1925.0,
+      "loose_aggressive": 0.0,
+      "matched_pot_pressure": 0.0,
+      "pot_pressure": 2338.6248195525045,
+      "random": 4824.736749027934,
+      "tight_aggressive": 0.0
+    },
+    "pilot_source": "d8199c8dd4b7b5f8099a37d8d4cb6acbb9f9f058",
+    "pilot_wall_seconds": 97.3878412200138,
+    "projected_jobs_seconds": {
+      "check_call": 1965.2293394980952,
+      "direct": 5072.042179449461,
+      "half_pot_pressure": 1483.7307014195248,
+      "loose_aggressive": 1597.7766125295311,
+      "matched_pot_pressure": 1273.1529970774427,
+      "pot_pressure": 1465.8942009964958,
+      "random": 1310.2813046006486,
+      "tight_aggressive": 1241.489012026228
+    },
+    "projected_sequential_readout_seconds": 8588.898770809174,
+    "projected_total_wall_seconds": 13660.940950258635,
+    "projected_worker_loads_seconds": [
+      5072.042179449461,
+      3238.382336575538,
+      4149.546929156408,
+      2949.6249024160206
+    ]
+  },
+  "environment": "/home/davide/deepcfr-eval/missing-key-cc/venv",
+  "guards": {
+    "disk_free_stop_bytes": 20000000000,
+    "memory_available_stop_bytes": 2000000000,
+    "memory_sustain_seconds": 60,
+    "retain_every_reading": true,
+    "seconds_between_readings": 5,
+    "swap_growth_stop_bytes": 1000000000
+  },
+  "inputs_read_only": [
+    "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+    "/home/davide/deepcfr-slumbot/inputs/tables",
+    "/home/davide/deepcfr-slumbot/cache"
+  ],
+  "jobs": [
+    {
+      "blocks": 131072,
+      "name": "direct",
+      "root": 2026101309001
+    },
+    {
+      "blocks": 16384,
+      "name": "random",
+      "opponent": "random",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "check_call",
+      "opponent": "check_call",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "tight_aggressive",
+      "opponent": "tight_aggressive",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "loose_aggressive",
+      "opponent": "loose_aggressive",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "pot_pressure",
+      "opponent": "pot_pressure",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "half_pot_pressure",
+      "opponent": "half_pot_pressure",
+      "root": 2026101309002
+    },
+    {
+      "blocks": 16384,
+      "name": "matched_pot_pressure",
+      "opponent": "matched_pot_pressure",
+      "root": 2026101309002
+    }
+  ],
+  "main_base": "c53f7935",
+  "models": [
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 2221370011,
+      "card_buckets": "/home/davide/deepcfr-slumbot/inputs/tables",
+      "entries": 85373907,
+      "format": "holdem-hu200-stored-cfr-average-research-v1",
+      "iteration": 493496,
+      "missing_key_fallback": "check-call",
+      "name": "k50-752m-cc",
+      "path": "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+      "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+      "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+    },
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 2221370011,
+      "card_buckets": "/home/davide/deepcfr-slumbot/inputs/tables",
+      "entries": 85373907,
+      "format": "holdem-hu200-stored-cfr-average-research-v1",
+      "iteration": 493496,
+      "missing_key_fallback": "uniform",
+      "name": "k50-752m-plain",
+      "path": "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+      "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+      "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+    }
+  ],
+  "nice_launch": 10,
+  "output": "/home/davide/deepcfr-eval/missing-key-cc/final",
+  "owner_merge": true,
+  "phase": "final",
+  "rules": {
+    "confirm_slumbot": "direct paired lower nominal 95% > 0 AND no scripted paired upper nominal 95% < -20 BB/100",
+    "direct": "two seat rotations per independent duplicate block; candidate chips averaged within block; BB/100 equals chips/hand at BB=100",
+    "failure": "stop; retain partials; no failed-hand reruns, count extensions or optional stopping",
+    "intervals": "nominal Student t 95% across independent paired block contrasts; also report seven-panel Bonferroni intervals descriptively",
+    "readout": "only after all final hands independently replay and exactly reproduce actions, menus, probabilities, telemetry, events and settlements",
+    "scripted": "same deal, button and policy streams for candidate/baseline, two seat rotations; contrast per independent block"
+  },
+  "server_root": "/home/davide/deepcfr-eval/missing-key-cc",
+  "source": "134719693a3204dedb0c92ba7b59f5add563837e",
+  "specs_sha256": "36c726c9a397701fa5171c10ca31b3d111434b489013d517e1b344cf4e35b1f4",
+  "training": false,
+  "translation": null,
+  "wall_seconds_cap": 43200,
+  "workers": 4
+}

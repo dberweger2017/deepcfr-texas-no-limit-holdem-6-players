@@ -55,10 +55,12 @@ def load_player(args):
     if args.model is None:
         player = RandomLegal(args.seed) if args.player == 'random' else CheckCall()
         return player, player, {'player': player.name, **({'policy_seed': args.seed} if args.player == 'random' else {})}
-    model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache)
+    model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
+                          missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
-                                            'abstraction': model.abstraction, 'description': model.description}
+                                            'abstraction': model.abstraction, 'description': model.description,
+                                            **({'missing_key_fallback': args.missing_key_fallback} if args.missing_key_fallback != 'uniform' else {})}
 
 
 def say(message):
@@ -85,6 +87,10 @@ def main():
     parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--policy-cache', type=Path,
                         help='folder for a verified binary cache of the model: the first load writes it, later ones take seconds')
+    parser.add_argument('--cache-read-only', action='store_true',
+                        help='require an existing verified cache; never create it')
+    parser.add_argument('--missing-key-fallback', choices=('uniform', 'check-call'), default='uniform',
+                        help='missing keys only; omitted identity fields mean uniform')
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
@@ -106,6 +112,10 @@ def main():
         parser.error('--player is for scripted players; a --model plays itself')
     if args.card_buckets is not None and args.model is None:
         parser.error('--card-buckets needs a K50 --model')
+    if args.missing_key_fallback != 'uniform' and args.model is None:
+        parser.error('--missing-key-fallback needs --model')
+    if args.cache_read_only and (args.model is None or args.policy_cache is None):
+        parser.error('--cache-read-only needs --model and --policy-cache')
     args.out.mkdir(parents=True)
     # Ask and check the credentials before the model loads, so nobody waits minutes to learn of
     # a typo; the playing session logs in again after the load, so it starts fresh.
@@ -199,6 +209,9 @@ def main():
                'journal_sha256': hashlib.sha256((args.out / 'journal.jsonl').read_bytes()).hexdigest(),
                'latency_seconds': {'median': latencies[len(latencies) // 2], 'p90': latencies[int(len(latencies) * 0.9)],
                                    'max': latencies[-1]} if latencies else None}
+    if args.missing_key_fallback != 'uniform':
+        summary['fallback_decisions_by_street'] = {s: getattr(player, 'fallback_decisions_by_street', {}).get(s, 0)
+            for s in ('preflop', 'flop', 'turn', 'river')}
     (args.out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
     print(json.dumps({k: summary[k] for k in ('hands', 'bb_per_100', 'stopped', 'requests', 'abandoned_hands', 'rejected_hands')}))
     if stop is not None and stop != 'time limit':
