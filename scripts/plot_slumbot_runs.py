@@ -67,7 +67,7 @@ def main():
         axis.grid(alpha=0.3)
     left.set_ylabel('Cumulative winnings (big blinds)')
     right.set_ylabel('BB/100 so far, with 95% band')
-    left.legend(loc='lower left', fontsize=9)
+    left.legend(loc='upper right', fontsize=9)
     figure.suptitle(args.title)
     figure.tight_layout()
     figure.savefig(args.out, dpi=130)
