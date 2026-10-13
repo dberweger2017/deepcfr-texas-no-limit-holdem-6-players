@@ -1,0 +1,22 @@
+{
+  "decision": "primary passes; tight/loose severe safeguards fail; no candidate recommendation",
+  "scientific_source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+  "scope": [
+    "resolved native schema logging; no game/regret changes",
+    "v2 auditor schema admission and wrong-schema refusal",
+    "guard sampling/deadline extension retains prior defaults and process creation-time validation",
+    "inherited paired Student-t estimates on complete duplicate blocks",
+    "pre-outcome root/count/model freeze and exact PR readback",
+    "every-row checkpoint/current/average audit",
+    "final trace pins rebound after independent replay and exact reproduction",
+    "report counts, density, cap arithmetic and decision rule against receipts"
+  ],
+  "status": "reviewed-no-open-findings",
+  "storage": "All four ZIPs have complete local member readback, current native acceptance and independent Drive metadata confirmation; new remote bytes not downloaded",
+  "validation": {
+    "focused_m4_tests": 55,
+    "initial_head_ci": "five checks green; results-head CI pending",
+    "results_head_ci": "all five checks green on dac51cc537d39aa9faacb1c17e0b9610cda0f3b0; storage-only commit requires final CI",
+    "skips": 0
+  }
+}

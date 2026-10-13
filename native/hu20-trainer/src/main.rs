@@ -162,6 +162,8 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             resolved["seed"] = serde_json::json!(trainer.seed);
             resolved["roots_per_seat"] = serde_json::json!(trainer.roots_per_seat);
             resolved["average_rule"] = serde_json::json!(trainer.average.name());
+            resolved["schema"] = serde_json::json!(hu20_trainer::key::schema(
+                trainer.game, trainer.cards.tables().is_some(), trainer.menu));
             resolved["recovery"] = serde_json::json!(recovery);
             eprintln!("{}", command.config);
             let started = std::time::Instant::now();

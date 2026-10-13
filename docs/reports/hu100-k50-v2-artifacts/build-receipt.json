@@ -1,0 +1,22 @@
+{
+  "binary": "native/hu20-trainer/target/release/hu20-trainer",
+  "binary_bytes": 1470592,
+  "binary_sha256": "88771739f1056dd8ccef4830f26396716a1d4b48f4f1be79a417a722b8a7b542",
+  "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2",
+  "linker": "@(#)PROGRAM:ld PROJECT:ld-1266.8",
+  "native_tree": "cdc4a468a79a48ce4681b3155159cff9f392e930",
+  "native_tree_clean": true,
+  "remapped_prefixes": [
+    "native",
+    "cargo-home"
+  ],
+  "rustc": [
+    "rustc 1.89.0 (29483883e 2025-08-04)",
+    "binary: rustc",
+    "commit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2",
+    "commit-date: 2025-08-04",
+    "host: aarch64-apple-darwin",
+    "release: 1.89.0",
+    "LLVM version: 20.1.7"
+  ]
+}

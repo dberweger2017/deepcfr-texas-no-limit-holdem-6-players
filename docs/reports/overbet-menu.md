@@ -1,6 +1,6 @@
 # Overbet menu: half-pot, 1.5× and 2× pot raises
 
-[#251](hu100-pot-pressure-diagnosis.md) found bet size to be the main reason HU100 releases lose to the scripted pot-pressure opponent: when it raises 1× pot instead of 1.5×, v0.5.2 gains +72.36 [58.58, 86.13] BB/100. Our menu offers min-raise, pot and a conditional all-in, so overbets never appear in training. This adds a second menu with **half-pot, 1.5× pot and 2× pot** raises, for the native trainer and the Python key. It is engineering only: no model is trained with it yet, and v1 stays the production menu.
+[#251](hu100-pot-pressure-diagnosis.md) found bet size to be the main reason HU100 releases lose to the scripted pot-pressure opponent: when it raises 1× pot instead of 1.5×, v0.5.2 gains +72.36 [58.58, 86.13] BB/100. The v1 menu offers min-raise, pot and a conditional all-in, so overbets never appear in v1 training. This adds a second menu with **half-pot, 1.5× pot and 2× pot** raises, for the native trainer and the Python key. The original change was engineering only; [#260's first capped K50-v2 training](hu100-k50-v2.md) now tests it. v1 stays the production menu.
 
 ## The menu
 
@@ -51,7 +51,9 @@ HU100, seed 11, opponent-sampled, 20M nodes on the M1:
 | Entries | 4,908,887 | 8,560,900 (1.74×) |
 | Training time | 10.5 s | 9.8 s |
 
-Speed per node is unchanged, but each iteration's tree is about three times larger, because the traverser explores every action at its decisions. At equal nodes, v2 therefore runs about a third as many iterations and stores about 1.7× the keys. Whether it learns as well per node is the open question for the first v2 training run. HU100 v2 at 1B should need roughly 65–70M entries, which fits the M4; K50 with v2 reaches the M4's cap sooner.
+Speed per node is unchanged in this small comparison, but each iteration's tree is about three times larger, because the traverser explores every action at its decisions. At equal nodes in that witness, v2 runs about a third as many iterations and stores about 1.7× the keys. Those ratios are not a reliable large K50 capacity forecast: #260 reaches 97,290,578 entries at only 332,894,788 nodes under its measured fixed cap.
+
+The first capped K50-v2 run reduces the pot-pressure contrast from #254's −85.00 to **−17.85 [−60.10,24.41] BB/100**, descriptively closing **79%** of the earlier point gap. Complete removal is unproved, and the model fails the v0.5.3 candidate rule because tight- and loose-aggressive contrasts are severe regressions. It beats both v0.5.2 and K50 v1 1B directly, while training at roughly one third of the latter's node budget. Whether v2 learns as well at matched nodes or visits remains open; this single capped model cannot answer that question. [Full audits, frozen contrasts and limits](hu100-k50-v2.md).
 
 ## Use
 

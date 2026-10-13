@@ -1,0 +1,34 @@
+{
+  "command": "train",
+  "options": {
+    "average_rule": "opponent-sampled",
+    "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+    "card_tables_unpinned": false,
+    "completed_nodes": null,
+    "initial_iteration": 0,
+    "initial_nodes": 0,
+    "iterations": 0,
+    "max_entries": 100000000,
+    "max_seconds": "inf",
+    "menu": "v2",
+    "milestones": [
+      20000000
+    ],
+    "nodes": 20000000,
+    "out": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/gates/fresh20m.gz",
+    "recovery": true,
+    "regret_floor": null,
+    "resume": null,
+    "resume_sha256": null,
+    "roots_per_seat": 1,
+    "schema": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+    "seed": 2026100601,
+    "stack_bb": 100,
+    "stop_file": null,
+    "telemetry": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/gates/fresh20m.telemetry.jsonl"
+  },
+  "positionals": [],
+  "requested": {
+    "milestones": []
+  }
+}

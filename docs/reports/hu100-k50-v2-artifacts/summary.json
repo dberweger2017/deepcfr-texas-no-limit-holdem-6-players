@@ -1,0 +1,404 @@
+{
+  "all_hands_replayed_and_reproduced": true,
+  "canonical_plan_sha256": "392f189eeb4d9dd115e35dfcb40b9cd8979b32e79d048de022aa61ec5c4a7030",
+  "fraction_of_prior_pot_gap_closed": 0.7900390625,
+  "gap_closed_scope": "descriptive only; different deals from #254",
+  "primary": {
+    "bb_per_100": 186.46526336669922,
+    "blocks": 131072,
+    "ci95": [
+      174.51859727586555,
+      198.4119294575329
+    ],
+    "coverage": {
+      "k50-v2/flop": {
+        "decisions": 140861,
+        "lookup": {
+          "missing-key": 134,
+          "positive-mass-known-key": 140583,
+          "zero-mass": 144
+        },
+        "visit_bands": {
+          "0": 1934,
+          "1-9": 18922,
+          "10-99": 61765,
+          "100+": 58240
+        }
+      },
+      "k50-v2/preflop": {
+        "decisions": 283843,
+        "lookup": {
+          "missing-key": 20,
+          "positive-mass-known-key": 283769,
+          "zero-mass": 54
+        },
+        "visit_bands": {
+          "0": 790,
+          "1-9": 10581,
+          "10-99": 77382,
+          "100+": 195090
+        }
+      },
+      "k50-v2/river": {
+        "decisions": 35406,
+        "lookup": {
+          "missing-key": 3340,
+          "positive-mass-known-key": 30926,
+          "zero-mass": 1140
+        },
+        "visit_bands": {
+          "0": 12304,
+          "1-9": 13861,
+          "10-99": 7355,
+          "100+": 1886
+        }
+      },
+      "k50-v2/turn": {
+        "decisions": 76818,
+        "lookup": {
+          "missing-key": 1215,
+          "positive-mass-known-key": 75030,
+          "zero-mass": 573
+        },
+        "visit_bands": {
+          "0": 7795,
+          "1-9": 27029,
+          "10-99": 28615,
+          "100+": 13379
+        }
+      },
+      "v052/flop": {
+        "decisions": 144598,
+        "lookup": {
+          "missing-key": 49344,
+          "positive-mass-known-key": 95252,
+          "zero-mass": 2
+        },
+        "visit_bands": {
+          "0": 49349,
+          "1-9": 136,
+          "10-99": 1143,
+          "100+": 93970
+        }
+      },
+      "v052/preflop": {
+        "decisions": 281763,
+        "lookup": {
+          "missing-key": 49547,
+          "positive-mass-known-key": 232162,
+          "zero-mass": 54
+        },
+        "visit_bands": {
+          "0": 49547,
+          "1-9": 6,
+          "10-99": 988,
+          "100+": 231222
+        }
+      },
+      "v052/river": {
+        "decisions": 36980,
+        "lookup": {
+          "missing-key": 18974,
+          "positive-mass-known-key": 17993,
+          "zero-mass": 13
+        },
+        "visit_bands": {
+          "0": 18989,
+          "1-9": 214,
+          "10-99": 1282,
+          "100+": 16495
+        }
+      },
+      "v052/turn": {
+        "decisions": 79608,
+        "lookup": {
+          "missing-key": 35420,
+          "positive-mass-known-key": 44167,
+          "zero-mass": 21
+        },
+        "visit_bands": {
+          "0": 35454,
+          "1-9": 330,
+          "10-99": 2147,
+          "100+": 41677
+        }
+      }
+    },
+    "sd": 2206.7319704783363
+  },
+  "recommend_candidate": false,
+  "scripted_absolute": {
+    "k50_v2": {
+      "check_call": {
+        "bb_per_100": 361.309814453125,
+        "blocks": 4096,
+        "ci95": [
+          301.85370828435737,
+          420.76592062189263
+        ],
+        "sd": 1940.8857127356084
+      },
+      "loose_aggressive": {
+        "bb_per_100": -203.851318359375,
+        "blocks": 4096,
+        "ci95": [
+          -258.58363424032945,
+          -149.11900247842055
+        ],
+        "sd": 1786.682256263849
+      },
+      "pot_pressure": {
+        "bb_per_100": -48.42529296875,
+        "blocks": 4096,
+        "ci95": [
+          -84.18714950469742,
+          -12.663436432802584
+        ],
+        "sd": 1167.4103954016057
+      },
+      "random": {
+        "bb_per_100": 184.039306640625,
+        "blocks": 4096,
+        "ci95": [
+          112.47887892141682,
+          255.59973435983318
+        ],
+        "sd": 2336.0193041100924
+      },
+      "tight_aggressive": {
+        "bb_per_100": -62.75634765625,
+        "blocks": 4096,
+        "ci95": [
+          -92.24886372891908,
+          -33.263831583580924
+        ],
+        "sd": 962.7539838479667
+      }
+    },
+    "v052_on": {
+      "check_call": {
+        "bb_per_100": 115.7958984375,
+        "blocks": 4096,
+        "ci95": [
+          93.15073285761373,
+          138.44106401738625
+        ],
+        "sd": 739.2290072238414
+      },
+      "loose_aggressive": {
+        "bb_per_100": 56.524658203125,
+        "blocks": 4096,
+        "ci95": [
+          24.371187197719728,
+          88.67812920853027
+        ],
+        "sd": 1049.618222762657
+      },
+      "pot_pressure": {
+        "bb_per_100": -30.57861328125,
+        "blocks": 4096,
+        "ci95": [
+          -61.72994221690239,
+          0.5727156544023835
+        ],
+        "sd": 1016.904287211721
+      },
+      "random": {
+        "bb_per_100": 113.751220703125,
+        "blocks": 4096,
+        "ci95": [
+          41.631575212207494,
+          185.8708661940425
+        ],
+        "sd": 2354.2744145328575
+      },
+      "tight_aggressive": {
+        "bb_per_100": 38.037109375,
+        "blocks": 4096,
+        "ci95": [
+          20.914490649756207,
+          55.1597281002438
+        ],
+        "sd": 558.9509335527632
+      }
+    }
+  },
+  "scripted_differences": {
+    "check_call": {
+      "bb_per_100": 245.513916015625,
+      "blocks": 4096,
+      "ci95": [
+        189.12642290352284,
+        301.90140912772716
+      ],
+      "sd": 1840.7138780263158
+    },
+    "loose_aggressive": {
+      "bb_per_100": -260.3759765625,
+      "blocks": 4096,
+      "ci95": [
+        -318.1613938955768,
+        -202.5905592294232
+      ],
+      "sd": 1886.3477300023462
+    },
+    "pot_pressure": {
+      "bb_per_100": -17.8466796875,
+      "blocks": 4096,
+      "ci95": [
+        -60.10470686979622,
+        24.411347494796217
+      ],
+      "sd": 1379.4714536754489
+    },
+    "random": {
+      "bb_per_100": 70.2880859375,
+      "blocks": 4096,
+      "ci95": [
+        19.966809309922276,
+        120.60936256507773
+      ],
+      "sd": 1642.688247626733
+    },
+    "tight_aggressive": {
+      "bb_per_100": -100.79345703125,
+      "blocks": 4096,
+      "ci95": [
+        -130.66927875322165,
+        -70.91763530927834
+      ],
+      "sd": 975.2666172220814
+    }
+  },
+  "secondary": {
+    "bb_per_100": 192.7074432373047,
+    "blocks": 131072,
+    "ci95": [
+      180.51732454946202,
+      204.89756192514736
+    ],
+    "coverage": {
+      "k50-v1-1b/flop": {
+        "decisions": 144288,
+        "lookup": {
+          "missing-key": 49567,
+          "positive-mass-known-key": 94671,
+          "zero-mass": 50
+        },
+        "visit_bands": {
+          "0": 49569,
+          "1-9": 117,
+          "10-99": 3442,
+          "100+": 91160
+        }
+      },
+      "k50-v1-1b/preflop": {
+        "decisions": 287377,
+        "lookup": {
+          "missing-key": 51114,
+          "positive-mass-known-key": 236176,
+          "zero-mass": 87
+        },
+        "visit_bands": {
+          "0": 51119,
+          "1-9": 149,
+          "10-99": 3455,
+          "100+": 232654
+        }
+      },
+      "k50-v1-1b/river": {
+        "decisions": 34731,
+        "lookup": {
+          "missing-key": 17915,
+          "positive-mass-known-key": 16782,
+          "zero-mass": 34
+        },
+        "visit_bands": {
+          "0": 17958,
+          "1-9": 701,
+          "10-99": 3333,
+          "100+": 12739
+        }
+      },
+      "k50-v1-1b/turn": {
+        "decisions": 77378,
+        "lookup": {
+          "missing-key": 34955,
+          "positive-mass-known-key": 42375,
+          "zero-mass": 48
+        },
+        "visit_bands": {
+          "0": 34964,
+          "1-9": 399,
+          "10-99": 3790,
+          "100+": 38225
+        }
+      },
+      "k50-v2/flop": {
+        "decisions": 140670,
+        "lookup": {
+          "missing-key": 191,
+          "positive-mass-known-key": 140319,
+          "zero-mass": 160
+        },
+        "visit_bands": {
+          "0": 2140,
+          "1-9": 19779,
+          "10-99": 62000,
+          "100+": 56751
+        }
+      },
+      "k50-v2/preflop": {
+        "decisions": 293951,
+        "lookup": {
+          "missing-key": 30,
+          "positive-mass-known-key": 293849,
+          "zero-mass": 72
+        },
+        "visit_bands": {
+          "0": 1047,
+          "1-9": 12278,
+          "10-99": 83796,
+          "100+": 196830
+        }
+      },
+      "k50-v2/river": {
+        "decisions": 33302,
+        "lookup": {
+          "missing-key": 3077,
+          "positive-mass-known-key": 29105,
+          "zero-mass": 1120
+        },
+        "visit_bands": {
+          "0": 11460,
+          "1-9": 13403,
+          "10-99": 7166,
+          "100+": 1273
+        }
+      },
+      "k50-v2/turn": {
+        "decisions": 74736,
+        "lookup": {
+          "missing-key": 1123,
+          "positive-mass-known-key": 72931,
+          "zero-mass": 682
+        },
+        "visit_bands": {
+          "0": 7720,
+          "1-9": 26777,
+          "10-99": 28394,
+          "100+": 11845
+        }
+      }
+    },
+    "sd": 2251.7013891455176
+  },
+  "severe_regressions": {
+    "check_call": false,
+    "loose_aggressive": true,
+    "pot_pressure": false,
+    "random": false,
+    "tight_aggressive": true
+  },
+  "status": "verified"
+}

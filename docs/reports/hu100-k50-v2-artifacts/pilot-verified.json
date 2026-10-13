@@ -1,0 +1,51 @@
+{
+  "at": 1791901708.158439,
+  "outcomes_inspected": false,
+  "paired_scripted_sds": {
+    "check_call": 2424.1880275683966,
+    "loose_aggressive": 1545.3550934433642,
+    "pot_pressure": 1378.9724363303026,
+    "random": 1126.8720645226713,
+    "tight_aggressive": 1359.5989370374095
+  },
+  "quotes": {
+    "k50_v2": {
+      "blocks": 64,
+      "hands_replayed": 1280,
+      "load_seconds": 406.7445548750111,
+      "play_seconds": 3.055713249981636,
+      "replay_seconds": 1.0269057909899857,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 2.960053874994628
+    },
+    "primary": {
+      "blocks": 1024,
+      "load_seconds": 703.9983221669972,
+      "paired_sd_bb_per_100": 2121.015014559456,
+      "play_seconds": 2.37014391599223,
+      "replay_seconds": 1.5539935829874594,
+      "reproduction_seconds": 1.9713430000119843,
+      "reproduction_validation_seconds": 1.696229041001061
+    },
+    "secondary": {
+      "blocks": 1024,
+      "load_seconds": 631.6091337499965,
+      "paired_sd_bb_per_100": 2207.1234202881656,
+      "play_seconds": 2.514773124974454,
+      "replay_seconds": 2.0626406669907738,
+      "reproduction_seconds": 1.96342858299613,
+      "reproduction_validation_seconds": 1.4769629160000477
+    },
+    "v052_on": {
+      "blocks": 64,
+      "hands_replayed": 1280,
+      "load_seconds": 291.8625119169883,
+      "play_seconds": 2.8987994999915827,
+      "replay_seconds": 0.5289745409972966,
+      "reproduced_all_hands_and_decisions": true,
+      "reproduction_seconds": 2.905840084014926
+    }
+  },
+  "source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+  "status": "verified"
+}

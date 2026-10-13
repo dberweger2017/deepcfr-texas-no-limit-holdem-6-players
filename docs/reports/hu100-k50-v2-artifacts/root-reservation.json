@@ -1,0 +1,25 @@
+{
+  "at": 1791891453.426839,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu100-k50-v2",
+      "headRefOid": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+      "number": 260,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260"
+    }
+  ],
+  "pr": 260,
+  "roots": [
+    20261013170101,
+    20261013170102,
+    20261013170103,
+    20261013170104,
+    20261013170105
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "f4049b545fd106c8c3ba93d6045a417ef497306e"
+  }
+}

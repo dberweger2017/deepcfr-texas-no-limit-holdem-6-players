@@ -1,0 +1,39 @@
+{
+  "at": 1791901723.221359,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu200-evaluation-harness",
+      "headRefOid": "f0b3d46f7d3b2dec95b6bba38bb9d6f1f2bf6047",
+      "number": 263,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/263"
+    },
+    {
+      "headRefName": "feature/native-frozen-table",
+      "headRefOid": "e7798c7f18ce81f65a8b5c5e9ac145ea03f58d52",
+      "number": 262,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/262"
+    },
+    {
+      "headRefName": "feature/hu100-k50-v2",
+      "headRefOid": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+      "number": 260,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260"
+    }
+  ],
+  "pr": 260,
+  "roots": [
+    20261013170101,
+    20261013170102,
+    20261013170103,
+    20261013170104,
+    20261013170105
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "ac19e29abb89b90312ebab4bf68036c3964df482",
+    "pr262": "e7798c7f18ce81f65a8b5c5e9ac145ea03f58d52",
+    "pr263": "f0b3d46f7d3b2dec95b6bba38bb9d6f1f2bf6047"
+  }
+}

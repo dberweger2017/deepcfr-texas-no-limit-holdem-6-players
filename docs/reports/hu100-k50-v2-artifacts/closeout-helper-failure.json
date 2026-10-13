@@ -1,0 +1,5 @@
+{
+  "scope": "administrative only; no scientific stage rerun",
+  "error": "ModuleNotFoundError: No module named scripts",
+  "resolution": "Corrected repository import path with PYTHONPATH=. before any sidecar archival"
+}
