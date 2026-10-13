@@ -1,0 +1,6 @@
+{
+  "main_source": "7b0090242767bfe93e24a7501a4a87664bef7f9d",
+  "native_tree_matches_current_main_at_setup": "25aafbce93956aa54cf885c7275cbe73581810e0",
+  "review": "Own controller/protocol review: fresh fixed-seed 1B targets, R4/R8 only recipe change, current/average all-row audits before play, verified released R1 control, translation off, exact final counts, source/plan publication admission, independent direct replay and reproduction, nominal loss upper bound. No native/src/direct-harness or rules/information/regret math changes. No open findings.",
+  "tests": "6 guard tests passed; CLI imports/help pass. Existing unchanged native/direct parity checks are covered by CI."
+}

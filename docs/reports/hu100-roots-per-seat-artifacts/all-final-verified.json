@@ -1,0 +1,21 @@
+{
+  "blocks": 131072,
+  "costs": {
+    "r4-r1": {
+      "load_seconds": 337.22996029199567,
+      "play_seconds": 264.9950915000227,
+      "repeat_seconds": 287.8303678329976,
+      "replay_seconds": 146.45336829099688
+    },
+    "r8-r1": {
+      "load_seconds": 342.1292372919852,
+      "play_seconds": 262.7358335829922,
+      "repeat_seconds": 286.52688266700716,
+      "replay_seconds": 144.7747947500029
+    }
+  },
+  "payoffs_inspected": false,
+  "root": 20261013200102,
+  "source": "f2115d717a96f5c876a5cb3b7c963d6094abd38c",
+  "status": "verified"
+}

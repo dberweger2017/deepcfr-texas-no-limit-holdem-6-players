@@ -1,0 +1,27 @@
+{
+  "direct_folder_membership_confirmed": true,
+  "files": [
+    {
+      "can_download": true,
+      "can_list_children": false,
+      "created_time": "2026-10-13T05:07:31.512Z",
+      "current_user_can_share": null,
+      "display_url": "https://drive.google.com/file/d/15tR8XDQYQBiGnrUWEiKNVmsQZTH9sMP7/view?usp=drivesdk",
+      "drive_id": null,
+      "file_or_folder": "file",
+      "has_augmented_permissions": null,
+      "id": "15tR8XDQYQBiGnrUWEiKNVmsQZTH9sMP7",
+      "mime_type": "application/zip",
+      "modified_time": "2026-10-13T05:08:19.456Z",
+      "parent_ids": null,
+      "permissions": null,
+      "shared": false,
+      "size": "11077001012",
+      "source_visibility_status": "not_shared",
+      "title": "hu100-roots-per-seat-full-M4-20261013.zip",
+      "url": "https://drive.google.com/file/d/15tR8XDQYQBiGnrUWEiKNVmsQZTH9sMP7/view?usp=drivesdk"
+    }
+  ],
+  "folder_url": "https://drive.google.com/drive/folders/1LlouorCRi7j694cs-yIruLHOJbGBY5yR",
+  "remote_archive_bytes_downloaded": false
+}

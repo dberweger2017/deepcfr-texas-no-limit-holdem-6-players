@@ -1,0 +1,5 @@
+{
+  "note": "Cleanup dependency wording describes B\u2019s declared independent v0.5.0 input. At cleanup, B had not downloaded any model; prepare subsequently verified a fresh v0.5.0 download before all B training/play. No B job depends on the removed A copies. Original cleanup receipt/source retained unchanged.",
+  "cleanup_receipt": "a-cleanup-receipt.json",
+  "prepare_receipt": "operations/prepare/receipt.json"
+}
