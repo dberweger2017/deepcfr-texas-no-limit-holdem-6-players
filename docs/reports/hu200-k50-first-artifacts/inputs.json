@@ -1,0 +1,44 @@
+{
+  "archive": {
+    "bytes": 1991949530,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+    "sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca"
+  },
+  "archive_id": "1gwungsUq-b9uey8InGy0yOD2GbaMRhp- (folder; exact archive indexed in RESULTS_INDEX)",
+  "max_entries": 85373862,
+  "owner": {
+    "mergedAt": "2026-10-05T08:15:20Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163"
+  },
+  "retrieval_command": [
+    "tar",
+    "-xzf",
+    "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+    "-C",
+    "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables",
+    "--strip-components",
+    "1",
+    "hu20-equity-buckets-20261005/flop-k50.bin",
+    "hu20-equity-buckets-20261005/turn-k50.bin",
+    "hu20-equity-buckets-20261005/river-k50.bin"
+  ],
+  "status": "verified",
+  "tables": {
+    "flop": {
+      "bytes": 12867944,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/flop-k50.bin",
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    "river": {
+      "bytes": 1231562564,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/river-k50.bin",
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    "turn": {
+      "bytes": 139600524,
+      "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/turn-k50.bin",
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    }
+  }
+}

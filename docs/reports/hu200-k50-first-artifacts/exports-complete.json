@@ -1,0 +1,24 @@
+{
+  "exports": [
+    {
+      "actual_nodes": 752593175,
+      "audit": {
+        "bytes": 1498,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.audit.json",
+        "sha256": "2f788bd124f2b64c9f45ca881bb77cce8c753bfaf900e36f9fd06f45a57bf5b0"
+      },
+      "average": {
+        "bytes": 2221370011,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.average.gz",
+        "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+      },
+      "current": {
+        "bytes": 2124578171,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.current.gz",
+        "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+      },
+      "requested_nodes": 1000000000
+    }
+  ],
+  "status": "fully-audited"
+}
