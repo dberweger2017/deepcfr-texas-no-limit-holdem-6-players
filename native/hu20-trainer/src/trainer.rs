@@ -329,7 +329,11 @@ mod frozen_tests {
                 reference.iteration = frozen.iteration;
                 reference.nodes = frozen.nodes;
                 let previous: Table = frozen.table.iter().collect();
+                let previous_discards = frozen.frozen_table.unwrap().discarded_traverser_visits;
+                let previous_misses: u64 = frozen.missing_traverser_by_street.iter().sum();
                 let nodes = frozen.step();
+                assert_eq!(frozen.frozen_table.unwrap().discarded_traverser_visits - previous_discards,
+                    frozen.missing_traverser_by_street.iter().sum::<u64>() - previous_misses);
                 assert_eq!(reference.step(), nodes);
                 assert_eq!(frozen.table.len(), before.len());
                 for (key, node) in frozen.table.iter() {

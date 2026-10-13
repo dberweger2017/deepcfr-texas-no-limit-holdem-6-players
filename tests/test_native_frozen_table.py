@@ -161,3 +161,14 @@ def test_frozen_exports_load_extract_and_audit_in_python(tmp_path, monkeypatch, 
     assert trainer.evaluation_only and len(trainer.nodes) == len(rows)
     with pytest.raises(ValueError, match='evaluation only'):
         trainer.step()
+
+
+def test_python_frozen_traverser_reach_checkpoint_cannot_grow(tmp_path):
+    from src.blueprint.artifact import load_training
+    checkpoint = tmp_path/'traverser.gz'
+    subprocess.run([str(BINARY), 'train', '--nodes', '100000', '--max-entries', '2000',
+                    '--freeze-at-cap', '--out', str(checkpoint)], check=True, capture_output=True)
+    trainer = load_training(checkpoint)
+    assert trainer.evaluation_only
+    with pytest.raises(ValueError, match='evaluation only'):
+        trainer.step()
