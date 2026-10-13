@@ -36,16 +36,20 @@ def revision():
 def pin(path): return {'path':str(path),'bytes':path.stat().st_size,'sha256':file_hash(path)}
 
 
-def prepare(pr):
+def prepare(pr, *, repair=False):
     BASE.mkdir(parents=True,exist_ok=True)
-    reserve([PILOT_ROOT,FINAL_ROOT],pr,BASE/'root-reservation.json')
+    reserve([PILOT_ROOT,FINAL_ROOT],pr,BASE/('root-reservation-repair.json' if repair else 'root-reservation.json'))
     models = {}; receipts = {}
     for label,tag,source in [('v052','v0.5.2','3a3bc4218bab96637d6a27a69b73383ee8bb196c'),
                              ('v051','v0.5.1','dca7547e6eca82ce77f3e42230b82fabc1c29a4c')]:
         release_owner = json.loads(subprocess.check_output(['gh','pr','view',str(RELEASES[tag]['provenance']['pr']),'--repo',REPO,'--json','state,mergedAt,url'],text=True))
         if release_owner['state']!='MERGED': raise ValueError('Released research model owner must be merged')
-        dest = BASE/'releases'/tag; dest.mkdir(parents=True,exist_ok=False)
-        subprocess.run(['gh','release','download',tag,'--repo',REPO,'--dir',str(dest)],check=True)
+        dest = BASE/'releases'/tag
+        if not repair:
+            dest.mkdir(parents=True,exist_ok=False)
+            subprocess.run(['gh','release','download',tag,'--repo',REPO,'--dir',str(dest)],check=True)
+        elif not dest.is_dir():
+            raise ValueError('Repair may only reverify the existing complete release downloads')
         subprocess.run([sys.executable,str(dest/'verify_hu100_bundle.py'),str(dest),'--expect-source',source,'--require-publication'],check=True)
         item = RELEASES[tag]['model']; path = dest/item['file']
         models[label] = dict(pin(path),name=label,format=item['format'],abstraction=HU100_SCHEMA,
@@ -57,13 +61,14 @@ def prepare(pr):
     asset = next(a for a in index['models'] if a['kind']=='average' and a['actual_nodes']>=2_000_000_000)
     archive = Path(index['archives']['averages']['path'])
     if file_hash(archive)!=index['archives']['averages']['sha256']: raise ValueError('K50 archive hash differs')
-    dest = BASE/'k50'; dest.mkdir(exist_ok=False)
+    dest = BASE/'k50'; dest.mkdir(exist_ok=repair)
+    member = 'averages/'+Path(asset['member']).name
     with ZipFile(archive) as zipped:
         manifest = json.loads(zipped.read('ARCHIVE-MANIFEST.json'))
-        recorded = manifest['members'][asset['member']]
+        recorded = manifest['members'][member]
         if recorded['sha256']!=asset['sha256'] or recorded['bytes']!=asset['bytes']: raise ValueError('K50 member index differs')
         path = dest/'average.gz'
-        with zipped.open(asset['member']) as raw,path.open('xb') as output:
+        with zipped.open(member) as raw,path.open('xb') as output:
             import shutil; shutil.copyfileobj(raw,output,1024**2)
     if file_hash(path)!=asset['sha256'] or path.stat().st_size!=asset['bytes']: raise ValueError('K50 restored bytes differ')
     tables = BASE/'tables'; tables.mkdir(exist_ok=False)
@@ -78,7 +83,7 @@ def prepare(pr):
     models['k50'] = dict(pin(path),name='k50',format='holdem-hu100-stored-cfr-average-research-v1',abstraction=HU100_EQUITY_SCHEMA,
                          entries=asset['entries'],iteration=asset['iterations'],source_checkpoint_sha256=next(a['sha256'] for a in index['models'] if a['kind']=='checkpoint' and a['actual_nodes']==asset['actual_nodes']),card_buckets=str(tables))
     put(BASE/'inputs.json',{'models':models,'release_receipts':receipts,'k50_owner':owner,'k50_archive':index['archives']['averages'],
-                           'k50_asset':asset,'tables':table_pins,'table_owner':table_owner,'source':revision()})
+                           'k50_asset':dict(asset,small_archive_member=member),'tables':table_pins,'table_owner':table_owner,'source':revision()})
 
 
 def specs(): return read(BASE/'inputs.json')['models']
@@ -168,9 +173,10 @@ def readout():
 
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__); p.add_argument('operation',choices=('prepare','pilot','freeze','final','readout')); p.add_argument('--pr',type=int)
+    p = argparse.ArgumentParser(description=__doc__); p.add_argument('operation',choices=('prepare','prepare-repair','pilot','freeze','final','readout')); p.add_argument('--pr',type=int)
     a = p.parse_args()
     if a.operation=='prepare': prepare(a.pr)
+    elif a.operation=='prepare-repair': prepare(a.pr,repair=True)
     elif a.operation=='freeze': freeze(a.pr)
     elif a.operation=='pilot': play(True)
     elif a.operation=='final': play(False)
