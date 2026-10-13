@@ -1,0 +1,25 @@
+{
+  "at": 1791906992.609728,
+  "files": {
+    "closeout": {
+      "id": "1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg",
+      "parent_ids": [
+        "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+      ],
+      "size": "16200",
+      "title": "hu100-k50-v2-archive-closeout.zip",
+      "url": "https://drive.google.com/file/d/1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg/view?usp=drivesdk"
+    }
+  },
+  "folder": {
+    "id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "title": "PR-260-hu100-k50-v2",
+    "url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+  },
+  "method": "Connected Drive folder discovery and independent files.get metadata; main/average not yet listed",
+  "remote_archive_bytes_downloaded": false,
+  "status": "pending"
+}

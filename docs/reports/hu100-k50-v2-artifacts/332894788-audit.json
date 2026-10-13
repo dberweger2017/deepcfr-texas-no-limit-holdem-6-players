@@ -1,0 +1,68 @@
+{
+  "audit": {
+    "all_nodes_verified": 97290578,
+    "average_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+    "checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+    "counts": {
+      "entries": 97290578,
+      "positive_mass": 64311578,
+      "zero_mass": 32979000
+    },
+    "current_sha256": "b97e553a0aedc79e57fd7631858df9ac031ea1480e7af4a7fa1c14ead787a49b",
+    "maximum_tv": 1.0000000000000002,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.2047275452103834
+  },
+  "entries": 97290578,
+  "files": {
+    "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz": {
+      "bytes": 2363005114,
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc"
+    },
+    "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.checkpoint.gz": {
+      "bytes": 3488922486,
+      "sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+    },
+    "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.current.gz": {
+      "bytes": 2287740050,
+      "sha256": "b97e553a0aedc79e57fd7631858df9ac031ea1480e7af4a7fa1c14ead787a49b"
+    }
+  },
+  "hu20_reference_checked": false,
+  "iteration": 104400,
+  "mean_traverser_visits_per_key": 0.6597644429658954,
+  "native_state": {
+    "completed_nodes": 332894788,
+    "coverage_start": [
+      0,
+      0,
+      0
+    ],
+    "decisions_by_street": [
+      8319510,
+      25573817,
+      53133549,
+      97261538
+    ],
+    "traverser_visits_by_street": [
+      2832705,
+      9043597,
+      18651061,
+      33661501
+    ],
+    "version": 1
+  },
+  "positive_average_mass_keys": 64311578,
+  "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+  "stack_bb": 100,
+  "status": "verified",
+  "visits_histogram": {
+    "0": 55253722,
+    "1": 33494665,
+    "10-99": 379481,
+    "100+": 2200,
+    "2-9": 8160510
+  },
+  "zero_average_mass_keys": 32979000
+}

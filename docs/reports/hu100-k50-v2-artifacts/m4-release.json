@@ -1,0 +1,17 @@
+{
+  "all_stage_guards_complete": true,
+  "at": 1791906821.235671,
+  "caffeinate_left_running": true,
+  "final_hands_replayed_and_reproduced": true,
+  "local_archives_fully_read_back": true,
+  "native_training_workers": [],
+  "owned_campaign_workers": [],
+  "pr_release_confirmed_madrid": "2026-10-13 17:54 CEST",
+  "pr_release_posting_pending": false,
+  "pr_release_readback_verified": true,
+  "pr_release_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260",
+  "research_lock_free": true,
+  "status": "verified-available-for-training",
+  "upload_background_may_continue": true,
+  "utc": "2026-10-13T15:53:41.235671+00:00"
+}

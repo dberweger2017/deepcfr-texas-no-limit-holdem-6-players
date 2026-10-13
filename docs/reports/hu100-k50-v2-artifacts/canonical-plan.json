@@ -1,0 +1,242 @@
+{
+  "all_final_hands_replayed_before_readout": true,
+  "arms": {
+    "k50_v2": [
+      "k50-v2",
+      null
+    ],
+    "v052_on": [
+      "v052",
+      {
+        "max_events": 128,
+        "max_states": 512
+      }
+    ]
+  },
+  "conditional_on": "fixed models and training seed; no seed-population claim",
+  "counts": {
+    "primary": 131072,
+    "scripted": 4096,
+    "secondary": 131072
+  },
+  "decision_rule": "recommend v0.5.3 candidate only if primary nominal paired Student-t95 lower>0 AND no scripted paired95 upper<-20 BB/100; owner decides",
+  "guard_rule": "5s retained samples;60s sustained RSS>13GiB/critical pressure/free<8%/swap growth>4GB;disk<16GiB immediate;7h deadline",
+  "models": {
+    "k50-v1-1b": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-v1",
+      "actual_nodes": 1000000678,
+      "bytes": 1484184622,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 52786090,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 935476,
+      "name": "k50-v1-1b",
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/models/1000000000.average.gz",
+      "sha256": "8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5",
+      "source_checkpoint_sha256": "6ee9413c01978a5910974de3f1f300616198538f2fad15d0d134f10ce68271b8"
+    },
+    "k50-v2": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "k50-v2",
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+    },
+    "v052": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 2121415396,
+      "entries": 70466972,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 3716073,
+      "name": "v052",
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368"
+    }
+  },
+  "no_failed_hand_reruns": true,
+  "no_outcome_extension": true,
+  "opponents": [
+    "random",
+    "check_call",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure"
+  ],
+  "pilot": {
+    "at": 1791901708.158439,
+    "outcomes_inspected": false,
+    "paired_scripted_sds": {
+      "check_call": 2424.1880275683966,
+      "loose_aggressive": 1545.3550934433642,
+      "pot_pressure": 1378.9724363303026,
+      "random": 1126.8720645226713,
+      "tight_aggressive": 1359.5989370374095
+    },
+    "quotes": {
+      "k50_v2": {
+        "blocks": 64,
+        "hands_replayed": 1280,
+        "load_seconds": 406.7445548750111,
+        "play_seconds": 3.055713249981636,
+        "replay_seconds": 1.0269057909899857,
+        "reproduced_all_hands_and_decisions": true,
+        "reproduction_seconds": 2.960053874994628
+      },
+      "primary": {
+        "blocks": 1024,
+        "load_seconds": 703.9983221669972,
+        "paired_sd_bb_per_100": 2121.015014559456,
+        "play_seconds": 2.37014391599223,
+        "replay_seconds": 1.5539935829874594,
+        "reproduction_seconds": 1.9713430000119843,
+        "reproduction_validation_seconds": 1.696229041001061
+      },
+      "secondary": {
+        "blocks": 1024,
+        "load_seconds": 631.6091337499965,
+        "paired_sd_bb_per_100": 2207.1234202881656,
+        "play_seconds": 2.514773124974454,
+        "replay_seconds": 2.0626406669907738,
+        "reproduction_seconds": 1.96342858299613,
+        "reproduction_validation_seconds": 1.4769629160000477
+      },
+      "v052_on": {
+        "blocks": 64,
+        "hands_replayed": 1280,
+        "load_seconds": 291.8625119169883,
+        "play_seconds": 2.8987994999915827,
+        "replay_seconds": 0.5289745409972966,
+        "reproduced_all_hands_and_decisions": true,
+        "reproduction_seconds": 2.905840084014926
+      }
+    },
+    "source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+    "status": "verified"
+  },
+  "pr": 260,
+  "projected_total_seconds": 17668.577259263322,
+  "projection_rule": "elapsed + 1.25*(measured load/validation and scaled play/replay/reproduction) + 1800s closeout; halve primary once if requested projection exceeds 5h",
+  "requested_projection_seconds": 18611.85413910199,
+  "roots": {
+    "pilot": 20261013170102,
+    "primary": 20261013170103,
+    "scripted": 20261013170105,
+    "secondary": 20261013170104,
+    "smoke": 20261013170101
+  },
+  "source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+  "tables": {
+    "flop": {
+      "bytes": 12867944,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables/flop-k50.bin",
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    "river": {
+      "bytes": 1231562564,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables/river-k50.bin",
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    "turn": {
+      "bytes": 139600524,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables/turn-k50.bin",
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    }
+  },
+  "training": {
+    "cap": 97290497,
+    "reached_1b": false,
+    "returncode": 3,
+    "specs": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "actual_nodes": 332894788,
+        "bytes": 2363005114,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 104400,
+        "name": "k50-v2",
+        "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+        "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+      }
+    ],
+    "telemetry": [
+      {
+        "audit_status": "unaudited",
+        "binary_sha256": "88771739f1056dd8ccef4830f26396716a1d4b48f4f1be79a417a722b8a7b542",
+        "checkpoint_bytes": 3488922486,
+        "checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+        "completed_nodes": 332894788,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            8319510,
+            25573817,
+            53133549,
+            97261538
+          ],
+          "entries": 97290578,
+          "positive_average_mass_keys": 64311578,
+          "traverser_visits": 64188864,
+          "traverser_visits_by_street": [
+            2832705,
+            9043597,
+            18651061,
+            33661501
+          ],
+          "visits_histogram": {
+            "0": 55253722,
+            "1": 33494665,
+            "10-99": 379481,
+            "100+": 2200,
+            "2-9": 8160510
+          },
+          "zero_average_mass_keys": 32979000
+        },
+        "elapsed_seconds_including_writes": 485.853896792,
+        "entries_per_completed_node": 0.29225623682639335,
+        "iteration": 104400,
+        "new_entries": 97290578,
+        "nodes_per_second_including_writes": 685174.6794623659,
+        "nodes_since_previous_save": 332894788,
+        "overshoot_nodes": 0,
+        "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/requested-500000000.gz",
+        "process_rss_bytes_after_save": 1695498240,
+        "recent_nodes_per_second_including_writes": 685174.6794623659,
+        "requested_nodes": 500000000,
+        "status": "incomplete-target",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791895551.527497,
+        "write_seconds": 328.372937958,
+        "write_started": 1791895223.155377
+      }
+    ],
+    "terminal": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "k50-v2",
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+    }
+  },
+  "translation_direct": null
+}

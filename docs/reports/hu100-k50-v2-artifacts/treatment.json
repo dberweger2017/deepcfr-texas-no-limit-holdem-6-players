@@ -1,0 +1,89 @@
+{
+  "cap": 97290497,
+  "reached_1b": false,
+  "returncode": 3,
+  "specs": [
+    {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "k50-v2",
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+    }
+  ],
+  "telemetry": [
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "88771739f1056dd8ccef4830f26396716a1d4b48f4f1be79a417a722b8a7b542",
+      "checkpoint_bytes": 3488922486,
+      "checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+      "completed_nodes": 332894788,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          8319510,
+          25573817,
+          53133549,
+          97261538
+        ],
+        "entries": 97290578,
+        "positive_average_mass_keys": 64311578,
+        "traverser_visits": 64188864,
+        "traverser_visits_by_street": [
+          2832705,
+          9043597,
+          18651061,
+          33661501
+        ],
+        "visits_histogram": {
+          "0": 55253722,
+          "1": 33494665,
+          "10-99": 379481,
+          "100+": 2200,
+          "2-9": 8160510
+        },
+        "zero_average_mass_keys": 32979000
+      },
+      "elapsed_seconds_including_writes": 485.853896792,
+      "entries_per_completed_node": 0.29225623682639335,
+      "iteration": 104400,
+      "new_entries": 97290578,
+      "nodes_per_second_including_writes": 685174.6794623659,
+      "nodes_since_previous_save": 332894788,
+      "overshoot_nodes": 0,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/requested-500000000.gz",
+      "process_rss_bytes_after_save": 1695498240,
+      "recent_nodes_per_second_including_writes": 685174.6794623659,
+      "requested_nodes": 500000000,
+      "status": "incomplete-target",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791895551.527497,
+      "write_seconds": 328.372937958,
+      "write_started": 1791895223.155377
+    }
+  ],
+  "terminal": {
+    "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+    "actual_nodes": 332894788,
+    "bytes": 2363005114,
+    "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+    "entries": 97290578,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "iteration": 104400,
+    "name": "k50-v2",
+    "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+    "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+    "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+  }
+}

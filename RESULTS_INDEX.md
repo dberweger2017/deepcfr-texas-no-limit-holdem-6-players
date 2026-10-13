@@ -1,3 +1,49 @@
+## PR260 — capped HU100 K50 overbet menu (October 13)
+
+[PR260](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260), [report](docs/reports/hu100-k50-v2.md). **Final scientific evidence; main/average cloud upload acceptance pending.** Source `d7e03e36bdaed5f3d8972d4320cc04ce73289325`, base current main `f4049b545fd106c8c3ba93d6045a417ef497306e`; run `results/hu100-k50-v2` on M4. The fixed cap stops at **332,894,788 actual nodes /97,290,578 entries**; 500M/1B unreached. All terminal current/average rows audit, exact 20M recovery passes, and all **688,128** final harness hands independently replay and exactly reproduce. Pot contrast −17.85 [−60.10,24.41] descriptively closes 79% of #254's earlier point gap; tight/loose severe regressions fail the candidate rule. No release/default/tag/merge.
+
+Destination: `~/Local/Research-Cloud/PR-260-hu100-k50-v2/`, observed [Drive folder](https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx), ID `1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx`; independently confirmed parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. **Main and average ZIP Drive IDs remain pending, not invented.**
+
+| Archive | Bytes | Whole SHA256 | Embedded ARCHIVE-MANIFEST.json SHA256 | Members |
+|---|---:|---|---|---:|
+| hu100-k50-v2-evidence.zip | 10,465,963,508 | `e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce` | `c9d7e039c5febb4587917abb4aa7069bea6d2bb6a8c0f579191a3741db21ccb3` | 542 |
+| hu100-k50-v2-terminal-average.zip | 2,363,016,534 | `f80a243a58542d92653323701956b8f919b35cd238d7a165cfdf4efe06df1ca2` | `357d31fced09b5b7deca257746a65e234dd498949119eb45f9f99cec5c3ddde1` | 1 |
+| hu100-k50-v2-archive-closeout.zip | 16,200 | `cf0657237b0a8843f3bd53ff6a096c2e3e79c4967ecef12894034b98b7c382bd` | `407a97b7a2e38ec71b274b219d4ca9adc48ddacd469bb11eeedbe09ab4c34ffd` | 9 |
+
+Every member of all three locally sealed ZIPs was read back against exact size/SHA256 pins, followed by whole-archive hashing. The 542-member main ZIP retains training/gates, native binary, source snapshot, plans, all original/reproduced traces, independent replays and five-second resource streams. The separate average ZIP contains only `averages/332894788.average.gz` plus its manifest. The 9-member closeout ZIP preserves the otherwise excluded, closed archive guard readings and post-seal receipts. [Sealing receipts](docs/reports/hu100-k50-v2-artifacts/model-index.json), [closeout receipt](docs/reports/hu100-k50-v2-artifacts/closeout-archive-receipt.json).
+
+Closeout ZIP cloud ID/name/size/direct parent were independently confirmed: [hu100-k50-v2-archive-closeout.zip](https://drive.google.com/file/d/1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg/view?usp=drivesdk), ID `1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg`. Main and average native state is uploaded0/uploading1; missing conflict fields are retained as null, never presumed zero. Upload acceptance is pending. [Current native status](docs/reports/hu100-k50-v2-artifacts/native-upload-current.json) and [cloud metadata snapshot](docs/reports/hu100-k50-v2-artifacts/cloud-upload-acceptance.json) distinguish native pending, cloud locators and local integrity. **New remote archive bytes were not downloaded or re-audited.**
+
+Required new model members (actual-node names):
+
+| Model | Full ZIP member | Bytes | SHA256 |
+|---|---|---:|---|
+| checkpoint | `research/training/332894788.checkpoint.gz` | 3,488,922,486 | `202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f` |
+| current | `research/training/332894788.current.gz` | 2,287,740,050 | `b97e553a0aedc79e57fd7631858df9ac031ea1480e7af4a7fa1c14ead787a49b` |
+| average | `research/training/332894788.average.gz` | 2,363,005,114 | `96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc` |
+
+The average-only member `averages/332894788.average.gz` has the same 2,363,005,114 bytes /SHA256 `96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc`. [Exact restoration index](docs/reports/hu100-k50-v2-artifacts/model-index.json).
+
+Existing inputs are **references, not repacked payloads**. The #246 K50 v1 1B average was restored from the already accepted [averages ZIP](https://drive.google.com/file/d/14qFPvcNiJYorBapxb7QW9bxOyn1mxbIn/view), whole SHA256 `278e2b004cd883f47a6742415c29c12a4712b51380ab79745ba245908babd82c`, manifest `7840c4f40015bfb018b7febd1f1f04762c587794be3f7390dfbda8b8c46bf915`; member `averages/1000000000.average.gz`, **1,484,184,622 bytes**, SHA256 `8a6867b9419db7b71ecb8f347908f6d5094509a184ddc8f85d22e898d260a1f5`. The #246 full ZIP /`research/gates/fresh20m.gz` was independently restored and hash-verified solely to read the pinned lineage recipe. [#246 model/archive restoration commands and hashes](docs/reports/hu100-k50-2b-artifacts/model-index.json), [this run's verified retrieval receipts/header](docs/reports/hu100-k50-v2-artifacts/inputs.json).
+
+The unchanged #163 table members and published v0.5.2 model use the exact accepted records/retrieval commands in [PR254's input index](#pr254--hu100-k50-2b-versus-released-v052-october-13), [input receipt](docs/reports/hu100-k50-vs-v052-artifacts/inputs.json). All original/copied table and model hashes were verified before use. Released average: 2,121,415,396 bytes, SHA256 `0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0`, verified by its own publication verifier at source `3a3bc4218bab96637d6a27a69b73383ee8bb196c`. Input owners163/246/254/256/258 were currently merged before restoration; own PR260 is open and this archival is explicitly owner-authorized.
+
+Restore into a **fresh ignored nonsynced destination**; never overwrite an active input. Once uploaded, download the observed Drive ZIP link; with the retained mounted archive the commands are:
+
+```sh
+shasum -a 256 "$HOME/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-terminal-average.zip"
+python3 -m zipfile -e "$HOME/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-terminal-average.zip" results/retrieved/pr260-average
+shasum -a 256 results/retrieved/pr260-average/averages/332894788.average.gz
+shasum -a 256 "$HOME/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip"
+python3 -m zipfile -e "$HOME/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip" results/retrieved/pr260-full
+shasum -a 256 results/retrieved/pr260-full/research/training/332894788.checkpoint.gz results/retrieved/pr260-full/research/training/332894788.current.gz results/retrieved/pr260-full/research/training/332894788.average.gz
+python3 -m zipfile -e "$HOME/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-archive-closeout.zip" results/retrieved/pr260-closeout
+```
+
+Verify each ZIP against the whole hash above **before extraction**, then verify `ARCHIVE-MANIFEST.json` and each required member against the indexed manifest pins. Source restoration: clone the repository into a fresh checkout and `git checkout d7e03e36bdaed5f3d8972d4320cc04ce73289325`; scientific worker is `python -m scripts.run_hu100_k50_v2`, with all final roots and immutable counts in the archived canonical plan. Replay on restored copies, not the active output paths.
+
+There was no scientific failure, guard stop, failed-hand rerun or outcome extension. Administrative upload-field parsing and helper import-path errors were corrected and retained in compact receipts without rerunning science. SSH interruptions changed no campaign processes. All originals and active inputs remain. **M4 released on PR260 at 17:54 Madrid**, after verified worker exit, free research lock and full local readback; background uploads may continue. No synced deletion, eviction, forced offload or open-PR cleanup.
+
 ## PR253 first Slumbot benchmark of the 200M HU200 model — October 13, 2026
 
 [PR253](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/253): #248's 200M HU200 average against Slumbot's live API, 1,796 verified hands on the owner's account: **−103 ± 110 BB/100** raw, −112 ± 99 all-in adjusted. Plus 300 anonymous random-bot hands showing Slumbot's baseline follows the client's actions. [Report](docs/reports/hu200-200m-slumbot-benchmark.md).

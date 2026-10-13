@@ -1,0 +1,6 @@
+{
+  "at": 1791906821.175735,
+  "error": "ValueError: Missing native status field: hasUnresolvedConflicts",
+  "resolution": "Retain missing fields as null; acceptance stays false until all required fields and independent cloud metadata confirm upload",
+  "scope": "administrative upload-state parsing only; no scientific stage rerun"
+}

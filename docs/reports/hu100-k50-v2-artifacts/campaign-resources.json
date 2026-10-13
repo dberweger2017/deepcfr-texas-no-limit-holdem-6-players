@@ -1,0 +1,91 @@
+{
+  "all_readings_retained": true,
+  "campaign_finished": 1791905483.126119,
+  "campaign_seconds": 14034.486318826675,
+  "campaign_started": 1791891448.6398,
+  "guards": "60s sustained RSS>13GiB, critical pressure, free<8%, swap growth>4GB; disk<16GiB immediate;7h deadline",
+  "max_swap_growth_bytes": 250735493,
+  "min_disk_free_bytes": 46422913024,
+  "min_free_percent": 43,
+  "peak_family_rss_bytes": 11079237632,
+  "pressure_levels": [
+    1,
+    2
+  ],
+  "sample_seconds": 5,
+  "samples": 2783,
+  "stages": {
+    "archive": {
+      "failure": null,
+      "finished": 1791905483.126119,
+      "peak_family_rss_bytes": 201883648,
+      "samples": 13,
+      "seconds": 60.75962972640991,
+      "started": 1791905422.3664892,
+      "status": "complete"
+    },
+    "final": {
+      "failure": null,
+      "finished": 1791905411.040242,
+      "peak_family_rss_bytes": 11079237632,
+      "samples": 732,
+      "seconds": 3683.4782009124756,
+      "started": 1791901727.562041,
+      "status": "complete"
+    },
+    "gates": {
+      "failure": null,
+      "finished": 1791895061.919138,
+      "peak_family_rss_bytes": 2351153152,
+      "samples": 22,
+      "seconds": 105.92775583267212,
+      "started": 1791894955.9913821,
+      "status": "complete"
+    },
+    "pilot": {
+      "failure": null,
+      "finished": 1791901709.928543,
+      "peak_family_rss_bytes": 3524067328,
+      "samples": 411,
+      "seconds": 2066.013507127762,
+      "started": 1791899643.915036,
+      "status": "complete"
+    },
+    "prepare": {
+      "failure": null,
+      "finished": 1791894954.286189,
+      "peak_family_rss_bytes": 228048896,
+      "samples": 691,
+      "seconds": 3505.642657995224,
+      "started": 1791891448.643531,
+      "status": "complete"
+    },
+    "readout": {
+      "failure": null,
+      "finished": 1791905421.8915489,
+      "peak_family_rss_bytes": 230850560,
+      "samples": 3,
+      "seconds": 10.201543807983398,
+      "started": 1791905411.690005,
+      "status": "complete"
+    },
+    "smoke": {
+      "failure": null,
+      "finished": 1791899643.3365881,
+      "peak_family_rss_bytes": 4880793600,
+      "samples": 170,
+      "seconds": 851.8331341743469,
+      "started": 1791898791.503454,
+      "status": "complete"
+    },
+    "training": {
+      "failure": null,
+      "finished": 1791898790.840999,
+      "peak_family_rss_bytes": 8954380288,
+      "samples": 741,
+      "seconds": 3728.3178067207336,
+      "started": 1791895062.5231922,
+      "status": "complete"
+    }
+  }
+}

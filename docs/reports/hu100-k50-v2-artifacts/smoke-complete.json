@@ -1,0 +1,26 @@
+{
+  "direct": {
+    "blocks": 2,
+    "load_seconds": 421.4807130830013,
+    "paired_sd_bb_per_100": 3323.4018715767734,
+    "play_seconds": 0.0059295840037520975,
+    "replay_seconds": 0.9593522909854073,
+    "reproduction_seconds": 0.005178833001991734,
+    "reproduction_validation_seconds": 0.813244457996916
+  },
+  "exact_reproduction": true,
+  "independent_replay": true,
+  "mixed_v1_v2": true,
+  "scripted": {
+    "blocks": 2,
+    "hands_replayed": 40,
+    "load_seconds": 416.14821079198737,
+    "play_seconds": 2.194608457997674,
+    "replay_seconds": 0.5672246660105884,
+    "reproduced_all_hands_and_decisions": true,
+    "reproduction_seconds": 2.038341625011526
+  },
+  "status": "verified",
+  "telemetry": true,
+  "terminal_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc"
+}
