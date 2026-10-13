@@ -72,7 +72,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-- **HU200 K50 frozen continuation ([#265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265)), cloud closeout pending:** exact #250 reproduction continues to **20,000,002,032 nodes** with all **85,373,907 keys unchanged**; mean visits/key reaches 37.375 and zero-visit share falls to 16.57%. Both 5B/final exports audit every row and three ZIPs pass local readback; average-only cloud acceptance passes, full/closeout uploads remain pending. M4 compute released October 14 00:40 Madrid. [Protocol](docs/hu200-k50-frozen-protocol.md), [report](docs/reports/hu200-k50-frozen.md). Playing evaluation remains separate.
+- **HU200 K50 frozen continuation ([#265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265)), cloud closeout pending:** exact #250 reproduction continues to **20,000,002,032 nodes** with all **85,373,907 keys unchanged**; mean visits/key reaches 37.375 and zero-visit share falls to 16.57%. Both 5B/final exports audit every row and three ZIPs pass local readback; average-only and closeout cloud acceptance pass; full upload remains pending. M4 compute released October 14 00:40 Madrid. [Protocol](docs/hu200-k50-frozen-protocol.md), [report](docs/reports/hu200-k50-frozen.md). Playing evaluation remains separate.
 
 - **Uploaded cache pass (October 13 evening):** 32.176 GB released from nine uploaded archive caches and an inactive Rust debug cache; M1 59.940 GB /M4 73.163 GB free. Active frozen HU200 inputs remain; no research originals removed. [Receipt/restoration](docs/artifacts/storage-vacuum-20261013-evening.md).
 

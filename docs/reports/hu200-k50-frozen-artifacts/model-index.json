@@ -1,7 +1,10 @@
 {
   "archive_folder_id": "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK",
   "average_archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
-  "full_and_closeout_cloud_ids": null,
+  "full_and_closeout_cloud_ids": {
+    "closeout": "1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf",
+    "full": null
+  },
   "local_readback": "every member verified by original sealing; existing scientific payloads not rehashed at closeout",
   "owning_pr": 265,
   "remote_archive_bytes_downloaded": false,

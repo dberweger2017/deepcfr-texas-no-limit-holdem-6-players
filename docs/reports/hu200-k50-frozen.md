@@ -208,9 +208,9 @@ The supplement preserves the complete closed stage-2/retention readings,
 supervisor/retention/sealing receipts and the failed optional plotting attempt.
 The learning curve is retained as the table above and its exact JSON;
 the unavailable plotting dependency caused no scientific retry or model changes.
-The average-only ZIP has native uploaded1/uploading0/conflicts0 status and
-independent Drive ID/name/size/direct-parent confirmation. Full and closeout
-upload acceptance remain pending. [Native observation](hu200-k50-frozen-artifacts/native-upload-observation.json),
+The average-only and closeout ZIPs have native uploaded1/uploading0/conflicts0 status and
+independent Drive ID/name/size/direct-parent confirmation. Full upload
+acceptance remains pending. [Native observation](hu200-k50-frozen-artifacts/native-upload-observation.json),
 [independent metadata observation](hu200-k50-frozen-artifacts/cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified.
 

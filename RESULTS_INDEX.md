@@ -1,6 +1,6 @@
 ## PR265 — exact HU200 K50 frozen continuation (October 13–14)
 
-[PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265), [report](docs/reports/hu200-k50-frozen.md). **Scientific result final; full/closeout cloud acceptance pending.** M4 source `c53f7935ebbc45180e179e5a3aea74af48bff783`, run `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen`. Exact #250 20M recovery and 752M cap reproduction; frozen continuation reaches **20,000,002,032 nodes /16,670,844 iterations /85,373,907 unchanged keys**. Both 5B/final current and average exports pass every row. Playing evaluation is separate; no release/tag/default change. Scientific exports/audits finished within nine hours. M4 compute released October 14 **00:40:27 Madrid**; cloud acceptance and repository closeout remain.
+[PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265), [report](docs/reports/hu200-k50-frozen.md). **Scientific result final; full cloud acceptance pending.** M4 source `c53f7935ebbc45180e179e5a3aea74af48bff783`, run `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen`. Exact #250 20M recovery and 752M cap reproduction; frozen continuation reaches **20,000,002,032 nodes /16,670,844 iterations /85,373,907 unchanged keys**. Both 5B/final current and average exports pass every row. Playing evaluation is separate; no release/tag/default change. Scientific exports/audits finished within nine hours. M4 compute released October 14 **00:40:27 Madrid**; cloud acceptance and repository closeout remain.
 
 Destination `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`; [observed Drive folder](https://drive.google.com/drive/folders/1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK), ID `1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK`, independently confirmed parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
 
@@ -8,11 +8,11 @@ Destination `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`; [observed Drive f
 |---|---:|---|---|---:|---|
 | `hu200-k50-frozen-full-M4-20261013.zip` | 26,698,069,587 | `5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f` | `26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce` | 98 | Pending; uploading1, uploaded0; file ID unknown |
 | [hu200-k50-frozen-averages-M4-20261013.zip](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view?usp=drivesdk) | 5,921,067,848 | `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943` | `d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5` | 2 | Accepted; ID `1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh` |
-| `hu200-k50-frozen-closeout-M4-20261014.zip` | 5,996,895 | `f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0` | `2e797040d914d72a86a65b56748aa06746d66dc47f89d34da175665a9fa0fde5` | 27 | Pending; uploaded0/uploading0; file ID unknown |
+| [hu200-k50-frozen-closeout-M4-20261014.zip](https://drive.google.com/file/d/1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf/view?usp=drivesdk) | 5,996,895 | `f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0` | `2e797040d914d72a86a65b56748aa06746d66dc47f89d34da175665a9fa0fde5` | 27 | Accepted; ID `1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf` |
 
 All members of each local ZIP passed complete size/SHA256 readback, followed by whole hashing. [Local receipts](docs/reports/hu200-k50-frozen-artifacts/archive-receipt.json), [average receipt](docs/reports/hu200-k50-frozen-artifacts/averages-receipt.json), [closeout receipt](docs/reports/hu200-k50-frozen-artifacts/closeout-receipt.json). Primary ZIP snapshots the closed scientific prefix; the closeout ZIP supplies every closed stage2/retention resource reading, completion/sealing receipts and the original failed optional plotting attempt. Scientific bytes passed on their first attempt. Models, tables and partial closeout evidence remain in this campaign's unsynced root; only earlier frozen checkpoints were removed after verified successors. No synced deletion or eviction.
 
-[Native observation](docs/reports/hu200-k50-frozen-artifacts/native-upload-observation.json) records uploaded1/uploading0/conflicts0 for the averages ZIP. [Independent metadata](docs/reports/hu200-k50-frozen-artifacts/cloud-upload-observation.json) confirms its exact ID/name/size/direct parent. Full/closeout upload observations are pending, not accepted. Null file IDs are unknown. **Remote archive bytes were not downloaded or verified.**
+[Native observation](docs/reports/hu200-k50-frozen-artifacts/native-upload-observation.json) records uploaded1/uploading0/conflicts0 for the averages and closeout ZIPs. [Independent metadata](docs/reports/hu200-k50-frozen-artifacts/cloud-upload-observation.json) confirms their exact IDs/names/sizes/direct parent. The full upload observation remains pending, not accepted. Null file IDs are unknown. **Remote archive bytes were not downloaded or verified.**
 
 Required model members (exact pins also in the [model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json)):
 
@@ -55,7 +55,7 @@ with ZipFile(z) as archive:
 PY
 ```
 
-For the full ZIP use its filename/whole hash above and select the exact `research/…` model members from the table. For the closeout ZIP use its filename/whole hash and extract `research/stage2-resources.jsonl` and `research/retention-resources.jsonl`. Both await accepted Drive file locators; retain their current M4 originals in the meantime.
+For the full ZIP use its filename/whole hash above and select the exact `research/…` model members from the table. For the closeout ZIP use its filename/whole hash and extract `research/stage2-resources.jsonl` and `research/retention-resources.jsonl`. The full ZIP awaits an accepted Drive file locator; retain its current M4 originals in the meantime.
 
 
 ## PR265 M4 inactive-evidence cleanup — October 13, 2026
