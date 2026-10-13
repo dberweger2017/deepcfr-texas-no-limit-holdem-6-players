@@ -51,6 +51,8 @@ def replay_examples(root):
     for label, f in wanted.items():
         panel = root / 'inputs' / PREFIX / 'final/11042440' / f['opponent']
         plan = Plan.from_dict(json.loads((panel / 'manifest.json').read_text())['plan'])
+        if any(m.abstraction not in (None, HU100_SCHEMA) for m in plan.models):
+            raise ValueError('Archived HU100 examples support only the HU100 menu-v1 card schema')
         block = next(b for b in build_schedule(plan) if b.index == f['block'])
         archived = next(h for h in rows(panel / 'hands.jsonl') if
                         (h['arm'], h['block'], h['rotation']) == ('candidate', f['block'], f['rotation']))

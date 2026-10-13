@@ -90,6 +90,8 @@ def native_start(initial):
 
 
 def play_hand(model, root, opponent, block, seat, support_cache, search):
+    if getattr(model, "abstraction", HU200_SCHEMA) != HU200_SCHEMA:
+        raise ValueError("HU200 support-witness diagnosis supports only the HU200 menu-v1 card schema")
     deal = seed(root, 'deal', opponent, block)
     own_seed = seed(root, 'candidate', opponent, block, seat)
     rival_seed = seed(root, 'rival', opponent, block, seat)

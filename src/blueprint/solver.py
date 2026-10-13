@@ -29,7 +29,7 @@ from src.blueprint.abstraction import (
     SHORTSTACK_SEATS,
     SUPPORTED_SCHEMAS,
     Choice,
-    choices,
+    choices, menu_sizes,
     information_key,
 )
 from src.game.hand import Hand, Table, card_name
@@ -380,7 +380,8 @@ def _collect_root(
             counts = work["decisions_by_street_raise_count"]
             counts[work_label] = counts.get(work_label, 0) + 1
         menu = choices(view, raise_cap=config.raise_cap,
-                       free_fold=config.abstraction not in SHORTSTACK_SEATS)
+                       free_fold=config.abstraction not in SHORTSTACK_SEATS,
+                       menu_sizes=menu_sizes(config.abstraction))
         key = information_key(view, menu, schema=config.abstraction)
         policy, trained = _distribution(frozen_nodes, key, menu)
         label = f"{view.street.value}:{'trained' if trained else 'fallback'}"

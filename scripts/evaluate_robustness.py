@@ -14,7 +14,7 @@ from scripts.evaluate_hu20 import rss,system,write_json
 from scripts.tp20_common import interruptible,seal
 from src.arena.catalog import Checkpoint
 from src.arena.schedule import digest,stream_seed
-from src.blueprint.abstraction import choices,information_key,HU20_SCHEMA,TP20_SCHEMA
+from src.blueprint.abstraction import menu_sizes, choices,information_key,HU20_SCHEMA,TP20_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint,HU20_FORMAT,TP20_FORMAT
 from src.blueprint.windowed import _hash
 from src.diagnostics.robustness import LocalBestResponse,LBRConfig,ReactiveAttack
@@ -66,7 +66,9 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
             if hand.finished:break
             view=hand.observe(hand.actor);who=logical[view.seat]
             original_menu=choices(view,free_fold=False)
-            target_menu=choices(view,raise_cap=getattr(source,'raise_cap',2),free_fold=False)
+            target_menu=choices(view,raise_cap=getattr(source,'raise_cap',2),free_fold=False,
+                                menu_sizes=menu_sizes(getattr(source, "abstraction",
+                                    spec.get("abstraction", HU20_SCHEMA if n == 2 else TP20_SCHEMA))))
             menu=original_menu;trained=None
             begin=perf_counter()
             if who==0:

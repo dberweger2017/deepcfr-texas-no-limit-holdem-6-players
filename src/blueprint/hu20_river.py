@@ -70,6 +70,9 @@ def public_ranges(blueprint, root_history, check=lambda: None):
     Zero on-menu likelihood stays zero. Off-menu raises use the existing
     corrected likelihood kernel, explicitly counted; no actions are translated.
     """
+    from src.blueprint.abstraction import MENU_V2_SCHEMAS
+    if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+        raise ValueError("Search does not support menu-v2 schemas")
     view = replay(root_history, 0, ())
     pairs = tuple(combinations((c for c in DECK if c not in view.board), 2))
     ranges = {}; counts = Counter()
@@ -97,6 +100,9 @@ def public_ranges(blueprint, root_history, check=lambda: None):
 class RiverProfileCache:
     """Bounded source-specific full-profile cache; no private holding/RNG keys."""
     def __init__(self, blueprint, entries=8):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Search does not support menu-v2 schemas")
         self.blueprint = blueprint
         self.identity = digest(getattr(blueprint, "description", {"fixture": type(blueprint).__name__}))
         self.entries = entries
@@ -112,6 +118,9 @@ class RiverProfileCache:
 
 class HU20RiverPlayer:
     def __init__(self, blueprint, seed, config=HU20RiverConfig(), cache=None, deadline=None):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Search does not support menu-v2 schemas")
         self.blueprint = blueprint; self.config = config; self.random = Random(seed)
         self.cache = cache if cache is not None else RiverProfileCache(blueprint, config.cache_entries)
         if self.cache.blueprint is not blueprint:

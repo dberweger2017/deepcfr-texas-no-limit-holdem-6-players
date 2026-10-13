@@ -5,7 +5,7 @@ from math import isfinite
 from string import hexdigits
 
 from src.blueprint.abstraction import (
-    BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA, SHORTSTACK_SEATS, LEGACY_LOOKUP, SCHEMA, choices, information_key,
+    BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA, SHORTSTACK_SEATS, LEGACY_LOOKUP, SCHEMA, choices, menu_sizes, information_key,
 )
 from src.blueprint.solver import regret_match
 from src.game.types import ActionKind
@@ -97,7 +97,8 @@ class TableDistribution:
         if view.capacity != trainer.table.capacity:
             raise ValueError("Blueprint table size differs from the search table")
         menu = choices(view, raise_cap=trainer.config.raise_cap,
-                       free_fold=trainer.config.abstraction not in SHORTSTACK_SEATS)
+                       free_fold=trainer.config.abstraction not in SHORTSTACK_SEATS,
+                       menu_sizes=menu_sizes(trainer.config.abstraction))
         node = trainer.nodes.get(self.key(view, menu))
         if node is not None and node.names != tuple(item.name for item in menu):
             raise ValueError("Blueprint action labels differ from the observation")

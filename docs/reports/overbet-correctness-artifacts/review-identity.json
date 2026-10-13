@@ -1,0 +1,157 @@
+{
+  "bench": {
+    "main": {
+      "iteration-2/base.average-opponent-sampled.json": "0bf246b53d7c4443b5c6ccc6408c70061c901454816129c1f56adbe90072ebbb",
+      "iteration-2/base.average-traverser-reach.json": "df0dea9ba1dc1452dafa2e9499d77a0a94bab967897d761eef80ff8bbc7d24a3",
+      "iteration-2/base.current.json": "aa5bb902d4632e9d0829293941b7941b5378f8302a0bbd0c83fefb5295754e78",
+      "iteration-3/base.average-opponent-sampled.json": "1dcf0eb41558b82502166e73087d2f6105692ac4d6fc8cda1065c902f7fbcac9",
+      "iteration-3/base.average-traverser-reach.json": "701704456c77246096558944ec1d21f575db2628241bd5d3fb5c3cc36dc94587",
+      "iteration-3/base.current.json": "8ece20bd76b96f1359507fb2b55ff2a798037713261fa15ffeaa55c82ca891df"
+    },
+    "review": {
+      "iteration-2/base.average-opponent-sampled.json": "0bf246b53d7c4443b5c6ccc6408c70061c901454816129c1f56adbe90072ebbb",
+      "iteration-2/base.average-traverser-reach.json": "df0dea9ba1dc1452dafa2e9499d77a0a94bab967897d761eef80ff8bbc7d24a3",
+      "iteration-2/base.current.json": "aa5bb902d4632e9d0829293941b7941b5378f8302a0bbd0c83fefb5295754e78",
+      "iteration-3/base.average-opponent-sampled.json": "1dcf0eb41558b82502166e73087d2f6105692ac4d6fc8cda1065c902f7fbcac9",
+      "iteration-3/base.average-traverser-reach.json": "701704456c77246096558944ec1d21f575db2628241bd5d3fb5c3cc36dc94587",
+      "iteration-3/base.current.json": "8ece20bd76b96f1359507fb2b55ff2a798037713261fa15ffeaa55c82ca891df"
+    }
+  },
+  "bench_exports_match_main": true,
+  "build": {
+    "binary": "native/hu20-trainer/target/release/hu20-trainer",
+    "binary_bytes": 1455664,
+    "binary_sha256": "1d907872b96346ba42aff696908099a659df7ac614559f4cdbacb1e1ae4e6416",
+    "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2",
+    "linker": "@(#)PROGRAM:ld PROJECT:ld-27037.1",
+    "native_tree": null,
+    "native_tree_clean": false,
+    "remapped_prefixes": [
+      "native",
+      "cargo-home"
+    ],
+    "rustc": [
+      "rustc 1.96.0 (ac68faa20 2026-05-25) (Homebrew)",
+      "binary: rustc",
+      "commit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96",
+      "commit-date: 2026-05-25",
+      "host: aarch64-apple-darwin",
+      "release: 1.96.0",
+      "LLVM version: 22.1.6"
+    ],
+    "verified_committed_native_tree": "0aeb9974f32a99b141e9eabe3e641e819320d242"
+  },
+  "checks": {
+    "cargo_cli": 4,
+    "cargo_library": 14,
+    "native_cli_bench_parity": 71,
+    "python_consumers_replay_search": 32
+  },
+  "harness_sha256": {
+    "direct": {
+      "decisions.jsonl.gz": "0e1c798415ebdd49d9d59c44e56c97641575fe76f3a1e352fc4dc33d466241a2",
+      "hands.jsonl.gz": "539505c6f03e5f5b74fec8534ca414ef0b81b668b729b67aef47c319136259b1"
+    },
+    "pressure": {
+      "decisions.jsonl.gz": "63d646209a35dc21a22d916a3f87b29cfaf401d72d5c99add14bc6f9b71b6068",
+      "hands.jsonl.gz": "64ec5e8f10195138d2a90d802e7a96a1cbf723d4a4036a0e09221f24fdef0370"
+    }
+  },
+  "model_members": {
+    "hu100-v1-average.gz": {
+      "bytes": 145678,
+      "member": "research/native-identity/hu100-v1-average.gz",
+      "sha256": "ad02de0a4a4ff9ed4cb232efc2d550ed57442fd4c4fc454514d9b20fe808a0ac"
+    },
+    "hu100-v1-current.gz": {
+      "bytes": 163728,
+      "member": "research/native-identity/hu100-v1-current.gz",
+      "sha256": "4ece8fa5eef3c2bb095236b8d424cf1324be907666869e4818e0debf6e9d53d8"
+    },
+    "hu100-v1.json.gz": {
+      "bytes": 185690,
+      "member": "research/native-identity/hu100-v1.json.gz",
+      "sha256": "54a9fe16608262f4608481ab67d355840f265522dcdfa44e918a86e936a633f4"
+    },
+    "hu100-v2-average.gz": {
+      "bytes": 198424,
+      "member": "research/native-identity/hu100-v2-average.gz",
+      "sha256": "d7aa4056dde8f36f953c9496f7d5180a3654b630b19f944d162095abd4eef86b"
+    },
+    "hu100-v2-current.gz": {
+      "bytes": 221130,
+      "member": "research/native-identity/hu100-v2-current.gz",
+      "sha256": "0d402202065209fde95b67f390596f2e503e9ad354d5aed0b6d577a0c037b0cd"
+    },
+    "hu100-v2-resumed-average.gz": {
+      "bytes": 253476,
+      "member": "research/native-identity/hu100-v2-resumed-average.gz",
+      "sha256": "5410b9a0094ad5138f31c65e489b878b6c29fb0db32aac900685fb9ab7167fb1"
+    },
+    "hu100-v2-resumed-current.gz": {
+      "bytes": 282932,
+      "member": "research/native-identity/hu100-v2-resumed-current.gz",
+      "sha256": "6663021c86ca434d448cecae8a949aecb940972a4844b40a530ee7852e35128d"
+    },
+    "hu100-v2-resumed.gz": {
+      "bytes": 325739,
+      "member": "research/native-identity/hu100-v2-resumed.gz",
+      "sha256": "ac1ceddecd7f14473fdfa3c90b82c34fe798957118ef3eec09240a979528d718"
+    },
+    "hu100-v2.json.gz": {
+      "bytes": 253178,
+      "member": "research/native-identity/hu100-v2.json.gz",
+      "sha256": "2313e77ebcafe90fada873e03b247e5387e7d6de0737d5eb61588d1b116d6d03"
+    },
+    "hu20-v1-average.gz": {
+      "bytes": 133555,
+      "member": "research/native-identity/hu20-v1-average.gz",
+      "sha256": "42276fde895eefd8f400bba439fc3d680b35dc612b1489d40ebebdb47ec257ec"
+    },
+    "hu20-v1-current.gz": {
+      "bytes": 141281,
+      "member": "research/native-identity/hu20-v1-current.gz",
+      "sha256": "5fe0226329d6f09a4e0a8ddf26146ebdebfba91c6ad0c0318b89e77c74e87913"
+    },
+    "hu20-v1.json.gz": {
+      "bytes": 170015,
+      "member": "research/native-identity/hu20-v1.json.gz",
+      "sha256": "fcb97e5349be39b36286427c03efa9ba1841a1b08586065bd784fdfc236bf446"
+    },
+    "hu20-v2-average.gz": {
+      "bytes": 130049,
+      "member": "research/native-identity/hu20-v2-average.gz",
+      "sha256": "dbd65dc9d07538f3af70d2627e2342c91f1edcc92e328ccf9e7e2d429594cfd3"
+    },
+    "hu20-v2-current.gz": {
+      "bytes": 139872,
+      "member": "research/native-identity/hu20-v2-current.gz",
+      "sha256": "1abc5c365327a986acfaf7b4745b65a7da857437728cdce358ed8ac43fb7c716"
+    },
+    "hu20-v2.json.gz": {
+      "bytes": 163337,
+      "member": "research/native-identity/hu20-v2.json.gz",
+      "sha256": "4f6a5fcec6cefced568a887eef8d69645a2b5663186c326ae1a1cdbd413b9f72"
+    }
+  },
+  "native_and_harness_match_main": true,
+  "native_sha256": {
+    "hu100-v1-average.gz": "ad02de0a4a4ff9ed4cb232efc2d550ed57442fd4c4fc454514d9b20fe808a0ac",
+    "hu100-v1-current.gz": "4ece8fa5eef3c2bb095236b8d424cf1324be907666869e4818e0debf6e9d53d8",
+    "hu100-v1.json.gz": "54a9fe16608262f4608481ab67d355840f265522dcdfa44e918a86e936a633f4",
+    "hu100-v2-average.gz": "d7aa4056dde8f36f953c9496f7d5180a3654b630b19f944d162095abd4eef86b",
+    "hu100-v2-current.gz": "0d402202065209fde95b67f390596f2e503e9ad354d5aed0b6d577a0c037b0cd",
+    "hu100-v2-resumed-average.gz": "5410b9a0094ad5138f31c65e489b878b6c29fb0db32aac900685fb9ab7167fb1",
+    "hu100-v2-resumed-current.gz": "6663021c86ca434d448cecae8a949aecb940972a4844b40a530ee7852e35128d",
+    "hu100-v2-resumed.gz": "ac1ceddecd7f14473fdfa3c90b82c34fe798957118ef3eec09240a979528d718",
+    "hu100-v2.json.gz": "2313e77ebcafe90fada873e03b247e5387e7d6de0737d5eb61588d1b116d6d03",
+    "hu20-v1-average.gz": "42276fde895eefd8f400bba439fc3d680b35dc612b1489d40ebebdb47ec257ec",
+    "hu20-v1-current.gz": "5fe0226329d6f09a4e0a8ddf26146ebdebfba91c6ad0c0318b89e77c74e87913",
+    "hu20-v1.json.gz": "fcb97e5349be39b36286427c03efa9ba1841a1b08586065bd784fdfc236bf446",
+    "hu20-v2-average.gz": "dbd65dc9d07538f3af70d2627e2342c91f1edcc92e328ccf9e7e2d429594cfd3",
+    "hu20-v2-current.gz": "1abc5c365327a986acfaf7b4745b65a7da857437728cdce358ed8ac43fb7c716",
+    "hu20-v2.json.gz": "4f6a5fcec6cefced568a887eef8d69645a2b5663186c326ae1a1cdbd413b9f72"
+  },
+  "native_tree": "0aeb9974f32a99b141e9eabe3e641e819320d242",
+  "source": "e59bdf4202371b754ade2e6e56f3e1569362bbde"
+}

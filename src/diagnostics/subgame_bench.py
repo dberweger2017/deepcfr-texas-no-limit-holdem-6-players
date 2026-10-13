@@ -115,6 +115,8 @@ class SubgameTrainer:
     """
 
     def __init__(self, roots, *, seed, schema=HU20_UNCAPPED_SCHEMA):
+        if schema not in (HU20_UNCAPPED_SCHEMA, HU20_EQUITY_SCHEMA):
+            raise ValueError("Subgame bench supports only HU20 menu-v1 schemas")
         if not roots:
             raise ValueError("An empty root set cannot be trained")
         self.roots = tuple(roots)

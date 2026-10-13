@@ -93,6 +93,9 @@ class RiverCFRPlayer:
     def __init__(self, blueprint, seed: int,
                  config: RiverPlayerConfig = RiverPlayerConfig(),
                  fallback_config: SearchConfig = SearchConfig(variant="corrected")):
+        from src.blueprint.abstraction import MENU_V2_SCHEMAS
+        if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
+            raise ValueError("Search does not support menu-v2 schemas")
         self.blueprint = blueprint
         self.config = config
         self.action_random = Random(seed)

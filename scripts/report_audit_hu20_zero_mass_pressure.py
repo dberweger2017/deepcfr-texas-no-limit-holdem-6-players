@@ -39,6 +39,8 @@ def analyze(plan,directory,replay):
     started=time.perf_counter();cells={};decisions=0;coverage=defaultdict(Counter);files=[]
     count=plan['panels'][0]['blocks'];assert len(plan['panels'])==1 and plan['panels'][0]['name']=='native-pressure'
     for spec in plan['models']:
+        if spec.get('abstraction', HU20_UNCAPPED_SCHEMA) != HU20_UNCAPPED_SCHEMA:
+            raise ValueError('Zero-mass pressure audit supports only the HU20 menu-v1 card schema')
         name=spec['name'];result=read(directory/(name+'.result.json.gz'))
         assert result['status']=='complete' and result['plan_sha256']==digest(plan)
         path=directory/(name+'.hands.jsonl.gz');files.append({'path':path.name,'sha256':sha(path),'bytes':path.stat().st_size})

@@ -1,5 +1,6 @@
 //! hu20-trainer parity FIXTURES.jsonl
 use std::io::BufRead;
+mod cli;
 
 /// `--card-buckets DIR` keys cards by #163's K=50 equity tables; `--card-tables-unpinned`
 /// admits other tables, for test fixtures only. v1 cards otherwise.
@@ -26,6 +27,22 @@ fn menu_option(args: &[String]) -> hu20_trainer::key::MenuVersion {
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
+    let mut command = cli::parse(&args).unwrap_or_else(|problem| {
+        eprintln!("hu20-trainer: {problem}");
+        std::process::exit(2);
+    });
+    // Operational failures also report their cause without a panic backtrace.
+    std::panic::set_hook(Box::new(|_| {}));
+    if let Err(problem) = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| run(args, &mut command))) {
+        let message = problem.downcast_ref::<String>().map(String::as_str)
+            .or_else(|| problem.downcast_ref::<&str>().copied()).unwrap_or("command failed");
+        eprintln!("hu20-trainer: {message}");
+        std::process::exit(2);
+    }
+}
+
+fn run(args: Vec<String>, command: &mut cli::Command) {
+    if args[1] != "train" { eprintln!("{}", command.config); }
     match args.get(1).map(String::as_str) {
         Some("parity") => {
             let file = std::fs::File::open(&args[2]).expect("fixtures");
@@ -88,11 +105,8 @@ fn main() {
             let out = arg("--out", "native-checkpoint.json.gz");
             // Optional earlier saves, like Python's milestones: the first complete iteration at or past each count.
             // A `{nodes}` placeholder in `--out` names each save by its milestone.
-            let mut milestones: Vec<u64> = arg("--milestones", "").split(',').filter(|s| !s.is_empty())
-                .map(|s| s.parse().unwrap()).filter(|&m| m < nodes).collect();
-            milestones.push(nodes);
-            milestones.sort_unstable();
-            milestones.dedup();
+            let milestones: Vec<u64> = command.config["options"]["milestones"].as_array().unwrap()
+                .iter().map(|v| v.as_u64().unwrap()).collect();
             let game = hu20_trainer::game::Game::from_bb(arg("--stack-bb", "20").parse().unwrap());
             let cards = card_option(&args);
             let menu = menu_option(&args);
@@ -136,6 +150,17 @@ fn main() {
             if let Err(problem) = trainer.options.check(0) {
                 panic!("{problem}");
             }
+            let milestones: Vec<u64> = milestones.into_iter().filter(|&m| m > trainer.nodes).collect();
+            // Resume inherits these values unless the caller explicitly pins them.
+            let resolved = &mut command.config["options"];
+            resolved["milestones"] = serde_json::json!(milestones);
+            resolved["initial_nodes"] = serde_json::json!(trainer.nodes);
+            resolved["initial_iteration"] = serde_json::json!(trainer.iteration);
+            resolved["seed"] = serde_json::json!(trainer.seed);
+            resolved["roots_per_seat"] = serde_json::json!(trainer.roots_per_seat);
+            resolved["average_rule"] = serde_json::json!(trainer.average.name());
+            resolved["recovery"] = serde_json::json!(recovery);
+            eprintln!("{}", command.config);
             let started = std::time::Instant::now();
             let initial_nodes = trainer.nodes;
             let (mut previous_nodes, mut previous_entries, mut previous_seconds) = (trainer.nodes, trainer.table.len(), 0.0);
@@ -202,17 +227,11 @@ fn main() {
             let roots: Vec<bench::FrozenRoot> = document.as_array().unwrap().iter().map(bench::FrozenRoot::from_json).collect();
             let seed: u64 = required("--seed").parse().unwrap();
             let iterations: u64 = required("--iterations").parse().unwrap();
-            // A JSON value, as #149's manifests give it (an integer seed), else a plain string.
-            let raw = required("--lineage");
-            let lineage = serde_json::from_str(&raw).unwrap_or(serde_json::Value::String(raw));
+            let lineage = command.config["options"]["lineage"].clone();
             let variant = arg("--variant").unwrap_or("base".into());
             let out = std::path::PathBuf::from(required("--out"));
-            // Like Python's sorted(set(checkpoints) | {iterations}); iteration 0 is never exported.
-            let mut checkpoints: Vec<u64> = arg("--checkpoints").unwrap_or_default().split(',').filter(|s| !s.is_empty())
-                .map(|s| s.parse().unwrap()).filter(|&c| 0 < c && c < iterations).collect();
-            checkpoints.push(iterations);
-            checkpoints.sort_unstable();
-            checkpoints.dedup();
+            let checkpoints: Vec<u64> = command.config["options"]["checkpoints"].as_array().unwrap()
+                .iter().map(|v| v.as_u64().unwrap()).collect();
             let options = hu20_trainer::cfr::Options {
                 regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
                 dcfr: arg("--dcfr").map(|v| {

@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Overbet-menu correctness ([#258](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/258)), pending owner review:** schema-owned Python training/replay menus and strict native CLI admission; synthetic v1/v2/mixed replay passes, including retained baseline reuse with the original schema/tables through pinned ancestry. Fixed v1 harness bytes and HU20/HU100 v1/v2 checkpoint/export/resume bytes match main. Unfinished v2 search/translation/bench formats explicitly refuse it. [Inventory and evidence](docs/reports/overbet-correctness.md). No campaign, merge or release.
+
 - **HU100 K50 2B versus v0.5.2 ([#254](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/254)):** direct translation-off gain **+23.31 [20.12, 26.50] BB/100**, nominal paired 95%, 262,144 blocks. Direct-only candidate rule passes; K50 without translation has a severe pot-pressure regression against released translation-on v0.5.2: **−85.00 [−121.88, −48.12]**. Off-control difference is inconclusive; v0.5.2 translation gains +75.74 [43.63, 107.86] against pressure. All 770,048 final harness hands replay/reproduce. [Report](docs/reports/hu100-k50-2b-vs-v052.md). Owner decides; no release, tag, default change or training.
 
 - **Storage pass (October 13):** 88.890 GB of uploaded research cache/unchanged merged evidence retired, plus 19.529 GB of separately authorized personal cache; M1 65.986 GB /M4 104.323 GB free. Live Slumbot model and preserved dependencies remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261013.md).

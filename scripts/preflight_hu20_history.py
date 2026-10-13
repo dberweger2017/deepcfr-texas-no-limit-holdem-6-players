@@ -15,7 +15,7 @@ from time import monotonic
 
 from scripts.hu20_platform_pilot import environment
 
-from src.blueprint.abstraction import choices, information_key
+from src.blueprint.abstraction import MENU_V2_SCHEMAS, choices, information_key
 from src.blueprint.artifact import export_policy, save_training
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Hand, Table
@@ -56,6 +56,8 @@ def distribution(hist):
 
 
 def corpus(plan,out):
+    if any(schema in MENU_V2_SCHEMAS for schema in plan['schemas'].values()):
+        raise ValueError('History comparison corpus does not support menu-v2 schemas')
     out.mkdir(parents=True,exist_ok=False)
     rows=[];digest=sha256();traces=sha256()
     for block in range(plan['probe']['blocks']):

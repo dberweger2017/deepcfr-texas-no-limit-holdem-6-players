@@ -18,7 +18,7 @@ from scripts.hu20_platform_pilot import environment
 from scripts.preflight_hu20_history import (
     canonical, distribution, file_hash, report, rss, validate_runtime, write,
 )
-from src.blueprint.abstraction import choices, information_key
+from src.blueprint.abstraction import MENU_V2_SCHEMAS, choices, information_key
 from src.blueprint.artifact import export_policy, load_training, save_training
 from src.game.hand import Hand, Table
 
@@ -65,6 +65,8 @@ def weighted_index(rng, weights):
 
 
 def reach_corpus(plan, inputs, out):
+    if any(schema in MENU_V2_SCHEMAS for schema in plan['schemas'].values()):
+        raise ValueError('History comparison corpus does not support menu-v2 schemas')
     out.mkdir(parents=True, exist_ok=False)
     files = {}; counts = {}
     for seed in plan['seeds']:

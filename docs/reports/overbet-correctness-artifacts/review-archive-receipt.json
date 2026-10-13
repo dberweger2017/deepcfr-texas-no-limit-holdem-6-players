@@ -1,0 +1,17 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-258-overbet-correctness/review-fixes-M1-20261013.zip",
+  "bytes": 3669959,
+  "cloud_archive_id": null,
+  "cloud_folder_id": null,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "86e06646cb64052ef42253ae3846535cdaa4736ad0d354cd23ae8ebe60f0210f",
+  "member_files": 55,
+  "member_readback": "all sizes and SHA256 match",
+  "native_tree": "0aeb9974f32a99b141e9eabe3e641e819320d242",
+  "originals_retained": true,
+  "remote_downloaded": false,
+  "research_cloud_parent_id": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "sha256": "a9dcee36e2e269b499ce6e037245bf32e859a66db0ba650f2f1365791b59c598",
+  "source": "e59bdf4202371b754ade2e6e56f3e1569362bbde",
+  "upload_status": "pending native/cloud readback; no upload acceptance claimed"
+}
