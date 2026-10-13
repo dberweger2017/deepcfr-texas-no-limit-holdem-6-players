@@ -1,3 +1,22 @@
+## Post-merge M1/M4 storage pass — October 13, 2026
+
+Owner-requested cleanup retires **88.890 GB** of existing research copies:
+13 uploaded native cache releases and **36 unchanged own #246/#252 evidence paths**.
+Separately authorized uploaded personal backup cache releases **19.529 GB** on M1;
+public records omit personal filenames. Verified free **M1 65.986 GB /M4 104.323 GB**.
+
+[Safeguards and receipt](docs/artifacts/storage-vacuum-20261013.md),
+[every removed path and exact archive/member/hash locator](docs/artifacts/storage-vacuum-20261013-locators.md),
+[full private research receipt](https://drive.google.com/file/d/1SDqMIa6b-aBNfGqvG7Wx9iUgUzrA01gM/view?usp=drivesdk) (ID `1SDqMIa6b-aBNfGqvG7Wx9iUgUzrA01gM`, 66,745 bytes,
+SHA256 `307e8062e2c182514983ca21ef25816e692b319dc178a2a7830b43d71fd5ec03`; current confirmed Research-Cloud upload).
+Current merged/upload/dependency/path/size/modification-history and open-handle
+checks precede removal. Existing manifests are trusted without remote downloads
+or repeated payload audits. Live Slumbot #248 model/root, source/shared Git,
+tables, installed release caches and uncertain/changed/unarchived files remain.
+Incomplete #246 prefix remains unchanged online; no original removal relies on
+it. No synced deletion, forced offload, unpinning or research/schedule change.
+Earlier retained-original snapshots are superseded only for the 36 locator rows.
+
 ## PR249 Slumbot client live protocol checks — October 13, 2026
 
 [PR249](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/249) played 32 anonymous live hands against Slumbot's public API to check the client: 12 probe-bot hands and 20 check/call hands through `scripts.play_slumbot`. No model and no strength claim. [Report](docs/reports/slumbot-client.md).
