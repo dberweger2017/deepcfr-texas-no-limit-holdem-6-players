@@ -3,7 +3,7 @@
 [PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265)
 · [Protocol](../hu200-k50-frozen-protocol.md)
 
-**20B training and every-row export audits complete; cloud archive acceptance pending.** Current-main M4 training
+**20B training and every-row export audits complete; merge owner-authorized with full upload in progress.** Current-main M4 training
 exactly reproduces #250's fresh and resumed 20M checkpoints, its 500M save and
 its 752,593,175-node cap terminal. Frozen continuation started October 13 at
 17:38:41 UTC on the same 85,373,907-key table and saved its final checkpoint at
@@ -213,6 +213,9 @@ independent Drive ID/name/size/direct-parent confirmation. Full upload
 acceptance remains pending. [Native observation](hu200-k50-frozen-artifacts/native-upload-observation.json),
 [independent metadata observation](hu200-k50-frozen-artifacts/cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified.
+On October 14 the owner authorized merge while the full ZIP is still uploading.
+Its current uploaded0/uploading1 observation remains a pending upload, with
+originals retained; this authorization does not establish upload acceptance.
 
 **M4 compute released:** verified October 13 **22:40:27 UTC /October 14
 00:40:27 Madrid** after all owned campaign/closeout jobs exited. Its compute
