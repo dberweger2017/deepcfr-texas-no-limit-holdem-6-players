@@ -185,20 +185,22 @@ def play(pilot=False):
 
 def freeze(pr):
     costs = read(BASE/'pilot-costs.json'); q = costs['quotes']
+    elapsed = time()-read(BASE/'baseline.json')['at']
     def project(n):
         d = q['direct']
         seconds = d['load_seconds']+d['reproduction_validation_seconds']+sum(d[k] for k in ('play_seconds','replay_seconds','reproduction_seconds'))*n/1024
         for arm in ARMS:
             a = q[arm]
             seconds += a['load_seconds']+sum(a[k] for k in ('play_seconds','replay_seconds','reproduction_seconds'))*4096/64
-        return 1.25*seconds+1800
+        return elapsed+1.25*seconds+1800
     n = 131072 if project(262144)>5*3600 else 262144
     reserve(list(ROOTS.values()),pr,BASE/'final-root-reservation.json')
     models = read(BASE/'inputs.json')['models']
     document = {'pr':pr,'source':revision(),'inputs_sha256':file_hash(BASE/'inputs.json'),'models':models,
         'tables':read(BASE/'inputs.json')['tables'],'roots':ROOTS,'primary_blocks':n,'scripted_blocks_per_opponent':4096,
         'arms':ARMS,'opponents':scripted.OPPONENTS,'pilot':costs,'requested_projection_seconds':project(262144),
-        'projected_total_seconds':project(n),'projection_rule':'1.25 times measured fixed and scaled play/replay/reproduction costs plus 1800 seconds closeout; requested >5h reduces primary once to131072',
+        'projected_total_seconds':project(n),'elapsed_preparation_and_pilot_seconds':elapsed,
+        'projection_rule':'elapsed preparation/pilot plus 1.25 times measured fixed and scaled play/replay/reproduction costs plus 1800 seconds closeout; requested >5h reduces primary once to131072',
         'decision_rule':'primary nominal paired Student-t95: lower>0 stronger/recommend v0.5.3 candidate; upper<0 weaker; otherwise inconclusive; owner decides; do not extend',
         'severe_regression_rule':'scripted paired nominal95 upper bound below -20 BB/100',
         'primary_translation':None,'scripted_translation':{'max_states':512,'max_events':128},
