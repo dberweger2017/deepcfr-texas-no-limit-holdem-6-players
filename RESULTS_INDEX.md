@@ -9,6 +9,32 @@ Archive `~/Local/Research-Cloud/PR-253-hu200-slumbot-benchmark/hu200-200m-slumbo
 
 Restore with `python3 -m zipfile -e ~/Local/Research-Cloud/PR-253-hu200-slumbot-benchmark/hu200-200m-slumbot-benchmark-20261013.zip results/retrieved/pr253`, check the manifest, then reproduce the analysis with `python -m scripts.analyze_slumbot_run` on a copy of the run directory without `analysis.json`, passing the model and its SHA256 from [#248's index](docs/reports/hu200-200m-model.md). Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked.
 
+
+## PR258 overbet-menu correctness evidence — October 13, 2026
+
+[PR258](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/258), [report](docs/reports/overbet-correctness.md), [79-call/launcher inventory](docs/reports/overbet-correctness-artifacts/inventory.md), [complete identity/model-member receipts](docs/reports/overbet-correctness-artifacts/identity.json). Engineering checks on the M1 only; no campaign, external-service calls, strength claim, tag, publication, deletion or cleanup. Baseline main `9fc168414f5205f7483d0c6d474919afd7f9b777`; primary native/menu code `070207f377901814535ca04f10c39a793667c3cf`; final historical-wrapper correction `17cd74717565cfe99183148f9990a13262448b0c`. Native tree `a56ce73696e81a89e4a0fd2c66b8626f7ff91f35`. Final local verification record; cloud upload acceptance pending.
+
+Own ignored work root `~/Local/overbet-correctness/planning/v2-correctness/`; separate pristine baseline checkout `~/Local/overbet-main-identity/`. Local Research-Cloud destination `~/Local/Research-Cloud/PR-258-overbet-correctness/`. Parent [deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s), ID `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, was independently read through Drive. Destination-folder and archive IDs are **pending**, not invented: native files are uploading (uploaded=0/uploading=1), zero unresolved conflicts; connected cloud search has no corresponding items yet. No cloud acceptance or remote-byte download/hash verification is claimed. All originals, own open-PR roots and dependencies remain; nothing was deleted or evicted in synced storage.
+
+| Bundle in PR-258-overbet-correctness | Bytes | ZIP SHA256 | Embedded ARCHIVE-MANIFEST.json SHA256 |
+|---|---|---|---|
+| Primary verification: `overbet-correctness-M1-20261013.zip` | 10,216,477 | `1794a49806138c5f02ae79438dd39451f5a4ac82ae9aa39eb259ab29bb9717e6` | `f51bff0d309fb71399c7bcc2a93d079f6ddaab7e631ac875cb31eadf619392a9` |
+| Fixed-gzip identity: `fixed-gzip-identity-M1-20261013.zip` | 35,295 | `71daf47dba42102c389a89b1c2e8fdbc303cf72eaed744f8eb0b85741924a6e9` | `60b3a9beabfb8d66cb7b18a81c341e1b9539a8e4375088bbc4551b4fbfb688e6` |
+| CI regression closeout: `ci-regression-closeout-M1-20261013.zip` | 52,420 | `9f719ccc75450df77217487e9f157af1fbd49cb1a798969223573b29d62f582f` | `ed7167a62ca68d749354d07737c1049a2e40562dc8c2b8d627fe6f4439c3c4d9` |
+
+All 91 primary, 27 fixed-gzip and 5 CI-closeout files were read back from their newly created ZIPs against exact size/SHA256 manifests. [Primary receipt](docs/reports/overbet-correctness-artifacts/archive-receipt.json), [fixed-gzip receipt](docs/reports/overbet-correctness-artifacts/fixed-gzip-archive-receipt.json), [CI closeout receipt](docs/reports/overbet-correctness-artifacts/ci-archive-receipt.json). Primary contains main/branch native build receipts and binaries, native HU20/HU100 v1/v2 10k-node checkpoints/current/average files and HU100/v2 20k-node resume, normal-clock direct/pressure traces, all earlier test failures/logs, exact recipes and `research/code-source.tar`. The fixed-gzip supplement contains pristine-main/branch replayed hands/decisions at gzip mtime 1234567890 and `research/reproduce_fixed_gzip.py`; all four complete compressed streams match. The CI supplement preserves both initial failure logs, final source patch and all 33 affected local passing regressions. No failed evidence was replaced.
+
+Required generated models/inputs: every main/branch native member path, byte count and SHA256 is under `native.archive_members` in the linked identity JSON (members `research/main-native/FILE` and `research/final-native/FILE`). The hand fixture is exactly reconstructible from the archived test source and recipes. No external model/table retrieval was needed. To retrieve the primary from the mounted, retained archive into a fresh ignored path:
+
+```sh
+python3 -m zipfile -e ~/Local/Research-Cloud/PR-258-overbet-correctness/overbet-correctness-M1-20261013.zip planning/retrieved/pr258-primary
+python3 -m zipfile -e ~/Local/Research-Cloud/PR-258-overbet-correctness/fixed-gzip-identity-M1-20261013.zip planning/retrieved/pr258-fixed-gzip
+python3 -m zipfile -e ~/Local/Research-Cloud/PR-258-overbet-correctness/ci-regression-closeout-M1-20261013.zip planning/retrieved/pr258-ci
+```
+
+Before extracting, verify the ZIP SHA256 above; after extraction, verify the named member's bytes/SHA256 from `ARCHIVE-MANIFEST.json` (also recorded in the identity JSON for native models). Run the archived recipes with `PYTHONPATH=.` from the indexed source revisions. Folder/ZIP cloud locator acceptance can be recorded later; this record neither authorizes cleanup of open-PR evidence nor schedules it.
+
+
 ## Post-merge M1/M4 storage pass — October 13, 2026
 
 Owner-requested cleanup retires **88.890 GB** of existing research copies:

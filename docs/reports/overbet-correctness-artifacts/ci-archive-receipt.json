@@ -1,0 +1,17 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-258-overbet-correctness/ci-regression-closeout-M1-20261013.zip",
+  "bytes": 52420,
+  "cloud_archive_id": null,
+  "cloud_folder_id": null,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "ed7167a62ca68d749354d07737c1049a2e40562dc8c2b8d627fe6f4439c3c4d9",
+  "member_files": 5,
+  "member_readback": "all sizes and SHA256 match",
+  "native_tree": "a56ce73696e81a89e4a0fd2c66b8626f7ff91f35",
+  "originals_retained": true,
+  "remote_downloaded": false,
+  "research_cloud_parent_id": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "sha256": "9f719ccc75450df77217487e9f157af1fbd49cb1a798969223573b29d62f582f",
+  "source": "17cd74717565cfe99183148f9990a13262448b0c",
+  "upload_status": "native upload pending; no cloud acceptance claimed"
+}

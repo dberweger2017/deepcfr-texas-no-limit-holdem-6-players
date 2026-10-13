@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Overbet-menu correctness ([#258](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/258)), pending owner review:** schema-owned Python training/replay menus and strict native CLI admission; synthetic v1/v2/mixed replay passes, fixed v1 harness bytes and HU20/HU100 v1/v2 checkpoint/export/resume bytes match main. Unfinished v2 search/translation/bench formats explicitly refuse it. [Inventory and evidence](docs/reports/overbet-correctness.md). No campaign, merge or release.
+
 - **Storage pass (October 13):** 88.890 GB of uploaded research cache/unchanged merged evidence retired, plus 19.529 GB of separately authorized personal cache; M1 65.986 GB /M4 104.323 GB free. Live Slumbot model and preserved dependencies remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261013.md).
 
 - **HU100 roots per seat ([#252](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/252)):** fresh R=4/R=8 each reach 1B with full current/average audits. Direct gains over v0.5.0 are −0.49 [−6.26, 5.29] and −2.09 [−7.78, 3.61] BB/100; no detectable loss, but upper loss bounds 6.26/7.78 do not establish equal per-node strength. Matched 100M training speedups 1.92×/2.68×; all 524,288 hands replay/reproduce. Full archive accepted and indexed. [Report](docs/reports/hu100-roots-per-seat.md). No recipe adoption or release change.
