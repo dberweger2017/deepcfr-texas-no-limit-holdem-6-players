@@ -139,8 +139,9 @@ def main():
                 stop = 'too many ambiguous requests'
                 break
             connection.abandon_hand()
-        except ServiceError:
-            journal.failure('service-error'); stop = 'service error'
+        except ServiceError as error:
+            # The message names only the endpoint and status: safe to keep.
+            journal.failure('service-error'); stop = f'service error: {error}'
             break
         except ValueError:
             journal.failure('protocol-error'); stop = 'protocol error'

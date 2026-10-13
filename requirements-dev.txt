@@ -1,3 +1,4 @@
 -r requirements.txt
 pytest==9.0.3
 -r requirements-monitoring.txt
+tqdm>=4.66,<5
