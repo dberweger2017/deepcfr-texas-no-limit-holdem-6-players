@@ -2,10 +2,11 @@
 
     python -m scripts.play_slumbot --hands 20 --out DIR
     python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR
+    python -m scripts.play_slumbot ... --card-buckets TABLES   # a K50 average and its pinned tables
     python -m scripts.play_slumbot ... --login        # account session; asks for the password
 
-The default player is check/call. A trained HU200 average plays with its stored policy and
-uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
+The default player is check/call. A trained HU200 average, v1 or K50 cards, plays with its
+stored policy and uniform play where it has none. Each run writes a fresh hash-chained journal of every decision
 and verified settlement, plus `summary.json`. Nothing is retried. A request without a complete
 answer abandons only its hand (Slumbot's session total still counts it); more than
 --max-abandoned such hands, or any other failure, stops the run.
@@ -28,7 +29,7 @@ from tqdm import tqdm
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, play_hand, session_accounting, summarize
+from src.arena.external.session import CheckCall, hu200_average, play_hand, session_accounting, summarize
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
 SERVICE = 'https://slumbot.com'
@@ -52,13 +53,10 @@ def load_player(args):
     if args.model is None:
         player = CheckCall()
         return player, player, {'player': player.name}
-    from src.blueprint.abstraction import HU200_SCHEMA
-    from src.blueprint.average import AveragePolicy
-    # Native exports are written in key order; the sorted reader checks that as it loads.
-    model = AveragePolicy(args.model, args.model_sha256, expected_schema=HU200_SCHEMA, sorted_rows=True)
+    model = hu200_average(args.model, args.model_sha256, args.card_buckets)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
-                                            'description': model.description}
+                                            'abstraction': model.abstraction, 'description': model.description}
 
 
 def say(message):
@@ -80,6 +78,7 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--model', type=Path)
     parser.add_argument('--model-sha256')
+    parser.add_argument('--card-buckets', type=Path, help="a K50 model's pinned table directory")
     parser.add_argument('--seed', type=int, default=1, help='policy sampling seed')
     parser.add_argument('--max-requests', type=int, default=None, help='default: 60 per hand')
     parser.add_argument('--max-seconds', type=float, default=None)
@@ -92,6 +91,8 @@ def main():
     args = parser.parse_args()
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
         parser.error('Give a positive --hands, and --model together with --model-sha256')
+    if args.card_buckets is not None and args.model is None:
+        parser.error('--card-buckets needs a K50 --model')
     args.out.mkdir(parents=True)
     # Ask before the model loads, so nobody waits minutes for the prompt; log in after it, so
     # the session starts fresh.

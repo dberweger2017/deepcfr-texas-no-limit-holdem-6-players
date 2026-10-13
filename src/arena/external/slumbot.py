@@ -1,6 +1,6 @@
 """Official Slumbot wire codec: 200BB, street-local bet-to, public-only parsing.
 
-Admission requires a matching HU200 identity and rejects fixed HU100 policies.
+Admission requires a matching HU200 identity, v1 or K50 cards, and rejects fixed HU100 policies.
 Terminal winnings are evaluator data; terminal responses never become policy inputs.
 Slumbot reveals its hole cards when every hand ends, so each settlement is recomputed
 from the public actions and both hands and must equal the reported winnings.

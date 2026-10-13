@@ -16,9 +16,10 @@ import pytest
 
 from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceError
 from src.arena.external.journal import PrefixJournal, verify_journal
-from src.arena.external.session import CheckCall, ending, play_hand, summarize
+from src.arena.external.session import CheckCall, ending, hu200_average, play_hand, summarize
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection, settle, terminal_record, verify_terminal
-from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA
+from src.blueprint.abstraction import HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA, HU200_SCHEMA, HU20_EQUITY_SCHEMA
+from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.blueprint.solver import HU100_GAME, HU200_GAME
 from src.game.types import Action, ActionKind
 
@@ -118,6 +119,25 @@ def test_scripted_players_are_admitted_and_other_depths_are_not():
     CONTRACT.admit(HU200)
     with pytest.raises(ValueError):
         CONTRACT.admit(SimpleNamespace(game=HU100_GAME, abstraction=HU100_SCHEMA, players=2, raise_cap=None))
+
+
+def test_k50_hu200_policies_are_admitted_and_k50_at_other_depths_are_not():
+    CONTRACT.admit(SimpleNamespace(game=HU200_GAME, abstraction=HU200_EQUITY_SCHEMA, players=2, raise_cap=None))
+    for game, schema in ((HU100_GAME, HU100_EQUITY_SCHEMA), (HU20_UNCAPPED_GAME, HU20_EQUITY_SCHEMA),
+                         (HU200_GAME, HU100_EQUITY_SCHEMA), (HU200_GAME, HU100_SCHEMA)):
+        with pytest.raises(ValueError):
+            CONTRACT.admit(SimpleNamespace(game=game, abstraction=schema, players=2, raise_cap=None))
+
+
+def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch):
+    calls = []
+    import src.blueprint.average as average
+    monkeypatch.setattr(average, 'AveragePolicy', lambda *a, **k: calls.append((a, k)))
+    hu200_average('m.gz', 'sha')
+    hu200_average('m.gz', 'sha', Path('tables'))
+    assert calls == [(('m.gz', 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None}),
+                     (('m.gz', 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
+                                        'card_buckets': Path('tables')})]
 
 
 def test_login_sends_credentials_only_to_the_transport_and_fails_closed():

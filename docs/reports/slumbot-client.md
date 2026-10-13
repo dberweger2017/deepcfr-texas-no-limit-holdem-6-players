@@ -9,8 +9,8 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 - **Hand runner** (`src/arena/external/session.py`): `new_hand`, one `act` per client decision, then the terminal response. The final action string must continue exactly what the client saw and sent, and the seat and hole cards must not change.
 - **Journal:** the existing hash-chained journal now also holds verified terminal records. Rotating tokens never enter it.
 - **Login:** `SlumbotConnection.login` starts an account session. The credentials go to the transport only.
-- **Admission:** scripted players, which read the legal actions at any depth, are admitted. Trained policies still must be HU200.
-- **CLI:** `scripts/play_slumbot.py`, with check/call by default or a pinned HU200 average, a fresh journal and `summary.json` per run.
+- **Admission:** scripted players, which read the legal actions at any depth, are admitted. Trained policies still must be HU200, with v1 or K50 cards.
+- **CLI:** `scripts/play_slumbot.py`, with check/call by default or a pinned HU200 average, a fresh journal and `summary.json` per run. A K50 average also needs `--card-buckets` with #163's pinned table directory; the loader checks the tables' SHA256s against the model's identity. `scripts/analyze_slumbot_run.py` takes the same flag.
 
 ## Live checks (October 13, 2026, anonymous)
 
@@ -32,6 +32,7 @@ We can now play complete hands against [Slumbot](https://slumbot.com)'s public A
 python -m scripts.play_slumbot --hands 20 --out DIR
 python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR
 python -m scripts.play_slumbot --hands 1000 --model AVERAGE.gz --model-sha256 SHA --out DIR --login
+python -m scripts.play_slumbot --hands 1000 --model K50-AVERAGE.gz --model-sha256 SHA --card-buckets TABLES --out DIR
 ```
 
 With `--login`, the username and password come from the environment variables `SLUMBOT_USERNAME` and `SLUMBOT_PASSWORD`, else from the repository's git-ignored `.env` (copy `.env.example`), else from prompts, the password hidden. Neither is stored or printed. Logged-in hands count toward that account on Slumbot's site; the hands above were anonymous.
