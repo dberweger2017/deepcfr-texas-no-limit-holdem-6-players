@@ -24,11 +24,18 @@ are protected. Canonical archive folder
 [PR278](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
 ID `1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP`, under project folder
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Per-seed full and separate final-average
-ZIPs, complete local member readback, archive/member hashes, restoration commands
-and independent/native cloud acceptance are pending. No cloud acceptance is
-claimed. No research original or synced file is removed/evicted; no other open
-PR root changes. Completion HTTP errors and administrative setup/launch failures
-are retained; the owner-requested 30-minute checks continue. No scientific retry.
+ZIPs are being prepared. Seed 1's full ZIP is locally verified:
+**20,952,808,971 bytes**, SHA256 `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d`,
+manifest `6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39`, 52 members.
+Separate final-average ZIP: **3,162,672,661 bytes**, SHA256
+`27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f`,
+manifest `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25`, one member.
+[All archive IDs, member pins and usable local restoration command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
+**Cloud acceptance pending:** native uploaded0/uploading1; Drive metadata names/IDs/
+parents match but remote sizes remain partial. Never restore those partial remote
+versions. No remote bytes downloaded or verified. Seed 2 archives/closeout remain
+pending. No research originals/synced files removed or evicted; other open roots
+are untouched. Preserved administrative failures; no scientific retry.
 
 ## M4 disk admission cleanup — October 14 evening
 

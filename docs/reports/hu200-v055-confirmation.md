@@ -98,16 +98,16 @@ The same executable, K50 copies, clock, swap baseline and guard thresholds remai
 Growing terminal: **755,276,076 actual nodes /494,507 iterations /
 85,373,928 entries**, 66-entry complete-iteration overshoot.
 Stage 2 resumes that terminal SHA256 with `--max-entries 85373928`
-and frozen/recovery mode. The latest verified frozen save is
-**2,000,001,235 nodes /1,396,928 iterations**, retaining all 85,373,928 keys
-and the exact stage-1 sorted-key digest.
+and frozen/recovery mode. Latest verified frozen save:
+**5,000,000,239 nodes /3,772,546 iterations**, all **85,373,928 keys**
+and the stage-1 sorted-key digest unchanged. Mean traverser visits/key is
+**9.7493**, zero-visit share **26.43%**.
 [Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
-The **23:21 CEST** check confirms the second-seed supervisor identity,
-current RSS **6.21 GiB**, free memory **63%**,
-disk **49.26 GiB**, swap below the original baseline and no stops.
-At the 2B save, mean traverser visits/key is **4.1401**
-and zero-visit share **34.82%**; 5B is not yet verified.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2121Z.json),
+The **23:51 CEST** check verifies the second-seed supervisor identity,
+current RSS **8.66 GiB**, free memory **82%**,
+disk **48.81 GiB**, swap below the original baseline and no stops.
+10B is not yet verified; no between-save count is inferred.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2151Z.json),
 [per-save statistics](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
@@ -134,10 +134,24 @@ Seed 2's server work awaits its final audits; cache builds do not overlap.
 
 [Canonical PR278 Research-Cloud folder](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP):
 `~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`, confirmed under project
-folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Closed per-seed full and separate
-final-average ZIPs stream from M4 into this folder on M1; seed 1's first full ZIP is currently being written, with member hashes
-and complete local readback. Archive hashes, restoration commands and separate
-native/independent cloud upload acceptance are pending. M4 originals remain.
+folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Seed 1's full and separate
+final-average ZIPs pass member-hashed transfer and complete local readback:
+
+| Seed-1 ZIP | Bytes | Whole SHA256 | Manifest SHA256 | Members |
+|---|---:|---|---|---:|
+| Full | 20,952,808,971 | `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d` | `6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39` | 52 |
+| Final average | 3,162,672,661 | `27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f` | `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25` | 1 |
+
+[Full readback](hu200-v055-confirmation-artifacts/seed-2026101421-full-archive-receipt.json),
+[average readback](hu200-v055-confirmation-artifacts/seed-2026101421-average-archive-receipt.json),
+[model/member pins and restoration command](hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
+**Upload acceptance remains pending:** native flags are uploaded0/uploading1;
+independent Drive ID/name/direct-parent exist, but remote sizes still describe
+partial earlier versions. Do not use those versions for restoration.
+[Native observation](hu200-v055-confirmation-artifacts/seed-2026101421-native-upload-observation.json),
+[independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
+No remote archive bytes were downloaded or verified. M4 originals remain.
+Seed 2 archives and the closed administrative/server supplement are pending.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures
