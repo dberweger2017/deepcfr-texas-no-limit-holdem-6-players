@@ -45,7 +45,7 @@ def main():
     import matplotlib.pyplot as plt
 
     colors = dict(c.split('=', 1) for c in args.color)
-    figure, (left, right) = plt.subplots(1, 2, figsize=(12, 4.6))
+    figure, (left, right) = plt.subplots(1, 2, figsize=(12, 5.4))
     for spec in args.player:
         label, _, runs = spec.partition('=')
         rows = running(winnings([Path(r) for r in runs.split(',')], args.hands))
@@ -63,9 +63,9 @@ def main():
         axis.grid(alpha=0.3)
     left.set_ylabel('Cumulative winnings (big blinds)')
     right.set_ylabel('BB/100 so far, with 95% band')
-    left.legend(loc='best', fontsize=9)
     figure.suptitle(args.title)
-    figure.tight_layout()
+    figure.legend(loc='lower center', ncol=2, fontsize=9, frameon=False)
+    figure.tight_layout(rect=(0, 0.04 + 0.035 * ((len(args.player) + 1) // 2), 1, 1))
     figure.savefig(args.out, dpi=130)
 
 
