@@ -82,9 +82,63 @@ def progress(hands, abandoned):
             f' | abandoned {abandoned}')
 
 
+def play_hands(connection, player, journal, target: int, *, max_abandoned: int, max_rejected: int,
+               deadline: float | None = None, new_session=None):
+    """Play until `target` hands have completed; abandoned and refused hands don't count toward it.
+
+    Returns the completed hands, why play stopped early (None when the target was reached),
+    the number of abandoned hands and the refusals. Abandoned and refused hands are bounded by
+    their own limits, so the loop always ends.
+    """
+    hands, stop, abandoned, rejections, attempt = [], None, 0, [], 0
+    bar = tqdm(total=target, unit='hand', file=sys.stderr, dynamic_ncols=True)
+    while len(hands) < target:
+        if deadline is not None and time.monotonic() > deadline:
+            stop = 'time limit'
+            break
+        index, attempt = attempt, attempt + 1
+        try:
+            hands.append(without_decisions(play_hand(connection, player, f'slumbot-{index:06d}', journal)))
+            bar.update(1)
+        except AmbiguousRequest:
+            # Give up this hand without resending anything, and continue with a new one.
+            journal.failure('timeout-ambiguous'); abandoned += 1
+            bar.write(f'Hand {index} abandoned: a request got no complete answer ({abandoned} so far)')
+            if abandoned > max_abandoned:
+                stop = 'too many ambiguous requests'
+                break
+            connection.abandon_hand()
+        except ServiceError as error:
+            # The message names the endpoint, status and Slumbot's reason without tokens: safe to keep.
+            if error.status is None:
+                journal.failure('service-error'); stop = f'service error: {error}'
+                break
+            # Slumbot answered and refused the request: the hand is lost, nothing is in doubt.
+            journal.failure('service-rejected'); rejections.append({'hand': index, 'error': str(error)})
+            bar.write(f'Hand {index} abandoned: Slumbot refused a request, {error} ({len(rejections)} so far)')
+            if len(rejections) > max_rejected:
+                stop = 'too many rejected requests'
+                break
+            # A refusal can mean the session expired: start a fresh one, logged in again for
+            # account runs.
+            try:
+                (new_session or connection.new_session)()
+            except (ValueError, AmbiguousRequest, ServiceError) as failure:
+                stop = f'new session failed: {failure}'
+                break
+        except ValueError:
+            journal.failure('protocol-error'); stop = 'protocol error'
+            break
+        finally:
+            bar.set_postfix_str(progress(hands, abandoned + len(rejections)), refresh=False)
+    bar.close()
+    return hands, stop, abandoned, rejections
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--hands', type=int, required=True)
+    parser.add_argument('--hands', type=int, required=True,
+                        help='completed hands to play; abandoned and refused hands are replaced')
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--model', type=Path)
     parser.add_argument('--player', choices=('check-call', 'random'), default='check-call',
@@ -155,7 +209,7 @@ def main():
     if args.model:
         say(f'Model loaded in {time.monotonic() - loading:.0f}s')
     transport = HttpTransport(SERVICE, timeout=args.timeout, min_interval=args.min_interval,
-                              max_requests=args.max_requests or 60 * args.hands)
+                              max_requests=args.max_requests or 60 * (args.hands + args.max_abandoned + args.max_rejected))
     connection = SlumbotConnection(transport, policy)
     if args.login:
         say('Logging in to Slumbot')
@@ -166,50 +220,14 @@ def main():
     run = {'service': SERVICE, 'contract': CONTRACT.__dict__, 'account_session': args.login,
            'account': args.account,
            'max_abandoned': args.max_abandoned, 'max_rejected': args.max_rejected,
-           'hands_requested': args.hands, 'max_requests': transport.max_requests,
+           'hands_requested': args.hands, 'hands_counted': 'completed', 'max_requests': transport.max_requests,
            'min_interval_seconds': args.min_interval, 'timeout_seconds': args.timeout, **identity}
     journal = PrefixJournal(args.out / 'journal.jsonl', run)
-    hands, stop, started, abandoned, rejections = [], None, time.monotonic(), 0, []
-    bar = tqdm(total=args.hands, unit='hand', file=sys.stderr, dynamic_ncols=True)
-    for index in range(args.hands):
-        if args.max_seconds is not None and time.monotonic() - started > args.max_seconds:
-            stop = 'time limit'
-            break
-        try:
-            hands.append(without_decisions(play_hand(connection, player, f'slumbot-{index:06d}', journal)))
-        except AmbiguousRequest:
-            # Give up this hand without resending anything, and continue with a new one.
-            journal.failure('timeout-ambiguous'); abandoned += 1
-            bar.write(f'Hand {index} abandoned: a request got no complete answer ({abandoned} so far)')
-            if abandoned > args.max_abandoned:
-                stop = 'too many ambiguous requests'
-                break
-            connection.abandon_hand()
-        except ServiceError as error:
-            # The message names the endpoint, status and Slumbot's reason without tokens: safe to keep.
-            if error.status is None:
-                journal.failure('service-error'); stop = f'service error: {error}'
-                break
-            # Slumbot answered and refused the request: the hand is lost, nothing is in doubt.
-            journal.failure('service-rejected'); rejections.append({'hand': index, 'error': str(error)})
-            bar.write(f'Hand {index} abandoned: Slumbot refused a request, {error} ({len(rejections)} so far)')
-            if len(rejections) > args.max_rejected:
-                stop = 'too many rejected requests'
-                break
-            # A refusal can mean the session expired: start a fresh one, logged in again for
-            # account runs.
-            try:
-                connection.new_session(*((username, password) if args.login else ()))
-            except (ValueError, AmbiguousRequest, ServiceError) as failure:
-                stop = f'new session failed: {failure}'
-                break
-        except ValueError:
-            journal.failure('protocol-error'); stop = 'protocol error'
-            break
-        finally:
-            bar.set_postfix_str(progress(hands, abandoned + len(rejections)), refresh=False)
-            bar.update(1)
-    bar.close()
+    started = time.monotonic()
+    hands, stop, abandoned, rejections = play_hands(
+        connection, player, journal, args.hands, max_abandoned=args.max_abandoned, max_rejected=args.max_rejected,
+        deadline=None if args.max_seconds is None else started + args.max_seconds,
+        new_session=lambda: connection.new_session(*((username, password) if args.login else ())))
     if stop is not None:
         say(f'Stopped: {stop}')
     journal.close()

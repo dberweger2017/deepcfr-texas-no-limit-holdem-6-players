@@ -499,3 +499,38 @@ def test_run_charts_read_verified_winnings_and_running_intervals(tmp_path):
     assert rows[-1][0] == sum(hands) / 100 and rows[0][2] is None
     assert rows[-1][1] == pytest.approx(sum(hands) / len(hands))
     assert rows[-1][2] == pytest.approx(1.96 * statistics.stdev(hands) / len(hands) ** 0.5)
+
+
+def test_a_run_replaces_abandoned_hands_until_its_target_has_completed(tmp_path):
+    from scripts.play_slumbot import play_hands
+
+    class Script:
+        def __init__(self, outcomes, sent):
+            self.outcomes, self.sent = list(outcomes), list(sent)
+        def post(self, endpoint, body):
+            outcome = self.outcomes.pop(0)
+            if outcome == 'AMBIGUOUS':
+                raise AmbiguousRequest('act gave no complete response')
+            return {k: v for k, v in dict(outcome, token='session-token-7f3a').items() if k != 'sent'}
+        def choose_action(self, view):
+            return decode(self.sent.pop(0))
+
+    def script():
+        a, b, c = (json.loads(json.dumps(h)) for h in (LIVE[1], LIVE[2], LIVE[4]))
+        return Script([*a, b[0], 'AMBIGUOUS', *c], [r['sent'] for r in a[1:]] + [b[1]['sent']] + [r['sent'] for r in c[1:]])
+
+    served = script()
+    journal = PrefixJournal(tmp_path / 'target.jsonl', {})
+    hands, stop, abandoned, rejections = play_hands(SlumbotConnection(served, HU200), served, journal, 2,
+                                                    max_abandoned=5, max_rejected=5)
+    journal.close()
+    # Three attempts: the abandoned one doesn't count toward the two requested hands.
+    assert (len(hands), stop, abandoned, rejections) == (2, None, 1, [])
+    assert not served.outcomes and verify_journal(tmp_path / 'target.jsonl')['hands'] == 2
+
+    served = script()
+    journal = PrefixJournal(tmp_path / 'limit.jsonl', {})
+    hands, stop, abandoned, _ = play_hands(SlumbotConnection(served, HU200), served, journal, 2,
+                                           max_abandoned=0, max_rejected=5)
+    journal.close()
+    assert (len(hands), stop, abandoned) == (1, 'too many ambiguous requests', 1)
