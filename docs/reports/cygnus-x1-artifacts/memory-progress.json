@@ -1,21 +1,21 @@
 {
   "status": "running; full pass incomplete",
-  "sample_elapsed_seconds": 842.2,
+  "sample_elapsed_seconds": 1126.6,
   "instances": 8,
   "locked_gib_total": 112,
   "all_instances_completed_confirmed_patterns": [
+    "Stuck Address",
+    "Random Value",
     "Compare XOR",
     "Compare SUB",
     "Compare MUL",
-    "Compare DIV"
-  ],
-  "additional_OR_completed_instances": [
-    2,
-    5,
-    6
+    "Compare DIV",
+    "Compare OR",
+    "Compare AND",
+    "Sequential Increment"
   ],
   "observed_errors_all_instances": 0,
-  "temperature_current_c": 62,
+  "temperature_current_c": 63,
   "temperature_peak_c": 81,
   "sampled_peak_family_rss_gib": 112.025,
   "minimum_available_gib": 11.662,
