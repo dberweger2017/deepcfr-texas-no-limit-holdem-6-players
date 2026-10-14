@@ -3,7 +3,7 @@
 [PR270](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/270)
 · [Predeclared protocol](../hu200-v2-frozen-5b-protocol.md)
 
-**5B training reached; every-row export audits and evaluation in progress.** This experiment asks
+**5B training and every-row audits complete; paired evaluation in progress.** This experiment asks
 whether representing off-menu bet sizes and training the retained keys more
 densely improves HU200 against those sizes. Only the menu changes from #250/#265.
 The primary evidence is the paired seven-opponent panel. Different-menu direct
@@ -143,3 +143,26 @@ budgets are matched; visits, iterations and key sets are not. V2 freezes much
 earlier (223.5M versus 752.6M nodes) and has more actions and finer history
 labels. The panel answers this fixed-budget menu comparison; a negative result
 cannot establish that a more densely trained v2 could never help.
+
+## Every-row exports
+
+`export --zero-mass uniform` produced both policies. Existing
+`src.diagnostics.cfr_average.audit` verifies **all 95,707,874 rows**, including
+current regrets and stored average totals. It does not reconstruct historical
+increments. Positive-average-mass rows: **71,680,253**; uniform zero-mass rows:
+**24,027,621**. Unweighted mean current/average total variation is 0.2376390;
+this row-weighted policy difference is not a strength measure.
+[Full audit receipt](hu200-v2-frozen-5b-artifacts/5b.audit.json).
+
+| 5B export | Bytes | SHA256 |
+|---|---:|---|
+| Average | 2,876,030,727 | `ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3` |
+| Current | 2,517,248,308 | `7077fdf83b4c674aea8b11fae5611984a4f6d7cd7d4fe24878cde6afd7d8f847` |
+
+The final average is the only v2 model admitted to evaluation.
+[Exact treatment](hu200-v2-frozen-5b-artifacts/treatment.json),
+[source pins](hu200-v2-frozen-5b-artifacts/source-pins.json).
+Evaluation/planning source is `c004f8235dfd7dee993d859b4a8ce48e915fb19d`.
+After native training, this adds full canonical-plan posting and the separately
+tested Slumbot loader. Native, game, blueprint, registry and shared evaluation
+functions are byte-unchanged from the training source.
