@@ -3,7 +3,7 @@
 [PR270](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/270)
 · [Predeclared protocol](../hu200-v2-frozen-5b-protocol.md)
 
-**Recovery verified; training and evaluation in progress.** This experiment asks
+**5B training reached; every-row export audits and evaluation in progress.** This experiment asks
 whether representing off-menu bet sizes and training the retained keys more
 densely improves HU200 against those sizes. Only the menu changes from #250/#265.
 The primary evidence is the paired seven-opponent panel. Different-menu direct
@@ -91,3 +91,55 @@ play and analysis use that loader; HU100 and mismatched-card models remain
 refused. A real synthetic K50 v2 model passes load, warm read-only cache,
 Slumbot admission and recorded-hand analysis; corrupt hashes are rejected.
 These are offline checks, with no account, credential or service calls.
+
+## Frozen training and stored-key density
+
+The fresh cap parent is **223,536,509 nodes /27,759 iterations /95,707,874 entries**,
+5,377 entries above the measured nominal cap at a complete iteration. The exact
+parent checkpoint is 3,274,048,973 bytes, SHA256
+`bc72d3e0cc34c8903d784702fcfe96c5e5cba796e6092f3caf871a3e4bcb3284`.
+Resume freezes at those actual entries, with no intervening update. This gives
+the same training updates as freezing immediately after that iteration in a
+fresh run. [Exact frozen command](hu200-v2-frozen-5b-artifacts/frozen-command.json).
+
+The frozen run reaches 5B, preserving the entry count at both saves.
+[Complete training receipts](hu200-v2-frozen-5b-artifacts/training-complete.json),
+[density and freeze telemetry](hu200-v2-frozen-5b-artifacts/milestones.json).
+
+| Save | Actual nodes | Iterations | Entries | Visits/key | Zero visits | Zero average mass | After-save RSS GiB | Write s |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Freeze parent | 223,536,509 | 27,759 | 95,707,874 | 0.4401 | 62.16% | 34.03% | 1.846 | 315.59 |
+| Frozen 2B | 2,000,002,806 | 396,493 | 95,707,874 | 1.3774 | 50.01% | 28.02% | 2.336 | 316.30 |
+| Frozen 5B | 5,000,000,090 | 1,120,316 | 95,707,874 | 2.8011 | 42.55% | 25.11% | 2.516 | 340.05 |
+
+Frozen continuation took **2,506.53 seconds including both writes**. The first
+frozen segment ran at 2.60M nodes/s before its 316.30-second write. Final
+checkpoint: **4,435,470,459 bytes**, SHA256
+`39355b6c8f2653b11a8db44c99b540e1ada60fde2b3cbd5d96c7cb706f2ace75`.
+
+At 5B, cumulative discarded traverser visits are **662,807,927** and discarded
+merged updates **1,810,112,718**. The 2B→5B interval contributes 418,098,708
+discarded visits and 1,133,688,692 discarded updates. Missing decisions stay
+uniform; these counters measure omitted updates, not newly stored keys.
+
+| Interval | Role | Preflop misses | Flop | Turn | River |
+|---|---|---:|---:|---:|---:|
+| Fresh growth to cap | Traverser | 38.436% | 48.015% | 76.806% | 92.814% |
+| Fresh growth to cap | Opponent | 23.171% | 40.076% | 70.751% | 90.304% |
+| Cap→2B | Traverser | 24.485% | 34.194% | 64.660% | 87.606% |
+| Cap→2B | Opponent | 15.853% | 27.436% | 57.478% | 84.424% |
+| 2B→5B | Traverser | 25.574% | 36.010% | 65.483% | 87.693% |
+| 2B→5B | Opponent | 13.698% | 23.921% | 52.794% | 83.134% |
+
+Pre-freeze misses are recorded before new keys receive their complete-iteration
+updates. The fresh-growth interval spans the entire growing run; it is not the
+short pre-cap interval reported for #265. After 2B, traverser miss shares rise
+slightly while opponent shares fall. Training still reaches unsupported late
+histories frequently.
+
+**5B does not mean uniformly dense v2 support.** The v2 table has 2.801 visits/key
+and 42.55% zero visits, versus v1 5B's 9.732 and 26.41%. Both node and 11 GB
+budgets are matched; visits, iterations and key sets are not. V2 freezes much
+earlier (223.5M versus 752.6M nodes) and has more actions and finer history
+labels. The panel answers this fixed-budget menu comparison; a negative result
+cannot establish that a more densely trained v2 could never help.
