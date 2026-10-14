@@ -113,16 +113,16 @@ with no stop. These are instantaneous readings, not campaign maxima.
 
 ## Latest periodic check
 
-The **October 14 17:21 UTC /19:21 CEST** check confirms the original
+The **October 14 17:51 UTC /19:51 CEST** check confirms the original
 supervisor identity is live and healthy in frozen training. The latest fully
-verified save is **5,000,000,230 actual nodes /3,813,020 iterations**,
+verified save is **10,000,000,162 actual nodes /8,053,874 iterations**,
 retaining **85,373,916 entries** and the exact stage-1 sorted serialized
-key digest. Mean traverser visits/key is **9.7582**
-and zero-visit share **26.54%**. The 10B save is not yet
+key digest. Mean traverser visits/key is **19.0021**
+and zero-visit share **21.19%**. The 20B save is not yet
 available; no progress between saves is inferred.
-Current family RSS is **8.63 GiB**, free memory
-**82%**, disk **68.42 GiB**, and swap is below the
+Current family RSS is **8.68 GiB**, free memory
+**80%**, disk **64.07 GiB**, and swap is below the
 original baseline. No guard stop or failure latch exists. Seed 2 and server
 preparation remain unstarted. Fixed deadline and reserves are unchanged.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1721Z.json),
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1751Z.json),
 [verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json).
