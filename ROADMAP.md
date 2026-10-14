@@ -32,7 +32,7 @@ The v0.4.x releases improve heads-up 20 BB; v0.5 starts at 100 BB and adds 200 B
 
 **Three seeds.** Every release, and every result treated as settled before the next idea builds on it, rests on three independent training seeds: the candidate plus two replications of its exact recipe, each showing the same result. One good seed is not enough.
 
-**Criteria only for milestones.** Milestones (v0.5.5, v0.6, v0.7, v0.8, v0.9, v1.0) declare owner-approved acceptance criteria and an evaluation size before their fresh confirmation. Improvement releases between them need no criteria: they beat the release they replace in a fresh direct match and pass the standing safeguards, on all three seeds. No release relaxes a later milestone's criteria.
+**Criteria only for milestones.** Milestones (v0.5.5, v0.6, v0.7, v0.8, v0.9, v1.0) declare owner-approved acceptance criteria and an evaluation size before their fresh confirmation. Improvement releases between them need no criteria. A candidate plays the release it replaces in a fresh direct match where both can play the same game, reported but not required to win, and it must be the better overall package. All three seeds show the same result. No release relaxes a later milestone's criteria.
 
 ### The v0.4.x path
 
