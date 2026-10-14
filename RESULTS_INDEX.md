@@ -9,7 +9,9 @@ coordinator `~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
 Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
-No full-memory pass, trainer setup or correctness/throughput result yet.
+No full-memory pass or correctness/throughput result yet.
+Current-main setup/first native build complete at `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
+[environment/build receipt](docs/reports/cygnus-x1-artifacts/setup-results.json).
 NVMe scratch fio and 8 GiB CRC32C verification complete without errors;
 [measurements/guard/raw-stream hash](docs/reports/cygnus-x1-artifacts/disk-results.json).
 The 8 GiB scratch file is retained on bb128 and excluded from coordinator copying.

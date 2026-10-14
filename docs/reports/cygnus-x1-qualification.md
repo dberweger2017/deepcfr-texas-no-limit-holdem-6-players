@@ -3,7 +3,7 @@
 **In progress; not admitted for campaigns.** The owner’s latest deadline is
 **October 15, 07:00 Madrid**; later test jobs stop by **06:50**. The extended
 window includes extra RAM coverage after the primary checks and i7/GPU tests. Debian 13.7 /Linux 6.12.111,
-Intel i7-10700KF, 128 GiB installed /125.71 GiB visible. Current-main source
+Intel i7-10700KF, 128 GiB installed /125.71 GiB visible. Inventory-main source
 `b91a78d2d0893e80380bc3da9a24142e591fc04b`; isolated coordinator checkout and
 remote evidence root `/home/dberweger/cygnus-qualification-20261014`.
 [Measured inventory](cygnus-x1-artifacts/inventory.json) ·
@@ -126,6 +126,23 @@ idle-peer or wired-link capacity. Every client/latency guard passed; package
 temperature and sampled clocks/throttle counters accompany each measurement in
 the [network receipt](cygnus-x1-artifacts/network-results.json) and per-job thermal
 CSVs alongside it.
+
+## Repository setup
+
+Fresh nonsynced current-main checkout:
+`ebd3d8d567e4248f9f1eb57edfaf25262338aa31`, clean at setup.
+Python **3.11.17**, CPU-only **PyTorch 2.5.1+cpu** (CUDA build absent),
+requirements-dev installed; Node **22.23.3** added within the owned qualification
+root for the playback tests, verified against the official archive SHA256.
+Native trainer built through `python -m scripts.build_native_trainer`, four
+Cargo jobs, retaining its build receipt and exact first binary.
+Setup passed in **84.52 s**, peak RSS **1.203 GiB**, package **34–59 °C**,
+no swap/throttle changes. Sampled all-logical-CPU clock min/median/max
+**797/800/4,897 MHz**, including idle siblings.
+The full test suite is now running; two-location binary equality and exact
+checkpoint recovery remain pending.
+[Environment/toolchain/build receipt](cygnus-x1-artifacts/setup-results.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/setup-temperatures.csv).
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
