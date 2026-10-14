@@ -499,3 +499,64 @@ def test_run_charts_read_verified_winnings_and_running_intervals(tmp_path):
     assert rows[-1][0] == sum(hands) / 100 and rows[0][2] is None
     assert rows[-1][1] == pytest.approx(sum(hands) / len(hands))
     assert rows[-1][2] == pytest.approx(1.96 * statistics.stdev(hands) / len(hands) ** 0.5)
+
+
+def test_style_replay_sizes_sides_and_all_ins():
+    from src.arena.external.style import replay
+    # The client is the small blind: it opens to 2 BB (half the pot after calling), Slumbot calls,
+    # checks the flop and the client bets the pot.
+    events, paid = replay({'action': 'b200c/kb400c/kk/kk', 'client_pos': 1})
+    assert [(e['side'], e['kind']) for e in events[:5]] == [
+        ('player', 'raise'), ('slumbot', 'call'), ('slumbot', 'check'), ('player', 'bet'), ('slumbot', 'call')]
+    assert events[0]['size'] == 0.5 and events[3]['size'] == 1.0 and paid == [600, 600]
+    events, paid = replay({'action': 'b200b15361b20000c///', 'client_pos': 0})
+    assert [e['side'] for e in events] == ['slumbot', 'player', 'slumbot', 'player']
+    assert events[2]['all_in'] and not events[1]['all_in'] and paid == [20000, 20000]
+
+
+def test_style_profile_counts_statistics_and_contributions():
+    from src.arena.external.style import profile
+    hands = [
+        {'action': 'b200c/kb400c/kk/kk', 'client_pos': 1, 'winnings': 600},    # Client opens and c-bets; showdown.
+        {'action': 'f', 'client_pos': 1, 'winnings': -50},                      # Client folds its small blind.
+        {'action': 'b250b750f', 'client_pos': 0, 'winnings': 250},              # Client 3-bets; Slumbot folds.
+        {'action': 'cb300c/b200f', 'client_pos': 1, 'winnings': -300},          # Client limps, calls a raise, folds the flop c-bet.
+    ]
+    result = profile(hands)
+    player, slumbot = result['player'], result['slumbot']
+    assert player['vpip'] == {'rate': 0.75, 'of': 4} and player['pfr'] == {'rate': 0.5, 'of': 4}
+    assert player['small_blind_first_action']['fold'] == {'rate': 1 / 3, 'of': 3}
+    # Calling the big blind's raise after limping was a chance to 3-bet too.
+    assert player['3bet'] == {'rate': 0.5, 'of': 2} and slumbot['fold_to_3bet'] == {'rate': 1.0, 'of': 1}
+    assert player['flop_cbet'] == {'rate': 1.0, 'of': 1} and slumbot['flop_cbet'] == {'rate': 1.0, 'of': 1}
+    assert player['against_flop_cbet']['fold'] == {'rate': 1.0, 'of': 1}
+    assert result['streets_reached']['ended preflop']['hands'] == 2 and result['streets_reached']['showdown']['hands'] == 1
+    assert sum(g['adds_bb_per_100'] for g in result['streets_reached'].values()) == pytest.approx(result['overall']['bb_per_100'])
+    assert sum(g['adds_bb_per_100'] for g in result['matched_pot'].values()) == pytest.approx(result['overall']['bb_per_100'])
+    # The 2 BB open is half the pot after calling; the 3-bet to 7.5 BB over 2.5 BB is pot-sized.
+    assert player['bet_sizes'] == {'preflop': {'~½': 1, '~pot': 1}, 'flop': {'~pot': 1}}
+
+
+def test_first_hands_cutoff_spans_pooled_runs(tmp_path):
+    from src.arena.external.analysis import analyze
+    from src.arena.external.style import terminals
+
+    def run(name, hands):
+        replay = Replay(hands)
+        connection = SlumbotConnection(replay, HU200)
+        (tmp_path / name).mkdir()
+        journal = PrefixJournal(tmp_path / name / 'journal.jsonl', {'fixture': name})
+        for i in range(len(hands)):
+            play_hand(connection, replay, f'{name}{i}', journal)
+        journal.close()
+        return tmp_path / name
+
+    a, b = run('a', LIVE[:5]), run('b', LIVE[5:])
+    assert [t['winnings'] for t in terminals([a, b], 8)] == [hand[-1]['winnings'] for hand in LIVE[:8]]
+    first = analyze([a / 'journal.jsonl', b / 'journal.jsonl'], workers=1, hands=8)
+    assert first['hands'] == 8 and [p['hands'] for p in first['parts']] == [5, 3]
+    assert analyze([a / 'journal.jsonl', b / 'journal.jsonl'], workers=1, hands=5)['journal'] == analyze(a / 'journal.jsonl', workers=1)['journal']
+    with pytest.raises(ValueError, match='fewer than'):
+        terminals([a], 6)
+    with pytest.raises(ValueError, match='fewer than'):
+        analyze(a / 'journal.jsonl', workers=1, hands=6)
