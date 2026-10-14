@@ -237,6 +237,32 @@ def archive():
         dest/'hu100-v2-frozen-5b-average-M4-20261014.zip',metadata))
 
 
+def closeout():
+    # The main ZIP cannot contain its own growing guard stream. Seal that
+    # stream after its guard exits, while this campaign still owns the locks.
+    paths=sorted((BASE/'guards/operations').glob('*/resources.jsonl'))
+    rows=[json.loads(line) for p in paths for line in p.read_text().splitlines()]
+    baseline=read(BASE/'guards/baseline.json')
+    summary=dict(samples=len(rows),peak_family_rss_bytes=max(r['family_rss_bytes'] for r in rows),
+        minimum_free_percent=min(r['free_percent'] for r in rows),
+        minimum_disk_free_bytes=min(r['disk_free_bytes'] for r in rows),
+        maximum_swap_growth_bytes=max(r['swap_bytes']-baseline['swap_bytes'] for r in rows),
+        pressure_levels=sorted(set(r['pressure_level'] for r in rows)),
+        sampled_breaches=sorted({k for r in rows for k,v in r['breaches'].items() if v}),
+        any_guard_stop=any(r['stop'] for r in rows),
+        operations={p.parent.name:read(p.parent/'receipt.json') for p in paths},
+        all_readings_retained=True,source=revision())
+    if summary['any_guard_stop'] or any(r['status']!='complete' for r in summary['operations'].values()):
+        raise ValueError('Closed campaign has a guard stop or incomplete stage')
+    put(BASE/'resource-summary.json',summary)
+    files=[(p,'closeout/'+p.relative_to(BASE).as_posix()) for p in sorted((BASE/'guards/operations/evaluation-archive').rglob('*'))
+        if p.is_file()]
+    files += [(BASE/p,'closeout/'+p) for p in ('archive-receipt.json','average-receipt.json','resource-summary.json')]
+    dest=Path.home()/f'Local/Research-Cloud/PR-{PR}-hu100-v2-frozen-5b/hu100-v2-frozen-5b-closeout-M4-20261014.zip'
+    put(BASE/'closeout-receipt.json',seal(files,dest,dict(source=revision(),
+        closed_archive_guard=True,all_scientific_guard_streams_in_primary_zip=True,originals_retained=True)))
+
+
 def run():
     if not (BASE/'training-detached-complete.json').exists():
         raise ValueError('Detached training/export/audit must complete first')
@@ -253,6 +279,7 @@ def run():
             subprocess.run(list(map(str,[sys.executable,'-m','scripts.guard_m4_research',
                 '--stage',BASE/'guards','--name','evaluation-'+stage,'--deadline',deadline,
                 '--',sys.executable,'-m','scripts.evaluate_hu100_v2_frozen_5b',stage])),check=True)
+        closeout()
     put(BASE/'detached-complete.json',dict(at=time(),research_locks_released=True))
 
 
