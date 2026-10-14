@@ -155,9 +155,9 @@ def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch, tmp_path):
     write(HU200_EQUITY_SCHEMA)
     hu200_average(path, 'sha', Path('tables'))
     assert calls == [((path, 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None,
-                                        'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False}),
+                                        'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False, 'translation': None}),
                      ((path, 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
-                                        'card_buckets': Path('tables'), 'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False})]
+                                        'card_buckets': Path('tables'), 'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False, 'translation': None})]
     write(HU200_EQUITY_MENU_V2_SCHEMA)
     hu200_average(path,'sha',Path('tables'))
     assert calls[-1][1]['expected_schema']==HU200_EQUITY_MENU_V2_SCHEMA

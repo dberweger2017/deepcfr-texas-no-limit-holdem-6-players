@@ -64,8 +64,8 @@ def verify_witness(initial, view, menu, info, model):
     if (wv.actor!=view.actor or wv.street!=view.street or wv.hole_cards!=view.hole_cards or wv.board!=view.board
             or tuple((p.folded,p.all_in) for p in wv.players)!=tuple((p.folded,p.all_in) for p in view.players)
             or tuple(c.name for c in wm)!=tuple(c.name for c in menu)
-            or information_key(wv,wm,schema=HU200_SCHEMA)!=info['selected_key']
-            or information_key(view,menu,schema=HU200_SCHEMA,history_label_overrides=labels)!=info['selected_key']
+            or model.information_key(wv,wm)!=info['selected_key']
+            or information_key(view,menu,schema=model.abstraction,equity_cards=getattr(model,'equity_cards',None),history_label_overrides=labels)!=info['selected_key']
             or labels!=dict(info['overrides']) or float(distance)!=info['distance'] or changes!=info['all_in_changes']):
         raise ValueError('Witness key/flags/distance/labels differs')
     selected=model.entries.get(info['selected_key'])

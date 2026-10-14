@@ -19,6 +19,7 @@ from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest
 from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA, STACK_BY_SCHEMA, EQUITY_SCHEMAS, schema_choices, information_key
 from src.blueprint.equity_buckets import EquityCards
 from src.blueprint.average import missing_check_call
+from src.blueprint.action_translation import TranslationOptions, version_for_schema
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -60,6 +61,18 @@ def make_plan(specs,blocks,root,rung, *, stack_bb=100, opponent=None):
         split='test',models=models,max_decisions=1000)
 
 
+
+def play_options(specs):
+    return {s['name']: {'missing_key_fallback': s.get('missing_key_fallback', 'uniform'),
+        'action_translation': ({'version': version_for_schema(s.get('abstraction', HU100_SCHEMA)),
+            **dict(s['translation'])} if s.get('translation') is not None else None)} for s in specs}
+
+
+def stable_decision(row):
+    """Only elapsed measurements vary; all policy and witness fields must reproduce."""
+    return json.loads(canonical({k: ({x:y for x,y in v.items() if x != 'lookup_seconds'} if k == 'translation' else v)
+            for k,v in row.items() if k != 'decision_seconds'}))
+
 def validate(registry,specs,plan):
     stacks=plan.scenarios[0].stacks
     if registry.plan.models!=plan.models:raise ValueError('Registry identity differs')
@@ -76,7 +89,8 @@ def validate(registry,specs,plan):
                 or STACK_BY_SCHEMA[model.abstraction]!=stacks[0]
                 or model.identity['game']!=model.game):
             raise ValueError('Pinned direct model/game differs')
-        model.configure_translation(None)
+        model.configure_translation(TranslationOptions(**spec['translation']) if spec.get('translation') is not None else None)
+        model.record_translation = any('translation' in s for s in specs)
         model.configure_missing_key_fallback(spec.get("missing_key_fallback", "uniform"))
 
 
@@ -85,8 +99,13 @@ class Probe:
     def __init__(self,player,model,context,emit):
         self.player,self.model,self.context,self.emit=player,model,context,emit
     def choose_action(self,view):
+        started = perf_counter()
         action=self.player.choose_action(view)
-        menu,probabilities,known=self.model.distribution(view)
+        elapsed = perf_counter()-started
+        if self.model.record_translation:
+            menu,probabilities,known,info=self.player.last_decision
+        else:
+            menu,probabilities,known=self.model.distribution(view)
         key=self.model.information_key(view,menu)
         if not any(c.action==action and p>0 for c,p in zip(menu,probabilities)):
             raise ValueError('Direct action outside positive-probability native menu')
@@ -96,7 +115,9 @@ class Probe:
             'lookup':'missing-key' if not known else 'zero-mass' if key in self.model.zero_mass else 'positive-mass-known-key',
             'visits':visits}
         if self.model.missing_key_fallback != 'uniform':
-            row.update(missing_key_fallback=self.model.missing_key_fallback, fallback_applied=not known)
+            row.update(missing_key_fallback=self.model.missing_key_fallback, fallback_applied=info['fallback_applied'] if self.model.record_translation else not known)
+        if self.model.record_translation:
+            row.update(translation=info, decision_seconds=elapsed)
         self.emit(row)
         return action
 
@@ -119,6 +140,8 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
     out.mkdir(parents=True,exist_ok=False)
     plan=make_plan(specs,blocks,root,rung,stack_bb=stack_bb,opponent=opponent)
     cache=local_cache(cache)
+    if any('translation' in s for s in specs) and cache is None:
+        raise ValueError('Translation telemetry requires an explicit policy cache')
     started=perf_counter();tick=started
     if registry is None:registry=PolicyRegistry(plan,sorted_average_rows=True,policy_cache=cache,
                                                 share_average_storage=True,cache_read_only=cache_read_only)
@@ -131,6 +154,10 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
     if any('missing_key_fallback' in s for s in specs):
         inputs['play_options'] = {s['name']: {'missing_key_fallback': s.get('missing_key_fallback', 'uniform')} for s in specs}
         inputs['run_identity_sha256'] = digest(inputs)
+    if any('translation' in s for s in specs):
+        inputs['policy_cache'] = str(cache)
+        inputs['play_options'] = play_options(specs)
+        inputs['run_identity_sha256'] = digest({k:v for k,v in inputs.items() if k != 'run_identity_sha256'})
     put(out/'inputs.json', inputs)
     contexts={}
     private_seeds=set()
@@ -151,7 +178,7 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
             def emit_decision(row):
                 nonlocal decisions
                 text=canonical(row)
-                if repeat_d and json.loads(next(repeat_d))!=row:raise ValueError('Reproduced direct decision differs')
+                if repeat_d and stable_decision(json.loads(next(repeat_d)))!=stable_decision(row):raise ValueError('Reproduced direct decision differs')
                 traces.write(text+'\n');decisions+=1
             def factory(name,seed):
                 context={**contexts.pop(seed),'policy':name}
@@ -184,7 +211,12 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
 def audit(out,output,report=False,cost_only=False):
     tick=perf_counter()
     inputs=json.loads((out/'inputs.json').read_text());done=json.loads((out/'complete.json').read_text())
-    if any('missing_key_fallback' in s for s in inputs['models']):
+    instrumented = any('translation' in s for s in inputs['models'])
+    if instrumented:
+        if inputs.get('play_options') != play_options(inputs['models']) or inputs.get('run_identity_sha256') != digest(
+                {k:v for k,v in inputs.items() if k != 'run_identity_sha256'}):
+            raise ValueError('Translation run identity differs')
+    elif any('missing_key_fallback' in s for s in inputs['models']):
         options = {s['name']: {'missing_key_fallback': s.get('missing_key_fallback', 'uniform')} for s in inputs['models']}
         if inputs.get('play_options') != options or inputs.get('run_identity_sha256') != digest(
                 {k: v for k, v in inputs.items() if k != 'run_identity_sha256'}):
@@ -207,6 +239,12 @@ def audit(out,output,report=False,cost_only=False):
     for name,pin in done['files'].items():
         if (out/name).stat().st_size!=pin['bytes'] or file_hash(out/name)!=pin['sha256']:
             raise ValueError('Raw direct bytes changed')
+    registry = None
+    if instrumented:
+        from scripts.evaluate_hu200_translation import verify_witness
+        registry = PolicyRegistry(plan, sorted_average_rows=True, policy_cache=local_cache(Path(inputs['policy_cache'])),
+                                  share_average_storage=True, cache_read_only=True)
+        validate(registry,inputs['models'],plan)
     schedule={b.index:b for b in build_schedule(plan)}
     arms=('candidate','baseline') if opponent else ('candidate',)
     expected={(b,r,a) for b in range(plan.blocks) for r in (0,1) for a in arms}
@@ -225,6 +263,7 @@ def audit(out,output,report=False,cost_only=False):
             ids=tuple(f'player-{(seat-rotation)%2}' for seat in (0,1))
             hand=Hand.start(Table(ids,(stack,stack),block.button,50,100,'0.01'),
                 hand_id=f'table-0/{block.index}/{rotation}/0',seed=block.deal_seeds[0])
+            initial=hand
             scripted=make_policy(opponent,action_seed(plan.root_seed,block,rotation,1)) if opponent else None
             for event in row['events']:
                 if event['event']!='ActionTaken':continue
@@ -251,16 +290,27 @@ def audit(out,output,report=False,cost_only=False):
                             or not isclose(sum(d['probabilities']),1,abs_tol=1e-8)
                             or not any(c.action==action and p>0 for c,p in zip(menu,d['probabilities']))):
                         raise ValueError('Direct private stream/menu/probability/key differs')
+                    if instrumented:
+                        model=registry.models[policy]
+                        actual_menu,p,known,info=model.distribution_with_telemetry(view)
+                        expected_info={'translation':info}
+                        if (list(p)!=d['probabilities'] or actual_menu!=menu
+                                or stable_decision(expected_info)['translation']!=stable_decision(d)['translation']
+                                or known!=(d['lookup']!='missing-key')
+                                or not isfinite(d['decision_seconds']) or d['decision_seconds']<0
+                                or not isfinite(d['translation']['lookup_seconds']) or d['translation']['lookup_seconds']<0):
+                            raise ValueError('Translation replay differs')
+                        verify_witness(initial,view,menu,info,model)
                     if d['lookup'] not in ('missing-key','zero-mass','positive-mass-known-key') or d['visits']<0:
                         raise ValueError('Unknown direct coverage classification')
                     fallback = next(s for s in inputs['models'] if s['name'] == policy).get('missing_key_fallback', 'uniform')
-                    applied = fallback == 'check-call' and d['lookup'] == 'missing-key'
+                    applied = fallback == 'check-call' and d['lookup'] == 'missing-key' and (not instrumented or info['selected_key'] is None)
                     if fallback not in ('uniform', 'check-call'):
                         raise ValueError('Unknown direct fallback')
                     if fallback != 'uniform' and (d.get('missing_key_fallback') != fallback
                             or d.get('fallback_applied') != applied):
                         raise ValueError('Direct fallback telemetry differs')
-                    if d['lookup'] != 'positive-mass-known-key':
+                    if d['lookup'] != 'positive-mass-known-key' and (not instrumented or info['mode'] != 'translated'):
                         expected_distribution = list(missing_check_call(view, menu)) if applied else [1/len(menu)]*len(menu)
                         if d['probabilities'] != expected_distribution: raise ValueError('Direct fallback differs')
                     band='0' if d['visits']==0 else '1-9' if d['visits']<10 else '10-99' if d['visits']<100 else '100+'

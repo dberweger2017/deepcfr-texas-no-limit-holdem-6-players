@@ -97,6 +97,8 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
     journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
     checked, parts, identities = [], [], []
     decisions, terminals, failures = [], [], Counter()
+    translated = Counter()
+    lookup_times = []
     for path in journals:
         checked.append(verify_journal(path))
         part = []
@@ -105,6 +107,10 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
             if 'identity' in payload:
                 identity = payload['identity']; identities.append(identity)
                 expected = missing_key_fallback if missing_key_fallback is not None else (model.missing_key_fallback if model is not None else None)
+                if model is not None and identity.get('action_translation') != model.description.get('action_translation'):
+                    raise ValueError('Journal translation differs from analysis model')
+                if model is not None and 'model_sha256' in identity and identity['model_sha256'] != model.description['weights_sha256']:
+                    raise ValueError('Journal model differs from analysis model')
                 played = identity.get('missing_key_fallback', 'uniform')
                 if played not in ('uniform', 'check-call') or (expected is not None and played != expected):
                     raise ValueError('Journal fallback differs from analysis option')
@@ -154,7 +160,16 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
         if view.legal_actions.call_amount > 0 and not (street == 'preflop' and view.pot <= 150):
             facing[bet_bucket(view)][choice] += 1
         if model is not None:
-            menu, _, stored = model.distribution(view)
+            if getattr(model, 'translation', None) is not None:
+                menu, _, stored, reproduced = model.distribution_with_telemetry(view)
+                info = record.get('policy_telemetry')
+                stable = lambda value: json.loads(json.dumps({k: v for k, v in value.items() if k != 'lookup_seconds'}))
+                if info is None or stable(info) != stable(dict(reproduced, street=street)):
+                    raise ValueError('Journal translation telemetry differs from model')
+                translated[street, reproduced['mode']] += 1
+                lookup_times.append(info['lookup_seconds'])
+            else:
+                menu, _, stored = model.distribution(view)
             key = model.information_key(view, menu)
             lookup = 'missing' if not stored else 'zero_mass' if key in model.zero_mass else 'positive_mass'
             known[(street, stored)] += 1
@@ -162,7 +177,8 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
             info = record.get('policy_telemetry')
             if model.missing_key_fallback != 'uniform' and info is None:
                 raise ValueError('Check-call journal is missing decision telemetry')
-            if info is not None and info['fallback_applied'] != (lookup == 'missing'):
+            applied = model.missing_key_fallback != 'uniform' and lookup == 'missing' and (getattr(model, 'translation', None) is None or reproduced['selected_key'] is None)
+            if info is not None and 'fallback_applied' in info and info['fallback_applied'] != applied:
                 raise ValueError('Journal fallback coverage differs from model')
 
     swings = sorted(zip(raw, adjusted, terminals), key=lambda x: x[0])
@@ -180,6 +196,14 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
         'responses_by_bet_size': {b: dict(facing[b]) for b in ('≤½ pot', '½–¾ pot', '~pot', '1.2–2× pot', '>2× pot', 'all-in') if b in facing},
         'biggest_losses': show(swings[:10]), 'biggest_wins': show(swings[-5:][::-1]),
     }
+    if len({json.dumps(i.get('action_translation'), sort_keys=True) for i in identities}) > 1:
+        raise ValueError('Pooled journals have different translation options')
+    if identities[0].get('action_translation') is not None:
+        result['action_translation'] = identities[0]['action_translation']
+    if lookup_times:
+        lookup_times.sort()
+        result['translation_by_street'] = {s: {k: translated[s, k] for k in ('exact', 'translated', 'uniform')} for s in STREETS}
+        result['lookup_seconds'] = {'median': statistics.median(lookup_times), 'p90': lookup_times[int(.9*len(lookup_times))], 'max': max(lookup_times)}
     if len(parts) > 1:
         result['parts'] = parts
     if model is not None:
@@ -188,4 +212,8 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
         result['fallback_decisions_by_street'] = {s: coverage[s, 'missing'] if model.missing_key_fallback == 'check-call' else 0 for s in STREETS}
         result['stored_policy_by_street'] = {s: {'stored': known[(s, True)], ('uniform_fallback' if model.missing_key_fallback == 'uniform' else 'check_call_fallback'): known[(s, False)]}
                                              for s in STREETS if known[(s, True)] + known[(s, False)]}
+    if model is not None and getattr(model, 'translation', None) is not None:
+        result['stored_policy_by_street'] = {s: {'exact_stored': translated[s,'exact'],
+            'translated_stored': translated[s,'translated'], 'unresolved_fallback': translated[s,'uniform']}
+            for s in STREETS if sum(translated[s,k] for k in ('exact','translated','uniform'))}
     return result
