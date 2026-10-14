@@ -25,12 +25,22 @@ class CheckCall:
 
 
 def hu200_average(path, sha256: str, card_buckets=None, cache=None, *, missing_key_fallback="uniform", cache_read_only=False):
-    """A pinned HU200 average: v1 cards, or K50 with the pinned table directory; `cache` is an
-    optional folder for the verified binary cache that makes later loads take seconds."""
-    from src.blueprint.abstraction import HU200_EQUITY_SCHEMA, HU200_SCHEMA
+    """Load either HU200 menu with its own schema and pinned card tables."""
+    from gzip import open as gzip_open
+    import json
+    from src.blueprint.abstraction import (HU200_EQUITY_SCHEMA, HU200_SCHEMA,
+        HU200_EQUITY_MENU_V2_SCHEMA, HU200_MENU_V2_SCHEMA)
     from src.blueprint.average import AveragePolicy
+    with gzip_open(path, 'rt') as stream:
+        schema = json.loads(stream.readline())['checkpoint_header']['abstraction']
+    allowed = ((HU200_SCHEMA, HU200_MENU_V2_SCHEMA) if card_buckets is None else
+               (HU200_EQUITY_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA))
+    if schema not in allowed:
+        raise ValueError('HU200 average schema and card tables differ')
+    # The header selects only an admitted schema; AveragePolicy then verifies the
+    # full model hash, identity, table hashes and schema before using any row.
     # Native exports are written in key order; the sorted reader checks that as it loads.
-    return AveragePolicy(path, sha256, expected_schema=HU200_SCHEMA if card_buckets is None else HU200_EQUITY_SCHEMA,
+    return AveragePolicy(path, sha256, expected_schema=schema,
                          sorted_rows=True, card_buckets=card_buckets, cache=cache,
                          missing_key_fallback=missing_key_fallback, cache_read_only=cache_read_only)
 
