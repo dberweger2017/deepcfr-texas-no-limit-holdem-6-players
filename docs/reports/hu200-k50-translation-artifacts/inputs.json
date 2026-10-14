@@ -1,0 +1,156 @@
+{
+  "actual_nodes": 20000002032,
+  "configuration": {
+    "cache": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache",
+    "model": {
+      "audit_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.audit.json",
+      "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+      "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+      "retrieval": {
+        "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+        "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member_bytes": 3164563975,
+        "member_path": "averages/20000000000.average.gz",
+        "member_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+        "original_mtime_ns": 1791928039103998939,
+        "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "owning_pr": 265,
+        "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+      },
+      "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+    },
+    "pr": 271
+  },
+  "header": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 85373907,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101302
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "frozen_table": {
+      "discarded_traverser_visits": 566739555,
+      "discarded_updates": 1223130425,
+      "entries": 85373907,
+      "since_iteration": 493496,
+      "version": 1
+    },
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 16670844,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 20000002032,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        242217958,
+        886217016,
+        2792524105,
+        7443976106
+      ],
+      "traverser_visits_by_street": [
+        73591750,
+        275675401,
+        913189507,
+        2495154144
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "model": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "bytes": 3164563975,
+    "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+    "entries": 85373907,
+    "format": "holdem-hu200-stored-cfr-average-research-v1",
+    "iteration": 16670844,
+    "name": "frozen-off",
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+    "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "translation": null
+  },
+  "owners": {
+    "163": {
+      "headRefOid": "6339eb6f4c817c647829d354625b948fe55d8db3",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163"
+    },
+    "265": {
+      "headRefOid": "5a7aad13d4fe1caf0a507198278433edb9256ce6",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265"
+    },
+    "268": {
+      "headRefOid": "c8710c2c493de3f47a20ce6a8fd77b6e4fc5997a",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/268"
+    }
+  },
+  "retrieval": {
+    "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+    "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+    "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+    "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+    "member_bytes": 3164563975,
+    "member_path": "averages/20000000000.average.gz",
+    "member_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+    "original_mtime_ns": 1791928039103998939,
+    "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+    "owning_pr": 265,
+    "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+  },
+  "same_model_tables_cache_both_arms": true,
+  "source": "fd44d53f22c4c795d2d725f94babc065bde14f90",
+  "tables": {
+    "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+    "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+    "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+  }
+}

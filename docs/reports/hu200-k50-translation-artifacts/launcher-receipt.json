@@ -1,0 +1,27 @@
+{
+  "status": "prepared-not-started",
+  "source": "fd44d53f22c4c795d2d725f94babc065bde14f90",
+  "checkout": "/home/davide/deepcfr-slumbot/repo-translation-pr271",
+  "launcher": "/home/davide/deepcfr-slumbot/run-f20b-tr-pr271.sh",
+  "launcher_sha256": "6aa0fc890b1cd5b16654b98ea4c23863789ec93f4affd71917b0702aac5dacab",
+  "hands": 5000,
+  "account": "deepcfr-f20b-tr",
+  "account_characters": 15,
+  "seed": 20261014027101,
+  "translation": {
+    "max_states": 512,
+    "max_events": 128
+  },
+  "cache": "/home/davide/deepcfr-slumbot/cache-frozen",
+  "cache_read_only": true,
+  "output": "/home/davide/deepcfr-slumbot/translation-runs-pr271/5000-hands-seed-20261014027101",
+  "live_repo_head_before_and_after": "5d0ed66ee6d59eb9d9eae859f3c4e5ac4c10c0ea",
+  "live_session": "slumbot-frozen-20b",
+  "live_pane_pid_before_and_after": 2630262,
+  "api_requests": 0,
+  "account_created": false,
+  "credentials_accessed": false,
+  "live_runs_or_launcher_modified": false,
+  "launcher_syntax_checked": true,
+  "new_output_folder_absent": true
+}

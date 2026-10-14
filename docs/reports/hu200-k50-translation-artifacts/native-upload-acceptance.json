@@ -1,0 +1,17 @@
+{
+  "at": 1791975438.807339,
+  "bytes": 552632844,
+  "cloud_file_id": "1k3lH3i0uwyOIXx4ySdZdMkYvzJLrXkeU",
+  "cloud_folder_id": "1eqXwISuoMNctkGGt-xY3IIM_2Bxzaezf",
+  "conflicts": {
+    "exists": true,
+    "nil": false,
+    "unresolved_count": 0
+  },
+  "is_uploaded": 1,
+  "is_uploading": 0,
+  "name": "hu200-k50-translation-M4-20261014.zip",
+  "native_accepted": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-271-hu200-k50-translation/hu200-k50-translation-M4-20261014.zip",
+  "remote_archive_bytes_downloaded": false
+}

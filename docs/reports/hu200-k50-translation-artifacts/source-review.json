@@ -1,0 +1,25 @@
+{
+  "status": "clear",
+  "source": "fd44d53f22c4c795d2d725f94babc065bde14f90",
+  "scope": "Diff against main; public inputs, table ownership, menu refusal, deterministic sampling, paired scoring and storage",
+  "invariants": [
+    "The witness reducer consumes public wagers and board events; K50 keys use the observation owner's hole cards and the policy's explicitly pinned tables.",
+    "Translation reuses positive-mass rows with matching action labels. Actual legal raise amounts stay in the real menu. Known and zero-mass rows skip translation.",
+    "K50 configure_translation validates both pinned table hashes and the model identity. Missing table arguments cannot fall back to registered global tables. All v2 schemas refuse translation.",
+    "Each policy sample consumes one unchanged RNG draw; search uses none. v1 complete deterministic match streams equal main byte for byte.",
+    "The two arms share immutable average/cache storage but have separate translation configuration, players and descriptions.",
+    "Panel arms share physical deals and role action streams; inference sees no evaluation seed/outcome data. Student-t intervals use duplicate blocks, with the exact predeclared strict inequalities.",
+    "Replay reconstructs fresh engine hands and own equity readers; selected witnesses are independently checked with engine histories. Reproduction compares every deterministic decision field and every complete hand.",
+    "No final mean is calculated before the global replay/reproduction barrier and raw hashes are rechecked. Every primary and repeat stream remains retained.",
+    "Detached M4 guards retain five-second observations, reset sustained timers across gaps, share one swap baseline and verify PID creation times before signals.",
+    "No model/cache/table payload enters Git, no release/default is changed, and server preparation is conditional without live API play."
+  ],
+  "unresolved_findings": [],
+  "validation": {
+    "focused_tests": 107,
+    "m4_feature_tests": 17,
+    "additional_focused_tests": "46 passed, 1 pre-existing optional skip",
+    "storage": "passed",
+    "whitespace": "passed"
+  }
+}

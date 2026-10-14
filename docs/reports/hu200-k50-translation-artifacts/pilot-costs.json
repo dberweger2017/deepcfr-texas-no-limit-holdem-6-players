@@ -1,0 +1,356 @@
+{
+  "direct": {
+    "audit_seconds": 9.433602040982805,
+    "blocks": 1024,
+    "paired_sd_bb_per_100": 799.4669595499961,
+    "pilot": true,
+    "primary": {
+      "decisions": 11320,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 1149948,
+          "sha256": "e9bc613bff36da2221b5a6b077692a66944edb1ba0b88fa10aa723be14e06bad"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 208797,
+          "sha256": "05b4f2afdd36973b1121ba55a5935b758fd4d1d8904ff3256d7f47cfb6328cd7"
+        }
+      },
+      "hands": 2048,
+      "load_or_validation_seconds": 6.636247042013565,
+      "play_seconds": 5.355011833016761,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 12.005997041997034,
+      "status": "complete"
+    },
+    "repeat": {
+      "decisions": 11320,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 1141547,
+          "sha256": "83d3f23d66bb7a1b817ab8f7940a50ac6169beb1ae914693c7baf47fda3d4ae9"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 208797,
+          "sha256": "cabe7d9de2311490fae57ed885323d33eada7a2a5f3bdae8fc969356c72bddad"
+        }
+      },
+      "hands": 2048,
+      "load_or_validation_seconds": 6.715743250009837,
+      "play_seconds": 2.8216425419959705,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 9.551752458995907,
+      "status": "complete"
+    }
+  },
+  "panel": {
+    "check_call": {
+      "audit_seconds": 7.898862582980655,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 2170,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 79636,
+            "sha256": "07910e0fe562f39feaa6201ae6189679fe4e8ceb297159b674db939e5ef8785d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 26103,
+            "sha256": "da5bafb92eec533e2e4af8dc271dd3fc4c5f19f995f9001253de083aafa00454"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.70288766597514,
+        "play_seconds": 0.4590145000256598,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 7.163480791001348,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 2170,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 79101,
+            "sha256": "fac2dfb783fbe3a6213fdf00dee15973aa44fb657112089d10c1d097f6588d1d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 26103,
+            "sha256": "7f5afa72b434fab4bb6274c0b9039dbd692a0d29fb5abddfc7add2e9664b13ee"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.702676458022324,
+        "play_seconds": 0.4171847920224536,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 7.121343541017268,
+        "status": "complete"
+      }
+    },
+    "half_pot_pressure": {
+      "audit_seconds": 7.7763788330194075,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 1941.3524168345134,
+      "pilot": true,
+      "primary": {
+        "decisions": 792,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 33060,
+            "sha256": "32e90eaf3500b428bc1c3561769a52a4295e01532c458546f9c7bc9c21cb856c"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19837,
+            "sha256": "bc128c4d99335e9f1479abaad51d5e3b172d027c16e6bb6bdd3d1b64a2fe920a"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.723375917004887,
+        "play_seconds": 0.15630787500413135,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.881214416993316,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 792,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 32864,
+            "sha256": "7530892a944c2ae299416c9c440b675b20f04afda9b8877253861b00b5ac2e0b"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19837,
+            "sha256": "30a2efac46a9234716a37536ff0707dc3f301e15dd6217b0abb25c1bab21ff9a"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.727504708978813,
+        "play_seconds": 0.18343216698849574,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.91238162497757,
+        "status": "complete"
+      }
+    },
+    "loose_aggressive": {
+      "audit_seconds": 7.803362000006018,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 1054,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 44212,
+            "sha256": "f3f4a84bc2c2c6b6a05b7467f481838d52c028087100de81a3f47abf469e38b3"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 21460,
+            "sha256": "9c3320287e5bcfa2d2e40652ff7129d5a03a76d8eaebedbfc1befda171734680"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.701903041015612,
+        "play_seconds": 0.20682108399341814,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.910264750011265,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 1054,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 43930,
+            "sha256": "7b82a62ed7c9af23dce5c615153e2deea2806fe398b21f79174e4fd04963dda3"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 21460,
+            "sha256": "67989c4a46d98a08de45eace1d97e639df0488a2770d60b9dd9ed8f2cf9efcbc"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.711642209003912,
+        "play_seconds": 0.22448537501622923,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.937598958989838,
+        "status": "complete"
+      }
+    },
+    "matched_pot_pressure": {
+      "audit_seconds": 7.757185542024672,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 580,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 22714,
+            "sha256": "0e35790d66364aa06032e855d1bfe67617391a2afd8c4de0bc050b9fbab5534e"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 17332,
+            "sha256": "d987e27ea1195f2c4e9c040b8083805c4775eebaaa40695027144c407cdd7a30"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.712084750004578,
+        "play_seconds": 0.0945743749907706,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.808182874985505,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 580,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 22529,
+            "sha256": "8def6038385bb1ecc97175b3d92ed4d375eb5b0a2793b3f7d616987e4c546bf7"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 17332,
+            "sha256": "1358ceb885d70e91e7eef65468233e3128b5630933f2a733f95113dba87fb732"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.710003916989081,
+        "play_seconds": 0.11202254201634787,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.823489958012942,
+        "status": "complete"
+      }
+    },
+    "pot_pressure": {
+      "audit_seconds": 7.811811374995159,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 2066.8562701043925,
+      "pilot": true,
+      "primary": {
+        "decisions": 704,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 29990,
+            "sha256": "17281a4682723478a3491d02807f0a7ebbd9a098d6584688f131c544f4c9fc68"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19735,
+            "sha256": "6cfae7e8b43f98b7068a9c6603d20e1dcda7263e1090eede7d7c106fbbcedb2e"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.703082833002554,
+        "play_seconds": 0.14325816699420102,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.847885750001296,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 704,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 29980,
+            "sha256": "a8239608c1ee054247a60e5f45d319d377428927bd290a442e9395e294fabced"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19735,
+            "sha256": "5b60fc126e0195613ea13e33666f525d74d31eaa3c1c0638389c764362f25f26"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.715745041001355,
+        "play_seconds": 0.16070262499852106,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.877921083010733,
+        "status": "complete"
+      }
+    },
+    "random": {
+      "audit_seconds": 7.74523970898008,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 890,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 37826,
+            "sha256": "d1463c018e94d14945665c5dae94d5ad9d8398eb49ff8888a85c4ff50487fb28"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 20450,
+            "sha256": "fc75cbb76fe8d3cad0d50f43abb098ce19e6bfcf2228b3889234a6ed171227ab"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.724672540993197,
+        "play_seconds": 0.1631937909987755,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.889391207980225,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 890,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 37736,
+            "sha256": "0b1a6d506538342bbefed847afc795ade3b95d0c32666e97fb6d3e4a80ed66eb"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 20450,
+            "sha256": "4ef2c9a2ede1428ddeb28d991456c61a9ff49455774ea4f5c3db5118683ed75e"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.710411291976925,
+        "play_seconds": 0.18419104200438596,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.896010249998653,
+        "status": "complete"
+      }
+    },
+    "tight_aggressive": {
+      "audit_seconds": 7.739269749989035,
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 496,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 19214,
+            "sha256": "fabbde5a35f62b9bf898f47ca7333d74651f17acf87a3e181e72ad4ba1333f7d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 16702,
+            "sha256": "dfda6e9b1fb8bdf1f719ae3fa2b9f3b4496fec89c744cdc11c57c9e2b8a7b586"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.71228933299426,
+        "play_seconds": 0.08052733400836587,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 6.794390750001185,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 496,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 19298,
+            "sha256": "6dab2280e07d2345d2ef88d7a7f5a86f4a378c187570b777e89b7b3507f07afd"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 16702,
+            "sha256": "4bb26d470184903f5b35d0fd44a88f9a74d3e067b0a793ad83448a52f6faa76b"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 6.7109414160076994,
+        "play_seconds": 0.10144162498181686,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 6.813807166006882,
+        "status": "complete"
+      }
+    }
+  }
+}

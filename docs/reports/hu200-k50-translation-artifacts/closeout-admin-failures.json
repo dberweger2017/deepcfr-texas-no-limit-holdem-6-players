@@ -1,0 +1,23 @@
+{
+  "scientific_retries": 0,
+  "failures": [
+    {
+      "action": "M4 server alias discovery",
+      "errors": [
+        "Could not resolve hostname db-ocean",
+        "Host key verification failed for davide@davides-ocean"
+      ],
+      "resolution": "Used the already trusted M1 alias to detach short offline preparation on the server; no host-key bypass or credential changes"
+    },
+    {
+      "action": "Server optional memory-module probe",
+      "error": "ModuleNotFoundError: No module named psutil",
+      "resolution": "Standard-library resource and /proc measurements; existing venv untouched"
+    },
+    {
+      "action": "Independent-recount scp destination",
+      "error": "No such file or directory in the original workspace",
+      "resolution": "Correct isolated feature workdir; no remote file modified"
+    }
+  ]
+}
