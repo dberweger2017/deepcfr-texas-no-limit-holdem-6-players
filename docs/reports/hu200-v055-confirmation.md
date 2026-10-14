@@ -103,11 +103,12 @@ and frozen/recovery mode. Latest verified frozen save:
 and the stage-1 sorted-key digest unchanged. Mean traverser visits/key is
 **18.9896**, zero-visit share **21.11%**.
 [Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
-The **October 15 01:21 CEST** check verifies the second-seed supervisor identity,
-current RSS **8.78 GiB**, free memory **83%**,
-disk **44.14 GiB**, swap below the original baseline and no stops.
-20B is not yet verified; no between-save count is inferred.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2321Z.json),
+The **October 15 01:51 CEST** check verifies the second-seed supervisor identity,
+current RSS **8.79 GiB**, free memory **80%**,
+disk **40.46 GiB**, swap below the original baseline and no stops.
+The target-named terminal temporary file is being written; 20B is not yet
+verified and no between-save count is inferred.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2351Z.json),
 [per-save statistics](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
