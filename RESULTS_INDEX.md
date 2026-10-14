@@ -1,8 +1,32 @@
-## PR270 — HU200 v2 frozen 5B (active October 14, 2026)
+## PR270 — HU200 v2 frozen 5B (October 14, 2026)
 
-[PR270](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/270), [protocol](docs/hu200-v2-frozen-5b-protocol.md), [report](docs/reports/hu200-v2-frozen-5b.md). **Active M4 campaign; no final result or archive acceptance yet.** Fresh recipe seed 2026101302, R=1, K50, linear CFR, opponent-sampled, menu v2 only. Source `bbfa6a1df1fc70f323b1335ccf2146804d0dcc30`, native main base `e2bcdc63`. Root `~/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b`; detached tmux `hu200-v2-pr270`, both research locks held through science/archive. Fresh/resumed 20M checkpoint hash `d0ab3813e65001cc331058cb6bdeccaf878c619fe2ffae4073ff1a468dab5b52`, measured cap 95,702,497 entries. Keep this open PR root, its tables/models/caches and the compatibility checkout `~/Local/hu200-v2-pr270-compatibility` intact.
+[PR270](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/270), [report](docs/reports/hu200-v2-frozen-5b.md), [protocol](docs/hu200-v2-frozen-5b-protocol.md). **Science complete; full/average ZIPs locally verified, cloud upload pending.** Training source `bbfa6a1df1fc70f323b1335ccf2146804d0dcc30`, final evaluation source `9477419a0d33711c8156b9ecebfc8a16a1c1e580`, native main base `e2bcdc63` /binary `4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`. Root `~/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b`. Fresh/resumed20M bytes match; frozen5B reaches **5,000,000,090 nodes /95,707,874 entries**, and every current/average row audits. Full requested 16,384 panel blocks per seven opponents and 131,072 descriptive direct blocks; all **720,896 final primary hands** independently replay/reproduce before readout. Pressure contrast **+238.59 [201.61,275.57]**, half-pot **−32.31 [−59.14,−5.48] BB/100**; three safeguards fail. **No Slumbot preparation, live play, release or default change.** Owner decides merge.
 
-Protected read-only comparison input: `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz`, 2,756,501,598 bytes, SHA256 `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512`. Restoration: [PR265 model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json), accepted average ZIP [Drive 1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view), whole hash `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943`, member `averages/5000000000.average.gz`. Tables copied and fully hash-verified after live merged-owner checks; [PR163 table archive/retrieval](docs/reports/hu200-k50-first-artifacts/inputs.json) remains their storage dependency. No source input is moved, removed or overwritten.
+Folder: [PR-270-hu200-v2-frozen-5b](https://drive.google.com/drive/folders/111S5yxcZei3l4IfvVzY9OviZKi4Qnswx), ID `111S5yxcZei3l4IfvVzY9OviZKi4Qnswx`; actual M4 destination `~/Local/Research-Cloud/PR-270-hu200-v2-frozen-5b/`. [Full model/archive index](docs/reports/hu200-v2-frozen-5b-artifacts/model-index.json).
+
+| ZIP | Bytes | Whole SHA256 | Embedded manifest SHA256 | Members |
+|---|---:|---|---|---:|
+| `hu200-v2-frozen-5b-M4-20261014.zip` | 18,420,960,366 | `2197b5691542376a3eb03915bb9e4d432648df959439424001a75a6bea253276` | `c83e175494e0d7c3893d2931caeea4d2b71ee9ffd4deb47ca0082967b770c625` | 271 |
+| `hu200-v2-frozen-5b-average-M4-20261014.zip` | 2,876,032,489 | `bbd1abc9abdf550504ca2c3b5a6ffc72b162c8b8fea8aadc04364a9718ed623a` | `fb32c4da340cdcf91821e437b4ed5851c718b98915e82c4f30f540504ad965e5` | 1 |
+
+Embedded manifest path: `ARCHIVE-MANIFEST.json`. Every member's size/SHA256 passes local readback; [full receipt](docs/reports/hu200-v2-frozen-5b-artifacts/archive-receipt.json), [average receipt](docs/reports/hu200-v2-frozen-5b-artifacts/average-receipt.json). Separate native uploaded/no-pending/no-conflicts and independent cloud ID/name/size/direct-parent confirmation are still pending. Remote archive bytes were not downloaded or verified.
+
+V2 average member `averages/5000000000.average.gz` (average ZIP), also `research/training/5000000000.average.gz` (full): **2,876,030,727 bytes**, SHA256 `ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3`. Full checkpoint member `research/training/5000000000.gz`: **4,435,470,459 bytes**, SHA256 `39355b6c8f2653b11a8db44c99b540e1ada60fde2b3cbd5d96c7cb706f2ace75`. Current member `research/training/5000000000.current.gz`: **2,517,248,308 bytes**, SHA256 `7077fdf83b4c674aea8b11fae5611984a4f6d7cd7d4fe24878cde6afd7d8f847`. Freeze parent is `research/training/freeze.gz`, **3,274,048,973 bytes**, SHA256 `bc72d3e0cc34c8903d784702fcfe96c5e5cba796e6092f3caf871a3e4bcb3284`. All gate/2B/final recovery, logs, failures and raw hands are included in the full ZIP. Caches are reproducible derived local files and are excluded.
+
+Retrieval after downloading the named ZIP to a fresh ignored path:
+
+```sh
+mkdir -p results/restore-pr270
+shasum -a 256 results/restore-pr270/hu200-v2-frozen-5b-average-M4-20261014.zip
+unzip -p results/restore-pr270/hu200-v2-frozen-5b-average-M4-20261014.zip ARCHIVE-MANIFEST.json > results/restore-pr270/manifest.json
+shasum -a 256 results/restore-pr270/manifest.json
+unzip -p results/restore-pr270/hu200-v2-frozen-5b-average-M4-20261014.zip averages/5000000000.average.gz > results/restore-pr270/v2-5b.average.gz
+shasum -a 256 results/restore-pr270/v2-5b.average.gz
+```
+
+Compare whole/manifest/model hashes with the table and model index before use. For recovery/current, verify the full ZIP/manifest hashes and extract the exact full member above into another fresh ignored destination. Restore scientific source with `git checkout 9477419a0d33711c8156b9ecebfc8a16a1c1e580`; the original training source and metadata-admission correction remain pinned separately.
+
+Protected comparison input: `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz`, **2,756,501,598 bytes**, SHA256 `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512`. Restore from [PR265's accepted average ZIP](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view), whole `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943`, manifest `d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5`, member `averages/5000000000.average.gz`; [model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json). #163 tables are indexed dependencies, copied after current merged-owner and full table hash checks. Accepted table archive [Drive 1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T](https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view), SHA256 `03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca`; [table sizes/hashes and tar retrieval](docs/reports/hu200-k50-first-artifacts/inputs.json). Keep this open PR root, copied tables/models/caches, protected comparison input, upload observer root and compatibility checkout intact. All originals remain; no synced deletion or eviction.
 
 ## Merged overnight storage pass — October 14, 2026
 

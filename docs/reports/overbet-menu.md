@@ -55,6 +55,22 @@ Speed per node is unchanged in this small comparison, but each iteration's tree 
 
 The first capped K50-v2 run reduces the pot-pressure contrast from #254's −85.00 to **−17.85 [−60.10,24.41] BB/100**, descriptively closing **79%** of the earlier point gap. Complete removal is unproved, and the model fails the v0.5.3 candidate rule because tight- and loose-aggressive contrasts are severe regressions. It beats both v0.5.2 and K50 v1 1B directly, while training at roughly one third of the latter's node budget. Whether v2 learns as well at matched nodes or visits remains open; this single capped model cannot answer that question. [Full audits, frozen contrasts and limits](hu100-k50-v2.md).
 
+## HU200 at the fixed 5B budget
+
+[#270](hu200-v2-frozen-5b.md) compares frozen v2 and v1 at 5B cumulative
+nodes, the same seed/R=1/K50/linear-CFR/opponent-sampled recipe and 11 GB budget.
+The paired 1.5× pot gain is **+238.59 [201.61,275.57] BB/100**, bringing v2 to
+**−1.83 [−23.96,20.30]** absolute. It nearly removes that large loss, but
+half-pot worsens **−32.31 [−59.14,−5.48]** and tight/loose/matched 1× pot
+fail the predeclared regression limit. The Slumbot rule fails; no confirmation
+preparation or live play follows. All 720,896 final hands replay/reproduce.
+
+This answers the fixed-budget HU200 case, with substantial tradeoffs. It does
+not settle a fully dense v2: stored visits/key are **2.80 versus v1's 9.73**,
+with 42.55% zero visits and frequent late training misses. Matched-visit or
+more densely trained v2, HU100 behavior and general off-menu strength remain
+open questions. No longer run, release or default change is scheduled.
+
 ## Use
 
 ```
