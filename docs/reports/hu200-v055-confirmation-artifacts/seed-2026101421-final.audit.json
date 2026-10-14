@@ -1,0 +1,45 @@
+{
+  "actual_nodes": 20000000322,
+  "all_nodes_verified": 85373916,
+  "average_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+  "checkpoint_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+  "counts": {
+    "entries": 85373916,
+    "positive_mass": 66350746,
+    "zero_mass": 19023170
+  },
+  "current_sha256": "bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df",
+  "files": {
+    "average": {
+      "bytes": 3162671080,
+      "mtime_ns": 1792006674802034313,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.average.gz",
+      "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+    },
+    "checkpoint": {
+      "bytes": 4957752665,
+      "mtime_ns": 1792005604394503067,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+    },
+    "current": {
+      "bytes": 2301203484,
+      "mtime_ns": 1792006674802750068,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.current.gz",
+      "sha256": "bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df"
+    }
+  },
+  "keys": {
+    "entries": 85373916,
+    "iteration": 16745107,
+    "method": "SHA256 of concatenated sorted 32-character serialized keys",
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+    "seconds": 47.87675595283508,
+    "sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df"
+  },
+  "maximum_tv": 1.0000000000000002,
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "seconds": 1653.4706099033356,
+  "status": "verified",
+  "unweighted_mean_current_average_tv": 0.33050108084317104
+}

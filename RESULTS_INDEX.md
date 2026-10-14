@@ -2,18 +2,32 @@
 
 [PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), branch
 `feature/hu200-v055-confirmation`. [Report](docs/reports/hu200-v055-confirmation.md).
-M4 source `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`, ignored unsynced root
+M4 source `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`; ignored unsynced root
 `~/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation`.
-The initial 35.474-GiB admission block is preserved in the
-[original receipt](docs/reports/hu200-v055-confirmation-artifacts/admission.json).
-Owner-cleared storage passes [fresh admission](docs/reports/hu200-v055-confirmation-artifacts/readmission.json)
-at 49.235 GiB; first detached build starts the 12-hour clock at October 14
-15:57:16 UTC. Seed 2026101421 reaches 20,000,000,322 actual nodes with all
-85,373,916 keys unchanged; final current/average exports are underway and
-audits remain pending. Seed 2026101422 and server preparation are unstarted. Archives, member hashes, restoration commands
-and native/independent upload acceptance remain outstanding; no cloud acceptance
-is claimed. Preserve this active root, resumable checkpoints and all K50 inputs.
-No changes to other open PR roots or synced files.
+Fixed first-build clock October 14 15:57:16 UTC through October 15 03:57:16 UTC.
+Initial disk block is preserved; fresh owner-cleared admission passed.
+
+Seed **2026101421**: **20,000,000,322 actual nodes /85,373,916 unchanged keys**,
+every-row final current/average audit passes at 20:05:35 UTC. Final average
+`seed-2026101421/frozen/20000000000.average.gz`, **3,162,671,080 bytes**, SHA256
+`c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444`.
+[All model pins/audit](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-final.audit.json),
+[complete lineage](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
+Retain cap, 5B and final checkpoints for resume. Seed **2026101422** launches
+20:22:19 UTC after those audits with 7.58 hours left and 58.66 GiB free; its
+counters/audits are pending. Same executable, tables, baseline and guards.
+
+First average transfer to db-ocean and offline cache preparation are in progress;
+no server verification/readiness is claimed yet. Other server sessions/paths
+are protected. Canonical archive folder
+[PR278](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
+ID `1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP`, under project folder
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Per-seed full and separate final-average
+ZIPs, complete local member readback, archive/member hashes, restoration commands
+and independent/native cloud acceptance are pending. No cloud acceptance is
+claimed. No research original or synced file is removed/evicted; no other open
+PR root changes. Completion HTTP errors and administrative setup/launch failures
+are retained; the owner-requested 30-minute checks continue. No scientific retry.
 
 ## M4 disk admission cleanup — October 14 evening
 

@@ -1,129 +1,144 @@
-# v0.5.5 confirmation seeds: training in progress
+# v0.5.5 M4 confirmation seeds
 
-[Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278).
+[Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278) ·
+[Owner-approved acceptance](../hu200-v055-acceptance-protocol.md).
 
-Seed **2026101421 has reached 20B and is auditing its exports**, after owner-cleared storage passed fresh
-admission with **49.235 GiB free**. Seed **2026101422 is unstarted** and will
-start only after seed 1's final exports/audits, with at least 5.5 hours left.
-The first detached build began **October 14 15:57:16 UTC /17:57:16 CEST**;
-the fixed deadline is **October 15 03:57:16 UTC /05:57:16 CEST**.
-Training must stop by **01:42:16 UTC /03:42:16 CEST** to reserve the terminal
-save and exports/audits. Seed 1 has reached 20B; its export audits are pending. Seed 2 is unstarted.
+**Seed 2026101421 has reached 20B and passed every-row current/average audits.**
+Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
+those audits, fresh exclusive nonblocking admission on both research locks,
+no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
+Its growing-table stage is running. It is not yet a 20B result.
 
-The build uses current main `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`,
-including #275. Its binary exactly matches #265: SHA256
-`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`,
-1,492,512 bytes. All three #163 K50 tables were copied into the ignored M4
-results root, SHA256 checked at source and destination, and made read-only.
-Both locks remain held during detached training. One campaign swap baseline,
-five-second resource readings, sustained-memory guards and immediate disk-stop
-requests are retained on M4. The wall guard bounds checkpoint loading as well
-as native training; native commands also receive remaining-clock max-seconds.
+## Fixed recipe, source and clock
 
-[Readmission](hu200-v055-confirmation-artifacts/readmission.json),
-[clock/baseline](hu200-v055-confirmation-artifacts/baseline.json),
-[build](hu200-v055-confirmation-artifacts/build-receipt.json),
-[table provenance](hu200-v055-confirmation-artifacts/inputs.json).
+Both seeds use current main `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`
+on the 16-GiB Apple M4 (Mac16,1), in a separate unsynced worktree,
+`~/Local/hu200-v055-confirmation-20261014`, ignored results
+`results/hu200-v055-confirmation`. The M1 performs only administration/archive
+I/O; it does not train these seeds.
 
-## Preserved initial admission block
+The detached first build begins **October 14 15:57:16 UTC /17:57:16 CEST**.
+The fixed 12-hour deadline is **October 15 03:57:16 UTC /05:57:16 CEST**;
+training stops by **01:42:16 UTC /03:42:16 CEST**, reserving 15 minutes for a
+terminal save and two hours for exports/audits. Each stage receives remaining-clock
+`--max-seconds`; a detached wall guard includes checkpoint loading. Seed 2
+was admitted above the fixed 5.5-hour minimum. No budget extension or retry.
 
-At **2026-10-14 15:30:37 UTC /17:30:37 CEST**, `ssh m4` identified
-`dberwegerch-m4.local`, Mac16,1, **17,179,869,184 bytes /16 GiB RAM**.
-The attached workstation is the M1; no training was run there.
+The path-independent build exactly matches #265: **1,492,512 bytes**, SHA256
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+[Build](hu200-v055-confirmation-artifacts/build-receipt.json),
+[clock and one swap baseline](hu200-v055-confirmation-artifacts/baseline.json),
+[fresh initial admission](hu200-v055-confirmation-artifacts/readmission.json).
+All three #163 K50 source/copy SHA256s match; campaign copies are read-only.
+[Input provenance and full hashes](hu200-v055-confirmation-artifacts/inputs.json).
 
-- Both `~/Local/.hu20-m4-research.lock` and
-  `~/Local/.hu100-m4-research.lock` admitted nonblocking exclusive `flock`
-  simultaneously, held only during observation and released on exit.
-- Process enumeration found no campaign matches. The exact process command,
-  search terms and transport exclusions are in the receipt.
-- `shutil.disk_usage(~/Local)` reported **35.474 GiB free**, **9.526 GiB short**
-  of the required 45 GiB; a separate `df -k` observation is retained.
-- Live GitHub checks found #272 **OPEN** and #274/#275 **MERGED**. Compute
-  availability does not authorize changes to #272's research root.
+Recipe is unchanged apart from the independent seed: HU200, menu v1, K50,
+R=1, opponent-sampled lifetime average, linear CFR; growing stage has #250's
+3B target and 500M/1B/1.5B/2B/2.5B saves, cap **85,373,862**, without freeze.
+The cap terminal is the first complete iteration past it. Frozen continuation
+resumes that seed's hash-pinned terminal, fixes its actual entry count, uses
+recovery, telemetry and a fresh stop file, and saves at 2B/5B/10B/20B.
+Target-named files do not imply target nodes were reached.
 
-[Machine-readable admission receipt](hu200-v055-confirmation-artifacts/admission.json).
-No jobs were signaled and no research files were copied, archived, moved,
-deleted or evicted. The first admission observation held no reservation.
+## Seed 2026101421: complete science
 
-## Scope and outstanding work
+Growing terminal: **754,080,075 nodes /496,692 iterations /85,373,916 entries**,
+54-entry overshoot. Its target-named `1000000000.gz` is this cap terminal;
+the growing 1B and 3B targets were not reached. Frozen terminal:
+**20,000,000,322 nodes /16,745,107 iterations**, exactly the same retained keys.
+Every frozen save passes saved-byte/count/sorted-key verification against stage 1.
+Sorted serialized key SHA256:
+`85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df`.
 
-M4 worktree: `~/Local/hu200-v055-confirmation-20261014`, detached at the
-pinned current main; ignored results: `results/hu200-v055-confirmation`.
-Controller source and exact native commands are retained. Both seeds follow
-#250's fresh 3B target/save schedule/cap, followed by #265's hash-pinned frozen
-continuation to 20B on that seed's actual terminal key count. Per-save byte,
-counter and sorted serialized key verification precedes final current/average
-exports and every-row accumulator/regret audits with uniform zero-mass play.
+| Save | Actual nodes | Iterations | Entries | Mean visits/key | Zero visits | After-save RSS GiB | Write s |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 500M | 500,000,695 | 320,364 | 69,180,237 | 1.4317 | 46.49% | 4.924 | 236.14 |
+| Cap | 754,080,075 | 496,692 | 85,373,916 | 1.7483 | 44.24% | 3.613 | 292.61 |
+| 2B frozen | 2,000,001,206 | 1,415,679 | 85,373,916 | 4.1481 | 34.89% | 3.776 | 283.85 |
+| 5B frozen | 5,000,000,230 | 3,813,020 | 85,373,916 | 9.7582 | 26.54% | 1.750 | 300.98 |
+| 10B frozen | 10,000,000,162 | 8,053,874 | 85,373,916 | 19.0021 | 21.19% | 2.076 | 314.48 |
+| 20B frozen | 20,000,000,322 | 16,745,107 | 85,373,916 | 37.3670 | 16.64% | 1.657 | 325.22 |
 
-Only #265-authorized redundant 2B/10B checkpoints may be removed after a
-successor passes full byte/count/key checks; cap, 5B and final remain retained.
-Disk headroom for the second seed and both archives will be checked before
-proceeding. No other PR root or synced files are changed.
+[Stage-1 verification](hu200-v055-confirmation-artifacts/seed-2026101421-stage1-verified.json),
+[all per-save statistics, discarded visits/updates and street/role missing-decision shares](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json),
+[full frozen lineage and key checks](hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
+Only the redundant 2B/10B checkpoints were removed after verified successors,
+as #265 permits; cap, 5B and final checkpoints remain resumable.
 
-Server preparation is **not started** and depends on successful final audits.
-The offline preparation controller checks model/table SHA256s, builds a fresh
-verified cache and loads it read-only, with five-second memory readings and an
-immediate stop below 2 GB available. The owner alone logs in and starts the
-prepared 10,000-completed-hand launchers. No Slumbot play, credentials,
-release, tag or default changes are authorized here.
+Final current and average were exported with **uniform zero-mass play**.
+`src.diagnostics.cfr_average.audit` verified **all 85,373,916 rows**:
+**66,350,746 positive-mass /19,023,170 uniform-fallback rows**.
+Audit took **1,653.47 s**; unweighted current/average TV was **0.3305011**.
+This checks stored accumulators and current regrets, not historical increments
+or playing strength. Science finished **20:05:35 UTC /22:05:35 CEST**, inside
+its original clock, with supervisor return code zero and no guard stop.
+[Every-row audit](hu200-v055-confirmation-artifacts/seed-2026101421-final.audit.json),
+[science completion](hu200-v055-confirmation-artifacts/seed-2026101421-science-complete.json).
 
-Research-Cloud ZIPs, complete member readback, upload acceptance and restoration
-index remain outstanding. The draft PR stays for the owner's merge decision.
+| Final file | Bytes | SHA256 |
+|---|---:|---|
+| Checkpoint | 4,957,752,665 | `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676` |
+| Current | 2,301,203,484 | `bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df` |
+| Average | 3,162,671,080 | `c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444` |
 
-Validation: nine clock/recipe/key-order/guard tests and repository artifact
-checks pass. Initial setup found two M4 environments without psutil before the
-clock/build; the existing PR207 research environment supplies the monitoring
-and audit dependencies. The earlier Python 3.9 artifact-check failure is
-preserved; supported Python 3.11 passes. No scientific retry occurred.
+The closed **2,966 five-second readings** have sampled family peak
+**8.777 GiB**, minimum free memory **33%**,
+minimum disk **42.263 GiB**, maximum swap growth
+**67,108,864 bytes**, pressure levels **[1, 2]**,
+and **0 stop readings**. Maximum observed gap is
+**5.08 s**. These are sampled values.
+[Closed resource summary](hu200-v055-confirmation-artifacts/seed-2026101421-resource-summary.json).
+The small completion observer has separate retained readings; it does no training.
 
-## Continuation and archive preparation
+## Seed 2026101422: running
 
-A completion webhook resumes this same PR task after the detached seed-1
-supervisor exits. It requests no new research, retries or extra budget and
-will be removed at closeout. The owner additionally requested 30-minute T3
-wake-ups on October 14; that interval is enabled for health/continuation checks
-in this thread, with its first next wake at **16:51:06 UTC /18:51:06 CEST**.
-Both the interval and completion webhook will be removed at closeout. Its private routing file is excluded from archives
-and Git; the observer's five-second process/RSS readings and delivery receipt
-are retained separately from the scientific family readings. The observer is
-about 24 MB RSS and does no training. Seed 2 will receive its own completion
-observation after admission. The owner is clearing additional disk headroom
-while seed 1 runs; all resource thresholds and the original deadline remain fixed.
+[Admission and detached launch](hu200-v055-confirmation-artifacts/seed-2026101422-launch.json)
+confirm seed 1's successful audit, released locks and worker exit before launch.
+The same executable, K50 copies, clock, swap baseline and guard thresholds remain.
+Actual cap/frozen counters, sorted-key digest and final audits will be added when
+available; no requested milestone is relabelled complete prematurely.
 
-Canonical archive folder: [PR278 Research-Cloud](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
-`~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`. It is confirmed by
-connector ID/name/direct parent beneath project folder
-`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; no archive uploads exist yet. Closed
-per-seed evidence will stream into full and separate final-average ZIPs on M1,
-with member hashing during transfer and complete local archive readback. This
-avoids an extra payload copy on the training disk. M4 originals remain.
+## Server preparation and archives
 
-First completed save: seed 2026101421's 500M target contains **500,000,695
-actual nodes /320,364 iterations /69,180,237 entries**, 2,730,179,385 bytes,
-236.14 write seconds. Full closeout verification and statistics are pending.
-No guard stop was recorded through 16:05:43 UTC; this is a progress snapshot.
+Seed 1's audited final average is transferring to the new db-ocean directory
+`~/deepcfr-slumbot/inputs/model-seed-2026101421/`. Remote SHA256 verification
+and a new guarded `cache-seed-2026101421` build follow. No cache success or
+launcher readiness is claimed yet. Seed 2's server work awaits its audits.
+Cache preparation uses the existing venv and verified #259 cache path, stops
+below 2 GB available memory, and records five-second readings. Launchers will
+use the completed-hands client and exact protocol options; the owner logs in
+and starts them. Existing sessions/runs/inputs/caches remain untouched.
 
-At **16:20:53 UTC /18:20:53 CEST**, the first seed's growing stage is verified
-at **754,080,075 actual nodes /496,692 iterations /85,373,916 entries**,
-54 entries beyond the nominal cap. Frozen continuation is active on that seed's
-actual terminal key count. [Stage-1 byte/count/key receipt](hu200-v055-confirmation-artifacts/seed-2026101421-stage1-verified.json).
-The guard's current snapshot is 8.380 GiB family RSS, 84% free memory,
-72.427 GiB free disk and swap 16,777,216 bytes below the original baseline,
-with no stop. These are instantaneous readings, not campaign maxima.
+[Canonical PR278 Research-Cloud folder](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP):
+`~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`, confirmed under project
+folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Closed per-seed full and separate
+final-average ZIPs will stream from M4 into this folder on M1, with member hashes
+and complete local readback. Archive hashes, restoration commands and separate
+native/independent cloud upload acceptance are pending. M4 originals remain.
+No synced deletion, eviction or other open-PR cleanup occurs here.
 
-## Latest periodic check
+## Guards, supervision and preserved administrative failures
 
-The **October 14 19:51 UTC /21:51 CEST** check confirms seed 2026101421
-has reached **20,000,000,322 actual nodes /16,745,107 iterations**,
-with all **85,373,916 keys unchanged**. Final current/average export
-returned zero in **1001.84 seconds** with uniform zero-mass play.
-The detached every-row accumulator/current-regret audit is running; no completed
-audit receipt exists yet, so seed 2 and server preparation remain unstarted.
-Current audit family RSS is **0.138 GiB**;
-train/save sampled peak is **8.777 GiB**.
-Free memory is **89%**, disk **51.08 GiB**, and current
-swap growth is **55,962,502 bytes** against the original baseline.
-No guard stop or failure latch exists. Fixed deadline and reserves are unchanged.
-[Health and export-operation receipt](hu200-v055-confirmation-artifacts/health/20261014T1951Z.json),
-[verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json),
-[reached-20B lineage and key checks](hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
+Both research locks are held during each detached seed. Five-second observations
+stop after 60 continuous observed seconds above 13 GiB family RSS, critical
+pressure, free memory below 8%, or swap growth above 4 GB. Disk below 16 GiB
+requests a clean stop immediately. Gaps cannot establish a sustained breach;
+owned process creation times are checked before signaling. No other jobs signaled.
+
+Owner-requested **30-minute T3 checks remain enabled** for this campaign only.
+The completion webhook returned three HTTP errors after seed 1; it is disabled
+and that failure is [preserved](hu200-v055-confirmation-artifacts/completion-callback-failure.json).
+The 22:21 CEST periodic check caught the completed audit. No duplicate scientific
+job was started. Both schedules will be removed at closeout; no follow-on research.
+Private routing capability data is excluded from Git and archives.
+
+Initial disk admission at 35.474 GiB failed before the build/clock; owner-cleared
+storage passed fresh admission. The unsupported Python 3.9 artifact-check
+invocation and missing psutil in two setup environments are preserved; supported
+Python 3.11/research environments pass. A quoting error was found in the
+administrative server-launch wrapper; its source/failure is retained and a
+corrected launch follows the existing transfer, with no repeated training/export.
+
+Nine focused clock/recipe/key-order/guard tests and staged repository artifact
+checks pass. Final checks/review remain for the completed PR. No Slumbot play,
+credentials, release, tag, default change or merge; the owner decides merge.
