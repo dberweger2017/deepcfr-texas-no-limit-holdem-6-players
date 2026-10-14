@@ -1,0 +1,638 @@
+{
+  "missing_key_fallback": "uniform",
+  "run_identities": [
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "account": "deepcfr-k50-f20b",
+      "account_session": true,
+      "contract": {
+        "ante": 0,
+        "bet_convention": "street-raise-to",
+        "big_blind": 100,
+        "players": 2,
+        "rake": 0,
+        "reset_each_hand": true,
+        "small_blind": 50,
+        "stack": 20000
+      },
+      "description": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 85373907,
+        "iteration": 16670844,
+        "kind": "holdem-hu200-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026101302,
+        "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "zero_mass_entries": 19013067
+      },
+      "hands_requested": 5000,
+      "max_abandoned": 200,
+      "max_rejected": 50,
+      "max_requests": 300000,
+      "min_interval_seconds": 0.0,
+      "model_bytes": 3164563975,
+      "model_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "player": "hu200-average",
+      "policy_seed": 20261014026801,
+      "service": "https://slumbot.com",
+      "timeout_seconds": 30.0
+    },
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "account": "deepcfr-k50-f20b",
+      "account_session": true,
+      "contract": {
+        "ante": 0,
+        "bet_convention": "street-raise-to",
+        "big_blind": 100,
+        "players": 2,
+        "rake": 0,
+        "reset_each_hand": true,
+        "small_blind": 50,
+        "stack": 20000
+      },
+      "description": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 85373907,
+        "iteration": 16670844,
+        "kind": "holdem-hu200-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026101302,
+        "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "zero_mass_entries": 19013067
+      },
+      "hands_requested": 50000,
+      "max_abandoned": 1000,
+      "max_rejected": 200,
+      "max_requests": 3000000,
+      "min_interval_seconds": 0.0,
+      "model_bytes": 3164563975,
+      "model_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "player": "hu200-average",
+      "policy_seed": 20261014026802,
+      "service": "https://slumbot.com",
+      "timeout_seconds": 30.0
+    }
+  ],
+  "journal": [
+    {
+      "decisions": 1404,
+      "hands": 490,
+      "tail_sha256": "a1108cd7e51fbb8122d33c59ffcf57d0df2bccbd1826c1a84af1f334279f0237"
+    },
+    {
+      "decisions": 22414,
+      "hands": 7991,
+      "tail_sha256": "5b6a3b8784c78603792f02c3acb85ee64dd9a5a89d3f3c99520b6c8db761dcdf"
+    }
+  ],
+  "hands": 5000,
+  "decisions": 14070,
+  "failures": {
+    "timeout-ambiguous": 45,
+    "service-rejected": 1
+  },
+  "bb_per_100": {
+    "mean": -46.94,
+    "half_width_95": 48.54583381254213,
+    "n": 5000
+  },
+  "all_in_adjusted_bb_per_100": {
+    "mean": -51.509696000000005,
+    "half_width_95": 47.622406793374545,
+    "n": 5000
+  },
+  "all_in_hands": {
+    "preflop": 0,
+    "flop": 2,
+    "turn": 5,
+    "river": 15
+  },
+  "by_seat": {
+    "big_blind": {
+      "mean": -64.03438624550179,
+      "half_width_95": 70.40898916783176,
+      "n": 2501
+    },
+    "small_blind_button": {
+      "mean": -29.831932773109244,
+      "half_width_95": 66.85777123712822,
+      "n": 2499
+    }
+  },
+  "by_seat_all_in_adjusted": {
+    "big_blind": {
+      "mean": -75.48031187524991,
+      "half_width_95": 68.72289306358871,
+      "n": 2501
+    },
+    "small_blind_button": {
+      "mean": -27.519895958383355,
+      "half_width_95": 65.94304007418751,
+      "n": 2499
+    }
+  },
+  "endings": {
+    "showdown": {
+      "hands": 1001,
+      "chips": -316000
+    },
+    "client_fold preflop": {
+      "hands": 898,
+      "chips": -105300
+    },
+    "slumbot_fold preflop": {
+      "hands": 789,
+      "chips": 104300
+    },
+    "client_fold flop": {
+      "hands": 586,
+      "chips": -175800
+    },
+    "slumbot_fold flop": {
+      "hands": 489,
+      "chips": 153050
+    },
+    "slumbot_fold turn": {
+      "hands": 345,
+      "chips": 217800
+    },
+    "client_fold turn": {
+      "hands": 338,
+      "chips": -169650
+    },
+    "slumbot_fold river": {
+      "hands": 283,
+      "chips": 309000
+    },
+    "client_fold river": {
+      "hands": 264,
+      "chips": -192100
+    },
+    "all-in before river": {
+      "hands": 7,
+      "chips": -60000
+    }
+  },
+  "actions_by_street": {
+    "preflop": {
+      "call": 2313,
+      "raise": 2194,
+      "fold": 898
+    },
+    "flop": {
+      "check": 1759,
+      "call": 421,
+      "raise": 1440,
+      "fold": 589,
+      "all-in": 2
+    },
+    "turn": {
+      "check": 1070,
+      "fold": 339,
+      "raise": 947,
+      "call": 266,
+      "all-in": 4
+    },
+    "river": {
+      "check": 664,
+      "raise": 682,
+      "call": 201,
+      "fold": 264,
+      "all-in": 17
+    }
+  },
+  "responses_by_bet_size": {
+    "≤½ pot": {
+      "call": 1976,
+      "fold": 1395,
+      "raise": 718,
+      "all-in": 3
+    },
+    "½–¾ pot": {
+      "fold": 55,
+      "call": 39,
+      "raise": 12,
+      "all-in": 1
+    },
+    "~pot": {
+      "raise": 121,
+      "call": 505,
+      "fold": 340,
+      "all-in": 5
+    },
+    "1.2–2× pot": {
+      "fold": 17,
+      "call": 17,
+      "raise": 19,
+      "all-in": 4
+    },
+    ">2× pot": {
+      "raise": 8,
+      "call": 5
+    },
+    "all-in": {
+      "call": 12,
+      "fold": 15
+    }
+  },
+  "biggest_losses": [
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000.0,
+      "action": "b200c/kb200b1000b3400c/b7200b16400c/",
+      "client_pos": 0,
+      "hole": [
+        "Ks",
+        "3d"
+      ],
+      "slumbot": [
+        "5s",
+        "5h"
+      ],
+      "board": [
+        "8h",
+        "5d",
+        "3s",
+        "2s",
+        "Qc"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "ck/b100b200b800b2600c/kb5400c/kb11900c",
+      "client_pos": 1,
+      "hole": [
+        "Ks",
+        "2d"
+      ],
+      "slumbot": [
+        "Qh",
+        "2h"
+      ],
+      "board": [
+        "Qs",
+        "2s",
+        "2c",
+        "8d",
+        "9d"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b200b300b1800b3300c/kk/b6600c/kb10100c",
+      "client_pos": 0,
+      "hole": [
+        "Kd",
+        "7d"
+      ],
+      "slumbot": [
+        "Ad",
+        "Ac"
+      ],
+      "board": [
+        "Ts",
+        "4h",
+        "4c",
+        "Ah",
+        "Qs"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b300b900b2700c/kb5400c/kk/b11900c",
+      "client_pos": 1,
+      "hole": [
+        "Kc",
+        "6c"
+      ],
+      "slumbot": [
+        "Qs",
+        "Qd"
+      ],
+      "board": [
+        "Ks",
+        "Qc",
+        "8d",
+        "4h",
+        "5h"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b200b600c/kk/b600c/b1200b6000b18800c",
+      "client_pos": 1,
+      "hole": [
+        "Kd",
+        "Td"
+      ],
+      "slumbot": [
+        "9h",
+        "8h"
+      ],
+      "board": [
+        "Th",
+        "4h",
+        "4d",
+        "2h",
+        "7d"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b200b300c/b600c/b1800c/kb2700b17300c",
+      "client_pos": 0,
+      "hole": [
+        "Kc",
+        "Jc"
+      ],
+      "slumbot": [
+        "Ks",
+        "Td"
+      ],
+      "board": [
+        "Ts",
+        "9h",
+        "2d",
+        "7d",
+        "9c"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b300c/kb600c/b900c/b3600b18200c",
+      "client_pos": 1,
+      "hole": [
+        "Kh",
+        "8h"
+      ],
+      "slumbot": [
+        "Jc",
+        "5c"
+      ],
+      "board": [
+        "7s",
+        "5h",
+        "2h",
+        "5s",
+        "Kc"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b200b600c/b100b1200c/b100b6300c/b11900c",
+      "client_pos": 0,
+      "hole": [
+        "Qd",
+        "Tc"
+      ],
+      "slumbot": [
+        "4d",
+        "4c"
+      ],
+      "board": [
+        "Th",
+        "4s",
+        "3h",
+        "7s",
+        "8s"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "cb300b900b2700c/kk/b2700c/b14600c",
+      "client_pos": 1,
+      "hole": [
+        "6s",
+        "6d"
+      ],
+      "slumbot": [
+        "As",
+        "Jh"
+      ],
+      "board": [
+        "9s",
+        "5s",
+        "4d",
+        "Qs",
+        "Ks"
+      ]
+    },
+    {
+      "winnings": -20000,
+      "all_in_adjusted": -20000,
+      "action": "b200b600c/b1200c/kb1800c/b100b16400c",
+      "client_pos": 0,
+      "hole": [
+        "Jd",
+        "Th"
+      ],
+      "slumbot": [
+        "Qh",
+        "Js"
+      ],
+      "board": [
+        "Qc",
+        "8d",
+        "2h",
+        "Td",
+        "5h"
+      ]
+    }
+  ],
+  "biggest_wins": [
+    {
+      "winnings": 20000,
+      "all_in_adjusted": -11818.18,
+      "action": "b200c/b400b1000b1600c/kb1800b3600b18200c/",
+      "client_pos": 0,
+      "hole": [
+        "Qs",
+        "3s"
+      ],
+      "slumbot": [
+        "9c",
+        "7d"
+      ],
+      "board": [
+        "8s",
+        "6s",
+        "5h",
+        "8h",
+        "4s"
+      ]
+    },
+    {
+      "winnings": 20000,
+      "all_in_adjusted": 20000.0,
+      "action": "b200b600c/kk/kb1200b2400b10200b18000b19400c/",
+      "client_pos": 0,
+      "hole": [
+        "7d",
+        "7c"
+      ],
+      "slumbot": [
+        "Qs",
+        "Th"
+      ],
+      "board": [
+        "Qc",
+        "7s",
+        "5h",
+        "Jd",
+        "Ah"
+      ]
+    },
+    {
+      "winnings": 20000,
+      "all_in_adjusted": 20000,
+      "action": "cb300c/b300c/b1200c/kb3600b18200c",
+      "client_pos": 1,
+      "hole": [
+        "Qd",
+        "9c"
+      ],
+      "slumbot": [
+        "8s",
+        "5s"
+      ],
+      "board": [
+        "Qs",
+        "8h",
+        "5d",
+        "4d",
+        "Qh"
+      ]
+    },
+    {
+      "winnings": 20000,
+      "all_in_adjusted": 20000,
+      "action": "b200c/kb400c/kb1200c/kb3600b18200c",
+      "client_pos": 1,
+      "hole": [
+        "8s",
+        "6s"
+      ],
+      "slumbot": [
+        "As",
+        "Th"
+      ],
+      "board": [
+        "Ks",
+        "9c",
+        "4s",
+        "7s",
+        "Ac"
+      ]
+    },
+    {
+      "winnings": 10800,
+      "all_in_adjusted": 10800,
+      "action": "b300c/kb600b1500b2400c/b900c/b7200b16400f",
+      "client_pos": 1,
+      "hole": [
+        "9c",
+        "4s"
+      ],
+      "slumbot": [
+        "4h",
+        "2h"
+      ],
+      "board": [
+        "Jh",
+        "4d",
+        "3s",
+        "Qs",
+        "8s"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "journal": "/home/davide/deepcfr-slumbot/analysis/snapshot/hu200-k50-frozen-20b-20261014-080337/journal.jsonl",
+      "hands": 490,
+      "bb_per_100": {
+        "mean": -21.93877551020408,
+        "half_width_95": 150.7317950156166,
+        "n": 490
+      }
+    },
+    {
+      "journal": "/home/davide/deepcfr-slumbot/analysis/snapshot/hu200-k50-frozen-20b-20261014-115437/journal.jsonl",
+      "hands": 4510,
+      "bb_per_100": {
+        "mean": -49.65631929046563,
+        "half_width_95": 51.27288233294151,
+        "n": 4510
+      }
+    }
+  ],
+  "coverage_by_street": {
+    "preflop": {
+      "missing": 10,
+      "zero_mass": 0,
+      "positive_mass": 5395
+    },
+    "flop": {
+      "missing": 30,
+      "zero_mass": 0,
+      "positive_mass": 4181
+    },
+    "turn": {
+      "missing": 65,
+      "zero_mass": 1,
+      "positive_mass": 2560
+    },
+    "river": {
+      "missing": 110,
+      "zero_mass": 0,
+      "positive_mass": 1718
+    }
+  },
+  "fallback_decisions_by_street": {
+    "preflop": 0,
+    "flop": 0,
+    "turn": 0,
+    "river": 0
+  },
+  "stored_policy_by_street": {
+    "preflop": {
+      "stored": 5395,
+      "uniform_fallback": 10
+    },
+    "flop": {
+      "stored": 4181,
+      "uniform_fallback": 30
+    },
+    "turn": {
+      "stored": 2561,
+      "uniform_fallback": 65
+    },
+    "river": {
+      "stored": 1718,
+      "uniform_fallback": 110
+    }
+  }
+}
