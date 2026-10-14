@@ -2,13 +2,13 @@
 
 [Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278).
 
-Seed **2026101421 is training**, after owner-cleared storage passed fresh
+Seed **2026101421 has reached 20B and is exporting**, after owner-cleared storage passed fresh
 admission with **49.235 GiB free**. Seed **2026101422 is unstarted** and will
 start only after seed 1's final exports/audits, with at least 5.5 hours left.
 The first detached build began **October 14 15:57:16 UTC /17:57:16 CEST**;
 the fixed deadline is **October 15 03:57:16 UTC /05:57:16 CEST**.
 Training must stop by **01:42:16 UTC /03:42:16 CEST** to reserve the terminal
-save and exports/audits. Neither seed is yet labelled 20B or complete.
+save and exports/audits. Seed 1 has reached 20B; its export audits are pending. Seed 2 is unstarted.
 
 The build uses current main `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`,
 including #275. Its binary exactly matches #265: SHA256
@@ -113,16 +113,19 @@ with no stop. These are instantaneous readings, not campaign maxima.
 
 ## Latest periodic check
 
-The **October 14 18:51 UTC /20:51 CEST** check confirms the original
-supervisor identity is live and healthy in frozen training. The latest fully
-verified save remains **10,000,000,162 actual nodes /8,053,874 iterations**,
+The **October 14 19:21 UTC /21:21 CEST** check confirms seed 2026101421
+has reached **20,000,000,322 actual nodes /16,745,107 iterations**,
 retaining **85,373,916 entries** and the exact stage-1 sorted serialized
-key digest. Mean traverser visits/key is **19.0021**
-and zero-visit share **21.19%**. The 20B save is not yet
-available; no progress between saves is inferred.
-Current family RSS is **8.75 GiB**, free memory
-**79%**, disk **64.03 GiB**, and swap is below the
-original baseline. No guard stop or failure latch exists. Seed 2 and server
-preparation remain unstarted. Fixed deadline and reserves are unchanged.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1851Z.json),
-[verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json).
+key digest. Native training has ended; the detached supervisor is now running
+final current/average exports, with every-row audits still pending.
+Mean traverser visits/key is **37.3670** and
+zero-visit share **16.64%**.
+Current export family RSS is **0.044 GiB**;
+train/save sampled peak is **8.777 GiB**.
+Free memory is **80%**, disk **63.41 GiB**, and swap is
+below the original baseline. No guard stop or failure latch exists.
+Seed 2 and server preparation remain unstarted until final audits pass.
+Fixed deadline and reserves are unchanged.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1921Z.json),
+[verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json),
+[reached-20B lineage and key checks](hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).

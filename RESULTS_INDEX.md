@@ -8,8 +8,9 @@ The initial 35.474-GiB admission block is preserved in the
 [original receipt](docs/reports/hu200-v055-confirmation-artifacts/admission.json).
 Owner-cleared storage passes [fresh admission](docs/reports/hu200-v055-confirmation-artifacts/readmission.json)
 at 49.235 GiB; first detached build starts the 12-hour clock at October 14
-15:57:16 UTC. Seed 2026101421 training; 2026101422 unstarted. No final exports,
-audits or server preparation yet. Archives, member hashes, restoration commands
+15:57:16 UTC. Seed 2026101421 reaches 20,000,000,322 actual nodes with all
+85,373,916 keys unchanged; final current/average exports are underway and
+audits remain pending. Seed 2026101422 and server preparation are unstarted. Archives, member hashes, restoration commands
 and native/independent upload acceptance remain outstanding; no cloud acceptance
 is claimed. Preserve this active root, resumable checkpoints and all K50 inputs.
 No changes to other open PR roots or synced files.

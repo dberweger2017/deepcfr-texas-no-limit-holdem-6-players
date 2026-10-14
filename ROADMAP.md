@@ -72,7 +72,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-- **v0.5.5 confirmation training ([#278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278)), running:** owner-cleared M4 storage passes fresh 49.235-GiB admission; current-main build matches #265 and all K50 table hashes pass. Seed 2026101421 is training under detached five-second guards; 2026101422 remains unstarted until seed 1 audits and the 5.5-hour admission. Fixed clock October 14 17:57:16–October 15 05:57:16 CEST. No 20B result, live play or server preparation yet. [Report](docs/reports/hu200-v055-confirmation.md).
+- **v0.5.5 confirmation training ([#278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278)), running:** owner-cleared M4 storage passes fresh 49.235-GiB admission; current-main build matches #265 and all K50 table hashes pass. Seed 2026101421 reaches 20,000,000,322 actual nodes with all 85,373,916 keys unchanged; final exports/audits are pending under detached five-second guards. Seed 2026101422 remains unstarted until those audits and the 5.5-hour admission. Fixed clock October 14 17:57:16–October 15 05:57:16 CEST. No live play or server preparation yet. [Report](docs/reports/hu200-v055-confirmation.md).
 
 - **M4 admission cleanup (October 14 evening):** 15.132 GB reclaimed from specifically approved PR272 uploaded ZIP caches and two inactive debug caches; verified 49.562 GiB free exceeds PR278's 45 GiB requirement. Scientific originals/models/tables and open work roots remain. [Receipt/restoration](docs/artifacts/storage-vacuum-20261014-evening.md); [Vacuum Cleaner confirmation on PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185).
 
