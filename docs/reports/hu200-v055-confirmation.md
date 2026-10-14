@@ -78,9 +78,12 @@ preserved; supported Python 3.11 passes. No scientific retry occurred.
 
 ## Continuation and archive preparation
 
-A completion-only webhook resumes this same PR task after the detached seed-1
-supervisor exits. It requests no recurring research, retries or extra budget and
-will be removed at closeout. Its private routing file is excluded from archives
+A completion webhook resumes this same PR task after the detached seed-1
+supervisor exits. It requests no new research, retries or extra budget and
+will be removed at closeout. The owner additionally requested 30-minute T3
+wake-ups on October 14; that interval is enabled for health/continuation checks
+in this thread, with its first next wake at **16:51:06 UTC /18:51:06 CEST**.
+Both the interval and completion webhook will be removed at closeout. Its private routing file is excluded from archives
 and Git; the observer's five-second process/RSS readings and delivery receipt
 are retained separately from the scientific family readings. The observer is
 about 24 MB RSS and does no training. Seed 2 will receive its own completion
@@ -99,3 +102,11 @@ First completed save: seed 2026101421's 500M target contains **500,000,695
 actual nodes /320,364 iterations /69,180,237 entries**, 2,730,179,385 bytes,
 236.14 write seconds. Full closeout verification and statistics are pending.
 No guard stop was recorded through 16:05:43 UTC; this is a progress snapshot.
+
+At **16:20:53 UTC /18:20:53 CEST**, the first seed's growing stage is verified
+at **754,080,075 actual nodes /496,692 iterations /85,373,916 entries**,
+54 entries beyond the nominal cap. Frozen continuation is active on that seed's
+actual terminal key count. [Stage-1 byte/count/key receipt](hu200-v055-confirmation-artifacts/seed-2026101421-stage1-verified.json).
+The guard's current snapshot is 8.380 GiB family RSS, 84% free memory,
+72.427 GiB free disk and swap 16,777,216 bytes below the original baseline,
+with no stop. These are instantaneous readings, not campaign maxima.
