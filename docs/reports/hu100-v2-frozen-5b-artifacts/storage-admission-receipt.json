@@ -12,7 +12,7 @@
     "bytes": 18420960366,
     "id": "1zvA11Jr_6pwDehqMnVIGPcSGrPZdQMpb",
     "parent": "111S5yxcZei3l4IfvVzY9OviZKi4Qnswx",
-    "verified_at_utc": "2026-10-14T11:40Z"
+    "verification_provenance": "Connected Google Drive metadata tool read in this task, before removal; exact metadata retained in the tool history. The cleanup receipt at field records its actual operation time."
   },
   "manifest_sha256": "c83e175494e0d7c3893d2931caeea4d2b71ee9ffd4deb47ca0082967b770c625",
   "native": {
