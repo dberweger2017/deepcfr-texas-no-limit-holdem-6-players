@@ -1,0 +1,242 @@
+{
+  "status": "passed; exact #250 500M checkpoint",
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "checkpoint": {
+    "wall_seconds_including_terminal_save": 995.5002574390019,
+    "checkpoint_bytes": 2727516803,
+    "checkpoint_sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d"
+  },
+  "native_telemetry": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 2727516803,
+    "checkpoint_sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d",
+    "completed_nodes": 500000140,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        6609768,
+        23060728,
+        67477357,
+        179372056
+      ],
+      "entries": 69084815,
+      "positive_average_mass_keys": 44406556,
+      "traverser_visits": 99029647,
+      "traverser_visits_by_street": [
+        2253111,
+        8017303,
+        24287657,
+        64471576
+      ],
+      "visits_histogram": {
+        "0": 32087560,
+        "1": 23510900,
+        "10-99": 1346995,
+        "100+": 34677,
+        "2-9": 12104683
+      },
+      "zero_average_mass_keys": 24678259
+    },
+    "elapsed_seconds_including_writes": 957.393891463,
+    "entries_per_completed_node": 0.13816959131251444,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 0,
+      "discarded_updates_since_previous_save": 0,
+      "interval_start_iteration": 0,
+      "missing_opponent_by_street": [
+        59425,
+        600196,
+        5450140,
+        33973934
+      ],
+      "missing_opponent_share_by_street": [
+        0.013640045567048313,
+        0.03989756322114146,
+        0.12619073529105318,
+        0.2956813931499677
+      ],
+      "missing_traverser_by_street": [
+        101399,
+        591041,
+        4665480,
+        23779269
+      ],
+      "missing_traverser_share_by_street": [
+        0.04500399669612371,
+        0.07372067639204855,
+        0.19209263371925914,
+        0.368833375501787
+      ],
+      "opponent_decisions_by_street": [
+        4356657,
+        15043425,
+        43189700,
+        114900480
+      ],
+      "state": null,
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        2253111,
+        8017303,
+        24287657,
+        64471576
+      ]
+    },
+    "iteration": 321139,
+    "new_entries": 69084815,
+    "nodes_per_second_including_writes": 522251.23270417616,
+    "nodes_since_previous_save": 500000140,
+    "overshoot_nodes": 140,
+    "path": "/home/dberweger/cygnus-qualification-20261014/benchmark-results/500m.gz",
+    "process_rss_bytes_after_save": 7488745472,
+    "recent_nodes_per_second_including_writes": 522251.23270417616,
+    "requested_nodes": 500000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792021069.3441167,
+    "write_seconds": 422.884554895,
+    "write_started": 1792020646.4595594
+  },
+  "cost": {
+    "compute_seconds_excluding_write": 534.509336568,
+    "write_seconds": 422.884554895,
+    "native_elapsed_seconds_including_write": 957.393891463,
+    "compute_nodes_s": 935437.6168813475,
+    "native_nodes_s_including_write": 522251.23270417616
+  },
+  "m4_matched_250": {
+    "cost": {
+      "compute_seconds_excluding_write": 219.922179625,
+      "write_seconds": 240.82829925,
+      "native_elapsed_seconds_including_write": 460.750478875,
+      "compute_nodes_s": 2273532.123283675,
+      "native_nodes_s_including_write": 1085186.3707680448
+    },
+    "sampled_peak_family_rss_bytes": 7871578112,
+    "source": "docs/reports/hu200-k50-first-artifacts/training-complete.json and milestones.json"
+  },
+  "relative_rates_cygnus_over_m4": {
+    "compute": 0.41144684401040693,
+    "including_write": 0.4812548763716511
+  },
+  "m4_265_frozen_context_only": {
+    "nodes_s_excluding_write": 2023707.71,
+    "different_workload": true
+  },
+  "resources": {
+    "job": "benchmark",
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 1000.2425993530014,
+    "sampled_peak_family_rss_bytes": 7505551360,
+    "status": "passed",
+    "samples": 499,
+    "started_utc": "2026-10-14T23:21:46.601471+00:00",
+    "last_sample_utc": "2026-10-14T23:38:26.835943+00:00",
+    "max_sample_gap_seconds": 2.01314152499981,
+    "min_temperature_c": 39.0,
+    "max_temperature_c": 62.0,
+    "median_temperature_c": 50.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      800.0,
+      5006.647
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 124532916224,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 31.0,
+        "max_c": 51.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 31.0,
+        "max_c": 53.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 30.0,
+        "max_c": 53.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 35.0,
+        "max_c": 50.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 29.0,
+        "max_c": 51.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 31.0,
+        "max_c": 50.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 31.0,
+        "max_c": 54.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 29.0,
+        "max_c": 62.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 39.0,
+        "max_c": 62.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 28.0,
+        "max_c": 30.0
+      },
+      "nvme/Composite": {
+        "min_c": 34.85,
+        "max_c": 35.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 41.0,
+        "max_c": 44.0
+      }
+    },
+    "raw_stream_bytes": 1699613,
+    "raw_stream_sha256": "7e7af71fe0d90bbf018c1b98b1b3c644383247921290f40bbc2377a454390567"
+  },
+  "assigned_cpu_clock_proxy": {
+    "scope": "Per-sample maximum among assigned CPU0\u20137, not effective clock residency or a named trainer thread",
+    "mhz_min_median_max": [
+      4200.616,
+      4902.508,
+      5006.647
+    ]
+  },
+  "memory_capacity_estimate": {
+    "visible_gib": 125.71376419067383,
+    "proposed_table_budget_gib": 100,
+    "fixed_table_inputs_bytes": 1384031032,
+    "reserve_after_100gib_table_and_inputs_gib": 24.42478484660387,
+    "planning_bytes_per_aged_entry": [
+      110,
+      130
+    ],
+    "estimated_entry_range": [
+      825955249,
+      976128930
+    ],
+    "measured_peak_rss_bytes_per_entry_including_fixed_inputs": 108.6425629134275,
+    "limitations": "Extrapolation from one young 69M-key HU200 table and compact-store layout, with aging allowance; not tested capacity, node forecast or campaign authorization"
+  },
+  "no_campaign_or_continuation": true
+}

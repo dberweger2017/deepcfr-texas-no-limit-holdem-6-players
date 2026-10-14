@@ -252,6 +252,49 @@ Native identity stage separately peaked at 38 °C and completed in 2.02 s;
 its full thermal CSV accompanies the identity receipt. The matched 500M
 cost-only benchmark may now proceed; no campaign is started.
 
+## Matched 500M trainer benchmark
+
+One fresh cost-only run, same HU200 K50 v1/R1/opponent-sampled seed/cap as #250:
+**500,000,140 nodes /321,139 iterations /69,084,815 entries**. The final
+**2,727,516,803-byte** checkpoint exactly matches M4 SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`.
+No evaluation, continuation or campaign followed.
+
+| Measurement | cygnus pre-XMP | M4 #250, same 500M work |
+|---|---:|---:|
+| Native compute, excluding save | 534.509 s | 219.922 s |
+| Final checkpoint write | 422.885 s | 240.828 s |
+| Native elapsed including write | 957.394 s | 460.750 s |
+| Compute nodes/s | 935,438 | 2,273,532 |
+| Nodes/s including write | 522,251 | 1,085,186 |
+| Sampled peak family RSS | 6.990 GiB | 7.331 GiB |
+
+Cygnus delivers **41.1% of M4's compute rate**
+and **48.1% including saves**.
+Its larger RAM capacity does not make this matched job faster. This is one
+sample with different architecture/toolchain and unverified effective DRAM
+speed, not an isolated XMP or compiler comparison. M4 #265's **2,023,708 nodes/s**
+excluding writes is a **different frozen-table workload**, contextual only.
+
+Wrapper wall **995.500 s**, outer guard **1,000.243 s**, separately include
+startup/table loading, post-save SHA/diagnostic work and supervisor overhead.
+Package **39–62 °C**, median **50 °C**; SSD **34.85–35.85 °C**; no swap growth
+or throttle change. All-logical sampled clock min/median/max **800/800/5,007 MHz**
+includes idle siblings; assigned CPU0–7 per-sample maximum median
+**4,903 MHz** is a clock proxy, not effective
+residency or the frequency of a specific traversal thread.
+[Full cost/model/resource receipt](cygnus-x1-artifacts/trainer-benchmark.json) ·
+[All thermal/clock readings](cygnus-x1-artifacts/benchmark-temperatures.csv).
+
+A planning budget of **100 GiB for table growth**, plus the **1.289 GiB** pinned
+tables, leaves **24.42 GiB** of the visible RAM for OS/runtime/headroom.
+At an aging allowance of **110–130 bytes/key**, this suggests approximately
+**0.83–0.98 billion retained keys**. The measured young-table peak is
+**108.6 bytes/key including fixed inputs**;
+it is not safe to assume that coefficient remains constant as regrets age.
+This estimate follows the [compact-store layout](native-compact-table.md),
+is unmeasured at that size, predicts no node budget and authorizes no campaign.
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
