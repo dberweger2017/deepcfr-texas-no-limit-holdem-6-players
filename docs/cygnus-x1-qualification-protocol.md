@@ -70,3 +70,23 @@ run the full XMP-enabled RAM pass on October 15 and repeat relevant storage
 qualification in a separate PR. This plan
 does not authorize changing firmware settings, rerunning tests or extending
 PR283’s recurring task into that follow-up.
+
+## Owner overnight amendment: all testing stops by 07:00
+
+The owner extends the work window to **October 15, 07:00 Europe/Madrid
+(05:00 UTC)** and authorizes longer RAM coverage, all listed runtime/trainer
+checks, plus i7 and RTX 2070 tests. Later jobs have an on-host absolute
+**06:50 Madrid /04:50 UTC cutoff**, leaving ten minutes for stopping/readout.
+The current three-hour RAM screen remains unchanged; finish the primary
+checks first, then use remaining time for additional locked-RAM patterns.
+Selected-pattern or time-limited screens remain partial; no full-pass claim.
+This amendment supersedes the earlier restriction on extra RAM testing here.
+
+The i7 gets stepped 1/4/8-worker integer verification under the existing 85 °C
+cutoff, with cooldown between stages; no 16-thread or AVX stress before the
+cooling fix. GPU testing uses the installed nouveau/Mesa stack with actual
+NVIDIA device identity checks, bounded VRAM fill/copy/readback and no software
+fallback. Driver/API limitations and missing GPU telemetry stay explicit;
+proprietary-driver installation/reboot remain separate owner decisions.
+Recurring checks use 30 minutes during RAM, 15 minutes during other stages,
+or 60 minutes for long quiet RAM work; no five-minute recurring checks.

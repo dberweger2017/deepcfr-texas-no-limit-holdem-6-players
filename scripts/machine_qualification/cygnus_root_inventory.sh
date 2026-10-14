@@ -4,6 +4,24 @@ set -euo pipefail
 export PATH=/usr/sbin:/usr/bin:/sbin:/bin
 [[ $EUID -eq 0 ]] || { echo 'Run as root using sudo bash SCRIPT'; exit 1; }
 [[ $(hostname) == cygnus-x1 ]] || { echo 'Wrong host'; exit 1; }
+if [[ ${1:-inventory} == session ]]; then
+  root=/home/dberweger/cygnus-qualification-20261014
+  cd "$root"
+  # Resource and render access apply only to this isolated unprivileged
+  # process tree. No persistent groups, limits, device ACLs or drivers change.
+  ulimit -l unlimited
+  groups=$(id -G dberweger | tr ' ' ',')
+  render=$(getent group render | cut -d: -f3)
+  [[ -n $render ]] || { echo 'Missing render group'; exit 1; }
+  setpriv --reuid=dberweger --regid=dberweger --groups "$groups,$render" \
+    env HOME=/home/dberweger USER=dberweger LOGNAME=dberweger \
+    PATH=/home/dberweger/.cargo/bin:/home/dberweger/.local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    QUALIFICATION_DEADLINE_UTC=2026-10-15T04:50:00Z \
+    /usr/bin/tmux -L cygnus-qualification new-session -d -s keepalive \
+    "cd '$root' && python3 idle_until.py"
+  echo 'Isolated user qualification session started; cutoff 2026-10-15 04:50 UTC.'
+  exit 0
+fi
 if [[ ${1:-inventory} == memory ]]; then
   root=/home/dberweger/cygnus-qualification-20261014
   [[ ! -e $root/memory-locked ]] || { echo 'Preserving prior memory attempt'; exit 1; }
@@ -19,7 +37,7 @@ if [[ ${1:-inventory} == memory ]]; then
   echo 'Detached memory test launched as dberweger; watchdog logs every 2 seconds.'
   exit 0
 fi
-[[ ${1:-inventory} == inventory ]] || { echo 'Usage: SCRIPT [inventory|memory]'; exit 1; }
+[[ ${1:-inventory} == inventory ]] || { echo 'Usage: SCRIPT [inventory|memory|session]'; exit 1; }
 out=/home/dberweger/cygnus-qualification-20261014/root-inventory
 [[ ! -e $out ]] || { echo "$out exists; preserving earlier evidence"; exit 1; }
 install -d -m 0755 "$out"

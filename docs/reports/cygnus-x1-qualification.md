@@ -1,6 +1,8 @@
 # cygnus-x1 qualification
 
-**In progress; not admitted for campaigns.** Debian 13.7 /Linux 6.12.111,
+**In progress; not admitted for campaigns.** The owner’s latest deadline is
+**October 15, 07:00 Madrid**; later test jobs stop by **06:50**. The extended
+window includes extra RAM coverage after the primary checks and i7/GPU tests. Debian 13.7 /Linux 6.12.111,
 Intel i7-10700KF, 128 GiB installed /125.71 GiB visible. Current-main source
 `b91a78d2d0893e80380bc3da9a24142e591fc04b`; isolated coordinator checkout and
 remote evidence root `/home/dberweger/cygnus-qualification-20261014`.

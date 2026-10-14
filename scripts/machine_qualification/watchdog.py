@@ -75,6 +75,10 @@ def terminate_group(proc):
 
 def run(args):
     args.output.mkdir(parents=True, exist_ok=False)
+    deadline_text = getattr(args, 'deadline_utc', None)
+    deadline = dt.datetime.fromisoformat(deadline_text.replace('Z', '+00:00')).timestamp() if deadline_text else None
+    if deadline is not None and time.time() >= deadline:
+        raise RuntimeError('Absolute testing deadline already reached; refusing load')
     sensor = package_sensor()
     first = sample(sensor)
     if first['package_c'] >= 70:
@@ -86,6 +90,7 @@ def run(args):
         {'command': command, 'cwd': os.getcwd(), 'sensor': str(sensor),
             'max_seconds': args.seconds, 'temperature_limit_c': 85,
          'max_rss_gib': args.max_rss_gib, 'min_disk_gib': args.min_disk_gib,
+         'deadline_utc': deadline_text,
          'cpu_affinity': '0-7', 'environment_overrides': {
              k: env[k] for k in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS',
                                  'OPENBLAS_NUM_THREADS', 'CARGO_BUILD_JOBS', 'RAYON_NUM_THREADS')}}, indent=2))
@@ -123,6 +128,8 @@ def run(args):
                     reason = f'supervisor signaled: {interrupted}'
                 if time.monotonic() - started > args.seconds:
                     reason = 'wall-time budget exceeded'
+                if deadline is not None and time.time() >= deadline:
+                    reason = 'absolute testing deadline reached'
                 if reason:
                     terminate_group(proc)
                     break
@@ -148,6 +155,7 @@ def main():
     parser.add_argument('--seconds', type=float, required=True)
     parser.add_argument('--max-rss-gib', type=float, default=0)
     parser.add_argument('--min-disk-gib', type=float, default=16)
+    parser.add_argument('--deadline-utc', default=os.environ.get('QUALIFICATION_DEADLINE_UTC'))
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     if args.command[:1] == ['--']:

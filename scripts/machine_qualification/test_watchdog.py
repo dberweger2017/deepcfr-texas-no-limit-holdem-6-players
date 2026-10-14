@@ -17,13 +17,14 @@ class GuardTests(unittest.TestCase):
         for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
             self.addCleanup(signal.signal, number, signal.getsignal(number))
 
-    def exercise(self, second, *, command=None, seconds=10):
+    def exercise(self, second, *, command=None, seconds=10, deadline_utc=None):
         row = {'package_c': 40, 'available_bytes': 100 * 1024**3,
                'swap_used_bytes': 0}
         with tempfile.TemporaryDirectory() as directory:
             out = Path(directory) / 'job'
             args = argparse.Namespace(output=out, seconds=seconds,
                                       max_rss_gib=0, min_disk_gib=0,
+                                      deadline_utc=deadline_utc,
                                       command=command or ['sleep', '30'])
             cpus = sorted(os.sched_getaffinity(0))[:8]
             # The production wrapper uses 0-7 on this inventoried host. Tests
@@ -63,6 +64,15 @@ class GuardTests(unittest.TestCase):
                                       'swap_used_bytes': 257 * 1024**2})
         self.assertEqual(code, 1)
         self.assertEqual(result['stop_reason'], 'swap grew by more than 256 MiB')
+        self.assertLess(result['exit_code'], 0)
+
+    def test_absolute_deadline_kills_the_child(self):
+        with patch.object(watchdog.time, 'time', side_effect=[1, 3]):
+            code, result = self.exercise(
+                {'package_c': 40, 'available_bytes': 100 * 1024**3, 'swap_used_bytes': 0},
+                deadline_utc='1970-01-01T00:00:02Z')
+        self.assertEqual(code, 1)
+        self.assertEqual(result['stop_reason'], 'absolute testing deadline reached')
         self.assertLess(result['exit_code'], 0)
 
 
