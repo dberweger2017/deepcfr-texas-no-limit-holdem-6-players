@@ -1,8 +1,10 @@
 #!/bin/bash
 # Runs inside the detached on-host guard, never as root.
 set -euo pipefail
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+export PATH="$QUALIFICATION_ROOT/node/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 cd "$QUALIFICATION_ROOT"
+python3 install_node.py
+node --version
 test ! -e repo-main
 git clone https://github.com/dberweger2017/CFR-NLHE-6max.git repo-main
 cd repo-main
