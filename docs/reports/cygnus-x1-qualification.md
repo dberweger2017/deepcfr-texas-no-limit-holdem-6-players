@@ -139,8 +139,13 @@ Cargo jobs, retaining its build receipt and exact first binary.
 Setup passed in **84.52 s**, peak RSS **1.203 GiB**, package **34–59 °C**,
 no swap/throttle changes. Sampled all-logical-CPU clock min/median/max
 **797/800/4,897 MHz**, including idle siblings.
-The full test suite is now running; two-location binary equality and exact
-checkpoint recovery remain pending.
+The full test suite is now running; local binary identity/path checks and exact
+checkpoint recovery remain pending. The owner accepts the established #243
+build method rather than repeating its two-location proof. Prior M4/RunPod
+[#129](https://github.com/dberweger2017/CFR-NLHE-6max/pull/129) /
+[#133](https://github.com/dberweger2017/CFR-NLHE-6max/pull/133) exact-state
+parity informs the unchanged fresh/resumed #250 checkpoint gates; executable
+bytes are architecture/toolchain dependent.
 [Environment/toolchain/build receipt](cygnus-x1-artifacts/setup-results.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/setup-temperatures.csv).
 

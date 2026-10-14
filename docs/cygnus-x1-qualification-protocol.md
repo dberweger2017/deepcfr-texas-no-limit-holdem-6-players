@@ -106,3 +106,18 @@ memtester's mandatory Stuck Address phase. Indices were checked against the
 Debian 4.7.1 source test list. The first screen's partial Block Sequential is
 retained; the long Bit Flip phase is omitted to fit broader coverage before
 the deadline. Stop at the absolute cutoff even if this selection is incomplete.
+
+## Owner amendment: reuse established build/parity method
+
+The owner requested checking prior M4/RunPod qualification before repeating the
+two-location build. Reviewed merged [#129](https://github.com/dberweger2017/CFR-NLHE-6max/pull/129)
+and [#133](https://github.com/dberweger2017/CFR-NLHE-6max/pull/133): they establish
+exact trainer-state/recovery comparison across platforms, not equal executable
+bytes across architectures. Merged [#243](https://github.com/dberweger2017/CFR-NLHE-6max/pull/243)
+proved checkout-independent builds under one toolchain. Cygnus already uses its
+maintained build entry point and retains the receipt. The second-checkout build
+is therefore omitted here at the owner's request; compare the retained/current
+local executable hash and scan for embedded checkout/staging paths instead.
+The exact #250 M4 fresh20M and 10M→20M checkpoint SHA256 gates remain mandatory
+and implement the prior cross-platform output-parity method on this current
+HU200 recipe. No prior HU20 result is counted as a new cygnus test.
