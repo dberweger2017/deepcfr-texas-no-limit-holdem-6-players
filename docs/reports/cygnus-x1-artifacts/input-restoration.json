@@ -1,0 +1,49 @@
+{
+  "status": "whole archive and all three extracted table members verified on coordinator; not yet copied to bb128",
+  "owning_pr": {
+    "mergedAt": "2026-10-05T08:15:20Z",
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/163"
+  },
+  "archive": {
+    "drive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+    "url": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view",
+    "folder_id": "1gwungsUq-b9uey8InGy0yOD2GbaMRhp-",
+    "local_path": "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+    "bytes": 1991949530,
+    "sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+    "whole_archive_sha256_verified": true,
+    "retrieval_method": "Read existing indexed synced archive; local hydration may occur. No connector byte download claimed."
+  },
+  "tables": [
+    {
+      "street": "flop",
+      "archive_member": "hu20-equity-buckets-20261005/flop-k50.bin",
+      "coordinator_path": "/Users/dberweger/Local/cygnus-x1-qualification/results/cygnus-qualification/table-inputs/flop-k50.bin",
+      "bytes": 12867944,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    {
+      "street": "turn",
+      "archive_member": "hu20-equity-buckets-20261005/turn-k50.bin",
+      "coordinator_path": "/Users/dberweger/Local/cygnus-x1-qualification/results/cygnus-qualification/table-inputs/turn-k50.bin",
+      "bytes": 139600524,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    {
+      "street": "river",
+      "archive_member": "hu20-equity-buckets-20261005/river-k50.bin",
+      "coordinator_path": "/Users/dberweger/Local/cygnus-x1-qualification/results/cygnus-qualification/table-inputs/river-k50.bin",
+      "bytes": 1231562564,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    }
+  ],
+  "restore_commands": [
+    "Download Drive file 1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T into a fresh ignored nonsynced path as table-archive.tar.gz",
+    "shasum -a 256 table-archive.tar.gz # require 03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+    "mkdir -p results/NEW-RESTORE/tables",
+    "tar -xzf table-archive.tar.gz -C results/NEW-RESTORE/tables --strip-components 1 hu20-equity-buckets-20261005/flop-k50.bin hu20-equity-buckets-20261005/turn-k50.bin hu20-equity-buckets-20261005/river-k50.bin",
+    "shasum -a 256 results/NEW-RESTORE/tables/*-k50.bin # require all three receipt hashes"
+  ],
+  "remote_copy": "pending; reverify full member SHA256 on bb128 before use"
+}

@@ -14,7 +14,9 @@ The full locked 112 GiB pass is now running. No archive/upload acceptance,
 Drive locator or removal is claimed; all originals remain. Keep this open PR
 root and its dependencies intact. Required later inputs reference the merged
 [PR163 table restoration record](#pr163-full-deck-equity-buckets--october-5-closeout);
-none have been retrieved for this host yet. No campaigns, Slumbot, changes to
+the full archive and three selected K50 members now verify in the ignored
+coordinator input root, with [Drive/member hashes and retrieval commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+No table has been copied to or used on bb128 yet. No campaigns, Slumbot, changes to
 other machines or cleanup.
 
 ## Another 30 GB on M4 — October 14
