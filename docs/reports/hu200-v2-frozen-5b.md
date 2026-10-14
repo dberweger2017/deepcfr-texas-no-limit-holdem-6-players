@@ -9,8 +9,8 @@ pressure result is **−1.83 [−23.96,20.30]**, versus v1's −240.42. Half-pot
 worse, and tight-aggressive, loose-aggressive and matched 1× pot fail the
 predeclared regression limit. **The Slumbot-confirmation rule fails.** No server
 copy, cache preparation, launcher, account, credentials or live Slumbot run was
-made for this candidate. Training and evaluation are complete; local archive
-readback passes and cloud upload acceptance is pending. This experiment asks
+made for this candidate. Training, evaluation and archive acceptance are complete. All three ZIPs
+pass local readback, native upload status and independent Drive metadata checks. This experiment asks
 whether representing off-menu bet sizes and training the retained keys more
 densely improves HU200 against those sizes. Only the menu changes from #250/#265.
 The primary evidence is the paired seven-opponent panel. Different-menu direct
@@ -337,9 +337,27 @@ Both ZIPs have embedded manifests and every member passes local size/SHA256
 readback. [Full receipt](hu200-v2-frozen-5b-artifacts/archive-receipt.json),
 [average receipt](hu200-v2-frozen-5b-artifacts/average-receipt.json).
 They are in `~/Local/Research-Cloud/PR-270-hu200-v2-frozen-5b/`.
-Cloud upload is in progress; local integrity is not upload acceptance. The
-closed archive/upload observer and receipts will be included in a small
-closeout supplement. Remote archive bytes have not been downloaded or verified.
+Native uploaded1/uploading0/no-conflicts status and independent Drive
+ID/name/size/direct-folder membership accept all three ZIPs.
+[Native full/average acceptance](hu200-v2-frozen-5b-artifacts/native-upload-acceptance.json),
+[independent cloud confirmation](hu200-v2-frozen-5b-artifacts/cloud-upload-acceptance.json).
+[Full evidence](https://drive.google.com/file/d/1zvA11Jr_6pwDehqMnVIGPcSGrPZdQMpb/view?usp=drivesdk)
+· [Average only](https://drive.google.com/file/d/1XwE9T6K84_tZPv00soy_d8VtQAHSUEGD/view?usp=drivesdk).
+
+The [closeout ZIP](https://drive.google.com/file/d/1N1q4Svr1CqRnPsMv81ufwRbyUGfs3p5t/view?usp=drivesdk)
+is **1,083,082 bytes /50 members**, whole SHA256
+`8b48b1857f6fc25cf7c36945a2ab0344a3e18f8d82957d15c6c721ee4bb62cc0`,
+embedded manifest `b2da37bb09d1bc298299d068a35d1e8dcccd9d2dced60ce15fbc89f3916cd14c`.
+It preserves closed archive/upload readings, native acceptance observations,
+controller sources and resource receipts, with no new hands or model changes.
+[Complete closeout readback](hu200-v2-frozen-5b-artifacts/closeout-archive-receipt.json),
+[native closeout acceptance](hu200-v2-frozen-5b-artifacts/closeout-native-acceptance.json).
+The closeout guard retains another 168 readings locally, peak 0.111 GiB, with no
+stops; its closed receipt remains in Git and the raw readings remain protected
+in `results/hu200-v2-frozen-5b-closeout-guards/`. This guard's own active stream
+cannot be an immutable member of the ZIP it supervises. All preceding scientific,
+archive and upload streams are archived. Final native acceptance completed by
+**11:33:43 Madrid**, within the 22:00 deadline. Remote archive bytes have not been downloaded or verified.
 All originals and caches remain, and no synced file was deleted or evicted.
 [Archive/retrieval index](../../RESULTS_INDEX.md).
 
