@@ -3,7 +3,7 @@
     python -m scripts.plot_slumbot_runs --player "K50 752M=RUN1,RUN2" --player "Random=RUN" --out chart.png
 
 Each player's run directories are pooled in the order given; every journal is verified first.
---hands N keeps each player's first N hands in play order.
+--hands N keeps at most each player's first N hands in play order; shorter runs end where they end.
 Left: cumulative winnings in big blinds. Right: BB/100 so far with its 95% band.
 Needs matplotlib, which is not a runtime dependency.
 """
@@ -16,8 +16,8 @@ from src.arena.external.style import terminals
 
 
 def winnings(runs: list[Path], hands: int | None = None) -> list[int]:
-    """Chips won per hand, in play order, from verified journals."""
-    return [t['winnings'] for t in terminals(runs, hands)]
+    """Chips won per hand, in play order, from verified journals: at most the first `hands`."""
+    return [t['winnings'] for t in terminals(runs)][:hands]
 
 
 def running(hands: list[int]):
@@ -37,7 +37,7 @@ def main():
     parser.add_argument('--player', action='append', required=True, help='LABEL=RUN_DIR[,RUN_DIR...]')
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--title', default='Against Slumbot')
-    parser.add_argument('--hands', type=int, help="each player's first N hands")
+    parser.add_argument('--hands', type=int, help="at most each player's first N hands")
     parser.add_argument('--color', action='append', default=[], help='LABEL=COLOR, to keep colors fixed across charts')
     args = parser.parse_args()
     import matplotlib
@@ -63,7 +63,7 @@ def main():
         axis.grid(alpha=0.3)
     left.set_ylabel('Cumulative winnings (big blinds)')
     right.set_ylabel('BB/100 so far, with 95% band')
-    left.legend(loc='upper right', fontsize=9)
+    left.legend(loc='best', fontsize=9)
     figure.suptitle(args.title)
     figure.tight_layout()
     figure.savefig(args.out, dpi=130)
