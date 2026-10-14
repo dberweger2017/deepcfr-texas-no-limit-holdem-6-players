@@ -98,12 +98,17 @@ The same executable, K50 copies, clock, swap baseline and guard thresholds remai
 Growing terminal: **755,276,076 actual nodes /494,507 iterations /
 85,373,928 entries**, 66-entry complete-iteration overshoot.
 Stage 2 resumes that terminal SHA256 with `--max-entries 85373928`
-and frozen/recovery mode. No frozen save is yet verified at this snapshot.
+and frozen/recovery mode. The latest verified frozen save is
+**2,000,001,235 nodes /1,396,928 iterations**, retaining all 85,373,928 keys
+and the exact stage-1 sorted-key digest.
 [Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
-The 22:51 CEST check confirms the original second-seed supervisor identity,
-current RSS **5.05 GiB**, free memory **64%**,
-disk **50.31 GiB**, swap below the original baseline and no stops.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2051Z.json).
+The **23:21 CEST** check confirms the second-seed supervisor identity,
+current RSS **6.21 GiB**, free memory **63%**,
+disk **49.26 GiB**, swap below the original baseline and no stops.
+At the 2B save, mean traverser visits/key is **4.1401**
+and zero-visit share **34.82%**; 5B is not yet verified.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2121Z.json),
+[per-save statistics](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
 
