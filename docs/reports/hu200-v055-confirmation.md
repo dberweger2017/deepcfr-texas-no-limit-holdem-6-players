@@ -75,3 +75,27 @@ checks pass. Initial setup found two M4 environments without psutil before the
 clock/build; the existing PR207 research environment supplies the monitoring
 and audit dependencies. The earlier Python 3.9 artifact-check failure is
 preserved; supported Python 3.11 passes. No scientific retry occurred.
+
+## Continuation and archive preparation
+
+A completion-only webhook resumes this same PR task after the detached seed-1
+supervisor exits. It requests no recurring research, retries or extra budget and
+will be removed at closeout. Its private routing file is excluded from archives
+and Git; the observer's five-second process/RSS readings and delivery receipt
+are retained separately from the scientific family readings. The observer is
+about 24 MB RSS and does no training. Seed 2 will receive its own completion
+observation after admission. The owner is clearing additional disk headroom
+while seed 1 runs; all resource thresholds and the original deadline remain fixed.
+
+Canonical archive folder: [PR278 Research-Cloud](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
+`~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`. It is confirmed by
+connector ID/name/direct parent beneath project folder
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; no archive uploads exist yet. Closed
+per-seed evidence will stream into full and separate final-average ZIPs on M1,
+with member hashing during transfer and complete local archive readback. This
+avoids an extra payload copy on the training disk. M4 originals remain.
+
+First completed save: seed 2026101421's 500M target contains **500,000,695
+actual nodes /320,364 iterations /69,180,237 entries**, 2,730,179,385 bytes,
+236.14 write seconds. Full closeout verification and statistics are pending.
+No guard stop was recorded through 16:05:43 UTC; this is a progress snapshot.
