@@ -1,0 +1,21 @@
+{
+  "binary": {
+    "bytes": 1492512,
+    "mtime_ns": 1791911948781717916,
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/native/hu20-trainer/target/release/hu20-trainer",
+    "sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4"
+  },
+  "fresh": {
+    "bytes": 270143830,
+    "mtime_ns": 1791911982478289189,
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/gates/fresh20m.gz",
+    "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+  },
+  "resumed": {
+    "bytes": 270143830,
+    "mtime_ns": 1791912033298394076,
+    "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/gates/resumed20m.gz",
+    "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+  },
+  "status": "exact-pinned-fresh-and-recovery"
+}

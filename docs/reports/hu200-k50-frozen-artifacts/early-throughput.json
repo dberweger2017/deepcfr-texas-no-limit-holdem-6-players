@@ -1,0 +1,9 @@
+{
+  "actual_nodes": 2000001632,
+  "first_ten_minutes_observation": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/first-ten-minute-throughput.json",
+  "initial_nodes": 752593175,
+  "native_train_seconds": 616.397540917,
+  "nodes_per_second_excluding_write": 2023707.7116567662,
+  "source": "first frozen milestone native telemetry; serialization removed",
+  "wall_seconds_since_launch_including_load_save_key_check": 1054.9809169769287
+}

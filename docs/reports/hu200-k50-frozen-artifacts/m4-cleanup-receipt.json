@@ -1,0 +1,906 @@
+{
+  "after": {
+    "at": 1791912617.680557,
+    "disk_free_bytes": 101546766336,
+    "free_percent": 78,
+    "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%\n",
+    "monotonic": 196876.996082416,
+    "pressure_level": 1,
+    "swap_bytes": 979894272,
+    "swap_raw": "vm.swapusage: total = 2048.00M  used = 934.50M  free = 1113.50M  (encrypted)\n"
+  },
+  "archives": {
+    "207": {
+      "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "independent_cloud": {
+        "created_time": null,
+        "current_user_can_share": null,
+        "display_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+        "drive_id": null,
+        "file_or_folder": null,
+        "has_augmented_permissions": null,
+        "id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+        "mime_type": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS"
+        ],
+        "permissions": null,
+        "shared": null,
+        "size": "20517119304",
+        "source_visibility_status": "access_not_verified",
+        "title": "hu100-1b-campaign-M4-retry-20261009.zip",
+        "url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk"
+      },
+      "native": {
+        "at": 1791912615.746023,
+        "bytes": 20517119304,
+        "cloud_file_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+        "cloud_folder_id": "1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS",
+        "conflicts": {
+          "exists": true,
+          "nil": false,
+          "unresolved_count": 0
+        },
+        "is_uploaded": 1,
+        "is_uploading": 0,
+        "name": "hu100-1b-campaign-M4-retry-20261009.zip",
+        "native_accepted": true,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536870975;\n            contentModificationDate = \"2026-10-09 05:23:45 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-09 05:22:17 +0000\";\n            displayName = \"hu100-1b-campaign-M4-retry-20261009.zip\";\n            documentSize = 20517119304;\n            filename = \"hu100-1b-campaign-M4-retry-20261009.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 0;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 0;\n            isRecursivelyDownloaded = 0;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 81537;\n            lastUsedDate = \"2026-10-09 05:25:07 +0000\";\n            parentItemIdentifier = 81529;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 455a6c68 ... 4e58646e 566a5051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpf-tT----\n\nContent Policy: 1\n\nInherited Content Policy: 2\n\nEffective Content Policy: 1\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+        "remote_archive_bytes_downloaded": false
+      },
+      "owner": {
+        "mergedAt": "2026-10-09T05:52:28Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207"
+      }
+    },
+    "254": {
+      "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-254-hu100-k50-vs-v052/hu100-k50-vs-v052-M4-20261013.zip",
+      "archive_sha256": "6399a48d0f799d71b9f498e85d2522f53b2384763e193428826bc353823274d3",
+      "independent_cloud": {
+        "created_time": null,
+        "current_user_can_share": null,
+        "display_url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk",
+        "drive_id": null,
+        "file_or_folder": null,
+        "has_augmented_permissions": null,
+        "id": "1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8",
+        "mime_type": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-"
+        ],
+        "permissions": null,
+        "shared": null,
+        "size": "2115058522",
+        "source_visibility_status": "access_not_verified",
+        "title": "hu100-k50-vs-v052-M4-20261013.zip",
+        "url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk"
+      },
+      "native": {
+        "at": 1791912616.2402382,
+        "bytes": 2115058522,
+        "cloud_file_id": "1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8",
+        "cloud_folder_id": "1i0Zxl7vw8eGr7BO0RX-a1WnoKy8qnTS-",
+        "conflicts": {
+          "exists": true,
+          "nil": false,
+          "unresolved_count": 0
+        },
+        "is_uploaded": 1,
+        "is_uploading": 0,
+        "name": "hu100-k50-vs-v052-M4-20261013.zip",
+        "native_accepted": true,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-254-hu100-k50-vs-v052/hu100-k50-vs-v052-M4-20261013.zip",
+        "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536870975;\n            contentModificationDate = \"2026-10-13 08:45:16 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-13 08:45:13 +0000\";\n            displayName = \"hu100-k50-vs-v052-M4-20261013.zip\";\n            documentSize = 2115058522;\n            filename = \"hu100-k50-vs-v052-M4-20261013.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 0;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 0;\n            isRecursivelyDownloaded = 0;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 84894;\n            lastUsedDate = \"2026-10-13 08:45:20 +0000\";\n            parentItemIdentifier = 84892;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 45613364 ... 5a4c6447 646a5051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpf-tT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+        "remote_archive_bytes_downloaded": false
+      },
+      "owner": {
+        "mergedAt": "2026-10-13T09:02:50Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/254"
+      }
+    },
+    "260": {
+      "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "independent_cloud": {
+        "created_time": null,
+        "current_user_can_share": null,
+        "display_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+        "drive_id": null,
+        "file_or_folder": null,
+        "has_augmented_permissions": null,
+        "id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+        "mime_type": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx"
+        ],
+        "permissions": null,
+        "shared": null,
+        "size": "10465963508",
+        "source_visibility_status": "access_not_verified",
+        "title": "hu100-k50-v2-evidence.zip",
+        "url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk"
+      },
+      "native": {
+        "at": 1791912616.755681,
+        "bytes": 10465963508,
+        "cloud_file_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+        "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "conflicts": {
+          "exists": true,
+          "nil": false,
+          "unresolved_count": 0
+        },
+        "is_uploaded": 1,
+        "is_uploading": 0,
+        "name": "hu100-k50-v2-evidence.zip",
+        "native_accepted": true,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536870975;\n            contentModificationDate = \"2026-10-13 15:31:12 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-13 15:30:31 +0000\";\n            displayName = \"hu100-k50-v2-evidence.zip\";\n            documentSize = 10465963508;\n            filename = \"hu100-k50-v2-evidence.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 0;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 0;\n            isRecursivelyDownloaded = 0;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 84917;\n            lastUsedDate = \"2026-10-13 15:31:47 +0000\";\n            parentItemIdentifier = 84913;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 45634752 ... 41355357 4a465051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpf-tT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+        "remote_archive_bytes_downloaded": false
+      },
+      "owner": {
+        "mergedAt": "2026-10-13T17:05:44Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/260"
+      }
+    }
+  },
+  "at": 1791912615.308753,
+  "authorization": "owner allowed verified inactive evidence cleanup in this thread",
+  "before": {
+    "at": 1791912615.314667,
+    "disk_free_bytes": 73163091968,
+    "free_percent": 78,
+    "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%\n",
+    "monotonic": 196874.630190916,
+    "pressure_level": 1,
+    "swap_bytes": 979894272,
+    "swap_raw": "vm.swapusage: total = 2048.00M  used = 934.50M  free = 1113.50M  (encrypted)\n"
+  },
+  "finished": 1791912617.6827772,
+  "remote_archive_bytes_downloaded_for_cleanup_verification": false,
+  "removed": [
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 252549120,
+      "member": "research/archive-retry-source.tar",
+      "member_sha256": "c2d9576a17510718e89d1f4276155ee34d0fb5da7a16290874975bea2c4506b5",
+      "mtime_ns": 1791523327366877872,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/archive-retry-source.tar",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/archive-retry-source.tar",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1173264021,
+      "member": "research/evaluation/final-reproduction/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "member_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "mtime_ns": 1791495200394279170,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 347314759,
+      "member": "research/evaluation/final-reproduction/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+      "member_sha256": "9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303",
+      "mtime_ns": 1791494205792652540,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 584032704,
+      "member": "research/evaluation/final-reproduction/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+      "member_sha256": "77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a",
+      "mtime_ns": 1791494457904548877,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/evaluation/final-reproduction/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791494013466704591,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 836277172,
+      "member": "research/evaluation/final-reproduction/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+      "member_sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+      "mtime_ns": 1791494782238175195,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1173264021,
+      "member": "research/evaluation/final-reproduction/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "member_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "mtime_ns": 1791495619889810244,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final-reproduction/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final-reproduction/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1173264021,
+      "member": "research/evaluation/final/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "member_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "mtime_ns": 1791494980526584563,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 347314759,
+      "member": "research/evaluation/final/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+      "member_sha256": "9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303",
+      "mtime_ns": 1791494105581666916,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/100001959/models/9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 584032704,
+      "member": "research/evaluation/final/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+      "member_sha256": "77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a",
+      "mtime_ns": 1791494321116076190,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/250000540/models/77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/evaluation/final/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791493928981708076,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/39438279/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 836277172,
+      "member": "research/evaluation/final/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+      "member_sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+      "mtime_ns": 1791494609397039833,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/500000323/models/f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1173264021,
+      "member": "research/evaluation/final/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "member_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "mtime_ns": 1791495400143548304,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/evaluation/final/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/evaluation/final/translated-1000002065/models/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 283895910,
+      "member": "research/gate/checkpoint.gz",
+      "member_sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416",
+      "mtime_ns": 1791488238609689967,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/gate/checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 188020407,
+      "member": "research/gate/current.gz",
+      "member_sha256": "606e8c2caa7ebffe4b7fe7d2e11410300e8b53eb61c58fab3d89f546ab42262f",
+      "mtime_ns": 1791488315277893711,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/current.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/gate/current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/pilot-reproduction/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791488613646490994,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/pilot-reproduction/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/pilot-reproduction/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/pilot-reproduction/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791488681678211420,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/pilot-reproduction/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/pilot-reproduction/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/pilot/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791488579107257943,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/pilot/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/pilot/off/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 193277097,
+      "member": "research/pilot/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "member_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "mtime_ns": 1791488647083608662,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/pilot/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/pilot/on/models/ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4.json.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 347314759,
+      "member": "research/training/100000000/average.gz",
+      "member_sha256": "9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303",
+      "mtime_ns": 1791490440914536868,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/average.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/100000000/average.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 516364002,
+      "member": "research/training/100000000/checkpoint.gz",
+      "member_sha256": "2b3a09871183247523dd5413c8b39253e9742ac001d39476cd67916e48162bae",
+      "mtime_ns": 1791489495361416789,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/100000000/checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 329495095,
+      "member": "research/training/100000000/current.gz",
+      "member_sha256": "ec6d6af81b802f6a6eb9ca6d9baa00655e9f19ade0d9589cecd9481cf5589cd7",
+      "mtime_ns": 1791490466544861715,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/current.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/100000000/current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1789504352,
+      "member": "research/training/1000000000/checkpoint.gz",
+      "member_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+      "mtime_ns": 1791490323431333137,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/1000000000/checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1033507823,
+      "member": "research/training/1000000000/current.gz",
+      "member_sha256": "979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21",
+      "mtime_ns": 1791492886420071470,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/current.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/1000000000/current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 584032704,
+      "member": "research/training/250000000/average.gz",
+      "member_sha256": "77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a",
+      "mtime_ns": 1791490944418673645,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/average.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/250000000/average.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 877459108,
+      "member": "research/training/250000000/checkpoint.gz",
+      "member_sha256": "be9f13a29d6a89445e48661ae0f30ab875f46e63c035578eb22b1cb92ac28595",
+      "mtime_ns": 1791489648637849147,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/250000000/checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 538130483,
+      "member": "research/training/250000000/current.gz",
+      "member_sha256": "229c71dcf05d0eeb23da8daad0358b16996e08392a2a4c3ffbc32b58e13a1507",
+      "mtime_ns": 1791490986276514509,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/current.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/250000000/current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 836277172,
+      "member": "research/training/500000000/average.gz",
+      "member_sha256": "f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca",
+      "mtime_ns": 1791491721636724634,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/average.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/500000000/average.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 1266489098,
+      "member": "research/training/500000000/checkpoint.gz",
+      "member_sha256": "35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788",
+      "mtime_ns": 1791489892345877055,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/500000000/checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+      "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+      "bytes": 753589994,
+      "member": "research/training/500000000/current.gz",
+      "member_sha256": "24ce60451708a7b0ace7bfad7873f2f17b0b5a27af8bade73d0f175163441edb",
+      "mtime_ns": 1791491780149405742,
+      "owner_pr": 207,
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/current.gz",
+      "restoration_url": "https://drive.google.com/file/d/1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+        "research/training/500000000/current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8",
+      "archive_sha256": "6399a48d0f799d71b9f498e85d2522f53b2384763e193428826bc353823274d3",
+      "bytes": 220993327,
+      "member": "research/final/direct/play/decisions.jsonl.gz",
+      "member_sha256": "1d165c0a07e64ce64c8fada4d0f2d8ab7a652e023aedfa8f42403bd716d3fb71",
+      "mtime_ns": 1791878364057762584,
+      "owner_pr": 254,
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/final/direct/play/decisions.jsonl.gz",
+      "restoration_url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-254-hu100-k50-vs-v052/hu100-k50-vs-v052-M4-20261013.zip",
+        "research/final/direct/play/decisions.jsonl.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8",
+      "archive_sha256": "6399a48d0f799d71b9f498e85d2522f53b2384763e193428826bc353823274d3",
+      "bytes": 220993327,
+      "member": "research/final/direct/reproduction/decisions.jsonl.gz",
+      "member_sha256": "ea797d67747be04b3368961d4a22cad7ba5c988b6ca2afe0cf2f2ba869c48228",
+      "mtime_ns": 1791879336799440875,
+      "owner_pr": 254,
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/final/direct/reproduction/decisions.jsonl.gz",
+      "restoration_url": "https://drive.google.com/file/d/1uf4oknvw5Vr7fuTAEVYGgLr7CLS_n-d8/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-254-hu100-k50-vs-v052/hu100-k50-vs-v052-M4-20261013.zip",
+        "research/final/direct/reproduction/decisions.jsonl.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 319986882,
+      "member": "research/gates/fresh20m.gz",
+      "member_sha256": "c816d1da3d2d5f87078d5da014781fb562ff15d59ba0704328c2f7cacaee95c9",
+      "mtime_ns": 1791895000466200012,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/gates/fresh20m.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/gates/fresh20m.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 167069522,
+      "member": "research/gates/prefix10m.gz",
+      "member_sha256": "2c895938c302508551f49ebffa9a558b697ed0a11fa69d53d1c0f2be951e4098",
+      "mtime_ns": 1791895021279142432,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/gates/prefix10m.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/gates/prefix10m.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 319986882,
+      "member": "research/gates/resumed20m.gz",
+      "member_sha256": "c816d1da3d2d5f87078d5da014781fb562ff15d59ba0704328c2f7cacaee95c9",
+      "mtime_ns": 1791895059050164498,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/gates/resumed20m.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/gates/resumed20m.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 2363005114,
+      "member": "research/training/332894788.average.gz",
+      "member_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "mtime_ns": 1791896592285503708,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/training/332894788.average.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 3488922486,
+      "member": "research/training/332894788.checkpoint.gz",
+      "member_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+      "mtime_ns": 1791895551527333186,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.checkpoint.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/training/332894788.checkpoint.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    },
+    {
+      "archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+      "archive_sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+      "bytes": 2287740050,
+      "member": "research/training/332894788.current.gz",
+      "member_sha256": "b97e553a0aedc79e57fd7631858df9ac031ea1480e7af4a7fa1c14ead787a49b",
+      "mtime_ns": 1791896592288866199,
+      "owner_pr": 260,
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.current.gz",
+      "restoration_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+      "retrieval_command": [
+        "python",
+        "-c",
+        "import sys,zipfile; zipfile.ZipFile(sys.argv[1]).extract(sys.argv[2],sys.argv[3])",
+        "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "research/training/332894788.current.gz",
+        "NEW_IGNORED_RESTORE_ROOT"
+      ]
+    }
+  ],
+  "removed_bytes": 28373295553,
+  "removed_files": 38,
+  "repeat_archive_or_member_hash_audits": false,
+  "retained": [
+    {
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/average.gz",
+      "reason": "changed or uncertain metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz",
+      "reason": "changed or uncertain metadata"
+    }
+  ]
+}
