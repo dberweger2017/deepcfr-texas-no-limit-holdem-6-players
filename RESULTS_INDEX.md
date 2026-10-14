@@ -1,3 +1,9 @@
+## PR270 — HU200 v2 frozen 5B (active October 14, 2026)
+
+[PR270](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/270), [protocol](docs/hu200-v2-frozen-5b-protocol.md), [report](docs/reports/hu200-v2-frozen-5b.md). **Active M4 campaign; no final result or archive acceptance yet.** Fresh recipe seed 2026101302, R=1, K50, linear CFR, opponent-sampled, menu v2 only. Source `bbfa6a1df1fc70f323b1335ccf2146804d0dcc30`, native main base `e2bcdc63`. Root `~/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b`; detached tmux `hu200-v2-pr270`, both research locks held through science/archive. Fresh/resumed 20M checkpoint hash `d0ab3813e65001cc331058cb6bdeccaf878c619fe2ffae4073ff1a468dab5b52`, measured cap 95,702,497 entries. Keep this open PR root, its tables/models/caches and the compatibility checkout `~/Local/hu200-v2-pr270-compatibility` intact.
+
+Protected read-only comparison input: `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz`, 2,756,501,598 bytes, SHA256 `43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512`. Restoration: [PR265 model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json), accepted average ZIP [Drive 1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view), whole hash `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943`, member `averages/5000000000.average.gz`. Tables copied and fully hash-verified after live merged-owner checks; [PR163 table archive/retrieval](docs/reports/hu200-k50-first-artifacts/inputs.json) remains their storage dependency. No source input is moved, removed or overwritten.
+
 ## Merged overnight storage pass — October 14, 2026
 
 Owner-requested cleanup released **62.996 GB**: eight confirmed
