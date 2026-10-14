@@ -1,0 +1,937 @@
+{
+  "cache": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache",
+  "counts": {
+    "curve": 131072,
+    "fits": true,
+    "panel": 16384,
+    "primary": 262144,
+    "projected_seconds": 9892.660722511719
+  },
+  "deadline_utc": "2026-10-14T08:00:00Z",
+  "frozen_at": 1791933786.51832,
+  "guards": {
+    "critical_pressure": 4,
+    "disk_floor_gib": 16,
+    "minimum_free_percent": 8,
+    "rss_gib": 13,
+    "sample_seconds": 5,
+    "sustained_seconds": 60,
+    "swap_growth_bytes": 4000000000
+  },
+  "inputs_sha256": "998db88ec2ee3159aac0cde0c0bb4858b99021b2988418f70e8abec094711d7e",
+  "learning_curve": "Paired final-minus-5B returns against 752M on overlapping shared blocks; not a final-vs-5B duel",
+  "missing_key_fallback": "uniform",
+  "models": {
+    "baseline": {
+      "actual_nodes": 752593175,
+      "audit": {
+        "actual_nodes": 752593175,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+        "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 54472197,
+          "zero_mass": 30901710
+        },
+        "current_sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee",
+        "files": {
+          "average": {
+            "bytes": 2221370011,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.average.gz",
+            "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+          },
+          "checkpoint": {
+            "bytes": 3442723146,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.gz",
+            "sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+          },
+          "current": {
+            "bytes": 2124578171,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.current.gz",
+            "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+          }
+        },
+        "maximum_tv": 1.0000000000000002,
+        "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.25413469526729277
+      },
+      "audit_sha256": "2f788bd124f2b64c9f45ca881bb77cce8c753bfaf900e36f9fd06f45a57bf5b0",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 493496,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 752593175,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            9627576,
+            33805944,
+            100919960,
+            272352896
+          ],
+          "traverser_visits_by_street": [
+            3241045,
+            11617284,
+            36132340,
+            97954732
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+        "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-averages-M4-20261013.zip",
+        "archive_sha256": "4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+        "archive_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view",
+        "manifest_sha256": "78b893820f2fcfb18af69e3da99ee68798d373ac90a543dc8c9205edb27e10db",
+        "member_path": "research/training/1000000000.average.gz",
+        "method": "Restore missing baseline under the detached science guard after whole/manifest/member verification; then full model SHA256. Keep original ZIP untouched."
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 2221370011,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 493496,
+        "name": "frozen-baseline",
+        "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/models/752m.average.gz",
+        "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+        "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    },
+    "final": {
+      "actual_nodes": 20000002032,
+      "audit": {
+        "actual_nodes": 20000002032,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 66360840,
+          "zero_mass": 19013067
+        },
+        "current_sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688",
+        "files": {
+          "average": {
+            "bytes": 3164563975,
+            "mtime_ns": 1791928039103998939,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+            "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+          },
+          "checkpoint": {
+            "bytes": 4960844586,
+            "mtime_ns": 1791924361873579506,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+            "sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+          },
+          "current": {
+            "bytes": 2301966028,
+            "mtime_ns": 1791928039105011360,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.current.gz",
+            "sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688"
+          }
+        },
+        "keys": {
+          "entries": 85373907,
+          "header_iteration": 16670844,
+          "method": "SHA256 of concatenated sorted 32-character serialized keys",
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+          "seconds": 48.04470086097717,
+          "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+        },
+        "maximum_tv": 1.0000000000000002,
+        "requested_nodes": 20000000000,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "seconds": 1669.2184610366821,
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.3307383970540339
+      },
+      "audit_sha256": "d00786c6406532538378124c3cfe2a32636642430a9f6792d556365158e6b37f",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "frozen_table": {
+          "discarded_traverser_visits": 566739555,
+          "discarded_updates": 1223130425,
+          "entries": 85373907,
+          "since_iteration": 493496,
+          "version": 1
+        },
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 16670844,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 20000002032,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            242217958,
+            886217016,
+            2792524105,
+            7443976106
+          ],
+          "traverser_visits_by_street": [
+            73591750,
+            275675401,
+            913189507,
+            2495154144
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+        "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member_bytes": 3164563975,
+        "member_path": "averages/20000000000.average.gz",
+        "member_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+        "original_mtime_ns": 1791928039103998939,
+        "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "owning_pr": 265,
+        "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 3164563975,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 16670844,
+        "name": "frozen-final",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    },
+    "five": {
+      "actual_nodes": 5000000031,
+      "audit": {
+        "actual_nodes": 5000000031,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 62094574,
+          "zero_mass": 23279333
+        },
+        "current_sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7",
+        "files": {
+          "average": {
+            "bytes": 2756501598,
+            "mtime_ns": 1791925402731513882,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+            "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+          },
+          "checkpoint": {
+            "bytes": 4357232664,
+            "mtime_ns": 1791915945383770296,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+            "sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721"
+          },
+          "current": {
+            "bytes": 2289968280,
+            "mtime_ns": 1791925402733828656,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.current.gz",
+            "sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7"
+          }
+        },
+        "keys": {
+          "entries": 85373907,
+          "header_iteration": 3748464,
+          "method": "SHA256 of concatenated sorted 32-character serialized keys",
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+          "seconds": 48.4314968585968,
+          "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+        },
+        "maximum_tv": 1.0000000000000002,
+        "requested_nodes": 5000000000,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "seconds": 1641.7245268821716,
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.30381934643844416
+      },
+      "audit_sha256": "2bc041f193bc74ccceed9cf931297917e6959701d4071e407bdf739cb9853ef5",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "frozen_table": {
+          "discarded_traverser_visits": 134328929,
+          "discarded_updates": 304586889,
+          "entries": 85373907,
+          "since_iteration": 493496,
+          "version": 1
+        },
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 3748464,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 5000000031,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            60868737,
+            218370615,
+            682585559,
+            1846475100
+          ],
+          "traverser_visits_by_street": [
+            19230079,
+            70496612,
+            232741630,
+            642752224
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+        "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member_bytes": 2756501598,
+        "member_path": "averages/5000000000.average.gz",
+        "member_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+        "original_mtime_ns": 1791925402731513882,
+        "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+        "owning_pr": 265,
+        "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 2756501598,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 3748464,
+        "name": "frozen-five",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+        "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "source_checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    }
+  },
+  "opponents": [
+    "random",
+    "check_call",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure",
+    "half_pot_pressure",
+    "matched_pot_pressure"
+  ],
+  "pilot": {
+    "curve": {
+      "audit_seconds": 2.3285409999953117,
+      "blocks": 1024,
+      "paired_sd_bb_per_100": 1279.7176654445375,
+      "pilot": true,
+      "planning_proxy": "final-vs-752M direct pilot; 5B cache already built",
+      "primary": {
+        "decisions": 10702,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 825689,
+            "sha256": "65546602cffe8f68d0773fe629e17617dfd3cd2395258c5efcd86c028e98ef6c"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 209513,
+            "sha256": "2c4009d16061bea0123dc8e606db699b3c9ac2be691265ec60999ab909589bd3"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 10.606397125025978,
+        "play_seconds": 7.816985207988182,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 18.43939979202696,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 10702,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 825689,
+            "sha256": "29256bf183feb0a56799673d306e312d297e746c8cb5a5b64c5db53293046dab"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 209513,
+            "sha256": "c6b0b620ee7b1829684ea2fc8d7e4432dc4a2b826ea6abe09b2417e550daa5f9"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 1.8696824590151664,
+        "play_seconds": 2.439657166978577,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 4.32492050001747,
+        "status": "complete"
+      }
+    },
+    "panel": {
+      "check_call": {
+        "audit_seconds": 1.289466583984904,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 848.3351130524413,
+        "pilot": true,
+        "primary": {
+          "decisions": 2130,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 71638,
+              "sha256": "ae50fe8fdb19b7af8bf351a610345fe338ef10a0c279b94604ee7083a8363585"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 28552,
+              "sha256": "3b3f2351eba096c1f6880b269998772bcb13d0c6029378c8c0e4e41ee59e5a8f"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.467194458004087,
+          "play_seconds": 0.7224034999962896,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.191098292008974,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 2130,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 71638,
+              "sha256": "88e4d7132d2a55911b48cfeaa3f997bf8c559db5b8476480454122cc1943aa1a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 28552,
+              "sha256": "8991bd68a4dd6bc62b8b2e475b1f97b34308ace07924e1707416d5a2b1887241"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.861507708003046,
+          "play_seconds": 0.3843522499955725,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 2.2473913329886273,
+          "status": "complete"
+        }
+      },
+      "half_pot_pressure": {
+        "audit_seconds": 1.1946607090067118,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 396.7056490949045,
+        "pilot": true,
+        "primary": {
+          "decisions": 653,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 25173,
+              "sha256": "30a4d80f9a7751b9a4fc880689d498f6e0b2f0572cd720a9ede17f3d9d65c006"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19361,
+              "sha256": "f689b05c33ada56b19f786d2b2a00517dfc34454f5af0914b366ec7a89993f60"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.464412709028693,
+          "play_seconds": 0.17891770898131654,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.644786084012594,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 653,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 25173,
+              "sha256": "55de117d661af886d319e5eeac597539788773c65c86429efa6c2e10cb7f2de2"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19361,
+              "sha256": "1eb09d7d0ece0034f3353d767440271a494518042c1b46829b446832601491f1"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8531682080065366,
+          "play_seconds": 0.12334662498324178,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1.9779869169869926,
+          "status": "complete"
+        }
+      },
+      "loose_aggressive": {
+        "audit_seconds": 1.2050040839822032,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 2407.272091470142,
+        "pilot": true,
+        "primary": {
+          "decisions": 935,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 37119,
+              "sha256": "3134c9c30d56f7fdc8e82a52b7f72d4935a1403f676e6de8b26ec09f792b7468"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 22255,
+              "sha256": "4e48ec4762677a45f17b211764c726c30f49d0c8ba58e837b74870ba908edf20"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.465119083004538,
+          "play_seconds": 0.2851464170089457,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.751689458003966,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 935,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 37119,
+              "sha256": "8d46f3f36bd31a14e46f1fb7ed3764b33b68b9351c0d8ff1f8221034a285c8cb"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 22255,
+              "sha256": "26b666b85f44b0f702e0461b39f4f90fe6d00d5bf72230c3a79537bfc6facfbe"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8501377499778755,
+          "play_seconds": 0.17369787499774247,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 2.0253835000039544,
+          "status": "complete"
+        }
+      },
+      "matched_pot_pressure": {
+        "audit_seconds": 1.2109394999861252,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 582.7887285568729,
+        "pilot": true,
+        "primary": {
+          "decisions": 666,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 25610,
+              "sha256": "e299e5c428053ecde15ca6048e7691c4ef59f0aa2587402d51be49704ea6c65a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19453,
+              "sha256": "37b3487368a60900e63f0a2a9e3b7f5d24c633640a6a6144998c11b191782875"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.492284417006886,
+          "play_seconds": 0.17707879198133014,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.670779875013977,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 666,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 25610,
+              "sha256": "77c888cda83376fe96590b1eaf82beac3072cd0afc01086def26b2c1bdcb8a19"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19453,
+              "sha256": "6e48c71918d18f91d11da84240061eeb977709fed066a39ceebf308cceb6ad90"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8539785000029951,
+          "play_seconds": 0.1242598750104662,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1.9797413749911357,
+          "status": "complete"
+        }
+      },
+      "pot_pressure": {
+        "audit_seconds": 1.2004809999780264,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 1776.5724576894224,
+        "pilot": true,
+        "primary": {
+          "decisions": 683,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 23402,
+              "sha256": "a11384fbac80deb7aa9e7832366f77f5ea4eec30e346c91376d2435c6e79d683"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19720,
+              "sha256": "94c0d30a4a92db2dc611eef3d491965f5f2ee722cf2fd28cef559f2cb3ae1bf6"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.464017416001298,
+          "play_seconds": 0.18910941699869,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.654559791000793,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 683,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 23402,
+              "sha256": "d98e72719e32898538aeff4cb593e256dc3b5f8217d76ada43495b0fc9c7ef3f"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19720,
+              "sha256": "ac35ce3d1283dfd1a841a13baf46ee0917fdde58edd61e2ce7a286bb1161abc1"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8643588749982882,
+          "play_seconds": 0.1253554169961717,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1.9911971660039853,
+          "status": "complete"
+        }
+      },
+      "random": {
+        "audit_seconds": 1.1893739580118563,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 2464.284060846006,
+        "pilot": true,
+        "primary": {
+          "decisions": 806,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 30691,
+              "sha256": "8192d017da6244d99b9411143ff0015d0ef85b9caa905a82fb4bc863c1cb5e53"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21104,
+              "sha256": "c18ca19c210ff3f28a698f7ad69a480e151c57b3bdf6ee4efc6e028a7e255c5e"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.420299374993192,
+          "play_seconds": 0.2543162909860257,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.676015750010265,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 806,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 30691,
+              "sha256": "9357b2022147956dd248e677d10e3018ea8a31d2bb7447c44efbc95b6a70a698"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21104,
+              "sha256": "a5a698e78f89dab5d19db10fea9abdb112c5e9f19619cc5772eb6b90554d6c74"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8473876669886522,
+          "play_seconds": 0.14468933301395737,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1.9954030420049094,
+          "status": "complete"
+        }
+      },
+      "tight_aggressive": {
+        "audit_seconds": 1.1854551249998622,
+        "blocks": 64,
+        "paired_sd_bb_per_100": 295.35061849812035,
+        "pilot": true,
+        "primary": {
+          "decisions": 561,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 20087,
+              "sha256": "f724e6dadf14cde17f8f93e20a6f6322046e2bc43f23015530d56c34103e5cf5"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18118,
+              "sha256": "dda2a007867d55e3c526d085273820ae3f602dd7d4c92b00e7b3aa216a7f755f"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 10.458777167019434,
+          "play_seconds": 0.1374389999837149,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.597664084023563,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 561,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 20087,
+              "sha256": "533a6a417a12e498750111c64c03042d06ace06e5490bb3f31a04f5a035ddd5d"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18118,
+              "sha256": "9ed69d2ba7d9a1509d68f0021370021bde42df1991e96f8fd836eb53e2789717"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 1.8492790409945883,
+          "play_seconds": 0.10706154099898413,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 1.9578441249905154,
+          "status": "complete"
+        }
+      }
+    },
+    "primary": {
+      "audit_seconds": 2.3285409999953117,
+      "blocks": 1024,
+      "paired_sd_bb_per_100": 1279.7176654445375,
+      "pilot": true,
+      "primary": {
+        "decisions": 10702,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 825689,
+            "sha256": "65546602cffe8f68d0773fe629e17617dfd3cd2395258c5efcd86c028e98ef6c"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 209513,
+            "sha256": "2c4009d16061bea0123dc8e606db699b3c9ac2be691265ec60999ab909589bd3"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 10.606397125025978,
+        "play_seconds": 7.816985207988182,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 18.43939979202696,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 10702,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 825689,
+            "sha256": "29256bf183feb0a56799673d306e312d297e746c8cb5a5b64c5db53293046dab"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 209513,
+            "sha256": "c6b0b620ee7b1829684ea2fc8d7e4432dc4a2b826ea6abe09b2417e550daa5f9"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 1.8696824590151664,
+        "play_seconds": 2.439657166978577,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 4.32492050001747,
+        "status": "complete"
+      }
+    }
+  },
+  "projection_ladder": [
+    {
+      "curve": 131072,
+      "fits": true,
+      "panel": 16384,
+      "primary": 262144,
+      "projected_seconds": 9892.660722511719
+    }
+  ],
+  "projection_multiplier": 1.25,
+  "roots": {
+    "direct": 20261014091503,
+    "direct_pilot": 20261014091501,
+    "panel": 20261014091504,
+    "panel_pilot": 20261014091502
+  },
+  "rule": "Recommend Slumbot only if primary nominal paired Student-t95 lower>0 and no panel upper<-20 BB/100",
+  "science_end_utc": "2026-10-14T07:30:00Z",
+  "source": "cc98b63858ed508ccff3491fc86c9e5f8bca87f6",
+  "translation": null,
+  "zero_mass": "uniform"
+}

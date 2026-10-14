@@ -1,0 +1,46 @@
+{
+  "status": "verified",
+  "client_source": "5d0ed66ee6d59eb9d9eae859f3c4e5ac4c10c0ea",
+  "warm_client_load_seconds": 11.950296024791896,
+  "model_description": {
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "num_players": 2,
+    "iteration": 16670844,
+    "training_seed": 2026101302,
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "entries": 85373907,
+    "zero_mass_entries": 19013067,
+    "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    }
+  },
+  "before": {
+    "MemTotal_bytes": 16773292032,
+    "MemFree_bytes": 5240287232,
+    "MemAvailable_bytes": 8428269568,
+    "SwapTotal_bytes": 4294963200,
+    "SwapFree_bytes": 49152,
+    "VmRSS_bytes": 43397120,
+    "RssAnon_bytes": 23199744,
+    "RssFile_bytes": 20197376
+  },
+  "after": {
+    "MemTotal_bytes": 16773292032,
+    "MemFree_bytes": 197562368,
+    "MemAvailable_bytes": 8378208256,
+    "SwapTotal_bytes": 4294963200,
+    "SwapFree_bytes": 90112,
+    "VmRSS_bytes": 300224512,
+    "RssAnon_bytes": 23494656,
+    "RssFile_bytes": 276729856
+  },
+  "no_policy_actions_or_hands": true,
+  "no_service_calls": true,
+  "no_credentials_or_accounts_accessed": true,
+  "launcher_started": false
+}

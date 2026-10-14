@@ -1,0 +1,556 @@
+{
+  "configuration": {
+    "models": {
+      "baseline": {
+        "audit_path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/docs/reports/hu200-k50-first-artifacts/1000000000.audit.json",
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/models/752m.average.gz",
+        "retrieval": {
+          "archive_id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+          "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-averages-M4-20261013.zip",
+          "archive_sha256": "4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+          "archive_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view",
+          "manifest_sha256": "78b893820f2fcfb18af69e3da99ee68798d373ac90a543dc8c9205edb27e10db",
+          "member_path": "research/training/1000000000.average.gz",
+          "method": "Restore missing baseline under the detached science guard after whole/manifest/member verification; then full model SHA256. Keep original ZIP untouched."
+        },
+        "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+      },
+      "final": {
+        "audit_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.audit.json",
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "retrieval": {
+          "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+          "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+          "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+          "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+          "member_bytes": 3164563975,
+          "member_path": "averages/20000000000.average.gz",
+          "member_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+          "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+          "original_mtime_ns": 1791928039103998939,
+          "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+          "owning_pr": 265,
+          "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+        },
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+      },
+      "five": {
+        "audit_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.audit.json",
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+        "retrieval": {
+          "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+          "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+          "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+          "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+          "member_bytes": 2756501598,
+          "member_path": "averages/5000000000.average.gz",
+          "member_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+          "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+          "original_mtime_ns": 1791925402731513882,
+          "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+          "owning_pr": 265,
+          "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+        },
+        "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+      }
+    },
+    "pr": 268,
+    "pr265_lock": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/supervisor.lock",
+    "pr265_source": "e5774858c1c9b7a276b9d3e94a1289c282877769",
+    "release_confirmed": true,
+    "release_statement": "**M4 released for compute \u2014 verified October 13, 22:40:27 UTC /October 14, 00:40:27 Madrid.** All campaign training, export, audit, archive verification and closeout jobs have exited, and its compute reservation is released. No other matching campaign processes were observed at that check. Cloud upload acceptance and PR closeout remain pending; they do not hold this campaign\u2019s compute reservation. Check current M4 occupancy before starting the next campaign.",
+    "setup_failures": [
+      {
+        "error": "fatal: invalid reference: origin/feature/hu200-frozen-evaluation",
+        "resolved": "Explicit remote refspec fetched then isolated worktree created; no scientific work or hands occurred",
+        "stage": "checkout"
+      }
+    ]
+  },
+  "models": {
+    "baseline": {
+      "actual_nodes": 752593175,
+      "audit": {
+        "actual_nodes": 752593175,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+        "checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 54472197,
+          "zero_mass": 30901710
+        },
+        "current_sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee",
+        "files": {
+          "average": {
+            "bytes": 2221370011,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.average.gz",
+            "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+          },
+          "checkpoint": {
+            "bytes": 3442723146,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.gz",
+            "sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+          },
+          "current": {
+            "bytes": 2124578171,
+            "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/training/1000000000.current.gz",
+            "sha256": "e4a149fc54ebf160f2d76782de13cf592dc80ed8ea456b97991b12cf21fc68ee"
+          }
+        },
+        "maximum_tv": 1.0000000000000002,
+        "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.25413469526729277
+      },
+      "audit_sha256": "2f788bd124f2b64c9f45ca881bb77cce8c753bfaf900e36f9fd06f45a57bf5b0",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 493496,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 752593175,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            9627576,
+            33805944,
+            100919960,
+            272352896
+          ],
+          "traverser_visits_by_street": [
+            3241045,
+            11617284,
+            36132340,
+            97954732
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB",
+        "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-250-hu200-k50-first/hu200-k50-first-averages-M4-20261013.zip",
+        "archive_sha256": "4e6fc9f34b93f8a4e08628e31ba72ebe0b13f08605c02adc62d6354127c33165",
+        "archive_url": "https://drive.google.com/file/d/1DMz8kmY4DIQfO-NSIdEiOu9k-tl1hzrB/view",
+        "manifest_sha256": "78b893820f2fcfb18af69e3da99ee68798d373ac90a543dc8c9205edb27e10db",
+        "member_path": "research/training/1000000000.average.gz",
+        "method": "Restore missing baseline under the detached science guard after whole/manifest/member verification; then full model SHA256. Keep original ZIP untouched."
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 2221370011,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 493496,
+        "name": "frozen-baseline",
+        "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/models/752m.average.gz",
+        "sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+        "source_checkpoint_sha256": "4b25e8029ed0ebfbeeb42ac02dee3179303e7f2300c23c21d32d27382f390da4"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    },
+    "final": {
+      "actual_nodes": 20000002032,
+      "audit": {
+        "actual_nodes": 20000002032,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 66360840,
+          "zero_mass": 19013067
+        },
+        "current_sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688",
+        "files": {
+          "average": {
+            "bytes": 3164563975,
+            "mtime_ns": 1791928039103998939,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+            "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+          },
+          "checkpoint": {
+            "bytes": 4960844586,
+            "mtime_ns": 1791924361873579506,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+            "sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+          },
+          "current": {
+            "bytes": 2301966028,
+            "mtime_ns": 1791928039105011360,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.current.gz",
+            "sha256": "352f233a86e422702877a2b6d14eb47c02806f3f2d8ab6a68f688a30ca353688"
+          }
+        },
+        "keys": {
+          "entries": 85373907,
+          "header_iteration": 16670844,
+          "method": "SHA256 of concatenated sorted 32-character serialized keys",
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.gz",
+          "seconds": 48.04470086097717,
+          "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+        },
+        "maximum_tv": 1.0000000000000002,
+        "requested_nodes": 20000000000,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "seconds": 1669.2184610366821,
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.3307383970540339
+      },
+      "audit_sha256": "d00786c6406532538378124c3cfe2a32636642430a9f6792d556365158e6b37f",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "frozen_table": {
+          "discarded_traverser_visits": 566739555,
+          "discarded_updates": 1223130425,
+          "entries": 85373907,
+          "since_iteration": 493496,
+          "version": 1
+        },
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 16670844,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 20000002032,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            242217958,
+            886217016,
+            2792524105,
+            7443976106
+          ],
+          "traverser_visits_by_street": [
+            73591750,
+            275675401,
+            913189507,
+            2495154144
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+        "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member_bytes": 3164563975,
+        "member_path": "averages/20000000000.average.gz",
+        "member_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+        "original_mtime_ns": 1791928039103998939,
+        "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "owning_pr": 265,
+        "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 3164563975,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 16670844,
+        "name": "frozen-final",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    },
+    "five": {
+      "actual_nodes": 5000000031,
+      "audit": {
+        "actual_nodes": 5000000031,
+        "all_nodes_verified": 85373907,
+        "average_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721",
+        "counts": {
+          "entries": 85373907,
+          "positive_mass": 62094574,
+          "zero_mass": 23279333
+        },
+        "current_sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7",
+        "files": {
+          "average": {
+            "bytes": 2756501598,
+            "mtime_ns": 1791925402731513882,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+            "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+          },
+          "checkpoint": {
+            "bytes": 4357232664,
+            "mtime_ns": 1791915945383770296,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+            "sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721"
+          },
+          "current": {
+            "bytes": 2289968280,
+            "mtime_ns": 1791925402733828656,
+            "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.current.gz",
+            "sha256": "b9c4961b6de9b214950d4d272a220312b5b8445a433d4046e1b6ee37b786ebf7"
+          }
+        },
+        "keys": {
+          "entries": 85373907,
+          "header_iteration": 3748464,
+          "method": "SHA256 of concatenated sorted 32-character serialized keys",
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.gz",
+          "seconds": 48.4314968585968,
+          "sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c"
+        },
+        "maximum_tv": 1.0000000000000002,
+        "requested_nodes": 5000000000,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "seconds": 1641.7245268821716,
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.30381934643844416
+      },
+      "audit_sha256": "2bc041f193bc74ccceed9cf931297917e6959701d4071e407bdf739cb9853ef5",
+      "header": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "average_rule": "opponent-sampled",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "max_entries": 85373907,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026101302
+        },
+        "format": "holdem-hu200-native-reopening-blueprint-v1",
+        "frozen_table": {
+          "discarded_traverser_visits": 134328929,
+          "discarded_updates": 304586889,
+          "entries": 85373907,
+          "since_iteration": 493496,
+          "version": 1
+        },
+        "identity": {
+          "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "equity-histogram-k50-v1",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        },
+        "iteration": 3748464,
+        "kind": "training",
+        "native_state": {
+          "completed_nodes": 5000000031,
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            60868737,
+            218370615,
+            682585559,
+            1846475100
+          ],
+          "traverser_visits_by_street": [
+            19230079,
+            70496612,
+            232741630,
+            642752224
+          ],
+          "version": 1
+        },
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000
+          ]
+        }
+      },
+      "retrieval": {
+        "archive_id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "archive_sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943",
+        "archive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member_bytes": 2756501598,
+        "member_path": "averages/5000000000.average.gz",
+        "member_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "method": "Owner-authorized read-only audited original from open PR265; no copy or move",
+        "original_mtime_ns": 1791925402731513882,
+        "original_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+        "owning_pr": 265,
+        "pr_head": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+      },
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 2756501598,
+        "card_buckets": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 3748464,
+        "name": "frozen-five",
+        "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/5000000000.average.gz",
+        "sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512",
+        "source_checkpoint_sha256": "56244a81d90575eb4c7f73992ccdf36a304d778923076850cadc1531afe21721"
+      },
+      "tables": {
+        "flop": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/flop-k50.bin",
+          "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+        },
+        "river": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/river-k50.bin",
+          "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        },
+        "turn": {
+          "path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/tables/turn-k50.bin",
+          "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        }
+      }
+    }
+  },
+  "source": "cc98b63858ed508ccff3491fc86c9e5f8bca87f6"
+}

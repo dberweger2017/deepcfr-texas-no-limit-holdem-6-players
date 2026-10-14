@@ -1,0 +1,31 @@
+{
+  "at": 1791932544.854311,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu200-frozen-evaluation",
+      "headRefOid": "cc98b63858ed508ccff3491fc86c9e5f8bca87f6",
+      "number": 268,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/268"
+    },
+    {
+      "headRefName": "feature/hu200-k50-frozen",
+      "headRefOid": "e5774858c1c9b7a276b9d3e94a1289c282877769",
+      "number": 265,
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265"
+    }
+  ],
+  "pr": 268,
+  "roots": [
+    20261014091501,
+    20261014091502,
+    20261014091503,
+    20261014091504
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "348ea5660d3b744169d50fbaa3c76943c1680649",
+    "pr265": "e5774858c1c9b7a276b9d3e94a1289c282877769"
+  }
+}

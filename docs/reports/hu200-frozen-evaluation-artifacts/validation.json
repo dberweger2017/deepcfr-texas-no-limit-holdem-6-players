@@ -1,0 +1,13 @@
+{
+  "status": "verified-local",
+  "science_source": "cc98b63858ed508ccff3491fc86c9e5f8bca87f6",
+  "focused_test_command": "python -m pytest -q tests/test_hu200_frozen_evaluation.py tests/test_guard_m4_research.py tests/test_hu200_evaluation.py tests/test_policy_cache.py",
+  "focused_tests_passed": 35,
+  "focused_tests_seconds": 4.59,
+  "staged_repository_artifact_check": "passed",
+  "source_and_result_diff_review": "completed; no unresolved correctness findings",
+  "coverage_lf_normalization": "parsed rows identical; original archive bytes unchanged",
+  "slumbot_launcher_syntax_check": "passed; client option compatibility and offline warm load verified",
+  "slumbot_started": false,
+  "final_ci_authority": "PR268 GitHub final-head checks; must pass before handoff"
+}

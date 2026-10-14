@@ -1,0 +1,13 @@
+{
+  "samples": 136,
+  "peak_new_process_rss_bytes": 5180588032,
+  "minimum_host_mem_available_bytes": 3270574080,
+  "minimum_host_free_bytes": 188940288,
+  "minimum_swap_free_bytes": 0,
+  "maximum_sample_gap_seconds": 5.808682203292847,
+  "two_model_plus_table_backing_bytes": 11615126954,
+  "no_new_network_play": true,
+  "no_credentials_or_accounts_accessed": true,
+  "baseline_player_present_in_all_observed_samples": true,
+  "maximum_new_process_swap_bytes": 0
+}

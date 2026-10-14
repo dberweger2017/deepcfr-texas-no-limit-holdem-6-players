@@ -1,0 +1,20 @@
+{
+  "status": "accepted",
+  "archive": {
+    "id": "1EwsMAG3ZdX7SVW1SIigpf8dgr5Vgd02_",
+    "name": "hu200-frozen-evaluation-M4-20261014.zip",
+    "bytes": 971526585,
+    "parent_ids": [
+      "1Dl6kCUsCh_4Y7SXIYMEg9zSmvln-n6Md"
+    ]
+  },
+  "folder": {
+    "id": "1Dl6kCUsCh_4Y7SXIYMEg9zSmvln-n6Md",
+    "name": "PR-268-hu200-frozen-evaluation",
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ]
+  },
+  "method": "Independent connector files.get metadata and direct folder listing agree with native acceptance",
+  "remote_archive_bytes_downloaded": false
+}
