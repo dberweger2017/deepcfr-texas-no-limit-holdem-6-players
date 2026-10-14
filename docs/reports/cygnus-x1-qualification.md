@@ -149,6 +149,22 @@ bytes are architecture/toolchain dependent.
 [Environment/toolchain/build receipt](cygnus-x1-artifacts/setup-results.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/setup-temperatures.csv).
 
+## Test-suite environment failure (preserved)
+
+First attempt: Rust **16 passed**; Python **1,365 passed, 1 failed, 2 skipped**,
+54 subtests passed, then `--maxfail=1` stopped the suite. The failure is
+`test_continuation_keeps_the_complete_parent_and_cumulative_iteration_weights`:
+its environment capture calls `python -m pip freeze`, but the uv-created
+virtual environment omitted pip. This is a diagnosed setup failure, not a full
+suite pass or a memory fault. No training/recovery benchmark followed it.
+The original guard result remains failed /exit 1, with no guard stop reason.
+Wall **355.54 s**, peak RSS **0.819 GiB**, CPU **39–71 °C**, no swap/throttle
+changes. Raw output is preserved with its hash; full thermal readings remain.
+Corrective action: install pip in the existing venv, then rerun the entire suite
+under a separate guard label. Future setup seeds pip at venv creation.
+[Failure receipt](cygnus-x1-artifacts/tests-first-failure.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-temperatures.csv).
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).

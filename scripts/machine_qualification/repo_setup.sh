@@ -10,7 +10,7 @@ git clone https://github.com/dberweger2017/CFR-NLHE-6max.git repo-main
 cd repo-main
 git rev-parse HEAD > ../source-main.txt
 git status --porcelain > ../source-status.txt
-uv venv --python 3.11.17 .venv
+uv venv --seed --python 3.11.17 .venv
 uv pip install --python .venv/bin/python torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
 uv pip install --python .venv/bin/python -r requirements-dev.txt
 .venv/bin/python - <<'PY'

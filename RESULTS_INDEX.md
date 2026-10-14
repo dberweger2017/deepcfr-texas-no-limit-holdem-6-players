@@ -10,6 +10,9 @@ Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
 No full-memory pass or correctness/throughput result yet.
+First full-suite attempt failed due to missing pip in uv venv: Rust16passed,
+pytest1365passed/1failed/2skipped; original failed receipt/output preserved.
+[Diagnosis](docs/reports/cygnus-x1-artifacts/tests-first-failure.json).
 Current-main setup/first native build complete at `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
 [environment/build receipt](docs/reports/cygnus-x1-artifacts/setup-results.json).
 NVMe scratch fio and 8 GiB CRC32C verification complete without errors;
