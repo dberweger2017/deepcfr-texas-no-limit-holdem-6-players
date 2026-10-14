@@ -166,3 +166,38 @@ Evaluation/planning source is `c004f8235dfd7dee993d859b4a8ce48e915fb19d`.
 After native training, this adds full canonical-plan posting and the separately
 tested Slumbot loader. Native, game, blueprint, registry and shared evaluation
 functions are byte-unchanged from the training source.
+
+## Counts frozen before final hands
+
+The cost-only pilot used 1,024 direct blocks and 64 paired blocks per script.
+Only timing, memory and paired SDs informed sizing. Cache builds took 423.94 s
+for v2 and 368.41 s for v1, serially and without hands. The fixed model pair
+uses both menu schemas with each policy's own keys; translation and optional
+check/call fallback remain off.
+
+**Full requested counts fit; no reduction.** The complete
+[canonical plan](hu200-v2-frozen-5b-artifacts/canonical-plan.json), SHA256
+`8b3d240a1ffb078cff152c0f613e74e10519b7cec94ef08747fa7064d87994d2`,
+was posted in the PR description and exactly read back at **10:33:59 Madrid**,
+before final hands. The 1.25× padded remaining-science projection is
+**5,236.02 seconds /1.454 hours**, before the 21:30 science end and 22:00
+closeout deadline. [Posting/readback receipt](hu200-v2-frozen-5b-artifacts/plan-posted.json).
+
+Each script has 16,384 independent four-hand blocks: v2 and v1 in both seats on
+shared physical deals and logical-role private action streams. Direct play has
+131,072 two-hand duplicate blocks. This gives **458,752 panel +262,144 direct
+=720,896 final primary hands**, plus exact reproduction; independent replay
+checks every original hand. Different-menu direct play is descriptive only.
+
+A required-spec-field omission stopped the initial pilot at model admission
+**before any hand or outcome**. Entries, iteration and source checkpoint hash
+were recovered from the already verified baseline audit/header. The original
+input, failed admission and stop record remain preserved; no failed hands were
+replaced and no scientific outcome was retried. A new real-model admission test
+and existing HU200 tests pass **26 checks**. The continuation retains the
+original swap baseline, locks and guard thresholds, and reuses verified caches.
+[Correction receipt](hu200-v2-frozen-5b-artifacts/admission-correction.json),
+[complete baseline spec](hu200-v2-frozen-5b-artifacts/baseline-spec-corrected.json).
+Final evaluation source is `9477419a0d33711c8156b9ecebfc8a16a1c1e580`; only
+admission metadata/control changed. The shared evaluation functions, native
+binary, game and blueprint remain unchanged.
