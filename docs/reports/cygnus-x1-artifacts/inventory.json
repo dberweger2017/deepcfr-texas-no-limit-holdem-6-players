@@ -50,7 +50,13 @@
         "serial": "EEBB25AE",
         "rank": 2
       }
-    ]
+    ],
+    "owner_context": {
+      "kit_rated_mts": 3200,
+      "rated_speed_requires": "XMP",
+      "current_run": "pre-XMP baseline; effective current DRAM speed unverified",
+      "followup": "Owner will enable XMP and connect storage; rerun RAM and storage qualification in a separate PR. No automatic follow-on in PR283."
+    }
   },
   "power": {
     "pl1_w": 125,

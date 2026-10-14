@@ -23,7 +23,12 @@ Four Kingston KF3200C16D4/32GX dual-rank 32 GiB DIMMs, non-ECC:
 A0 `ECBB2A36`, A1 `ECBB2B25`, B0 `F6BB3C82`, B1 `EEBB25AE`.
 DMI reports 800 MT/s for each DIMM and a 64 GB array maximum despite the
 128 GiB installation. These fields are suspect; DDR4-3200 operation is
-**not verified**. Owner should check effective memory rate/settings in BIOS.
+**not verified**. The owner confirms the kit is rated for **3200 MT/s with
+XMP**. This run is the **pre-XMP baseline**; DMI’s 800 MT/s field is not
+accepted as a measurement of effective DRAM speed. The owner plans to enable
+XMP and connect the remaining storage for a **separate follow-up PR**, with
+fresh inventory and RAM/storage tests. No XMP change or repeat run belongs
+to this qualification.
 
 Linux exposes PL1 **125 W /55.967744 s**, PL2 **250 W /0.002440 s**;
 `intel_pstate`, powersave governor, turbo enabled. These are exposed settings,

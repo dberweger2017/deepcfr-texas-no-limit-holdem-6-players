@@ -56,3 +56,12 @@ Keep raw/partial evidence and models in ignored roots; index and archive them
 under the artifact-storage policy. Git holds source, compact receipts, the
 report and concise thermal traces. Leave the feature PR reviewable and disclose
 all failures, missing tests and future sixteen-thread reruns.
+
+## Owner clarification: separate XMP/storage follow-up
+
+The kit is rated for 3200 MT/s with XMP. Current PR283 tests establish the
+pre-XMP baseline; the DMI speed field does not establish actual DRAM speed.
+After these tests, the owner plans to enable XMP and connect storage, then
+repeat RAM and relevant storage qualification in a separate PR. This plan
+does not authorize changing firmware settings, rerunning tests or extending
+PR283’s recurring task into that follow-up.
