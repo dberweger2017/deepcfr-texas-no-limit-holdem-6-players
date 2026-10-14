@@ -1,0 +1,2016 @@
+{
+  "all_final_hands_independently_replayed_and_exactly_reproduced": true,
+  "canonical_plan_sha256": "ff344a114e8d30fd16643b9b801de880828d00d0cf26bb211f6a97665fb53f75",
+  "coverage": {
+    "direct": {
+      "v052/flop": {
+        "decisions": 162621,
+        "lookup": {
+          "missing-key": 28114,
+          "positive-mass-known-key": 134504,
+          "zero-mass": 3
+        },
+        "visit_bands": {
+          "0": 28118,
+          "1-9": 90,
+          "10-99": 762,
+          "100+": 133651
+        }
+      },
+      "v052/preflop": {
+        "decisions": 276787,
+        "lookup": {
+          "missing-key": 24157,
+          "positive-mass-known-key": 252602,
+          "zero-mass": 28
+        },
+        "visit_bands": {
+          "0": 24157,
+          "1-9": 3,
+          "10-99": 506,
+          "100+": 252121
+        }
+      },
+      "v052/river": {
+        "decisions": 51276,
+        "lookup": {
+          "missing-key": 16140,
+          "positive-mass-known-key": 35131,
+          "zero-mass": 5
+        },
+        "visit_bands": {
+          "0": 16158,
+          "1-9": 252,
+          "10-99": 1518,
+          "100+": 33348
+        }
+      },
+      "v052/turn": {
+        "decisions": 93663,
+        "lookup": {
+          "missing-key": 22974,
+          "positive-mass-known-key": 70680,
+          "zero-mass": 9
+        },
+        "visit_bands": {
+          "0": 23001,
+          "1-9": 309,
+          "10-99": 2166,
+          "100+": 68187
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 159329,
+        "lookup": {
+          "missing-key": 245,
+          "positive-mass-known-key": 159079,
+          "zero-mass": 5
+        },
+        "visit_bands": {
+          "0": 252,
+          "1-9": 651,
+          "10-99": 8871,
+          "100+": 149555
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 278621,
+        "lookup": {
+          "missing-key": 106,
+          "positive-mass-known-key": 278514,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 107,
+          "1-9": 347,
+          "10-99": 6484,
+          "100+": 271683
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 51037,
+        "lookup": {
+          "missing-key": 4407,
+          "positive-mass-known-key": 46603,
+          "zero-mass": 27
+        },
+        "visit_bands": {
+          "0": 4754,
+          "1-9": 3963,
+          "10-99": 15872,
+          "100+": 26448
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 93863,
+        "lookup": {
+          "missing-key": 1321,
+          "positive-mass-known-key": 92533,
+          "zero-mass": 9
+        },
+        "visit_bands": {
+          "0": 1418,
+          "1-9": 2193,
+          "10-99": 15419,
+          "100+": 74833
+        }
+      }
+    },
+    "learning-check_call": {
+      "v2-frozen-5b/flop": {
+        "decisions": 28229,
+        "lookup": {
+          "positive-mass-known-key": 28229
+        },
+        "visit_bands": {
+          "100+": 28229
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 32768,
+        "lookup": {
+          "positive-mass-known-key": 32768
+        },
+        "visit_bands": {
+          "100+": 32768
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 28204,
+        "lookup": {
+          "missing-key": 124,
+          "positive-mass-known-key": 28080
+        },
+        "visit_bands": {
+          "0": 152,
+          "1-9": 1506,
+          "10-99": 6786,
+          "100+": 19760
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 28229,
+        "lookup": {
+          "positive-mass-known-key": 28229
+        },
+        "visit_bands": {
+          "10-99": 582,
+          "100+": 27647
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 25319,
+        "lookup": {
+          "positive-mass-known-key": 25319
+        },
+        "visit_bands": {
+          "10-99": 9269,
+          "100+": 16050
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 32768,
+        "lookup": {
+          "positive-mass-known-key": 32768
+        },
+        "visit_bands": {
+          "10-99": 4731,
+          "100+": 28037
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 25016,
+        "lookup": {
+          "missing-key": 62,
+          "positive-mass-known-key": 24927,
+          "zero-mass": 27
+        },
+        "visit_bands": {
+          "0": 7025,
+          "1-9": 9803,
+          "10-99": 6631,
+          "100+": 1557
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 25319,
+        "lookup": {
+          "positive-mass-known-key": 25318,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 215,
+          "1-9": 6501,
+          "10-99": 11667,
+          "100+": 6936
+        }
+      }
+    },
+    "learning-half_pot_pressure": {
+      "v2-frozen-5b/flop": {
+        "decisions": 7177,
+        "lookup": {
+          "missing-key": 6,
+          "positive-mass-known-key": 7171
+        },
+        "visit_bands": {
+          "0": 9,
+          "1-9": 19,
+          "10-99": 252,
+          "100+": 6897
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 22494,
+        "lookup": {
+          "missing-key": 15,
+          "positive-mass-known-key": 22479
+        },
+        "visit_bands": {
+          "0": 15,
+          "1-9": 60,
+          "10-99": 596,
+          "100+": 21823
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1714,
+        "lookup": {
+          "missing-key": 121,
+          "positive-mass-known-key": 1593
+        },
+        "visit_bands": {
+          "0": 131,
+          "1-9": 91,
+          "10-99": 485,
+          "100+": 1007
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 3419,
+        "lookup": {
+          "missing-key": 44,
+          "positive-mass-known-key": 3375
+        },
+        "visit_bands": {
+          "0": 47,
+          "1-9": 65,
+          "10-99": 426,
+          "100+": 2881
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 5108,
+        "lookup": {
+          "missing-key": 8,
+          "positive-mass-known-key": 5089,
+          "zero-mass": 11
+        },
+        "visit_bands": {
+          "0": 58,
+          "1-9": 420,
+          "10-99": 1439,
+          "100+": 3191
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 22804,
+        "lookup": {
+          "missing-key": 10,
+          "positive-mass-known-key": 22785,
+          "zero-mass": 9
+        },
+        "visit_bands": {
+          "0": 146,
+          "1-9": 952,
+          "10-99": 2915,
+          "100+": 18791
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 1053,
+        "lookup": {
+          "missing-key": 66,
+          "positive-mass-known-key": 971,
+          "zero-mass": 16
+        },
+        "visit_bands": {
+          "0": 209,
+          "1-9": 306,
+          "10-99": 368,
+          "100+": 170
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 2291,
+        "lookup": {
+          "missing-key": 46,
+          "positive-mass-known-key": 2219,
+          "zero-mass": 26
+        },
+        "visit_bands": {
+          "0": 153,
+          "1-9": 421,
+          "10-99": 811,
+          "100+": 906
+        }
+      }
+    },
+    "learning-loose_aggressive": {
+      "v2-frozen-5b/flop": {
+        "decisions": 11875,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 11874
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 13,
+          "10-99": 483,
+          "100+": 11378
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 27606,
+        "lookup": {
+          "missing-key": 8,
+          "positive-mass-known-key": 27598
+        },
+        "visit_bands": {
+          "0": 8,
+          "1-9": 43,
+          "10-99": 1041,
+          "100+": 26514
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 5145,
+        "lookup": {
+          "missing-key": 192,
+          "positive-mass-known-key": 4950,
+          "zero-mass": 3
+        },
+        "visit_bands": {
+          "0": 229,
+          "1-9": 477,
+          "10-99": 1625,
+          "100+": 2814
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 7387,
+        "lookup": {
+          "missing-key": 26,
+          "positive-mass-known-key": 7361
+        },
+        "visit_bands": {
+          "0": 28,
+          "1-9": 115,
+          "10-99": 1139,
+          "100+": 6105
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 9963,
+        "lookup": {
+          "positive-mass-known-key": 9956,
+          "zero-mass": 7
+        },
+        "visit_bands": {
+          "0": 37,
+          "1-9": 697,
+          "10-99": 3616,
+          "100+": 5613
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 28155,
+        "lookup": {
+          "positive-mass-known-key": 28145,
+          "zero-mass": 10
+        },
+        "visit_bands": {
+          "0": 42,
+          "1-9": 1153,
+          "10-99": 5730,
+          "100+": 21230
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 4312,
+        "lookup": {
+          "missing-key": 189,
+          "positive-mass-known-key": 4042,
+          "zero-mass": 81
+        },
+        "visit_bands": {
+          "0": 1222,
+          "1-9": 1749,
+          "10-99": 1041,
+          "100+": 300
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 6245,
+        "lookup": {
+          "missing-key": 33,
+          "positive-mass-known-key": 6185,
+          "zero-mass": 27
+        },
+        "visit_bands": {
+          "0": 334,
+          "1-9": 1679,
+          "10-99": 2551,
+          "100+": 1681
+        }
+      }
+    },
+    "learning-matched_pot_pressure": {
+      "v2-frozen-5b/flop": {
+        "decisions": 6443,
+        "lookup": {
+          "missing-key": 2,
+          "positive-mass-known-key": 6441
+        },
+        "visit_bands": {
+          "0": 2,
+          "1-9": 7,
+          "10-99": 202,
+          "100+": 6232
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 22180,
+        "lookup": {
+          "missing-key": 4,
+          "positive-mass-known-key": 22176
+        },
+        "visit_bands": {
+          "0": 4,
+          "1-9": 13,
+          "10-99": 669,
+          "100+": 21494
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1228,
+        "lookup": {
+          "missing-key": 35,
+          "positive-mass-known-key": 1193
+        },
+        "visit_bands": {
+          "0": 40,
+          "1-9": 66,
+          "10-99": 351,
+          "100+": 771
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2715,
+        "lookup": {
+          "missing-key": 16,
+          "positive-mass-known-key": 2699
+        },
+        "visit_bands": {
+          "0": 16,
+          "1-9": 34,
+          "10-99": 397,
+          "100+": 2268
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 4952,
+        "lookup": {
+          "missing-key": 2,
+          "positive-mass-known-key": 4948,
+          "zero-mass": 2
+        },
+        "visit_bands": {
+          "0": 19,
+          "1-9": 242,
+          "10-99": 1457,
+          "100+": 3234
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 22358,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 22353,
+          "zero-mass": 4
+        },
+        "visit_bands": {
+          "0": 24,
+          "1-9": 694,
+          "10-99": 3069,
+          "100+": 18571
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 872,
+        "lookup": {
+          "missing-key": 26,
+          "positive-mass-known-key": 833,
+          "zero-mass": 13
+        },
+        "visit_bands": {
+          "0": 129,
+          "1-9": 242,
+          "10-99": 302,
+          "100+": 199
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 2128,
+        "lookup": {
+          "missing-key": 9,
+          "positive-mass-known-key": 2111,
+          "zero-mass": 8
+        },
+        "visit_bands": {
+          "0": 70,
+          "1-9": 386,
+          "10-99": 807,
+          "100+": 865
+        }
+      }
+    },
+    "learning-pot_pressure": {
+      "v2-frozen-5b/flop": {
+        "decisions": 6033,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 6032
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 1,
+          "10-99": 212,
+          "100+": 5819
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 21828,
+        "lookup": {
+          "positive-mass-known-key": 21828
+        },
+        "visit_bands": {
+          "1-9": 1,
+          "10-99": 332,
+          "100+": 21495
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1190,
+        "lookup": {
+          "missing-key": 21,
+          "positive-mass-known-key": 1169
+        },
+        "visit_bands": {
+          "0": 25,
+          "1-9": 55,
+          "10-99": 306,
+          "100+": 804
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2580,
+        "lookup": {
+          "missing-key": 5,
+          "positive-mass-known-key": 2575
+        },
+        "visit_bands": {
+          "0": 5,
+          "1-9": 25,
+          "10-99": 365,
+          "100+": 2185
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 4774,
+        "lookup": {
+          "positive-mass-known-key": 4774
+        },
+        "visit_bands": {
+          "0": 8,
+          "1-9": 129,
+          "10-99": 1540,
+          "100+": 3097
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 21822,
+        "lookup": {
+          "positive-mass-known-key": 21821,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 5,
+          "1-9": 296,
+          "10-99": 3070,
+          "100+": 18451
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 864,
+        "lookup": {
+          "missing-key": 14,
+          "positive-mass-known-key": 840,
+          "zero-mass": 10
+        },
+        "visit_bands": {
+          "0": 67,
+          "1-9": 247,
+          "10-99": 343,
+          "100+": 207
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 2014,
+        "lookup": {
+          "positive-mass-known-key": 2009,
+          "zero-mass": 5
+        },
+        "visit_bands": {
+          "0": 21,
+          "1-9": 278,
+          "10-99": 815,
+          "100+": 900
+        }
+      }
+    },
+    "learning-random": {
+      "v2-frozen-5b/flop": {
+        "decisions": 11103,
+        "lookup": {
+          "missing-key": 1975,
+          "positive-mass-known-key": 9128
+        },
+        "visit_bands": {
+          "0": 1976,
+          "1-9": 24,
+          "10-99": 153,
+          "100+": 8950
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 32712,
+        "lookup": {
+          "missing-key": 5354,
+          "positive-mass-known-key": 27358
+        },
+        "visit_bands": {
+          "0": 5354,
+          "1-9": 14,
+          "10-99": 199,
+          "100+": 27145
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1323,
+        "lookup": {
+          "missing-key": 233,
+          "positive-mass-known-key": 1090
+        },
+        "visit_bands": {
+          "0": 241,
+          "1-9": 53,
+          "10-99": 262,
+          "100+": 767
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 3868,
+        "lookup": {
+          "missing-key": 662,
+          "positive-mass-known-key": 3206
+        },
+        "visit_bands": {
+          "0": 665,
+          "1-9": 36,
+          "10-99": 248,
+          "100+": 2919
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 9587,
+        "lookup": {
+          "missing-key": 1524,
+          "positive-mass-known-key": 8060,
+          "zero-mass": 3
+        },
+        "visit_bands": {
+          "0": 1572,
+          "1-9": 606,
+          "10-99": 2860,
+          "100+": 4549
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 32103,
+        "lookup": {
+          "missing-key": 5037,
+          "positive-mass-known-key": 27066
+        },
+        "visit_bands": {
+          "0": 5057,
+          "1-9": 360,
+          "10-99": 4684,
+          "100+": 22002
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 1064,
+        "lookup": {
+          "missing-key": 164,
+          "positive-mass-known-key": 880,
+          "zero-mass": 20
+        },
+        "visit_bands": {
+          "0": 352,
+          "1-9": 380,
+          "10-99": 288,
+          "100+": 44
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 3339,
+        "lookup": {
+          "missing-key": 478,
+          "positive-mass-known-key": 2851,
+          "zero-mass": 10
+        },
+        "visit_bands": {
+          "0": 639,
+          "1-9": 784,
+          "10-99": 1195,
+          "100+": 721
+        }
+      }
+    },
+    "learning-tight_aggressive": {
+      "v2-frozen-5b/flop": {
+        "decisions": 5266,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 5265
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 4,
+          "10-99": 124,
+          "100+": 5137
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 18920,
+        "lookup": {
+          "positive-mass-known-key": 18920
+        },
+        "visit_bands": {
+          "1-9": 10,
+          "10-99": 270,
+          "100+": 18640
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1083,
+        "lookup": {
+          "missing-key": 13,
+          "positive-mass-known-key": 1070
+        },
+        "visit_bands": {
+          "0": 14,
+          "1-9": 32,
+          "10-99": 169,
+          "100+": 868
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2275,
+        "lookup": {
+          "missing-key": 3,
+          "positive-mass-known-key": 2272
+        },
+        "visit_bands": {
+          "0": 3,
+          "1-9": 18,
+          "10-99": 166,
+          "100+": 2088
+        }
+      },
+      "v2-unfrozen/flop": {
+        "decisions": 3789,
+        "lookup": {
+          "positive-mass-known-key": 3785,
+          "zero-mass": 4
+        },
+        "visit_bands": {
+          "0": 9,
+          "1-9": 138,
+          "10-99": 600,
+          "100+": 3042
+        }
+      },
+      "v2-unfrozen/preflop": {
+        "decisions": 19034,
+        "lookup": {
+          "positive-mass-known-key": 19032,
+          "zero-mass": 2
+        },
+        "visit_bands": {
+          "0": 5,
+          "1-9": 280,
+          "10-99": 1377,
+          "100+": 17372
+        }
+      },
+      "v2-unfrozen/river": {
+        "decisions": 958,
+        "lookup": {
+          "missing-key": 14,
+          "positive-mass-known-key": 927,
+          "zero-mass": 17
+        },
+        "visit_bands": {
+          "0": 78,
+          "1-9": 184,
+          "10-99": 346,
+          "100+": 350
+        }
+      },
+      "v2-unfrozen/turn": {
+        "decisions": 1950,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 1943,
+          "zero-mass": 6
+        },
+        "visit_bands": {
+          "0": 31,
+          "1-9": 235,
+          "10-99": 471,
+          "100+": 1213
+        }
+      }
+    },
+    "primary-check_call": {
+      "v052/flop": {
+        "decisions": 29507,
+        "lookup": {
+          "positive-mass-known-key": 29507
+        },
+        "visit_bands": {
+          "10-99": 13,
+          "100+": 29494
+        }
+      },
+      "v052/preflop": {
+        "decisions": 32768,
+        "lookup": {
+          "positive-mass-known-key": 32768
+        },
+        "visit_bands": {
+          "100+": 32768
+        }
+      },
+      "v052/river": {
+        "decisions": 29507,
+        "lookup": {
+          "positive-mass-known-key": 29507
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 10,
+          "10-99": 84,
+          "100+": 29412
+        }
+      },
+      "v052/turn": {
+        "decisions": 29507,
+        "lookup": {
+          "positive-mass-known-key": 29507
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 6,
+          "10-99": 85,
+          "100+": 29415
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 28229,
+        "lookup": {
+          "positive-mass-known-key": 28229
+        },
+        "visit_bands": {
+          "100+": 28229
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 32768,
+        "lookup": {
+          "positive-mass-known-key": 32768
+        },
+        "visit_bands": {
+          "100+": 32768
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 28204,
+        "lookup": {
+          "missing-key": 124,
+          "positive-mass-known-key": 28080
+        },
+        "visit_bands": {
+          "0": 152,
+          "1-9": 1506,
+          "10-99": 6786,
+          "100+": 19760
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 28229,
+        "lookup": {
+          "positive-mass-known-key": 28229
+        },
+        "visit_bands": {
+          "10-99": 582,
+          "100+": 27647
+        }
+      }
+    },
+    "primary-half_pot_pressure": {
+      "v052/flop": {
+        "decisions": 9806,
+        "lookup": {
+          "missing-key": 177,
+          "positive-mass-known-key": 9629
+        },
+        "visit_bands": {
+          "0": 178,
+          "1-9": 7,
+          "10-99": 78,
+          "100+": 9543
+        }
+      },
+      "v052/preflop": {
+        "decisions": 22758,
+        "lookup": {
+          "missing-key": 267,
+          "positive-mass-known-key": 22486,
+          "zero-mass": 5
+        },
+        "visit_bands": {
+          "0": 267,
+          "1-9": 4,
+          "10-99": 87,
+          "100+": 22400
+        }
+      },
+      "v052/river": {
+        "decisions": 3589,
+        "lookup": {
+          "missing-key": 393,
+          "positive-mass-known-key": 3195,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 393,
+          "1-9": 11,
+          "10-99": 89,
+          "100+": 3096
+        }
+      },
+      "v052/turn": {
+        "decisions": 6093,
+        "lookup": {
+          "missing-key": 309,
+          "positive-mass-known-key": 5780,
+          "zero-mass": 4
+        },
+        "visit_bands": {
+          "0": 310,
+          "1-9": 39,
+          "10-99": 162,
+          "100+": 5582
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 7177,
+        "lookup": {
+          "missing-key": 6,
+          "positive-mass-known-key": 7171
+        },
+        "visit_bands": {
+          "0": 9,
+          "1-9": 19,
+          "10-99": 252,
+          "100+": 6897
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 22494,
+        "lookup": {
+          "missing-key": 15,
+          "positive-mass-known-key": 22479
+        },
+        "visit_bands": {
+          "0": 15,
+          "1-9": 60,
+          "10-99": 596,
+          "100+": 21823
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1714,
+        "lookup": {
+          "missing-key": 121,
+          "positive-mass-known-key": 1593
+        },
+        "visit_bands": {
+          "0": 131,
+          "1-9": 91,
+          "10-99": 485,
+          "100+": 1007
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 3419,
+        "lookup": {
+          "missing-key": 44,
+          "positive-mass-known-key": 3375
+        },
+        "visit_bands": {
+          "0": 47,
+          "1-9": 65,
+          "10-99": 426,
+          "100+": 2881
+        }
+      }
+    },
+    "primary-loose_aggressive": {
+      "v052/flop": {
+        "decisions": 15049,
+        "lookup": {
+          "positive-mass-known-key": 15049
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 14,
+          "10-99": 126,
+          "100+": 14908
+        }
+      },
+      "v052/preflop": {
+        "decisions": 27573,
+        "lookup": {
+          "positive-mass-known-key": 27573
+        },
+        "visit_bands": {
+          "10-99": 39,
+          "100+": 27534
+        }
+      },
+      "v052/river": {
+        "decisions": 8071,
+        "lookup": {
+          "positive-mass-known-key": 8070,
+          "zero-mass": 1
+        },
+        "visit_bands": {
+          "0": 6,
+          "1-9": 65,
+          "10-99": 474,
+          "100+": 7526
+        }
+      },
+      "v052/turn": {
+        "decisions": 10978,
+        "lookup": {
+          "positive-mass-known-key": 10978
+        },
+        "visit_bands": {
+          "0": 6,
+          "1-9": 52,
+          "10-99": 407,
+          "100+": 10513
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 11875,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 11874
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 13,
+          "10-99": 483,
+          "100+": 11378
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 27606,
+        "lookup": {
+          "missing-key": 8,
+          "positive-mass-known-key": 27598
+        },
+        "visit_bands": {
+          "0": 8,
+          "1-9": 43,
+          "10-99": 1041,
+          "100+": 26514
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 5145,
+        "lookup": {
+          "missing-key": 192,
+          "positive-mass-known-key": 4950,
+          "zero-mass": 3
+        },
+        "visit_bands": {
+          "0": 229,
+          "1-9": 477,
+          "10-99": 1625,
+          "100+": 2814
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 7387,
+        "lookup": {
+          "missing-key": 26,
+          "positive-mass-known-key": 7361
+        },
+        "visit_bands": {
+          "0": 28,
+          "1-9": 115,
+          "10-99": 1139,
+          "100+": 6105
+        }
+      }
+    },
+    "primary-matched_pot_pressure": {
+      "v052/flop": {
+        "decisions": 9353,
+        "lookup": {
+          "positive-mass-known-key": 9353
+        },
+        "visit_bands": {
+          "1-9": 4,
+          "10-99": 90,
+          "100+": 9259
+        }
+      },
+      "v052/preflop": {
+        "decisions": 22469,
+        "lookup": {
+          "positive-mass-known-key": 22469
+        },
+        "visit_bands": {
+          "10-99": 27,
+          "100+": 22442
+        }
+      },
+      "v052/river": {
+        "decisions": 3109,
+        "lookup": {
+          "positive-mass-known-key": 3109
+        },
+        "visit_bands": {
+          "0": 2,
+          "1-9": 17,
+          "10-99": 143,
+          "100+": 2947
+        }
+      },
+      "v052/turn": {
+        "decisions": 5558,
+        "lookup": {
+          "positive-mass-known-key": 5558
+        },
+        "visit_bands": {
+          "0": 2,
+          "1-9": 24,
+          "10-99": 170,
+          "100+": 5362
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 6443,
+        "lookup": {
+          "missing-key": 2,
+          "positive-mass-known-key": 6441
+        },
+        "visit_bands": {
+          "0": 2,
+          "1-9": 7,
+          "10-99": 202,
+          "100+": 6232
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 22180,
+        "lookup": {
+          "missing-key": 4,
+          "positive-mass-known-key": 22176
+        },
+        "visit_bands": {
+          "0": 4,
+          "1-9": 13,
+          "10-99": 669,
+          "100+": 21494
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1228,
+        "lookup": {
+          "missing-key": 35,
+          "positive-mass-known-key": 1193
+        },
+        "visit_bands": {
+          "0": 40,
+          "1-9": 66,
+          "10-99": 351,
+          "100+": 771
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2715,
+        "lookup": {
+          "missing-key": 16,
+          "positive-mass-known-key": 2699
+        },
+        "visit_bands": {
+          "0": 16,
+          "1-9": 34,
+          "10-99": 397,
+          "100+": 2268
+        }
+      }
+    },
+    "primary-pot_pressure": {
+      "v052/flop": {
+        "decisions": 9094,
+        "lookup": {
+          "missing-key": 3160,
+          "positive-mass-known-key": 5934
+        },
+        "visit_bands": {
+          "0": 3160,
+          "10-99": 10,
+          "100+": 5924
+        }
+      },
+      "v052/preflop": {
+        "decisions": 22247,
+        "lookup": {
+          "missing-key": 2118,
+          "positive-mass-known-key": 20126,
+          "zero-mass": 3
+        },
+        "visit_bands": {
+          "0": 2118,
+          "10-99": 1,
+          "100+": 20128
+        }
+      },
+      "v052/river": {
+        "decisions": 3007,
+        "lookup": {
+          "missing-key": 1965,
+          "positive-mass-known-key": 1042
+        },
+        "visit_bands": {
+          "0": 1965,
+          "10-99": 9,
+          "100+": 1033
+        }
+      },
+      "v052/turn": {
+        "decisions": 5507,
+        "lookup": {
+          "missing-key": 2801,
+          "positive-mass-known-key": 2706
+        },
+        "visit_bands": {
+          "0": 2801,
+          "10-99": 14,
+          "100+": 2692
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 6033,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 6032
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 1,
+          "10-99": 212,
+          "100+": 5819
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 21828,
+        "lookup": {
+          "positive-mass-known-key": 21828
+        },
+        "visit_bands": {
+          "1-9": 1,
+          "10-99": 332,
+          "100+": 21495
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1190,
+        "lookup": {
+          "missing-key": 21,
+          "positive-mass-known-key": 1169
+        },
+        "visit_bands": {
+          "0": 25,
+          "1-9": 55,
+          "10-99": 306,
+          "100+": 804
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2580,
+        "lookup": {
+          "missing-key": 5,
+          "positive-mass-known-key": 2575
+        },
+        "visit_bands": {
+          "0": 5,
+          "1-9": 25,
+          "10-99": 365,
+          "100+": 2185
+        }
+      }
+    },
+    "primary-random": {
+      "v052/flop": {
+        "decisions": 12355,
+        "lookup": {
+          "missing-key": 2190,
+          "positive-mass-known-key": 10165
+        },
+        "visit_bands": {
+          "0": 2190,
+          "1-9": 4,
+          "10-99": 26,
+          "100+": 10135
+        }
+      },
+      "v052/preflop": {
+        "decisions": 32891,
+        "lookup": {
+          "missing-key": 5475,
+          "positive-mass-known-key": 27416
+        },
+        "visit_bands": {
+          "0": 5475,
+          "1-9": 2,
+          "10-99": 27,
+          "100+": 27387
+        }
+      },
+      "v052/river": {
+        "decisions": 1872,
+        "lookup": {
+          "missing-key": 293,
+          "positive-mass-known-key": 1579
+        },
+        "visit_bands": {
+          "0": 293,
+          "1-9": 8,
+          "10-99": 49,
+          "100+": 1522
+        }
+      },
+      "v052/turn": {
+        "decisions": 4758,
+        "lookup": {
+          "missing-key": 840,
+          "positive-mass-known-key": 3918
+        },
+        "visit_bands": {
+          "0": 842,
+          "1-9": 13,
+          "10-99": 54,
+          "100+": 3849
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 11103,
+        "lookup": {
+          "missing-key": 1975,
+          "positive-mass-known-key": 9128
+        },
+        "visit_bands": {
+          "0": 1976,
+          "1-9": 24,
+          "10-99": 153,
+          "100+": 8950
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 32712,
+        "lookup": {
+          "missing-key": 5354,
+          "positive-mass-known-key": 27358
+        },
+        "visit_bands": {
+          "0": 5354,
+          "1-9": 14,
+          "10-99": 199,
+          "100+": 27145
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1323,
+        "lookup": {
+          "missing-key": 233,
+          "positive-mass-known-key": 1090
+        },
+        "visit_bands": {
+          "0": 241,
+          "1-9": 53,
+          "10-99": 262,
+          "100+": 767
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 3868,
+        "lookup": {
+          "missing-key": 662,
+          "positive-mass-known-key": 3206
+        },
+        "visit_bands": {
+          "0": 665,
+          "1-9": 36,
+          "10-99": 248,
+          "100+": 2919
+        }
+      }
+    },
+    "primary-tight_aggressive": {
+      "v052/flop": {
+        "decisions": 7550,
+        "lookup": {
+          "positive-mass-known-key": 7550
+        },
+        "visit_bands": {
+          "1-9": 13,
+          "10-99": 38,
+          "100+": 7499
+        }
+      },
+      "v052/preflop": {
+        "decisions": 18949,
+        "lookup": {
+          "positive-mass-known-key": 18949
+        },
+        "visit_bands": {
+          "10-99": 11,
+          "100+": 18938
+        }
+      },
+      "v052/river": {
+        "decisions": 2184,
+        "lookup": {
+          "positive-mass-known-key": 2184
+        },
+        "visit_bands": {
+          "1-9": 9,
+          "10-99": 94,
+          "100+": 2081
+        }
+      },
+      "v052/turn": {
+        "decisions": 4407,
+        "lookup": {
+          "positive-mass-known-key": 4407
+        },
+        "visit_bands": {
+          "0": 3,
+          "1-9": 21,
+          "10-99": 94,
+          "100+": 4289
+        }
+      },
+      "v2-frozen-5b/flop": {
+        "decisions": 5266,
+        "lookup": {
+          "missing-key": 1,
+          "positive-mass-known-key": 5265
+        },
+        "visit_bands": {
+          "0": 1,
+          "1-9": 4,
+          "10-99": 124,
+          "100+": 5137
+        }
+      },
+      "v2-frozen-5b/preflop": {
+        "decisions": 18920,
+        "lookup": {
+          "positive-mass-known-key": 18920
+        },
+        "visit_bands": {
+          "1-9": 10,
+          "10-99": 270,
+          "100+": 18640
+        }
+      },
+      "v2-frozen-5b/river": {
+        "decisions": 1083,
+        "lookup": {
+          "missing-key": 13,
+          "positive-mass-known-key": 1070
+        },
+        "visit_bands": {
+          "0": 14,
+          "1-9": 32,
+          "10-99": 169,
+          "100+": 868
+        }
+      },
+      "v2-frozen-5b/turn": {
+        "decisions": 2275,
+        "lookup": {
+          "missing-key": 3,
+          "positive-mass-known-key": 2272
+        },
+        "visit_bands": {
+          "0": 3,
+          "1-9": 18,
+          "10-99": 166,
+          "100+": 2088
+        }
+      }
+    }
+  },
+  "direct": {
+    "bb_per_100": 172.19371795654297,
+    "blocks": 131072,
+    "ci95": [
+      163.84721437033366,
+      180.54022154275228
+    ],
+    "sd": 1541.7268855896257
+  },
+  "learning": {
+    "check_call": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 333.32977294921875,
+          "blocks": 16384,
+          "ci95": [
+            302.74168507756184,
+            363.91786082087566
+          ],
+          "sd": 1997.4785358252618
+        },
+        "candidate": {
+          "bb_per_100": 268.69659423828125,
+          "blocks": 16384,
+          "ci95": [
+            252.02154026111626,
+            285.37164821544627
+          ],
+          "sd": 1088.9226728676356
+        }
+      },
+      "contrast": {
+        "bb_per_100": -64.6331787109375,
+        "blocks": 16384,
+        "ci95": [
+          -92.68956268305587,
+          -36.576794738819125
+        ],
+        "sd": 1832.15194791915
+      }
+    },
+    "half_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -101.33514404296875,
+          "blocks": 16384,
+          "ci95": [
+            -120.97039461398357,
+            -81.69989347195393
+          ],
+          "sd": 1282.2309039296042
+        },
+        "candidate": {
+          "bb_per_100": 16.17584228515625,
+          "blocks": 16384,
+          "ci95": [
+            2.6040316609107474,
+            29.74765290940175
+          ],
+          "sd": 886.2731311601647
+        }
+      },
+      "contrast": {
+        "bb_per_100": 117.510986328125,
+        "blocks": 16384,
+        "ci95": [
+          97.8901501973879,
+          137.1318224588621
+        ],
+        "sd": 1281.2896049774936
+      }
+    },
+    "loose_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -242.05169677734375,
+          "blocks": 16384,
+          "ci95": [
+            -270.7150297248848,
+            -213.38836382980267
+          ],
+          "sd": 1871.787231949812
+        },
+        "candidate": {
+          "bb_per_100": 34.87091064453125,
+          "blocks": 16384,
+          "ci95": [
+            15.094043985686174,
+            54.64777730337633
+          ],
+          "sd": 1291.4787881698805
+        }
+      },
+      "contrast": {
+        "bb_per_100": 276.922607421875,
+        "blocks": 16384,
+        "ci95": [
+          247.25893006960285,
+          306.58628477414715
+        ],
+        "sd": 1937.1122200715672
+      }
+    },
+    "matched_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -76.1688232421875,
+          "blocks": 16384,
+          "ci95": [
+            -95.64786853346773,
+            -56.68977795090727
+          ],
+          "sd": 1272.0303090195334
+        },
+        "candidate": {
+          "bb_per_100": 20.45745849609375,
+          "blocks": 16384,
+          "ci95": [
+            7.613751770924296,
+            33.301165221263204
+          ],
+          "sd": 838.7261280144494
+        }
+      },
+      "contrast": {
+        "bb_per_100": 96.62628173828125,
+        "blocks": 16384,
+        "ci95": [
+          77.0926873327722,
+          116.1598761437903
+        ],
+        "sd": 1275.5925024223222
+      }
+    },
+    "pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -46.39434814453125,
+          "blocks": 16384,
+          "ci95": [
+            -64.36080845643521,
+            -28.427887832627295
+          ],
+          "sd": 1173.254731984677
+        },
+        "candidate": {
+          "bb_per_100": 27.23846435546875,
+          "blocks": 16384,
+          "ci95": [
+            15.269778037429889,
+            39.20715067350761
+          ],
+          "sd": 781.5851099493092
+        }
+      },
+      "contrast": {
+        "bb_per_100": 73.6328125,
+        "blocks": 16384,
+        "ci95": [
+          55.96452990919329,
+          91.30109509080671
+        ],
+        "sd": 1153.7829820586242
+      }
+    },
+    "random": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 137.50152587890625,
+          "blocks": 16384,
+          "ci95": [
+            101.48184274052048,
+            173.52120901729202
+          ],
+          "sd": 2352.1752728721744
+        },
+        "candidate": {
+          "bb_per_100": 106.90765380859375,
+          "blocks": 16384,
+          "ci95": [
+            71.00989430381597,
+            142.80541331337153
+          ],
+          "sd": 2344.2133550771287
+        }
+      },
+      "contrast": {
+        "bb_per_100": -30.5938720703125,
+        "blocks": 16384,
+        "ci95": [
+          -53.537068369910216,
+          -7.650675770714784
+        ],
+        "sd": 1498.2480220392256
+      }
+    },
+    "tight_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -29.6600341796875,
+          "blocks": 16384,
+          "ci95": [
+            -43.82484113136871,
+            -15.495227228006291
+          ],
+          "sd": 924.9972724286876
+        },
+        "candidate": {
+          "bb_per_100": 37.29248046875,
+          "blocks": 16384,
+          "ci95": [
+            27.874089848238043,
+            46.71087108926196
+          ],
+          "sd": 615.0444311990765
+        }
+      },
+      "contrast": {
+        "bb_per_100": 66.9525146484375,
+        "blocks": 16384,
+        "ci95": [
+          52.991624889497615,
+          80.91340440737739
+        ],
+        "sd": 911.6809704324467
+      }
+    }
+  },
+  "primary": {
+    "check_call": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 124.80010986328125,
+          "blocks": 16384,
+          "ci95": [
+            114.18496320026317,
+            135.41525652629932
+          ],
+          "sd": 693.1955898316567
+        },
+        "candidate": {
+          "bb_per_100": 268.69659423828125,
+          "blocks": 16384,
+          "ci95": [
+            252.02154026111626,
+            285.37164821544627
+          ],
+          "sd": 1088.9226728676356
+        }
+      },
+      "contrast": {
+        "bb_per_100": 143.896484375,
+        "blocks": 16384,
+        "ci95": [
+          128.08646387529006,
+          159.70650487470994
+        ],
+        "sd": 1032.4338262539884
+      }
+    },
+    "half_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 30.7647705078125,
+          "blocks": 16384,
+          "ci95": [
+            18.874363505656643,
+            42.655177509968354
+          ],
+          "sd": 776.4732751091763
+        },
+        "candidate": {
+          "bb_per_100": 16.17584228515625,
+          "blocks": 16384,
+          "ci95": [
+            2.6040316609107474,
+            29.74765290940175
+          ],
+          "sd": 886.2731311601647
+        }
+      },
+      "contrast": {
+        "bb_per_100": -14.58892822265625,
+        "blocks": 16384,
+        "ci95": [
+          -29.768926013810017,
+          0.5910695684975149
+        ],
+        "sd": 991.2917698200021
+      }
+    },
+    "loose_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 52.61993408203125,
+          "blocks": 16384,
+          "ci95": [
+            36.11571296533464,
+            69.12415519872786
+          ],
+          "sd": 1077.7668604013245
+        },
+        "candidate": {
+          "bb_per_100": 34.87091064453125,
+          "blocks": 16384,
+          "ci95": [
+            15.094043985686174,
+            54.64777730337633
+          ],
+          "sd": 1291.4787881698805
+        }
+      },
+      "contrast": {
+        "bb_per_100": -17.7490234375,
+        "blocks": 16384,
+        "ci95": [
+          -39.21159647264915,
+          3.713549597649152
+        ],
+        "sd": 1401.5596248177706
+      }
+    },
+    "matched_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 47.02301025390625,
+          "blocks": 16384,
+          "ci95": [
+            35.53037437143308,
+            58.51564613637942
+          ],
+          "sd": 750.4978275077723
+        },
+        "candidate": {
+          "bb_per_100": 20.45745849609375,
+          "blocks": 16384,
+          "ci95": [
+            7.613751770924296,
+            33.301165221263204
+          ],
+          "sd": 838.7261280144494
+        }
+      },
+      "contrast": {
+        "bb_per_100": -26.5655517578125,
+        "blocks": 16384,
+        "ci95": [
+          -40.79470991475024,
+          -12.336393600874754
+        ],
+        "sd": 929.1995668576088
+      }
+    },
+    "pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": -34.52606201171875,
+          "blocks": 16384,
+          "ci95": [
+            -50.24073842650266,
+            -18.811385596934844
+          ],
+          "sd": 1026.2076193738221
+        },
+        "candidate": {
+          "bb_per_100": 27.23846435546875,
+          "blocks": 16384,
+          "ci95": [
+            15.269778037429889,
+            39.20715067350761
+          ],
+          "sd": 781.5851099493092
+        }
+      },
+      "contrast": {
+        "bb_per_100": 61.7645263671875,
+        "blocks": 16384,
+        "ci95": [
+          44.420316230449245,
+          79.10873650392575
+        ],
+        "sd": 1132.620241394021
+      }
+    },
+    "random": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 81.51397705078125,
+          "blocks": 16384,
+          "ci95": [
+            45.022254314617875,
+            118.00569978694463
+          ],
+          "sd": 2383.00063758855
+        },
+        "candidate": {
+          "bb_per_100": 106.90765380859375,
+          "blocks": 16384,
+          "ci95": [
+            71.00989430381597,
+            142.80541331337153
+          ],
+          "sd": 2344.2133550771287
+        }
+      },
+      "contrast": {
+        "bb_per_100": 25.3936767578125,
+        "blocks": 16384,
+        "ci95": [
+          5.244592785925914,
+          45.54276072969908
+        ],
+        "sd": 1315.785508373594
+      }
+    },
+    "tight_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 50.24566650390625,
+          "blocks": 16384,
+          "ci95": [
+            41.63791648387294,
+            58.85341652393956
+          ],
+          "sd": 562.1075753054134
+        },
+        "candidate": {
+          "bb_per_100": 37.29248046875,
+          "blocks": 16384,
+          "ci95": [
+            27.874089848238043,
+            46.71087108926196
+          ],
+          "sd": 615.0444311990765
+        }
+      },
+      "contrast": {
+        "bb_per_100": -12.95318603515625,
+        "blocks": 16384,
+        "ci95": [
+          -22.901157729737996,
+          -3.005214340574504
+        ],
+        "sd": 649.6273980347995
+      }
+    }
+  },
+  "recommend_v053_candidate": true,
+  "rule": "Recommend v0.5.3 candidate iff no primary panel paired nominal Student-t95 upper<-20 BB/100 AND pot_pressure lower>-20 BB/100; owner decides",
+  "severe_primary_regressions": {
+    "check_call": false,
+    "half_pot_pressure": false,
+    "loose_aggressive": false,
+    "matched_pot_pressure": false,
+    "pot_pressure": false,
+    "random": false,
+    "tight_aggressive": false
+  },
+  "status": "verified"
+}

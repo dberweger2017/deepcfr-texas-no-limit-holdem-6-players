@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 11540258992,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 11540018312,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "bae16b98314493a72c23e8a531952ee35fadc86a8adb96262262501084166e98",
+  "members": 436,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-M4-20261014.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 54.41681204200722,
+  "sha256": "1faf65de41c374921cd3aae0a7c06bc675ba28fa2cd4ca2d4a904ca6f1d24fed",
+  "status": "locally-verified"
+}

@@ -1,0 +1,98 @@
+{
+  "block_work_seconds": 2460.05979804002,
+  "final_comparisons": {
+    "direct": {
+      "block_work_seconds": 802.7028157080058,
+      "blocks": 131072,
+      "fixed_seconds": 30.470546500058845,
+      "pilot": false
+    },
+    "learning-check_call": {
+      "block_work_seconds": 249.89473254198674,
+      "blocks": 16384,
+      "fixed_seconds": 36.83208962500794,
+      "pilot": false
+    },
+    "learning-half_pot_pressure": {
+      "block_work_seconds": 82.39881237503141,
+      "blocks": 16384,
+      "fixed_seconds": 37.3559524579905,
+      "pilot": false
+    },
+    "learning-loose_aggressive": {
+      "block_work_seconds": 118.7699167910032,
+      "blocks": 16384,
+      "fixed_seconds": 37.18226837605471,
+      "pilot": false
+    },
+    "learning-matched_pot_pressure": {
+      "block_work_seconds": 78.28969650005456,
+      "blocks": 16384,
+      "fixed_seconds": 37.30047745699994,
+      "pilot": false
+    },
+    "learning-pot_pressure": {
+      "block_work_seconds": 75.76013812603196,
+      "blocks": 16384,
+      "fixed_seconds": 37.57041029102402,
+      "pilot": false
+    },
+    "learning-random": {
+      "block_work_seconds": 103.79027787497034,
+      "blocks": 16384,
+      "fixed_seconds": 36.6793723339797,
+      "pilot": false
+    },
+    "learning-tight_aggressive": {
+      "block_work_seconds": 71.09265358396806,
+      "blocks": 16384,
+      "fixed_seconds": 37.53733883303357,
+      "pilot": false
+    },
+    "primary-check_call": {
+      "block_work_seconds": 267.23269928991795,
+      "blocks": 16384,
+      "fixed_seconds": 31.214819959015585,
+      "pilot": false
+    },
+    "primary-half_pot_pressure": {
+      "block_work_seconds": 96.94739616598235,
+      "blocks": 16384,
+      "fixed_seconds": 31.272413499944378,
+      "pilot": false
+    },
+    "primary-loose_aggressive": {
+      "block_work_seconds": 129.20783312496496,
+      "blocks": 16384,
+      "fixed_seconds": 31.56127741705859,
+      "pilot": false
+    },
+    "primary-matched_pot_pressure": {
+      "block_work_seconds": 87.88639837503433,
+      "blocks": 16384,
+      "fixed_seconds": 31.208581208018586,
+      "pilot": false
+    },
+    "primary-pot_pressure": {
+      "block_work_seconds": 98.81287133297883,
+      "blocks": 16384,
+      "fixed_seconds": 31.336435415956657,
+      "pilot": false
+    },
+    "primary-random": {
+      "block_work_seconds": 118.02421445801156,
+      "blocks": 16384,
+      "fixed_seconds": 30.44031129195355,
+      "pilot": false
+    },
+    "primary-tight_aggressive": {
+      "block_work_seconds": 79.24934179207776,
+      "blocks": 16384,
+      "fixed_seconds": 31.394670165958814,
+      "pilot": false
+    }
+  },
+  "fixed_seconds": 509.3569648320554,
+  "no_pilot_pooling": true,
+  "whole_campaign_through_local_closeout_seconds": 12700.686571836472
+}

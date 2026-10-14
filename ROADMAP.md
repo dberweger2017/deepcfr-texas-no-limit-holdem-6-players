@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 v2 frozen 5B ([#272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272)), owner review:** exact #260 table continues to 5,000,006,023 nodes; every 97,290,578-row current/average audit passes. Pressure improves **+61.76 [44.42,79.11] BB/100** over v0.5.2 translation-on; no primary upper bound is below −20, so the predeclared v0.5.3 candidate rule passes. Learning gains against tight/loose are **+66.95/+276.92**; smaller release deficits and matched 1× pot regression remain. Retained keys are denser, but river training misses remain 64.10%/56.66%; played v2 river misses 8.63%. All 1,179,648 final hands replay/reproduce at full counts. [Report](docs/reports/hu100-v2-frozen-5b.md). M4 released October 14 at 17:09 Madrid; no release/default change or merge, owner decides.
+
 - **v0.5.5 acceptance declared (October 14):** the owner approved the [protocol](docs/hu200-v055-acceptance-protocol.md) before the exploratory frozen 20B + translation Slumbot run reached 5,000 hands. Next: the 10,000-hand confirmation of seed 2026101302, then train seeds 2026101421 and 2026101422 on the M4 and confirm each. No release until all three pass and the owner gives the go.
 - **Uploaded cache pass (October 14 afternoon):** 25.425 GB released from 60 uploaded research caches and two inactive debug caches; M1 60.510 GB /M4 83.941 GB free. Active #272 roots and inputs are protected; no research originals removed. [Restoration receipt](docs/artifacts/storage-vacuum-20261014-afternoon.md).
 
