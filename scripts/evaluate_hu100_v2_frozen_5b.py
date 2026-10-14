@@ -242,10 +242,10 @@ def run():
             if p.info['name']=='hu20-trainer' or any(x in cmd for x in ('scripts.run_hu','scripts.evaluate_hu','campaign.py')):
                 raise ValueError('Another campaign is active: '+str(p.pid))
         for stage in ('prepare','evaluate','archive'):
+            deadline=read(BASE/'budget.json')['deadline']-(0 if stage=='archive' else 1800)
             subprocess.run(list(map(str,[sys.executable,'-m','scripts.guard_m4_research',
-                '--stage',BASE/'guards','--name','evaluation-'+stage,'--',sys.executable,
-                '-m','scripts.evaluate_hu100_v2_frozen_5b',stage])),check=True,
-                timeout=max(1,read(BASE/'budget.json')['deadline']-time()))
+                '--stage',BASE/'guards','--name','evaluation-'+stage,'--deadline',deadline,
+                '--',sys.executable,'-m','scripts.evaluate_hu100_v2_frozen_5b',stage])),check=True)
     put(BASE/'detached-complete.json',dict(at=time(),research_locks_released=True))
 
 

@@ -142,6 +142,7 @@ def main():
     parser.add_argument('--stop-file', type=Path)
     parser.add_argument('--allow-exit', type=int, action='append', default=[0])
     parser.add_argument('--preserve', action='store_true', help='allow archival after stage stop')
+    parser.add_argument('--deadline', type=float, help='absolute campaign deadline (Unix seconds)')
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     identity = subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string'], text=True).strip()
@@ -188,6 +189,8 @@ def main():
                     since.clear()
                 sample['continuity_reset'] = gap is None or gap > 10 or gap < 0
                 active, stop = sustained(sample, baseline, since)
+                if args.deadline is not None and sample['at'] >= args.deadline:
+                    stop.append('campaign_deadline')
                 last_sample = sample['monotonic']
                 held_path.write_text(json.dumps({'held': since, 'last_monotonic': last_sample}, sort_keys=True)+'\n')
                 sample.update(breaches=active, held_seconds={k: sample['monotonic']-v for k,v in since.items()}, stop=stop)
