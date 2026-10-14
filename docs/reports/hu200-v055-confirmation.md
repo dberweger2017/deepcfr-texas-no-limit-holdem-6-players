@@ -2,7 +2,7 @@
 
 [Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278).
 
-Seed **2026101421 has reached 20B and is exporting**, after owner-cleared storage passed fresh
+Seed **2026101421 has reached 20B and is auditing its exports**, after owner-cleared storage passed fresh
 admission with **49.235 GiB free**. Seed **2026101422 is unstarted** and will
 start only after seed 1's final exports/audits, with at least 5.5 hours left.
 The first detached build began **October 14 15:57:16 UTC /17:57:16 CEST**;
@@ -113,19 +113,17 @@ with no stop. These are instantaneous readings, not campaign maxima.
 
 ## Latest periodic check
 
-The **October 14 19:21 UTC /21:21 CEST** check confirms seed 2026101421
+The **October 14 19:51 UTC /21:51 CEST** check confirms seed 2026101421
 has reached **20,000,000,322 actual nodes /16,745,107 iterations**,
-retaining **85,373,916 entries** and the exact stage-1 sorted serialized
-key digest. Native training has ended; the detached supervisor is now running
-final current/average exports, with every-row audits still pending.
-Mean traverser visits/key is **37.3670** and
-zero-visit share **16.64%**.
-Current export family RSS is **0.044 GiB**;
+with all **85,373,916 keys unchanged**. Final current/average export
+returned zero in **1001.84 seconds** with uniform zero-mass play.
+The detached every-row accumulator/current-regret audit is running; no completed
+audit receipt exists yet, so seed 2 and server preparation remain unstarted.
+Current audit family RSS is **0.138 GiB**;
 train/save sampled peak is **8.777 GiB**.
-Free memory is **80%**, disk **63.41 GiB**, and swap is
-below the original baseline. No guard stop or failure latch exists.
-Seed 2 and server preparation remain unstarted until final audits pass.
-Fixed deadline and reserves are unchanged.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1921Z.json),
+Free memory is **89%**, disk **51.08 GiB**, and current
+swap growth is **55,962,502 bytes** against the original baseline.
+No guard stop or failure latch exists. Fixed deadline and reserves are unchanged.
+[Health and export-operation receipt](hu200-v055-confirmation-artifacts/health/20261014T1951Z.json),
 [verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json),
 [reached-20B lineage and key checks](hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
