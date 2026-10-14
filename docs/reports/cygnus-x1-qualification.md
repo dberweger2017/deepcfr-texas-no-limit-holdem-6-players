@@ -214,6 +214,17 @@ Both earlier failed attempts remain preserved.
 [Full-suite/environment/resource receipt](cygnus-x1-artifacts/tests-passed.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-strict-temperatures.csv).
 
+## Native build identity
+
+The clean checkout/native tree still matches the build receipt. Retained first
+binary and post-suite executable are identical: **1,752,760 bytes**, SHA256
+`d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436`.
+Neither checkout nor fixed-staging absolute path appears in either binary.
+This checks retained/current identity and uses #243's established build method;
+a second checkout was omitted under the owner's amendment. Exact cross-platform
+checkpoint recovery remains running, rather than inferred from binary identity.
+[Identity/path/source receipt](cygnus-x1-artifacts/build-identity.json).
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
