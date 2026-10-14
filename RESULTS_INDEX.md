@@ -12,8 +12,17 @@ retaining all **97,290,578 entries**. Native telemetry records **5.2673
 stored visits/key /32.70% zero visits**, and **1,092,540,595 discarded
 merged updates**. River training misses are **64.10% traverser /56.66%
 opponent**; these differ from reached-key coverage in played hands.
-Current/average export and full row audit are underway; there is no
-playing-strength result or recommendation yet.
+Every one of the **97,290,578 current/average rows audits**:
+[full receipt](docs/reports/hu100-v2-frozen-5b-artifacts/5b.audit.json).
+Frozen checkpoint **4,869,874,972 bytes**, SHA256
+`401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6`;
+average **3,196,291,551 bytes**, SHA256
+`c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e`.
+Evaluation inputs/cache construction is running; there is no
+playing-strength result or recommendation yet. A pre-hand observer
+admission false positive is corrected with the original failure retained;
+[correction receipt](docs/reports/hu100-v2-frozen-5b-artifacts/admission-correction.json).
+Training was not repeated, and the original budget/roots remain.
 [Exact recovery](docs/reports/hu100-v2-frozen-5b-artifacts/parent-verified.json),
 [build receipt](docs/reports/hu100-v2-frozen-5b-artifacts/build-receipt.json),
 [training receipt](docs/reports/hu100-v2-frozen-5b-artifacts/training-complete.json).
