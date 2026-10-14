@@ -43,6 +43,19 @@ pin = memory_gate.pin
 header = memory_gate.header
 
 
+def evaluation_spec(path, name, schema, tables, receipt):
+    meta = header(path)
+    if (receipt['status'] != 'verified' or receipt['all_nodes_verified'] != receipt['counts']['entries']
+            or receipt['average_sha256'] != file_hash(path)
+            or receipt['checkpoint_sha256'] != meta['source_checkpoint_sha256']
+            or meta['checkpoint_header']['abstraction'] != schema):
+        raise ValueError('Audited evaluation model differs')
+    return dict(pin(path), name=name, abstraction=schema, format=meta['format'],
+                card_buckets=None if tables is None else str(tables), entries=receipt['all_nodes_verified'],
+                iteration=meta['checkpoint_header']['iteration'],
+                source_checkpoint_sha256=meta['source_checkpoint_sha256'])
+
+
 def command(args, allowed=(0,)):
     result = subprocess.run(list(map(str, args)), timeout=max(1, SCIENCE_END-time()))
     if result.returncode not in allowed:
@@ -75,10 +88,10 @@ def prepare():
     h = header(v1)
     if h['checkpoint_header']['abstraction'] != HU200_EQUITY_SCHEMA:
         raise ValueError('Wrong baseline schema')
+    baseline_audit = read(ROOT/'docs/reports/hu200-k50-frozen-artifacts/5000000000.audit.json')
     put(BASE/'inputs.json',dict(owners=owners, source=evaluation.revision(), tables=pins,
-        table_provenance=provenance, baseline=dict(pin(v1),name='v1-frozen-5b',
-        abstraction=HU200_EQUITY_SCHEMA,format=h['format'],card_buckets=str(tables)),
-        baseline_index=index, baseline_audit=read(ROOT/'docs/reports/hu200-k50-frozen-artifacts/5000000000.audit.json'),
+        table_provenance=provenance, baseline=evaluation_spec(v1,'v1-frozen-5b',HU200_EQUITY_SCHEMA,tables,baseline_audit),
+        baseline_index=index, baseline_audit=baseline_audit,
         recipe=dict(seed=SEED,stack_bb=200,blinds=[50,100],rake=0,roots_per_seat=1,
                     average_rule='opponent-sampled',weighting='linear',menu='v2',
                     schema=HU200_EQUITY_MENU_V2_SCHEMA)))
@@ -173,7 +186,11 @@ def recommendation(panel):
 def evaluation_stage():
     evaluation.SCIENCE_END = SCIENCE_END
     pair = [read(BASE/'treatment.json'),read(BASE/'inputs.json')['baseline']]
+    if (BASE/'baseline-spec-corrected.json').exists():
+        pair[1] = read(BASE/'baseline-spec-corrected.json')
     for model in pair:
+        if (BASE/('cache-'+model['name']+'.json')).exists():
+            continue
         tick = time()
         policy = AveragePolicy(model['path'],model['sha256'],expected_schema=model['abstraction'],
                                card_buckets=Path(model['card_buckets']),sorted_rows=True,cache=BASE/'policy-cache')
@@ -181,7 +198,8 @@ def evaluation_stage():
         del policy
         import gc
         gc.collect()
-    costs = dict(direct=evaluation.run_pair(BASE,pair,1024,ROOTS['direct_pilot'],'pilot-direct',pilot=True),panel={})
+    label = 'pilot-direct-cost' if (BASE/'pilot-direct').exists() else 'pilot-direct'
+    costs = dict(direct=evaluation.run_pair(BASE,pair,1024,ROOTS['direct_pilot'],label,pilot=True),panel={})
     for op in direct.PANEL_OPPONENTS:
         costs['panel'][op] = evaluation.run_pair(BASE,pair,64,ROOTS['panel_pilot'],'pilot-panel-'+op,op,True)
     put(BASE/'pilot-costs.json',costs)
@@ -245,7 +263,7 @@ def evaluation_stage():
 def archive():
     owner=json.loads(evaluation.gh('pr','view',PR,'--json','state,url,headRefOid'))
     files=[(p,'research/'+p.relative_to(BASE).as_posix()) for p in sorted(BASE.rglob('*'))
-           if p.is_file() and not p.is_symlink() and not any(p.is_relative_to(BASE/x) for x in ('tables','policy-cache','guards/operations/archive'))
+           if p.is_file() and not p.is_symlink() and not any(p.is_relative_to(BASE/x) for x in ('tables','policy-cache','guards/operations/archive','continuation-guards/operations/archive'))
            and p.name not in ('archive-receipt.json','average-receipt.json','guard-held.json')]
     files += [(BINARY,'research/bin/hu20-trainer')]
     files += [(ROOT/p,'source/'+p) for p in ('scripts/run_hu200_v2_frozen_5b.py','docs/hu200-v2-frozen-5b-protocol.md')]
@@ -282,9 +300,33 @@ def run():
     put(BASE/'detached-closeout.json',dict(at=time(),within_deadline=time()<=END))
 
 
+def continue_admission():
+    # Only the observed metadata admission failure is recoverable here. No hand
+    # may exist, and the original stop/failure evidence is never rewritten.
+    failure = (BASE/'pilot-direct.log').read_text()
+    if "KeyError: 'entries'" not in failure or list(BASE.rglob('hands.jsonl.gz')):
+        raise ValueError('Continuation requires the recorded pre-hand metadata failure')
+    original = read(BASE/'inputs.json')
+    spec = evaluation_spec(Path(original['baseline']['path']),'v1-frozen-5b',HU200_EQUITY_SCHEMA,
+                           BASE/'tables',original['baseline_audit'])
+    put(BASE/'baseline-spec-corrected.json',spec)
+    put(BASE/'admission-correction.json',dict(at=time(),no_hands_before_correction=True,
+        source=evaluation.revision(),original_inputs_sha256=file_hash(BASE/'inputs.json'),
+        original_failure_preserved=True,added_fields=['entries','iteration','source_checkpoint_sha256'],
+        original_roots_unused=True,scientific_retries=0))
+    with (Path.home()/'Local/.hu20-m4-research.lock').open('a+') as one, (Path.home()/'Local/.hu100-m4-research.lock').open('a+') as two:
+        for f in (one,two): fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        continuation = BASE/'continuation-guards'; continuation.mkdir(exist_ok=False)
+        shutil.copyfile(BASE/'guards/baseline.json',continuation/'baseline.json')
+        for stage in ('evaluation_stage','archive'):
+            command([sys.executable,'-m','scripts.guard_m4_research','--stage',continuation,'--name',stage,
+                     '--',sys.executable,'-m','scripts.run_hu200_v2_frozen_5b',stage])
+    put(BASE/'detached-closeout.json',dict(at=time(),within_deadline=time()<=END))
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage',choices=('run','prepare','gates','train','exports','evaluation_stage','archive'))
+    parser.add_argument('stage',choices=('run','prepare','gates','train','exports','evaluation_stage','archive','continue_admission'))
     args=parser.parse_args()
     if args.stage=='run': run()
     else:
