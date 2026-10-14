@@ -165,6 +165,20 @@ under a separate guard label. Future setup seeds pip at venv creation.
 [Failure receipt](cygnus-x1-artifacts/tests-first-failure.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-temperatures.csv).
 
+## Retry: neural output identity failure (under diagnosis)
+
+Pip repair passed; the next whole-suite attempt reached **1,595 passed,
+1 failed, 3 skipped**, 54 subtests passed, before maxfail stopped it.
+Rust remained **16/16**. The multi-street hidden-world invariant's flop case
+fails `torch.equal` on values for equal visible observations. Printed values
+appear equal; this alone does not establish rounding or an information leak.
+Tracing identical model inputs and the first divergent arithmetic operation
+is required before any dependent recovery or trainer benchmark.
+[Original retry failure and resource receipt](cygnus-x1-artifacts/tests-retry-failure.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-retry-temperatures.csv).
+The three skips are the Mac resource-profile check, absent bucket-evaluator
+binary, and unset optional real-K50-table environment. No full-suite pass is claimed.
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
