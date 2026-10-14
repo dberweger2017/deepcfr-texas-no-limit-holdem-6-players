@@ -89,6 +89,14 @@ path, exact restoration archive/member/hash, and update RESULTS_INDEX. Owner
 standing authorization applies only after these checks. Unknown provenance means
 retain and record the gap, not delete.
 
+On October 14 the owner gave standing permission to remove inactive rebuildable
+caches and other regenerable output without separate approval when there is no
+data loss and no current active PR is affected. Derived policy caches and build
+output can therefore be removed even if excluded from research archives, after
+checking generating inputs, active dependencies and rebuild provenance. Record
+exact paths, source/input pins and regeneration commands. This exception does
+not cover unique scientific evidence or replace original-model archive rules.
+
 Retiring code is separate from deleting evidence. First establish its callers,
 fixtures, owning campaign and reproducible source revision. Keep mathematical,
 rules, information-boundary and recovery regressions when replacing an approach.

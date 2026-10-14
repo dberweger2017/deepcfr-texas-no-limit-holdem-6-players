@@ -1,3 +1,19 @@
+## Another 30 GB on M4 — October 14
+
+Owner-requested cleanup exceeds the target with **32.500 GB**
+reclaimed: five unchanged archived HU100 originals and three explicitly approved
+inactive rebuildable policy caches under merged PR272. Verified M4 free
+**77.768 GB** at 2026-10-14T16:20:35Z; live PR278 trainer still observed.
+[All five archive/member/hash restoration records and three exact cache rebuilds](docs/artifacts/storage-vacuum-20261014-30gb.md),
+[accepted private receipt](https://drive.google.com/file/d/1MHJdvblmb-eNeqKm2fiVWhtUaPCi9P2J/view?usp=drivesdk) (ID `1MHJdvblmb-eNeqKm2fiVWhtUaPCi9P2J`, 157,663 bytes,
+SHA256 `eb0d3fc94ca336847ea50da106ab1e9a7871a487e93b95888fcb75df91b4457c`). Current upload/dependency/source-history checks
+precede original retirement; parent copies match accepted PR260 pins without
+checkpoint retrieval or repeat payload hashes. Canonical tables, PR265 HU200
+averages, released model/Slumbot inputs and active #278 roots remain. Original
+retention snapshots are superseded only for these exact eight paths; cloud
+files remain. Owner now permits inactive rebuildable caches/regenerable output
+without repeated approval when there is no data loss or active-PR impact.
+
 ## M4 disk admission cleanup — October 14 evening
 
 Owner-requested cleanup releases **15.132 GB** on M4: two
