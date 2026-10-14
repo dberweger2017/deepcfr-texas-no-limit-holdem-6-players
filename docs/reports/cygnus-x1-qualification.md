@@ -165,7 +165,7 @@ under a separate guard label. Future setup seeds pip at venv creation.
 [Failure receipt](cygnus-x1-artifacts/tests-first-failure.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-temperatures.csv).
 
-## Retry: neural output identity failure (under diagnosis)
+## Retry: neural output identity failure (diagnosed)
 
 Pip repair passed; the next whole-suite attempt reached **1,595 passed,
 1 failed, 3 skipped**, 54 subtests passed, before maxfail stopped it.
@@ -178,6 +178,23 @@ is required before any dependent recovery or trainer benchmark.
 [Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-retry-temperatures.csv).
 The three skips are the Mac resource-profile check, absent bucket-evaluator
 binary, and unset optional real-K50-table environment. No full-suite pass is claimed.
+
+Diagnosis: all observations/candidates are equal, and every packed GRU time-step
+has identical inputs across its four batch rows. Default MKL yields up to
+**2.9802322387695312e−8** hidden-state difference across those rows. The
+**unchanged** focused suite gives 12 passed /1 failed at two threads, one
+thread, COMPATIBLE mode and ATen's default CPU capability. Intel's
+`MKL_CBWR=AVX2,STRICT` restores identical GRU rows/output for all six probed
+street/architecture cases and **13/13 unchanged invariant tests pass**.
+This trace supports a numerical-reproducibility diagnosis for this case; it
+does not establish every neural workload's reproducibility. No assertion,
+tolerance or model code was changed. The whole suite will rerun with that
+explicit environment, real K50 tables (after full size/SHA validation) and
+the optional native bucket evaluator enabled.
+[Diagnostic matrix and traces](cygnus-x1-artifacts/neural-numerics-diagnosis.json).
+[Intel strict CNR documentation](https://www.intel.com/content/www/us/en/developer/archive/training/conditional-numerical-reproducibility-cnr.html)
+describes the mode; [PyTorch numerical notes](https://docs.pytorch.org/docs/main/notes/numerical_accuracy.html)
+explain limits of bitwise floating-point equivalence.
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
