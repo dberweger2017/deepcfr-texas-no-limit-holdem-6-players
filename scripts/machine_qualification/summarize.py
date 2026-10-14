@@ -45,7 +45,7 @@ for resources in sorted(a.root.glob('*/resources.jsonl')):
         'raw_stream_sha256': hashlib.sha256(resources.read_bytes()).hexdigest()}
     summary.append(row)
     with (a.output / f'{job}-temperatures.csv').open('w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(['utc','elapsed_s','package_c','clock_min_mhz','clock_median_mhz','clock_max_mhz','family_rss_gib','available_gib','swap_growth_bytes','max_throttle_delta'])
         for r in rows:
             c = [v / 1000 for v in r['clock_khz']]
