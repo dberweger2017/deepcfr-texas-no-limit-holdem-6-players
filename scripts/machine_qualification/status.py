@@ -31,10 +31,18 @@ for folder in root.glob('memory*instances'):
         # The initial failed attempt has huge shrinking-allocation logs. Only
         # read its tail here; originals remain intact for the evidence bundle.
         with log.open('rb') as f:
-            f.seek(max(0, log.stat().st_size - 65536))
+            header = f.read(1024).decode(errors='replace')
+            size = log.stat().st_size
+            # Real pattern logs are modest; the abandoned shrinking-allocation
+            # attempt can be hundreds of megabytes per instance.
+            start = 0 if size <= 16 * 1024**2 else max(0, size - 65536)
+            f.seek(start)
             raw = f.read().decode(errors='replace')
         clean = re.sub(r'[\x00-\x09\x0b-\x1f]', '', raw)
         print(json.dumps({'instance': str(log.relative_to(root)),
-            'locked': 'locked.' in raw, 'observed_FAILURE_count_in_tail': raw.count('FAILURE'),
-            'completed_patterns': re.findall(r'([A-Za-z0-9 ]+)\s*:\s*ok', clean),
+            'initial_allocation_locked': 'locked.' in header,
+            'scan_scope': 'full' if start == 0 else 'tail',
+            'log_bytes': size, 'observed_FAILURE_count': raw.count('FAILURE'),
+            'completed_patterns': [s.strip() for s in re.findall(
+                r'^\s*([A-Za-z0-9 ]+?)\s*:[^\n]*\bok\s*$', clean, re.MULTILINE)],
             'tail': clean[-90:]}))

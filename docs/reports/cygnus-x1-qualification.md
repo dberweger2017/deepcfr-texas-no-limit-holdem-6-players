@@ -55,10 +55,13 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    pass occurred. No memory error was observed. The same owner-reviewed
    root script now has a temporary-lock-limit launcher: it drops root before
    running eight 14 GiB instances /112 GiB total. All eight now have the full
-   allocation locked; the full pattern pass is running. At 263.7 seconds,
-   sampled family RSS is 112.025 GiB, available RAM stays above 11.667 GiB,
-   maximum package temperature is 64 °C, swap growth and throttle counters
-   remain zero. These are preliminary readings, not a completed pass.
+   allocation locked; the full pattern pass is running. At **842.2 seconds**,
+   XOR/subtraction/multiplication/division checks have passed on all eight
+   instances, with zero observed errors. Package temperature is **62 °C**,
+   peak **81 °C**; sampled family RSS peaks at 112.025 GiB, available RAM
+   stays above 11.662 GiB, swap growth and throttle counters remain zero.
+   [Interim receipt](cygnus-x1-artifacts/memory-progress.json). These are
+   preliminary readings, not a completed pass.
    Four Linux guard checks pass: simulated overheat, sensor disappearance,
    low available RAM and swap growth each terminate the child. Full boot-time
    **memtest86+ remains the owner's job**, regardless of userspace results.
