@@ -1,0 +1,123 @@
+{
+  "status": "inventory complete; qualification pending",
+  "observed_utc": "2026-10-14T18:32:31+00:00",
+  "source_main": "b91a78d2d0893e80380bc3da9a24142e591fc04b",
+  "host": "cygnus-x1",
+  "ssh": "bb128",
+  "tailscale": "100.99.57.8",
+  "kernel": "6.12.111+deb13-amd64",
+  "debian": "13.7",
+  "board": "MSI Z490M-S01 (MS-7C99) 1.1",
+  "bios": {
+    "vendor": "American Megatrends",
+    "version": "D.00",
+    "date": "2020-06-03"
+  },
+  "cpu": "Intel Core i7-10700KF, 8 cores / 16 threads",
+  "ram": {
+    "visible_bytes": 134984126464,
+    "installed_gib": 128,
+    "ecc": false,
+    "dmi_speed_mts": 800,
+    "dmi_max_array_gb": 64,
+    "speed_warning": "DMI speed and array maximum are suspect; effective DRAM rate unverified",
+    "slots": [
+      {
+        "slot": "ChannelA-DIMM0",
+        "size_gib": 32,
+        "part": "KF3200C16D4/32GX",
+        "serial": "ECBB2A36",
+        "rank": 2
+      },
+      {
+        "slot": "ChannelA-DIMM1",
+        "size_gib": 32,
+        "part": "KF3200C16D4/32GX",
+        "serial": "ECBB2B25",
+        "rank": 2
+      },
+      {
+        "slot": "ChannelB-DIMM0",
+        "size_gib": 32,
+        "part": "KF3200C16D4/32GX",
+        "serial": "F6BB3C82",
+        "rank": 2
+      },
+      {
+        "slot": "ChannelB-DIMM1",
+        "size_gib": 32,
+        "part": "KF3200C16D4/32GX",
+        "serial": "EEBB25AE",
+        "rank": 2
+      }
+    ]
+  },
+  "power": {
+    "pl1_w": 125,
+    "pl1_window_s": 55.967744,
+    "pl2_w": 250,
+    "pl2_window_s": 0.00244,
+    "governor": "powersave",
+    "driver": "intel_pstate",
+    "turbo_enabled": true,
+    "fan_rpm_exposed": false
+  },
+  "disks": [
+    {
+      "path": "/dev/nvme0n1",
+      "model": "WDC PC SN730 SDBPNTY-512G-1032",
+      "serial": "19527B803570",
+      "firmware": "11110000",
+      "bytes": 512110190592,
+      "health": "PASSED",
+      "spare_percent": 100,
+      "used_percent": 5,
+      "read_tb": 28.83,
+      "written_tb": 51.23,
+      "power_on_hours": 13124,
+      "unsafe_shutdowns": 273,
+      "media_errors": 0,
+      "error_log_entries": 0,
+      "warning_temperature_minutes": 0,
+      "critical_temperature_minutes": 0,
+      "smartctl_exit": 4,
+      "smartctl_failure": "Read Self-test Log failed: Invalid Field in Command (0x4002)",
+      "nvme_smart_log": "successful; no critical warning"
+    }
+  ],
+  "missing_storage": "No SATA disks detected; ata1-4 SATA link down. Expected 2 TB HDD unavailable.",
+  "gpu": {
+    "model": "RTX 2070 SUPER TU104",
+    "pci": "10de:1e84",
+    "vram_mib": 8192,
+    "driver": "nouveau",
+    "proprietary_nvidia_installed": false,
+    "boot_errors": "gst-plugin-scan nouveau MMU/channel faults; no compute qualification",
+    "secure_boot": true
+  },
+  "network": {
+    "uplink": "Wi-Fi AX201 wlo1; wired eno2 DOWN",
+    "tailscale_peers": {
+      "db-ocean": "100.96.144.26",
+      "m4": "100.122.216.94"
+    }
+  },
+  "raw_inventory": {
+    "host_path": "/home/dberweger/cygnus-qualification-20261014/root-inventory/inventory.log",
+    "coordinator_path": "results/cygnus-qualification/root-inventory.log",
+    "bytes": 81586,
+    "sha256": "a0f27dfb5e68ff09ed773ff28404e9b90e4cb6cb09908c80213622282564ed76"
+  },
+  "failures": [
+    {
+      "phase": "inventory",
+      "cause": "NVMe self-test log unsupported; SMART health unaffected",
+      "action": "preserved original exit 4 and successful nvme smart-log; proceeding"
+    },
+    {
+      "phase": "memory initial launch",
+      "cause": "8 MiB user memlock limit caused page-by-page allocation shrink",
+      "action": "stopped after 36.65 s; no requested-RAM qualification; all originals retained; owner-run temporary memlock launcher prepared"
+    }
+  ]
+}
