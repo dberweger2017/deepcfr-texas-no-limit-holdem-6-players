@@ -205,17 +205,24 @@ def readout(plan):
     put(BASE/'summary.json',summary)
 
 
-def archive():
-    dest=Path.home()/f'Local/Research-Cloud/PR-{PR}-hu100-v2-frozen-5b';dest.mkdir(parents=True,exist_ok=True)
+def research_archive_files(base):
     # Byte-identical PR260 inputs already have accepted restoration archives.
     # Preserve the copies locally and reference their exact indexed members.
-    excluded=('parent','policy-cache','guards/operations/archive')
-    files=[(p,'research/'+p.relative_to(BASE).as_posix()) for p in sorted(BASE.rglob('*'))
-        if p.is_file() and not p.is_symlink() and not any(p.is_relative_to(BASE/x) for x in excluded)
+    excluded=('policy-cache','guards/operations/evaluation-archive')
+    inputs={base/'parent/332894788.checkpoint.gz',base/'parent/332894788.average.gz'}
+    return [(p,'research/'+p.relative_to(base).as_posix()) for p in sorted(base.rglob('*'))
+        if p.is_file() and not p.is_symlink() and p not in inputs
+        and not any(p.is_relative_to(base/x) for x in excluded)
         and p.name not in ('guard-held.json','archive-receipt.json','average-receipt.json')]
+
+
+def archive():
+    dest=Path.home()/f'Local/Research-Cloud/PR-{PR}-hu100-v2-frozen-5b';dest.mkdir(parents=True,exist_ok=True)
+    files=research_archive_files(BASE)
     files += [(BINARY,'research/bin/hu20-trainer')]
     files += [(ROOT/p,'source/'+p) for p in ('scripts/train_hu100_v2_frozen_5b.py',
-        'scripts/evaluate_hu100_v2_frozen_5b.py','scripts/evaluate_hu100_direct.py','docs/hu100-v2-frozen-5b-protocol.md')]
+        'scripts/evaluate_hu100_v2_frozen_5b.py','scripts/evaluate_hu100_direct.py',
+        'scripts/guard_m4_research.py','docs/hu100-v2-frozen-5b-protocol.md')]
     files += [(p,'launch/'+p.relative_to(ROOT/'planning').as_posix()) for p in sorted((ROOT/'planning').rglob('*'))
         if p.is_file() and not p.is_symlink() and p.name!='evaluation-pipeline.log']
     average = Path(read(BASE/'treatment.json')['path'])

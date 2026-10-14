@@ -42,6 +42,18 @@ def test_owner_rule_is_strict_on_pot_lower_and_panel_upper():
         campaign.recommendation({'pot_pressure':panel['pot_pressure']})
 
 
+def test_archive_retains_recovery_metadata_and_closed_guards_but_excludes_live_guard(tmp_path):
+    names=('parent/332894788.checkpoint.gz','parent/332894788.average.gz','parent/telemetry.jsonl',
+        'training/5000000000.gz','guards/operations/train/resources.jsonl',
+        'guards/operations/evaluation-archive/resources.jsonl','guards/guard-held.json',
+        'policy-cache/cache.npy','archive-receipt.json')
+    for name in names:
+        path=tmp_path/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b'evidence')
+    archived={name for _,name in campaign.research_archive_files(tmp_path)}
+    assert archived=={'research/parent/telemetry.jsonl','research/training/5000000000.gz',
+        'research/guards/operations/train/resources.jsonl'}
+
+
 @pytest.mark.parametrize('opponent',direct.PANEL_OPPONENTS)
 def test_hu100_v2_off_v1_translation_on_replays_and_reproduces(tmp_path,monkeypatch,opponent):
     source=dev_source(monkeypatch)
