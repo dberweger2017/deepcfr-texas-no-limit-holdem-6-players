@@ -199,7 +199,8 @@ explain limits of bitwise floating-point equivalence.
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
-They have not been copied to or used on bb128; remote verification precedes use.
+They are now copied to bb128; all three full SHA256s and sizes passed on-host
+verification before the real-table test was enabled.
 
 After the fan curve/PL1 fix, rerun the stepped thermal check and 16-thread
 memory, build/test and applicable throughput scaling tests. Trainer scaling

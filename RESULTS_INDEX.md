@@ -29,7 +29,8 @@ root and its dependencies intact. Required later inputs reference the merged
 [PR163 table restoration record](#pr163-full-deck-equity-buckets--october-5-closeout);
 the full archive and three selected K50 members now verify in the ignored
 coordinator input root, with [Drive/member hashes and retrieval commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
-No table has been copied to or used on bb128 yet. No campaigns, Slumbot, changes to
+All three tables are copied to bb128 and full SHA256/size checks pass before
+use in the optional real-table test; remote paths/hashes are in the receipt. No campaigns, Slumbot, changes to
 other machines or cleanup.
 
 ## Another 30 GB on M4 — October 14
