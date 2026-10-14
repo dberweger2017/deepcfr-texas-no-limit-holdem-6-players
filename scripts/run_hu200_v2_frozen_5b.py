@@ -195,9 +195,9 @@ def evaluation_stage():
                 direct_role='Descriptive only; different-menu missing keys prevent using it for the decision')
     put(BASE/'canonical-plan.json',plan)
     original = json.loads(evaluation.gh('pr','view',PR,'--json','body'))['body']
-    # Compact description retains exact scientific pins; raw pilot samples stay archived.
-    public = {k:v for k,v in plan.items() if k not in ('pilot',)}
-    body = original+'\n\n## Canonical plan before final hands\n\nSHA256 `'+file_hash(BASE/'canonical-plan.json')+'`.\n\n```json\n'+json.dumps(public,indent=2,sort_keys=True)+'\n```\n'
+    # Post the complete canonical JSON, including measured costs and paired SDs,
+    # so the readback covers the plan whose SHA256 admits final hands.
+    body = original+'\n\n## Canonical plan before final hands\n\nSHA256 `'+file_hash(BASE/'canonical-plan.json')+'`.\n\n```json\n'+json.dumps(plan,indent=2,sort_keys=True)+'\n```\n'
     body_file = BASE/'canonical-pr-body.md'; body_file.write_text(body)
     evaluation.gh('pr','edit',PR,'--body-file',body_file)
     if json.loads(evaluation.gh('pr','view',PR,'--json','body'))['body'] != body:
