@@ -38,7 +38,7 @@ SHA256 `4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
 [training](hu100-v2-frozen-5b-artifacts/training-complete.json).
 
 Both current and average exports use `--zero-mass uniform`.
-`src.diagnostics.cfr_average.audit` verifies **every 97,290,578 row**,
+`src.diagnostics.cfr_average.audit` verifies all **97,290,578 rows**,
 stored average totals and current regrets.
 [Full audit and all three file hashes](hu100-v2-frozen-5b-artifacts/5b.audit.json).
 
@@ -112,6 +112,13 @@ there is no expanding-table 5B control or second training seed.
 | Half-pot pressure | -101.34 [-120.97, -81.70] | +117.51 [+97.89, +137.13] |
 | Matched 1× pot pressure | -76.17 [-95.65, -56.69] | +96.63 [+77.09, +116.16] |
 
+![Primary and descriptive learning paired contrasts, with nominal Student-t 95% intervals](hu100-v2-frozen-5b-artifacts/paired-contrasts.png)
+
+The −20 line marks the requested primary rule boundary: a regression flag
+requires the interval's upper limit to be left of that line. No primary
+interval meets that condition. The pot-pressure lower limit is greater
+than −20. All intervals are conditional on this fixed seed and policy pair.
+
 ## Descriptive direct match and support
 
 Frozen v2 minus released v0.5.2, translation off for both:
@@ -184,8 +191,9 @@ and roots stayed fixed.
 
 Full evidence, separate average-only and closed-archive-guard ZIPs have
 embedded manifests and complete local member readback. Existing #260 inputs
-and #163 tables are referenced rather than repacked. Native upload acceptance
-and independent Drive metadata remain separate from local integrity checks;
+and #163 tables are referenced rather than repacked. All three ZIPs now have native uploaded/no-pending/no-conflicts acceptance
+and independent Drive ID/name/size/direct-parent confirmation. These remain
+separate from local integrity checks;
 remote archive bytes are not redownloaded. Archive IDs, hashes, members and
 retrieval commands are in [RESULTS_INDEX](../../RESULTS_INDEX.md#pr272--hu100-v2-frozen-5b-october-14-2026).
 Originals remain; no synced deletion or forced offloading.
@@ -193,5 +201,9 @@ Originals remain; no synced deletion or forced offloading.
 The M4 was confirmed released **October 14 at 17:09 CEST /15:09 UTC**:
 no campaign workers and both research locks free.
 [Release confirmation](hu100-v2-frozen-5b-artifacts/release-confirmation.json).
+
+Focused harness, guard and direct-play tests: **21 passed**. The staged
+repository artifact check passes. Final CI and owner review are tracked on
+[PR272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272).
 
 No release, tag, default change or merge. The owner decides.
