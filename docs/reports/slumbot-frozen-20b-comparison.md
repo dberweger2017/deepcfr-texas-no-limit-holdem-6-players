@@ -12,7 +12,29 @@ Four players against Slumbot's live API at 200 BB, on equal hands: the first
 
 Each step of training improved the result: the 200M v1 model over random play,
 K50 cards and 752M nodes over 200M, and 20B frozen-table nodes over 752M. Both
-K50 models were trained on one 16 GiB Apple M4, peaking at 8.8 GiB.
+K50 models were trained on a base M4 MacBook Pro with 16 GB, peaking at 8.8 GiB.
+
+## Training cost, for context
+
+Slumbot won the 2018 Annual Computer Poker Competition's heads-up no-limit event.
+
+| | Slumbot | Frozen 20B |
+|---|---|---|
+| Machine | Several commodity machines: its 2013 design keeps regrets on disk and distributes the solve ([Jackson, 2013](https://cdn.aaai.org/ocs/ws/ws0979/7044-30516-1-PB.pdf)) | One MacBook Pro, base M4 chip, 16 GB |
+| Memory | About 2 TB, as reported | Peak 8.8 GiB |
+| Compute | About 250,000 core-hours, as reported | About 7 core-hours: two cores for 15 minutes to 752M nodes ([#250](hu200-k50-first.md)), then 3 hours 7 minutes to 20B ([#265](hu200-k50-frozen.md)) |
+| Strategy | A large abstraction with many bet sizes | 85.4M stored keys; bets the minimum, the pot or all-in; 3.16 GB average |
+
+Slumbot's memory and compute figures come from secondary sources, [GTO
+Wizard's blog](https://blog.gtowizard.com/crushing-a-top-hunl-poker-bot/) and a
+[CMU lecture](http://www.cs.cmu.edu/~sandholm/cs15-888F21/lecture14.pdf), not
+from Jackson's paper. Our K50 card tables were built once on a rented machine,
+in 40 minutes at about $0.15, with a 10.3 GiB peak ([#163](hu20-equity-buckets.md)).
+
+This compares cost, not strength. Slumbot's abstraction is built to be hard to
+exploit by any opponent; frozen 20B has known holes, losing heavily to a scripted
+1.5× pot bettor ([#271](hu200-k50-translation.md)). Against Slumbot itself it
+loses about half a big blind per hand, −47 ± 49 BB/100 over these 5,000 hands.
 
 ![Cumulative winnings and BB/100 so far over the first 5,000 hands, all four players](slumbot-frozen-20b-comparison-artifacts/5000-with-random.png)
 
