@@ -68,8 +68,31 @@ preparation or live play follows. All 720,896 final hands replay/reproduce.
 This answers the fixed-budget HU200 case, with substantial tradeoffs. It does
 not settle a fully dense v2: stored visits/key are **2.80 versus v1's 9.73**,
 with 42.55% zero visits and frequent late training misses. Matched-visit or
-more densely trained v2, HU100 behavior and general off-menu strength remain
+more densely trained HU200 v2 and general off-menu strength remain
 open questions. No longer run, release or default change is scheduled.
+
+## HU100 frozen continuation to5B
+
+[#272](hu100-v2-frozen-5b.md) freezes #260's exact 97,290,578-key table and
+continues to 5,000,006,023 nodes. The pressure fix survives: versus released
+v0.5.2 translation-on, the paired contrast is **+61.76 [44.42,79.11]
+BB/100**, with frozen v2 itself **+27.24 [15.27,39.21]**. Fresh paired
+learning gains over the unfrozen terminal are **+66.95 [52.99,80.91]**
+against tight and **+276.92 [247.26,306.59]** against loose. The severe
+aggressive-bot losses are removed under the predeclared rule; smaller
+release deficits remain. Matched 1× pot is **−26.57 [−40.79,−12.34]**,
+passing the requested upper-bound safeguard without proving non-inferiority.
+No primary upper bound is below −20 and pressure's lower bound exceeds −20:
+**recommend this fixed-seed model as a v0.5.3 candidate; owner decides**.
+
+This answers the requested HU100 frozen 5B case, with all 1,179,648 final
+hands independently replayed and exactly reproduced. Visits/key rise from
+0.66 to 5.27; zero visits fall to 32.70%. Played v2 river misses are 8.63%,
+but full-continuation river training misses remain 64.10% traverser /
+56.66% opponent. Deep support is better on reached hands than across the
+counterfactual training tree; fully dense original-game convergence,
+independent-seed confirmation and general off-menu strength remain open.
+No release or default change.
 
 ## Use
 

@@ -1,0 +1,12 @@
+{
+  "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+  "bytes": 3196291551,
+  "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+  "entries": 97290578,
+  "format": "holdem-hu100-stored-cfr-average-research-v1",
+  "iteration": 1794658,
+  "name": "v2-frozen-5b",
+  "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+  "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+  "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6"
+}

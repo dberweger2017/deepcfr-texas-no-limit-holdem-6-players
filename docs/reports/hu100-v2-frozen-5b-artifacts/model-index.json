@@ -1,0 +1,147 @@
+{
+  "archives": {
+    "average": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 3196298276,
+      "cloud_file_id": "1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX",
+      "cloud_upload_accepted": true,
+      "cloud_url": "https://drive.google.com/file/d/1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX/view?usp=drivesdk",
+      "logical_member_bytes": 3196291551,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "bc31a32e532d276fb95e501ff1e014c8fc419219b48c5a1c71c5005b923e6e67",
+      "members": 1,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-average-M4-20261014.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 9.636407665966544,
+      "sha256": "ea29e019781d390d6fb284c7e4675b73f197587ad28103656247f89304d7df2d",
+      "status": "locally-verified"
+    },
+    "closeout": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 23419,
+      "cloud_file_id": "13GqboDZGAryfPWUxuD1yGeEccpOtgwJS",
+      "cloud_upload_accepted": true,
+      "cloud_url": "https://drive.google.com/file/d/13GqboDZGAryfPWUxuD1yGeEccpOtgwJS/view?usp=drivesdk",
+      "logical_member_bytes": 19407,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "abdc2cd06d6d51a7dba8a0dde23cd3f349c1867f5636ae2e338475b80609bdfb",
+      "members": 7,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-closeout-M4-20261014.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 0.014144083019345999,
+      "sha256": "029481254f52895326a825df59981a9ad309dab2f553658415ddb62d75af8aed",
+      "status": "locally-verified"
+    },
+    "full": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 11540258992,
+      "cloud_file_id": "1SKEvKCzuoWeMvBSYY8_iafuKQcb6pmT7",
+      "cloud_upload_accepted": true,
+      "cloud_url": "https://drive.google.com/file/d/1SKEvKCzuoWeMvBSYY8_iafuKQcb6pmT7/view?usp=drivesdk",
+      "logical_member_bytes": 11540018312,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "bae16b98314493a72c23e8a531952ee35fadc86a8adb96262262501084166e98",
+      "members": 436,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-M4-20261014.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 54.41681204200722,
+      "sha256": "1faf65de41c374921cd3aae0a7c06bc675ba28fa2cd4ca2d4a904ca6f1d24fed",
+      "status": "locally-verified"
+    }
+  },
+  "canonical_plan_sha256": "ff344a114e8d30fd16643b9b801de880828d00d0cf26bb211f6a97665fb53f75",
+  "decision_rule_passed": true,
+  "evaluation_inputs": {
+    "frozen": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3196291551,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794658,
+      "name": "v2-frozen-5b",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+      "translation": null
+    },
+    "release": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 2121415396,
+      "entries": 70466972,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 3716073,
+      "name": "v052",
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+      "translation": null
+    },
+    "unfrozen": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "v2-unfrozen",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/parent/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+      "translation": null
+    }
+  },
+  "failures": "Pre-hand read-only observer admission false positive preserved, corrected before any evaluation hand; no scientific retry or failed-hand rerun",
+  "folder_id": "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+  "folder_url": "https://drive.google.com/drive/folders/1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+  "independent_cloud_acceptance_receipt": "cloud-upload-acceptance.json",
+  "m4_release": {
+    "at": 1791990554.966246,
+    "campaign_workers": [],
+    "disk_free_bytes": 38098169856,
+    "no_further_policy_compute_scheduled": true,
+    "observed_madrid": "2026-10-14T17:09:14.965883+02:00",
+    "observed_utc": "2026-10-14T15:09:14.965883+00:00",
+    "pipeline_completion": {
+      "at": 1791990507.972996,
+      "research_locks_released": true
+    },
+    "research_locks_free": {
+      ".hu100-m4-research.lock": true,
+      ".hu20-m4-research.lock": true
+    }
+  },
+  "models": {
+    "average": {
+      "average_archive_member": "averages/5000000000.average.gz",
+      "bytes": 3196291551,
+      "full_archive_member": "research/training/5000000000.average.gz",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+    },
+    "checkpoint": {
+      "bytes": 4869874972,
+      "full_archive_member": "research/training/5000000000.gz",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.gz",
+      "sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6"
+    },
+    "current": {
+      "bytes": 2589617212,
+      "full_archive_member": "research/training/5000000000.current.gz",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.current.gz",
+      "sha256": "21c6a2ca5c755fb689119ac98f3a539ad05d83eb56cec702ed06ac0e72c5fed7"
+    }
+  },
+  "native_upload_acceptance_receipt": "native-upload-acceptance.json",
+  "originals_retained": true,
+  "parent_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+  "parent_retrieval": "Exact regeneration from PR260 recipe; no source checkpoint downloaded from Drive",
+  "pr": 272,
+  "remote_archive_bytes_downloaded": false,
+  "restore": "Download a named archive to a fresh ignored unsynced directory; verify its whole SHA256, extract only the selected members and verify the embedded manifest/member hashes before use. Do not overwrite active inputs.",
+  "source": "fd066d26e61cab1ecc2d7f9e131ce2beac296998",
+  "source_parent_index": "docs/reports/hu100-k50-v2-artifacts/model-index.json",
+  "status": "final; all final hands independently replayed and exactly reproduced",
+  "table_restore_index": "RESULTS_INDEX.md#pr163-full-deck-equity-buckets--october-5-closeout"
+}

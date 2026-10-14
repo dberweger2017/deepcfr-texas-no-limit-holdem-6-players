@@ -1,0 +1,191 @@
+{
+  "header": {
+    "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+      "max_entries": 97290578,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026100601
+    },
+    "format": "holdem-hu100-native-reopening-blueprint-v1",
+    "frozen_table": {
+      "discarded_traverser_visits": 426560235,
+      "discarded_updates": 1092540595,
+      "entries": 97290578,
+      "since_iteration": 104400,
+      "version": 1
+    },
+    "identity": {
+      "action_menu": "hu100-min-half-pot-overbet-conditional-jam-native-reopening-v2",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        10000,
+        10000
+      ]
+    },
+    "iteration": 1794658,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 5000006023,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        85431216,
+        307729917,
+        773797221,
+        1569001785
+      ],
+      "traverser_visits_by_street": [
+        26319045,
+        100260827,
+        270457688,
+        541978903
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        10000,
+        10000
+      ]
+    }
+  },
+  "status": "verified",
+  "telemetry": [
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+      "checkpoint_bytes": 4869874972,
+      "checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+      "completed_nodes": 5000006023,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          85431216,
+          307729917,
+          773797221,
+          1569001785
+        ],
+        "entries": 97290578,
+        "positive_average_mass_keys": 75132562,
+        "traverser_visits": 512456228,
+        "traverser_visits_by_street": [
+          26319045,
+          100260827,
+          270457688,
+          541978903
+        ],
+        "visits_histogram": {
+          "0": 31812931,
+          "1": 22559190,
+          "10-99": 11538254,
+          "100+": 404836,
+          "2-9": 30975367
+        },
+        "zero_average_mass_keys": 22158016
+      },
+      "elapsed_seconds_including_writes": 3237.594388041,
+      "entries_per_completed_node": 0.019458092160782182,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 426560235,
+        "discarded_updates_since_previous_save": 1092540595,
+        "interval_start_iteration": 104400,
+        "missing_opponent_by_street": [
+          1874610,
+          13744669,
+          113381467,
+          545914844
+        ],
+        "missing_opponent_share_by_street": [
+          0.03495752364655189,
+          0.07198465666000851,
+          0.24182523907687042,
+          0.5666409581558137
+        ],
+        "missing_traverser_by_street": [
+          1665991,
+          11579878,
+          87470966,
+          325843400
+        ],
+        "missing_traverser_share_by_street": [
+          0.07093446658781231,
+          0.1269483627161228,
+          0.3473735661452627,
+          0.6410234997227185
+        ],
+        "opponent_decisions_by_street": [
+          53625366,
+          190938870,
+          468857045,
+          963422845
+        ],
+        "state": {
+          "discarded_traverser_visits": 426560235,
+          "discarded_updates": 1092540595,
+          "entries": 97290578,
+          "since_iteration": 104400,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          23486340,
+          91217230,
+          251806627,
+          508317402
+        ]
+      },
+      "iteration": 1794658,
+      "new_entries": 0,
+      "nodes_per_second_including_writes": 1441536.7324082775,
+      "nodes_since_previous_save": 4667111235,
+      "overshoot_nodes": 6023,
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.gz",
+      "process_rss_bytes_after_save": 1582317568,
+      "recent_nodes_per_second_including_writes": 1441536.7324082775,
+      "requested_nodes": 5000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791981672.783185,
+      "write_seconds": 389.30486525,
+      "write_started": 1791981283.477636
+    }
+  ]
+}

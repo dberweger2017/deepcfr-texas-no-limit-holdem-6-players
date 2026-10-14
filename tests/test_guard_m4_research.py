@@ -74,3 +74,32 @@ def test_launch_identity_requires_own_parent(monkeypatch):
     process.ppid = os.getpid
     guard.remember_child(99112233,known)
     assert known == {99112233:17.0}
+
+
+def test_deadline_terminates_launched_family_and_records_stop(tmp_path,monkeypatch):
+    import json
+    import sys
+    import time
+    import pytest
+    from scripts import guard_m4_research as guard
+    real_output=guard.subprocess.check_output
+    monkeypatch.setattr(guard.subprocess,'check_output',lambda cmd,**kw:
+        'Apple M4\n' if cmd[:1]==['sysctl'] else real_output(cmd,**kw))
+    calls=[]
+    def host(path):
+        calls.append(path)
+        return dict(sample(time.monotonic()),at=0 if len(calls)<=2 else 10)
+    monkeypatch.setattr(guard,'host',host)
+    real_sleep=time.sleep
+    monkeypatch.setattr(guard.time,'sleep',lambda seconds:real_sleep(min(seconds,.1)))
+    deadline=10
+    monkeypatch.setattr(sys,'argv',['guard','--stage',str(tmp_path),'--name','deadline',
+        '--deadline',str(deadline),'--',sys.executable,'-c','import time; time.sleep(60)'])
+    with pytest.raises(SystemExit) as stopped:
+        guard.main()
+    assert stopped.value.code==3
+    receipt=json.loads((tmp_path/'operations/deadline/receipt.json').read_text())
+    assert receipt['reasons']==['campaign_deadline'] and receipt['returncode'] is not None
+    readings=[json.loads(s) for s in (tmp_path/'operations/deadline/resources.jsonl').read_text().splitlines()]
+    assert not any(any(r['breaches'].values()) for r in readings)
+    assert readings[-1]['stop']==['campaign_deadline']
