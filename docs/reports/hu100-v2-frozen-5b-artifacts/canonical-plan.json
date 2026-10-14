@@ -1,0 +1,1079 @@
+{
+  "conditional_on": "fixed models and training seed2026100601",
+  "cost_scaling": "One-off model/cache/table loading and model/table hashes stay fixed; play/trace hashing/replay/reproduction scale by blocks",
+  "counts": {
+    "closeout_seconds": 1800,
+    "direct": 131072,
+    "elapsed_seconds": 9629.030304908752,
+    "fits": true,
+    "fixed_seconds": 489.48024079186143,
+    "panel": 16384,
+    "planning_margin": 1.25,
+    "projected_whole_seconds": 16093.798631572878,
+    "scaled_block_seconds": 3242.3344205394387
+  },
+  "deadline": 1792003007.2864242,
+  "decision_rule": "Recommend v0.5.3 candidate iff no primary panel paired nominal Student-t95 upper<-20 BB/100 AND pot_pressure lower>-20 BB/100; owner decides",
+  "direct_role": "descriptive only; translation off; cross-menu missing support limits interpretation",
+  "every_final_hand_independently_replayed_and_exactly_reproduced_before_readout": true,
+  "frozen_at": 1791987436.335526,
+  "inputs": {
+    "models": {
+      "frozen": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "bytes": 3196291551,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1794658,
+        "name": "v2-frozen-5b",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+        "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "translation": null
+      },
+      "release": {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 2121415396,
+        "entries": 70466972,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 3716073,
+        "name": "v052",
+        "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+        "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "translation": null
+      },
+      "unfrozen": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "actual_nodes": 332894788,
+        "bytes": 2363005114,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 104400,
+        "name": "v2-unfrozen",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/parent/332894788.average.gz",
+        "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+        "translation": null
+      }
+    },
+    "pairs": {
+      "direct": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v2-frozen-5b",
+          "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "bytes": 2121415396,
+          "entries": 70466972,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 3716073,
+          "name": "v052",
+          "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+          "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "translation": null
+        }
+      ],
+      "learning": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v2-frozen-5b",
+          "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "actual_nodes": 332894788,
+          "bytes": 2363005114,
+          "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 104400,
+          "name": "v2-unfrozen",
+          "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/parent/332894788.average.gz",
+          "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+          "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+          "translation": null
+        }
+      ],
+      "primary": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v2-frozen-5b",
+          "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "bytes": 2121415396,
+          "entries": 70466972,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 3716073,
+          "name": "v052",
+          "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+          "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        }
+      ]
+    },
+    "parent_average_method": "native average regenerated from byte-identical PR260 checkpoint",
+    "parent_index": {
+      "archives": {
+        "average": {
+          "all_member_sizes_and_hashes_readback": true,
+          "bytes": 2363016534,
+          "cloud_archive_id": "1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q",
+          "cloud_archive_url": "https://drive.google.com/file/d/1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q/view?usp=drivesdk",
+          "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+          "cloud_folder_url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+          "cloud_upload_accepted": true,
+          "logical_member_bytes": 2363005114,
+          "manifest_path": "ARCHIVE-MANIFEST.json",
+          "manifest_sha256": "357d31fced09b5b7deca257746a65e234dd498949119eb45f9f99cec5c3ddde1",
+          "members": 1,
+          "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-terminal-average.zip",
+          "remote_archive_bytes_downloaded": false,
+          "seconds_including_source_hash_pack_readback_whole_hash": 4.197838665975723,
+          "sha256": "f80a243a58542d92653323701956b8f919b35cd238d7a165cfdf4efe06df1ca2",
+          "status": "locally-verified"
+        },
+        "full": {
+          "all_member_sizes_and_hashes_readback": true,
+          "bytes": 10465963508,
+          "cloud_archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+          "cloud_archive_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+          "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+          "cloud_folder_url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+          "cloud_upload_accepted": true,
+          "logical_member_bytes": 10465648485,
+          "manifest_path": "ARCHIVE-MANIFEST.json",
+          "manifest_sha256": "c9d7e039c5febb4587917abb4aa7069bea6d2bb6a8c0f579191a3741db21ccb3",
+          "members": 542,
+          "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+          "remote_archive_bytes_downloaded": false,
+          "seconds_including_source_hash_pack_readback_whole_hash": 52.991836667002644,
+          "sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+          "status": "locally-verified"
+        }
+      },
+      "average_member": "averages/332894788.average.gz",
+      "closeout_archive": {
+        "all_member_sizes_and_hashes_readback": true,
+        "bytes": 16200,
+        "cloud_archive_id": "1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg",
+        "cloud_archive_url": "https://drive.google.com/file/d/1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg/view?usp=drivesdk",
+        "cloud_upload_accepted": true,
+        "logical_member_bytes": 11573,
+        "manifest_path": "ARCHIVE-MANIFEST.json",
+        "manifest_sha256": "407a97b7a2e38ec71b274b219d4ca9adc48ddacd469bb11eeedbe09ab4c34ffd",
+        "members": 9,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-archive-closeout.zip",
+        "remote_archive_bytes_downloaded": false,
+        "seconds_including_source_hash_pack_readback_whole_hash": 0.0022834999836049974,
+        "sha256": "cf0657237b0a8843f3bd53ff6a096c2e3e79c4967ecef12894034b98b7c382bd",
+        "status": "locally-verified"
+      },
+      "full_average_member": "research/training/332894788.average.gz",
+      "full_checkpoint_member": "research/training/332894788.checkpoint.gz",
+      "full_current_member": "research/training/332894788.current.gz",
+      "metadata_archive": {
+        "all_member_sizes_and_hashes_readback": true,
+        "bytes": 130468,
+        "cloud_archive_id": "1leoWMGtGonX-dSR47Ill-NthznsdoBKf",
+        "cloud_archive_url": "https://drive.google.com/file/d/1leoWMGtGonX-dSR47Ill-NthznsdoBKf/view?usp=drivesdk",
+        "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "cloud_upload_accepted": true,
+        "logical_member_bytes": 124491,
+        "manifest_path": "ARCHIVE-MANIFEST.json",
+        "manifest_sha256": "132eef5e2b449474af23882d9a68ca6b0e28476f7a5a67e19427578c3278d69d",
+        "members": 13,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-upload-metadata.zip",
+        "remote_archive_bytes_downloaded": false,
+        "seconds_including_source_hash_pack_readback_whole_hash": 0.009720499976538122,
+        "sha256": "7ac2b977dec68690b36a854abfbee70e1abcffbf77ec757768558d0f01efdf80",
+        "status": "locally-verified"
+      },
+      "original_inputs": "PR246 averages ZIP / averages/1000000000.average.gz; PR163 pinned tables; released v0.5.2 bundle, all referenced in inputs.json",
+      "originals_retained": true,
+      "pr": 260,
+      "remote_new_archive_bytes_downloaded": false,
+      "source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+      "terminal": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "actual_nodes": 332894788,
+        "bytes": 2363005114,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 104400,
+        "name": "k50-v2",
+        "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+        "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+      },
+      "upload_status": "accepted"
+    },
+    "release_verification": "{\"hashes\": {\"INSTALL.md\": \"c0d0a2fcd7e6fe724b041881c15b360f8869d2fb01ece35c6ad9e3e706954fe0\", \"MODEL_CARD.md\": \"21819e27ef83aabb1bf2b287510dd224dbab6d1193180e1b22a657ec468b86c9\", \"O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"RELEASE_NOTES.md\": \"55a3a7f09045039813bdab116fc82ac1f70bf4bc565e55c7fe679285e63bdae6\", \"release-manifest.json\": \"0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b\", \"verify_hu100_bundle.py\": \"e27a621be82e533dc5bdc29646fec6944b26e501cbc1bd871859b84f7e3bd817\"}, \"inference\": {\"adapter\": \"hu100-public-menu-translation-v1\", \"translation\": {\"max_events\": 128, \"max_states\": 512, \"version\": \"hu100-public-menu-translation-v1\"}}, \"model_sha256\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"package_source_commit\": \"3a3bc4218bab96637d6a27a69b73383ee8bb196c\", \"release\": \"v0.5.2\", \"status\": \"owner-approved-publication\"}\n",
+    "source": "fd066d26e61cab1ecc2d7f9e131ce2beac296998"
+  },
+  "learning_role": "descriptive frozen-minus-unfrozen on same panel and shared deals",
+  "no_failed_hand_reruns": true,
+  "no_outcome_extension": true,
+  "no_pilot_pooling": true,
+  "one_off_preparation": {
+    "input_verification_and_parent_export_seconds": 764.9676451683044,
+    "model_cache_builds": {
+      "v052": {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "entries": 70466972,
+          "iteration": 3716073,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026100601,
+          "weights_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "zero_mass_entries": 22611215
+        },
+        "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "no_hands": true,
+        "seconds": 296.3449809551239
+      },
+      "v2-frozen-5b": {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 97290578,
+          "iteration": 1794658,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026100601,
+          "weights_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "zero_mass_entries": 22158016
+        },
+        "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "no_hands": true,
+        "seconds": 424.7738678455353
+      },
+      "v2-unfrozen": {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 97290578,
+          "iteration": 104400,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026100601,
+          "weights_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+          "zero_mass_entries": 32979000
+        },
+        "model_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "no_hands": true,
+        "seconds": 419.609797000885
+      }
+    },
+    "no_hands": true,
+    "scaled_with_blocks": false,
+    "whole_seconds": 1905.7440791130066
+  },
+  "opponents": [
+    "random",
+    "check_call",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure",
+    "half_pot_pressure",
+    "matched_pot_pressure"
+  ],
+  "pairing": "HU100 reset, duplicate rotated seats; shared deals/action-role RNGs across primary and learning",
+  "pilot": {
+    "direct": {
+      "audit_block_work_seconds": 1.8782962069963105,
+      "audit_fixed_seconds": 10.367764958995394,
+      "audit_seconds": 12.246061165991705,
+      "block_work_seconds": 9.174279831990134,
+      "blocks": 1024,
+      "fixed_seconds": 30.073802791943308,
+      "paired_sd_bb_per_100": 1536.9629933922113,
+      "pilot": true,
+      "primary": {
+        "decisions": 9162,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 1177919,
+            "sha256": "a6019f8d017401e28f6c936fee66adcc01409abbef4f676dc4fb5381441f50a8"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 202195,
+            "sha256": "975c51f494c020a87f9f8fde4498b333e74b65d8a30cfb8e42935d7c02326695"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 9.86467049998464,
+        "play_seconds": 4.637225916027091,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 14.518081874994095,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 9162,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 1172744,
+            "sha256": "84d8568de0b78660f1e8f26d3f457f6e9099b1e19820264bbf63905622eb6c1a"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 202195,
+            "sha256": "5bfe45f7dbe3826085b8fbe5e5480ee7c9ea849c5767ed3e10aac2d05e966cdf"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 9.841367332963273,
+        "play_seconds": 2.6267193750245497,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 12.483939582947642,
+        "status": "complete"
+      }
+    },
+    "panel": {
+      "learning-check_call": {
+        "audit_block_work_seconds": 0.24593820801237598,
+        "audit_fixed_seconds": 12.53045399999246,
+        "audit_seconds": 12.776392208004836,
+        "block_work_seconds": 1.3009088340913877,
+        "blocks": 64,
+        "fixed_seconds": 35.63548949995311,
+        "paired_sd_bb_per_100": 2313.3807578420738,
+        "pilot": true,
+        "primary": {
+          "decisions": 1929,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 119740,
+              "sha256": "824f8b079f02bf23b79010def09f43c316867c06ea0f5b1913751ef6bce5d691"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 30992,
+              "sha256": "e1c9013a97750d59143a915374f9fe273b8aefb5e288bbd991a5a92d50954c9e"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.581503707973752,
+          "play_seconds": 0.6331749170203693,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 12.216272042016499,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 1929,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 119221,
+              "sha256": "0110d5c5e72f02ac5387a5f59902443402159248b26216477a1542335701a0a5"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 30992,
+              "sha256": "2eff44d36fe285f38f3181af0d0b2687efd4cbf70c78d8ee8af2948929700087"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.523531791986898,
+          "play_seconds": 0.4186857080203481,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.943734084023163,
+          "status": "complete"
+        }
+      },
+      "learning-half_pot_pressure": {
+        "audit_block_work_seconds": 0.09083074901718646,
+        "audit_fixed_seconds": 12.473084125958849,
+        "audit_seconds": 12.563914874976035,
+        "block_work_seconds": 0.37418833206174895,
+        "blocks": 64,
+        "fixed_seconds": 35.519109209941234,
+        "paired_sd_bb_per_100": 1400.8713274924562,
+        "pilot": true,
+        "primary": {
+          "decisions": 555,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 35495,
+              "sha256": "b93fdf24a4ca29ee9a1aca4074d655aebe63f39ff3a8b4b9c08ad0ac368055e3"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18991,
+              "sha256": "b272b484fbda4c25b2c4647259ade5016c0761844c748bf685c22875fbac2f33"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.457530208979733,
+          "play_seconds": 0.14383050001924857,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.60303474997636,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 555,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 35349,
+              "sha256": "b49ed10f94cf3480fedb791dfe4ab8f0d07d7195ad60d00349485f401de1d36c"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18991,
+              "sha256": "3a69dd5c97f95fa3e6c1d0cd3ddbd3b65892ef479284af1ac80f97ac0cab968a"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.588494875002652,
+          "play_seconds": 0.1363827500026673,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.726347917050589,
+          "status": "complete"
+        }
+      },
+      "learning-loose_aggressive": {
+        "audit_block_work_seconds": 0.15644466603407636,
+        "audit_fixed_seconds": 12.643223041959573,
+        "audit_seconds": 12.799667707993649,
+        "block_work_seconds": 0.6529725400614552,
+        "blocks": 64,
+        "fixed_seconds": 35.77627975092037,
+        "paired_sd_bb_per_100": 1941.6059523897115,
+        "pilot": true,
+        "primary": {
+          "decisions": 921,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 59708,
+              "sha256": "feaf9f3d4013836bb995e569cf841d9ee9673cc369cf18b60a450f76c23fedf0"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 23209,
+              "sha256": "7f494f9ff3452954dd571d8d06e2a36bc2aacd43a8767592a33c0602346b0eb4"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.551437374961097,
+          "play_seconds": 0.2676182080176659,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.820677957963198,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 921,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 59439,
+              "sha256": "085f721ed044b04a93b461acf47312dba23826bedc2c09800ccfd13de6ebb2ee"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 23209,
+              "sha256": "7f8e50d966e497a419b4344322db42786c132d46b53d3a4974deaf86a9a9910a"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.581619333999697,
+          "play_seconds": 0.2257717500324361,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.808906625024974,
+          "status": "complete"
+        }
+      },
+      "learning-matched_pot_pressure": {
+        "audit_block_work_seconds": 0.09435650001978502,
+        "audit_fixed_seconds": 12.493165042018518,
+        "audit_seconds": 12.587521542038303,
+        "block_work_seconds": 0.38680749997729436,
+        "blocks": 64,
+        "fixed_seconds": 35.55177249998087,
+        "paired_sd_bb_per_100": 1086.8703705506707,
+        "pilot": true,
+        "primary": {
+          "decisions": 570,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 37554,
+              "sha256": "315e03f21e680f46561b8aa59946e479ab444d0443404eedfe0a77f066e938f4"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18865,
+              "sha256": "299e26332898730123fd48872c086435b2534ea9dd6dd6d8355e7f6c38b3b9f9"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.53800516697811,
+          "play_seconds": 0.14960512501420453,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.689226541959215,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 570,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 37353,
+              "sha256": "d09a0e24fce951eb3458e68579f02c8093d31230cf4fbd0ed00226bec3595fb8"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18865,
+              "sha256": "eb3688bbfc8b74c785945c86c0781ff70af39f6df19adeb2a2e71aab44d59fcb"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.520602290984243,
+          "play_seconds": 0.13982079201377928,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.661831915960647,
+          "status": "complete"
+        }
+      },
+      "learning-pot_pressure": {
+        "audit_block_work_seconds": 0.0903309999848716,
+        "audit_fixed_seconds": 12.445418625022285,
+        "audit_seconds": 12.535749625007156,
+        "block_work_seconds": 0.3562721260241233,
+        "blocks": 64,
+        "fixed_seconds": 35.396782832976896,
+        "paired_sd_bb_per_100": 1209.673927926349,
+        "pilot": true,
+        "primary": {
+          "decisions": 502,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 31632,
+              "sha256": "4a6617d2c771dbee775f66243c80c6b444ae517c92a336d511d2a5bf76f6f23f"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18027,
+              "sha256": "5d8cf19ea6bd9abff944f4b59fa2ecfd8e254ed8119a60d69840f93cfc3b86bd"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.438933249970432,
+          "play_seconds": 0.13992424996104091,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.580486583989114,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 502,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 31477,
+              "sha256": "8ff614bfc735c11567ee5a9d447bfdf49fa3b5a4928e58c290e741a5af9036f7"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18027,
+              "sha256": "17ada04e57edb2ebc808cee79832631c3ed52fc25736400fdddaca231974aba1"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.51243095798418,
+          "play_seconds": 0.12295187497511506,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.63681875000475,
+          "status": "complete"
+        }
+      },
+      "learning-random": {
+        "audit_block_work_seconds": 0.11119137500645593,
+        "audit_fixed_seconds": 12.443985958001576,
+        "audit_seconds": 12.555177333008032,
+        "block_work_seconds": 0.5718730830121785,
+        "blocks": 64,
+        "fixed_seconds": 35.53655749902828,
+        "paired_sd_bb_per_100": 1310.3894595555498,
+        "pilot": true,
+        "primary": {
+          "decisions": 726,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 48914,
+              "sha256": "4c35fa5b1d7722ced5f526f8b7326090407e19514d8a4b970f68ff7a5cefa659"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21399,
+              "sha256": "6db07bef96c0a6c8232470032a902b4a370a718818039e2bd79d101738fecf45"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.547005957982037,
+          "play_seconds": 0.2927849999978207,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.841329290997237,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 726,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 48706,
+              "sha256": "0d177ef4070f445309bd1066d403b6be155af84dcc2aa6c6e5abf2983623466f"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21399,
+              "sha256": "6279510a4d13a588df71618cdaa96cd29396cf355de100daaf44914f24663dfb"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.545565583044663,
+          "play_seconds": 0.16494308301480487,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.711923958035186,
+          "status": "complete"
+        }
+      },
+      "learning-tight_aggressive": {
+        "audit_block_work_seconds": 0.08560970798134804,
+        "audit_fixed_seconds": 12.511163334012963,
+        "audit_seconds": 12.596773041994311,
+        "block_work_seconds": 0.3520200829952955,
+        "blocks": 64,
+        "fixed_seconds": 35.50347083405359,
+        "paired_sd_bb_per_100": 1722.939878636752,
+        "pilot": true,
+        "primary": {
+          "decisions": 531,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 32318,
+              "sha256": "fb3c9eebfecf1f1e475ec520c1a10fe3bb526b5bbb04e13763f9b2f2bc3c66ea"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18268,
+              "sha256": "d735baa6acb287900579a02423d0bfa5af12e1e33b90f14a16ef1153a58c782e"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.475907833024394,
+          "play_seconds": 0.13652566698146984,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 11.614034916041419,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 531,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 32292,
+              "sha256": "8110ee5be57da84f2112b176c2c1f6e3cbfaf58e87cbdffe8230fc792277cc28"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18268,
+              "sha256": "d2352296f670383334a252cafc6c8356c326b25a32196d57ee51477b24e4f8a1"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 11.51639966701623,
+          "play_seconds": 0.12676583300344646,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 11.644682959013153,
+          "status": "complete"
+        }
+      },
+      "primary-check_call": {
+        "audit_block_work_seconds": 0.24894179200055078,
+        "audit_fixed_seconds": 10.359401374997105,
+        "audit_seconds": 10.608343166997656,
+        "block_work_seconds": 1.3192497930140235,
+        "blocks": 64,
+        "fixed_seconds": 30.05292466597166,
+        "paired_sd_bb_per_100": 562.5677869207873,
+        "pilot": true,
+        "primary": {
+          "decisions": 1997,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 119589,
+              "sha256": "49fee868e9b7f4a2cee4f3180ed4f51e5c55cb1caf3b0a3bc4826c3b8bbe97f7"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 29119,
+              "sha256": "1e11ada44c523ae7b2da74c69748f2ee38fe5e5d2dd83364e1b316881926a699"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.824424375023227,
+          "play_seconds": 0.6178676250274293,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.443886167020537,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 1997,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 119267,
+              "sha256": "07266103d1132e3d41af8c3f3c04e76a76eec92f6e66b80c0e967e79fadd77eb"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 29119,
+              "sha256": "fb71e704645f84ae3ace6afef31ff06d2c79b2fa638674b69520e3e752d740d5"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.869098915951326,
+          "play_seconds": 0.449328750022687,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.31994512496749,
+          "status": "complete"
+        }
+      },
+      "primary-half_pot_pressure": {
+        "audit_block_work_seconds": 0.0971442919690162,
+        "audit_fixed_seconds": 10.355263208039105,
+        "audit_seconds": 10.452407500008121,
+        "block_work_seconds": 0.39800991798983887,
+        "blocks": 64,
+        "fixed_seconds": 30.046754166018218,
+        "paired_sd_bb_per_100": 840.6402127318826,
+        "pilot": true,
+        "primary": {
+          "decisions": 648,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 39856,
+              "sha256": "2d125455cc14ac18e80b5dd3ca33430b79adc6872d26a1380ab5d858e44d0504"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19318,
+              "sha256": "e5f72256c52d19a785d2201ebfabff24d9b4c98a8fa89fde903e5ffb41b015c0"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.844936957990285,
+          "play_seconds": 0.14376129099400714,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 9.990272916969843,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 648,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 39828,
+              "sha256": "aac0094bcfce3b413d045115ba7dd5b7d93e680e9a05f3fb156bf11c13ad4a6d"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19318,
+              "sha256": "243b53e22dc5ca53cec53ebb2593c142cfbc7867c1a8b211eb532dea7cb989b7"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.846553999988828,
+          "play_seconds": 0.1540912909549661,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.002083667030092,
+          "status": "complete"
+        }
+      },
+      "primary-loose_aggressive": {
+        "audit_block_work_seconds": 0.1551962080411613,
+        "audit_fixed_seconds": 10.430715832975693,
+        "audit_seconds": 10.585912041016854,
+        "block_work_seconds": 0.6806607080507092,
+        "blocks": 64,
+        "fixed_seconds": 30.13815158297075,
+        "paired_sd_bb_per_100": 2057.8306632690837,
+        "pilot": true,
+        "primary": {
+          "decisions": 1105,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 69007,
+              "sha256": "dcefbb9d4d809cca3af21e973814dbc4973ff212b59a1ff847727c6eaada6bef"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 24272,
+              "sha256": "820f1a9362411c4038421a686fa95451f0a9186695180cdc4f28100822b2e8e5"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.824329915980343,
+          "play_seconds": 0.28230575000634417,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 10.108313874981832,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 1105,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 68630,
+              "sha256": "0f890583a9aef80c901d533d8eabfa813ca49ba8c41ec504ea1808c53f53eb7b"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 24272,
+              "sha256": "3a6d3fa6430ebded03b3e2919117e6d0e00d076cb0e416d5b4a17334d1cb6c54"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.883105834014714,
+          "play_seconds": 0.240017167001497,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.124586375022773,
+          "status": "complete"
+        }
+      },
+      "primary-matched_pot_pressure": {
+        "audit_block_work_seconds": 0.09615520801162347,
+        "audit_fixed_seconds": 10.373507583979517,
+        "audit_seconds": 10.46966279199114,
+        "block_work_seconds": 0.4098283329512924,
+        "blocks": 64,
+        "fixed_seconds": 30.134080125018954,
+        "paired_sd_bb_per_100": 1091.4368964846005,
+        "pilot": true,
+        "primary": {
+          "decisions": 671,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 41929,
+              "sha256": "877ca2e2c9b40cc0601013bff71ed6319e7e9859ede27bfb58c98d40d52707f2"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19523,
+              "sha256": "19f35d0b0362d6327f68d40deea96e26082f0003042908d92e6ddc3ac2112ee7"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.845403541054111,
+          "play_seconds": 0.15195241599576548,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 9.998943915998098,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 671,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 41909,
+              "sha256": "6c6f90c40cccd840bfdfb3785045d22e854736edc16cbfeb5d9c206b464975f7"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 19523,
+              "sha256": "675c9d81ada930c98b2799234fecd26d54536419fac488c9f8bccb27c0446d4e"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.915168999985326,
+          "play_seconds": 0.15870766702573746,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.075301749981008,
+          "status": "complete"
+        }
+      },
+      "primary-pot_pressure": {
+        "audit_block_work_seconds": 0.10168508294736966,
+        "audit_fixed_seconds": 10.320123000070453,
+        "audit_seconds": 10.421808083017822,
+        "block_work_seconds": 0.3853045819560066,
+        "blocks": 64,
+        "fixed_seconds": 30.0727833751007,
+        "paired_sd_bb_per_100": 435.19072373136055,
+        "pilot": true,
+        "primary": {
+          "decisions": 590,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 36388,
+              "sha256": "1a549520fc673fa59b902535d0ab5bf415849d4daedf4d483f1990b164e8234e"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18401,
+              "sha256": "a11bc21be282c822973d102910f386beecb7aa45ea1017b47728e813ccdb6599"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.814939625037368,
+          "play_seconds": 0.13545212498866022,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 9.951939208025578,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 590,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 36316,
+              "sha256": "bde36cf987a5e72e6b9222ece5cef9ba96555ff91f40e08bed1e95bd6971791a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18401,
+              "sha256": "18f8c66b21d18fbf28a9f4eff8e426ab30a49ab4c9c8bcf3bffa9580caf8d5d3"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.937720749992877,
+          "play_seconds": 0.1451859590015374,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.084340666013304,
+          "status": "complete"
+        }
+      },
+      "primary-random": {
+        "audit_block_work_seconds": 0.12070324999513105,
+        "audit_fixed_seconds": 10.355256374983583,
+        "audit_seconds": 10.475959624978714,
+        "block_work_seconds": 0.5263052500667982,
+        "blocks": 64,
+        "fixed_seconds": 29.97953474894166,
+        "paired_sd_bb_per_100": 1124.9911127294465,
+        "pilot": true,
+        "primary": {
+          "decisions": 798,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 52645,
+              "sha256": "15afc61bab5aeb03896477c77bd4c9f8b0ec35a6d5d7ab9bab73e4af476c296b"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21520,
+              "sha256": "78c99910e80f3777e2ec0676afc0a5835fdea60a49d487009c89f3e7f434c3e8"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.764422915992327,
+          "play_seconds": 0.20154345798073336,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 9.967541291029193,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 798,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 52465,
+              "sha256": "4075d17cc712a4921b00adc32b57eead29c62546770e44bc1cc061cf53cbeac2"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 21520,
+              "sha256": "78760096362ed4a5366e756b1fea70b1687c16347195975ed48b002ccec45da4"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.85985545796575,
+          "play_seconds": 0.2010713330237195,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.062339083000552,
+          "status": "complete"
+        }
+      },
+      "primary-tight_aggressive": {
+        "audit_block_work_seconds": 0.08771412499481812,
+        "audit_fixed_seconds": 10.35425704199588,
+        "audit_seconds": 10.441971166990697,
+        "block_work_seconds": 0.36382783198496327,
+        "blocks": 64,
+        "fixed_seconds": 30.062747209041845,
+        "paired_sd_bb_per_100": 858.4401480867622,
+        "pilot": true,
+        "primary": {
+          "decisions": 595,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 35123,
+              "sha256": "386dba489c6b8f9b60b2f4c5e84adf8d45ecc821faf6941e138190cc23f86c46"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18205,
+              "sha256": "7b062905ede1e4767db9aac6934c85bd8a85865e513a66270e6b43052e1d2196"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.815351542027202,
+          "play_seconds": 0.1264467079890892,
+          "reproduced_all_hands_and_decisions": false,
+          "seconds": 9.94341395801166,
+          "status": "complete"
+        },
+        "repeat": {
+          "decisions": 595,
+          "files": {
+            "decisions.jsonl.gz": {
+              "bytes": 35066,
+              "sha256": "c9e4c2d570a13e82006efb1e776819ff047b18ef035fd5dd3ee377ab0970b84a"
+            },
+            "hands.jsonl.gz": {
+              "bytes": 18205,
+              "sha256": "136f0a009e22165ee7a7c52834daf2a153bccbf490cafaf4d6e61187330dbd63"
+            }
+          },
+          "hands": 256,
+          "load_or_validation_seconds": 9.893138625018764,
+          "play_seconds": 0.1465519160265103,
+          "reproduced_all_hands_and_decisions": true,
+          "seconds": 10.04118991602445,
+          "status": "complete"
+        }
+      }
+    }
+  },
+  "pr": 272,
+  "projection_options": [
+    {
+      "closeout_seconds": 1800,
+      "direct": 131072,
+      "elapsed_seconds": 9629.030304908752,
+      "fits": true,
+      "fixed_seconds": 489.48024079186143,
+      "panel": 16384,
+      "planning_margin": 1.25,
+      "projected_whole_seconds": 16093.798631572878,
+      "scaled_block_seconds": 3242.3344205394387
+    }
+  ],
+  "resource_guards": "5s samples;60s RSS>13GiB/critical/free<8%/swap growth>4GB;disk<16GiB immediate",
+  "roots": {
+    "direct": 20261014272004,
+    "panel": 20261014272003,
+    "pilot_direct": 20261014272001,
+    "pilot_panel": 20261014272002
+  },
+  "source": "fd066d26e61cab1ecc2d7f9e131ce2beac296998"
+}

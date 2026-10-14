@@ -1,0 +1,31 @@
+{
+  "at": 1791985015.120908,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/v055-acceptance-criteria",
+      "headRefOid": "34d3f23669ca56fd4e393c291e917f05a0b40d67",
+      "number": 274,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/274"
+    },
+    {
+      "headRefName": "feature/hu100-v2-frozen-5b",
+      "headRefOid": "fd066d26e61cab1ecc2d7f9e131ce2beac296998",
+      "number": 272,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/272"
+    }
+  ],
+  "pr": 272,
+  "roots": [
+    20261014272001,
+    20261014272002,
+    20261014272003,
+    20261014272004
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "402c4365519244619bc8b46e1591fce8a50ab4cb",
+    "pr274": "34d3f23669ca56fd4e393c291e917f05a0b40d67"
+  }
+}
