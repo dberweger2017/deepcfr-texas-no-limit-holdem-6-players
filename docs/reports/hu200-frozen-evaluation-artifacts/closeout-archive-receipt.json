@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 153967,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 140919,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "ad58731d46553cd7329cd7c1be17fc8dc31b99542e45621b8a000b5e433cf0b8",
+  "members": 25,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-268-hu200-frozen-evaluation/hu200-frozen-evaluation-closeout-M4-20261014.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 0.009616499999538064,
+  "sha256": "3be0d7e75116da0b0511ce0e63518cbe769409862c07e23c85dd2f2448542565",
+  "status": "locally-verified"
+}

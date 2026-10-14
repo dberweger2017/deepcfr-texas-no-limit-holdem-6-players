@@ -1,0 +1,139 @@
+{
+  "status": "verified",
+  "model_path": "/home/davide/deepcfr-slumbot/inputs/model-frozen/hu200-k50-frozen-20b.average.gz",
+  "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+  "bytes": 3164563975,
+  "cache": "/home/davide/deepcfr-slumbot/cache-frozen",
+  "cache_folder": "/home/davide/deepcfr-slumbot/cache-frozen/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+  "cache_manifest_sha256": "d52bac7337d653df445a95072386d5af062e4e0f4c23f5bb301fa26d7ee09940",
+  "cache_backing_bytes": {
+    "final": 5115547961,
+    "baseline": 5115547961
+  },
+  "shared_table_backing_bytes": 1384031032,
+  "two_model_plus_tables_backing_bytes": 11615126954,
+  "description": {
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "num_players": 2,
+    "iteration": 16670844,
+    "training_seed": 2026101302,
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "entries": 85373907,
+    "zero_mass_entries": 19013067,
+    "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    }
+  },
+  "before": {
+    "at": 1791938471.9996572,
+    "host": {
+      "MemTotal_bytes": 16773292032,
+      "MemFree_bytes": 291504128,
+      "MemAvailable_bytes": 8274579456,
+      "Buffers_bytes": 28037120,
+      "Cached_bytes": 8269168640,
+      "SwapTotal_bytes": 4294963200,
+      "SwapFree_bytes": 172032
+    },
+    "own": {
+      "VmRSS_bytes": 43851776,
+      "RssAnon_bytes": 23560192,
+      "RssFile_bytes": 20291584,
+      "RssShmem_bytes": 0,
+      "VmSwap_bytes": 0
+    },
+    "existing_slumbot": [
+      {
+        "pid": 2565361,
+        "VmRSS_bytes": 1219661824,
+        "RssAnon_bytes": 98443264,
+        "RssFile_bytes": 1121214464,
+        "RssShmem_bytes": 4096,
+        "VmSwap_bytes": 3321856,
+        "model_identity": {
+          "model": "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+          "model-sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+          "policy-cache": "/home/davide/deepcfr-slumbot/cache"
+        }
+      }
+    ]
+  },
+  "after_load": {
+    "at": 1791939216.6948335,
+    "host": {
+      "MemTotal_bytes": 16773292032,
+      "MemFree_bytes": 5378330624,
+      "MemAvailable_bytes": 8421068800,
+      "Buffers_bytes": 11558912,
+      "Cached_bytes": 3345674240,
+      "SwapTotal_bytes": 4294963200,
+      "SwapFree_bytes": 0
+    },
+    "own": {
+      "VmRSS_bytes": 287748096,
+      "RssAnon_bytes": 22790144,
+      "RssFile_bytes": 264957952,
+      "RssShmem_bytes": 0,
+      "VmSwap_bytes": 0
+    },
+    "existing_slumbot": [
+      {
+        "pid": 2565361,
+        "VmRSS_bytes": 343695360,
+        "RssAnon_bytes": 98799616,
+        "RssFile_bytes": 244891648,
+        "RssShmem_bytes": 4096,
+        "VmSwap_bytes": 4145152,
+        "model_identity": {
+          "model": "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+          "model-sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+          "policy-cache": "/home/davide/deepcfr-slumbot/cache"
+        }
+      }
+    ]
+  },
+  "after_hold": {
+    "at": 1791939226.713956,
+    "host": {
+      "MemTotal_bytes": 16773292032,
+      "MemFree_bytes": 5366829056,
+      "MemAvailable_bytes": 8426074112,
+      "Buffers_bytes": 12124160,
+      "Cached_bytes": 3361681408,
+      "SwapTotal_bytes": 4294963200,
+      "SwapFree_bytes": 4096
+    },
+    "own": {
+      "VmRSS_bytes": 287760384,
+      "RssAnon_bytes": 22802432,
+      "RssFile_bytes": 264957952,
+      "RssShmem_bytes": 0,
+      "VmSwap_bytes": 0
+    },
+    "existing_slumbot": [
+      {
+        "pid": 2565361,
+        "VmRSS_bytes": 354844672,
+        "RssAnon_bytes": 98811904,
+        "RssFile_bytes": 256028672,
+        "RssShmem_bytes": 4096,
+        "VmSwap_bytes": 4145152,
+        "model_identity": {
+          "model": "/home/davide/deepcfr-slumbot/inputs/model/1000000000.average.gz",
+          "model-sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c",
+          "policy-cache": "/home/davide/deepcfr-slumbot/cache"
+        }
+      }
+    ]
+  },
+  "peak_own_rss_bytes": 5180588032,
+  "seconds": 754.7599353790283,
+  "no_hands_played": true,
+  "no_credentials_accessed": true,
+  "existing_sessions_and_runs_untouched": true
+}

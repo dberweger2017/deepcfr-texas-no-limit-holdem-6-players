@@ -1,0 +1,13 @@
+{
+  "status": "accepted",
+  "archive": {
+    "id": "1Zv1zSZZDwTm1o2gKircuWG3Qv62e-6ZY",
+    "name": "hu200-frozen-evaluation-closeout-M4-20261014.zip",
+    "bytes": 153967,
+    "parent_ids": [
+      "1Dl6kCUsCh_4Y7SXIYMEg9zSmvln-n6Md"
+    ]
+  },
+  "method": "Independent connector file metadata and direct folder listing agree with native uploaded/no-pending/no-conflicts",
+  "remote_archive_bytes_downloaded": false
+}

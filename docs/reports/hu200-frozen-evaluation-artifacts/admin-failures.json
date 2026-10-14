@@ -1,0 +1,42 @@
+{
+  "scope": "administrative setup and offline preparation only; no scientific retries or live hands",
+  "failures": [
+    {
+      "stage": "M4 checkout",
+      "error": "fatal: invalid reference: origin/feature/hu200-frozen-evaluation",
+      "resolution": "Explicit remote refspec and isolated worktree; before science"
+    },
+    {
+      "stage": "server memory helper",
+      "error": "ModuleNotFoundError: No module named 'psutil'",
+      "resolution": "Linux /proc sampled without changing the venv"
+    },
+    {
+      "stage": "M4 direct server route",
+      "error": "ssh: Could not resolve hostname db-ocean: nodename nor servname provided, or not known",
+      "resolution": "Used actual reachable hostname davides-ocean"
+    },
+    {
+      "stage": "M4 public host verification",
+      "error": "Host key verification failed.",
+      "resolution": "Pinned public host key read through existing trusted connection; then strict verification passed"
+    },
+    {
+      "stage": "server CLI help",
+      "error": "Help first invoked outside checkout; no result",
+      "resolution": "Ran from existing repo; recognized flags verified"
+    },
+    {
+      "stage": "launcher compatibility",
+      "error": "Existing server CLI does not have --cache-read-only",
+      "resolution": "Removed unsupported flag before any play; existing verified cache still maps read-only"
+    },
+    {
+      "stage": "closeout helper import",
+      "error": "ModuleNotFoundError: No module named 'scripts'",
+      "resolution": "Added committed checkout to import path; failed log retained, no ZIP or hands created"
+    }
+  ],
+  "credentials_or_accounts_touched": false,
+  "live_launcher_started": false
+}

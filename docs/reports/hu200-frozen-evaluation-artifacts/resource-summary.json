@@ -1,0 +1,37 @@
+{
+  "samples": 916,
+  "peak_family_rss_bytes": 13706313728,
+  "min_free_percent": 72,
+  "minimum_free_disk_bytes": 25573990400,
+  "maximum_swap_growth_bytes": 0,
+  "pressure_levels": {
+    "1": 916
+  },
+  "stops": [],
+  "max_sample_gap_seconds": 5.250174916989636,
+  "swap_baseline_bytes": 1418786242,
+  "guards": {
+    "science": {
+      "failure": null,
+      "finished": 1791937129.998395,
+      "peak_family_rss_bytes": 13706313728,
+      "reasons": [],
+      "returncode": 0,
+      "samples": 916,
+      "started": 1791932529.705014,
+      "status": "complete",
+      "wall_seconds": 4600.293380975723
+    },
+    "archive": {
+      "failure": null,
+      "finished": 1791937135.1466491,
+      "peak_family_rss_bytes": 20086784,
+      "reasons": [],
+      "returncode": 0,
+      "samples": 2,
+      "started": 1791937130.063197,
+      "status": "complete",
+      "wall_seconds": 5.083452224731445
+    }
+  }
+}

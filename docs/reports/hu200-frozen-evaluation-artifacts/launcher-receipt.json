@@ -1,0 +1,11 @@
+{
+  "remote_path": "/home/davide/deepcfr-slumbot/run-frozen-20b.sh",
+  "sha256": "95e6f20552a826b012c2ce0a29088259530b930ae5586aa58867555c05696c02",
+  "hands": 5000,
+  "account": "deepcfr-k50-frozen-20b",
+  "seed": 20261014026801,
+  "syntax_check_passed": true,
+  "client_option_compatibility_checked": true,
+  "launcher_started": false,
+  "no_accounts_or_credentials_accessed": true
+}

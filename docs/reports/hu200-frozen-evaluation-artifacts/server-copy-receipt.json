@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "source": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz",
+  "target": "/home/davide/deepcfr-slumbot/inputs/model-frozen/hu200-k50-frozen-20b.average.gz",
+  "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+  "bytes": 3164563975,
+  "seconds": 299.63888788223267,
+  "finished": 1791938471.496951,
+  "method": "direct detached M4 scp; verified server host key through existing trusted connection",
+  "source_original_retained": true,
+  "existing_sessions_and_runs_untouched": true
+}
