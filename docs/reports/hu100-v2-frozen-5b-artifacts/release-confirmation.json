@@ -1,0 +1,16 @@
+{
+  "at": 1791990554.966246,
+  "campaign_workers": [],
+  "disk_free_bytes": 38098169856,
+  "no_further_policy_compute_scheduled": true,
+  "observed_madrid": "2026-10-14T17:09:14.965883+02:00",
+  "observed_utc": "2026-10-14T15:09:14.965883+00:00",
+  "pipeline_completion": {
+    "at": 1791990507.972996,
+    "research_locks_released": true
+  },
+  "research_locks_free": {
+    ".hu100-m4-research.lock": true,
+    ".hu20-m4-research.lock": true
+  }
+}

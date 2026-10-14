@@ -1,0 +1,88 @@
+{
+  "status": "independently-confirmed",
+  "observed_utc": "2026-10-14 15:31:49 UTC",
+  "method": "Connected Google Drive files.get; native file IDs, exact names, byte sizes and direct parent folder matched independently",
+  "folder": {
+    "id": "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+    "title": "PR-272-hu100-v2-frozen-5b",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+    "display_url": "https://drive.google.com/drive/folders/1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "files": {
+    "full": {
+      "id": "1SKEvKCzuoWeMvBSYY8_iafuKQcb6pmT7",
+      "title": "hu100-v2-frozen-5b-M4-20261014.zip",
+      "mime_type": "application/zip",
+      "size": "11540258992",
+      "url": "https://drive.google.com/file/d/1SKEvKCzuoWeMvBSYY8_iafuKQcb6pmT7/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1SKEvKCzuoWeMvBSYY8_iafuKQcb6pmT7/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "average": {
+      "id": "1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX",
+      "title": "hu100-v2-frozen-5b-average-M4-20261014.zip",
+      "mime_type": "application/zip",
+      "size": "3196298276",
+      "url": "https://drive.google.com/file/d/1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "closeout": {
+      "id": "13GqboDZGAryfPWUxuD1yGeEccpOtgwJS",
+      "title": "hu100-v2-frozen-5b-closeout-M4-20261014.zip",
+      "mime_type": "application/zip",
+      "size": "23419",
+      "url": "https://drive.google.com/file/d/13GqboDZGAryfPWUxuD1yGeEccpOtgwJS/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/13GqboDZGAryfPWUxuD1yGeEccpOtgwJS/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    }
+  },
+  "remote_archive_bytes_downloaded": false
+}

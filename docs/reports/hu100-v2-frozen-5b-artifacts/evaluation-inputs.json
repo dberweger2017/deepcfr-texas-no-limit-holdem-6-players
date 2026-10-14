@@ -1,0 +1,230 @@
+{
+  "models": {
+    "frozen": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3196291551,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794658,
+      "name": "v2-frozen-5b",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+      "translation": null
+    },
+    "release": {
+      "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+      "bytes": 2121415396,
+      "entries": 70466972,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 3716073,
+      "name": "v052",
+      "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+      "translation": null
+    },
+    "unfrozen": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "v2-unfrozen",
+      "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/parent/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+      "translation": null
+    }
+  },
+  "pairs": {
+    "direct": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "bytes": 3196291551,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1794658,
+        "name": "v2-frozen-5b",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+        "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "translation": null
+      },
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 2121415396,
+        "entries": 70466972,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 3716073,
+        "name": "v052",
+        "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+        "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "translation": null
+      }
+    ],
+    "learning": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "bytes": 3196291551,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1794658,
+        "name": "v2-frozen-5b",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+        "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "translation": null
+      },
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "actual_nodes": 332894788,
+        "bytes": 2363005114,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 104400,
+        "name": "v2-unfrozen",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/parent/332894788.average.gz",
+        "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+        "translation": null
+      }
+    ],
+    "primary": [
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "bytes": 3196291551,
+        "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+        "entries": 97290578,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 1794658,
+        "name": "v2-frozen-5b",
+        "path": "/Users/dberweger/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b/training/5000000000.average.gz",
+        "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "translation": null
+      },
+      {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "bytes": 2121415396,
+        "entries": 70466972,
+        "format": "holdem-hu100-stored-cfr-average-research-v1",
+        "iteration": 3716073,
+        "name": "v052",
+        "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+        "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "translation": {
+          "max_events": 128,
+          "max_states": 512
+        }
+      }
+    ]
+  },
+  "parent_average_method": "native average regenerated from byte-identical PR260 checkpoint",
+  "parent_index": {
+    "archives": {
+      "average": {
+        "all_member_sizes_and_hashes_readback": true,
+        "bytes": 2363016534,
+        "cloud_archive_id": "1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q",
+        "cloud_archive_url": "https://drive.google.com/file/d/1QNswSktLznNQq7NwBS9jyACeJFXmkJ6q/view?usp=drivesdk",
+        "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "cloud_folder_url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "cloud_upload_accepted": true,
+        "logical_member_bytes": 2363005114,
+        "manifest_path": "ARCHIVE-MANIFEST.json",
+        "manifest_sha256": "357d31fced09b5b7deca257746a65e234dd498949119eb45f9f99cec5c3ddde1",
+        "members": 1,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-terminal-average.zip",
+        "remote_archive_bytes_downloaded": false,
+        "seconds_including_source_hash_pack_readback_whole_hash": 4.197838665975723,
+        "sha256": "f80a243a58542d92653323701956b8f919b35cd238d7a165cfdf4efe06df1ca2",
+        "status": "locally-verified"
+      },
+      "full": {
+        "all_member_sizes_and_hashes_readback": true,
+        "bytes": 10465963508,
+        "cloud_archive_id": "18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv",
+        "cloud_archive_url": "https://drive.google.com/file/d/18H0Ve-4Uvzi4RLA0pFVZKGFhd-yQkkmv/view?usp=drivesdk",
+        "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "cloud_folder_url": "https://drive.google.com/drive/folders/1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+        "cloud_upload_accepted": true,
+        "logical_member_bytes": 10465648485,
+        "manifest_path": "ARCHIVE-MANIFEST.json",
+        "manifest_sha256": "c9d7e039c5febb4587917abb4aa7069bea6d2bb6a8c0f579191a3741db21ccb3",
+        "members": 542,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-evidence.zip",
+        "remote_archive_bytes_downloaded": false,
+        "seconds_including_source_hash_pack_readback_whole_hash": 52.991836667002644,
+        "sha256": "e21c2c525a37bd954a0a0a940289de287ee9f5da5e9e5e5e87a51baa0064b3ce",
+        "status": "locally-verified"
+      }
+    },
+    "average_member": "averages/332894788.average.gz",
+    "closeout_archive": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 16200,
+      "cloud_archive_id": "1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg",
+      "cloud_archive_url": "https://drive.google.com/file/d/1ewQbad_ctJNHeIC27N1Q1MfrPjfaU-Rg/view?usp=drivesdk",
+      "cloud_upload_accepted": true,
+      "logical_member_bytes": 11573,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "407a97b7a2e38ec71b274b219d4ca9adc48ddacd469bb11eeedbe09ab4c34ffd",
+      "members": 9,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-archive-closeout.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 0.0022834999836049974,
+      "sha256": "cf0657237b0a8843f3bd53ff6a096c2e3e79c4967ecef12894034b98b7c382bd",
+      "status": "locally-verified"
+    },
+    "full_average_member": "research/training/332894788.average.gz",
+    "full_checkpoint_member": "research/training/332894788.checkpoint.gz",
+    "full_current_member": "research/training/332894788.current.gz",
+    "metadata_archive": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 130468,
+      "cloud_archive_id": "1leoWMGtGonX-dSR47Ill-NthznsdoBKf",
+      "cloud_archive_url": "https://drive.google.com/file/d/1leoWMGtGonX-dSR47Ill-NthznsdoBKf/view?usp=drivesdk",
+      "cloud_folder_id": "1HbhCEqM_mu0JEjo7tUIimZpqqU6V4kUx",
+      "cloud_upload_accepted": true,
+      "logical_member_bytes": 124491,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "132eef5e2b449474af23882d9a68ca6b0e28476f7a5a67e19427578c3278d69d",
+      "members": 13,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-260-hu100-k50-v2/hu100-k50-v2-upload-metadata.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds_including_source_hash_pack_readback_whole_hash": 0.009720499976538122,
+      "sha256": "7ac2b977dec68690b36a854abfbee70e1abcffbf77ec757768558d0f01efdf80",
+      "status": "locally-verified"
+    },
+    "original_inputs": "PR246 averages ZIP / averages/1000000000.average.gz; PR163 pinned tables; released v0.5.2 bundle, all referenced in inputs.json",
+    "originals_retained": true,
+    "pr": 260,
+    "remote_new_archive_bytes_downloaded": false,
+    "source": "d7e03e36bdaed5f3d8972d4320cc04ce73289325",
+    "terminal": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "actual_nodes": 332894788,
+      "bytes": 2363005114,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 104400,
+      "name": "k50-v2",
+      "path": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/training/332894788.average.gz",
+      "sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f"
+    },
+    "upload_status": "accepted"
+  },
+  "release_verification": "{\"hashes\": {\"INSTALL.md\": \"c0d0a2fcd7e6fe724b041881c15b360f8869d2fb01ece35c6ad9e3e706954fe0\", \"MODEL_CARD.md\": \"21819e27ef83aabb1bf2b287510dd224dbab6d1193180e1b22a657ec468b86c9\", \"O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"RELEASE_NOTES.md\": \"55a3a7f09045039813bdab116fc82ac1f70bf4bc565e55c7fe679285e63bdae6\", \"release-manifest.json\": \"0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b\", \"verify_hu100_bundle.py\": \"e27a621be82e533dc5bdc29646fec6944b26e501cbc1bd871859b84f7e3bd817\"}, \"inference\": {\"adapter\": \"hu100-public-menu-translation-v1\", \"translation\": {\"max_events\": 128, \"max_states\": 512, \"version\": \"hu100-public-menu-translation-v1\"}}, \"model_sha256\": \"0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0\", \"package_source_commit\": \"3a3bc4218bab96637d6a27a69b73383ee8bb196c\", \"release\": \"v0.5.2\", \"status\": \"owner-approved-publication\"}\n",
+  "source": "fd066d26e61cab1ecc2d7f9e131ce2beac296998"
+}

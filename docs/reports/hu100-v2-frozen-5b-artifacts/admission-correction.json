@@ -1,0 +1,10 @@
+{
+  "at": 1791985007.210282,
+  "source": "fd066d26e61cab1ecc2d7f9e131ce2beac296998",
+  "cause": "Own read-only observer matched the former campaign.py substring check",
+  "no_hands_before_correction": true,
+  "no_research_guard_stop": true,
+  "training_not_rerun": true,
+  "original_failure_preserved": true,
+  "original_budget_and_roots_unchanged": true
+}

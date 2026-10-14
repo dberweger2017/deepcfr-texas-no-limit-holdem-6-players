@@ -1,0 +1,69 @@
+{
+  "input_verification_and_parent_export_seconds": 764.9676451683044,
+  "model_cache_builds": {
+    "v052": {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "entries": 70466972,
+        "iteration": 3716073,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026100601,
+        "weights_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "zero_mass_entries": 22611215
+      },
+      "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "no_hands": true,
+      "seconds": 296.3449809551239
+    },
+    "v2-frozen-5b": {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 97290578,
+        "iteration": 1794658,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026100601,
+        "weights_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "zero_mass_entries": 22158016
+      },
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "no_hands": true,
+      "seconds": 424.7738678455353
+    },
+    "v2-unfrozen": {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 97290578,
+        "iteration": 104400,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "202058df8aff994612b441d26ffc4e70475ee790cc06a799635e4389e219db2f",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026100601,
+        "weights_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+        "zero_mass_entries": 32979000
+      },
+      "model_sha256": "96a179ceacc16d5050a3fa005800ad0678e6368a576da5e98b8a4542c03792fc",
+      "no_hands": true,
+      "seconds": 419.609797000885
+    }
+  },
+  "no_hands": true,
+  "scaled_with_blocks": false,
+  "whole_seconds": 1905.7440791130066
+}
