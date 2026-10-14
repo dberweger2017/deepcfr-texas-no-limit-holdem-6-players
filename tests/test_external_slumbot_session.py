@@ -174,6 +174,8 @@ def test_real_menu_v2_hu200_load_cache_and_analysis(tmp_path, monkeypatch):
     from src.arena.external.analysis import analyze
     from tests.native_equity_tables import write_tables
     from tests.test_hu200_evaluation import fixture_spec
+    from scripts.play_slumbot import load_player
+    from scripts import analyze_slumbot_run
     # These are legal public scenes from a recorded, non-all-in hand. Analysis
     # must query the model's v2 menu/key under its own K50 identity.
     scenes=[(r['hole_cards'],r['board']) for r in LIVE[0] if len(r['board'])>=3]
@@ -188,6 +190,10 @@ def test_real_menu_v2_hu200_load_cache_and_analysis(tmp_path, monkeypatch):
     CONTRACT.admit(model)
     warmed=hu200_average(spec['path'],spec['sha256'],tables,cache,cache_read_only=True)
     assert warmed.abstraction==model.abstraction==HU200_EQUITY_MENU_V2_SCHEMA
+    client_model, _, identity=load_player(SimpleNamespace(model=Path(spec['path']),
+        model_sha256=spec['sha256'],card_buckets=tables,policy_cache=cache,
+        missing_key_fallback='uniform',cache_read_only=True,seed=271))
+    assert client_model.abstraction==identity['abstraction']==HU200_EQUITY_MENU_V2_SCHEMA
     replay=Replay([LIVE[0]])
     journal=PrefixJournal(tmp_path/'journal.jsonl',{'fixture':True})
     play_hand(SlumbotConnection(replay,model),replay,'h0',journal)
@@ -195,6 +201,13 @@ def test_real_menu_v2_hu200_load_cache_and_analysis(tmp_path, monkeypatch):
     result=analyze(tmp_path/'journal.jsonl',model=warmed,workers=1)
     assert result['hands']==1
     assert sum(sum(row.values()) for row in result['coverage_by_street'].values())==result['decisions']
+    import sys
+    monkeypatch.setattr(sys,'argv',['analyze_slumbot_run',str(tmp_path),'--model',spec['path'],
+        '--model-sha256',spec['sha256'],'--card-buckets',str(tables),'--policy-cache',str(cache),
+        '--cache-read-only','--workers','1'])
+    analyze_slumbot_run.main()
+    analyzed=json.loads((tmp_path/'analysis.json').read_text())
+    assert analyzed['coverage_by_street']==result['coverage_by_street']
     with pytest.raises(ValueError,match='hash'):
         hu200_average(spec['path'],'f'*64,tables,cache)
 

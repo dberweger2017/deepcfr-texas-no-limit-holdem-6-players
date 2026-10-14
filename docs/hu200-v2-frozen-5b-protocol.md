@@ -57,7 +57,7 @@ All other findings descriptive; one training seed and a restricted frozen table.
 
 Only if this rule passes: prepare, do not start, a hash-verified v2 5B average,
 separate cache and 5,000-hand launcher on db-ocean. Account proposal
-`deepcfr-k50v2-5b` (15 characters), fresh seed, existing checkout/venv. Verify
+`deepcfr-k50v2-5b` (16 characters), fresh seed, existing checkout/venv. Verify
 client and analysis support K50 menu-v2 HU200; fix/test if necessary. Never touch
 running slumbot tmux sessions, runs, accounts or credentials.
 
