@@ -236,15 +236,20 @@ def audit(out,output,report=False,cost_only=False):
             or inputs['plan_sha256']!=digest(inputs['plan'])
             or set(done['files'])!={'hands.jsonl.gz','decisions.jsonl.gz'}):
         raise ValueError('Foreign direct plan')
+    raw_hash_started=perf_counter()
     for name,pin in done['files'].items():
         if (out/name).stat().st_size!=pin['bytes'] or file_hash(out/name)!=pin['sha256']:
             raise ValueError('Raw direct bytes changed')
+    raw_hash_seconds=perf_counter()-raw_hash_started
     registry = None
     if instrumented:
         from scripts.evaluate_hu200_translation import verify_witness
         registry = PolicyRegistry(plan, sorted_average_rows=True, policy_cache=local_cache(Path(inputs['policy_cache'])),
                                   share_average_storage=True, cache_read_only=True)
         validate(registry,inputs['models'],plan)
+    # Model/table admission is paid once per operation. Trace hashing and all
+    # coordinate/replay work grow with blocks and belong in the scalable cost.
+    fixed_setup_seconds=perf_counter()-tick-raw_hash_seconds
     schedule={b.index:b for b in build_schedule(plan)}
     arms=('candidate','baseline') if opponent else ('candidate',)
     expected={(b,r,a) for b in range(plan.blocks) for r in (0,1) for a in arms}
@@ -328,8 +333,11 @@ def audit(out,output,report=False,cost_only=False):
             values[coord]=net[rotation];hands+=1
         if next(traces,None) is not None or seen!=expected or hands!=done['hands'] or actions!=done['decisions']:
             raise ValueError('Incomplete direct replay')
+    elapsed=perf_counter()-tick
     result={'status':'verified','hands_replayed':hands,'actions_replayed':actions,
-        'seconds':perf_counter()-tick,'settlement_sum_zero':True,'all_native_menu_actions':opponent is None,'coverage':coverage}
+        'seconds':elapsed,'fixed_setup_seconds':fixed_setup_seconds,
+        'block_work_seconds':elapsed-fixed_setup_seconds,'raw_hash_seconds':raw_hash_seconds,
+        'settlement_sum_zero':True,'all_native_menu_actions':opponent is None,'coverage':coverage}
     if cost_only:
         series=[sum(values[b,r,'candidate']- (values[b,r,'baseline'] if opponent else 0) for r in (0,1))/2
                 for b in range(plan.blocks)]

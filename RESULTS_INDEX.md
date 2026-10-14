@@ -1,3 +1,38 @@
+## PR272 — HU100 v2 frozen 5B (October 14, 2026)
+
+[PR272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272),
+[predeclared protocol](docs/hu100-v2-frozen-5b-protocol.md). **In progress;
+no playing result yet.** Guarded detached M4 root
+`~/Local/hu100-v2-frozen-5b-20261014/results/hu100-v2-frozen-5b`.
+Training source `dcfe6232` from current-main base `6df0dab9`. The absent
+#260 parent is regenerated, with its exact source SHA256 required before
+any frozen continuation. Existing #260 input archives remain canonical;
+no source checkpoint download, release, default change or merge.
+
+Storage admission retired four unchanged #270 checkpoint/current originals
+after current merged status, native uploaded/no-conflicts and independent
+Drive ID/name/size/parent confirmation. **14,203,023,130 logical bytes**
+removed; all inference averages, tables and synced archives retained.
+[Exact removed paths, member hashes and restoration links](docs/reports/hu100-v2-frozen-5b-artifacts/storage-admission-receipt.json).
+Restore those exact members from
+[the accepted #270 full ZIP](https://drive.google.com/file/d/1zvA11Jr_6pwDehqMnVIGPcSGrPZdQMpb/view):
+18,420,960,366 bytes, whole SHA256
+`2197b5691542376a3eb03915bb9e4d432648df959439424001a75a6bea253276`,
+`ARCHIVE-MANIFEST.json` SHA256
+`c83e175494e0d7c3893d2931caeea4d2b71ee9ffd4deb47ca0082967b770c625`.
+Use `python -m zipfile -e ARCHIVE.zip NEW_IGNORED_ROOT`, then verify each
+receipt's exact member SHA256 before use. No remote bytes or repeated
+archive/member audits were required for cleanup.
+
+The owner separately authorized removal of four specified reproducible
+#268/#270 policy-cache directories: **21,239,201,909 logical bytes**;
+[paths and rebuild provenance](docs/reports/hu100-v2-frozen-5b-artifacts/cache-removal-receipt.json).
+Rebuild them with `AveragePolicy` from their retained SHA256-pinned inference
+averages and a fresh nonsynced cache directory. The final `9128f71c…` cache
+used by #271 remains. Measured post-removal M4 free space
+**65,799,921,664 bytes**; subsequent training writes consume part of it.
+No synced deletion, forced offloading or raw-evidence removal.
+
 ## PR271 — frozen HU200 K50 action translation (October 14, 2026)
 
 [PR271](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/271), [report](docs/reports/hu200-k50-translation.md). **Final science; PR open for the owner’s merge decision; both archives accepted.** Source `fd44d53f22c4c795d2d725f94babc065bde14f90`, run `~/Local/hu200-k50-translation-20261014/results/hu200-k50-translation` on M4. Canonical run identity/plan SHA256 `6bafd8894609387d884eee285c5e3d0d479bfe5cfeeffa39f3599561e2b3f476`. Same frozen 20B average/tables/cache on/off, translation 512/128; 131,072 direct blocks and 16,384 paired blocks per seven scripts. All **720,896 final hands** independently replay and exactly reproduce before readout. Paired 1.5× pot gain **+181.88 [153.07,210.69] BB/100**, half-pot **+34.73 [20.74,48.72]**, five exact zero controls and direct **+0.51 [−4.15,5.18]**. Rule passes; pot pressure still beats translation **−60.95 [−86.51,−35.38]**. No training/release/default/merge or live confirmation.

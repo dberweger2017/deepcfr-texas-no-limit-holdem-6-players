@@ -1,0 +1,188 @@
+{
+  "at": 1791977877.97364,
+  "authorization": "Owner explicitly approved these exact reproducible caches in the October14 HU100 frozen5B task",
+  "dependency_review": "Only our parent-regeneration trainer is active, uses PR260 tables and no policy cache; no other campaign/tmux session observed; excluded paths are precisely owner-approved caches",
+  "free_after": 65799950336,
+  "free_before": 44560097280,
+  "owners": {
+    "268": {
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/268"
+    },
+    "270": {
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/270"
+    }
+  },
+  "retained_final_cache": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+  "selected": [
+    {
+      "members": [
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791965756794811265,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/counts.npy"
+        },
+        {
+          "bytes": 170747942,
+          "mtime_ns": 1791965753783284306,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/menu.npy"
+        },
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791965754092105814,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/offsets.npy"
+        },
+        {
+          "bytes": 85374035,
+          "mtime_ns": 1791965756530910490,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/flags.npy"
+        },
+        {
+          "bytes": 1365982640,
+          "mtime_ns": 1791965753265381783,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/keys.npy"
+        },
+        {
+          "bytes": 1605,
+          "mtime_ns": 1791965757171548293,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/manifest.json"
+        },
+        {
+          "bytes": 2127460576,
+          "mtime_ns": 1791965755406454737,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/probabilities.npy"
+        }
+      ],
+      "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+      "restore": "Rebuild compact AveragePolicy cache from the retained SHA256-pinned average; original metadata and averages remain indexed in PR268/270",
+      "source_model_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+    },
+    {
+      "members": [
+        {
+          "bytes": 765663120,
+          "mtime_ns": 1791965387013394723,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/counts.npy"
+        },
+        {
+          "bytes": 191415876,
+          "mtime_ns": 1791965383352508900,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/menu.npy"
+        },
+        {
+          "bytes": 765663120,
+          "mtime_ns": 1791965383766843485,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/offsets.npy"
+        },
+        {
+          "bytes": 95708002,
+          "mtime_ns": 1791965386640639265,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/flags.npy"
+        },
+        {
+          "bytes": 1531326112,
+          "mtime_ns": 1791965382483629697,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/keys.npy"
+        },
+        {
+          "bytes": 2189,
+          "mtime_ns": 1791965387389908583,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/manifest.json"
+        },
+        {
+          "bytes": 2542774792,
+          "mtime_ns": 1791965385295614709,
+          "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/probabilities.npy"
+        }
+      ],
+      "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/policy-cache/ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3-hu200-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+      "restore": "Rebuild compact AveragePolicy cache from the retained SHA256-pinned average; original metadata and averages remain indexed in PR268/270",
+      "source_model_sha256": "ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3"
+    },
+    {
+      "members": [
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791932908951186089,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/counts.npy"
+        },
+        {
+          "bytes": 170747942,
+          "mtime_ns": 1791932906077639757,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/menu.npy"
+        },
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791932906388940353,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/offsets.npy"
+        },
+        {
+          "bytes": 85374035,
+          "mtime_ns": 1791932908657088678,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/flags.npy"
+        },
+        {
+          "bytes": 1365982640,
+          "mtime_ns": 1791932905269606173,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/keys.npy"
+        },
+        {
+          "bytes": 1605,
+          "mtime_ns": 1791932909335224116,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/manifest.json"
+        },
+        {
+          "bytes": 2127460576,
+          "mtime_ns": 1791932907562483645,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/probabilities.npy"
+        }
+      ],
+      "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+      "restore": "Rebuild compact AveragePolicy cache from the retained SHA256-pinned average; original metadata and averages remain indexed in PR268/270",
+      "source_model_sha256": "60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c"
+    },
+    {
+      "members": [
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791933655787728912,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/counts.npy"
+        },
+        {
+          "bytes": 170747942,
+          "mtime_ns": 1791933651727613460,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/menu.npy"
+        },
+        {
+          "bytes": 682991384,
+          "mtime_ns": 1791933652107951591,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/offsets.npy"
+        },
+        {
+          "bytes": 85374035,
+          "mtime_ns": 1791933655299102431,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/flags.npy"
+        },
+        {
+          "bytes": 1365982640,
+          "mtime_ns": 1791933650947215582,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/keys.npy"
+        },
+        {
+          "bytes": 1605,
+          "mtime_ns": 1791933656124046698,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/manifest.json"
+        },
+        {
+          "bytes": 2127460576,
+          "mtime_ns": 1791933654137428750,
+          "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/probabilities.npy"
+        }
+      ],
+      "path": "/Users/dberweger/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation/policy-cache/43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+      "restore": "Rebuild compact AveragePolicy cache from the retained SHA256-pinned average; original metadata and averages remain indexed in PR268/270",
+      "source_model_sha256": "43aa3b3cd3c7365c5be1b177dcc8a7c04e01c8470403c38327aa845922726512"
+    }
+  ]
+}
