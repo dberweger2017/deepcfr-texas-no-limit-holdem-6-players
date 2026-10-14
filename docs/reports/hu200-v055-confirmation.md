@@ -110,3 +110,17 @@ actual terminal key count. [Stage-1 byte/count/key receipt](hu200-v055-confirmat
 The guard's current snapshot is 8.380 GiB family RSS, 84% free memory,
 72.427 GiB free disk and swap 16,777,216 bytes below the original baseline,
 with no stop. These are instantaneous readings, not campaign maxima.
+
+## Latest periodic check
+
+The **October 14 16:51 UTC /18:51 CEST** check confirms the original
+supervisor identity is live and healthy in frozen training. The latest fully
+verified save is **2,000,001,206 actual nodes /1,415,679 iterations**, retaining
+**85,373,916 entries** and the exact stage-1 sorted serialized key digest.
+Mean traverser visits/key is **4.1481** and zero-visit share **34.89%**.
+The 5B save is not yet available; no progress between saves is inferred.
+Current family RSS is about **8.57 GiB**, free memory **83%**, disk
+**68.89 GiB**, and swap is below the original baseline. No guard stop or
+failure latch exists. Seed 2 and server preparation remain unstarted.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T1651Z.json),
+[verified learning curve](hu200-v055-confirmation-artifacts/seed-2026101421-learning-curve.json).
