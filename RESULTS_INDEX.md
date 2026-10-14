@@ -1,16 +1,18 @@
-## v0.5.5 confirmation seeds — admission blocked (October 14, 2026)
+## PR278 — v0.5.5 confirmation seeds (in progress, October 14, 2026)
 
-Owner [PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), draft.
-Branch `feature/hu200-v055-confirmation`, intended main source
-`db344c359523d72158f44330c1fc35dddf62322e`.
-[Report](docs/reports/hu200-v055-confirmation.md),
-[compact M4 admission receipt](docs/reports/hu200-v055-confirmation-artifacts/admission.json).
-Both seeds 2026101421/2026101422 are **unstarted**: 35.474 GiB free fails
-45 GiB admission; locks free, no campaign workers observed. No build/clock,
-checkpoints, exports, audits, server preparation, new research payloads or cloud
-archives. Archive/member hashes and restore commands are therefore unavailable;
-no upload acceptance is claimed. No research originals or synced files changed.
-Retain open #272 roots/dependencies. This is preflight evidence, not a 20B result.
+[PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), branch
+`feature/hu200-v055-confirmation`. [Report](docs/reports/hu200-v055-confirmation.md).
+M4 source `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`, ignored unsynced root
+`~/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation`.
+The initial 35.474-GiB admission block is preserved in the
+[original receipt](docs/reports/hu200-v055-confirmation-artifacts/admission.json).
+Owner-cleared storage passes [fresh admission](docs/reports/hu200-v055-confirmation-artifacts/readmission.json)
+at 49.235 GiB; first detached build starts the 12-hour clock at October 14
+15:57:16 UTC. Seed 2026101421 training; 2026101422 unstarted. No final exports,
+audits or server preparation yet. Archives, member hashes, restoration commands
+and native/independent upload acceptance remain outstanding; no cloud acceptance
+is claimed. Preserve this active root, resumable checkpoints and all K50 inputs.
+No changes to other open PR roots or synced files.
 
 ## M4 disk admission cleanup — October 14 evening
 
