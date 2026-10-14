@@ -77,7 +77,7 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    Full boot-time **memtest86+ remains the owner's job**. Additional selected
    pre-XMP patterns may run after the other mandatory checks if time remains.
 3. **Disk scratch fio complete:** all six timed cases and full 8 GiB CRC32C
-   verification pass; see below. Network, repository setup/tests, path-independent build,
+   verification pass; see below. Network complete (below); repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
    in that order. No dependent training has started.
 
@@ -106,6 +106,26 @@ establish sustained whole-drive write performance or a long endurance result.
 Scratch remains retained; no other disks were visible.
 [Detailed fio measurements](cygnus-x1-artifacts/disk-results.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/disk-temperatures.csv).
+
+## Tailscale network
+
+Single TCP stream per direction, sender bounded to 15 seconds; both ends count
+identical application bytes. Thirty ICMP probes per peer, separate from throughput.
+Both Tailscale paths are direct UDP, with the M4 using its LAN endpoint.
+No peer file, package, service or configuration change; one-shot in-memory
+listeners exited. These application rates are not an iperf3 result.
+
+| Peer | cygnus → peer Mbit/s | peer → cygnus Mbit/s | RTT min /mean /max ms | Loss |
+|---|---:|---:|---:|---:|
+| db-ocean | 92.50 | 90.22 | 14.354 /15.820 /19.094 | 0/30 |
+| M4 | 69.69 | 80.91 | 5.580 /7.745 /11.860 | 0/30 |
+
+AX201 Wi-Fi is the active cygnus uplink; Ethernet is down. M4's existing native
+trainer was active and untouched, so this is observed usable throughput, not
+idle-peer or wired-link capacity. Every client/latency guard passed; package
+temperature and sampled clocks/throttle counters accompany each measurement in
+the [network receipt](cygnus-x1-artifacts/network-results.json) and per-job thermal
+CSVs alongside it.
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables

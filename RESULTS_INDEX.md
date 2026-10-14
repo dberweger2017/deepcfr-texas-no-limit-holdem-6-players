@@ -13,6 +13,8 @@ No full-memory pass, trainer setup or correctness/throughput result yet.
 NVMe scratch fio and 8 GiB CRC32C verification complete without errors;
 [measurements/guard/raw-stream hash](docs/reports/cygnus-x1-artifacts/disk-results.json).
 The 8 GiB scratch file is retained on bb128 and excluded from coordinator copying.
+Tailscale TCP/latency checks complete to db-ocean and M4, with direct paths and
+zero packet loss; [measurements](docs/reports/cygnus-x1-artifacts/network-results.json).
 The locked 112 GiB three-hour screen ended at its accepted time cap: ten
 patterns completed per instance, zero observed errors, Block Sequential incomplete.
 [Actual outcomes](docs/reports/cygnus-x1-artifacts/memory-partial.json) and full

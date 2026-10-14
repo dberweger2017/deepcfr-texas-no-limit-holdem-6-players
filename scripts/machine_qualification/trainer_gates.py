@@ -17,9 +17,15 @@ pins = {'flop': '084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c11
 def digest(path):
     with path.open('rb') as f:
         return hashlib.file_digest(f, 'sha256').hexdigest()
+verified_tables = {}
 for street, expected in pins.items():
-    if digest(tables / f'{street}-k50.bin') != expected:
+    path = tables / f'{street}-k50.bin'
+    actual = digest(path)
+    if actual != expected:
         raise SystemExit(f'Invalid {street} table; refusing training')
+    verified_tables[street] = {'path': str(path), 'bytes': path.stat().st_size,
+                              'sha256': actual}
+(output / 'verified-tables.json').write_text(json.dumps(verified_tables, indent=2) + '\n')
 commands = []
 receipts = {}
 for name, nodes, parent in [('fresh20m', 20000000, None),
