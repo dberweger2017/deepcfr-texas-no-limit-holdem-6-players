@@ -2,10 +2,14 @@
 import json
 import os
 from pathlib import Path
+import resource
 import subprocess
 import time
 
 root = Path(os.environ['QUALIFICATION_ROOT'])
+soft, _ = resource.getrlimit(resource.RLIMIT_MEMLOCK)
+if soft != resource.RLIM_INFINITY and soft < 14336 * 1024**2:
+    raise SystemExit('Need the owner-run temporary memlock launcher; refusing allocation shrink')
 output = root / os.environ.get('QUALIFICATION_MEMORY_LABEL', 'memory-instances')
 output.mkdir(exist_ok=False)
 # 112 GiB total, leaving about 13.7 GiB for the OS, guard and owner session.

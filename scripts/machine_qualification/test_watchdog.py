@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+import signal
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -12,6 +13,10 @@ from scripts.machine_qualification import watchdog
 
 @unittest.skipUnless(Path('/proc/meminfo').exists(), 'Linux guard')
 class GuardTests(unittest.TestCase):
+    def setUp(self):
+        for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
+            self.addCleanup(signal.signal, number, signal.getsignal(number))
+
     def exercise(self, second, *, command=None, seconds=10):
         row = {'package_c': 40, 'available_bytes': 100 * 1024**3,
                'swap_used_bytes': 0}

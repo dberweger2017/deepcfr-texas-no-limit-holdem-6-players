@@ -1,3 +1,22 @@
+## PR283 cygnus-x1 hardware qualification — October 14, partial
+
+[PR283](https://github.com/dberweger2017/CFR-NLHE-6max/pull/283), open draft.
+[Report](docs/reports/cygnus-x1-qualification.md) ·
+[Inventory and raw-log hash](docs/reports/cygnus-x1-artifacts/inventory.json).
+Current-main inventory pin `b91a78d2d0893e80380bc3da9a24142e591fc04b`.
+Remote owned evidence root `bb128:/home/dberweger/cygnus-qualification-20261014/`;
+coordinator `~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
+Root inventory is complete. The unsupported NVMe self-test-log read and the
+36.65-second aborted memlock-limited memory attempt are preserved, including
+approximately 1.8 GiB of original per-instance allocation-shrink output.
+No full-memory pass, trainer setup or correctness/throughput result yet.
+Owner-run temporary-lock launcher is pending. No archive/upload acceptance,
+Drive locator or removal is claimed; all originals remain. Keep this open PR
+root and its dependencies intact. Required later inputs reference the merged
+[PR163 table restoration record](#pr163-full-deck-equity-buckets--october-5-closeout);
+none have been retrieved for this host yet. No campaigns, Slumbot, changes to
+other machines or cleanup.
+
 ## Another 30 GB on M4 — October 14
 
 Owner-requested cleanup exceeds the target with **32.500 GB**
