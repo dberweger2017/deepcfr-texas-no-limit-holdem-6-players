@@ -71,6 +71,14 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    Four Linux guard checks pass: simulated overheat, sensor disappearance,
    low available RAM and swap growth each terminate the child. Full boot-time
    **memtest86+ remains the owner's job**, regardless of userspace results.
+   Runtime correction: the observed solid-bits phase advances about once
+   every 36 seconds. Later memtester patterns contain 1,280 settings in
+   total on this 64-bit host, so the full pass is projected to need roughly
+   12–15 more hours from the 32-minute reading. This is an extrapolation,
+   not a measured completion time. The initial **three-hour cap remains
+   active** and is expected to yield a partial pass around **23:40 Madrid**.
+   A full-pass result cannot be claimed under that anticipated time stop.
+   [Pattern-loop source](https://sources.debian.org/src/memtester/4.7.1-1/tests.c/).
 3. Disk scratch fio, network, repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
    in that order. No dependent training has started.
