@@ -1,3 +1,16 @@
+## v0.5.5 confirmation seeds — admission blocked (October 14, 2026)
+
+Branch `feature/hu200-v055-confirmation`, intended main source
+`db344c359523d72158f44330c1fc35dddf62322e`.
+[Report](docs/reports/hu200-v055-confirmation.md),
+[compact M4 admission receipt](docs/reports/hu200-v055-confirmation-artifacts/admission.json).
+Both seeds 2026101421/2026101422 are **unstarted**: 35.474 GiB free fails
+45 GiB admission; locks free, no campaign workers observed. No build/clock,
+checkpoints, exports, audits, server preparation, new research payloads or cloud
+archives. Archive/member hashes and restore commands are therefore unavailable;
+no upload acceptance is claimed. No research originals or synced files changed.
+Retain open #272 roots/dependencies. This is preflight evidence, not a 20B result.
+
 ## Uploaded cache pass during HU100 work — October 14 afternoon
 
 Owner-requested cleanup releases **25.425 GB**: 56 M1 historical

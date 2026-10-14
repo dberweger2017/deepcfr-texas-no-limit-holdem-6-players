@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **v0.5.5 confirmation training admission (October 14, 17:30 CEST), blocked:** both M4 research locks are free and no campaign workers were found, but **35.474 GiB free** fails the owner-required **45 GiB** disk threshold. Seeds 2026101421/2026101422, detached build and 12-hour clock are unstarted; server preparation is unstarted. Open #272 evidence is untouched. [Admission report](docs/reports/hu200-v055-confirmation.md).
+
 - **v0.5.5 acceptance declared (October 14):** the owner approved the [protocol](docs/hu200-v055-acceptance-protocol.md) before the exploratory frozen 20B + translation Slumbot run reached 5,000 hands. Next: the 10,000-hand confirmation of seed 2026101302, then train seeds 2026101421 and 2026101422 on the M4 and confirm each. No release until all three pass and the owner gives the go.
 - **Uploaded cache pass (October 14 afternoon):** 25.425 GB released from 60 uploaded research caches and two inactive debug caches; M1 60.510 GB /M4 83.941 GB free. Active #272 roots and inputs are protected; no research originals removed. [Restoration receipt](docs/artifacts/storage-vacuum-20261014-afternoon.md).
 
