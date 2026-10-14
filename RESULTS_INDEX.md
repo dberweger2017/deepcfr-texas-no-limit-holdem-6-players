@@ -33,6 +33,22 @@ used by #271 remains. Measured post-removal M4 free space
 **65,799,921,664 bytes**; subsequent training writes consume part of it.
 No synced deletion, forced offloading or raw-evidence removal.
 
+## Uploaded cache pass during HU100 work — October 14 afternoon
+
+Owner-requested cleanup releases **25.425 GB**: 56 M1 historical
+payload caches, four M4 accepted PR270/271 archive caches and two inactive M1 Rust
+debug caches. M1 releases 3.574 GB; M4 21.851 GB.
+Verified free **M1 60.510 GB /M4 83.941 GB**.
+[All 60 same-file restoration links and exact build-cache provenance](docs/artifacts/storage-vacuum-20261014-afternoon.md),
+[accepted private receipt](https://drive.google.com/file/d/1KN0Puu2kDFcSgiec5cF5xazC6W46UTdb/view?usp=drivesdk) (ID `1KN0Puu2kDFcSgiec5cF5xazC6W46UTdb`, 361,557 bytes,
+SHA256 `45adea400fce865b7cfa46a252e93aaa4d046b4069f635a7e32fe56908b8553a`). Fresh merged-owner/native/independent cloud and
+dependency checks precede normal cache release; cloud identities and same-size
+placeholders remain. Historical loose-file ownership comes from exact inventory
+scope rows; uncertain scopes are retained. Active #272 and #260/#246/#163 inputs,
+HU200 averages/Slumbot dependencies and shared Git remain. No research originals
+removed or other agent's cleanup credited; no synced deletion, force offload,
+unpinning, download or repeated payload hashing.
+
 ## PR271 — frozen HU200 K50 action translation (October 14, 2026)
 
 [PR271](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/271), [report](docs/reports/hu200-k50-translation.md). **Final science; PR open for the owner’s merge decision; both archives accepted.** Source `fd44d53f22c4c795d2d725f94babc065bde14f90`, run `~/Local/hu200-k50-translation-20261014/results/hu200-k50-translation` on M4. Canonical run identity/plan SHA256 `6bafd8894609387d884eee285c5e3d0d479bfe5cfeeffa39f3599561e2b3f476`. Same frozen 20B average/tables/cache on/off, translation 512/128; 131,072 direct blocks and 16,384 paired blocks per seven scripts. All **720,896 final hands** independently replay and exactly reproduce before readout. Paired 1.5× pot gain **+181.88 [153.07,210.69] BB/100**, half-pot **+34.73 [20.74,48.72]**, five exact zero controls and direct **+0.51 [−4.15,5.18]**. Rule passes; pot pressure still beats translation **−60.95 [−86.51,−35.38]**. No training/release/default/merge or live confirmation.
