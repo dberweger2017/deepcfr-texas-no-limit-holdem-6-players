@@ -1,0 +1,14 @@
+{
+  "added_fields": [
+    "entries",
+    "iteration",
+    "source_checkpoint_sha256"
+  ],
+  "at": 1791966707.9401789,
+  "no_hands_before_correction": true,
+  "original_failure_preserved": true,
+  "original_inputs_sha256": "61eb4aec91b760d883866a38d8a8b2f0cfd2a2c2a35d84cb9fb25680d1402ceb",
+  "original_roots_unused": true,
+  "scientific_retries": 0,
+  "source": "9477419a0d33711c8156b9ecebfc8a16a1c1e580"
+}

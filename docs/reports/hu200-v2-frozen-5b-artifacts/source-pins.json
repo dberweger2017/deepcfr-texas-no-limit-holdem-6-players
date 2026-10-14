@@ -1,0 +1,16 @@
+{
+  "training_source": "bbfa6a1df1fc70f323b1335ccf2146804d0dcc30",
+  "evaluation_source": "c004f8235dfd7dee993d859b4a8ce48e915fb19d",
+  "native_main_base": "e2bcdc63",
+  "native_binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+  "unchanged_paths": [
+    "native/",
+    "src/game/",
+    "src/blueprint/",
+    "src/arena/registry.py",
+    "scripts/evaluate_hu100_direct.py",
+    "scripts/run_hu200_frozen_evaluation.py"
+  ],
+  "critical_source_diff_empty": true,
+  "amendment": "After native training, post the complete canonical JSON including cost-only pilot costs and SDs; includes the separately tested Slumbot loader fix. No scientific algorithm or evaluation-harness behavior changed."
+}

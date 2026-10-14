@@ -7,6 +7,7 @@ before each one after the first.
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import gzip
 import statistics
 from pathlib import Path
 import threading
@@ -19,7 +20,8 @@ from src.arena.external.http import AmbiguousRequest, HttpTransport, ServiceErro
 from src.arena.external.journal import PrefixJournal, verify_journal
 from src.arena.external.session import CheckCall, ending, hu200_average, play_hand, summarize, without_decisions
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection, settle, terminal_record, verify_terminal
-from src.blueprint.abstraction import HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA, HU200_SCHEMA, HU20_EQUITY_SCHEMA
+from src.blueprint.abstraction import (HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA,
+    HU200_SCHEMA, HU20_EQUITY_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA, HU200_MENU_V2_SCHEMA)
 from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.blueprint.solver import HU100_GAME, HU200_GAME
 from src.game.types import Action, ActionKind
@@ -132,23 +134,82 @@ def test_runs_keep_only_terminals_and_decision_counts():
 
 
 def test_k50_hu200_policies_are_admitted_and_k50_at_other_depths_are_not():
-    CONTRACT.admit(SimpleNamespace(game=HU200_GAME, abstraction=HU200_EQUITY_SCHEMA, players=2, raise_cap=None))
+    for schema in (HU200_EQUITY_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA, HU200_MENU_V2_SCHEMA):
+        CONTRACT.admit(SimpleNamespace(game=HU200_GAME, abstraction=schema, players=2, raise_cap=None))
     for game, schema in ((HU100_GAME, HU100_EQUITY_SCHEMA), (HU20_UNCAPPED_GAME, HU20_EQUITY_SCHEMA),
                          (HU200_GAME, HU100_EQUITY_SCHEMA), (HU200_GAME, HU100_SCHEMA)):
         with pytest.raises(ValueError):
             CONTRACT.admit(SimpleNamespace(game=game, abstraction=schema, players=2, raise_cap=None))
 
 
-def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch):
+def test_hu200_average_reads_k50_only_with_its_tables(monkeypatch, tmp_path):
     calls = []
     import src.blueprint.average as average
     monkeypatch.setattr(average, 'AveragePolicy', lambda *a, **k: calls.append((a, k)))
-    hu200_average('m.gz', 'sha')
-    hu200_average('m.gz', 'sha', Path('tables'))
-    assert calls == [(('m.gz', 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None,
+    path = tmp_path/'m.gz'
+    def write(schema):
+        with gzip.open(path,'wt') as stream:
+            stream.write(json.dumps({'checkpoint_header':{'abstraction':schema}})+'\n')
+    write(HU200_SCHEMA)
+    hu200_average(path, 'sha')
+    write(HU200_EQUITY_SCHEMA)
+    hu200_average(path, 'sha', Path('tables'))
+    assert calls == [((path, 'sha'), {'expected_schema': HU200_SCHEMA, 'sorted_rows': True, 'card_buckets': None,
                                         'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False}),
-                     (('m.gz', 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
+                     ((path, 'sha'), {'expected_schema': HU200_EQUITY_SCHEMA, 'sorted_rows': True,
                                         'card_buckets': Path('tables'), 'cache': None, 'missing_key_fallback': 'uniform', 'cache_read_only': False})]
+    write(HU200_EQUITY_MENU_V2_SCHEMA)
+    hu200_average(path,'sha',Path('tables'))
+    assert calls[-1][1]['expected_schema']==HU200_EQUITY_MENU_V2_SCHEMA
+    with pytest.raises(ValueError,match='schema'):
+        hu200_average(path,'sha')
+    write(HU100_EQUITY_SCHEMA)
+    with pytest.raises(ValueError,match='schema'):
+        hu200_average(path,'sha',Path('tables'))
+
+
+def test_real_menu_v2_hu200_load_cache_and_analysis(tmp_path, monkeypatch):
+    from src.blueprint import equity_buckets
+    from src.blueprint.equity_buckets import EquityCards
+    from src.arena.external.analysis import analyze
+    from tests.native_equity_tables import write_tables
+    from tests.test_hu200_evaluation import fixture_spec
+    from scripts.play_slumbot import load_player
+    from scripts import analyze_slumbot_run
+    # These are legal public scenes from a recorded, non-all-in hand. Analysis
+    # must query the model's v2 menu/key under its own K50 identity.
+    scenes=[(r['hole_cards'],r['board']) for r in LIVE[0] if len(r['board'])>=3]
+    tables=tmp_path/'tables'; tables.mkdir()
+    write_tables(tables,scenes)
+    cards=EquityCards(tables,pinned=False)
+    cards.directory=tables
+    monkeypatch.setattr(equity_buckets,'EQUITY_K50_SHA256',cards.sha256)
+    spec=fixture_spec(tmp_path/'model',HU200_EQUITY_MENU_V2_SCHEMA,cards=cards)
+    cache=tmp_path/'cache'
+    model=hu200_average(spec['path'],spec['sha256'],tables,cache)
+    CONTRACT.admit(model)
+    warmed=hu200_average(spec['path'],spec['sha256'],tables,cache,cache_read_only=True)
+    assert warmed.abstraction==model.abstraction==HU200_EQUITY_MENU_V2_SCHEMA
+    client_model, _, identity=load_player(SimpleNamespace(model=Path(spec['path']),
+        model_sha256=spec['sha256'],card_buckets=tables,policy_cache=cache,
+        missing_key_fallback='uniform',cache_read_only=True,seed=271))
+    assert client_model.abstraction==identity['abstraction']==HU200_EQUITY_MENU_V2_SCHEMA
+    replay=Replay([LIVE[0]])
+    journal=PrefixJournal(tmp_path/'journal.jsonl',{'fixture':True})
+    play_hand(SlumbotConnection(replay,model),replay,'h0',journal)
+    journal.close()
+    result=analyze(tmp_path/'journal.jsonl',model=warmed,workers=1)
+    assert result['hands']==1
+    assert sum(sum(row.values()) for row in result['coverage_by_street'].values())==result['decisions']
+    import sys
+    monkeypatch.setattr(sys,'argv',['analyze_slumbot_run',str(tmp_path),'--model',spec['path'],
+        '--model-sha256',spec['sha256'],'--card-buckets',str(tables),'--policy-cache',str(cache),
+        '--cache-read-only','--workers','1'])
+    analyze_slumbot_run.main()
+    analyzed=json.loads((tmp_path/'analysis.json').read_text())
+    assert analyzed['coverage_by_street']==result['coverage_by_street']
+    with pytest.raises(ValueError,match='hash'):
+        hu200_average(spec['path'],'f'*64,tables,cache)
 
 
 def test_login_sends_credentials_only_to_the_transport_and_fails_closed():

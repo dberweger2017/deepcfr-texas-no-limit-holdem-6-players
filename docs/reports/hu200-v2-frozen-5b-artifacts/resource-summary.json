@@ -1,0 +1,26 @@
+{
+  "samples": 1751,
+  "closed_streams": [
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/guards/operations/evaluation_stage/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/guards/operations/gates/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/guards/operations/prepare/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/guards/operations/exports/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/guards/operations/train/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/continuation-guards/operations/evaluation_stage/resources.jsonl",
+    "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/continuation-guards/operations/archive/resources.jsonl"
+  ],
+  "peak_family_rss_bytes": 11430494208,
+  "minimum_free_percent": 39,
+  "minimum_disk_free_bytes": 28814708736,
+  "maximum_swap_growth_bytes": 1336336712,
+  "pressure_levels": [
+    1,
+    2
+  ],
+  "critical_pressure_samples": 0,
+  "sampled_breaches": 0,
+  "sustained_resource_stops": 0,
+  "maximum_observed_gap_seconds": 5.060086957993917,
+  "original_swap_baseline_bytes": 966986301,
+  "note": "Initial evaluation worker stopped for pre-hand metadata admission, not a resource breach. All original and corrected streams retained."
+}

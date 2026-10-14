@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from typing import Protocol
 
 from src.blueprint.abstraction import (HU100_EQUITY_SCHEMA, HU100_SCHEMA, HU200_EQUITY_SCHEMA, HU200_SCHEMA,
+                                       HU200_MENU_V2_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA,
                                        HU20_UNCAPPED_SCHEMA)
 from src.blueprint.solver import HU100_GAME, HU200_GAME, HU20_UNCAPPED_GAME
 from src.game.observation import Observation
@@ -26,7 +27,8 @@ class GameContract:
         # with v1 or K50 cards.
         scripted = getattr(policy, 'scripted', False) is True
         expected = (self.stack, (None,)) if scripted else {
-            HU200_GAME: (20000, (HU200_SCHEMA, HU200_EQUITY_SCHEMA)),
+            HU200_GAME: (20000, (HU200_SCHEMA, HU200_EQUITY_SCHEMA,
+                                HU200_MENU_V2_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA)),
             HU100_GAME: (10000, (HU100_SCHEMA, HU100_EQUITY_SCHEMA)),
             HU20_UNCAPPED_GAME: (2000, (HU20_UNCAPPED_SCHEMA,))}.get(policy.game)
         if (expected is None or self.stack != expected[0]

@@ -1,0 +1,33 @@
+{
+  "actual_nodes": 5000000090,
+  "all_nodes_verified": 95707874,
+  "average_sha256": "ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3",
+  "checkpoint_sha256": "39355b6c8f2653b11a8db44c99b540e1ada60fde2b3cbd5d96c7cb706f2ace75",
+  "counts": {
+    "entries": 95707874,
+    "positive_mass": 71680253,
+    "zero_mass": 24027621
+  },
+  "current_sha256": "7077fdf83b4c674aea8b11fae5611984a4f6d7cd7d4fe24878cde6afd7d8f847",
+  "files": {
+    "average": {
+      "bytes": 2876030727,
+      "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/training/5000000000.average.gz",
+      "sha256": "ba4811a4e2bdb82fca382758a3713bca6701bfe2c13c661131abb3105e28b6b3"
+    },
+    "checkpoint": {
+      "bytes": 4435470459,
+      "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/training/5000000000.gz",
+      "sha256": "39355b6c8f2653b11a8db44c99b540e1ada60fde2b3cbd5d96c7cb706f2ace75"
+    },
+    "current": {
+      "bytes": 2517248308,
+      "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/training/5000000000.current.gz",
+      "sha256": "7077fdf83b4c674aea8b11fae5611984a4f6d7cd7d4fe24878cde6afd7d8f847"
+    }
+  },
+  "maximum_tv": 1.0000000000000002,
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "status": "verified",
+  "unweighted_mean_current_average_tv": 0.23763902511702328
+}
