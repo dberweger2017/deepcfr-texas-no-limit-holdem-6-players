@@ -1,3 +1,18 @@
+## Merged overnight storage pass — October 14, 2026
+
+Owner-requested cleanup released **62.996 GB**: eight confirmed
+uploaded archive caches and 17 unchanged merged originals (#248 M1 /#265 M4).
+M1 released 4.373 GB; M4 58.623 GB.
+Verified free **M1 59.304 GB /M4 83.146 GB**.
+[Every removed path/archive/member/hash and restoration command](docs/artifacts/storage-vacuum-20261014.md),
+[accepted private receipt](https://drive.google.com/file/d/1LYG6QcCFqP0d1gBEHIzbgJzlLnU3y4w4/view?usp=drivesdk) (ID `1LYG6QcCFqP0d1gBEHIzbgJzlLnU3y4w4`, 110,507 bytes,
+SHA256 `a479d640cd8061f076238e8f84695dcbb01c19bc4a95b48086eee6dbcc836f4b`). Current native/independent cloud acceptance,
+recorded path/size/modification history and dependency review precede retirement.
+All three HU200 averages, baselines/tables, prepared Slumbot inputs, unarchived
+policy caches and shared Git remain. Historical originals-retained statements
+are superseded only for these exact 17 paths. No synced deletion, forced offload,
+unpinning, archive download or repeated payload hashing.
+
 ## PR268 — HU200 K50 frozen-table playing comparison (October 14, 2026)
 
 [PR268](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/268), [report](docs/reports/hu200-frozen-evaluation.md), [protocol](docs/hu200-frozen-evaluation-protocol.md). **Final scientific result and accepted evidence.** M4 source `cc98b63858ed508ccff3491fc86c9e5f8bca87f6`, run `~/Local/hu200-frozen-evaluation-20261014/results/hu200-frozen-evaluation`. Fixed 262,144 primary /131,072 learning-curve blocks and 16,384 per seven scripts; no reduction. All **1,245,184 final hands** independently replay and exactly reproduce before readout. Final 20B minus 752M is **+76.95 [71.93,81.96] BB/100**; paired final-minus-5B performance against 752M **+0.09 [−8.36,8.54]** is inconclusive, not a direct duel. The fixed rule passes and recommends external confirmation. No new Slumbot hands, account creation, credentials, merge, release or default change.
@@ -31,19 +46,19 @@ The external confirmation is **prepared only** on db-ocean. Verified final model
 
 ## PR265 — exact HU200 K50 frozen continuation (October 13–14)
 
-[PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265), [report](docs/reports/hu200-k50-frozen.md). **Scientific result final; merge owner-authorized with full upload in progress.** M4 source `c53f7935ebbc45180e179e5a3aea74af48bff783`, run `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen`. Exact #250 20M recovery and 752M cap reproduction; frozen continuation reaches **20,000,002,032 nodes /16,670,844 iterations /85,373,907 unchanged keys**. Both 5B/final current and average exports pass every row. Playing evaluation is separate; no release/tag/default change. Scientific exports/audits finished within nine hours. M4 compute released October 14 **00:40:27 Madrid**. The owner authorized merge while the full ZIP is uploading; its upload acceptance remains pending and originals stay retained. No further cleanup is performed by this campaign.
+[PR265](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/265), [report](docs/reports/hu200-k50-frozen.md). **Scientific result final; PR merged and all three archives now accepted.** M4 source `c53f7935ebbc45180e179e5a3aea74af48bff783`, run `~/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen`. Exact #250 20M recovery and 752M cap reproduction; frozen continuation reaches **20,000,002,032 nodes /16,670,844 iterations /85,373,907 unchanged keys**. Both 5B/final current and average exports pass every row. Playing evaluation is separate; no release/tag/default change. Scientific exports/audits finished within nine hours. M4 compute released October 14 **00:40:27 Madrid**. The owner authorized merge while the full ZIP was uploading. Its upload is now accepted; [October 14 cleanup](docs/artifacts/storage-vacuum-20261014.md) retires only the listed unchanged originals while preserving both averages. No further cleanup is performed by this campaign.
 
 Destination `~/Local/Research-Cloud/PR-265-hu200-k50-frozen/`; [observed Drive folder](https://drive.google.com/drive/folders/1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK), ID `1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK`, independently confirmed parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
 
 | ZIP | Bytes | Whole SHA256 | ARCHIVE-MANIFEST.json SHA256 | Members | Cloud acceptance |
 |---|---:|---|---|---:|---|
-| `hu200-k50-frozen-full-M4-20261013.zip` | 26,698,069,587 | `5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f` | `26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce` | 98 | Pending; uploading1, uploaded0; file ID unknown |
+| `hu200-k50-frozen-full-M4-20261013.zip` | 26,698,069,587 | `5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f` | `26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce` | 98 | Accepted October 14 cleanup check; ID `1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI` |
 | [hu200-k50-frozen-averages-M4-20261013.zip](https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view?usp=drivesdk) | 5,921,067,848 | `fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943` | `d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5` | 2 | Accepted; ID `1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh` |
 | [hu200-k50-frozen-closeout-M4-20261014.zip](https://drive.google.com/file/d/1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf/view?usp=drivesdk) | 5,996,895 | `f3be634bb72b7bd1b1867e482f6adcf46be6a303d5fe58c1efc558d21fd607c0` | `2e797040d914d72a86a65b56748aa06746d66dc47f89d34da175665a9fa0fde5` | 27 | Accepted; ID `1WuM9CHSwQUcJCfwKpsc0es6HZBLzaWuf` |
 
-All members of each local ZIP passed complete size/SHA256 readback, followed by whole hashing. [Local receipts](docs/reports/hu200-k50-frozen-artifacts/archive-receipt.json), [average receipt](docs/reports/hu200-k50-frozen-artifacts/averages-receipt.json), [closeout receipt](docs/reports/hu200-k50-frozen-artifacts/closeout-receipt.json). Primary ZIP snapshots the closed scientific prefix; the closeout ZIP supplies every closed stage2/retention resource reading, completion/sealing receipts and the original failed optional plotting attempt. Scientific bytes passed on their first attempt. Models, tables and partial closeout evidence remain in this campaign's unsynced root; only earlier frozen checkpoints were removed after verified successors. No synced deletion or eviction.
+All members of each local ZIP passed complete size/SHA256 readback, followed by whole hashing. [Local receipts](docs/reports/hu200-k50-frozen-artifacts/archive-receipt.json), [average receipt](docs/reports/hu200-k50-frozen-artifacts/averages-receipt.json), [closeout receipt](docs/reports/hu200-k50-frozen-artifacts/closeout-receipt.json). Primary ZIP snapshots the closed scientific prefix; the closeout ZIP supplies every closed stage2/retention resource reading, completion/sealing receipts and the original failed optional plotting attempt. Scientific bytes passed on their first attempt. At campaign closeout models, tables and partial evidence remained; only earlier checkpoints had been removed after verified successors. The separate [October 14 storage pass](docs/artifacts/storage-vacuum-20261014.md) subsequently retired 11 exact archived originals and released accepted archive caches, preserving both averages and tables.
 
-[Native observation](docs/reports/hu200-k50-frozen-artifacts/native-upload-observation.json) records uploaded1/uploading0/conflicts0 for the averages and closeout ZIPs. [Independent metadata](docs/reports/hu200-k50-frozen-artifacts/cloud-upload-observation.json) confirms their exact IDs/names/sizes/direct parent. The full upload observation remains pending, not accepted. Null file IDs are unknown. **Remote archive bytes were not downloaded or verified.**
+[Native observation](docs/reports/hu200-k50-frozen-artifacts/native-upload-observation.json) records uploaded1/uploading0/conflicts0 for the averages and closeout ZIPs. [Independent metadata](docs/reports/hu200-k50-frozen-artifacts/cloud-upload-observation.json) confirms their exact IDs/names/sizes/direct parent. The original full-upload observation was pending. [Current cleanup acceptance](docs/artifacts/storage-vacuum-20261014.md) confirms the full ZIP uploaded with independent ID/name/size/parent acceptance. Null historical file IDs were unknown. **Remote archive bytes were not downloaded or verified.**
 
 Required model members (exact pins also in the [model index](docs/reports/hu200-k50-frozen-artifacts/model-index.json)):
 
@@ -86,7 +101,7 @@ with ZipFile(z) as archive:
 PY
 ```
 
-For the full ZIP use its filename/whole hash above and select the exact `research/…` model members from the table. For the closeout ZIP use its filename/whole hash and extract `research/stage2-resources.jsonl` and `research/retention-resources.jsonl`. The full ZIP awaits an accepted Drive file locator; retain its current M4 originals in the meantime.
+For the full ZIP use its filename/whole hash above and select the exact `research/…` model members from the table. For the closeout ZIP use its filename/whole hash and extract `research/stage2-resources.jsonl` and `research/retention-resources.jsonl`. The [accepted full ZIP](https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view?usp=drivesdk) is available with the pins above. Only the [11 exact October 14 M4 paths](docs/artifacts/storage-vacuum-20261014.md) were retired; both inference averages remain.
 
 
 ## PR265 M4 inactive-evidence cleanup — October 13, 2026
