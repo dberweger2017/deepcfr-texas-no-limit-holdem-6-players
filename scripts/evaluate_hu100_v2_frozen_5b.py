@@ -16,7 +16,7 @@ from scripts.archive_hu100_4b_seed_ladder import seal
 from scripts.reserve_match_roots import reserve
 from scripts.run_hu100_k50_v2 import header, pin
 from scripts.run_hu200_frozen_evaluation import estimate, series, gh, revision, read
-from scripts.train_hu100_v2_frozen_5b import BASE, BINARY, ROOT, TABLES, ENTRIES
+from scripts.train_hu100_v2_frozen_5b import BASE, BINARY, ROOT, TABLES, ENTRIES, is_campaign_process
 from src.blueprint.average import AveragePolicy
 from src.policies.files import file_hash
 
@@ -271,8 +271,7 @@ def run():
         own={psutil.Process().pid,*[p.pid for p in psutil.Process().parents()]}
         for p in psutil.process_iter(['pid','name','cmdline'],ad_value=None):
             if p.pid in own: continue
-            cmd=' '.join((p.info['cmdline'] or [])[1:])
-            if p.info['name']=='hu20-trainer' or any(x in cmd for x in ('scripts.run_hu','scripts.evaluate_hu','campaign.py')):
+            if is_campaign_process(p.info['name'],p.info['cmdline']):
                 raise ValueError('Another campaign is active: '+str(p.pid))
         for stage in ('prepare','evaluate','archive'):
             deadline=read(BASE/'budget.json')['deadline']-(0 if stage=='archive' else 1800)

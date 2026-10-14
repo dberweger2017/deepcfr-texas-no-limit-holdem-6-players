@@ -7,6 +7,16 @@ from scripts import evaluate_hu100_v2_frozen_5b as campaign
 from src.blueprint.abstraction import HU100_SCHEMA, HU100_MENU_V2_SCHEMA
 from src.blueprint.action_translation import TranslationOptions
 from tests.test_v2_consumers import synthetic, dev_source
+from scripts.train_hu100_v2_frozen_5b import is_campaign_process
+
+
+def test_idle_scan_distinguishes_observers_from_research_workers():
+    assert not is_campaign_process('Python',['python','planning/observe-campaign.py'])
+    assert not is_campaign_process('Python',['python','planning/evaluate-after-training.py'])
+    assert is_campaign_process('hu20-trainer',['hu20-trainer','train'])
+    assert is_campaign_process('Python',['python','-m','scripts.evaluate_hu100_direct'])
+    assert is_campaign_process('Python',['python','/tmp/project/scripts/train_hu100_v2_frozen_5b.py'])
+    assert is_campaign_process('Python',['python','/tmp/project/campaign.py'])
 
 
 def costs(fixed=0, block_work=1):

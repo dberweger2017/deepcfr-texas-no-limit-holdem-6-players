@@ -27,6 +27,19 @@ ENTRIES = 97_290_578
 SEED = 2026100601
 
 
+def is_campaign_process(name, cmdline):
+    if name == 'hu20-trainer':
+        return True
+    prefixes=('run_hu','train_hu','evaluate_hu','evaluate_native_hu','run_pot_pressure')
+    for argument in (cmdline or [])[1:]:
+        if argument.startswith(tuple('scripts.'+p for p in prefixes)):
+            return True
+        leaf=Path(argument).name
+        if leaf=='campaign.py' or leaf.startswith(prefixes):
+            return True
+    return False
+
+
 def read(path):
     return json.loads(path.read_text())
 
@@ -128,8 +141,7 @@ def run():
         own = {psutil.Process().pid,*[p.pid for p in psutil.Process().parents()]}
         for p in psutil.process_iter(['pid','name','cmdline'],ad_value=None):
             if p.pid in own: continue
-            cmd = ' '.join((p.info['cmdline'] or [])[1:])
-            if p.info['name']=='hu20-trainer' or any(x in cmd for x in ('scripts.run_hu','scripts.evaluate_hu','campaign.py')):
+            if is_campaign_process(p.info['name'],p.info['cmdline']):
                 raise ValueError('Other research process active: '+str(p.pid))
         started = time()
         put(BASE/'budget.json',dict(started=started,deadline=started+7*3600,
