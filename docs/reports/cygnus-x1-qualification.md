@@ -4,7 +4,8 @@
 Intel i7-10700KF, 128 GiB installed /125.71 GiB visible. Current-main source
 `b91a78d2d0893e80380bc3da9a24142e591fc04b`; isolated coordinator checkout and
 remote evidence root `/home/dberweger/cygnus-qualification-20261014`.
-[Measured inventory](cygnus-x1-artifacts/inventory.json).
+[Measured inventory](cygnus-x1-artifacts/inventory.json) ·
+[Predeclared qualification bounds](../cygnus-x1-qualification-protocol.md).
 
 The owner's October 14 brief authorizes hardware qualification, correctness
 reproduction and short trainer benchmarks, with no campaigns, Slumbot or
@@ -53,7 +54,11 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    page at a time. Sampled family RSS was only **24.20 MiB**; no requested-RAM
    pass occurred. No memory error was observed. The same owner-reviewed
    root script now has a temporary-lock-limit launcher: it drops root before
-   running eight 14 GiB instances /112 GiB total. This launch is pending.
+   running eight 14 GiB instances /112 GiB total. All eight now have the full
+   allocation locked; the full pattern pass is running. At 263.7 seconds,
+   sampled family RSS is 112.025 GiB, available RAM stays above 11.667 GiB,
+   maximum package temperature is 64 °C, swap growth and throttle counters
+   remain zero. These are preliminary readings, not a completed pass.
    Three Linux guard checks pass: simulated overheat, sensor disappearance
    and low available RAM each terminate the child. Full boot-time
    **memtest86+ remains the owner's job**, regardless of userspace results.

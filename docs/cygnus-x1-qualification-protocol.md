@@ -3,8 +3,7 @@
 Owner-authorized October 14 hardware and runtime qualification, **not a training
 campaign**. Test the machine in the requested order; report and investigate any
 failed command/gate before dependent work. No Slumbot, driver install or changes
-to other machines. Owner later authorized root execution of the reviewed script;
-credentials and authentication details are excluded from evidence.
+to other machines. Root steps remain in one reviewable script.
 
 All CPU-heavy jobs on cygnus-x1 run under its local two-second coretemp package
 watchdog, detached from SSH, with eight physical cores available (CPU0–7).
