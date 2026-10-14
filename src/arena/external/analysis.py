@@ -90,8 +90,11 @@ def response(selected: str, view) -> str:
     return 'all-in' if int(selected[1:]) == view.legal_actions.max_raise_to else 'raise'
 
 
-def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None) -> dict:
-    """One journal, or several runs of the same player pooled, each verified on its own."""
+def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None, hands: int | None = None) -> dict:
+    """One journal, or several runs of the same player pooled, each verified on its own.
+
+    `hands` keeps only the first that many hands in play order, with the decisions before them.
+    """
     if model is not None and missing_key_fallback is not None and missing_key_fallback != model.missing_key_fallback:
         raise ValueError('Model fallback differs from analysis option')
     journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
@@ -100,9 +103,13 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
     translated = Counter()
     lookup_times = []
     for path in journals:
+        if hands is not None and len(terminals) == hands:
+            break
         checked.append(verify_journal(path))
         part = []
         for line in path.open():
+            if hands is not None and len(terminals) + len(part) == hands:
+                break
             payload = json.loads(line)['payload']
             if 'identity' in payload:
                 identity = payload['identity']; identities.append(identity)
@@ -122,6 +129,9 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None)
                 failures[payload['failure']] += 1
         terminals += part
         parts.append({'journal': str(path), 'hands': len(part), 'bb_per_100': interval([t['winnings'] for t in part])})
+
+    if hands is not None and len(terminals) < hands:
+        raise ValueError(f'Only {len(terminals)} hands, fewer than the {hands} requested')
 
     # All-in equity, exact; preflop runouts are many, so hands run in parallel.
     jobs = []
