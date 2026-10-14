@@ -357,6 +357,17 @@ Canonical #250 K50 input was used **read only**, not copied: `~/Local/slumbot-k5
 
 Restoration: download archive ID `15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE` to a **new ignored nonsynced path**, check `shasum -a 256 ARCHIVE.zip` against the whole hash above, then extract with `python -m zipfile -e ARCHIVE.zip NEW_RESTORE_ROOT`. Check `ARCHIVE-MANIFEST.json` SHA256 above and each required member's recorded byte count/SHA256 before use. Tiny fixtures are `evidence/hu200-{left,right}/average.gz`; HU100 fixtures are `evidence/hu100-fixtures/{training,average}.gz`, with exact sizes/hashes in the manifest. Real averages/tables restore through PR250/PR163 rather than this evidence ZIP. Restoring evidence does not authorize a campaign. No local deletion, cache eviction or synced-folder cleanup.
 
+## PR276/PR277 Slumbot: frozen 20B, translation and earlier models — October 14, 2026
+
+[PR276](https://github.com/dberweger2017/CFR-NLHE-6max/pull/276) ([report](docs/reports/slumbot-frozen-20b-comparison.md)): first 5,000 hands, frozen 20B **−47 ± 49 BB/100**, K50 752M −75 ± 57, 200M −172 ± 72, random −297 ± 87; first 10,000, frozen 20B **−52 ± 36** and K50 752M −77 ± 42. [PR277](https://github.com/dberweger2017/CFR-NLHE-6max/pull/277) ([report](docs/reports/slumbot-translation-comparison.md)): frozen 20B with #271's translation **+33 ± 46** over exactly 5,000 hands, +80 [+13, +147] above the same model without it.
+
+Archive `~/Local/Research-Cloud/PR-276-277-slumbot-frozen-20b-comparison/slumbot-frozen-20b-comparison-20261014.zip`, **26,922,026 bytes**, SHA256 `88fc2024f2098887a5e59aaebcdebd9051abd60fa9688e5ba1359de1b6afbf32`; embedded `ARCHIVE-MANIFEST.json` SHA256 `9a9c317a02907d1fb757f18d07282fdf67e07fbdbfa6d64ce5b4eabfc7e572a7`. Every member was read back against the manifest, and every journal's hash chain verified, before copying:
+- `research/k50-752m/`: `k50-752m-20261013-1132/journal.jsonl` (588 hands) and `k50-752m-20261013-1218/journal.jsonl` (53,863 hands, 373,796,261 bytes).
+- `research/frozen-20b/`: `hu200-k50-frozen-20b-20261014-080337/journal.jsonl` (490 hands) and a complete-row snapshot of the live `hu200-k50-frozen-20b-20261014-115437/journal.jsonl` (9,568 hands); the run continues to 50,000 on the Linux server.
+- `research/frozen-20b-translation/`: `5000-hands-seed-20261014027101/` (4,971 hands) and `29-hands-seed-20261014027102/` (29), each `journal.jsonl` and `summary.json`.
+
+Random and 200M journals are in PR264's archive. Analyses and profiles are committed beside both reports. Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr276` and check the manifest; reproduce with `scripts.analyze_slumbot_run --hands N`, `scripts.plot_slumbot_runs --hands N` and `scripts.profile_slumbot_runs --hands N`. Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Local originals stay in `~/Local/slumbot-k50-20261013/accounts/` and on the Linux server.
+
 ## PR264 Slumbot comparison on dedicated accounts — October 13, 2026
 
 [PR264](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/264): 5,000 hands each against Slumbot: #248's 200M HU200 model on `deepcfr-v1-200m` **−172 ± 72 BB/100**, the random-legal floor on `dberwegerch` **−297 ± 87**, beside #261's K50 752M (−81 ± 56). [Report](docs/reports/slumbot-account-benchmarks.md).
