@@ -29,8 +29,7 @@ DMI reports 800 MT/s for each DIMM and a 64 GB array maximum despite the
 XMP**. This run is the **pre-XMP baseline**; DMI’s 800 MT/s field is not
 accepted as a measurement of effective DRAM speed. The owner plans to enable
 XMP and connect the remaining storage for a **separate follow-up PR**, with
-a **full XMP-enabled RAM pass on October 15** and fresh inventory/storage tests. No XMP change or repeat run belongs
-to this qualification.
+a **full XMP-enabled RAM pass on October 15** and fresh inventory/storage tests. No XMP change belongs to this qualification.
 
 Linux exposes PL1 **125 W /55.967744 s**, PL2 **250 W /0.002440 s**;
 `intel_pstate`, powersave governor, turbo enabled. These are exposed settings,
@@ -56,36 +55,27 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
 ## Qualification progress and failures
 
 1. Inventory complete with the self-test-log limitation above.
-2. Memory: first userspace attempt stopped after **36.65 s** because the
-   8 MiB memlock allowance made memtester shrink each 14 GiB request one
-   page at a time. Sampled family RSS was only **24.20 MiB**; no requested-RAM
-   pass occurred. No memory error was observed. The same owner-reviewed
-   root script now has a temporary-lock-limit launcher: it drops root before
-   running eight 14 GiB instances /112 GiB total. All eight now have the full
-   allocation locked; the bounded pattern screen is running. At **3,233.7 seconds**,
-   all eight instances have passed ten patterns: address, random value,
-   XOR/subtraction/multiplication/division/OR/AND, sequential increment and
-   **Solid Bits**,
-   with zero observed errors. Package temperature is **63 °C**,
-   peak **81 °C**; sampled family RSS peaks at 112.025 GiB, available RAM
-   stays above 11.626 GiB, swap growth and throttle counters remain zero.
-   [Interim receipt](cygnus-x1-artifacts/memory-progress.json). These are
-   preliminary readings, not a completed pass.
-   Five Linux guard checks pass: simulated overheat, sensor disappearance,
-   low available RAM, swap growth and the absolute deadline each terminate
-   the child. Full boot-time
-   **memtest86+ remains the owner's job**, regardless of userspace results.
-   Runtime correction: the observed solid-bits phase advances about once
-   every 36 seconds. Later memtester patterns contain 1,280 settings in
-   total on this 64-bit host, so the full pass is projected to need roughly
-   12–15 more hours from the 32-minute reading. This is an extrapolation,
-   not a measured completion time. The initial **three-hour cap remains
-   active** and is expected to yield a partial pass around **23:40 Madrid**.
-   The owner chose to **keep this three-hour partial screen**, then continue
-   the remaining diagnostics. A full-pass result cannot be claimed under
-   that anticipated time stop. The expected diagnostic finish is about
-   **00:45–02:00 Madrid October 15**, subject to setup/test failures.
-   [Pattern-loop source](https://sources.debian.org/src/memtester/4.7.1-1/tests.c/).
+2. **RAM screen complete, partial coverage:** eight locked 14 GiB instances
+   /112 GiB ran for **10,800.80 s** (18:40:30–21:40:31 UTC). Every instance
+   completed ten patterns: Stuck Address, Random Value, XOR/SUB/MUL/DIV/OR/AND,
+   Sequential Increment and Solid Bits. **Zero observed errors per instance
+   (0–7)**. Block Sequential stopped at settings 215–217 of 256; later patterns
+   were not reached. This is not a full pass or final RAM qualification.
+   The raw guard receipt says `failed /wall-time budget exceeded /exit -15`;
+   that is the accepted three-hour budget stop, not a detected hardware error.
+   The group was sent SIGTERM; individual child wait statuses were not recorded
+   because the parent terminated with them. No memtester processes remained.
+   Package temperature **47–81 °C, median 63 °C**; all-logical-CPU sampled
+   clock min/median/max **800/4,700/4,942 MHz**, including idle siblings.
+   Peak sampled family RSS **112.025 GiB**, minimum available **11.554 GiB**;
+   **zero swap growth and throttle-counter change**. All 5,367 samples are
+   retained; maximum sample gap **2.106 s**.
+   [Per-instance outcomes and original guard receipt](cygnus-x1-artifacts/memory-partial.json) ·
+   [Full thermal/clock CSV](cygnus-x1-artifacts/memory-locked-temperatures.csv) ·
+   [Resource summary and raw-stream hash](cygnus-x1-artifacts/memory-resource-summary.json).
+   Five Linux watchdog stop tests pass, including the absolute cutoff.
+   Full boot-time **memtest86+ remains the owner's job**. Additional selected
+   pre-XMP patterns may run after the other mandatory checks if time remains.
 3. Disk scratch fio, network, repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
    in that order. No dependent training has started.

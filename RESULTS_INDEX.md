@@ -10,7 +10,10 @@ Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
 No full-memory pass, trainer setup or correctness/throughput result yet.
-The full locked 112 GiB pass is now running. No archive/upload acceptance,
+The locked 112 GiB three-hour screen ended at its accepted time cap: ten
+patterns completed per instance, zero observed errors, Block Sequential incomplete.
+[Actual outcomes](docs/reports/cygnus-x1-artifacts/memory-partial.json) and full
+thermal CSV are retained; raw guard status remains failed/time-budget/-15. No archive/upload acceptance,
 Drive locator or removal is claimed; all originals remain. Keep this open PR
 root and its dependencies intact. Required later inputs reference the merged
 [PR163 table restoration record](#pr163-full-deck-equity-buckets--october-5-closeout);
