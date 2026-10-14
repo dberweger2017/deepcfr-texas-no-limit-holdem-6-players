@@ -1,0 +1,45 @@
+{
+  "admission_probes": 3,
+  "max_sample_gap_seconds": 5.087528944015503,
+  "maximum_swap_growth_bytes": 0,
+  "minimum_disk_free_bytes": 29015556096,
+  "minimum_free_percent": 74,
+  "observation_gap_resets": 0,
+  "peak_family_rss_bytes": 7749517312,
+  "pressure_levels": {
+    "1": 440
+  },
+  "readings_with_breach_timers": 0,
+  "samples": 437,
+  "stages": {
+    "archive": {
+      "failure": null,
+      "finished": 1791975231.403597,
+      "peak_family_rss_bytes": 61325312,
+      "samples": 2,
+      "seconds": 5.142765045166016,
+      "started": 1791975226.260832,
+      "status": "complete"
+    },
+    "recount": {
+      "failure": null,
+      "finished": 1791975437.057172,
+      "peak_family_rss_bytes": 480493568,
+      "samples": 6,
+      "seconds": 25.295276165008545,
+      "started": 1791975411.761896,
+      "status": "complete"
+    },
+    "science": {
+      "failure": null,
+      "finished": 1791975226.258143,
+      "peak_family_rss_bytes": 7749517312,
+      "samples": 429,
+      "seconds": 2155.916400909424,
+      "started": 1791973070.341742,
+      "status": "complete"
+    }
+  },
+  "stops": [],
+  "swap_baseline_bytes": 1012725186
+}

@@ -1,0 +1,20 @@
+{
+  "status": "accepted",
+  "archive": {
+    "id": "1k3lH3i0uwyOIXx4ySdZdMkYvzJLrXkeU",
+    "name": "hu200-k50-translation-M4-20261014.zip",
+    "bytes": 552632844,
+    "parent_ids": [
+      "1eqXwISuoMNctkGGt-xY3IIM_2Bxzaezf"
+    ]
+  },
+  "folder": {
+    "id": "1eqXwISuoMNctkGGt-xY3IIM_2Bxzaezf",
+    "name": "PR-271-hu200-k50-translation",
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ]
+  },
+  "method": "Independent connector files.get archive/folder and direct folder listing agree with native acceptance",
+  "remote_archive_bytes_downloaded": false
+}

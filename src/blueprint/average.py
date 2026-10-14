@@ -174,9 +174,16 @@ class AveragePolicy(FrozenBlueprint):
     def configure_translation(self, options: TranslationOptions | None):
         """Explicit research option; model bytes and release defaults stay unchanged."""
         if options is not None and (not isinstance(options, TranslationOptions)
-                                    or self.abstraction not in (HU100_SCHEMA, HU200_SCHEMA)
-                                    or self.game != {HU100_SCHEMA: HU100_GAME, HU200_SCHEMA: HU200_GAME}.get(self.abstraction)):
+                                    or self.abstraction not in (HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA)
+                                    or self.game != {HU100_SCHEMA: HU100_GAME, HU200_SCHEMA: HU200_GAME,
+                                                     HU100_EQUITY_SCHEMA: HU100_GAME, HU200_EQUITY_SCHEMA: HU200_GAME}.get(self.abstraction)):
             raise ValueError("Action translation requires matching HU100/HU200 game and validated options")
+        if options is not None and self.abstraction in (HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA):
+            from src.blueprint.equity_buckets import EQUITY_K50_SHA256
+            cards = getattr(self, "equity_cards", None)
+            if (cards is None or cards.sha256 != EQUITY_K50_SHA256
+                    or cards.sha256 != self.identity.get("card_tables")):
+                raise ValueError("K50 translation table identity differs from the policy")
         self.translation = options
         if options is not None:
             self.description['action_translation'] = {'version': version_for_schema(self.abstraction), **asdict(options)}
@@ -197,7 +204,8 @@ class AveragePolicy(FrozenBlueprint):
                 'distance': 0., 'all_in_changes': 0, 'states': 0, 'bound_reached': False,
                 'overrides': (), 'witness_raise_to': ()}
         if not known and self.translation is not None:
-            result = translate(view, menu, self.entries, self.zero_mass, self.translation, schema=self.abstraction)
+            result = translate(view, menu, self.entries, self.zero_mass, self.translation, schema=self.abstraction,
+                               equity_cards=getattr(self, "equity_cards", None))
             info.update(asdict(result)); info.pop('key')
             if result.key is not None:
                 saved = self.entries[result.key]

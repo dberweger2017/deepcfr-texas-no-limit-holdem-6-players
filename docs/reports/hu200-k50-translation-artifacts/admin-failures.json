@@ -1,0 +1,27 @@
+{
+  "scope": "Before scientific admission; no final or pilot hands replaced",
+  "failures": [
+    {
+      "action": "Initial M4 checkout fetch",
+      "error": "fatal: invalid reference: origin/feature/hu200-k50-translation",
+      "resolution": "Explicit remote destination refspec, then isolated worktree; completed before pilot"
+    },
+    {
+      "action": "Main identity worktree command",
+      "error": "Rejected: failed to create process, workdir did not exist",
+      "resolution": "Create worktree from existing branch directory before selecting it"
+    },
+    {
+      "action": "Development regression runs",
+      "errors": [
+        "Default loader keyword assertion needed translation=None",
+        "Synthetic witness fixture used nonexistent menu label raise-pot",
+        "Guard edit had unmatched parenthesis",
+        "Replay tuple/list normalization differed",
+        "Slumbot verifier initially admitted only fallback telemetry"
+      ],
+      "resolution": "Corrected before scientific source fd44d53f; 107 focused tests and 17 M4 new-feature tests pass"
+    }
+  ],
+  "scientific_retries": 0
+}

@@ -24,7 +24,7 @@ class CheckCall:
         return Action(ActionKind.CHECK if ActionKind.CHECK in kinds else ActionKind.CALL)
 
 
-def hu200_average(path, sha256: str, card_buckets=None, cache=None, *, missing_key_fallback="uniform", cache_read_only=False):
+def hu200_average(path, sha256: str, card_buckets=None, cache=None, *, missing_key_fallback="uniform", cache_read_only=False, translation=None):
     """Load either HU200 menu with its own schema and pinned card tables."""
     from gzip import open as gzip_open
     import json
@@ -42,7 +42,7 @@ def hu200_average(path, sha256: str, card_buckets=None, cache=None, *, missing_k
     # Native exports are written in key order; the sorted reader checks that as it loads.
     return AveragePolicy(path, sha256, expected_schema=schema,
                          sorted_rows=True, card_buckets=card_buckets, cache=cache,
-                         missing_key_fallback=missing_key_fallback, cache_read_only=cache_read_only)
+                         missing_key_fallback=missing_key_fallback, cache_read_only=cache_read_only, translation=translation)
 
 
 class RandomLegal:
@@ -81,6 +81,8 @@ def play_hand(connection, player, hand_id: str, journal) -> Hand:
             info = player.last_decision[3]
             record['policy_telemetry'] = {k: info[k] for k in ('reason', 'missing_key_fallback', 'fallback_applied')}
             record['policy_telemetry']['street'] = view.street.value
+        if getattr(getattr(player, 'blueprint', None), 'translation', None) is not None:
+            record['policy_telemetry'] = dict(player.last_decision[3], street=view.street.value)
         journal.append(record)
         decisions.append(record)
         response = connection.request('act', record['selected'])

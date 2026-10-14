@@ -1,0 +1,14 @@
+{
+  "status": "accepted",
+  "archive": {
+    "id": "1Epue4rtQGTLTx57iTlkgXIk4fEkU_LLq",
+    "name": "hu200-k50-translation-closeout-M4-20261014.zip",
+    "bytes": 85014,
+    "parent_ids": [
+      "1eqXwISuoMNctkGGt-xY3IIM_2Bxzaezf"
+    ]
+  },
+  "folder_id": "1eqXwISuoMNctkGGt-xY3IIM_2Bxzaezf",
+  "method": "Independent connector files.get and direct folder listing agree with native acceptance",
+  "remote_archive_bytes_downloaded": false
+}

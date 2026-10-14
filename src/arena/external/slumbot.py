@@ -8,6 +8,7 @@ from the public actions and both hands and must equal the reported winnings.
 
 from dataclasses import asdict, dataclass
 import re
+from math import isfinite
 
 from src.arena.external.http import AmbiguousRequest, ServiceError
 from src.arena.external.interface import GameContract, JsonTransport
@@ -278,7 +279,9 @@ def verify_record(record):
         raise ValueError('External replay record differs')
     if 'policy_telemetry' in record:
         info = record['policy_telemetry']
-        if (set(info) != {'reason', 'missing_key_fallback', 'fallback_applied', 'street'}
+        if 'mode' in info:
+            verify_translation_telemetry(info,view,selected)
+        elif (set(info) != {'reason', 'missing_key_fallback', 'fallback_applied', 'street'}
                 or info['missing_key_fallback'] != 'check-call'
                 or info['reason'] not in ('missing-key', 'zero-mass', 'positive-mass')
                 or type(info['fallback_applied']) is not bool
@@ -287,3 +290,33 @@ def verify_record(record):
                 or (info['fallback_applied'] and selected != ('k' if ActionKind.CHECK in view.legal_actions.kinds else 'c'))):
             raise ValueError('External fallback telemetry differs')
     return view
+
+
+def verify_translation_telemetry(info, view, selected):
+    """Structural journal checks; model-owned keys/witnesses verify during analysis."""
+    fields={'mode','reason','exact_key','selected_key','distance','all_in_changes','states',
+            'bound_reached','overrides','witness_raise_to','lookup_seconds','street'}
+    optional={'missing_key_fallback','fallback_applied'}
+    if set(info) not in (fields,fields|optional):
+        raise ValueError('External translation telemetry fields differ')
+    mode=info['mode'];reason=info['reason'];key=info['selected_key']
+    if (mode not in ('exact','translated','uniform') or info['street']!=view.street.value
+            or not re.fullmatch('[0-9a-f]{32}',info['exact_key'])
+            or key is not None and not re.fullmatch('[0-9a-f]{32}',key)
+            or type(info['states']) is not int or not 0<=info['states']<=4096
+            or type(info['all_in_changes']) is not int or info['all_in_changes']<0
+            or type(info['bound_reached']) is not bool
+            or any(type(info[k]) not in (int,float) or not isfinite(info[k]) or info[k]<0
+                   for k in ('distance','lookup_seconds'))
+            or mode=='exact' and (reason!='positive-mass' or key!=info['exact_key'])
+            or mode=='translated' and (reason!='positive-mass-witness' or key is None)
+            or mode=='uniform' and reason not in ('missing-key','zero-mass')
+            or reason=='missing-key' and key is not None
+            or reason=='zero-mass' and key!=info['exact_key']):
+        raise ValueError('External translation telemetry differs')
+    if 'fallback_applied' in info:
+        applied=key is None
+        if (info['missing_key_fallback']!='check-call' or type(info['fallback_applied']) is not bool
+                or info['fallback_applied']!=applied
+                or applied and selected!=('k' if ActionKind.CHECK in view.legal_actions.kinds else 'c')):
+            raise ValueError('External fallback telemetry differs')

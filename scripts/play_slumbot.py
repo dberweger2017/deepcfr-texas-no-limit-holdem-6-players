@@ -34,6 +34,8 @@ from src.arena.external.session import (CheckCall, RandomLegal, hu200_average, p
                                         without_decisions)
 from src.arena.external.slumbot import CONTRACT, SlumbotConnection
 
+from src.blueprint.translation_cli import add_translation_options, translation_options
+
 SERVICE = 'https://slumbot.com'
 ENV_FILE = Path(__file__).resolve().parents[1] / '.env'
 CREDENTIALS = ('SLUMBOT_USERNAME', 'SLUMBOT_PASSWORD')
@@ -52,14 +54,18 @@ def read_env(path: Path) -> dict:
 
 
 def load_player(args):
+    translation = translation_options(args)
+    if translation is not None and args.model is None:
+        raise ValueError('--action-translation needs --model')
     if args.model is None:
         player = RandomLegal(args.seed) if args.player == 'random' else CheckCall()
         return player, player, {'player': player.name, **({'policy_seed': args.seed} if args.player == 'random' else {})}
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
-                          missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only)
+                          missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only, translation=translation)
     return model, model.policy(args.seed), {'player': 'hu200-average', 'model_sha256': args.model_sha256,
                                             'model_bytes': args.model.stat().st_size, 'policy_seed': args.seed,
                                             'abstraction': model.abstraction, 'description': model.description,
+                                            **({'action_translation': model.description['action_translation']} if translation is not None else {}),
                                             **({'missing_key_fallback': args.missing_key_fallback} if args.missing_key_fallback != 'uniform' else {})}
 
 
@@ -103,7 +109,14 @@ def main():
                         help='hands given up after Slumbot refused a request before the run stops')
     parser.add_argument('--login', action='store_true')
     parser.add_argument('--account', help='with --login: the only Slumbot username this run may use')
+    add_translation_options(parser)
     args = parser.parse_args()
+    try:
+        translation = translation_options(args)
+    except ValueError as error:
+        parser.error(str(error))
+    if translation is not None and args.model is None:
+        parser.error('--action-translation needs --model')
     if args.hands < 1 or (args.model is None) != (args.model_sha256 is None):
         parser.error('Give a positive --hands, and --model together with --model-sha256')
     if args.account is not None and not args.login:

@@ -1,0 +1,58 @@
+{
+  "account_created": false,
+  "api_requests": 0,
+  "average_bytes": 3164563975,
+  "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+  "cache_read_only": true,
+  "credentials_accessed": false,
+  "description": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "action_translation": {
+      "max_events": 128,
+      "max_states": 512,
+      "version": "hu200-public-menu-translation-equity-k50-v1"
+    },
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 85373907,
+    "iteration": 16670844,
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026101302,
+    "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "zero_mass_entries": 19013067
+  },
+  "hands_played": 0,
+  "load_seconds": 18.501627787947655,
+  "memory_info": "MemTotal:       16380168 kB\nMemFree:          171448 kB\nMemAvailable:    7927712 kB\nBuffers:          220936 kB\nCached:          7809656 kB\nSwapCached:       295772 kB\nActive:          7369500 kB\nInactive:        7750276 kB\nActive(anon):    5076120 kB\nInactive(anon):  2417556 kB\nActive(file):    2293380 kB\nInactive(file):  5332720 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       4194300 kB\nSwapFree:            144 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               428 kB\nWriteback:             0 kB\nAnonPages:       6798260 kB\nMapped:          2247628 kB\nShmem:            404848 kB\nKReclaimable:     467916 kB\nSlab:             733124 kB\nSReclaimable:     467916 kB\nSUnreclaim:       265208 kB\nKernelStack:       46604 kB\nPageTables:       190512 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    12384384 kB\nCommitted_AS:   35663332 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:       70212 kB\nVmallocChunk:          0 kB\nPercpu:            12320 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   2377728 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      296812 kB\nDirectMap2M:    15431680 kB\nDirectMap1G:     3145728 kB\n",
+  "memory_pressure": "some avg10=1.78 avg60=0.75 avg300=0.18 total=5465577558\nfull avg10=1.75 avg60=0.72 avg300=0.17 total=5162162423\n",
+  "peak_process_rss_bytes": 302944256,
+  "probe_lookup_seconds": 0.0027401885017752647,
+  "probe_telemetry": {
+    "all_in_changes": 0,
+    "bound_reached": false,
+    "distance": 0.14423076923076922,
+    "exact_key": "b45ab6eb8bb84f034ede8aa614833945",
+    "lookup_seconds": 0.0027335695922374725,
+    "mode": "translated",
+    "overrides": [
+      [
+        4,
+        "raise-2"
+      ]
+    ],
+    "reason": "positive-mass-witness",
+    "selected_key": "d200fb761cd1ad567c03c3d9d38b836e",
+    "states": 2,
+    "witness_raise_to": [
+      300
+    ]
+  },
+  "source": "fd44d53f22c4c795d2d725f94babc065bde14f90",
+  "status": "verified"
+}

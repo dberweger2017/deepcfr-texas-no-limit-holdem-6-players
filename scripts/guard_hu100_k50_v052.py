@@ -110,6 +110,7 @@ def guard(base: Path, name: str, command: list[str], *, sample_seconds=1, deadli
     folder.mkdir(parents=True, exist_ok=False)
     known = {}; since = {}; child = None; failure = None; peak = 0; count = 0
     started = time()
+    previous_sample = None
     def interrupted(signum, frame):
         raise RuntimeError('Supervisor interrupted')
     handlers = {s:signal.signal(s, interrupted) for s in (signal.SIGTERM, signal.SIGINT)}
@@ -117,6 +118,7 @@ def guard(base: Path, name: str, command: list[str], *, sample_seconds=1, deadli
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         try:
             first = host(base)
+            put(folder/'admission-sample.json', first)
             if not (base/'baseline.json').exists():
                 put(base/'baseline.json', first)
             baseline = json.loads((base/'baseline.json').read_text())['swap_bytes']
@@ -141,11 +143,15 @@ def guard(base: Path, name: str, command: list[str], *, sample_seconds=1, deadli
                             rss += process.memory_info().rss
                         except (psutil.NoSuchProcess, psutil.ZombieProcess):
                             pass
-                    now = time(); reason = sustained(sample,rss,baseline,now,since)
+                    now = time()
+                    gap_reset = previous_sample is not None and now-previous_sample > max(10, 2*sample_seconds)
+                    if gap_reset: since.clear()
+                    previous_sample = now
+                    reason = sustained(sample,rss,baseline,now,since)
                     if deadline is not None and now >= deadline:
                         reason = 'whole-campaign deadline'
                     peak = max(peak,rss); count += 1
-                    raw.write(json.dumps(dict(sample,family_rss_bytes=rss,breach_since=dict(since)))+'\n'); raw.flush()
+                    raw.write(json.dumps(dict(sample,family_rss_bytes=rss,breach_since=dict(since),observation_gap_reset=gap_reset))+'\n'); raw.flush()
                     if reason:
                         raise RuntimeError('Guard breach: '+reason)
                     if child is None:
