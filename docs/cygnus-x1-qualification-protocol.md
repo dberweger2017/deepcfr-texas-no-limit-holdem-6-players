@@ -66,6 +66,7 @@ all failures, missing tests and future sixteen-thread reruns.
 The kit is rated for 3200 MT/s with XMP. Current PR283 tests establish the
 pre-XMP baseline; the DMI speed field does not establish actual DRAM speed.
 After these tests, the owner plans to enable XMP and connect storage, then
-repeat RAM and relevant storage qualification in a separate PR. This plan
+run the full XMP-enabled RAM pass on October 15 and repeat relevant storage
+qualification in a separate PR. This plan
 does not authorize changing firmware settings, rerunning tests or extending
 PR283’s recurring task into that follow-up.

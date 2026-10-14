@@ -27,7 +27,7 @@ DMI reports 800 MT/s for each DIMM and a 64 GB array maximum despite the
 XMP**. This run is the **pre-XMP baseline**; DMI’s 800 MT/s field is not
 accepted as a measurement of effective DRAM speed. The owner plans to enable
 XMP and connect the remaining storage for a **separate follow-up PR**, with
-fresh inventory and RAM/storage tests. No XMP change or repeat run belongs
+a **full XMP-enabled RAM pass on October 15** and fresh inventory/storage tests. No XMP change or repeat run belongs
 to this qualification.
 
 Linux exposes PL1 **125 W /55.967744 s**, PL2 **250 W /0.002440 s**;
