@@ -71,8 +71,9 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    stays above 11.626 GiB, swap growth and throttle counters remain zero.
    [Interim receipt](cygnus-x1-artifacts/memory-progress.json). These are
    preliminary readings, not a completed pass.
-   Four Linux guard checks pass: simulated overheat, sensor disappearance,
-   low available RAM and swap growth each terminate the child. Full boot-time
+   Five Linux guard checks pass: simulated overheat, sensor disappearance,
+   low available RAM, swap growth and the absolute deadline each terminate
+   the child. Full boot-time
    **memtest86+ remains the owner's job**, regardless of userspace results.
    Runtime correction: the observed solid-bits phase advances about once
    every 36 seconds. Later memtester patterns contain 1,280 settings in
