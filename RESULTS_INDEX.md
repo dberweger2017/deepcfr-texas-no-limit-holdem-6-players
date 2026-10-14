@@ -9,7 +9,10 @@ coordinator `~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
 Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
-No full-memory pass or native checkpoint/throughput result yet.
+No full-memory pass or 500M throughput result yet.
+Exact fresh/resumed20M gates reproduce #250 M4 SHA2564009bbb...acc8b;
+[full checkpoint hashes/counts/resource receipt](docs/reports/cygnus-x1-artifacts/recovery-gates.json).
+Models remain on bb128 under gate-results, archive acceptance pending.
 Full suite passes in explicit strict-MKL mode: 2219Python+54subtests/16Rust,
 2macOS-specificskips; [final suite receipt](docs/reports/cygnus-x1-artifacts/tests-passed.json).
 Both prior failures remain preserved.

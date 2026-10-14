@@ -222,8 +222,35 @@ binary and post-suite executable are identical: **1,752,760 bytes**, SHA256
 Neither checkout nor fixed-staging absolute path appears in either binary.
 This checks retained/current identity and uses #243's established build method;
 a second checkout was omitted under the owner's amendment. Exact cross-platform
-checkpoint recovery remains running, rather than inferred from binary identity.
+checkpoint recovery passes below, independently of binary identity.
 [Identity/path/source receipt](cygnus-x1-artifacts/build-identity.json).
+
+## Exact M4 checkpoint recovery gates passed
+
+HU200 K50 v1, seed 2026101302, R1/opponent-sampled, ceiling 85,373,862.
+Fresh **20,002,695 nodes /8,728 iterations /7,883,678 entries** and a fresh-process
+**10M→20M resume** both produce **270,143,830 bytes**, exactly matching #250:
+`4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+The actual 10M prefix is 10,001,913 nodes /4,260 iterations /4,416,935 entries,
+148,448,690 bytes, SHA256
+`fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db`.
+This verifies full compressed checkpoint equality, not a selected-row comparison.
+
+| Path | Native compute s | Save s | Native elapsed incl. save s |
+|---|---:|---:|---:|
+| Fresh 20M | 12.747 | 39.044 | 51.791 |
+| Fresh 10M prefix | 5.726 | 21.542 | 27.268 |
+| Resume suffix to 20M | 7.125 | 40.247 | 47.372 |
+
+Outer stage **158.69 s** also includes process startup, table/parent reading and
+SHA verification. Peak sampled family RSS **1.958 GiB**; package peak **62 °C**
+(median **55 °C**), no swap growth/throttle change. All-logical-CPU sampled
+clock min/median/max **800/800/5,119 MHz**, including idle siblings.
+[Actual checkpoints/counts/timing/resource receipt](cygnus-x1-artifacts/recovery-gates.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/recovery-gates-temperatures.csv).
+Native identity stage separately peaked at 38 °C and completed in 2.02 s;
+its full thermal CSV accompanies the identity receipt. The matched 500M
+cost-only benchmark may now proceed; no campaign is started.
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
