@@ -31,9 +31,10 @@ Separate final-average ZIP: **3,162,672,661 bytes**, SHA256
 `27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f`,
 manifest `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25`, one member.
 [All archive IDs, member pins and usable local restoration command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
-**Cloud acceptance pending:** native uploaded0/uploading1; Drive metadata names/IDs/
-parents match but remote sizes remain partial. Never restore those partial remote
-versions. No remote bytes downloaded or verified. Seed 2 archives/closeout remain
+**Final-average ZIP accepted**: [Drive `1OAKKAxH91_flAKK9eWa4peCy_jUImhDl`](https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk),
+native uploaded1/uploading0/no conflicts and independent ID/name/3,162,672,661-byte
+size/direct-parent match. **Full ZIP remains pending:** native uploaded0/uploading1,
+remote partial size. Never restore that partial full remote version. No remote bytes downloaded or verified. Seed 2 archives/closeout remain
 pending. No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.
 

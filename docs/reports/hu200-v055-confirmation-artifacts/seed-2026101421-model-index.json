@@ -20,12 +20,12 @@
       "drive_url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
       "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
       "remote_observed_bytes": 592464795,
-      "upload_acceptance": "pending; remote bytes differ, native upload in progress"
+      "upload_acceptance": "pending; full remote size remains partial and native upload is in progress"
     },
     "final-average": {
       "all_member_sizes_and_hashes_readback": true,
       "bytes": 3162672661,
-      "cloud_upload_accepted": false,
+      "cloud_upload_accepted": true,
       "manifest_path": "ARCHIVE-MANIFEST.json",
       "manifest_sha256": "678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25",
       "members": 1,
@@ -37,8 +37,8 @@
       "drive_id": "1OAKKAxH91_flAKK9eWa4peCy_jUImhDl",
       "drive_url": "https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk",
       "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
-      "remote_observed_bytes": 494927963,
-      "upload_acceptance": "pending; remote bytes differ, native upload in progress"
+      "remote_observed_bytes": 3162672661,
+      "upload_acceptance": "accepted by native upload state plus independent matching ID/name/size/direct-parent"
     }
   },
   "required_models": {
@@ -87,7 +87,8 @@
   },
   "average_only_member": "averages/seed-2026101421/final.average.gz",
   "restore_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101421 88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d '{\"research/seed-2026101421/frozen/20000000000.average.gz\":{\"bytes\":3162671080,\"sha256\":\"c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444\"},\"research/seed-2026101421/frozen/20000000000.current.gz\":{\"bytes\":2301203484,\"sha256\":\"bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df\"},\"research/seed-2026101421/frozen/20000000000.gz\":{\"bytes\":4957752665,\"sha256\":\"c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676\"},\"research/seed-2026101421/frozen/5000000000.gz\":{\"bytes\":4351577456,\"sha256\":\"3288bc8db79034649e8e7a0fed86802a75b85d5d0bf320d556baa3013a4e1cd0\"},\"research/seed-2026101421/stage1/1000000000.gz\":{\"bytes\":3444252731,\"sha256\":\"c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39\"},\"research/seed-2026101421/stage1/500000000.gz\":{\"bytes\":2730179385,\"sha256\":\"251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f\"}}'",
-  "restore_note": "Uses complete locally verified ZIP at canonical native Drive path; cloud download/restore must wait for accepted native upload and matching independent metadata. Never use the currently partial remote Drive versions. Writes only fresh ignored unsynced paths and refuses overwrites.",
+  "restore_note": "Final-average cloud ZIP is accepted; full cloud ZIP is still partial and must not be used remotely. Local full ZIP remains verified. Commands restore into fresh ignored unsynced paths, refuse overwrites and verify whole ZIP plus member SHA256s.",
   "input_tables": "Already indexed PR163 archive/table provenance; docs/reports/hu200-v055-confirmation-artifacts/inputs.json",
-  "remote_archive_bytes_downloaded": false
+  "remote_archive_bytes_downloaded": false,
+  "restore_average_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-final-average-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101421-average 27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f '{\"averages/seed-2026101421/final.average.gz\":{\"bytes\":3162671080,\"sha256\":\"c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444\"}}'"
 }

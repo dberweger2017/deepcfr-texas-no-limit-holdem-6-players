@@ -103,11 +103,11 @@ and frozen/recovery mode. Latest verified frozen save:
 and the stage-1 sorted-key digest unchanged. Mean traverser visits/key is
 **9.7493**, zero-visit share **26.43%**.
 [Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
-The **23:51 CEST** check verifies the second-seed supervisor identity,
-current RSS **8.66 GiB**, free memory **82%**,
-disk **48.81 GiB**, swap below the original baseline and no stops.
-10B is not yet verified; no between-save count is inferred.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2151Z.json),
+The **October 15 00:21 CEST** check verifies the second-seed supervisor identity,
+current RSS **5.77 GiB**, free memory **60%**,
+disk **44.45 GiB**, swap below the original baseline and no stops.
+20B is not yet verified; no between-save count is inferred.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2221Z.json),
 [per-save statistics](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
@@ -145,9 +145,11 @@ final-average ZIPs pass member-hashed transfer and complete local readback:
 [Full readback](hu200-v055-confirmation-artifacts/seed-2026101421-full-archive-receipt.json),
 [average readback](hu200-v055-confirmation-artifacts/seed-2026101421-average-archive-receipt.json),
 [model/member pins and restoration command](hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
-**Upload acceptance remains pending:** native flags are uploaded0/uploading1;
-independent Drive ID/name/direct-parent exist, but remote sizes still describe
-partial earlier versions. Do not use those versions for restoration.
+The **[final-average ZIP](https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk) is upload-accepted**:
+native uploaded1/uploading0/no conflicts, plus independent matching ID/name/
+3,162,672,661-byte size/direct parent. **Full ZIP upload remains pending**:
+native uploaded0/uploading1 and remote size still describe a partial earlier
+version. Do not use that full remote version for restoration.
 [Native observation](hu200-v055-confirmation-artifacts/seed-2026101421-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified. M4 originals remain.
