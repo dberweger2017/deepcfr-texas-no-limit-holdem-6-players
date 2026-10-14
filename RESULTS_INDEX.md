@@ -1,5 +1,6 @@
 ## v0.5.5 confirmation seeds — admission blocked (October 14, 2026)
 
+Owner [PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), draft.
 Branch `feature/hu200-v055-confirmation`, intended main source
 `db344c359523d72158f44330c1fc35dddf62322e`.
 [Report](docs/reports/hu200-v055-confirmation.md),

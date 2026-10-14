@@ -1,5 +1,7 @@
 # v0.5.5 confirmation seeds: admission blocked
 
+[Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278).
+
 Neither seed **2026101421** nor **2026101422** has started. The M4 fails the
 owner's **45 GiB free-disk admission requirement**. No detached build was
 launched, so the fixed 12-hour clock has **not started**. This is a preflight
@@ -55,3 +57,8 @@ No new research payloads or ZIP archives exist; the compact admission receipt
 is retained in Git. Research-Cloud ZIPs, their full local readback/upload
 acceptance and restoration index remain outstanding with training. The draft PR
 records this blocker only and remains for the owner's decision.
+
+Validation: repository artifact checks of the staged index and committed HEAD
+pass under supported Python 3.11; the whitespace check passes. An initial check
+used system Python 3.9 and failed on `zip(strict=True)` before the supported
+interpreter was selected. No source or training behavior changed.
