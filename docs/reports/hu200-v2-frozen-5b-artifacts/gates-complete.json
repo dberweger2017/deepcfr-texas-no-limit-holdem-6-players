@@ -1,0 +1,46 @@
+{
+  "binary": {
+    "bytes": 1492512,
+    "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/native/hu20-trainer/target/release/hu20-trainer",
+    "sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4"
+  },
+  "cap": 95702497,
+  "formula": "floor((11000000000-1384000000-250000000)/(measured B/entry*1.1))",
+  "fresh": {
+    "bytes": 343463165,
+    "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/gates/fresh20m.gz",
+    "sha256": "d0ab3813e65001cc331058cb6bdeccaf878c619fe2ffae4073ff1a468dab5b52"
+  },
+  "measured_bytes_per_entry": 88.96889507024079,
+  "measurements": {
+    "fresh20m": {
+      "bytes_per_entry": 88.96889507024079,
+      "entries": 10427061,
+      "fixed_table_bytes": 1384000000,
+      "save_peak_rss": 2311684096,
+      "train_peak_rss": 2307260416
+    },
+    "prefix10m": {
+      "bytes_per_entry": 91.90950495723605,
+      "entries": 5346326,
+      "fixed_table_bytes": 1384000000,
+      "save_peak_rss": 1875378176,
+      "train_peak_rss": 1869398016
+    },
+    "resumed20m": {
+      "bytes_per_entry": 87.71185821201199,
+      "entries": 10427061,
+      "fixed_table_bytes": 1384000000,
+      "save_peak_rss": 2298576896,
+      "train_peak_rss": 2293399552
+    }
+  },
+  "numerator": 9366000000,
+  "resumed": {
+    "bytes": 343463165,
+    "path": "/Users/dberweger/Local/hu200-v2-frozen-5b-20261014/results/hu200-v2-frozen-5b/gates/resumed20m.gz",
+    "sha256": "d0ab3813e65001cc331058cb6bdeccaf878c619fe2ffae4073ff1a468dab5b52"
+  },
+  "safety_factor": 1.1,
+  "status": "verified"
+}
