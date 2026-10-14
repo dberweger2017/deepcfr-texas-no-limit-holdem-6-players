@@ -59,8 +59,8 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    sampled family RSS is 112.025 GiB, available RAM stays above 11.667 GiB,
    maximum package temperature is 64 °C, swap growth and throttle counters
    remain zero. These are preliminary readings, not a completed pass.
-   Three Linux guard checks pass: simulated overheat, sensor disappearance
-   and low available RAM each terminate the child. Full boot-time
+   Four Linux guard checks pass: simulated overheat, sensor disappearance,
+   low available RAM and swap growth each terminate the child. Full boot-time
    **memtest86+ remains the owner's job**, regardless of userspace results.
 3. Disk scratch fio, network, repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
@@ -75,4 +75,6 @@ Installing an NVIDIA driver remains an owner decision. A separate reviewed
 root plan would need matching Debian kernel headers, an appropriate packaged
 NVIDIA driver/DKMS and firmware, Secure Boot module signing/enrollment,
 reboot and nouveau handoff, followed by `nvidia-smi`, VRAM and bounded CUDA
-checks. No driver install, repository change or GPU load has been performed.
+checks. [Debian’s driver instructions](https://wiki.debian.org/NvidiaGraphicsDrivers)
+cover the packaged driver and Secure Boot enrollment. No driver install,
+repository change or GPU load has been performed.
