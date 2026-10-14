@@ -163,6 +163,13 @@ def select_counts(costs, remaining):
     raise ValueError('Neither pre-outcome count option fits the fixed deadline')
 
 
+def recommendation(panel):
+    flags = {op: row['contrast']['ci95'][1] < -20 for op, row in panel.items()}
+    if set(panel) != set(direct.PANEL_OPPONENTS):
+        raise ValueError('All seven panel contrasts are required')
+    return panel['pot_pressure']['contrast']['ci95'][0] > 0 and not any(flags.values()), flags
+
+
 def evaluation_stage():
     evaluation.SCIENCE_END = SCIENCE_END
     pair = [read(BASE/'treatment.json'),read(BASE/'inputs.json')['baseline']]
@@ -225,9 +232,9 @@ def evaluation_stage():
                 missing_key_share=missing/n,zero_mass_share=cell['lookup'].get('zero-mass',0)/n,
                 **{'known_visit_'+k:bands.get(k,0) for k in ('0','1-9','10-99','100+')},
                 **{'known_share_'+k:bands.get(k,0)/known if known else None for k in ('0','1-9','10-99','100+')}))
-    flags = {op:r['contrast']['ci95'][1]<-20 for op,r in summaries['panel'].items()}
+    passes, flags = recommendation(summaries['panel'])
     summaries.update(status='verified',severe_panel_regressions=flags,
-        recommend_slumbot=summaries['panel']['pot_pressure']['contrast']['ci95'][0]>0 and not any(flags.values()),
+        recommend_slumbot=passes,
         all_final_hands_independently_replayed_and_exactly_reproduced=True,
         canonical_plan_sha256=file_hash(BASE/'canonical-plan.json'))
     put(BASE/'summary.json',summaries)
