@@ -3,7 +3,7 @@
     python -m scripts.analyze_slumbot_run RUN_DIR [--model AVERAGE.gz --model-sha256 SHA [--card-buckets TABLES]]
     python -m scripts.analyze_slumbot_run RUN_DIR RUN_DIR ... --out ANALYSIS.json [...]   # pooled runs
 
-Writes RUN_DIR/analysis.json, or --out for several runs of one player pooled: raw and all-in-adjusted BB/100 overall and by seat, how hands
+Writes RUN_DIR/analysis.json, or --out for several runs of one player pooled (--hands N keeps the first N): raw and all-in-adjusted BB/100 overall and by seat, how hands
 ended, the client's actions by street and against each Slumbot bet size, the biggest swings,
 and, with the model, how often each street's decisions had a stored policy.
 """
@@ -30,6 +30,7 @@ def main():
                         help='require an existing verified cache; never create it')
     parser.add_argument('--missing-key-fallback', choices=('uniform', 'check-call'), default='uniform')
     parser.add_argument('--workers', type=int, default=4)
+    parser.add_argument('--hands', type=int, help='only the first N hands in play order')
     add_translation_options(parser)
     args = parser.parse_args()
     try:
@@ -45,7 +46,7 @@ def main():
     model = hu200_average(args.model, args.model_sha256, args.card_buckets, args.policy_cache,
                           missing_key_fallback=args.missing_key_fallback, cache_read_only=args.cache_read_only, translation=translation) if args.model else None
     result = analyze([run / 'journal.jsonl' for run in args.runs], model=model, workers=args.workers,
-                     missing_key_fallback=args.missing_key_fallback)
+                     missing_key_fallback=args.missing_key_fallback, hands=args.hands)
     with (args.out or args.runs[0] / 'analysis.json').open('x') as stream:
         stream.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
     print(json.dumps({k: result[k] for k in ('hands', 'bb_per_100', 'all_in_adjusted_bb_per_100', 'all_in_hands')}, ensure_ascii=False))
