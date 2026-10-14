@@ -57,6 +57,7 @@ def recommendation(panel):
 
 
 def prepare():
+    preparation_started = time()
     reserve(list(ROOTS.values()),PR,BASE/'root-reservation.json')
     frozen = dict(read(BASE/'treatment.json'),translation=None)
     if read(BASE/'5b.audit.json')['all_nodes_verified'] != ENTRIES:
@@ -86,6 +87,7 @@ def prepare():
                  learning=[frozen,parent_spec],direct=[frozen,release])
     put(BASE/'evaluation-inputs.json',dict(models=models,pairs=pairs,parent_average_method=method,
         parent_index=prior,release_verification=verification,source=revision()))
+    input_seconds = time()-preparation_started
     cache = BASE/'policy-cache'
     for spec in models.values():
         started=time()
@@ -95,6 +97,9 @@ def prepare():
         put(BASE/('cache-'+spec['name']+'.json'),dict(seconds=time()-started,description=model.description,
             no_hands=True,model_sha256=spec['sha256']))
         del model; gc.collect()
+    put(BASE/'evaluation-preparation-complete.json',dict(input_verification_and_parent_export_seconds=input_seconds,
+        model_cache_builds={s['name']:read(BASE/('cache-'+s['name']+'.json')) for s in models.values()},
+        whole_seconds=time()-preparation_started,no_hands=True,scaled_with_blocks=False))
 
 
 def pair_worker(folder, specs, blocks, root, opponent, pilot):
@@ -139,6 +144,7 @@ def evaluate():
     budget = read(BASE/'budget.json')
     counts, options = select_counts(costs,time()-budget['started'])
     plan = dict(pr=PR,source=revision(),counts=counts,projection_options=options,pilot=costs,
+        one_off_preparation=read(BASE/'evaluation-preparation-complete.json'),
         inputs=read(BASE/'evaluation-inputs.json'),roots=ROOTS,opponents=direct.PANEL_OPPONENTS,
         decision_rule=RULE,conditional_on='fixed models and training seed2026100601',
         direct_role='descriptive only; translation off; cross-menu missing support limits interpretation',
