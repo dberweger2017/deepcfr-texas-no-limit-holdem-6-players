@@ -9,7 +9,10 @@ coordinator `~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
 Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
-No full-memory pass or correctness/throughput result yet.
+No full-memory pass or native checkpoint/throughput result yet.
+Full suite passes in explicit strict-MKL mode: 2219Python+54subtests/16Rust,
+2macOS-specificskips; [final suite receipt](docs/reports/cygnus-x1-artifacts/tests-passed.json).
+Both prior failures remain preserved.
 First full-suite attempt failed due to missing pip in uv venv: Rust16passed,
 pytest1365passed/1failed/2skipped; original failed receipt/output preserved.
 [Diagnosis](docs/reports/cygnus-x1-artifacts/tests-first-failure.json).

@@ -139,7 +139,7 @@ Cargo jobs, retaining its build receipt and exact first binary.
 Setup passed in **84.52 s**, peak RSS **1.203 GiB**, package **34–59 °C**,
 no swap/throttle changes. Sampled all-logical-CPU clock min/median/max
 **797/800/4,897 MHz**, including idle siblings.
-The full test suite is now running; local binary identity/path checks and exact
+The full test suite now passes (below); local binary identity/path checks and exact
 checkpoint recovery remain pending. The owner accepts the established #243
 build method rather than repeating its two-location proof. Prior M4/RunPod
 [#129](https://github.com/dberweger2017/CFR-NLHE-6max/pull/129) /
@@ -195,6 +195,24 @@ the optional native bucket evaluator enabled.
 [Intel strict CNR documentation](https://www.intel.com/content/www/us/en/developer/archive/training/conditional-numerical-reproducibility-cnr.html)
 describes the mode; [PyTorch numerical notes](https://docs.pytorch.org/docs/main/notes/numerical_accuracy.html)
 explain limits of bitwise floating-point equivalence.
+
+## Full suite passed with explicit numerical mode
+
+At source `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`, the entire suite
+completes with **2,219 Python tests passed, 54 subtests passed, zero failures**
+in **801.34 s**. Two skips are macOS-only checks (Mac resource profile and
+setuid-ps regression). The real K50-table check and native evaluator ran.
+Rust library **16/16 passed** in **27.42 s**; 20 six-player hands and 30 changing-
+lineup session hands pass, with session chip accounting 210,000 in =59,750 out
++150,250 on table. Native executable still matches the retained build hash.
+Python uses **`MKL_CBWR=AVX2,STRICT`**, two BLAS/OpenMP threads; this host's
+neural bitwise tests require that recorded mode. No model/assertion change.
+Guarded stage **841.65 s**, peak family RSS **1.038 GiB**, package peak **69 °C**
+(median **61 °C**), no swap growth/throttle change. All-logical-CPU sampled
+clock min/median/max **800/800/5,111 MHz**, including idle siblings.
+Both earlier failed attempts remain preserved.
+[Full-suite/environment/resource receipt](cygnus-x1-artifacts/tests-passed.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-strict-temperatures.csv).
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables

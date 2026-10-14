@@ -8,11 +8,18 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import subprocess
 
 root = Path(os.environ['QUALIFICATION_ROOT'])
 first = root / 'repo-main'
 pin = (root / 'source-main.txt').read_text().strip()
 build = json.loads((root / 'build-first.json').read_text())
+def git(*args):
+    return subprocess.check_output(['git', *args], cwd=first, text=True).strip()
+if git('rev-parse', 'HEAD') != pin or git('rev-parse', 'HEAD:native') != build['native_tree']:
+    raise SystemExit('Checkout source/native tree changed since build receipt')
+if git('status', '--porcelain', '--', 'native'):
+    raise SystemExit('Native sources modified after build')
 if not build['native_tree_clean'] or set(build['remapped_prefixes']) != {'native', 'cargo-home'}:
     raise SystemExit('Build receipt does not identify the established remapped build')
 paths = [root / 'trainer-first', first / 'native/hu20-trainer/target/release/hu20-trainer']

@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "environment_overrides": {
+    "MKL_CBWR": "AVX2,STRICT",
+    "OMP_NUM_THREADS": 2,
+    "MKL_NUM_THREADS": 2,
+    "OPENBLAS_NUM_THREADS": 2,
+    "CARGO_BUILD_JOBS": 4,
+    "K50_REAL_TABLES": "/home/dberweger/cygnus-qualification-20261014/tables"
+  },
+  "pytest": {
+    "passed": 2219,
+    "failed": 0,
+    "skipped": 2,
+    "subtests_passed": 54,
+    "seconds": 801.34
+  },
+  "rust_library": {
+    "passed": 16,
+    "failed": 0,
+    "seconds": 27.42
+  },
+  "skips": [
+    "tests/diagnostics/test_flop_check.py:246 Owner-approved Mac resource profile",
+    "tests/test_research_process_family.py:110 macOS setuid ps regression"
+  ],
+  "check_game": {
+    "hands": 20,
+    "players": 6,
+    "status": "passed"
+  },
+  "check_session": {
+    "hands": 30,
+    "chips_in": 210000,
+    "chips_out": 59750,
+    "table_chips": 150250,
+    "status": "passed"
+  },
+  "native_evaluator_and_real_k50_checks": "enabled and not skipped",
+  "native_binary_sha256_after_tests": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+  "resources": {
+    "job": "repo-tests-strict",
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 841.6485418169996,
+    "sampled_peak_family_rss_bytes": 1113985024,
+    "status": "passed",
+    "samples": 420,
+    "started_utc": "2026-10-14T22:39:36.832936+00:00",
+    "last_sample_utc": "2026-10-14T22:53:38.473371+00:00",
+    "max_sample_gap_seconds": 2.0227031049980724,
+    "min_temperature_c": 39.0,
+    "max_temperature_c": 69.0,
+    "median_temperature_c": 61.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      799.627,
+      800.0,
+      5110.771
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 131159916544,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 36.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 33.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 32.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 32.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 31.0,
+        "max_c": 67.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 33.0,
+        "max_c": 64.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 33.0,
+        "max_c": 69.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 32.0,
+        "max_c": 67.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 39.0,
+        "max_c": 69.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 28.0,
+        "max_c": 32.0
+      },
+      "nvme/Composite": {
+        "min_c": 34.85,
+        "max_c": 36.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 42.0,
+        "max_c": 45.0
+      }
+    },
+    "raw_stream_bytes": 1429472,
+    "raw_stream_sha256": "53a32cb14818f9d830d230b4cbbb2a9cfb72aa024e1a75479fdb564395b9a17a"
+  },
+  "output_log_bytes": 8211,
+  "output_log_sha256": "8f688131ef61e0d71f902b354ab57c52978ff3e602848410df2184e4aea03941",
+  "prior_attempts": "Both failures and original receipts/logs retained separately"
+}
