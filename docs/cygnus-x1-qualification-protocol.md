@@ -15,11 +15,15 @@ RSS, available RAM, swap and exit/stop reasons. A missing sensor fails closed.
 
 1. Read-only DMI/CPU/PCI/block/SMART/kernel/sensor/power inventory. Root steps
    stay in one reviewable script. No disk formatting, mounting or raw writes.
-2. One full userspace memtester pass, eight concurrent 14 GiB instances: 112 GiB
+2. A three-hour userspace memtester screen, eight concurrent 14 GiB instances: 112 GiB
    locked, leaving approximately 13.7 GiB for the OS. Temporary inherited
    memlock limit, tests run unprivileged. Three-hour wall cap, available RAM
    floor 6 GiB, swap growth ceiling 256 MiB. Per-instance allocation/error/exit
-   results are mandatory; a partial pass is never called a pass. Boot-time
+   results are mandatory; a partial screen is never called a full pass. The
+   owner chose to retain the three-hour cap after the measured full-pass
+   forecast exceeded it. An expected time stop with no memory errors is a
+   partial result, followed by the remaining diagnostic stages; actual memory
+   errors stop dependent work for diagnosis. Boot-time
    memtest86+ remains owner work.
 3. Direct fio on one new 8 GiB NVMe scratch file: sequential 1 MiB Q16 and
    random 4 KiB Q1/Q32, read/write, 30 s per timed case with 3 s warmup.

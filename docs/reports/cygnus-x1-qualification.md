@@ -60,7 +60,7 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    pass occurred. No memory error was observed. The same owner-reviewed
    root script now has a temporary-lock-limit launcher: it drops root before
    running eight 14 GiB instances /112 GiB total. All eight now have the full
-   allocation locked; the full pattern pass is running. At **1,126.6 seconds**,
+   allocation locked; the bounded pattern screen is running. At **1,126.6 seconds**,
    all eight instances have passed nine patterns: address, random value,
    XOR/subtraction/multiplication/division/OR/AND and sequential increment,
    with zero observed errors. Package temperature is **63 °C**,
@@ -77,7 +77,10 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    12–15 more hours from the 32-minute reading. This is an extrapolation,
    not a measured completion time. The initial **three-hour cap remains
    active** and is expected to yield a partial pass around **23:40 Madrid**.
-   A full-pass result cannot be claimed under that anticipated time stop.
+   The owner chose to **keep this three-hour partial screen**, then continue
+   the remaining diagnostics. A full-pass result cannot be claimed under
+   that anticipated time stop. The expected diagnostic finish is about
+   **00:45–02:00 Madrid October 15**, subject to setup/test failures.
    [Pattern-loop source](https://sources.debian.org/src/memtester/4.7.1-1/tests.c/).
 3. Disk scratch fio, network, repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,

@@ -22,5 +22,8 @@
   "swap_growth_bytes": 0,
   "maximum_throttle_counter": 0,
   "per_instance_exit_codes": "pending",
-  "source": "one read-only on-host status snapshot; no test restarted"
+  "source": "one read-only on-host status snapshot; no test restarted",
+  "scope": "Owner-selected three-hour partial RAM screen; no full-pass claim",
+  "time_cap_seconds": 10800,
+  "on_expected_time_stop": "Preserve per-instance errors/results and logs, then continue remaining diagnostics if no actual memory errors"
 }
