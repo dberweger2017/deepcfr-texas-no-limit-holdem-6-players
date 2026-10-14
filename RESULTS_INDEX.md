@@ -1,3 +1,19 @@
+## M4 disk admission cleanup — October 14 evening
+
+Owner-requested cleanup releases **15.132 GB** on M4: two
+explicitly owner-approved uploaded PR272 ZIP caches and two merged inactive Rust
+debug caches. Verified **49.562 GiB /53.217 GB free**
+at 2026-10-14T15:44:29Z, above PR278's 45 GiB admission threshold.
+[Exact cache paths/restoration, retained source pins and safeguards](docs/artifacts/storage-vacuum-20261014-evening.md),
+[accepted private receipt](https://drive.google.com/file/d/16ZKIrqlQIwtp9vOjcb5QlJKYFJsJ0enx/view?usp=drivesdk) (ID `16ZKIrqlQIwtp9vOjcb5QlJKYFJsJ0enx`, 79,609 bytes,
+SHA256 `98d0c8010a3539b78eb07672e453c1012adae52b7ff35f21cff59e66e9d7ee1d`). Specific owner approval covers only PR272's two
+uploaded unused ZIP caches while its PR is open; its worktree/models/tables and
+all scientific originals remain. Both cloud files/IDs/placeholders survive;
+69 checked research/model/table files match before/after metadata. No synced
+deletion, force offload, unpinning, payload download or repeated hashes.
+[Owner-authorized PR278 comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185) delivered and independently
+read back. M1 inspected only; no other agent's reclamation credited.
+
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 
 [PR272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272),
