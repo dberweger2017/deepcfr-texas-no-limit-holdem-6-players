@@ -9,6 +9,8 @@ import subprocess
 import sys
 from time import time
 
+import psutil
+
 from scripts import evaluate_hu100_direct as direct
 from scripts.archive_hu100_4b_seed_ladder import seal
 from scripts.reserve_match_roots import reserve
@@ -214,6 +216,8 @@ def archive():
     files += [(BINARY,'research/bin/hu20-trainer')]
     files += [(ROOT/p,'source/'+p) for p in ('scripts/train_hu100_v2_frozen_5b.py',
         'scripts/evaluate_hu100_v2_frozen_5b.py','scripts/evaluate_hu100_direct.py','docs/hu100-v2-frozen-5b-protocol.md')]
+    files += [(p,'launch/'+p.relative_to(ROOT/'planning').as_posix()) for p in sorted((ROOT/'planning').rglob('*'))
+        if p.is_file() and not p.is_symlink() and p.name!='evaluation-pipeline.log']
     average = Path(read(BASE/'treatment.json')['path'])
     if shutil.disk_usage(dest).free-sum(p.stat().st_size for p,_ in files)-average.stat().st_size < 16*1024**3:
         raise ValueError('Both archives would breach the disk floor; preserve originals')
@@ -231,6 +235,12 @@ def run():
         raise ValueError('Detached training/export/audit must complete first')
     with (Path.home()/'Local/.hu20-m4-research.lock').open('a+') as one, (Path.home()/'Local/.hu100-m4-research.lock').open('a+') as two:
         for f in (one,two): fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        own={psutil.Process().pid,*[p.pid for p in psutil.Process().parents()]}
+        for p in psutil.process_iter(['pid','name','cmdline'],ad_value=None):
+            if p.pid in own: continue
+            cmd=' '.join((p.info['cmdline'] or [])[1:])
+            if p.info['name']=='hu20-trainer' or any(x in cmd for x in ('scripts.run_hu','scripts.evaluate_hu','campaign.py')):
+                raise ValueError('Another campaign is active: '+str(p.pid))
         for stage in ('prepare','evaluate','archive'):
             subprocess.run(list(map(str,[sys.executable,'-m','scripts.guard_m4_research',
                 '--stage',BASE/'guards','--name','evaluation-'+stage,'--',sys.executable,
