@@ -10,6 +10,9 @@ Root inventory is complete. The unsupported NVMe self-test-log read and the
 36.65-second aborted memlock-limited memory attempt are preserved, including
 approximately 1.8 GiB of original per-instance allocation-shrink output.
 No full-memory pass, trainer setup or correctness/throughput result yet.
+NVMe scratch fio and 8 GiB CRC32C verification complete without errors;
+[measurements/guard/raw-stream hash](docs/reports/cygnus-x1-artifacts/disk-results.json).
+The 8 GiB scratch file is retained on bb128 and excluded from coordinator copying.
 The locked 112 GiB three-hour screen ended at its accepted time cap: ten
 patterns completed per instance, zero observed errors, Block Sequential incomplete.
 [Actual outcomes](docs/reports/cygnus-x1-artifacts/memory-partial.json) and full

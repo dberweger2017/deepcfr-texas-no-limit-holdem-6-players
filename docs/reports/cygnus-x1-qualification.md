@@ -76,9 +76,36 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    Five Linux watchdog stop tests pass, including the absolute cutoff.
    Full boot-time **memtest86+ remains the owner's job**. Additional selected
    pre-XMP patterns may run after the other mandatory checks if time remains.
-3. Disk scratch fio, network, repository setup/tests, path-independent build,
+3. **Disk scratch fio complete:** all six timed cases and full 8 GiB CRC32C
+   verification pass; see below. Network, repository setup/tests, path-independent build,
    exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
    in that order. No dependent training has started.
+
+## NVMe scratch-file performance
+
+fio direct I/O, libaio, one job, 8 GiB extent; 30 seconds plus 3-second warmup
+per timed case. Initialization precedes reads; end-of-job fsync is enabled,
+not a durable sync for every write. Rates include neither initialization nor
+the separate verification pass. No raw device was written.
+
+| Case | MiB/s | IOPS | Completion latency p50 /p99, µs |
+|---|---:|---:|---:|
+| Sequential read, 1 MiB Q16 | 3,260.83 | 3,260 | 4,882 /5,603 |
+| Sequential write, 1 MiB Q16 | 1,268.69 | 1,268 | 15,270 /25,297 |
+| Random read, 4 KiB Q1 | 50.06 | 12,815 | 77.3 /91.6 |
+| Random write, 4 KiB Q1 | 305.34 | 78,167 | 10.3 /12.1 |
+| Random read, 4 KiB Q32 | 758.46 | 194,165 | 146.4 /374.8 |
+| Random write, 4 KiB Q32 | 964.29 | 246,856 | 114.2 /337.9 |
+
+Full 8 GiB CRC32C write/read verification completed with **zero fio errors**.
+Total guarded wall time **220.92 s**, peak family RSS **41.50 MiB**.
+Package **36–57 °C**; SSD **36.85–54.85 °C**; zero swap/throttle changes.
+All-logical-CPU sampled clock min/median/max **800/800/5,099 MHz**, including
+idle siblings. These short, repeatedly overwritten file measurements do not
+establish sustained whole-drive write performance or a long endurance result.
+Scratch remains retained; no other disks were visible.
+[Detailed fio measurements](cygnus-x1-artifacts/disk-results.json) ·
+[Full thermal/clock readings](cygnus-x1-artifacts/disk-temperatures.csv).
 
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
