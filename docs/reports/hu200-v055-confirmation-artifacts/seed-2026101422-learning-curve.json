@@ -135,6 +135,74 @@
       "write_seconds": 314.628369958,
       "zero_average_mass_share": 0.27255920566288105,
       "zero_visit_share": 0.26428039014440097
+    },
+    {
+      "actual_nodes": 10000002576,
+      "checkpoint_bytes": 4667701831,
+      "checkpoint_sha256": "20d5192bd9d866e6cd52f37abb5dc40bf3169941fd8288c7307a7d1b51e7dc9a",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 147621118,
+        "discarded_updates_since_previous_save": 319013698,
+        "interval_start_iteration": 3772546,
+        "missing_opponent_by_street": [
+          222639,
+          1615960,
+          20047224,
+          150391951
+        ],
+        "missing_opponent_share_by_street": [
+          0.005341546581895065,
+          0.010696398023246125,
+          0.042730267817844066,
+          0.12078319213343741
+        ],
+        "missing_traverser_by_street": [
+          157250,
+          1787042,
+          21520275,
+          124156551
+        ],
+        "missing_traverser_share_by_street": [
+          0.008783491705227917,
+          0.026475895360179497,
+          0.09499196405620638,
+          0.1987907454874292
+        ],
+        "opponent_decisions_by_street": [
+          41680625,
+          151075156,
+          469157462,
+          1245139728
+        ],
+        "state": {
+          "discarded_traverser_visits": 279959476,
+          "discarded_updates": 618021293,
+          "entries": 85373928,
+          "since_iteration": 494507,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          17902903,
+          67496943,
+          226548374,
+          624559009
+        ]
+      },
+      "iterations": 8041286,
+      "mean_traverser_visits_per_key": 18.989617497744746,
+      "requested_nodes": 10000000000,
+      "rss_bytes_after_save": 1479819264,
+      "status": "saved",
+      "write_seconds": 320.921598125,
+      "zero_average_mass_share": 0.24594727561322938,
+      "zero_visit_share": 0.21113800691002527
     }
   ],
   "stage1": [

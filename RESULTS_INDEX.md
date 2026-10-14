@@ -15,7 +15,9 @@ every-row final current/average audit passes at 20:05:35 UTC. Final average
 [complete lineage](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
 Retain cap, 5B and final checkpoints for resume. Seed **2026101422** launches
 20:22:19 UTC after those audits with 7.58 hours left and 58.66 GiB free; its
-cap is 755,276,076 actual nodes /85,373,928 entries; frozen training is live and final audits are pending. Same executable, tables, baseline and guards.
+cap is 755,276,076 actual nodes /85,373,928 entries. Its verified frozen save is
+10,000,002,576 nodes /8,041,286 iterations with unchanged keys; training remains
+live and final audits are pending. Same executable, tables, baseline and guards.
 
 First average transfer to db-ocean is SHA256 verified, its new read-only cache
 passes all payload hashes, and `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`
