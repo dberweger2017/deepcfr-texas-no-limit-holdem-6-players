@@ -40,13 +40,24 @@ def memory():
 
 def sample(sensor):
     mem = memory()
-    clocks = [read_int(p) for p in glob.glob(
-        '/sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_cur_freq')]
+    clock_paths = glob.glob('/sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_cur_freq')
+    clocks = [read_int(p) for p in clock_paths]
+    cpu_clocks = {Path(p).parent.parent.name: value for p, value in zip(clock_paths, clocks)}
     counters = {p: read_int(p) for p in glob.glob(
         '/sys/devices/system/cpu/cpu[0-9]*/thermal_throttle/*_throttle_count')}
+    devices = {}
+    for name in glob.glob('/sys/class/hwmon/hwmon*/name'):
+        directory = Path(name).parent
+        device = Path(name).read_text().strip()
+        for value in directory.glob('temp*_input'):
+            label = value.with_name(value.name.replace('_input', '_label'))
+            key = f'{device}/{label.read_text().strip() if label.exists() else value.stem}'
+            devices[key] = read_int(value) / 1000
     return {'utc': dt.datetime.now(dt.timezone.utc).isoformat(),
             'monotonic': time.monotonic(), 'package_c': read_int(sensor) / 1000,
             'clock_khz': clocks, 'throttle_counts': counters,
+            'cpu_clocks_khz': cpu_clocks,
+            'device_temperatures_c': devices,
             'available_bytes': mem['MemAvailable'],
             'swap_used_bytes': mem['SwapTotal'] - mem['SwapFree']}
 
@@ -91,6 +102,7 @@ def run(args):
             'max_seconds': args.seconds, 'temperature_limit_c': 85,
          'max_rss_gib': args.max_rss_gib, 'min_disk_gib': args.min_disk_gib,
          'deadline_utc': deadline_text,
+         'sample_seconds': getattr(args, 'sample_seconds', 2),
          'cpu_affinity': '0-7', 'environment_overrides': {
              k: env[k] for k in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS',
                                  'OPENBLAS_NUM_THREADS', 'CARGO_BUILD_JOBS', 'RAYON_NUM_THREADS')}}, indent=2))
@@ -135,7 +147,7 @@ def run(args):
                     break
                 if proc.poll() is not None:
                     break
-                time.sleep(2)
+                time.sleep(getattr(args, 'sample_seconds', 2))
         finally:
             # A supervisor exception must not leave an unsupervised load behind.
             terminate_group(proc)
@@ -156,12 +168,13 @@ def main():
     parser.add_argument('--max-rss-gib', type=float, default=0)
     parser.add_argument('--min-disk-gib', type=float, default=16)
     parser.add_argument('--deadline-utc', default=os.environ.get('QUALIFICATION_DEADLINE_UTC'))
+    parser.add_argument('--sample-seconds', type=float, default=2)
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     if args.command[:1] == ['--']:
         args.command.pop(0)
-    if not args.command or args.seconds <= 0:
-        parser.error('A command and a positive wall-time budget are required')
+    if not args.command or args.seconds <= 0 or not 0 < args.sample_seconds <= 2:
+        parser.error('Need a command, positive wall budget and sample interval in (0, 2]')
     raise SystemExit(run(args))
 
 

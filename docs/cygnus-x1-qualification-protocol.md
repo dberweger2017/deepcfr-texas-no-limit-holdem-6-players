@@ -90,3 +90,19 @@ fallback. Driver/API limitations and missing GPU telemetry stay explicit;
 proprietary-driver installation/reboot remain separate owner decisions.
 Recurring checks use 30 minutes during RAM, 15 minutes during other stages,
 or 60 minutes for long quiet RAM work; no five-minute recurring checks.
+
+Additional GPU smoke bounds: force the installed nouveau Vulkan ICD and require
+PCI vendor/device `10de:1e84`, discrete-GPU type. Try 1 GiB device-local VRAM,
+then 4 GiB only if the first smoke passes; four fill patterns (zero, all ones,
+A5 and 5A), each read back in 64 MiB chunks and compared byte-for-byte. Each
+fence waits at most five seconds; each job has a five-minute wall cap plus
+the global cutoff. This is VRAM/transfer correctness, not CUDA or shader
+arithmetic qualification. Missing GPU clock/thermal telemetry is explicit.
+CPU verification samples temperature every 0.5 seconds at 1/4/8 workers.
+
+The later RAM screen selects `MEMTESTER_TEST_MASK=0x1ec00`: Checkerboard, Bit
+Spread, Walking Ones, Walking Zeroes, 8-bit Writes and 16-bit Writes, plus
+memtester's mandatory Stuck Address phase. Indices were checked against the
+Debian 4.7.1 source test list. The first screen's partial Block Sequential is
+retained; the long Bit Flip phase is omitted to fit broader coverage before
+the deadline. Stop at the absolute cutoff even if this selection is incomplete.

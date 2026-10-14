@@ -8,9 +8,10 @@ p = argparse.ArgumentParser()
 p.add_argument('root', type=Path)
 a = p.parse_args()
 root = a.root
-for label in ('memory', 'memory-locked', 'disk', 'network', 'setup', 'build',
-              'rust-tests', 'python-tests', 'build-other-path', 'gates', 'trainer-benchmark'):
-    job = root / label
+for job in sorted(root.iterdir()):
+    if not job.is_dir():
+        continue
+    label = job.name
     resources = job / 'resources.jsonl'
     if not resources.exists():
         continue

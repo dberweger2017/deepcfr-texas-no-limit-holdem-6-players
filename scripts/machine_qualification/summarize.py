@@ -19,6 +19,12 @@ for resources in sorted(a.root.glob('*/resources.jsonl')):
     job = resources.parent.name
     baseline = rows[0]
     clocks = [v / 1000 for row in rows for v in row['clock_khz']]
+    temperature_names = set().union(*(r.get('device_temperatures_c', {}) for r in rows))
+    temperature_ranges = {}
+    for name in sorted(temperature_names):
+        values = [r['device_temperatures_c'][name] for r in rows
+                  if name in r.get('device_temperatures_c', {})]
+        temperature_ranges[name] = {'min_c': min(values), 'max_c': max(values)}
     delta = {k: rows[-1]['throttle_counts'][k] - v for k, v in baseline['throttle_counts'].items()}
     result_path = resources.parent / 'result.json'
     result = json.loads(result_path.read_text()) if result_path.exists() else {'status': 'incomplete'}
@@ -34,6 +40,7 @@ for resources in sorted(a.root.glob('*/resources.jsonl')):
         'minimum_available_bytes': min(r['available_bytes'] for r in rows),
         'maximum_swap_growth_bytes': max(r['swap_used_bytes'] - baseline['swap_used_bytes'] for r in rows),
         'maximum_throttle_counter_delta': max(delta.values(), default=0),
+        'device_temperature_ranges_c': temperature_ranges,
         'raw_stream_bytes': resources.stat().st_size,
         'raw_stream_sha256': hashlib.sha256(resources.read_bytes()).hexdigest()}
     summary.append(row)
