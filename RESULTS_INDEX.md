@@ -15,10 +15,11 @@ every-row final current/average audit passes at 20:05:35 UTC. Final average
 [complete lineage](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
 Retain cap, 5B and final checkpoints for resume. Seed **2026101422** launches
 20:22:19 UTC after those audits with 7.58 hours left and 58.66 GiB free; its
-counters/audits are pending. Same executable, tables, baseline and guards.
+cap is 755,276,076 actual nodes /85,373,928 entries; frozen training is live and final audits are pending. Same executable, tables, baseline and guards.
 
-First average transfer to db-ocean and offline cache preparation are in progress;
-no server verification/readiness is claimed yet. Other server sessions/paths
+First average transfer to db-ocean is SHA256 verified, its new read-only cache
+passes all payload hashes, and `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`
+is prepared/syntax checked, not started. [Server receipts](docs/reports/hu200-v055-confirmation-artifacts/server-seed-2026101421/cache-receipt.json). Other server sessions/paths
 are protected. Canonical archive folder
 [PR278](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
 ID `1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP`, under project folder

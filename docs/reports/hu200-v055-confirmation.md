@@ -7,7 +7,7 @@
 Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 those audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
-Its growing-table stage is running. It is not yet a 20B result.
+Its cap terminal is verified and frozen continuation is running. It is not yet a 20B result.
 
 ## Fixed recipe, source and clock
 
@@ -95,24 +95,42 @@ The small completion observer has separate retained readings; it does no trainin
 [Admission and detached launch](hu200-v055-confirmation-artifacts/seed-2026101422-launch.json)
 confirm seed 1's successful audit, released locks and worker exit before launch.
 The same executable, K50 copies, clock, swap baseline and guard thresholds remain.
-Actual cap/frozen counters, sorted-key digest and final audits will be added when
-available; no requested milestone is relabelled complete prematurely.
+Growing terminal: **755,276,076 actual nodes /494,507 iterations /
+85,373,928 entries**, 66-entry complete-iteration overshoot.
+Stage 2 resumes that terminal SHA256 with `--max-entries 85373928`
+and frozen/recovery mode. No frozen save is yet verified at this snapshot.
+[Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
+The 22:51 CEST check confirms the original second-seed supervisor identity,
+current RSS **5.05 GiB**, free memory **64%**,
+disk **50.31 GiB**, swap below the original baseline and no stops.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2051Z.json).
 
 ## Server preparation and archives
 
-Seed 1's audited final average is transferring to the new db-ocean directory
-`~/deepcfr-slumbot/inputs/model-seed-2026101421/`. Remote SHA256 verification
-and a new guarded `cache-seed-2026101421` build follow. No cache success or
-launcher readiness is claimed yet. Seed 2's server work awaits its audits.
-Cache preparation uses the existing venv and verified #259 cache path, stops
-below 2 GB available memory, and records five-second readings. Launchers will
-use the completed-hands client and exact protocol options; the owner logs in
-and starts them. Existing sessions/runs/inputs/caches remain untouched.
+Seed 1's final average has passed remote size/SHA256 verification in
+`~/deepcfr-slumbot/inputs/model-seed-2026101421/final.average.gz`.
+Its **5,115,570,300-byte** cache in `~/deepcfr-slumbot/cache-seed-2026101421`
+passes the verified read-only reload, including every cache payload hash.
+Cache preparation takes **945.26 s**, with **190 five-second samples**,
+peak worker RSS **4.825 GiB** and minimum host available
+memory **2.970 GB**, above the unchanged 2-GB stop threshold.
+No guard stop/failure, play, login or credentials. Existing sessions/paths remain untouched.
+[Cache receipt](hu200-v055-confirmation-artifacts/server-seed-2026101421/cache-receipt.json),
+[server resources summary](hu200-v055-confirmation-artifacts/server-seed-2026101421/supervisor-receipt.json).
+
+**Prepared only:** `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`, shell syntax checked,
+not executed. It pins the completed-hands client source and audited model/cache;
+10,000 completed hands, translation 512/128, timeout 30 s, abandoned/rejected
+limits 200/50, policy seed 20261014055201, account `deepcfr-v055-s21`, and a fresh
+output path under `v055-runs-pr278`. The owner logs in and starts it.
+[Exact launcher](hu200-v055-confirmation-artifacts/server-seed-2026101421/run-v055-seed-2026101421.sh),
+[launcher receipt](hu200-v055-confirmation-artifacts/server-seed-2026101421/launcher-receipt.json).
+Seed 2's server work awaits its final audits; cache builds do not overlap.
 
 [Canonical PR278 Research-Cloud folder](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP):
 `~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`, confirmed under project
 folder `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Closed per-seed full and separate
-final-average ZIPs will stream from M4 into this folder on M1, with member hashes
+final-average ZIPs stream from M4 into this folder on M1; seed 1's first full ZIP is currently being written, with member hashes
 and complete local readback. Archive hashes, restoration commands and separate
 native/independent cloud upload acceptance are pending. M4 originals remain.
 No synced deletion, eviction or other open-PR cleanup occurs here.
@@ -137,7 +155,9 @@ storage passed fresh admission. The unsupported Python 3.9 artifact-check
 invocation and missing psutil in two setup environments are preserved; supported
 Python 3.11/research environments pass. A quoting error was found in the
 administrative server-launch wrapper; its source/failure is retained and a
-corrected launch follows the existing transfer, with no repeated training/export.
+corrected launch verified the existing transfer and completed the first cache build,
+with no repeated training/export. All closed administrative logs/source will enter
+the closeout supplement.
 
 Nine focused clock/recipe/key-order/guard tests and staged repository artifact
 checks pass. Final checks/review remain for the completed PR. No Slumbot play,

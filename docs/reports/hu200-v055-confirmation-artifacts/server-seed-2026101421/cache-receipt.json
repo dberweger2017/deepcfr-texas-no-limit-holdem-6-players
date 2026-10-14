@@ -1,0 +1,119 @@
+{
+  "all_cache_payloads_verified_by_read_only_load": true,
+  "backing_bytes": 5115570300,
+  "cache": "/home/davide/deepcfr-slumbot/cache-seed-2026101421",
+  "cache_folder": "/home/davide/deepcfr-slumbot/cache-seed-2026101421/c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+  "description": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 85373916,
+    "iteration": 16745107,
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026101421,
+    "weights_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+    "zero_mass_entries": 19023170
+  },
+  "entries": 85373916,
+  "finished": 1792011017.086635,
+  "manifest": {
+    "entries": 85373916,
+    "files": {
+      "counts": {
+        "bytes": 682991456,
+        "length": 85373916,
+        "sha256": "4f1c5d5411fe8ba1e75de735fd67d65d5250e774cd973ccf122b64eb585543aa"
+      },
+      "flags": {
+        "bytes": 85374044,
+        "length": 85373916,
+        "sha256": "6c450771f4ca3721dd2ad40472f079928b8ff816f0fe07c9abc4d570b9b0e29e"
+      },
+      "keys": {
+        "bytes": 1365982784,
+        "length": 85373916,
+        "sha256": "000691d0b7d05cf8d9811e6da9b828e1b1290d023f1f3bae2a696bbeb4d4ddd0"
+      },
+      "menu": {
+        "bytes": 170747960,
+        "length": 85373916,
+        "sha256": "a63462c8dd7e4f2c42f8f940b1b3f5867a27bdeb8326d4a543a77d977a115c74"
+      },
+      "offsets": {
+        "bytes": 682991456,
+        "length": 85373916,
+        "sha256": "c36a39546b0cbf37162da0e78abb32907033c101f0144b569cd1849272546daa"
+      },
+      "probabilities": {
+        "bytes": 2127482600,
+        "length": 265935309,
+        "sha256": "177852517d11c7629325fff1300aff3b94f9d390d3a4e284a4177d38a7e42240"
+      }
+    },
+    "format": "compact-average-cache-v1",
+    "menus": [
+      [
+        "fold",
+        "call",
+        "min"
+      ],
+      [
+        "fold",
+        "call"
+      ],
+      [
+        "check",
+        "min",
+        "pot"
+      ],
+      [
+        "fold",
+        "call",
+        "min",
+        "pot"
+      ],
+      [
+        "fold",
+        "call",
+        "min",
+        "pot",
+        "jam"
+      ],
+      [
+        "check",
+        "min",
+        "pot",
+        "jam"
+      ],
+      [
+        "check",
+        "min"
+      ]
+    ],
+    "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "source_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+  },
+  "manifest_sha256": "e872c5e0081a79746cdf52d8336ab196198c32bb4997107c005487251f13383b",
+  "model": {
+    "bytes": 3162671080,
+    "path": "/home/davide/deepcfr-slumbot/inputs/model-seed-2026101421/final.average.gz",
+    "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+  },
+  "no_credentials_accessed": true,
+  "no_hands_played": true,
+  "seconds": 933.7847259044647,
+  "seed": 2026101421,
+  "source": "ff6cc77aa9510854eef49114355f272d6c465570",
+  "status": "verified",
+  "table_sha256": {
+    "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+    "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+    "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+  }
+}
