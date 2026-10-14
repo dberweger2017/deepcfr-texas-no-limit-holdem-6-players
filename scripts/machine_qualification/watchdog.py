@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 import signal
+import shutil
 import subprocess
 import time
 
@@ -83,7 +84,8 @@ def run(args):
     command = ['taskset', '-c', '0-7', *args.command]
     (args.output / 'command.json').write_text(json.dumps(
         {'command': command, 'cwd': os.getcwd(), 'sensor': str(sensor),
-         'max_seconds': args.seconds, 'temperature_limit_c': 85,
+            'max_seconds': args.seconds, 'temperature_limit_c': 85,
+         'max_rss_gib': args.max_rss_gib, 'min_disk_gib': args.min_disk_gib,
          'cpu_affinity': '0-7', 'environment_overrides': {
              k: env[k] for k in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS',
                                  'OPENBLAS_NUM_THREADS', 'CARGO_BUILD_JOBS', 'RAYON_NUM_THREADS')}}, indent=2))
@@ -102,6 +104,7 @@ def run(args):
                 try:
                     row = sample(sensor)
                     row['family_rss_bytes'] = group_rss(proc.pid)
+                    row['free_disk_bytes'] = shutil.disk_usage(Path.cwd()).free
                     peak_rss = max(peak_rss, row['family_rss_bytes'])
                     readings.write(json.dumps(row) + '\n')
                     if row['package_c'] >= 85:
@@ -110,6 +113,10 @@ def run(args):
                         reason = 'available RAM below 6 GiB'
                     elif row['swap_used_bytes'] - first['swap_used_bytes'] > 256 * 1024**2:
                         reason = 'swap grew by more than 256 MiB'
+                    elif args.max_rss_gib and row['family_rss_bytes'] > args.max_rss_gib * 1024**3:
+                        reason = 'family RSS above declared limit'
+                    elif row['free_disk_bytes'] < args.min_disk_gib * 1024**3:
+                        reason = 'free disk below declared floor'
                 except Exception as exc:
                     reason = f'sensor/resource read failed: {exc!r}'
                 if interrupted:
@@ -139,6 +146,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--seconds', type=float, required=True)
+    parser.add_argument('--max-rss-gib', type=float, default=0)
+    parser.add_argument('--min-disk-gib', type=float, default=16)
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     if args.command[:1] == ['--']:

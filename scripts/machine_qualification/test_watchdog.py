@@ -23,6 +23,7 @@ class GuardTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             out = Path(directory) / 'job'
             args = argparse.Namespace(output=out, seconds=seconds,
+                                      max_rss_gib=0, min_disk_gib=0,
                                       command=command or ['sleep', '30'])
             cpus = sorted(os.sched_getaffinity(0))[:8]
             # The production wrapper uses 0-7 on this inventoried host. Tests
@@ -55,6 +56,13 @@ class GuardTests(unittest.TestCase):
                                       'swap_used_bytes': 0})
         self.assertEqual(code, 1)
         self.assertEqual(result['stop_reason'], 'available RAM below 6 GiB')
+        self.assertLess(result['exit_code'], 0)
+
+    def test_swap_growth_kills_the_child(self):
+        code, result = self.exercise({'package_c': 40, 'available_bytes': 100 * 1024**3,
+                                      'swap_used_bytes': 257 * 1024**2})
+        self.assertEqual(code, 1)
+        self.assertEqual(result['stop_reason'], 'swap grew by more than 256 MiB')
         self.assertLess(result['exit_code'], 0)
 
 
