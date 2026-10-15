@@ -20,6 +20,11 @@
       "action": "read-only source inspection",
       "error": "Two source/test paths and one streaming-module path did not exist at guessed locations; inspection commands returned exit 1/2",
       "resolution": "Used rg --files and existing src/diagnostics/cfr_average.py, src/blueprint/streaming.py and tests/test_hu200_blend_resources.py. No model work affected."
+    },
+    {
+      "action": "M1 intake status controller",
+      "error": "One SSH status call exceeded exec_command initial 10-second response window and returned live session 47141; controller incorrectly treated missing exit_code as failure",
+      "resolution": "Polled session 47141 to successful completion, confirmed the same guarded M4 worker PID 78176/create_time 1792086757.605079 remained running. Controller now drains live tool sessions before interpreting exit_code. No archive read, model worker or hand was restarted."
     }
   ],
   "scientific_hand_retries": 0,
