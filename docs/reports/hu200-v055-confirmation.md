@@ -196,7 +196,7 @@ version. Do not use that full remote version for restoration.
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified. M4 originals remain.
 Seed 2 archives use the same canonical folder, split across the two Macs to fit
-available space: **full ZIP sealing on M1**, **separate average ZIP sealed on M4**.
+available space: **full ZIP sealed on M1**, **separate average ZIP sealed on M4**.
 Before launch, M1 free **23,907,180,544 bytes** exceeds full-only admission
 **23,100,509,657 bytes**, including 2 GiB headroom. No cleanup is required.
 The M4 average ZIP is completely member-readback/whole-hash verified before
@@ -205,7 +205,7 @@ an atomic same-filesystem rename into Research-Cloud:
 | Seed-2 ZIP | Bytes | Whole SHA256 | Manifest SHA256 | Status |
 |---|---:|---|---|---|
 | Final average | 3,162,066,289 | `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e` | `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089` | Local readback and upload accepted |
-| Full | Pending | Pending | Pending | Sealing on M1; 10.40 GB at 03:51 CEST; do not use yet |
+| Full | 20,953,054,295 | `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb` | `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1` | 48 members; local readback passed; upload pending |
 
 [Average readback](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-receipt.json),
 [native upload observation](hu200-v055-confirmation-artifacts/seed-2026101422-average-native-upload-observation.json),
@@ -214,16 +214,26 @@ The **[second average ZIP](https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk
 native uploaded1/uploading0/no conflicts, independently matching ID/name/
 3,162,066,289-byte size/direct parent. No remote archive bytes downloaded.
 [Independent acceptance](hu200-v055-confirmation-artifacts/seed-2026101422-average-cloud-upload-acceptance.json).
-The 03:51 CEST check validates the original M1 archive process creation time;
-its full ZIP is still growing, with no failure receipt and **12.63 GiB disk free**.
-[Archive progress](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-progress.json).
+At **04:21 CEST**, the original M1 archive worker is exited and the complete
+**48-member** full ZIP passes all source/member SHA256s, local readback and
+whole hashing (**2,926.60 s** sealing/readback). No failure receipt; M1 has
+**5.82 GiB free**. Both scientific/full archive lineages are now locally sealed.
+The [second full ZIP](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
+is still uploading, and its independent Drive size is only **16,234 bytes**;
+do not use that remote version. Seed 1's full upload likewise remains partial.
+[Full local readback](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-receipt.json),
+[native observation](hu200-v055-confirmation-artifacts/seed-2026101422-full-native-upload-observation.json),
+[independent metadata](hu200-v055-confirmation-artifacts/seed-2026101422-full-cloud-upload-observation.json),
+[closed worker observation](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-progress.json).
 The original-baseline M4 archive guard exits zero, **4 readings /15.13 s**,
 peak family RSS **0.109 GiB**, no breach. Its first helper invocation failed
 before opening a ZIP because `PYTHONPATH` was missing; that source/log/failure
 is retained, and the corrected environment passes an import preflight. This is
 administrative work after completed science, with no repeated training/export.
 [Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
-The small final administrative/server supplement awaits closed archive work.
+All administrative/server/observer sources, failures and raw resource readings
+have been collected for the small closeout supplement; it awaits full-upload
+acceptance. Both full uploads remain undisturbed.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures

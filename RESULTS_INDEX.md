@@ -52,9 +52,14 @@ manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
 one member `averages/seed-2026101422/final.average.gz`. **Upload accepted:**
 [Drive `1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT`](https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk),
 native uploaded1/uploading0/no conflicts plus independent ID/name/size/parent
-match. No remote archive bytes downloaded. Seed 2 full ZIP is actively
-sealing on M1, with 2-GiB admission headroom; it is not yet verified.
-[Second seed model pins and average restore command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+match. No remote archive bytes downloaded. Seed 2 full ZIP is now locally
+verified: **20,953,054,295 bytes**, SHA256
+`73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb`,
+manifest `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1`,
+48 members, complete local readback. [Drive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
+is **not upload-accepted**: native uploading1/uploaded0 and independent remote
+size16,234 bytes. Neither partial full remote version is a restoration source.
+[Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
 No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.
 

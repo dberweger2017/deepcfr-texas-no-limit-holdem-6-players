@@ -1,5 +1,5 @@
 {
-  "observed_at": 1792029106.5680041,
+  "observed_at": 1792030907.129896,
   "owned_process": {
     "pid": 61886,
     "create_time": 1792027499.163661,
@@ -15,9 +15,9 @@
     ],
     "purpose": "Only full seed2 ZIP on M1; separate audited average ZIP sealed on M4; same canonical folder"
   },
-  "alive": true,
-  "zip_bytes": 10398624249,
-  "disk_free_bytes": 13563482112,
+  "alive": false,
+  "zip_bytes": 20953054295,
+  "disk_free_bytes": 6249357312,
   "failure": false,
-  "full_readback_receipt": false
+  "full_readback_receipt": true
 }
