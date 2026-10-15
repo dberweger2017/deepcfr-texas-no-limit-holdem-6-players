@@ -37,10 +37,10 @@ def run(manifest_path, case_name, binaries, tables, training, out):
         if Path(stop).exists(): raise RuntimeError('supervisor stop; no continuation')
         trace=out/f'play-{repeat}.jsonl'
         command=[str(binary),str(tables),str(case['blocks']),str(case['root']),str(trace),a,b]
-        tick=time.monotonic()
+        tick=time.monotonic();started_unix=time.time()
         with (out/f'play-{repeat}.log').open('x') as log:
             result=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT)
-        operation={'command':command,'seconds':time.monotonic()-tick,'returncode':result.returncode}
+        operation={'command':command,'started_unix':started_unix,'seconds':time.monotonic()-tick,'returncode':result.returncode}
         operations.append(operation)
         (out/'operations.json').write_text(json.dumps(operations,indent=2)+'\n')
         if result.returncode or Path(stop).exists(): raise RuntimeError('play stopped/failed; retain partial')
@@ -58,6 +58,19 @@ def run(manifest_path, case_name, binaries, tables, training, out):
     print(json.dumps(result),flush=True)
 
 
+def run_all(manifest_path,binaries,tables,training,out):
+    manifest=json.loads(manifest_path.read_text())
+    if manifest['cases']!=matrix(): raise ValueError('changed matrix')
+    out.mkdir(parents=True,exist_ok=False)
+    completed=[]
+    for case in matrix():
+        run(manifest_path,case['name'],binaries,tables,training,out/case['name'])
+        completed.append(case['name'])
+        (out/'progress.json').write_text(json.dumps({'completed':completed,'total':len(matrix())},indent=2)+'\n')
+    (out/'result.json').write_text(json.dumps({'status':'passed','cases':len(completed),
+        'manifest_sha256':sha(manifest_path)},indent=2)+'\n')
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--manifest',required=True,type=Path)
@@ -66,4 +79,8 @@ if __name__=='__main__':
     p.add_argument('--tables',required=True,type=Path)
     p.add_argument('--training',required=True,type=Path)
     p.add_argument('--out',required=True,type=Path)
-    a=p.parse_args();run(a.manifest,a.case,a.binaries.resolve(),a.tables.resolve(),a.training.resolve(),a.out.resolve())
+    a=p.parse_args()
+    if a.case=='all':
+        run_all(a.manifest,a.binaries.resolve(),a.tables.resolve(),a.training.resolve(),a.out.resolve())
+    else:
+        run(a.manifest,a.case,a.binaries.resolve(),a.tables.resolve(),a.training.resolve(),a.out.resolve())

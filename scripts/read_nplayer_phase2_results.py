@@ -9,13 +9,14 @@ from scripts.nplayer_phase2_matrix import matrix
 def read_results(manifest_path, evaluation, guards):
     manifest=json.loads(manifest_path.read_text())
     if manifest['cases']!=matrix(): raise ValueError('changed matrix')
+    guard=json.loads((guards/'evaluation'/'result.json').read_text())
+    if guard['status']!='passed': raise ValueError('unsettled contrast: evaluation supervisor failed')
     # Admission is checked across the entire matrix before reading any payoffs.
     for case in matrix():
         root=evaluation/case['name']
         result=json.loads((root/'result.json').read_text())
-        guard=json.loads((guards/case['name']/'result.json').read_text())
         admission=json.loads((root/'admission.json').read_text())
-        if (result['status']!='passed' or guard['status']!='passed' or result['case']!=case
+        if (result['status']!='passed' or result['case']!=case
             or admission['manifest_sha256']!=sha(manifest_path)
             or result['hands']!=case['blocks']*6):
             raise ValueError(f'unsettled contrast: {case["name"]}')

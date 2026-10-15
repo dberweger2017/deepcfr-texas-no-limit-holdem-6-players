@@ -10,9 +10,11 @@ qualification passes; training and final evaluation remain pending at this entry
 `bb128:/home/dberweger/nplayer-blueprint-phase2-20261015/` and this worktree's
 ignored `planning/nplayer-phase2/`. Preserve all commands, resource/VRM/fan traces,
 source bundles, checkpoints, exports, audits, raw duplicate traces, replay and
-reproduction receipts, failures and partials. No archive upload or removal is
-claimed yet. The owner explicitly requested manifests, archive readback and
-cloud indexing as part of this campaign; receipts will be added at closeout.
+reproduction receipts, failures and partials. The verified [Drive destination](https://drive.google.com/drive/folders/1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9)
+contains only a small admission/provenance record so far; scientific payloads
+are not yet archived and no originals have been removed. The owner explicitly
+requested manifests, archive readback and cloud indexing as part of this
+campaign; receipts will be added at closeout.
 
 The host repo is a shared clone of PR291's protected checkout, with `.venv` and
 K50 `tables` from #283. Preserve the complete PR291→PR289→PR288→#283 shared Git

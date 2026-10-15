@@ -54,7 +54,7 @@ def test_complete_controller_and_readout_on_native_script_fixture(tmp_path,monke
     monkeypatch.setattr(reader,'matrix',lambda:[case])
     monkeypatch.setenv('NPLAYER_STOP_FILE',str(tmp_path/'stop'))
     runner.run(path,'fixture',binary.parent,tmp_path,tmp_path,tmp_path/'eval/fixture')
-    guard=tmp_path/'guards/fixture';guard.mkdir(parents=True)
+    guard=tmp_path/'guards/evaluation';guard.mkdir(parents=True)
     (guard/'result.json').write_text(json.dumps({'status':'passed'}))
     result=reader.read_results(path,tmp_path/'eval',tmp_path/'guards')
     assert result['final_hands']==18
@@ -63,3 +63,17 @@ def test_complete_controller_and_readout_on_native_script_fixture(tmp_path,monke
     (guard/'result.json').write_text(json.dumps({'status':'failed'}))
     with pytest.raises(ValueError,match='unsettled contrast'):
         reader.read_results(path,tmp_path/'eval',tmp_path/'guards')
+
+
+def test_whole_matrix_stops_at_first_failed_case(tmp_path,monkeypatch):
+    cases=matrix()
+    manifest=tmp_path/'manifest.json';manifest.write_text(json.dumps({'cases':cases}))
+    called=[]
+    def fail(*args):
+        called.append(args[1])
+        raise RuntimeError('fixture failure')
+    monkeypatch.setattr(runner,'run',fail)
+    with pytest.raises(RuntimeError,match='fixture failure'):
+        runner.run_all(manifest,tmp_path,tmp_path,tmp_path,tmp_path/'out')
+    assert called==[cases[0]['name']]
+    assert not (tmp_path/'out/result.json').exists()

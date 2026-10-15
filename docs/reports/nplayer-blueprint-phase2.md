@@ -1,6 +1,6 @@
 # Three-player Phase 2: first full-average blueprint
 
-**In progress; no training result or strength conclusion yet.**
+**In progress; first seed training, no settled strength conclusion yet.**
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292) follows merged
 PR289/PR291. The [protocol](../nplayer-blueprint-phase2-protocol.md) fixes the
 owner's all-street averages, three sequential fresh seeds and learning rule.
@@ -26,12 +26,19 @@ pressure. The latter two retain the heads-up public card-score heuristics and
 style thresholds/frequencies; their wagers use one pot after calling, clamped
 to exact legal bounds. They are controls, not optimal multiplayer opponents.
 
-Initial bb128 checks: native duplicate/stream/script tests pass, including
+Admission on bb128: **47 native and 380 Python checks pass**, including
 800 scripted random hands and hidden-card invariance on every street. Fourteen
-Python admission tests pass, including two distinct full-average models in both
+focused Python admission tests cover two distinct full-average models in both
 lineups, all-hand pinned-engine replay, exact reproduction, corrupted settlement
 rejection, correct block/seat denominators, refusal to continue partial training
-and synthetic VRM stop behavior. Further regression receipts will be attached.
+and synthetic VRM stop behavior. All 18 small HU20/HU100/HU200 checkpoint/current/average identities match the
+qualified baseline. Fresh/resumed HU100 retain SHA256
+`792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416`.
+The fresh20M and resumed10M→20M #250 checkpoints both retain SHA256
+`4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+The rebuilt HU executable itself differs, so these were freshly executed
+identity checks, not a claim of executable-byte reuse. The existing HU20
+1B release-identity regression remains to be repeated; it changes no release.
 
 The exact PR291 scoped-average smoke input, SHA256
 `fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`, completes nine
