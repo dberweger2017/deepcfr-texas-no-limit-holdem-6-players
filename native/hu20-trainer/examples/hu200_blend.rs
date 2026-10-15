@@ -182,6 +182,7 @@ fn header(config: &Value, source: &Value, entries: u64) -> Value {
     h["config"]["max_entries"] = json!(entries);
     h["config"]["max_nodes"] = json!(1);
     h["blend_provenance"] = json!({"version":1,"kind":"synthetic-sequence-form-average",
+        "model_identity":format!("hu200-v055-sequence-blend-{seed}"),
         "rule":RULE,"inputs":config["inputs"],"regrets":0,"visits":0,
         "iteration_field":"synthetic marker 1; no training or resume claim"});
     checkpoint::header_game(&h).unwrap();
@@ -332,6 +333,10 @@ fn run(
     let mut result = stable;
     result["configuration_sha256"] = json!(sha256_file(config_path));
     result["rule"] = json!(RULE);
+    result["model_identity"] = json!(format!(
+        "hu200-v055-sequence-blend-{}",
+        config["blend_seed"].as_u64().unwrap()
+    ));
     result["mode"] = json!(mode);
     result["output"] = json!({"path":output_path,"bytes":output_path.metadata().unwrap().len(),"sha256":sha256_file(output_path),"rows":emitted});
     result["cache_array_bytes"] = json!(35 * union + 8 * slots + 6 * 128);

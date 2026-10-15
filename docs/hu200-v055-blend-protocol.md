@@ -53,9 +53,12 @@ exist.
 For each union key/action, raw blend accumulator is `fsum(A_s/W_s)` over
 present seeds, checked identical action menus. A missing key contributes zero.
 Output the trainer's JSONL-v2 checkpoint under distinct research seed/model
-identity **2026101529701** and a blend manifest; header iteration is the
+identity **hu200-v055-sequence-blend-2026101529701**, synthetic seed
+**2026101529701**, and a blend manifest; header iteration is the
 format-required synthetic marker **1**, with no training-iteration claim; retain game/schema/card-table
-identity. Set regrets and visits to zero, document that no training/regret
+identity (the strict shared game identity is not a seed/model identity).
+The source checkpoint and average hashes are new; none of the seed model
+identities are reused. Set regrets and visits to zero, document that no training/regret
 interpretation is asserted, and omit seed recovery/frozen counters. Mark
 synthetic provenance in a separate manifest and header extension. Do not
 represent this as a trained seed or a resumable experiment. Export and audit
