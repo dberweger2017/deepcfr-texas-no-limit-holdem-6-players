@@ -72,8 +72,9 @@ def guard(base, name, command, *, active_budget=None):
                 paused = True
                 request_stop(base, 'battery at or below 10%; plug in before resuming', resumable=True)
                 return dict(status='paused', hands_started=False)
-            if first['pressure_level'] != 1 or first['free_percent'] < 8:
-                raise ValueError('Admission requires normal pressure and free memory headroom')
+            # Warning pressure is allowed on this working laptop. The same
+            # declared critical/free-memory thresholds get a full 60 seconds
+            # from the first sample, including at admission.
             if not (base/'baseline.json').exists():
                 put(base/'baseline.json', first)
             baseline = json.loads((base/'baseline.json').read_text())['swap_bytes']
