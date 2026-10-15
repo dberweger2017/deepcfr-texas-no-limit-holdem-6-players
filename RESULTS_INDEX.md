@@ -1,5 +1,24 @@
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 
+## More M1/M4 storage — October 15
+
+This owner-requested pass retires **8.370 GB on M1 /7.675 GB on M4**;
+verified free **37.297 GB /80.231 GB**. **516 archived original paths** (474 unique
+inodes) from merged PR149/164/169/185 are recoverable from current accepted
+archives. M1 also removes unused install staging and old unopened browser-resource
+cache files. Earlier passes are excluded. Open PR292/297/298, current release/blend
+inputs, source/worktrees/Git, failed PR278 uploads, personal data and installed
+apps remain. **223 stable retained files** pass metadata checks.
+
+[Restoration and regeneration](docs/artifacts/storage-vacuum-20261015-more.md) ·
+[all exact archive/member/hash locators](docs/artifacts/storage-vacuum-20261015-more-locators.csv) ·
+[accepted private receipt](https://drive.google.com/file/d/1OyTa15dy7wUsLUyw2rByRMXfT1mcsU-g/view?usp=drivesdk)
+(4,525,074 bytes, SHA256 `d11197619fabaeb909971d2ce8fcd2ea1043717d6a2457bf6ab644afcc337274`).
+Existing manifests/provenance and unchanged source history are used with current
+native/cloud acceptance; no archive/member payload download or rehash. No synced
+deletion, force offload, scientific retry or unattended schedule.
+
+
 ## M4 and M1 storage — October 15 evening
 
 Owner-requested cleanup reclaims **17.075 GB on M4 /25.208 GB on M1**;
