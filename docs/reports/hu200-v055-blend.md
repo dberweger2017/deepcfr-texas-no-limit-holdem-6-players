@@ -247,3 +247,21 @@ research original or synced path is deleted. Free disk rises to **72.28 GB**.
 The third seed's restore starts at **20:38 UTC /22:38 Madrid**, using the revised
 intake deadline and the original resource baseline.
 [Exact input, resource and cache-release receipt](hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json).
+
+
+At **23:05 UTC October 15 /01:05 Madrid October 16**, seed 2026101422 also
+reproduces its released average SHA256
+`b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`
+exactly. Its existing-exporter run takes **722.63 seconds**; full restoration,
+raw verification and reproduction take **8,801.79 seconds**. All **1,743** guard
+samples are clear: family peak **53,493,760 bytes**, exporter kernel peak
+**4,636,672 bytes**, minimum sampled free disk **42,371,039,232 bytes**.
+
+Fresh source-owner/native/cloud checks then permit one ordinary FileManager
+request to release its **20,953,055,232-byte** inactive ZIP download cache.
+The same cloud file, placeholder, inode and modification time remain; all three
+raw inputs and exact reproduced averages remain protected. Free disk is
+**63.32 GB**. The streaming union/overlap/compression/capacity stage starts at
+**23:07:32 UTC /01:07:32 Madrid**. All three required input/export proofs now pass;
+full blend, caches and final play remain unstarted pending that gate.
+[Third-seed proof, resource summary and cache-release receipt](hu200-v055-blend-artifacts/continuation-seed-2026101422-verified.json).

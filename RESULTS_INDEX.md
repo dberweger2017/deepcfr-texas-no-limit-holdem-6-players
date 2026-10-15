@@ -10,8 +10,10 @@ is retained. Local seed2026101421 checkpoint hash, exact average reproduction
 and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Sequential remaining-input restoration began October 15 at 17:52 UTC under both
 locks/guards, with 72.95 GB free and a 56.53-GB maximum sequential requirement.
 Seed2026101302 now passes whole archive/manifest/raw checkpoint SHA256 verification
-and exact released-average reproduction (October 15,20:37 UTC). The third seed
-is restoring; all-three proof and the actual union admission remain pending.
+and exact released-average reproduction (October 15,20:37 UTC). Seed2026101422 also passes whole archive/manifest/raw SHA256 and exact
+released-average reproduction (October 15,23:05 UTC /October 16,01:05 Madrid).
+All three raw/average proofs now pass; the actual union/capacity stage starts
+at23:07:32 UTC. Its admission remains pending.
 Zero final hands, no blend/cache or strength result.
 No research-original removal, release, tag, default or merge.
 
@@ -89,6 +91,17 @@ current native/cloud evidence, raw resource summary and complete cache receipt
 are [recorded here](docs/reports/hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json).
 Restoration is the existing [PR265 command](#pr265-exact-hu200-k50-frozen-continuation-october-1314),
 into a fresh ignored path, followed by the whole/archive-member SHA256 checks above.
+
+
+**October 15,23:06 UTC cache receipt:** the verified seed2026101422 archive's
+inactive local download cache releases 20,953,055,232 allocated bytes through
+one ordinary FileManager request. The same
+[`1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view)
+and same-size placeholder remain; no synced path or research original is deleted.
+[Exact retained checkpoint/average paths, input/archive/member SHA256s,
+current native/cloud checks and cache receipt](docs/reports/hu200-v055-blend-artifacts/continuation-seed-2026101422-verified.json).
+Restoration uses the [existing PR278 per-seed retrieval commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json)
+into a fresh ignored path, with whole archive and extracted-member SHA256 verification.
 
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 
