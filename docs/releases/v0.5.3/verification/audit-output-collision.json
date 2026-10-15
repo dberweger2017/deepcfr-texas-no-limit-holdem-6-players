@@ -1,0 +1,19 @@
+{
+  "all_original_journals_retained": true,
+  "at": 1792097379.4561841,
+  "cause": "audit() already writes out/independent-audit.json; helper then used exclusive put() at same output path",
+  "fix": "Separate raw audit report directory from enhanced root summary; preflight every output path before fresh model load; persist before/after original manifests before final summary",
+  "initial_summary_retained": "results/v053-release-package/runtime-smoke-attempt-000/independent-audit-attempt-000.json",
+  "old_attempt_audit_status": "verified before summary collision",
+  "old_attempt_human_modes": {
+    "exact": 27,
+    "translated": 2,
+    "uniform": 2
+  },
+  "owner": {
+    "headRefOid": "c275ebe9123f15533ef97aa05fc189cd4b328bdb",
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+  },
+  "scientific_hand_reruns": false
+}

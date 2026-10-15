@@ -1,4 +1,5 @@
 {
+  "archive_upload_acceptance": "Both evidence and lifecycle archives have explicit native and independent cloud acceptance",
   "archive_xattr_preflight": {
     "all_originals_retained": true,
     "at": 1792098167.029836,
@@ -65,6 +66,15 @@
   ],
   "corrected_real_journal_audit": "verified",
   "failed_runs_and_sources_retained": true,
+  "final_prose_scope_observation": {
+    "at": 1792100677.87844,
+    "cause": "This PR changes runtime code and is routed to full CI; the prose-only entry point is inapplicable",
+    "command": "python -m scripts.ci_scope --check-prose",
+    "correction": "Use required full CI; staged repository-artifact and whitespace checks pass",
+    "no_scientific_hands": true,
+    "not_a_prose_encoding_failure": true,
+    "result": "Prose check requires a verified prose-only comparison"
+  },
   "http_recount_corrected": {
     "browser_completed_hands": 4,
     "driver_completed_hands": 20,
@@ -90,6 +100,25 @@
     "no_hand_rerun": true,
     "stage": "administrative HTTP recount"
   },
+  "native_client_recovery": {
+    "account_or_permissions_unchanged": true,
+    "archive_name": "hu100-v053-package-evidence-M1-20261015.zip",
+    "at": 1792100015.686185,
+    "credentials_entered": false,
+    "displayed_size": "575.8 MB",
+    "existing_lost_found_notice": "Two preexisting items; dismissed with Escape, no files moved/deleted",
+    "expected_ui_observations": [
+      "App quit after Quit action",
+      "noWindowsAvailable after Escape dismissed notice"
+    ],
+    "native_home": "Syncing... 1 file, 42 minutes left",
+    "official_support": "https://support.google.com/drive/answer/2565956?hl=en",
+    "owner_connection_question_resolved": true,
+    "progress": 0.06,
+    "sealed_backup": "archive-evidence-drive-restart-backup.json",
+    "search_and_pause_controls_enabled": true,
+    "status": "client recovered after one normal quit/reopen"
+  },
   "native_pending_parser": {
     "at": 1792098255.238902,
     "cause": "Native provider omits conflict field and Drive ID while upload is pending",
@@ -109,5 +138,18 @@
     "red": "1 failed, 2 passed",
     "stage": "first real runtime smoke"
   },
-  "scientific_hand_reruns": 0
+  "scientific_hand_reruns": 0,
+  "upload_observer_window": {
+    "at": 1792100206.5512252,
+    "baseline_swap_unchanged": true,
+    "new_guard": "archive-evidence-upload-001",
+    "new_scientific_hands": 0,
+    "old_guard": "archive-evidence-upload-000",
+    "physical_guard_breaches": false,
+    "policy": "Continue metadata observation without a compute timer; retain all declared resource and <=10% battery guards",
+    "reason": "The bounded 30-minute metadata observation window ended while the recovered Drive client is actively uploading; continue only upload observation",
+    "scientific_budget_unchanged": true,
+    "scientific_work_complete": true,
+    "upload_not_interrupted": true
+  }
 }

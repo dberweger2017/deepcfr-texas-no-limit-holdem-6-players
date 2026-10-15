@@ -124,3 +124,41 @@ owner merge is performed by this work.
 Final guarded play/replay/reproduction took 2,951.81 s; official readout 30.40 s,
 independent statistics recount 15.25 s, size classification 10.18 s and
 attempt-latency extraction 20.30 s. All fit the unchanged 6,099.59 s allowance.
+
+
+## M1 package closeout
+
+The 12 final assets are built from clean source
+`ffa9ff7d9b68cd96c9cec218088f5a62fc6dcca2`: three ordered model parts, three
+pinned K50 tables and the small manifest/docs/verifier assets. Fresh stdlib-only
+reassembly verifies the unchanged whole model. Later integration/readiness
+commits preserve the tested runtime and bundled source bytes; old manifests and
+actual v0.5.0–v0.5.2 traces remain identical.
+
+Real M1 CLI loads took 587.862 and 581.969 seconds, with cumulative maximum CLI
+child RSS 1,735,606,272 bytes. Restart before a pending off-menu bot decision
+preserved the exact idempotent reply in a new PID. Twenty HTTP-driver and four
+browser hands cover v2 restricted sizing, off-menu human wagers, an all-in and
+spectator play. Wrong model, table and identity are refused. Every retained
+runtime journal independently replays and reproduces decisions: 37 completed
+hands plus the original partial spectator hand. The successful human smoke has
+five selected translations; these functional hands do not enter this experiment
+or establish a strength gain.
+
+The first runtime attempt exposed a missing policy-owned K50-table argument in
+spectator postflop classification and its independent audit. The regression
+fails before correction; all 188 relevant tests pass afterward, and the real
+runtime/audit rerun passes. Original failure/partial journals remain. An audit
+summary-output collision and archive/native metadata preflight errors are also
+preserved with their corrections. No scientific hand was rerun. Native-client
+recovery followed a verified sealed-ZIP backup; account/permissions/credentials
+were unchanged and unrelated Lost and Found items were untouched.
+
+All 2,534 resource observations are retained, with no sustained physical guard
+breach. The initial bounded upload-observer window expired during native-client
+recovery, then metadata-only observation continued under the same guards;
+scientific counts and budget were unchanged. Both science and lifecycle ZIPs
+passed full local member readback plus separate native/cloud upload acceptance.
+Remote archive bytes were not downloaded. The lifecycle’s final observations
+are in the compact Git closing receipt. [Readiness and all measured receipts](../releases/v0.5.3/READINESS.md),
+[archive IDs, hashes and exact restoration](../../RESULTS_INDEX.md).
