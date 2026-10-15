@@ -1,0 +1,51 @@
+{
+  "pr": 301,
+  "roots": [
+    202610160301,
+    202610160302,
+    202610160303,
+    202610160304,
+    202610160305,
+    202610160311,
+    202610160312,
+    202610160313,
+    202610160314,
+    202610160315,
+    202610160321,
+    202610160322,
+    202610160323,
+    202610160324,
+    202610160325
+  ],
+  "source_refs": {
+    "main": "f949b930f91c76bbea14c7d2640c9cb39c85e4a7",
+    "298": "c0e4701576c4fadf020ba190c8fb114e18a1e4b4",
+    "297": "28fb34594de7906d0059dd621460910a359d1f6b",
+    "292": "56ab55bd334a197c28320a26d10c8439f230e59c"
+  },
+  "open_prs": [
+    {
+      "headRefOid": "27b71c75d991557bdf9cfe8a3bfcf695efdb6c08",
+      "number": 301,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/301"
+    },
+    {
+      "headRefOid": "c0e4701576c4fadf020ba190c8fb114e18a1e4b4",
+      "number": 298,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+    },
+    {
+      "headRefOid": "28fb34594de7906d0059dd621460910a359d1f6b",
+      "number": 297,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/297"
+    },
+    {
+      "headRefOid": "56ab55bd334a197c28320a26d10c8439f230e59c",
+      "number": 292,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/292"
+    }
+  ],
+  "matches": {},
+  "fresh": true,
+  "at": 1792095156.604867
+}

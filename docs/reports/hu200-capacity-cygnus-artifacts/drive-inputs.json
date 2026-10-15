@@ -1,0 +1,10 @@
+{
+  "observed_date":"2026-10-15",
+  "transport":"Read-only existing synced Drive archive files to bb128 via scp; no model hashing or extraction on coordinator",
+  "archives":[
+    {"seed":2026101302,"id":"1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh","name":"hu200-k50-frozen-averages-M4-20261013.zip","bytes":5921067848,"folder_id":"1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK","sha256":"fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943","manifest_sha256":"d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5","member":"averages/20000000000.average.gz","model_sha256":"9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"},
+    {"seed":2026101421,"id":"1OAKKAxH91_flAKK9eWa4peCy_jUImhDl","name":"hu200-v055-seed-2026101421-final-average-20261014.zip","bytes":3162672661,"folder_id":"1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP","sha256":"27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f","manifest_sha256":"678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25","member":"averages/seed-2026101421/final.average.gz","model_sha256":"c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"},
+    {"seed":2026101422,"id":"1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT","name":"hu200-v055-seed-2026101422-final-average-20261014.zip","bytes":3162066289,"folder_id":"1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP","sha256":"76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e","manifest_sha256":"14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089","member":"averages/seed-2026101422/final.average.gz","model_sha256":"b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f"}
+  ],
+  "metadata_readback":"All three IDs, names, byte sizes and parent IDs independently confirmed through connected Drive metadata; payload verification pending on bb128"
+}

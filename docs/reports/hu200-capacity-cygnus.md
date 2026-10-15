@@ -13,7 +13,10 @@ archives and upload processes are protected and remain untouched.
 
 The connected Drive download of the seed1421 average ZIP failed before action
 invocation with HTTP413:3,162,672,661 bytes exceeds268,435,456-byte limit.
-Restoration is not complete. No model hash/identity or strength result is claimed.
+The established read-only synced-archive/SSH route is now transferring inputs.
+All extraction/hashing/model work is on bb128. Restoration verification remains
+pending; no model identity or strength result is claimed. Three guard admission
+tests pass on bb128, and the bounded zero-step500M memory re-save is running.
 
 Initial ETA: preflight/admission pending; allow up to72h training/audits and24h
 evaluation after admission, plus bandwidth-dependent archive closeout. Update

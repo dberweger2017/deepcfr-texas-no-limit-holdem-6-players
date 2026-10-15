@@ -23,12 +23,14 @@ def put(path, value):
         stream.write('\n')
 
 
-def verify_rows(original, saved):
+def verify_rows(original, saved, *, expected_entries=69_084_815, old_cap=85_373_862, new_cap=301_153_954):
     counts = Counter()
     with gzip.open(original, 'rb') as left, gzip.open(saved, 'rb') as right:
         before, after = json.loads(next(left)), json.loads(next(right))
-        assert before['config'].pop('max_entries') == 85_373_862
-        assert after['config'].pop('max_entries') == 301_153_954
+        if before['config'].pop('max_entries') != old_cap:
+            raise ValueError('Old cap differs')
+        if after['config'].pop('max_entries') != new_cap:
+            raise ValueError('New cap differs')
         if before != after:
             raise ValueError('Non-cap header difference')
         for a, b in zip(left, right, strict=True):
@@ -41,7 +43,7 @@ def verify_rows(original, saved):
             counts['visits'] += row[4]
             counts['regret_free_slots'] += len(row[1]) if all(value == 0 for value in row[2]) else 0
             counts['menu_' + str(len(row[1]))] += 1
-    if counts['entries'] != 69_084_815:
+    if counts['entries'] != expected_entries:
         raise ValueError('Wrong prefix cardinality')
     return dict(counts)
 
@@ -95,7 +97,8 @@ def run(out):
     checked = audit(saved, current, average, spec, file_hash(average), expected_schema=HU200_EQUITY_SCHEMA)
     if checked['all_nodes_verified'] != counts['entries']:
         raise ValueError('Incomplete every-row audit')
-    if original.stat() != source_stat or file_hash(original) != PREFIX_SHA:
+    after_stat = original.stat()
+    if (after_stat.st_size, after_stat.st_mtime_ns) != (source_stat.st_size, source_stat.st_mtime_ns) or file_hash(original) != PREFIX_SHA:
         raise ValueError('Original input changed')
     put(out / 'audit.json', dict(status='verified', audit=checked,
         files={path.name: dict(bytes=path.stat().st_size, sha256=file_hash(path))

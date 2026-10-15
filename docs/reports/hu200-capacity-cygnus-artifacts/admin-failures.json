@@ -1,0 +1,10 @@
+{
+  "status": "preflight failures preserved; no scientific retry",
+  "events": [
+    {"phase":"initial documentation inventory","failure":"Phase2 report is absent from current main because PR292 is open","resolution":"Read the requested operations and watchdog source read-only from its existing checkout; no PR292 files copied or changed"},
+    {"phase":"input restoration","failure":"Drive raw download HTTP413 before action invocation:3162672661 bytes exceeds268435456-byte limit","resolution":"Use indexed synced-Drive archive file I/O and SSH transfer; all verification/extraction/science on bb128"},
+    {"phase":"input route qualification","failure":"Unauthenticated bb128 Drive URL redirects to Google sign-in","resolution":"No credentials accessed; established synced-archive route used"},
+    {"phase":"initial archive transfer","failure":"First scp prerequisite check ran before source transport completed and exited1; no archive transfer started","resolution":"Waited for source extraction, then launched the archive transfer; no source or scientific attempt repeated"},
+    {"phase":"source review before execution","failure":"Initial memory helper expected exit3 for native iteration limit","resolution":"Reviewed native CLI and corrected expected normal exit0 before any execution"}
+  ]
+}
