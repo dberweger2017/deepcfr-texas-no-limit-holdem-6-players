@@ -113,17 +113,38 @@ Initial host available353,836,523,520 bytes includes all existing files.
 its uploads and archives remain untouched. Plan a fresh campaign root under
 `/home/dberweger/hu200-capacity-20261015` and ignored local research paths.
 
-At the planned cap, reserve18GB per checkpoint: twelve milestone checkpoints
-alone consume216GB. Six needed large averages (5B/20B) can add~66GB, nine policy
-caches~124GB, restored twins~9.5GB and traces/archives more. Keeping all these
-simultaneously **does not fit** above the50GB floor. Admission must publish a
-staged budget: full audits and manifested archive acceptance before retiring
-any unique checkpoint/export; retain20B recovery and5B/20B evaluation inputs;
-create caches only after training; process seeds in parallel only while their
-combined resident/backing storage fits. Rebuildable inactive campaign caches
-may be retired with regeneration receipts. Open PR originals cannot be deleted
-under the standing merged-evidence permission. If safe retention cannot fit,
-stop and report rather than borrowing #292 space or silently dropping saves.
+At the planned cap, reserve18GB per checkpoint,11.5GB per retained large
+average and18.5GB per large cache. Reserve10GB for the restored twins,10GB for
+traces/receipts,20GB for staging/other-host growth and the50GB floor. Treat these
+as estimates and check actual bytes before each stage; stop before any admitted
+write could cross the floor. No reclamation of #292 is assumed.
+
+The owner's “keep what evaluation and recovery need” instruction authorizes
+retiring this campaign's redundant 2B/10B checkpoints after full audits and an
+audited successor. Preserve their complete diagnostics, hashes, commands and
+failure records. Keep5B averages for evaluation; retain the last audited recovery
+checkpoint until its successor audits. After20B audits, retain20B recovery and
+both5B/20B averages;5B recovery can then retire. This applies only to this new
+campaign, never another open PR. Keep all incomplete/failed attempts.
+
+Worst staged training budget: nine checkpoints while20B is being written
+(three each5B/10B/20B)162GB, six retained averages69GB, one current export9GB,
+restored twins10GB, traces10GB, staging/growth20GB, floor50GB: **330GB**,
+below the353.837GB initial available. Release5B recovery after a verified10B
+successor when its5B average has audited to reduce that bound further.
+No cache construction during training. After training: three20B recovery54GB,
+six averages69GB, twins10GB, three20B large caches55.5GB and three twin caches
+15.5GB, traces10GB, staging/growth20GB, floor50GB: **284GB**. Retire inactive20B
+caches after20B direct/panel verification, then build5B caches for descriptive
+matches. All cache removals have exact regeneration receipts.
+
+Seal/archive one seed at a time, up to41GB additional per seed; never duplicate
+all three simultaneously. Archive all retained recovery/evaluation models and
+all raw receipts/traces/failures; intermediate retired checkpoint bytes are not
+required for evaluation or recovery. Manifests explicitly mark these retirements
+and the retained replacement recovery. Full local member readback and separate
+Drive upload acceptance precede disposal of transport copies. Record receipts
+and indexed actual archive/model/member hashes and restoration commands.
 
 ## Restored twin inputs
 
