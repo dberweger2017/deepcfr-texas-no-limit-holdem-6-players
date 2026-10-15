@@ -7,9 +7,10 @@ Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declarati
 `33215e6b`. **Ongoing /not a final blend result.** The owner authorized raw
 20B checkpoint inputs after the normalized-export stop; its original evidence
 is retained. Local seed2026101421 checkpoint hash, exact average reproduction
-and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Other input restoration/capacity and union
-admission remain unresolved. Zero final hands, no blend/cache or strength result.
-No cleanup, release, tag, default or merge.
+and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Sequential remaining-input restoration began October 15 at 17:52 UTC under both
+locks/guards, with 72.95 GB free and a 56.53-GB maximum sequential requirement.
+Whole input hashes and the actual union admission remain pending. Zero final hands, no blend/cache or strength result.
+No research-original removal, release, tag, default or merge.
 
 Designated [Research-Cloud folder](https://drive.google.com/drive/folders/1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH),
 ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
@@ -63,6 +64,17 @@ and open-PR dependencies stay protected. No current remote raw-input hash check
 is claimed merely from cloud metadata. Full SHA256 verification is mandatory
 before use. The stopped-preflight release is historical: the owner then
 reauthorized M4 use for this corrected continuation.
+
+Active M4 working root: `~/Local/hu200-v055-frozen-blend/`; keep its
+`results/hu200-v055-blend/`, earlier preflight/input/tooling roots and runtime
+`~/Local/hu20-k50-5b-first-pass-20261012/.venv/` protected. Verified read-only
+checkpoint1421, frozen exporter and tables are APFS-cloned to
+`results/hu200-v055-blend/protected-inputs/`;
+[exact copy/hash receipt](docs/reports/hu200-v055-blend-artifacts/continuation-copy-receipt.json).
+New raw checkpoints and reproduced averages go to `results/hu200-v055-blend/inputs/<seed>/`.
+Accepted inactive archive download caches may be normally released only after
+whole archive/checkpoint hash and exact average reproduction, with native/cloud
+checks and per-file receipts. No forced offload or synced deletion.
 
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 

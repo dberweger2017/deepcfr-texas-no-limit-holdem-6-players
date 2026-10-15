@@ -1,0 +1,49 @@
+{
+  "at": 1792083956.052504,
+  "owner": {
+    "mergedAt": "2026-10-15T06:27:46Z",
+    "number": 278,
+    "state": "MERGED",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/278"
+  },
+  "copies": [
+    {
+      "source": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "destination": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/checkpoint-2026101421.gz",
+      "bytes": 4957752665,
+      "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+      "method": "APFS clone, full destination SHA256 verified"
+    },
+    {
+      "source": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/native/hu20-trainer/target/release/hu20-trainer",
+      "destination": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/hu20-trainer",
+      "bytes": 1492512,
+      "sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+      "method": "APFS clone, full destination SHA256 verified"
+    },
+    {
+      "source": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/flop-k50.bin",
+      "destination": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/tables/flop-k50.bin",
+      "bytes": 12867944,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "method": "APFS clone, full destination SHA256 verified"
+    },
+    {
+      "source": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/turn-k50.bin",
+      "destination": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/tables/turn-k50.bin",
+      "bytes": 139600524,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+      "method": "APFS clone, full destination SHA256 verified"
+    },
+    {
+      "source": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/river-k50.bin",
+      "destination": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/tables/river-k50.bin",
+      "bytes": 1231562564,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "method": "APFS clone, full destination SHA256 verified"
+    }
+  ],
+  "free_before": 72989564928,
+  "free_after": 72989667328,
+  "originals_retained": true
+}

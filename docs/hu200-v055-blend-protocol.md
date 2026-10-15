@@ -134,3 +134,16 @@ retain it while PR297 runs. Seed1421 checkpoint, the frozen exporter and card
 tables have verified read-only APFS clones under PR297's own ignored
 `results/hu200-v055-blend/protected-inputs/`, protecting active dependencies
 during the owner's storage work. Original indexed files are unchanged.
+
+For sequential input restoration, a source ZIP's local download cache becomes
+inactive only after its whole hash, selected raw checkpoint hash and exact
+released-average reproduction pass. Normal per-file FileManager eviction of
+that accepted inactive cache is permitted under the documented standing cache
+permission, preserving its cloud file and same-size placeholder. Require
+current merged ownership, clean native upload/no-conflict/unpinned status,
+matching independent cloud metadata, unchanged file identity and no open
+handles. Record the normal request and post-placeholder receipt. No force,
+unpinning, synced deletion or removal of extracted research originals; retain
+any refusal. Sequential intake requires at most 56,525,196,918 free bytes
+including the 16-GiB floor and 2-GiB margin. This does not admit construction;
+the actual union gate still decides that.

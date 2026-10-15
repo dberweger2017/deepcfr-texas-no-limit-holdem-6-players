@@ -140,7 +140,9 @@ check takes **779.12 seconds**, 156 readings, peak family **72,056,832 bytes
 [root diagnostic](hu200-v055-blend-artifacts/local-root-mass-summary.json),
 [resources](hu200-v055-blend-artifacts/local-seed-resources.json).
 
-Full remaining checkpoint archives are online-only. The Drive connected fetch
+### Initial retrieval capacity observation (superseded)
+
+Full remaining checkpoint archives were online-only. The Drive connected fetch
 refuses the 26.698-GB PR265 ZIP with HTTP413 (256-MiB tool limit); native
 Drive hydration is available, but its disk requirement must be admitted first.
 The initial capacity observation is 59,400,392,704 free bytes. Even optimistically
@@ -150,15 +152,52 @@ full hydration of PR265/seed1422 archives, both extracted checkpoints, the
 **7,432,242,417-byte deficit** before outputs, union or cache construction.
 The local reproduction adds its separate average output to future requirements.
 Additional inspected build targets total under 2 GB and cannot close that gap.
-No cache has been removed merely to approach a failing admission. No full ZIP
-is being downloaded for this continuation until storage is resolved; the
+No cache has been removed merely to approach a failing admission. At that observation, no full ZIP
+was being downloaded for this continuation until storage was resolved; the
 original preflight's on-demand download may continue under ordinary Drive.
 
 This is a retrieval-capacity issue before the requested union gate, not a
 measured union failure. Checkpoint-only archives or additional M4 capacity
 would permit the next check without forced offloading or research deletion.
-Final ETA awaits that input admission, then union sizing and cost pilots.
+At that observation, final ETA awaited input admission, then union sizing and cost pilots.
 
 The owner is arranging additional M4 storage and instructed continued work.
 The native three-lookahead union/merge tool is implemented; guarded fixture
 tests and its build follow the completed local-seed check, before real merging.
+
+### Sequential intake admitted October 15, 17:52 UTC /19:52 Madrid
+
+The owner instructed continued work while freeing M4 storage. The initial
+simultaneous-download calculation was unnecessarily restrictive: the repository
+records normal per-file `FileManager.evictUbiquitousItem` release of inactive,
+accepted Drive download caches. After whole-archive and selected-checkpoint
+hash verification and exact released-average reproduction, that ZIP cache can
+become inactive. Normal release preserves its cloud file and same-size
+placeholder; no force, unpinning, synced deletion or research-original removal.
+It requires current merged source ownership, clean uploaded/no-conflict native
+status, matching independent cloud ID/name/size/parent, unchanged file identity
+and no open handles. A refused request is retained, with no forced retry.
+
+Sequential intake's maximum requirement is **56,525,196,918 bytes**, including
+retained new checkpoint/average outputs, one full archive, the 16-GiB floor
+and 2-GiB margin. Initial free disk **72,950,648,832 bytes** admitted the first
+restore. This is intake admission only; the actual union/export/cache/audit/
+archive gate remains mandatory. The source PR265/278 live states were MERGED
+before copying. Independent Drive metadata confirms both archive IDs/sizes/
+parents. The full PR265 hash read is now running under both locks and guards.
+
+The qualified M4 build passes **5 native tests and 31 focused Python tests**.
+The five native checks exercise weighting, missing/zero mass, conflicting menus,
+positive underflow refusal and a complete three-way stream/export fixture.
+[Build receipt](hu200-v055-blend-artifacts/continuation-build-receipt.json).
+Verified read-only APFS clones protect seed1421's checkpoint, the frozen exporter
+and three pinned tables in this PR's own ignored root; originals are retained.
+[Copy receipt](hu200-v055-blend-artifacts/continuation-copy-receipt.json).
+
+The fixed 16-hour wall envelope starts at **17:52:37 UTC**; its final two hours
+are reserved for preservation, and intake is capped at six hours.
+[Clock](hu200-v055-blend-artifacts/continuation-campaign-clock.json).
+The PR description carries provisional M4 release **October 16 00:50–03:50
+Madrid**, review readiness **02:50–05:50 Madrid**. Union sizing and cost-only
+pilots must replace these estimates before any final hand. No final hand, full
+blend or policy cache exists yet.
