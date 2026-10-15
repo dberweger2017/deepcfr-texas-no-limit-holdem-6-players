@@ -123,6 +123,33 @@ deletion, force offload, unpinning, payload download or repeated hashes.
 [Owner-authorized PR278 comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185) delivered and independently
 read back. M1 inspected only; no other agent's reclamation credited.
 
+## PR286 — HU100 v0.5.3 three-seed qualification (in progress)
+
+[PR286](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286),
+[protocol](docs/hu100-v053-three-seeds-protocol.md), branch
+`feature/hu100-v053-three-seeds`. M4 unsynced root
+`~/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds`.
+Training source starts at `fb7d57aa669a623838136a317c1c4952121d34db`,
+current-main native tree `39bdd06f9362512699cf02ed6ab5e3d598ff3557`.
+Build SHA256 matches #272 exactly:
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+Fresh seeds **2026101501 then 2026101502**, sequential. One original 14-hour
+clock, both shared locks and every five-second whole-family reading retained.
+No final-hand outcomes, audit completion, archive integrity or upload acceptance
+are claimed by this initial entry.
+
+Designated Research-Cloud folder
+[PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),
+ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; creation and connector readback verified.
+No payload ZIP exists yet. Required archive/member hashes, native upload and
+independent cloud metadata receipts, and restore commands follow at closeout.
+Protected inputs: [#272 original candidate average](#pr272--hu100-v2-frozen-5b-october-14-2026),
+[#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout), and
+[v0.5.2 pinned release](docs/releases/v0.5.2/PUBLICATION.md).
+M4 cleanup is owner-managed after #278 merged; no other PR root is changed here.
+No release, tag, default change, Slumbot, credential work or merge.
+
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 
 [PR272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272),
