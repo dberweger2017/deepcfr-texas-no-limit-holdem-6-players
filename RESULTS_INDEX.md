@@ -35,7 +35,7 @@ are protected. Canonical archive folder
 [PR278](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
 ID `1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP`, under project folder
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Per-seed full and separate final-average
-ZIPs are being prepared. Seed 1's full ZIP is locally verified:
+ZIPs are all locally sealed/readback verified. Seed 1's full ZIP is locally verified:
 **20,952,808,971 bytes**, SHA256 `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d`,
 manifest `6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39`, 52 members.
 Separate final-average ZIP: **3,162,672,661 bytes**, SHA256
@@ -44,9 +44,13 @@ manifest `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25`, one
 [All archive IDs, member pins and usable local restoration command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
 **Final-average ZIP accepted**: [Drive `1OAKKAxH91_flAKK9eWa4peCy_jUImhDl`](https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk),
 native uploaded1/uploading0/no conflicts and independent ID/name/3,162,672,661-byte
-size/direct-parent match. **Full ZIP remains pending:** native uploaded0/uploading1,
-remote partial size. Never restore that partial full remote version. No remote bytes downloaded or verified. Seed 2 archives/closeout remain
-pending. Seed 2's average-only ZIP is locally member-readback verified:
+size/direct-parent match. **Full ZIP is sync-blocked:** Drive UI reports “Can’t sync file, moved it to
+‘Lost and Found’ folder”; native uploaded0/uploading1 is stale and remote size
+still partial. The intact verified local full ZIP remains canonical; the separate
+Lost and Found copy is an earlier **1,481,657,243-byte partial**. Both are retained.
+[Exact paths and read-only error receipt](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-sync-error.json).
+Never restore either partial copy. No remote bytes downloaded or verified. The
+final closeout supplement remains blocked. Seed 2's average-only ZIP is locally member-readback verified:
 **3,162,066,289 bytes**, SHA256 `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e`,
 manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
 one member `averages/seed-2026101422/final.average.gz`. **Upload accepted:**
@@ -59,7 +63,10 @@ manifest `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1`,
 48 members, complete local readback. [Drive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
 is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
 and independent ID/name/exact20,953,054,295-byte size/direct-parent match.
-Seed 1 full remains pending; its partial remote version is not a restoration source.
+Seed 1 full remains sync-blocked; its partial remote version is not a restoration source.
+No upload manipulation is authorized. The final supplement awaits full acceptance;
+all collected raw evidence remains ignored locally. Campaign interval and disabled
+webhook removed at the terminal block; [receipts](docs/reports/hu200-v055-confirmation-artifacts/schedule-removal.json).
 [Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
 No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.

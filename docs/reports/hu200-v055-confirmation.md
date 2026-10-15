@@ -8,7 +8,8 @@ Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 seed 1’s audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
 It finished science at **October 15 00:38:20 UTC /02:38:20 CEST**, within
-the original clock. Both server preparations are complete; archive closeout continues.
+the original clock. Both server preparations are complete. **Archive closeout is blocked by a
+Google Drive sync error for seed 1’s full ZIP.**
 
 ## Fixed recipe, source and clock
 
@@ -189,9 +190,15 @@ final-average ZIPs pass member-hashed transfer and complete local readback:
 [model/member pins and restoration command](hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
 The **[final-average ZIP](https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk) is upload-accepted**:
 native uploaded1/uploading0/no conflicts, plus independent matching ID/name/
-3,162,672,661-byte size/direct parent. **Full ZIP upload remains pending**:
-native uploaded0/uploading1 and remote size still describe a partial earlier
-version. Do not use that full remote version for restoration.
+3,162,672,661-byte size/direct parent. **Full ZIP upload is blocked**: the
+06:21 CEST read-only Drive UI shows “Can’t sync file, moved it to ‘Lost and
+Found’ folder.” Native uploaded0/uploading1 remains set, but independent Drive
+size is still the earlier 592,464,795-byte partial. Do not restore that version.
+The complete verified **20,952,808,971-byte local archive remains at its
+canonical path**, modification time unchanged since sealing. The separately
+reported Lost and Found copy is **1,481,657,243 bytes**, an earlier partial;
+it is retained. No payload was read, rehashed, moved, retried or deleted.
+[Sync error and exact local paths](hu200-v055-confirmation-artifacts/seed-2026101421-sync-error.json).
 [Native observation](hu200-v055-confirmation-artifacts/seed-2026101421-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified. M4 originals remain.
@@ -221,7 +228,7 @@ whole hashing (**2,926.60 s** sealing/readback). No failure receipt; M1 has
 The [second full ZIP](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
 is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
 and independent exact ID/name/20,953,054,295-byte size/direct-parent match.
-Seed 1’s full upload remains pending with its earlier partial remote size.
+Seed 1’s full upload is blocked by the sync error above.
 [Full local readback](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-receipt.json),
 [native observation](hu200-v055-confirmation-artifacts/seed-2026101422-full-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101422-full-cloud-upload-observation.json),
@@ -234,9 +241,12 @@ administrative work after completed science, with no repeated training/export.
 [Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
 All administrative/server/observer sources, failures and raw resource readings
 have been collected for the small closeout supplement; it awaits full-upload
-acceptance of seed 1’s full ZIP. The **05:51 CEST** check accepts seed 2’s
-full ZIP; seed 1 remains native uploaded0/uploading1 with its unchanged partial
-remote size. Uploads remain undisturbed.
+acceptance of seed 1’s full ZIP. Its repair is outside the current authorization
+“Leave live uploads undisturbed: never rebuild/re-download/manipulate.” No
+dependent supplement is sealed before that acceptance. All scientific originals,
+verified ZIPs, raw administrative evidence and the failed-upload partial remain.
+The proposed owner-authorized next action would retry **only the intact
+canonical full ZIP**, preserving the Lost and Found partial and all other paths.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures
@@ -247,12 +257,13 @@ pressure, free memory below 8%, or swap growth above 4 GB. Disk below 16 GiB
 requests a clean stop immediately. Gaps cannot establish a sustained breach;
 owned process creation times are checked before signaling. No other jobs signaled.
 
-Owner-requested **30-minute T3 checks remain enabled** for this campaign only.
-The completion webhook returned three HTTP errors after seed 1; it is disabled
-and that failure is [preserved](hu200-v055-confirmation-artifacts/completion-callback-failure.json).
-The 22:21 CEST periodic check caught the completed audit. No duplicate scientific
-job was started. Both schedules will be removed at closeout; no follow-on research.
-Private routing capability data is excluded from Git and archives.
+The owner-requested 30-minute checks caught completion and upload acceptance.
+At the terminal sync block, **the interval and disabled completion webhook were
+deleted**, as the owner required. No follow-on schedule or observer exists.
+[Schedule deletion receipts](hu200-v055-confirmation-artifacts/schedule-removal.json).
+The earlier webhook's three HTTP errors remain
+[preserved](hu200-v055-confirmation-artifacts/completion-callback-failure.json).
+Private routing capability data was not read and is excluded from Git/archives.
 
 Initial disk admission at 35.474 GiB failed before the build/clock; owner-cleared
 storage passed fresh admission. The unsupported Python 3.9 artifact-check

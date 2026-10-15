@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-15T04:23:05.564171+00:00",
+  "status": "blocked-sync-error",
+  "ui_app": "Google Drive",
+  "ui_error": "Can\u2019t sync file, moved it to \u201cLost and Found\u201d folder.",
+  "file_name": "hu200-v055-seed-2026101421-full-20261014.zip",
+  "lost_and_found_candidates": [
+    {
+      "path": "/Users/dberweger/Library/Application Support/Google/DriveFS/lost_and_found/112330202331069005318/hu200-v055-seed-2026101421-full-20261014.zip",
+      "bytes": 1481657243,
+      "mtime_ns": 1792010580177157547
+    }
+  ],
+  "canonical": {
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip",
+    "exists": true,
+    "bytes": 20952808971,
+    "mtime_ns": 1792013553901647327
+  },
+  "upload_not_manipulated": true,
+  "no_archive_payload_read_or_rehashed": true,
+  "original_verified_archive_sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+  "owner_constraint": "Leave live uploads undisturbed: never rebuild/re-download/manipulate",
+  "supplement_not_sealed": "Owner condition requires full upload acceptance first",
+  "disk_free_bytes": 6302003200,
+  "canonical_matches_prior_observation": {
+    "commit": "382ef0b0",
+    "same_bytes": true,
+    "same_modification_second": true,
+    "prior_content_modification_date": "2026-10-14 21:32:33 +0000",
+    "no_payload_read": true
+  }
+}
