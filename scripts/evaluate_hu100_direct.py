@@ -230,17 +230,21 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
         if repeat_h:repeat_h.close()
         if repeat_d:repeat_d.close()
     play_seconds=perf_counter()-tick
+    if resumed:
+        load_seconds+=resumed['load_or_validation_seconds']
+        play_seconds+=resumed['play_seconds']
+    active_seconds=perf_counter()-started+(resumed.get('active_seconds',0) if resumed else 0)
     pins={p.name:{'bytes':p.stat().st_size,'sha256':file_hash(p)} for p in out.glob('*.jsonl.gz')}
     if completed_blocks != blocks:
         paused={'status':'paused','hands':hands,'decisions':decisions,'files':pins,
             'next_block':completed_blocks,'source':source,'reproduction':str(reproduce) if reproduce else None,
-            'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds}
+            'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,'active_seconds':active_seconds}
         put(out/f'pause-{completed_blocks:09d}-{len(list(out.glob("pause-*.json"))):03d}.json',paused)
         temporary=out/'resume.json.tmp'
         temporary.write_text(canonical(paused)+'\n');temporary.replace(out/'resume.json')
         return registry,paused
     put(out/'complete.json',{'status':'complete','hands':hands,'decisions':decisions,'files':pins,
-        'seconds':perf_counter()-started,'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,
+        'seconds':active_seconds,'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,
         'reproduced_all_hands_and_decisions':bool(reproduce)})
     return registry,json.loads((out/'complete.json').read_text())
 

@@ -50,9 +50,14 @@ def prepare(config, base):
     owners = {str(n): json.loads(gh('pr','view',n,'--json','state,url,mergedAt')) for n in (163,240,272,296)}
     if any(owner['state'] != 'MERGED' for owner in owners.values()):
         raise ValueError('Owning input PR is not merged')
-    put(base/'inputs.json', dict(source=revision(), models=specs, tables=hashes, owners=owners,
-        retrieval=config['retrieval'], machine='Apple M1', candidate_selection='owner-declared seed 2026100601'))
-    put(base/'specs.json', specs)
+    inputs=dict(source=revision(), models=specs, tables=hashes, owners=owners,
+        retrieval=config['retrieval'], machine='Apple M1', candidate_selection='owner-declared seed 2026100601')
+    for name,value in (('inputs.json',inputs),('specs.json',specs)):
+        if (base/name).exists():
+            if read(base/name)!=value:
+                raise ValueError('Resumed preparation identity differs')
+        else:
+            put(base/name,value)
     for item in (model, release):
         if boundary_stop(base):
             return
@@ -60,29 +65,27 @@ def prepare(config, base):
         policy=AveragePolicy(Path(item['path']),item['sha256'],expected_schema=item['abstraction'],
             card_buckets=Path(item['card_buckets']) if 'card_buckets' in item else None,
             sorted_rows=True, cache=Path(config['cache']))
-        put(base/('cache-'+item['name']+'.json'), dict(seconds=time()-started, description=policy.description,
-            source_sha256=item['sha256'], no_hands=True))
+        receipt=base/('cache-'+item['name']+'.json')
+        if not receipt.exists():
+            put(receipt, dict(seconds=time()-started, description=policy.description,
+                source_sha256=item['sha256'], no_hands=True))
         del policy; gc.collect()
 
 
 def pair(base, specs, blocks, root, opponent, cache, pilot, control):
     for label, reproduce in (('play', None), ('reproduction', base/'play')):
         out = base/label
-        if (out/'complete.json').exists():
-            continue
-        registry, done = direct.execute(specs,blocks,root,'translation',out,revision(),
-            reproduce=reproduce,stack_bb=100,opponent=opponent,cache=cache,cache_read_only=True,
-            boundary_stop=lambda n: boundary_stop(control), resume=(out/'resume.json').exists())
-        del registry; gc.collect()
-        if done['status'] == 'paused':
-            return
+        if not (out/'complete.json').exists():
+            registry, done = direct.execute(specs,blocks,root,'translation',out,revision(),
+                reproduce=reproduce,stack_bb=100,opponent=opponent,cache=cache,cache_read_only=True,
+                boundary_stop=lambda n: boundary_stop(control), resume=(out/'resume.json').exists())
+            del registry; gc.collect()
+            if done['status'] == 'paused':
+                return
         if label=='play' and not (base/'replay.json').exists():
             direct.audit(out,base/'replay.json',cost_only=pilot)
         if boundary_stop(control):
             return
-    # If power paused between complete play and replay, verification still precedes reproduction.
-    if not (base/'replay.json').exists():
-        direct.audit(base/'play',base/'replay.json',cost_only=pilot)
     if not (base/'costs.json').exists():
         checked=read(base/'replay.json')
         put(base/'costs.json',dict(primary=read(base/'play/complete.json'),
@@ -122,6 +125,10 @@ def freeze(base, costs):
 
 
 def run_pairs(config,base,pilot):
+    if pilot and (base/'plan-posted.json').exists():
+        if file_hash(base/'canonical-plan.json')!=read(base/'plan-posted.json')['sha256']:
+            raise ValueError('Frozen pilot plan changed')
+        return
     if not pilot:
         plan=read(base/'canonical-plan.json')
         if (file_hash(base/'canonical-plan.json')!=read(base/'plan-posted.json')['sha256']
