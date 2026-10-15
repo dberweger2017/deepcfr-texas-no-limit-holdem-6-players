@@ -89,6 +89,22 @@ This campaign removed or evicted no research originals or synced files;
 other open roots are untouched. The later owner-authorized seed-2 ZIP cache
 release is recorded separately below. Preserved administrative failures; no scientific retry.
 
+## Completed-work cleanup — October 15
+
+Owner-requested pass reclaims **19.342 GB**: M1 **10.733 GB** /M4 **8.609 GB**.
+Verified free space M1 **37.846 GB** /M4 **47.149 GB**. Five fully accepted unused
+ZIP caches become online-only; one unchanged backed-up PR283 coordinator ZIP
+and four inactive Rust debug caches/one PR268 policy cache are removed outside
+sync. Model/table originals, all worktrees/shared Git and separate server inputs
+remain. Failed seed1 canonical ZIP, its still-uploading retry and Lost and Found
+remain protected; PR278 is open for administrative closeout.
+[Exact paths, restore/rebuild commands and preservation](docs/artifacts/storage-vacuum-20261015-completed.md);
+[accepted receipt](https://drive.google.com/file/d/14AXtp0Bl3JbPNCHuDvdU-7SwT1ch5nP9/view?usp=drivesdk), `14AXtp0Bl3JbPNCHuDvdU-7SwT1ch5nP9`,
+3,182,322 bytes, SHA256 `cf174b03d1780d48c546042dbbc958f7707dfe7f35ff6a305cfae4142bf2fec8`.
+Current native/cloud acceptance, dependency/open-handle checks and exact
+size/modification history precede cleanup. No payload download/repeated hashes,
+synced deletion, force eviction, unpinning or unattended maintenance.
+
 ## Urgent M1 uploaded cache release — October 15
 
 Owner-requested urgent cleanup releases **20.953 GB**, restoring
