@@ -44,3 +44,18 @@ def test_fixed_matrix_counts_roots_and_primary_family():
     primaries=[c for c in cases if c['primary']]
     assert len(primaries)==3
     assert all(c['singleton'].endswith('/1000m') and c['pair'].endswith('/200m') for c in primaries)
+
+
+def test_continuation_requires_success_and_all_scheduled_endpoints(tmp_path):
+    from scripts.continue_nplayer_phase2_training import passed
+    seed=2026101541
+    guard=tmp_path/'guards'/f'seed-{seed}';guard.mkdir(parents=True)
+    model=tmp_path/'training'/str(seed);model.mkdir(parents=True)
+    (guard/'result.json').write_text(json.dumps({'status':'passed'}))
+    (model/'result.json').write_text(json.dumps({'status':'passed','seed':seed,
+        'milestones':[{'target':200_000_000}]}))
+    with pytest.raises(RuntimeError,match='missing scheduled'):
+        passed(tmp_path,seed)
+    (guard/'result.json').write_text(json.dumps({'status':'failed'}))
+    with pytest.raises(RuntimeError,match='prior seed failed'):
+        passed(tmp_path,seed)
