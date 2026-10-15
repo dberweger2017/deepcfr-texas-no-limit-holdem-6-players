@@ -48,7 +48,12 @@ u32; this does not change legacy HU arithmetic or bytes.
    20M / 10M→20M HU200 K50 identity. Expected final SHA256:
    `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
    Compare tiny HU20/HU100/HU200 checkpoints and exports to the unchanged main
-   binary as well. Any discrepancy blocks dependent work.
+   binary as well. Reproduce #204/#206's HU100 capacity endpoint fresh and from
+   20M, including checkpoint SHA256 `792a675c…f8d416`. The final bounded legacy
+   identity check regenerates the v0.4.1 HU20 average at its existing 1B endpoint,
+   expecting its pinned `571e1982…6b74d` SHA256 and 142,677,367 bytes. This is
+   regression-only; no new policy or playing-strength experiment is selected.
+   Any discrepancy blocks dependent work.
 
 ## Resources and evidence
 

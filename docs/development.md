@@ -23,6 +23,10 @@ The [research history](research-history.md) indexes completed experiments.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.
 - `native/hu20-trainer/`: native training, game/key parity, exports and bench.
+  `src/nplayer.rs` is an isolated 2–6-player rules core; training still uses the
+  existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
+  `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity`
+  followed by `python -m scripts.check_nplayer_parity --out results/nplayer-parity`.
   Equal-stack HU20/HU100/HU200 identities are supported. HU100 operator commands
   are in [the native HU100 protocol](native-hu100-preparation.md); it authorizes no runs.
   The [HU200 M1 feasibility report](reports/hu200-feasibility.md),

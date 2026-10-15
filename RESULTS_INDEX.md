@@ -1,3 +1,41 @@
+## PR288 — N-player rules parity (open review, October 15, 2026)
+
+[PR288](https://github.com/dberweger2017/CFR-NLHE-6max/pull/288), branch
+`feature/nplayer-game-parity`; [report](docs/reports/nplayer-game-parity.md).
+Scientific source `35483892a3aba6e51cc1ba3f1c0963c7e3fb9c34`, native tree
+`a863c89425bb5f36f231dad52018c24e7b744f18`. One million three-player hands,
+5,981,964 decisions, zero pinned-engine mismatches; the ordered complete-trace
+SHA256 is `67ae6a3f153e021ec579f5547e1fb9b2fba132633da3b455c6ad1293ec21c366`.
+Traces stream without retaining bulky successful fixtures; the pinned source,
+engine and seeds in the [result](docs/reports/nplayer-game-parity-artifacts/million--result.json)
+reproduce the stream. No N-player training model has been produced.
+
+**Protected open-PR working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-phase1-20261015/`. This contains the failed initial
+pilot, corrected pilot, million/supplemental parity runs, exact commands, logs,
+watchdog telemetry and HU regression checkpoints/exports. Compact results are in
+`docs/reports/nplayer-game-parity-artifacts/`. Generated payloads remain outside
+Git. No Drive archive/upload acceptance or cleanup is claimed; archival closeout
+is pending. Retain this root and its dependencies through independent review.
+
+HU regression payload pins and commands are recorded in
+[HU identities](docs/reports/nplayer-game-parity-artifacts/hu-identities--receipt.json),
+[#250 fresh/resume](docs/reports/nplayer-game-parity-artifacts/gate-results--checkpoints.json)
+and [HU20 identity](docs/reports/nplayer-game-parity-artifacts/hu20-release-identity--result.json).
+For a needed payload, copy its receipt-named path from bb128 into a fresh ignored
+`results/` directory with `rsync -a bb128:/home/dberweger/nplayer-phase1-20261015/<path> results/<new-path>`
+and verify its complete SHA256 against the corresponding receipt before use.
+This is host retrieval, not cloud restoration.
+
+Read-only dependencies: `repo/.venv` points to
+`/home/dberweger/cygnus-qualification-20261014/repo-main/.venv`; the new shared
+Git clone also depends on that qualification checkout's object store.
+`tables` points to `/home/dberweger/cygnus-qualification-20261014/tables`.
+All three full K50 inputs were rehashed before use. Their exact Drive archive,
+member paths, sizes, hashes and retrieval commands remain in
+[#283's input restoration receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Do not remove these inputs, the shared Git store, or either active checkout.
+
 ## M4 headroom for HU100 seed qualification — October 15
 
 Owner-requested cleanup reclaims **17.826 GB** from five unchanged archived
