@@ -130,7 +130,8 @@ Actual remaining bookkeeping blocks are excluded from reclaimed bytes. Current
 uploaded/no-pending/no-conflict/unpinned/inactive/exact-size and independent
 ID/name/size/direct-parent checks pass before and after. These are finished
 archive caches; the restored PR272 model and every PR286 work file/input remain.
-Both full-model ZIPs are uploading/unaccepted and stay resident. All 12 protected
+Both full-model ZIPs stay resident and were not selected for offload; this pass
+grants them no upload acceptance. All 12 protected
 model/table/checkpoint paths again match size/mtime/inode. No forced offload,
 unpinning, synced deletion, source removal or repeated payload hash audit.
 The standing inactive-regenerable-cache permission applies to the exact reviewed
