@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Urgent M1 storage (October 15):** 20.953 GB released from the confirmed uploaded unused PR278 seed-2 ZIP cache; 27.310 GB free. Open roots/inputs and failed seed1 canonical ZIP/Lost and Found remain untouched. [Restoration receipt](docs/artifacts/storage-vacuum-20261015-m1.md).
+
 - **Another 30 GB on M4 (October 14):** 32.500 GB reclaimed from merged PR272's archived originals and three approved inactive policy caches; 77.768 GB free at verification. Live #278 HU200 training/inputs remain untouched. Owner grants standing permission for rebuildable inactive caches with no data loss or active-PR impact. [Exact restoration/rebuilds](docs/artifacts/storage-vacuum-20261014-30gb.md).
 
 - **M4 admission cleanup (October 14 evening):** 15.132 GB reclaimed from specifically approved PR272 uploaded ZIP caches and two inactive debug caches; verified 49.562 GiB free exceeds PR278's 45 GiB requirement. Scientific originals/models/tables and open work roots remain. [Receipt/restoration](docs/artifacts/storage-vacuum-20261014-evening.md); [Vacuum Cleaner confirmation on PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185).
