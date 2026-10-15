@@ -1,3 +1,21 @@
+## M4 evidence-closeout space — October 15 afternoon
+
+Owner-requested cleanup reclaims **18.235 GB**: six unchanged archived inactive
+HU200 model copies (17.343 GB), six unused Rust debug caches and pip downloads
+(0.891 GB). M4 has **40.041 GB /37.291 GiB free** at 12:33:12 UTC.
+All current PR286 model/input/table/evidence/policy-cache paths and PR292 work
+remain; server copies are intact. Earlier local-retention notes are superseded
+only for the six named copies. Seed1 full retry is missing/unaccepted; its
+checkpoints/current export and failed canonical/Lost and Found stay.
+[Exact model/archive/member hashes, source-history checks and rebuilds](docs/artifacts/storage-vacuum-20261015-closeout.md);
+[accepted receipt](https://drive.google.com/file/d/19BFM2fOtr4K5jQ6axgTTyxUjPzM8_D2M/view?usp=drivesdk),
+`19BFM2fOtr4K5jQ6axgTTyxUjPzM8_D2M`, 6,617,574 bytes,
+SHA256 `e22e8d7d9d6e0e9592e2121e66d215c8f599300aff3a438a6287a365daa66831`.
+[Owner-requested Vacuum Cleaner Bot comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286#issuecomment-6192153333) confirms
+headroom for archival closeout, with no change to the scientific stop/retry.
+No payload download/repeated hashes, synced deletion, force offload or process
+signaling. No unattended cleanup/monitoring is scheduled.
+
 ## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
 
 [PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), branch
