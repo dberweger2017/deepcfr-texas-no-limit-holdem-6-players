@@ -77,8 +77,11 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    Full boot-time **memtest86+ remains the owner's job**. Additional selected
    pre-XMP selected-pattern coverage started October 15 at **00:20:34 UTC**,
    after all primary stages closed. All eight 14 GiB allocations are locked;
-   at 129.5 s, zero errors, 57 °C peak, 112.025 GiB peak RSS, no swap/throttle
-   change. Mask `0x1ec00` selects Checkerboard, Bit Spread, Walking Ones/Zeros
+   at **3,777.7 s**, all eight have completed **Stuck Address and Checkerboard**,
+   zero errors, **64 °C peak**, 112.025 GiB peak RSS, no swap/throttle change.
+   The dated resource snapshot contains 1,881 readings through 01:23:50 UTC,
+   all-logical clock min/median/max 800/4,700/4,801 MHz (including idle siblings).
+   [Thermal/clock CSV through this snapshot](cygnus-x1-artifacts/memory-extra-temperatures.csv). Mask `0x1ec00` selects Checkerboard, Bit Spread, Walking Ones/Zeros
    and 8-/16-bit writes, plus mandatory Stuck Address. Block Sequential and
    Bit Flip are omitted. The guard stops by **04:50 UTC /06:50 Madrid**;
    this is additional coverage, never a full-pass claim.
@@ -379,7 +382,7 @@ reboot and nouveau handoff, followed by `nvidia-smi`, VRAM and bounded CUDA
 checks. [Debian’s driver instructions](https://wiki.debian.org/NvidiaGraphicsDrivers)
 cover the packaged driver and Secure Boot enrollment. No driver install or OS package-repository change has been performed; the bounded NVK VRAM checks above are the only GPU loads.
 
-## Evidence archive, upload pending
+## Main evidence archive accepted; extra RAM closeout pending
 
 The primary bundle contains **528 members /3,553,618,907 bytes**, including
 all four trainer checkpoints, the exact native binary, raw logs and failed
@@ -388,8 +391,11 @@ archive and its Research-Cloud staging copy both match whole SHA256
 `35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c`.
 Embedded `ARCHIVE-MANIFEST.json` SHA256 is
 `e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa`.
-At **00:30:41 UTC**, native status was uploading, not uploaded, with zero
-conflicts; **cloud acceptance is pending**. No remote Drive bytes were
-downloaded. All originals remain. Extra RAM and the final archive-guard logs
+At **01:23:31 UTC**, native status confirms uploaded, not uploading, exact
+size and zero conflicts. Independent Drive metadata confirms the same name,
+size and parent. [Accepted main archive](https://drive.google.com/file/d/11bu2M3AY66AscCgF5onO4tHampdxErMf/view?usp=drivesdk),
+[owning folder](https://drive.google.com/drive/folders/1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa).
+Remote Drive archive bytes were not downloaded; the cygnus-to-coordinator
+transfer and cloud staging copy were independently SHA-verified. All originals remain. Extra RAM and the final archive-guard logs
 will be preserved in a separate closeout bundle after they stop.
 [Archive/transport/upload snapshot](cygnus-x1-artifacts/archive-main.json).

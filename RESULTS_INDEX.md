@@ -1,51 +1,50 @@
-## PR283 cygnus-x1 hardware qualification — October 14, partial
+## PR283 cygnus-x1 qualification — October 14–15, RAM still partial
 
 [PR283](https://github.com/dberweger2017/CFR-NLHE-6max/pull/283), open draft.
 [Report](docs/reports/cygnus-x1-qualification.md) ·
-[Inventory and raw-log hash](docs/reports/cygnus-x1-artifacts/inventory.json).
-Current-main inventory pin `b91a78d2d0893e80380bc3da9a24142e591fc04b`.
-Remote owned evidence root `bb128:/home/dberweger/cygnus-qualification-20261014/`;
-coordinator `~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
-Root inventory is complete. The unsupported NVMe self-test-log read and the
-36.65-second aborted memlock-limited memory attempt are preserved, including
-approximately 1.8 GiB of original per-instance allocation-shrink output.
-Additional selected-mask 112 GiB coverage is running until October 15 04:50 UTC;
-[dated progress receipt](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
-The main bundle has passed all 528 on-host member readbacks, whole-SHA
-transport verification and Research-Cloud staging-copy verification.
-[Archive pins and dated native-upload snapshot](docs/reports/cygnus-x1-artifacts/archive-main.json);
-upload is in progress, cloud acceptance pending. Originals are retained. No full-memory pass yet. Matched500M cost-only result passes, exact #250
-checkpoint SHA2c4c1484...8f4312d/2727516803bytes retained on bb128 benchmark-results/500m.gz.
-[Full model/hash/cost/resource receipt](docs/reports/cygnus-x1-artifacts/trainer-benchmark.json);
-archive/index acceptance remains pending.
-Exact fresh/resumed20M gates reproduce #250 M4 SHA2564009bbb...acc8b;
-[full checkpoint hashes/counts/resource receipt](docs/reports/cygnus-x1-artifacts/recovery-gates.json).
-Models remain on bb128 under gate-results, archive acceptance pending.
-Full suite passes in explicit strict-MKL mode: 2219Python+54subtests/16Rust,
-2macOS-specificskips; [final suite receipt](docs/reports/cygnus-x1-artifacts/tests-passed.json).
-Both prior failures remain preserved.
-First full-suite attempt failed due to missing pip in uv venv: Rust16passed,
-pytest1365passed/1failed/2skipped; original failed receipt/output preserved.
-[Diagnosis](docs/reports/cygnus-x1-artifacts/tests-first-failure.json).
-Current-main setup/first native build complete at `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
-[environment/build receipt](docs/reports/cygnus-x1-artifacts/setup-results.json).
-NVMe scratch fio and 8 GiB CRC32C verification complete without errors;
-[measurements/guard/raw-stream hash](docs/reports/cygnus-x1-artifacts/disk-results.json).
-The 8 GiB scratch file is retained on bb128 and excluded from coordinator copying.
-Tailscale TCP/latency checks complete to db-ocean and M4, with direct paths and
-zero packet loss; [measurements](docs/reports/cygnus-x1-artifacts/network-results.json).
-The locked 112 GiB three-hour screen ended at its accepted time cap: ten
-patterns completed per instance, zero observed errors, Block Sequential incomplete.
-[Actual outcomes](docs/reports/cygnus-x1-artifacts/memory-partial.json) and full
-thermal CSV are retained; raw guard status remains failed/time-budget/-15. No archive/upload acceptance,
-Drive locator or removal is claimed; all originals remain. Keep this open PR
-root and its dependencies intact. Required later inputs reference the merged
-[PR163 table restoration record](#pr163-full-deck-equity-buckets--october-5-closeout);
-the full archive and three selected K50 members now verify in the ignored
-coordinator input root, with [Drive/member hashes and retrieval commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
-All three tables are copied to bb128 and full SHA256/size checks pass before
-use in the optional real-table test; remote paths/hashes are in the receipt. No campaigns, Slumbot, changes to
-other machines or cleanup.
+[Archive/member/retrieval/upload receipt](docs/reports/cygnus-x1-artifacts/archive-main.json).
+Scientific source `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
+main archive feature snapshot `0fa1d860`. Run root
+`bb128:/home/dberweger/cygnus-qualification-20261014/`; coordinator
+`~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
+
+**Accepted main bundle:** [cygnus-main-20261015.zip](https://drive.google.com/file/d/11bu2M3AY66AscCgF5onO4tHampdxErMf/view?usp=drivesdk),
+ID `11bu2M3AY66AscCgF5onO4tHampdxErMf`, **3,553,618,907 bytes**,
+SHA256 `35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c`;
+[folder](https://drive.google.com/drive/folders/1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa)
+ID `1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa`;
+all **528 member sizes/hashes passed readback on cygnus**. Whole archive and
+manifest hashes pass after transfer; cloud staging bytes also match.
+At October15 **01:23 UTC**, native uploaded/no-pending/no-conflicts/exact-size
+acceptance and independent Drive ID/name/size/parent confirmation pass.
+**Remote Drive bytes were not downloaded.** No originals are removed.
+
+The linked compact receipt names all four checkpoint members and the native
+binary, with full sizes/SHA256s and usable restoration commands. Matched 500M
+is `research/benchmark-results/500m.gz`, SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`;
+20M fresh/resumed members reproduce exact #250 SHA256
+`4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+Full raw logs, failed attempts and original three-hour RAM timecap are preserved,
+including the approximately1.8GiB initial memlock-shrink output. Eight original
+112GiB instances had zero observed errors/ten completed patterns, not a full pass.
+[Full-suite outcome](docs/reports/cygnus-x1-artifacts/tests-passed.json):
+2219Python/54subtests/16Rust pass in strict-MKL mode, twoMac-specific skips;
+both preceding failures remain archived and diagnosed.
+
+**Additional RAM screen is still active** under the absolute October15
+04:50UTC cutoff; all eight have completed Stuck Address and Checkerboard with
+zero errors as of 01:23UTC. [Dated per-instance/thermal progress](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
+Extra RAM, the closed archive guard, newer source and final report will enter a
+separate closeout bundle; they are not covered by main-bundle acceptance.
+Pinned K50 inputs are excluded as independently retrievable dependencies:
+[PR163 restoration/member hashes and commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+All three table sizes/fullSHA256s passed on both coordinator and bb128 before use.
+The retained8GiB fio scratch and rebuildable caches are excluded. Keep the open
+PR root/dependencies intact. No cleanup, campaigns, Slumbot, XMP changes,
+proprietary driver installation or persistent changes to other machines.
 
 ## Another 30 GB on M4 — October 14
 

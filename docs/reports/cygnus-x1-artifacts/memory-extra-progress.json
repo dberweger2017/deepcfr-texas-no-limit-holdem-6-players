@@ -1,13 +1,13 @@
 {
-  "observed_at_utc": "2026-10-15T00:22:44Z",
+  "observed_at_utc": "2026-10-15T01:23:31Z",
   "classification": "in_progress_selected_pattern_screen_not_full_pass",
   "job": "memory-extra",
   "status": "running",
-  "elapsed_s": 129.5,
-  "temperature_c": 57,
-  "peak_temperature_c": 57,
+  "elapsed_s": 3777.7,
+  "temperature_c": 62,
+  "peak_temperature_c": 64,
   "peak_family_rss_gib": 112.025,
-  "minimum_available_gib": 10.836,
+  "minimum_available_gib": 10.751,
   "swap_growth_bytes": 0,
   "maximum_throttle_counter": 0,
   "instances": [
@@ -15,76 +15,177 @@
       "instance": "memory-extra-instances/instance-0.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5200,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "22setting  23testing  23setting  24testing  24setting  25testing  25setting  26testing  26"
     },
     {
       "instance": "memory-extra-instances/instance-1.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5244,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "23setting  24testing  24setting  25testing  25setting  26testing  26setting  27testing  27"
     },
     {
       "instance": "memory-extra-instances/instance-2.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5244,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "23setting  24testing  24setting  25testing  25setting  26testing  26setting  27testing  27"
     },
     {
       "instance": "memory-extra-instances/instance-3.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5266,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "24testing  24setting  25testing  25setting  26testing  26setting  27testing  27setting  28"
     },
     {
       "instance": "memory-extra-instances/instance-4.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5200,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "22setting  23testing  23setting  24testing  24setting  25testing  25setting  26testing  26"
     },
     {
       "instance": "memory-extra-instances/instance-5.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5244,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "23setting  24testing  24setting  25testing  25setting  26testing  26setting  27testing  27"
     },
     {
       "instance": "memory-extra-instances/instance-6.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5244,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "23setting  24testing  24setting  25testing  25setting  26testing  26setting  27testing  27"
     },
     {
       "instance": "memory-extra-instances/instance-7.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 504,
+      "log_bytes": 5222,
       "observed_FAILURE_count": 0,
-      "completed_patterns": [],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard"
+      ],
+      "tail": "23testing  23setting  24testing  24setting  25testing  25setting  26testing  26setting  27"
     }
   ],
   "compute_cutoff_utc": "2026-10-15T04:50:00Z",
   "test_mask": "0x1ec00",
-  "scope": "Mandatory Stuck Address plus selected Checkerboard, Bit Spread, Walking Ones/Zeros and 8-/16-bit writes; omitted Block Sequential and Bit Flip. A time stop is partial coverage."
+  "scope": "Mandatory Stuck Address plus selected Checkerboard, Bit Spread, Walking Ones/Zeros and 8-/16-bit writes; omitted Block Sequential and Bit Flip. A time stop is partial coverage.",
+  "resource_snapshot": {
+    "job": "memory-extra",
+    "status": "incomplete",
+    "samples": 1881,
+    "started_utc": "2026-10-15T00:20:34.716733+00:00",
+    "last_sample_utc": "2026-10-15T01:23:50.595043+00:00",
+    "max_sample_gap_seconds": 2.0928737009999168,
+    "min_temperature_c": 40.0,
+    "max_temperature_c": 64.0,
+    "median_temperature_c": 62.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      4699.997,
+      4800.999
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "sampled_peak_family_rss_bytes": 120285618176,
+    "minimum_available_bytes": 11529334784,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 31.0,
+        "max_c": 64.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 31.0,
+        "max_c": 61.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 31.0,
+        "max_c": 64.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 40.0,
+        "max_c": 61.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 31.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 32.0,
+        "max_c": 62.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 31.0,
+        "max_c": 62.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 30.0,
+        "max_c": 61.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 40.0,
+        "max_c": 64.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 28.0,
+        "max_c": 44.0
+      },
+      "nvme/Composite": {
+        "min_c": 33.85,
+        "max_c": 36.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 41.0,
+        "max_c": 45.0
+      }
+    },
+    "raw_stream_bytes": 6434044,
+    "raw_stream_sha256": "db520effc15b28d862fd9793dd97ed47f09dde51346f2d5c6ff198a971e29508"
+  }
 }
