@@ -50,7 +50,9 @@ while processes:
                         'termination_signal': -code if code < 0 else None,
                         'requested_mib': 14336, 'test_mask': mask})
         # Write wait statuses before reading/hashing potentially bulky logs.
-        (out / 'results.json').write_text(json.dumps(sorted(results, key=lambda r: r['instance']), indent=2) + '\n')
+        pending = out / 'results.pending.json'
+        pending.write_text(json.dumps(sorted(results, key=lambda r: r['instance']), indent=2) + '\n')
+        pending.replace(out / 'results.json')
         processes.remove(item)
         if code and not received and not failure:
             failure = True

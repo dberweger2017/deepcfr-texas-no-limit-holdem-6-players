@@ -1,0 +1,90 @@
+{
+  "observed_at_utc": "2026-10-15T00:22:44Z",
+  "classification": "in_progress_selected_pattern_screen_not_full_pass",
+  "job": "memory-extra",
+  "status": "running",
+  "elapsed_s": 129.5,
+  "temperature_c": 57,
+  "peak_temperature_c": 57,
+  "peak_family_rss_gib": 112.025,
+  "minimum_available_gib": 10.836,
+  "swap_growth_bytes": 0,
+  "maximum_throttle_counter": 0,
+  "instances": [
+    {
+      "instance": "memory-extra-instances/instance-0.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-1.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-2.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-3.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-4.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-5.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-6.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    },
+    {
+      "instance": "memory-extra-instances/instance-7.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 504,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [],
+      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+    }
+  ],
+  "compute_cutoff_utc": "2026-10-15T04:50:00Z",
+  "test_mask": "0x1ec00",
+  "scope": "Mandatory Stuck Address plus selected Checkerboard, Bit Spread, Walking Ones/Zeros and 8-/16-bit writes; omitted Block Sequential and Bit Flip. A time stop is partial coverage."
+}

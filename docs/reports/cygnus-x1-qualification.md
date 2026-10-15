@@ -75,11 +75,19 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    [Resource summary and raw-stream hash](cygnus-x1-artifacts/memory-resource-summary.json).
    Five Linux watchdog stop tests pass, including the absolute cutoff.
    Full boot-time **memtest86+ remains the owner's job**. Additional selected
-   pre-XMP patterns may run after the other mandatory checks if time remains.
+   pre-XMP selected-pattern coverage started October 15 at **00:20:34 UTC**,
+   after all primary stages closed. All eight 14 GiB allocations are locked;
+   at 129.5 s, zero errors, 57 °C peak, 112.025 GiB peak RSS, no swap/throttle
+   change. Mask `0x1ec00` selects Checkerboard, Bit Spread, Walking Ones/Zeros
+   and 8-/16-bit writes, plus mandatory Stuck Address. Block Sequential and
+   Bit Flip are omitted. The guard stops by **04:50 UTC /06:50 Madrid**;
+   this is additional coverage, never a full-pass claim.
+   [Dated extra-screen snapshot](cygnus-x1-artifacts/memory-extra-progress.json).
 3. **Disk scratch fio complete:** all six timed cases and full 8 GiB CRC32C
-   verification pass; see below. Network complete (below); repository setup/tests, path-independent build,
-   exact fresh/resumed 20M SHA256 gates and HU200 K50 throughput are pending,
-   in that order. No dependent training has started.
+   verification pass; see below. Network, repository setup/full strict-MKL
+   suite, owner-amended native identity/path checks, exact recovery gates,
+   matched 500M cost-only benchmark, CPU steps and NVK VRAM smoke are complete.
+   Detailed results and preserved failures follow. No campaign has started.
 
 ## NVMe scratch-file performance
 
@@ -177,7 +185,8 @@ is required before any dependent recovery or trainer benchmark.
 [Original retry failure and resource receipt](cygnus-x1-artifacts/tests-retry-failure.json) ·
 [Full thermal/clock readings](cygnus-x1-artifacts/repo-tests-retry-temperatures.csv).
 The three skips are the Mac resource-profile check, absent bucket-evaluator
-binary, and unset optional real-K50-table environment. No full-suite pass is claimed.
+binary, and unset optional real-K50-table environment. This attempt failed;
+the later strict-mode full-suite pass is recorded below.
 
 Diagnosis: all observations/candidates are equal, and every packed GRU time-step
 has identical inputs across its four batch rows. Default MKL yields up to
@@ -188,7 +197,7 @@ thread, COMPATIBLE mode and ATen's default CPU capability. Intel's
 street/architecture cases and **13/13 unchanged invariant tests pass**.
 This trace supports a numerical-reproducibility diagnosis for this case; it
 does not establish every neural workload's reproducibility. No assertion,
-tolerance or model code was changed. The whole suite will rerun with that
+tolerance or model code was changed. The whole suite subsequently passed with that
 explicit environment, real K50 tables (after full size/SHA validation) and
 the optional native bucket evaluator enabled.
 [Diagnostic matrix and traces](cygnus-x1-artifacts/neural-numerics-diagnosis.json).
@@ -250,7 +259,7 @@ clock min/median/max **800/800/5,119 MHz**, including idle siblings.
 [Full thermal/clock readings](cygnus-x1-artifacts/recovery-gates-temperatures.csv).
 Native identity stage separately peaked at 38 °C and completed in 2.02 s;
 its full thermal CSV accompanies the identity receipt. The matched 500M
-cost-only benchmark may now proceed; no campaign is started.
+cost-only benchmark subsequently passed below; no campaign was started.
 
 ## Matched 500M trainer benchmark
 
@@ -329,10 +338,10 @@ not peak PCIe bandwidth.
 
 The declared **4 GiB single-buffer attempt failed before any pattern**:
 `vkCreateBuffer` returned **VK_ERROR_OUT_OF_DEVICE_MEMORY (-2)**. It is
-preserved as a failure; 4 GiB coverage is not claimed. The completed read-only query reports **2 GiB maxBufferSize and
+preserved as a failed single-buffer allocation. The completed read-only query reports **2 GiB maxBufferSize and
 maxMemoryAllocationSize**, so the requested single4GiB buffer exceeded both
 limits. [Actual queried limits](cygnus-x1-artifacts/gpu-limits.json).
-The same4GiB total bound will be tested as four simultaneously live1GiB
+The same 4 GiB total bound was tested as four simultaneously live 1 GiB
 allocations, each receiving all four patterns; **this segmented check passes**:
 all four buffers stay live simultaneously, are filled with different rotating
 patterns before readback, and each receives zero/all-ones/A5/5A. Total verified
