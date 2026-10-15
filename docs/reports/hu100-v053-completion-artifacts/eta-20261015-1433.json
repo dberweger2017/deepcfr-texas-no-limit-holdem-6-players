@@ -1,0 +1,20 @@
+{
+  "at": 1792074808.412767,
+  "as_of_utc": "2026-10-15T14:33:00Z",
+  "m4_compute_free_eta_utc": "2026-10-15T15:25:00Z",
+  "m4_window_utc": [
+    "15:15",
+    "15:40"
+  ],
+  "pr_owner_closeout_ready_eta_utc": "2026-10-15T16:00:00Z",
+  "pr_window_utc": [
+    "15:45",
+    "16:15"
+  ],
+  "timezone": "Europe/Madrid (UTC+02:00)",
+  "actual_merge_owner_decision": true,
+  "posted_in_pr_description": true,
+  "readback_verified": true,
+  "no_deadline_or_scientific_change": true,
+  "basis": "Completed final/pilot block-work ratios: panel random0.3572, check_call0.3834; direct seed0 0.4828, seed1 0.4797; cache builds complete."
+}
