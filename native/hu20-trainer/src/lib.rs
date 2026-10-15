@@ -6,6 +6,7 @@ pub mod cards;
 pub mod cfr;
 pub mod export;
 pub mod game;
+pub mod nplayer;
 pub mod key;
 pub mod parity;
 pub mod store;
