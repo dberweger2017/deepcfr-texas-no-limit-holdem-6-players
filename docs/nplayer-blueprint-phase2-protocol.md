@@ -1,7 +1,7 @@
 # First three-player blueprint: Phase 2 protocol
 
-Status: harness/admission complete; fixed sequential training in progress. Final
-evaluation has not started.
+Status: harness/admission and all three sequential training seeds complete.
+Final regression closeout is running; final evaluation has not started.
 The owner authorized this campaign on October 15, 2026. No search, release or
 merge is authorized. PR289 and PR291 are already merged; the feature branch
 starts at main `623e2e8741dd8c267f062ded28b9bcc5dde36a0f`.

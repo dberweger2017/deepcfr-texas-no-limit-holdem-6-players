@@ -4,9 +4,12 @@
 `feature/nplayer-blueprint-phase2`; [protocol](docs/nplayer-blueprint-phase2-protocol.md),
 [report](docs/reports/nplayer-blueprint-phase2.md). Fresh sequential cash seeds
 2026101541–1543, all-street averages, scheduled 200M/500M/1B endpoints. Harness
-qualification passes; seed 2026101541 is training, with its 200M checkpoint and
-every-row full-average audit complete. Other seeds and final evaluation remain
-pending at this entry.
+qualification passes; all three seeds reached 1B nodes with all nine scheduled
+checkpoint/export/every-row-audit endpoints and whole-seed guards passing.
+Final tables contain 29,025,056 /29,370,052 /29,668,448 entries. Exact admissions,
+checkpoint/export SHA256s and per-street coverage are recorded in the
+[per-seed receipts](docs/reports/nplayer-blueprint-phase2-artifacts/).
+Final regression closeout and evaluation remain pending at this entry.
 
 **Protected active evidence; cloud archival pending:**
 `bb128:/home/dberweger/nplayer-blueprint-phase2-20261015/` and this worktree's

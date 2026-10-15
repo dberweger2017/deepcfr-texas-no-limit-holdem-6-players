@@ -1,6 +1,6 @@
 # Three-player Phase 2: first full-average blueprint
 
-**In progress; first seed training, no settled strength conclusion yet.**
+**Training complete; final evaluation and closeout pending. No settled strength conclusion yet.**
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292) follows merged
 PR289/PR291. The [protocol](../nplayer-blueprint-phase2-protocol.md) fixes the
 owner's all-street averages, three sequential fresh seeds and learning rule.
@@ -39,7 +39,10 @@ The fresh20M and resumed10M→20M #250 checkpoints both retain SHA256
 `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
 The rebuilt HU executable itself differs, so these were freshly executed
 identity checks, not a claim of executable-byte reuse. The existing HU20
-1B release-identity regression remains to be repeated; it changes no release.
+1B release-identity regression is running; it changes no release. After training,
+23 focused harness/controller/statistics/archive/watchdog checks passed in
+34.24 seconds under a 35.36-second successful supervisor. This includes the
+two-model real-K50 fixture and the full controller/replay/readout fixture.
 
 The exact PR291 scoped-average smoke input, SHA256
 `fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`, completes nine
@@ -78,31 +81,59 @@ laptop; the prior repository/host inventory and a direct check of PR286's
 2026101501/1502 lineages found no collision with the reserved cash seeds. Synthetic corruption and
 thermal tests are deliberately failing inputs, not undisclosed campaign reruns.
 
-## Training milestones (partial)
+## Training milestones
 
-Seed **2026101541**, source `8ad2729c`, has saved its 200M endpoint and passed
-its every-row full-average audit; it is continuing toward 500M. The checkpoint
-has **15,621,814 entries**, **608,659,055 bytes**, SHA256
-`9bd59d4fc5703555937affdb1165a01bbd94d622a92813df6d35b7abd0b72947`.
-Training plus checkpoint I/O costs 472.98 seconds; export 178.22 seconds; audit
-99.32 seconds. [Exact lineage](nplayer-blueprint-phase2-artifacts/seed-2026101541-admission.json),
-[milestone and per-street audit](nplayer-blueprint-phase2-artifacts/seed-2026101541-milestones.json).
+All three fresh seeds reached 1B nodes with all nine scheduled checkpoints,
+full-average exports and every-row audits passing. All used training source
+`8ad2729c1fc9edad4afe8e406b28dd680b50a989` and the same admitted binaries.
+The whole-seed supervisors passed without thermal or resource stops.
 
-| Street | Entries | Mean regret visits/key | Cumulative missing decisions |
-| --- | ---: | ---: | ---: |
-| Preflop | 441,070 | 8.095 | 3.028% |
-| Flop | 1,295,519 | 5.299 | 5.911% |
-| Turn | 3,811,126 | 3.081 | 11.281% |
-| River | 10,074,099 | 1.719 | 20.829% |
+| Seed | Actual terminal nodes | 200M entries | 500M entries | 1B entries | Whole-seed minutes | Peak family GiB |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2026101541 | 1,000,000,057 | 15,621,814 | 22,245,256 | 29,025,056 | 62.10 | 6.250 |
+| 2026101542 | 1,000,000,341 | 15,811,662 | 22,599,817 | 29,370,052 | 61.91 | 9.200 |
+| 2026101543 | 1,000,000,244 | 15,826,732 | 22,578,942 | 29,668,448 | 62.08 | 9.585 |
 
-These training coverage counters do not measure playing strength or played-policy
-lookup misses. Opponent-only average entries can have zero regret-update visits.
-There is no final comparison readout yet.
+Mean traverser regret-update visits per retained key (opponent-only average
+entries may have zero regret visits):
+
+| Seed / save | Preflop | Flop | Turn | River |
+| --- | ---: | ---: | ---: | ---: |
+| 2026101541 / 200M | 8.095 | 5.299 | 3.081 | 1.719 |
+| 2026101541 / 500M | 14.130 | 9.426 | 5.589 | 3.094 |
+| 2026101541 / 1000M | 21.830 | 14.509 | 8.700 | 4.810 |
+| 2026101542 / 200M | 8.025 | 5.192 | 3.032 | 1.703 |
+| 2026101542 / 500M | 14.179 | 9.203 | 5.483 | 3.047 |
+| 2026101542 / 1000M | 22.159 | 14.421 | 8.640 | 4.734 |
+| 2026101543 / 200M | 8.098 | 5.292 | 3.054 | 1.688 |
+| 2026101543 / 500M | 14.122 | 9.371 | 5.532 | 3.038 |
+| 2026101543 / 1000M | 21.870 | 14.376 | 8.545 | 4.678 |
+
+Missing training-decision shares **since the previous save**, with the initial
+200M row measured from the start:
+
+| Seed / save | Preflop | Flop | Turn | River |
+| --- | ---: | ---: | ---: | ---: |
+| 2026101541 / 200M | 3.028% | 5.911% | 11.281% | 20.829% |
+| 2026101541 / 500M | 0.506% | 1.253% | 2.664% | 5.909% |
+| 2026101541 / 1000M | 0.287% | 0.771% | 1.613% | 3.513% |
+| 2026101542 / 200M | 3.048% | 6.026% | 11.459% | 21.030% |
+| 2026101542 / 500M | 0.479% | 1.277% | 2.754% | 6.051% |
+| 2026101542 / 1000M | 0.262% | 0.727% | 1.570% | 3.567% |
+| 2026101543 / 200M | 3.031% | 5.935% | 11.405% | 21.222% |
+| 2026101543 / 500M | 0.486% | 1.265% | 2.718% | 6.036% |
+| 2026101543 / 1000M | 0.294% | 0.788% | 1.688% | 3.696% |
+
+The per-seed [admission, milestone and result receipts](nplayer-blueprint-phase2-artifacts/)
+retain exact model/checkpoint hashes, every-row audit counts, cumulative and
+segmented decisions/misses, and zero-regret-visit entries by street.
+These are training coverage measurements; final played lookup misses are
+measured separately during evaluation. No final comparison readout yet.
 
 ## Outstanding work
 
-Training, every-row milestone audits, final evaluation, complete resource/lineage
-receipts, archives/readback and indexed cloud acceptance remain outstanding.
+Focused regression closeout, final evaluation, complete resource receipts,
+archives/readback and indexed cloud acceptance remain outstanding.
 All working evidence is retained under
 `/home/dberweger/nplayer-blueprint-phase2-20261015/`; its shared source/input
 parents are protected. No cleanup has occurred.

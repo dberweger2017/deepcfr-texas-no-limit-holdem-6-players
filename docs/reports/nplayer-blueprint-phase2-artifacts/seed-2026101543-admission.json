@@ -1,0 +1,23 @@
+{
+  "seed": 2026101543,
+  "targets": [
+    200000000,
+    500000000,
+    1000000000
+  ],
+  "players": 3,
+  "stack_bb": 20,
+  "blinds": [
+    50,
+    100
+  ],
+  "last_average_street": 3,
+  "max_entries": 150000000,
+  "freeze_at_cap": false,
+  "source": "8ad2729c1fc9edad4afe8e406b28dd680b50a989",
+  "native_tree": "5f3f21af72fa713e76ede7d88a007fa4fc2fb723",
+  "train_binary_sha256": "510c6ae9e4d81597c3d4290b70f4202111ff2481330ec21c80ce023c5046f9cc",
+  "policy_binary_sha256": "0f9f6e29f8d9fa79f32ba5098ab9aee8b3920c0c2de078208c60b26b46cbea2b",
+  "segment_training_seconds": 1800,
+  "supervisor_stop_file": "/home/dberweger/nplayer-blueprint-phase2-20261015/stops/seed-2026101543"
+}
