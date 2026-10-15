@@ -66,6 +66,25 @@ reauthorized M4 use for this corrected continuation.
 
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 
+## M4 and M1 storage — October 15 evening
+
+Owner-requested cleanup reclaims **17.075 GB on M4 /25.208 GB on M1**;
+verified free **73.785 GB /38.578 GB**. M4 retires PR296's unchanged restored
+seed1502 average, two rebuildable policy caches and two accepted uploaded ZIP
+caches. M1 retires 1,353 unchanged merged PR149 retrieval paths (391 unique
+inodes, 8.918 GB), plus 16.290 GB of inactive rebuildable caches/installers.
+Open PR292/297/298 dependencies, HU100 release inputs, HU200 blend inputs,
+Slumbot originals/journals, tables, partial/failure evidence, worktrees/Git and
+failed PR278 seed1 uploads remain. **12,686 protected files** pass metadata checks.
+
+[Exact restoration and rebuilds](docs/artifacts/storage-vacuum-20261015-evening.md)
+record all archive/member/hash pins and retained paths. [Accepted private receipt](https://drive.google.com/file/d/1dS_sRfn8TrUQuR1Jf1zLmRwtKDtP4ab5/view?usp=drivesdk):
+1,672,016 bytes, SHA256 `b582c20ca41bffd4a0197b771f1910a2d5d45a471c3b4146c31eecdc03dda325`.
+Current native/cloud acceptance and recorded source modification history are
+checked; no archive payload is downloaded or rehashed. Ordinary per-file native
+eviction only; no synced deletion, forced offload or unattended schedule.
+
+
 [PR296](https://github.com/dberweger2017/CFR-NLHE-6max/pull/296),
 [readout](docs/reports/hu100-v053-completion.md),
 [operational declaration](docs/hu100-v053-completion.md).
