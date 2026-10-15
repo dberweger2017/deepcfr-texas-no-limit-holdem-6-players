@@ -1,0 +1,12 @@
+{
+  "all_owned_scientific_and_archival_workers_exited": true,
+  "at": 1792068078.457976,
+  "both_shared_locks_verified_free": [
+    ".hu20-m4-research.lock",
+    ".hu100-m4-research.lock"
+  ],
+  "free_bytes": 28739862528,
+  "owned_workers": [],
+  "scientific_campaign_terminal": true,
+  "uploads_may_continue": true
+}

@@ -1,0 +1,103 @@
+{
+  "at": "2026-10-15T12:42:20.834Z",
+  "files": [
+    {
+      "id": "1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S",
+      "result": {
+        "id": "1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S",
+        "title": "hu100-v053-terminal-closeout.zip",
+        "mime_type": "application/zip",
+        "size": "472010",
+        "url": "https://drive.google.com/file/d/1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": "2026-10-15T12:39:54.611Z",
+        "modified_time": "2026-10-15T12:39:54.614Z",
+        "parent_ids": [
+          "1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW"
+        ],
+        "drive_id": null,
+        "current_user_can_share": true,
+        "has_augmented_permissions": null,
+        "shared": false,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "dberweger2017@gmail.com",
+            "domain": null,
+            "displayName": "Davide Berweger",
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      }
+    },
+    {
+      "id": "1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u",
+      "result": {
+        "id": "1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u",
+        "title": "hu100-v053-seed-2026101502-average.zip",
+        "mime_type": "application/zip",
+        "size": "3187451673",
+        "url": "https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": "2026-10-15T12:25:52.819Z",
+        "modified_time": "2026-10-15T12:25:59.432Z",
+        "parent_ids": [
+          "1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW"
+        ],
+        "drive_id": null,
+        "current_user_can_share": true,
+        "has_augmented_permissions": null,
+        "shared": false,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "dberweger2017@gmail.com",
+            "domain": null,
+            "displayName": "Davide Berweger",
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      }
+    },
+    {
+      "id": "1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT",
+      "result": {
+        "id": "1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT",
+        "title": "hu100-v053-seed-2026101501-average.zip",
+        "mime_type": "application/zip",
+        "size": "3190246314",
+        "url": "https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": "2026-10-15T12:25:46.675Z",
+        "modified_time": "2026-10-15T12:25:49.169Z",
+        "parent_ids": [
+          "1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW"
+        ],
+        "drive_id": null,
+        "current_user_can_share": true,
+        "has_augmented_permissions": null,
+        "shared": false,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "dberweger2017@gmail.com",
+            "domain": null,
+            "displayName": "Davide Berweger",
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      }
+    }
+  ],
+  "expected_parent": "1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW",
+  "remote_archive_bytes_downloaded": false
+}
