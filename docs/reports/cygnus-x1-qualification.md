@@ -329,8 +329,13 @@ not peak PCIe bandwidth.
 
 The declared **4 GiB single-buffer attempt failed before any pattern**:
 `vkCreateBuffer` returned **VK_ERROR_OUT_OF_DEVICE_MEMORY (-2)**. It is
-preserved as a failure; 4 GiB coverage is not claimed. A read-only driver
-max-buffer/allocation-limit query is the next diagnostic, before any retry.
+preserved as a failure; 4 GiB coverage is not claimed. The completed read-only query reports **2 GiB maxBufferSize and
+maxMemoryAllocationSize**, so the requested single4GiB buffer exceeded both
+limits. [Actual queried limits](cygnus-x1-artifacts/gpu-limits.json).
+The same4GiB total bound will be tested as four simultaneously live1GiB
+allocations, each receiving all four patterns; that result is still pending.
+The first limit-probe launch raced deployment and exited2 without querying
+the GPU; its raw failure is retained alongside the successful query.
 GPU temperature/clock telemetry is unavailable. The unprivileged journal query
 cannot see system/kernel messages, so its empty output does not establish
 absence of new faults. CPU thermal/clock/throttle readings are retained.

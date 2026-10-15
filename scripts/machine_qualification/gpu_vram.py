@@ -167,8 +167,17 @@ def main():
     gib = int(os.environ.get('QUALIFICATION_GPU_GIB', '1'))
     if gib not in (1, 4):
         raise RuntimeError('Only the declared 1 GiB and 4 GiB smoke sizes are allowed')
+    segments = int(os.environ.get('QUALIFICATION_GPU_SEGMENTS', '1'))
+    if segments not in (1, 4) or (segments == 4 and gib != 4):
+        raise RuntimeError('Only one allocation or four 1 GiB allocations are declared')
     size, chunk = gib * 1024**3, 64 * 1024**2
-    local, local_memory, local_type = buffer(size, 1, 2)  # Device-local, not host-visible.
+    segment_bytes = size // segments
+    if segments > 1:
+        limits = json.loads((Path(os.environ['QUALIFICATION_ROOT']) / 'gpu-limits.json').read_text())['devices'][0]
+        if segment_bytes > min(limits['maxBufferSize'], limits['maxMemoryAllocationSize']):
+            raise RuntimeError('Segment exceeds the queried driver limits')
+    # All device-local allocations stay live throughout all four pattern phases.
+    local_buffers = [buffer(segment_bytes, 1, 2) for _ in range(segments)]
     host, host_memory, host_type = buffer(chunk, 2 | 4, 1)  # Host-visible/coherent, not VRAM.
     mapped = V()
     check(map_memory(device, host_memory, 0, chunk, 0, c.byref(mapped)), 'map readback')
@@ -182,31 +191,39 @@ def main():
     patterns = [0, 0xFFFFFFFF, 0xA5A5A5A5, 0x5A5A5A5A]
     started = time.monotonic()
     receipt.update(status='testing', tested_vram_bytes=size, readback_chunk_bytes=chunk,
-                   device_local_type=local_type, host_coherent_type=host_type, patterns_completed=[])
+                   allocation_count=segments, allocation_bytes=segment_bytes,
+                   device_local_types=[v[2] for v in local_buffers], host_coherent_type=host_type,
+                   patterns_completed=[], phase_patterns_by_allocation=[])
     destination.write_text(json.dumps(receipt, indent=2) + '\n')
-    for pattern in patterns:
-        expected = pattern.to_bytes(4, 'little') * (chunk // 4)
-        for offset in range(0, size, chunk):
-            check(reset_pool(device, pool, 0), 'reset command pool')
-            check(reset_fence(device, 1, c.byref(fence)), 'reset fence')
-            check(begin(command, c.byref(CommandBegin(42, None, 1, None))), 'begin commands')
-            if offset == 0:
-                fill(command, local, 0, size, pattern)
-            # Transfer writes must become visible before the readback copy.
-            memory_barrier = Barrier(46, None, 0x1000, 0x800)
-            barrier(command, 0x1000, 0x1000, 0, 1, c.byref(memory_barrier), 0, None, 0, None)
-            copy(command, local, host, 1, c.byref(Copy(offset, 0, chunk)))
-            host_barrier = Barrier(46, None, 0x1000, 0x2000)
-            barrier(command, 0x1000, 0x4000, 0, 1, c.byref(host_barrier), 0, None, 0, None)
-            check(end(command), 'end commands')
-            submission = Submit(4, None, 0, None, None, 1, c.pointer(command), 0, None)
-            check(submit(queue, 1, c.byref(submission), fence), 'queue submit')
-            check(wait(device, 1, c.byref(fence), 1, 5_000_000_000), 'five-second fence wait')
-            if c.string_at(mapped, chunk) != expected:
-                raise RuntimeError(f'VRAM pattern mismatch: pattern={pattern:#x}, offset={offset}')
-        receipt['patterns_completed'].append(hex(pattern))
+    for phase in range(len(patterns)):
+        # Rotate the four declared patterns: each allocation gets all four,
+        # while all allocations contain different data before any readback.
+        phase_patterns = [patterns[(phase + i) % len(patterns)] for i in range(segments)]
+        for segment, (local, _, _) in enumerate(local_buffers):
+            expected = phase_patterns[segment].to_bytes(4, 'little') * (chunk // 4)
+            for offset in range(0, segment_bytes, chunk):
+                check(reset_pool(device, pool, 0), 'reset command pool')
+                check(reset_fence(device, 1, c.byref(fence)), 'reset fence')
+                check(begin(command, c.byref(CommandBegin(42, None, 1, None))), 'begin commands')
+                if segment == 0 and offset == 0:
+                    for i, (target, _, _) in enumerate(local_buffers):
+                        fill(command, target, 0, segment_bytes, phase_patterns[i])
+                # Transfer writes must become visible before the readback copy.
+                memory_barrier = Barrier(46, None, 0x1000, 0x800)
+                barrier(command, 0x1000, 0x1000, 0, 1, c.byref(memory_barrier), 0, None, 0, None)
+                copy(command, local, host, 1, c.byref(Copy(offset, 0, chunk)))
+                host_barrier = Barrier(46, None, 0x1000, 0x2000)
+                barrier(command, 0x1000, 0x4000, 0, 1, c.byref(host_barrier), 0, None, 0, None)
+                check(end(command), 'end commands')
+                submission = Submit(4, None, 0, None, None, 1, c.pointer(command), 0, None)
+                check(submit(queue, 1, c.byref(submission), fence), 'queue submit')
+                check(wait(device, 1, c.byref(fence), 1, 5_000_000_000), 'five-second fence wait')
+                if c.string_at(mapped, chunk) != expected:
+                    raise RuntimeError(f'VRAM pattern mismatch: phase={phase}, allocation={segment}, offset={offset}')
+        receipt['patterns_completed'].append(hex(patterns[phase]))
+        receipt['phase_patterns_by_allocation'].append([hex(v) for v in phase_patterns])
         destination.write_text(json.dumps(receipt, indent=2) + '\n')
-        print(f'GPU pattern {pattern:#010x}: {gib} GiB verified', flush=True)
+        print(f'GPU phase {phase}: {gib} GiB verified across {segments} allocation(s)', flush=True)
     elapsed = time.monotonic() - started
     receipt.update(status='passed', elapsed_seconds=elapsed, verified_readback_bytes=size * len(patterns),
         end_to_end_verified_mib_s=size * len(patterns) / 1024**2 / elapsed,

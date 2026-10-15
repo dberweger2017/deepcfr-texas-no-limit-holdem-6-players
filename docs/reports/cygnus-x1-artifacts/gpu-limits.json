@@ -1,0 +1,14 @@
+{
+  "status": "read-only properties query; no device allocation or queue submission",
+  "devices": [
+    {
+      "vendor_id": "0x10de",
+      "device_id": "0x1e84",
+      "device_type": 2,
+      "maxBufferSize": 2147483648,
+      "maxMemoryAllocationSize": 2147483648,
+      "requested_failed_buffer_bytes": 4294967296
+    }
+  ],
+  "header_source": "Khronos Vulkan-Headers v1.4.309"
+}

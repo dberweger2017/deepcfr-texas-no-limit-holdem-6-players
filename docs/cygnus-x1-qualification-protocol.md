@@ -121,3 +121,18 @@ local executable hash and scan for embedded checkout/staging paths instead.
 The exact #250 M4 fresh20M and 10M→20M checkpoint SHA256 gates remain mandatory
 and implement the prior cross-platform output-parity method on this current
 HU200 recipe. No prior HU20 result is counted as a new cygnus test.
+
+## GPU limit diagnosis and bounded segmented coverage
+
+The first1GiB smoke passed. The single4GiB buffer was rejected by
+`vkCreateBuffer` before any pattern. A read-only Vulkan properties query
+reports **2,147,483,648 bytes** for both maxBufferSize and
+maxMemoryAllocationSize; the original requested4GiB exceeds those limits.
+Preserve that failed attempt and its original source. The same bounded4GiB
+total coverage now uses **four simultaneously live1GiB device-local buffers**.
+Four phases rotate zero/all-ones/A5/5A across those allocations, filling all
+four before each phase's readback. Every allocation receives all four patterns;
+aggregate readback remains16GiB. The original300s/5s-fence/CPU85C/04:50cutoff
+bounds remain unchanged. No driver/configuration change or increased VRAM budget.
+The read-only limit probe's first launch raced deployment and exited2 without
+querying the device; preserve it alongside the completed probe.
