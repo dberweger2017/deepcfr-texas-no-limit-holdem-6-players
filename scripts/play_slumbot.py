@@ -126,8 +126,10 @@ def play_hands(connection, player, journal, target: int, *, max_abandoned: int, 
             except (ValueError, AmbiguousRequest, ServiceError) as failure:
                 stop = f'new session failed: {failure}'
                 break
-        except ValueError:
-            journal.failure('protocol-error'); stop = 'protocol error'
+        except ValueError as error:
+            # Messages are fixed sentences without response data or tokens, so the reason is safe to keep.
+            journal.failure('protocol-error'); stop = f'protocol error: {error}'
+            bar.write(f'Hand {index} stopped the run: {error}')
             break
         finally:
             bar.set_postfix_str(progress(hands, abandoned + len(rejections)), refresh=False)
