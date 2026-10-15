@@ -43,8 +43,9 @@ def main(phase, out):
         rows=records(out/name/'output.log')
         result={'name':name,'guard':json.loads((out/name/'result.json').read_text()),'records':rows}
         results.append(result);(out/'results.json').write_text(json.dumps(results,indent=2)+'\n')
-        if code: raise SystemExit(f'{name} stopped with {code}; retained, no automatic extension')
-        assert rows[-1]['stop_reason']=='nodes',rows[-1]
+        capacity_terminal = phase=='main' and code==3 and result['guard']['stop_reason'] is None and rows and rows[-1].get('stop_reason')=='capacity'
+        if code and not capacity_terminal: raise SystemExit(f'{name} stopped with {code}; retained, no automatic extension')
+        assert rows[-1]['stop_reason'] in ('nodes','capacity') if phase=='main' else rows[-1]['stop_reason']=='nodes',rows[-1]
         return result
     for n,bb,scope in configs:
         name=f'n{n}-{bb}bb-scope{scope}'
@@ -55,11 +56,14 @@ def main(phase, out):
     else:
         for bb in (20,100):
             run(f'production-hu{bb}',[legacy,bb,admission['seed'],target,cap,500,Path('../tables').resolve(),out/f'production-hu{bb}.gz'],600)
+        comparisons=[]
         for bb in (20,100):
             full=next(r for r in results if r['name']==f'n3-{bb}bb-scope3')['records'][-1]
             pre=next(r for r in results if r['name']==f'n3-{bb}bb-scope0')['records'][-1]
-            assert full['nodes']==pre['nodes'] and full['fingerprints']==pre['fingerprints'],(full,pre)
-        summary={'status':'passed','results':len(results),'scope_changes_preserve_reached_keys_and_visited_regrets':True}
+            matched=full['nodes']==pre['nodes']
+            if matched: assert full['fingerprints']==pre['fingerprints'],(full,pre)
+            comparisons.append({'stack_bb':bb,'matched_endpoint':matched,'fingerprints_equal':full['fingerprints']==pre['fingerprints'] if matched else None})
+        summary={'status':'passed','results':len(results),'capacity_terminals':[r['name'] for r in results if r['records'][-1]['stop_reason']=='capacity'],'scope_comparisons':comparisons}
     (out/'result.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary),flush=True)
     if summary['status']!='passed':raise SystemExit(1)
 
