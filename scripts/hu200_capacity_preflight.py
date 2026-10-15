@@ -74,9 +74,9 @@ def run(out):
     put(out / 'command.json', command)
     started = time.monotonic()
     code = subprocess.run(command).returncode
-    # Code3 denotes the deliberately unreached next-node target, with no step.
-    if code != 3:
-        raise ValueError(f'No-step native save returned {code}, expected3')
+    # The iteration limit ends normally even though the next-node target is unreached.
+    if code != 0:
+        raise ValueError(f'No-step native save returned {code}, expected0')
     record = json.loads(telemetry.read_text())
     if record['completed_nodes'] != 500_000_140 or record['iteration'] != 321139:
         raise ValueError('Unexpected training step')
