@@ -1,0 +1,5 @@
+{
+  "at": 1792065639.357617,
+  "failure": "RuntimeError('Worker exit 1')",
+  "operation": "whole-campaign"
+}

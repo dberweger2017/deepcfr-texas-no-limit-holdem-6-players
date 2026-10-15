@@ -1,0 +1,103 @@
+{
+  "cache_rebuilds_are_fixed_one_off_work": true,
+  "input_preparation": {
+    "input_verification_and_restoration_seconds": 696.0233538150787,
+    "no_hands": true,
+    "whole_seconds": 696.0233526229858
+  },
+  "one_off_not_scaled_with_blocks": true,
+  "pilot_cache_builds": [
+    {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 97290578,
+        "iteration": 1794658,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026100601,
+        "weights_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+        "zero_mass_entries": 22158016
+      },
+      "no_hands": true,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+      "phase": "pilot",
+      "seconds": 434.51971983909607,
+      "source_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+    },
+    {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+        "entries": 70466972,
+        "iteration": 3716073,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026100601,
+        "weights_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+        "zero_mass_entries": 22611215
+      },
+      "no_hands": true,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+      "phase": "pilot",
+      "seconds": 302.7748427391052,
+      "source_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+    },
+    {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 97291138,
+        "iteration": 1794239,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026101501,
+        "weights_sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000",
+        "zero_mass_entries": 22187149
+      },
+      "no_hands": true,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+      "phase": "pilot",
+      "seconds": 436.61494278907776,
+      "source_sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000"
+    },
+    {
+      "description": {
+        "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "card_tables": {
+          "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+        },
+        "entries": 97291445,
+        "iteration": 1776372,
+        "kind": "holdem-hu100-stored-cfr-average-research-v1",
+        "num_players": 2,
+        "source_checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "training_seed": 2026101502,
+        "weights_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+        "zero_mass_entries": 22259667
+      },
+      "no_hands": true,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+      "phase": "pilot",
+      "seconds": 434.03309178352356,
+      "source_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+    }
+  ],
+  "quoted_future_cache_build_seconds": 1305.1677544116974
+}

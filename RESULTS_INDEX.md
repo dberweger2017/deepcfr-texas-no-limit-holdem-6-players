@@ -230,45 +230,72 @@ deletion, force offload, unpinning, payload download or repeated hashes.
 [Owner-authorized PR278 comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185) delivered and independently
 read back. M1 inspected only; no other agent's reclamation credited.
 
-## PR286 — HU100 v0.5.3 three-seed qualification (in progress)
+## PR286 — HU100 v0.5.3 three-seed campaign (terminal partial)
 
 [PR286](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286),
-[protocol](docs/hu100-v053-three-seeds-protocol.md), branch
-`feature/hu100-v053-three-seeds`. M4 unsynced root
-`~/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds`.
-Training source starts at `fb7d57aa669a623838136a317c1c4952121d34db`,
-current-main native tree `39bdd06f9362512699cf02ed6ab5e3d598ff3557`.
-Build SHA256 matches #272 exactly:
+[report](docs/reports/hu100-v053-three-seeds.md), [protocol](docs/hu100-v053-three-seeds-protocol.md).
+Scientific checkout `ed090caecde29569a5c7cd44e49f6dc434145e9c` on M4;
+branch `feature/hu100-v053-three-seeds`. Native main tree
+`39bdd06f9362512699cf02ed6ab5e3d598ff3557`, binary SHA256
 `4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
-Fresh seeds **2026101501 then 2026101502**, sequential. One original 14-hour
-clock, both shared locks and every five-second whole-family reading retained.
-Seed2026101501 reaches5,000,004,085 nodes /1,794,239 iterations with the same
-97,291,138 sorted keys; every final current/average row audits. Average SHA256
-`83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`.
-Seed2026101502 continues frozen from330,510,042 nodes /101,154 iterations
-/97,291,445 entries to5,000,003,034 nodes /1,776,372 iterations with unchanged
-sorted keys; every final current/average row audits. Average SHA256
-`a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`.
-Compact lineage/audit receipts are in the report artifacts. Both training stages
-are complete. All17 cost-only pilots pass; the canonical prospective plan and
-PR-description readback precede final hands, SHA256
-`f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`.
-Full16,384panel/131,072direct blocks retained; whole projection9.433h with
-25% future-work margin and30min closeout. Final evaluation is running;
-outcomes remain sealed until all17 comparisons independently replay/reproduce.
-No final-hand outcomes, archive integrity or upload acceptance are claimed yet.
+Both fresh seeds complete training and every-row audits, with unchanged sorted
+keys: 2026101501 reaches5,000,004,085 nodes /1,794,239 iterations /97,291,138entries;
+2026101502 reaches5,000,003,034 /1,776,372 /97,291,445.
+[Exact four-model pins per seed](docs/reports/hu100-v053-three-seeds-artifacts/model-index.json).
 
-Designated Research-Cloud folder
-[PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),
+**Terminal stop October15 12:00:39 UTC:** next-cache preventive admission would
+leave17,107,308,881bytes below the16GiB floor. Nine/17 comparisons and983,040
+original final hands replay/reproduce; all17 global barrier is absent. No
+outcomes/coverage readout, qualification claim, scientific retry or budget extension.
+The canonical prospective roots/counts/cost plan and PR readback remain unchanged,
+SHA256 `f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`.
+Full16,384panel/131,072direct counts selected; unused counts are not rerun.
+Both model sets remain at the M4 unsynced root
+`~/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds`.
+Only the owned, unused regenerable release cache was removed with full
+manifest/input/rebuild provenance. No model, unique evidence, other PR root or
+synced file was removed. The campaign's T3 timer is disabled.
+
+Designated folder [PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),
 ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
-`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; creation and connector readback verified.
-No payload ZIP exists yet. Required archive/member hashes, native upload and
-independent cloud metadata receipts, and restore commands follow at closeout.
-Protected inputs: [#272 original candidate average](#pr272--hu100-v2-frozen-5b-october-14-2026),
-[#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout), and
-[v0.5.2 pinned release](docs/releases/v0.5.2/PUBLICATION.md).
-M4 cleanup is owner-managed after #278 merged; no other PR root is changed here.
-No release, tag, default change, Slumbot, credential work or merge.
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+The following have embedded `ARCHIVE-MANIFEST.json`, complete local member
+size/SHA256 readback and whole hashing. Average members also match their
+existing full training audit pins. **Upload acceptance and actual file IDs are
+pending; a locally verified ZIP is not a confirmed cloud backup.**
+
+| Locally verified ZIP | Bytes | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| hu100-v053-seed-2026101501-average.zip | 3,190,246,314 | `19b1510446d5f5b76603e91d01dab347aa92d2e21115ebe339ab2eb827ff31ed` | `e0e79eeda29f02f8e2bb3fa858e0edc7c2c36f680b0088b370d2910b64009b0e` |
+| hu100-v053-seed-2026101502-average.zip | 3,187,451,673 | `275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df` | `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b` |
+| hu100-v053-terminal-partial-evidence.zip | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
+
+The475-member partial evidence ZIP retains all pilots/final raw traces, both
+training lineages/telemetry/audits, source/native build, prospective declarations,
+closed whole-campaign guard samples and failures. It excludes averages (separate
+ZIPs), stage1/final checkpoints/current exports (retained, model bundles pending
+storage), indexed inputs and its own live archival guard. Closed archival guard
+readings and final lifecycle receipts follow in a separate lifecycle ZIP.
+Model bundles require21,862,710,424bytes plus packaging margin; at archival
+admission another17,668,594,840bytes was needed above16GiB. The owner is freeing
+M4 space. This does not authorize deleting retained models or synced files.
+
+Average members are `averages/2026101501/5000000000.average.gz` (3,190,242,513bytes,
+SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`)
+and `averages/2026101502/5000000000.average.gz` (3,187,447,872bytes,
+SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`).
+All remaining exact model paths/bytes/hashes are in the linked model index;
+pending bundles are not yet restore sources. Protected indexed dependencies:
+[#272 original average](#pr272--hu100-v2-frozen-5b-october-14-2026),
+[#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
+[v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
+
+For restoration after upload acceptance: download the named ZIP from its
+confirmed Drive locator into a fresh ignored directory; verify its whole hash
+from the table, extract `ARCHIVE-MANIFEST.json` and verify its manifest hash,
+then extract only the named member and verify its size/hash against the
+manifest/model index. Never overwrite active inputs. Remote archive bytes have
+not been downloaded or verified. No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 

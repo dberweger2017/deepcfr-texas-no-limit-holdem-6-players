@@ -1,0 +1,9 @@
+{
+  "at": 1792067142.981078,
+  "failures": [
+    "Process enumeration encountered macOS AccessDenied on PID1; corrected to permission-tolerant metadata enumeration; no signals.",
+    "First archival tmux launch found no tmux in SSH PATH; no process launched; corrected PATH.",
+    "Drive metadata call used file_id instead of fileId; connector schema rejected it before I/O; corrected argument.",
+    "A focused pytest invocation named nonexistent tests/test_report_m4_resources.py, so no tests ran; corrected file selection."
+  ]
+}
