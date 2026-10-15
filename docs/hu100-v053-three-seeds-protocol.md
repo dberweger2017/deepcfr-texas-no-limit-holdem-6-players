@@ -34,7 +34,10 @@ historical comparison only. An improvement release has no pass/fail gate.
 
 Fresh direct matches for **all three seeds**, including #272's 2026100601,
 use v0.5.2 translation on (512/128), v2 off, **131,072 blocks each**, and
-reached-key coverage for both sides. Direct results are reported, never gated.
+reached-key coverage for both sides. Keep exact native support alongside actual
+post-translation selected-key support and selected-key visit bands. This is
+additional replayed telemetry, with no change to policy decisions. Direct results
+are reported, never gated.
 
 Reserve distinct roots against main and every open PR, and use physically
 separate pilot/final output directories for every contrast. Pilots use 1,024

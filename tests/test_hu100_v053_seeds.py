@@ -58,6 +58,10 @@ def test_fair_direct_v2_off_release_translation_on_replays(tmp_path,monkeypatch)
     checked=direct.audit(tmp_path/'play',tmp_path/'replay.json',cost_only=True)
     assert checked['hands_replayed']==done['hands']
     assert {key.split('/')[0] for key in checked['coverage']}=={'frozen','release'}
+    from scripts.hu100_selected_coverage import selected_coverage
+    reached=selected_coverage(tmp_path/'play',specs,tmp_path/'cache',checked)
+    assert set(reached['coverage'])==set(checked['coverage'])
+    assert all(c['selected_decisions']==c['decisions'] for c in reached['coverage'].values())
     _,repeat=direct.execute(specs,2,20261015286991,'qualification-test',tmp_path/'repeat',source,
         stack_bb=100,cache=tmp_path/'cache',cache_read_only=True,reproduce=tmp_path/'play')
     assert repeat['reproduced_all_hands_and_decisions']
