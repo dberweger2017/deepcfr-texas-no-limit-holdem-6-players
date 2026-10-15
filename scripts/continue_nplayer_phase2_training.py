@@ -34,8 +34,10 @@ def assert_idle():
 
 def passed(root,seed):
     guard=json.loads((root/'guards'/f'seed-{seed}'/'result.json').read_text())
+    if guard['status']!='passed':
+        raise RuntimeError('prior seed failed; campaign stops')
     result=json.loads((root/'training'/str(seed)/'result.json').read_text())
-    if guard['status']!='passed' or result['status']!='passed' or result['seed']!=seed:
+    if result['status']!='passed' or result['seed']!=seed:
         raise RuntimeError('prior seed failed; campaign stops')
     if [m['target'] for m in result['milestones']]!=[200_000_000,500_000_000,1_000_000_000]:
         raise RuntimeError('prior seed missing scheduled endpoints')
