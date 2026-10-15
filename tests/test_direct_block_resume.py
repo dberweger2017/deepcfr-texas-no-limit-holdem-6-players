@@ -9,11 +9,16 @@ from src.blueprint.abstraction import HU100_SCHEMA, HU100_MENU_V2_SCHEMA
 
 
 @pytest.mark.parametrize('opponent', [None, 'half_pot_pressure'])
-def test_pause_resume_matches_uninterrupted_streams(tmp_path, monkeypatch, opponent):
+@pytest.mark.parametrize('instrumented', [False,True])
+def test_pause_resume_matches_uninterrupted_streams(tmp_path, monkeypatch, opponent, instrumented):
     specs = [synthetic(tmp_path/'left', HU100_SCHEMA, 'left'),
              synthetic(tmp_path/'right', HU100_MENU_V2_SCHEMA, 'right')]
     source = dev_source(monkeypatch)
     options = dict(opponent=opponent)
+    if instrumented:
+        specs[0]['translation']=dict(max_states=512,max_events=128)
+        specs[1]['translation']=None
+        options['cache']=tmp_path/'cache'
     _, full = direct.execute(specs, 5, 872361, 'fixture', tmp_path/'full', source, **options)
     for stage, original in [('play', None), ('repeat', tmp_path/'play')]:
         out = tmp_path/stage
@@ -26,7 +31,12 @@ def test_pause_resume_matches_uninterrupted_streams(tmp_path, monkeypatch, oppon
             reproduce=original, resume=True, **options)
         assert done['hands'] == full['hands']
         for name in ('hands.jsonl.gz', 'decisions.jsonl.gz'):
-            assert gzip.decompress((out/name).read_bytes()) == gzip.decompress((tmp_path/'full'/name).read_bytes())
+            left=gzip.decompress((out/name).read_bytes());right=gzip.decompress((tmp_path/'full'/name).read_bytes())
+            if instrumented and name=='decisions.jsonl.gz':
+                assert [direct.stable_decision(json.loads(row)) for row in left.splitlines()]==[
+                    direct.stable_decision(json.loads(row)) for row in right.splitlines()]
+            else:
+                assert left==right
         if stage == 'repeat':
             assert done['reproduced_all_hands_and_decisions']
     assert direct.audit(tmp_path/'play', tmp_path/'audit.json')['status'] == 'verified'

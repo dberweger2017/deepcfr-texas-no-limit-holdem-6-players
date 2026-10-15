@@ -59,6 +59,23 @@ def test_witness_uses_own_tables_and_legal_history(tmp_path, monkeypatch, stack,
     from scripts.evaluate_hu200_translation import verify_witness
     verify_witness(initial,view,menu,a[3],m)
     assert m.policy(31).choose_action(view)==m.policy(31).choose_action(view)
+    if schema==HU100_EQUITY_MENU_V2_SCHEMA:
+        from random import Random
+        player=m.policy(891);expected=Random(891)
+        expected_action=expected.choices(menu,weights=a[1],k=1)[0].action
+        assert player.choose_action(view)==expected_action
+        assert player.random.getstate()==expected.getstate()
+        limited=translate(view,menu,m.entries,set(),TranslationOptions(max_states=1),schema=schema,equity_cards=cards)
+        assert limited.key is None and limited.bound_reached and limited.states==1
+        assert m.distribution_with_telemetry(wv)[3]['states']==0
+        exact=information_key(view,menu,schema=schema,equity_cards=cards)
+        m.entries[exact]=(tuple(c.name for c in menu),(1/len(menu),)*len(menu));m.zero_mass.add(exact)
+        zero=m.distribution_with_telemetry(view)
+        assert zero[2] and zero[3]['reason']=='zero-mass' and zero[3]['states']==0
+        del m.entries[exact];m.zero_mass.clear()
+        if board_size==0:
+            jam=initial.apply(Action(ActionKind.RAISE,stack));jv=jam.observe(jam.actor)
+            assert m.distribution_with_telemetry(jv)[3]['mode']=='uniform'
     m.configure_translation(None)
     assert m.distribution(view)==(menu,(1/len(menu),)*len(menu),False)
     assert m.distribution(view)==m.distribution_with_telemetry(view)[:3]
