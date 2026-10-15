@@ -68,11 +68,22 @@ random, check_call, tight_aggressive, loose_aggressive, pot_pressure (1.5x),
 half_pot_pressure and matched_pot_pressure (1x).
 
 Fresh roots will be reserved against main and every other open head before
-pilots/finals. Cost-only pilots: 128 direct blocks per seed and 32 blocks per
+pilots/finals. Pilot direct roots are 20261015297010–12; shared pilot panel
+root is 20261015297020. Final direct roots are 20261015297101–03; shared
+final panel root is 20261015297200. Distinct script scenario names define
+distinct deals within a panel root; all four models share each script
+scenario's deals and role streams. Cost-only pilots: 128 direct blocks per seed and 32 blocks per
 script/seed, separate roots from finals. No reduced final counts; pilot reports
 only cost, variance and coverage. Declare a resource/time envelope from pilots
 before final hands. Every final hand independently replays and completely
 reproduces; verify all comparisons and stream hashes before reading any result.
+The two-model harness runs three pairs per script, with the blend arm
+repeated. Before readout, its hand and deterministic decision fingerprints
+must match across all three pairs. There are 1,703,936 unique primary hands
+and 2,162,688 stored primary records including the repeated blend arms; each
+stored hand also independently replays and reproduces. The reuse adds no
+independent samples to any interval.
+
 Report nominal paired Student-t 95% intervals and a clearly labeled descriptive
 21-contrast scripted family adjustment. No pass/fail or milestone gate.
 
@@ -86,6 +97,19 @@ All model construction/play on the 16-GiB M4, one job. Both exclusive research
 locks and the existing five-second guards: 13-GiB family RSS, 8% free memory,
 critical pressure and 4,000,000,000-byte swap growth sustained for 60 observed
 seconds; immediate 16-GiB disk floor. PID creation-time ownership checks apply.
+The full intake starts a fixed 16-hour wall envelope, with its last two hours
+reserved for preservation/archiving; the intake stage itself is capped at six
+hours. No final-count reduction or scientific retry follows a stop. Cost
+pilots must admit the full remaining counts before final play.
+
+The blend cache is written as the existing six NumPy arrays through bounded
+file streams, passing exported float64 probabilities unchanged. Its bytes
+are tested against the original cache builder. Retain the blend cache, but
+build only one seed cache at a time for its complete pilot/final comparison
+group, then retire that inactive rebuildable cache with input pins and exact
+removal receipts. Rebuild it for a later phase if needed. This keeps disk
+cache residency at blend plus one seed. No research original is removed.
+
 No synced deletion or forced offloading. Only inactive rebuildable caches may
 be removed after dependency/provenance checks, with an exact receipt. M1 is
 limited to source/PR/report/archive administration. Do not assume enough disk
