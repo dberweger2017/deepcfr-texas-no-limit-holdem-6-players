@@ -13,6 +13,7 @@ def sha(path):
 
 def audit(checkpoint,policy):
     cp_sha,policy_sha=sha(checkpoint),sha(policy)
+    streets=[{'entries':0,'visits':0,'zero_visit_entries':0} for _ in range(4)]
     counts={'rows':0,'average_rows':0,'current_rows':0,'zero_mass_rows':0}
     with gzip.open(checkpoint,'rt') as a,gzip.open(policy,'rt') as b:
         source=json.loads(next(a));header=json.loads(next(b))
@@ -26,6 +27,7 @@ def audit(checkpoint,policy):
         for line in a:
             src=json.loads(line);row=json.loads(next(b))
             assert src[:4]==row[:4]
+            stats=streets[src[2]];stats['entries']+=1;stats['visits']+=src[4];stats['zero_visit_entries']+=src[4]==0
             use_average=mode!='current' and src[2]<=source['last_average_street']
             weights=src[6] if use_average else [max(0.,x) for x in src[5]]
             assert weights and all(math.isfinite(x) and x>=0 for x in weights)
@@ -37,7 +39,9 @@ def audit(checkpoint,policy):
             counts['rows']+=1;counts['average_rows' if use_average else 'current_rows']+=1;counts['zero_mass_rows']+=not total
         assert not b.readline()
     assert counts['rows']==source['entries']
-    return {'status':'passed','checkpoint_sha256':cp_sha,'policy_sha256':policy_sha,'strategy':mode,'last_average_street':source['last_average_street'],**counts}
+    for stats in streets:
+        stats['visits_per_key']=stats['visits']/stats['entries'] if stats['entries'] else None
+    return {'by_street':streets,'status':'passed','checkpoint_sha256':cp_sha,'policy_sha256':policy_sha,'strategy':mode,'last_average_street':source['last_average_street'],**counts}
 
 
 if __name__=='__main__':
