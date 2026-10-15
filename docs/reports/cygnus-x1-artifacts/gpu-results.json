@@ -214,10 +214,345 @@
       },
       "raw_stream_bytes": 6836,
       "raw_stream_sha256": "6a1f444616616de1c1ef0961cbf64709fc9840ea3cabb3cbd4f7d1206acf8635"
+    },
+    {
+      "job": "gpu-4g-segmented",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 14.08819074100029,
+      "sampled_peak_family_rss_bytes": 154951680,
+      "status": "passed",
+      "samples": 8,
+      "started_utc": "2026-10-15T00:12:33.508655+00:00",
+      "last_sample_utc": "2026-10-15T00:12:47.589511+00:00",
+      "max_sample_gap_seconds": 2.014082255001995,
+      "min_temperature_c": 34.0,
+      "max_temperature_c": 40.0,
+      "median_temperature_c": 39.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        5001.484
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 131930386432,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 30.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 31.0,
+          "max_c": 40.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 30.0,
+          "max_c": 36.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 30.0,
+          "max_c": 38.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 31.0,
+          "max_c": 40.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 30.0,
+          "max_c": 33.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 34.0,
+          "max_c": 40.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 29.0,
+          "max_c": 31.0
+        },
+        "nvme/Composite": {
+          "min_c": 35.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 42.0,
+          "max_c": 43.0
+        }
+      },
+      "raw_stream_bytes": 27227,
+      "raw_stream_sha256": "10e3e5526e202d35f59be28986da5599f95dea430b3683f2592c5bc967b6b76f"
+    },
+    {
+      "job": "gpu-limits",
+      "exit_code": 2,
+      "stop_reason": null,
+      "elapsed_seconds": 2.020172968001134,
+      "sampled_peak_family_rss_bytes": 7987200,
+      "status": "failed",
+      "samples": 2,
+      "started_utc": "2026-10-15T00:10:12.509021+00:00",
+      "last_sample_utc": "2026-10-15T00:10:14.521789+00:00",
+      "max_sample_gap_seconds": 2.012776572999428,
+      "min_temperature_c": 34.0,
+      "max_temperature_c": 42.0,
+      "median_temperature_c": 38.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        799.999,
+        800.0,
+        4799.225
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 132105900032,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 32.0,
+          "max_c": 42.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 29.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 28.0,
+          "max_c": 29.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 29.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 29.0,
+          "max_c": 30.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 34.0,
+          "max_c": 42.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 30.0,
+          "max_c": 30.0
+        },
+        "nvme/Composite": {
+          "min_c": 35.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 42.0,
+          "max_c": 42.0
+        }
+      },
+      "raw_stream_bytes": 6806,
+      "raw_stream_sha256": "64dfacec28bf5d2d14eefeed7edc8a134b74037726b975695d0054832738a3d8"
+    },
+    {
+      "job": "gpu-limits-retry",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 2.021334619999834,
+      "sampled_peak_family_rss_bytes": 8192000,
+      "status": "passed",
+      "samples": 2,
+      "started_utc": "2026-10-15T00:10:42.933906+00:00",
+      "last_sample_utc": "2026-10-15T00:10:44.947243+00:00",
+      "max_sample_gap_seconds": 2.013344048002182,
+      "min_temperature_c": 34.0,
+      "max_temperature_c": 37.0,
+      "median_temperature_c": 35.5,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        3903.473
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 132108173312,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 30.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 34.0,
+          "max_c": 37.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 29.0,
+          "max_c": 29.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 29.0,
+          "max_c": 30.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 29.0,
+          "max_c": 29.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 34.0,
+          "max_c": 37.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 29.0,
+          "max_c": 30.0
+        },
+        "nvme/Composite": {
+          "min_c": 35.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 43.0,
+          "max_c": 44.0
+        }
+      },
+      "raw_stream_bytes": 6801,
+      "raw_stream_sha256": "b040615d65e356c4b9e31079f1cec857ac5b41de129bd7afcc4e9de1ed2f5471"
     }
   ],
   "gpu_temperature_and_clock": "not exposed by available hwmon/API telemetry",
   "kernel_postcheck": "unverified: unprivileged journal query lacks system/kernel visibility; no entries is not a clean-kernel verdict",
-  "diagnosis": "Pending read-only maxBufferSize/maxMemoryAllocationSize query; no blind retry or driver install",
-  "scope": "VRAM/transfer patterns only; not CUDA/shader arithmetic or full GPU qualification"
+  "diagnosis": "Original single4GiB buffer exceeds actual2GiB maxBufferSize/maxMemoryAllocationSize; boundedfour simultaneous1GiB allocations pass",
+  "scope": "VRAM/transfer patterns only; not CUDA/shader arithmetic or full GPU qualification",
+  "four_gib_segmented": {
+    "status": "passed",
+    "icd": "/usr/share/vulkan/icd.d/nouveau_icd.json",
+    "devices": [
+      {
+        "name": "NVIDIA GeForce RTX 2070 SUPER (NVK TU104)",
+        "vendor_id": "0x10de",
+        "device_id": "0x1e84",
+        "device_type": 2,
+        "api_version": 4210993,
+        "driver_version": 104857607
+      }
+    ],
+    "scope": "Declared 1/4 GiB VRAM fill/copy/readback, not CUDA or shader arithmetic",
+    "heaps": [
+      {
+        "bytes": 8589934592,
+        "flags": 1
+      },
+      {
+        "bytes": 268435456,
+        "flags": 1
+      },
+      {
+        "bytes": 101237915648,
+        "flags": 0
+      }
+    ],
+    "tested_vram_bytes": 4294967296,
+    "readback_chunk_bytes": 67108864,
+    "allocation_count": 4,
+    "allocation_bytes": 1073741824,
+    "device_local_types": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "host_coherent_type": 2,
+    "patterns_completed": [
+      "0x0",
+      "0xffffffff",
+      "0xa5a5a5a5",
+      "0x5a5a5a5a"
+    ],
+    "phase_patterns_by_allocation": [
+      [
+        "0x0",
+        "0xffffffff",
+        "0xa5a5a5a5",
+        "0x5a5a5a5a"
+      ],
+      [
+        "0xffffffff",
+        "0xa5a5a5a5",
+        "0x5a5a5a5a",
+        "0x0"
+      ],
+      [
+        "0xa5a5a5a5",
+        "0x5a5a5a5a",
+        "0x0",
+        "0xffffffff"
+      ],
+      [
+        "0x5a5a5a5a",
+        "0x0",
+        "0xffffffff",
+        "0xa5a5a5a5"
+      ]
+    ],
+    "elapsed_seconds": 12.893519454002671,
+    "verified_readback_bytes": 17179869184,
+    "end_to_end_verified_mib_s": 1270.7158862597241,
+    "rate_scope": "Includes GPU fill/copy, synchronization and CPU byte verification; not peak PCIe bandwidth"
+  },
+  "driver_limits": {
+    "status": "read-only properties query; no device allocation or queue submission",
+    "devices": [
+      {
+        "vendor_id": "0x10de",
+        "device_id": "0x1e84",
+        "device_type": 2,
+        "maxBufferSize": 2147483648,
+        "maxMemoryAllocationSize": 2147483648,
+        "requested_failed_buffer_bytes": 4294967296
+      }
+    ],
+    "header_source": "Khronos Vulkan-Headers v1.4.309"
+  },
+  "limit_probe_first_launch": {
+    "status": "failed before queryingGPU",
+    "exit_code": 2,
+    "cause": "Script deployment raced launch; original logs/receipt retained; retry after confirmed deployment passed"
+  }
 }
