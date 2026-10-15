@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Merged PR286 storage cleanup (October 15):** 50.124 GB reclaimed on M4 from eight unchanged archived model originals and two accepted uploaded ZIP caches; 78.787 GB free. Partial evidence, original-seed/released inputs, tables, source and open PR292 dependencies remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-pr286.md).
+
 - **HU100 v0.5.3 three-seed campaign ([#286](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286)), terminal partial:** both fresh M4 seeds complete exact #260 → #272 training and every-row current/average audits: 5,000,004,085 nodes /97,291,138 fixed keys and 5,000,003,034 /97,291,445. Preventive disk admission stopped evaluation at 9/17 comparisons; 983,040 original final hands replay/reproduce, but the global barrier is incomplete and outcomes remain sealed. No retry or qualification claim. All seven model/average/raw/lifecycle ZIPs pass local readback and native/cloud upload acceptance. Archival closeout complete; final reporting-branch CI and owner review remain. Campaign timer disabled. Owner decides merge/release. [Report](docs/reports/hu100-v053-three-seeds.md), [protocol](docs/hu100-v053-three-seeds-protocol.md).
 
 - **M4 evidence-closeout space (October 15 afternoon):** 28.828 GB reclaimed from archived inactive HU200 copies, rebuildable caches and five confirmed uploaded ZIP caches; 28.742 GB free after large archives were created. PR286 inputs/evidence and PR292 work remain. [Restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-closeout.md); [owner-requested bot comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286#issuecomment-6192153333).

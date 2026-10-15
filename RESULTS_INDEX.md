@@ -1,3 +1,20 @@
+## Merged PR286 storage retirement — October 15, 13:45 UTC
+
+Owner-requested cleanup after current merged-status/upload/dependency review
+reclaims **50.124 GB** on M4: eight unchanged archived training/model originals
+**28.261 GB** and two accepted model ZIP caches **21.863 GB**. Verified
+**78.787 GB free**. This supersedes earlier local-original retention only for
+the eight exact paths; their final averages/checkpoints/current exports remain
+restorable through four accepted model/average Drive archives.
+[Exact archive/member/whole/manifest hashes and restoration](docs/artifacts/storage-vacuum-20261015-pr286.md);
+[accepted private receipt](https://drive.google.com/file/d/1HKyQUkGffO1_UH-PzllfayS0eM7_N7AL/view?usp=drivesdk),
+`1HKyQUkGffO1_UH-PzllfayS0eM7_N7AL`, 84,810 bytes, SHA256 `ea0a16e468b58b0a907e2eb7385eb80ac5ccf02d83ad6cb82dd652c3c779a06f`.
+All source/worktrees/shared Git, original-seed/released inputs, canonical tables,
+partial/failure/raw evidence and open PR292 dependencies remain; 109 protected
+files match metadata. Same-size online-only ZIP placeholders/cloud IDs survive.
+No payload download/repeated hashes, synced deletion/force/unpin, process signal,
+scientific readout/retry or unattended work.
+
 ## M4 uploaded-cache supplement — October 15, 12:42 UTC
 
 Another **10.593 GB** released normally from five confirmed uploaded unused ZIP
