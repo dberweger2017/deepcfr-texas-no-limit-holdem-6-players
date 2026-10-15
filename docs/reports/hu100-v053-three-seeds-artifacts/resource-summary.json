@@ -22,7 +22,7 @@
       "free_memory": 0,
       "swap_growth": 0
     },
-    "samples": 3884
+    "samples": 3891
   },
   "baseline": {
     "at": 1792046129.4389791,
@@ -36,7 +36,7 @@
     "swap_raw": "vm.swapusage: total = 2048.00M  used = 920.75M  free = 1127.25M  (encrypted)\n"
   },
   "operations": {
-    "partial-preservation": {
+    "partial-lifecycle": {
       "maximum_observed_held_seconds": {
         "critical_pressure": 0,
         "family_rss": 0,
@@ -44,10 +44,10 @@
         "free_memory": 0,
         "swap_growth": 0
       },
-      "maximum_swap_growth_bytes": -253755392,
-      "minimum_disk_free_bytes": 25163546624,
+      "maximum_swap_growth_bytes": -215744512,
+      "minimum_disk_free_bytes": 21865943040,
       "minimum_free_percent": 86,
-      "peak_family_rss_bytes": 19447808,
+      "peak_family_rss_bytes": 19922944,
       "pressure_levels": [
         1
       ],
@@ -58,7 +58,60 @@
         "free_memory": 0,
         "swap_growth": 0
       },
-      "samples": 1
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(64442, 1792067443.57102)": 0.08846237600000001
+        },
+        "failure": null,
+        "finished": 1792067448.724641,
+        "peak_family_rss_bytes": 19922944,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 2,
+        "started": 1792067443.636981,
+        "status": "complete",
+        "wall_seconds": 5.087660074234009
+      },
+      "samples": 2
+    },
+    "partial-preservation": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": -207355904,
+      "minimum_disk_free_bytes": 21910712320,
+      "minimum_free_percent": 85,
+      "peak_family_rss_bytes": 135790592,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(64152, 1792067142.850629)": 0.15378750400000002,
+          "(64158, 1792067142.928542)": 13.251808768
+        },
+        "failure": null,
+        "finished": 1792067168.110568,
+        "peak_family_rss_bytes": 135790592,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 6,
+        "started": 1792067142.8998778,
+        "status": "complete",
+        "wall_seconds": 25.210691213607788
+      },
+      "samples": 6
     },
     "whole-campaign": {
       "maximum_observed_held_seconds": {

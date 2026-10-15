@@ -1,0 +1,80 @@
+{
+  "observations": [
+    {
+      "access_denied_other_pids": [],
+      "at": 1792067443.669813,
+      "breaches": {
+        "critical_pressure": false,
+        "family_rss": false,
+        "free_disk": false,
+        "free_memory": false,
+        "swap_growth": false
+      },
+      "continuity_reset": true,
+      "disk_free_bytes": 21865943040,
+      "family_rss_bytes": 19447808,
+      "free_percent": 86,
+      "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 86%\n",
+      "held_seconds": {},
+      "monotonic": 351702.898899916,
+      "pressure_level": 1,
+      "processes": [
+        {
+          "cpu_seconds": 0.057758916,
+          "create_time": 1792067443.57102,
+          "pid": 64442,
+          "rss": 19447808
+        }
+      ],
+      "stop": [],
+      "swap_bytes": 749731840,
+      "swap_raw": "vm.swapusage: total = 2048.00M  used = 715.00M  free = 1333.00M  (encrypted)\n"
+    },
+    {
+      "access_denied_other_pids": [],
+      "at": 1792067448.720437,
+      "breaches": {
+        "critical_pressure": false,
+        "family_rss": false,
+        "free_disk": false,
+        "free_memory": false,
+        "swap_growth": false
+      },
+      "continuity_reset": false,
+      "disk_free_bytes": 21882351616,
+      "family_rss_bytes": 19922944,
+      "free_percent": 86,
+      "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 86%\n",
+      "held_seconds": {},
+      "monotonic": 351707.949504833,
+      "pressure_level": 1,
+      "processes": [
+        {
+          "cpu_seconds": 0.08846237600000001,
+          "create_time": 1792067443.57102,
+          "pid": 64442,
+          "rss": 19922944
+        }
+      ],
+      "stop": [],
+      "swap_bytes": 749731840,
+      "swap_raw": "vm.swapusage: total = 2048.00M  used = 715.00M  free = 1333.00M  (encrypted)\n"
+    }
+  ],
+  "raw_retained_at": "results/hu100-v053-seeds/guards/operations/partial-lifecycle/resources.jsonl",
+  "receipt": {
+    "cpu_seconds_by_identity": {
+      "(64442, 1792067443.57102)": 0.08846237600000001
+    },
+    "failure": null,
+    "finished": 1792067448.724641,
+    "peak_family_rss_bytes": 19922944,
+    "reasons": [],
+    "returncode": 0,
+    "samples": 2,
+    "started": 1792067443.636981,
+    "status": "complete",
+    "wall_seconds": 5.087660074234009
+  },
+  "scope": "Final tiny archival lifecycle, retained in compact Git receipt without recursive archive"
+}

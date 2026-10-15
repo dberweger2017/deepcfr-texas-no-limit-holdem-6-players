@@ -290,12 +290,40 @@ pending bundles are not yet restore sources. Protected indexed dependencies:
 [#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
 [v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
 
-For restoration after upload acceptance: download the named ZIP from its
-confirmed Drive locator into a fresh ignored directory; verify its whole hash
-from the table, extract `ARCHIVE-MANIFEST.json` and verify its manifest hash,
-then extract only the named member and verify its size/hash against the
-manifest/model index. Never overwrite active inputs. Remote archive bytes have
-not been downloaded or verified. No release, default change or merge; owner decides.
+The closed preservation guard's6raw readings are in the8-member lifecycle ZIP
+[hu100-v053-terminal-partial-lifecycle.zip](https://drive.google.com/file/d/1lBZqdODLY0lPXT6o3_x2M0rn5n9f1PXl/view?usp=drivesdk),
+14,603bytes, whole SHA256 `6df10db32c400dfcfac8e9878185b5436ddc12a4fbcb95c344aff1b67beb3ed0`,
+manifest SHA256 `2569c69dcc5c81dc784e6704f0f0e131e49049d47508bde3b8926fe48a930371`.
+Complete local readback passed. Its native uploaded/no-pending/no-conflict state
+and independent Drive ID/name/size/direct-parent metadata are accepted; receipts
+are in the report artifacts. Its own final two observations are retained in
+[the compact final lifecycle receipt](docs/reports/hu100-v053-three-seeds-artifacts/partial-final-lifecycle.json),
+with the original raw stream also retained locally. Other ZIP uploads remain
+pending; remote archive bytes were not downloaded or verified.
+
+After downloading an accepted named archive to a fresh ignored directory, this
+command verifies whole, embedded manifest and extracted member hashes. Change
+`seed` to2026101502 for the second average. Do not overwrite active inputs.
+
+```sh
+python - <<'PYRESTORE'
+import json
+from pathlib import Path
+from scripts.run_hu100_k50_v2 import restore
+seed = 2026101501
+receipt = json.loads(Path(f'docs/reports/hu100-v053-three-seeds-artifacts/{seed}-average-archive-receipt.json').read_text())
+receipt['path'] = f'results/pr286-downloads/hu100-v053-seed-{seed}-average.zip'
+restore(receipt, f'averages/{seed}/5000000000.average.gz',
+        Path(f'results/pr286-restored/{seed}/5000000000.average.gz'))
+PYRESTORE
+```
+
+For a raw evidence member use the partial archive receipt, its downloaded ZIP
+path and the exact `research/...` member from its manifest. For closed resource
+traces use the lifecycle receipt and
+`research/guards/operations/partial-preservation/resources.jsonl`.
+The two full model bundles remain pending storage and are not restore sources.
+No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 
