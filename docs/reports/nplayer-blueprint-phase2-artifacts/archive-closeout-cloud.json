@@ -1,0 +1,62 @@
+{
+  "status": "accepted",
+  "seal": {
+    "status": "sealed",
+    "archive": "/home/dberweger/nplayer-blueprint-phase2-20261015/archives/closeout/evidence.zip",
+    "bytes": 53823,
+    "sha256": "77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357",
+    "manifest_member": "MANIFEST.json",
+    "manifest_sha256": "22c99da238531cd7a2bfce19d4063f2eefe3dbeeb3cf6955958928596d90eb79",
+    "members": 11,
+    "member_readback": "all sizes/SHA256 and ZIP CRC pass",
+    "part_readback": "concatenated SHA256 matches archive",
+    "parts": [
+      {
+        "member": "evidence.zip.part0000",
+        "bytes": 53823,
+        "sha256": "77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357"
+      }
+    ],
+    "originals_retained": true,
+    "cloud_upload": "pending",
+    "remote_bytes_downloaded": false
+  },
+  "cloud_metadata": {
+    "id": "1utIneB1zdFo0BcLR3_no3tJN48jd_oOl",
+    "title": "phase2-archive-guard-closeout.zip",
+    "mime_type": null,
+    "size": "53823",
+    "url": "https://drive.google.com/file/d/1utIneB1zdFo0BcLR3_no3tJN48jd_oOl/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1utIneB1zdFo0BcLR3_no3tJN48jd_oOl/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native": {
+    "at": 1792089153.52853,
+    "path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-292-nplayer-blueprint-phase2/phase2-archive-guard-closeout.zip",
+    "name": "phase2-archive-guard-closeout.zip",
+    "bytes": 53823,
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "native_accepted": true,
+    "cloud_file_id": "1utIneB1zdFo0BcLR3_no3tJN48jd_oOl",
+    "cloud_folder_id": "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9",
+    "remote_archive_bytes_downloaded": false
+  },
+  "remote_bytes_downloaded": false
+}

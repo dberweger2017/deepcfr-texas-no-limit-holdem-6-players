@@ -29,9 +29,10 @@ all local members and original transport parts passed readback. The original
 bridge's100MiB input limit; final ordered cloud IDs/acceptance will be indexed
 after all pieces finish. [Main seal receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-main.json).
 The separate [archive-guard closeout](https://drive.google.com/file/d/1utIneB1zdFo0BcLR3_no3tJN48jd_oOl/view)
-has independent cloud metadata confirmation but native acceptance remains pending:
+has native upload/no-pending/no-conflict and independent cloud metadata acceptance:
 53,823bytes, SHA256`77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357`,
 manifest`22c99da238531cd7a2bfce19d4063f2eefe3dbeeb3cf6955958928596d90eb79`.
+[Acceptance receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-closeout-cloud.json).
 No scientific originals have been removed. Ignored disposable transport copies
 are retired after verified receipts, with regeneration/removal records under
 `planning/nplayer-phase2/transport/`. No remote archive bytes were downloaded.
