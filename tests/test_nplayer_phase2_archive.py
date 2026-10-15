@@ -19,3 +19,10 @@ def test_transport_parts_reassemble_the_verified_archive(tmp_path):
         assert z.read('payload.gz')==(root/'payload.gz').read_bytes()
         manifest=json.loads(z.read('MANIFEST.json'))
         assert manifest['members'][0]['sha256']==hashlib.sha256(z.read('payload.gz')).hexdigest()
+
+    from scripts.restore_nplayer_phase2_archive import restore
+    restored=tmp_path/'restored'
+    result=restore(out/'receipt.json',out,restored,['payload.gz'])
+    assert result['status']=='passed'
+    assert (restored/'payload.gz').read_bytes()==(root/'payload.gz').read_bytes()
+    assert (out/'evidence.zip.part0000').exists()
