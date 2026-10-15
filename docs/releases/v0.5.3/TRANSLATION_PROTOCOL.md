@@ -90,12 +90,13 @@ Use `caffeinate -i` for long work. Battery operation is allowed. At battery
 streams/state and request power. No M4, remote compute, Slumbot or credential
 handling. Sample resources every five seconds. Sustain breaches for 60 seconds:
 family RSS >13 GiB, critical memory pressure, free memory <8%, or fixed-baseline
-swap growth >4 GB. Gaps reset breach timers. Keep the existing 16 GiB free-disk
-floor and admit enough extra space for all planned allocations. Bind owned PID
+swap growth >4 GB, or free disk <16 GiB. Gaps reset breach timers. Admission
+requires the 16 GiB reserve plus all planned allocations. Bind owned PID
 identities before signaling. Never kill unrelated work.
 
-After the safeguard passes, extend bundle/runtime support with verified K50
-assets and deterministic model parts below 2 GiB, per-part and whole SHA256s.
+Tooling may be prepared before science; final packaging proceeds only after
+the safeguard passes, with verified K50 assets and deterministic model parts
+below 2 GiB, per-part and whole SHA256s.
 A standalone standard-library verifier reassembles and verifies the whole.
 Rebuild v0.5.0–v0.5.2 manifests byte-identically. Load v0.5.3 with translation
 on through `--hu100-release` and the browser API; retain HU20 default v0.4.2.

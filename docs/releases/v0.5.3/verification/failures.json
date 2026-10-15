@@ -9,7 +9,22 @@
       ],
       "correction_result": "29 passed in 0.97s",
       "scientific_hands": 0
+    },
+    {
+      "stage": "bundle-tests-1",
+      "result": "1 failed, 20 passed, 60 errors",
+      "cause": "New gzip fixture appended random binary after its JSON header, causing buffered UTF-8 decoding errors. Switched deterministic random payload to ASCII hex."
+    },
+    {
+      "stage": "bundle-tests-2",
+      "result": "2 failed, 79 passed",
+      "cause": "Existing-destination test reached missing-table check first; new HU20 rejection used the explicit K50 unsupported error. Moved destination-preservation check earlier and accepted the precise existing refusal in the test."
     }
   ],
-  "storage": "13 GiB free at initial admission; no download, cache or final science started"
+  "storage": "Initial 13 GiB prevented restoration; owner freed space; 36 GiB observed at 2026-10-15T16:57:22Z. No deletion performed by this task.",
+  "correction_validation": {
+    "focused_suite": "246 passed in 15.62s",
+    "raw_logs": "results/v053-release-package/",
+    "scientific_hands": 0
+  }
 }

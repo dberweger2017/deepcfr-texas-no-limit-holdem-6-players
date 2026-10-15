@@ -14,7 +14,7 @@ import urllib.error
 import urllib.request
 from uuid import uuid4
 
-from src.policies.hu100_bundle import INFERENCE, RELEASES, bundle_release
+from src.policies.hu100_bundle import RELEASES, bundle_release, inference
 
 
 def put(path, value):
@@ -108,7 +108,7 @@ def exercise(runtime, counts, label):
     result = {'sessions': [], 'hands': 0, 'off_menu_550_raises': 0, 'all_in_raises': 0}
     catalog = runtime.call('/api/models')
     assert catalog['default'] == RELEASE and len(catalog['models']) == 1
-    assert catalog['models'][0]['inference'] == INFERENCE
+    assert catalog['models'][0]['inference'] == inference(RELEASE)
     runtime.call('/api/sessions', {'modelVersion': 'v0.4.2'}, expected=400)
     runtime.call('/api/sessions', {'sessionType': 'spectator',
                                  'modelVersions': [RELEASE, 'v0.4.2']}, expected=400)
@@ -204,7 +204,7 @@ def audit(data, bundle, out):
         result = {'status': 'verified', 'reader_load_seconds': loaded,
                   'audit_seconds': monotonic() - started - loaded, 'counts': counts,
                   'human_inference': modes, 'spectator': spect,
-                  'model_sha256': MODEL['sha256'], 'inference': INFERENCE,
+                  'model_sha256': MODEL['sha256'], 'inference': inference(RELEASE),
                   'rejections': ['HU20 table', 'changed inference identity'],
                   'independent_modules': ['play_audit.audit_state', 'spectator_audit.audit_states', 'service.verify_replay']}
         put(out / 'independent-audit.json', result)

@@ -103,7 +103,10 @@ def test_hidden_information_does_not_change_key_distribution_or_choice():
     assert not hasattr(a,"deck") and not hasattr(a,"seed")
 
 
-def test_public_reducer_matches_engine_on_menu_and_off_menu():
+@pytest.mark.parametrize('schema', ['hu100-native-reopening-ordered-history-card-v1',
+    'hu100-native-reopening-ordered-history-equity-k50-menu-v2'])
+def test_public_reducer_matches_engine_on_menu_and_off_menu(schema):
+    from src.blueprint.abstraction import schema_choices
     rng=Random(902)
     for seed in range(80):
         actual=Hand.start(Table(("a","b"),(10000,10000),button=seed%2),hand_id="parity",seed=seed)
@@ -122,7 +125,7 @@ def test_public_reducer_matches_engine_on_menu_and_off_menu():
             assert set(legal.kinds)==set(view.legal_actions.kinds)
             assert (legal.call_amount,legal.min_raise_to,legal.max_raise_to)==(
                 view.legal_actions.call_amount,view.legal_actions.min_raise_to,view.legal_actions.max_raise_to)
-            assert state.menu(view)==choices(view,raise_cap=None,free_fold=False)
+            assert state.menu(view,schema)==schema_choices(view,schema)
             assert state.pot==view.pot and state.flags==tuple((p.folded,p.all_in) for p in view.players)
             kind=rng.choice(legal.kinds)
             action=Action(kind,rng.randint(legal.min_raise_to,legal.max_raise_to)

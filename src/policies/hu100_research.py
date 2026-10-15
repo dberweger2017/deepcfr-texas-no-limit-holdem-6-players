@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from src.blueprint.abstraction import HU100_SCHEMA
-from src.blueprint.action_translation import TranslationOptions, VERSION
+from src.blueprint.action_translation import TranslationOptions, version_for_schema
 from src.blueprint.average import AveragePolicy, EXTRACTIONS, HU100_FORMAT
 from src.policies.files import file_hash
 
@@ -23,7 +23,7 @@ class Identity:
     sha256: str
 
 
-def load_pinned(path: Path, model: dict, *, translation: bool):
+def load_pinned(path: Path, model: dict, *, translation: bool, card_buckets=None):
     """An HU100 average whose bytes, lineage and extraction equal `model`'s pins."""
     if type(translation) is not bool:
         raise ValueError('Translation must be explicitly enabled or disabled')
@@ -31,8 +31,10 @@ def load_pinned(path: Path, model: dict, *, translation: bool):
         raise ValueError('HU100 model must be the pinned regular file with matching size')
     if file_hash(path) != model['sha256']:
         raise ValueError('HU100 model SHA256 differs')
-    policy = AveragePolicy(path, model['sha256'], expected_schema=HU100_SCHEMA,
-                           translation=TranslationOptions() if translation else None)
+    schema = model.get('schema', HU100_SCHEMA)
+    policy = AveragePolicy(path, model['sha256'], expected_schema=schema,
+                           translation=TranslationOptions() if translation else None,
+                           card_buckets=card_buckets, sorted_rows=card_buckets is not None)
     info = policy.description
     if (info['training_seed'] != model['seed'] or info['iteration'] != model['iteration']
             or info['entries'] != model['entries'] or info['source_checkpoint_sha256'] != model['checkpoint_sha256']
@@ -41,7 +43,7 @@ def load_pinned(path: Path, model: dict, *, translation: bool):
         raise ValueError('HU100 model lineage or extraction differs')
     policy.spec = Identity(model['sha256'])
     policy.format_id = HU100_FORMAT
-    policy.adapter_id = VERSION if translation else 'direct-v1'
+    policy.adapter_id = version_for_schema(schema) if translation else 'direct-v1'
     return policy
 
 

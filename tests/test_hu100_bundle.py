@@ -17,17 +17,32 @@ def prepared(request, tmp_path, monkeypatch):
     release = request.param
     monkeypatch.setattr(builder, 'check_source', lambda *_: None)
     model = dict(verifier.RELEASES[release]['model'])
+    pins = dict(verifier.RELEASES[release])
+    tables = None
+    if 'card_tables' in pins:
+        tables = tmp_path / 'tables'; tables.mkdir()
+        table_pins = {}
+        for name in pins['card_tables']:
+            path = tables / name; path.write_bytes(('fixture-' + name).encode())
+            table_pins[name] = {'bytes': path.stat().st_size, 'sha256': verifier.sha(path)}
+        pins.update(card_tables=table_pins, part_bytes=1024)
+        monkeypatch.setitem(verifier.RELEASES, release, pins)
     header = {'format': model['format'], 'kind': 'diagnostic-inference',
               'extraction': model['extraction'], 'source_checkpoint_sha256': model['checkpoint_sha256'],
               'checkpoint_header': {'config': {'seed': model['seed'], 'game': model['game'], 'raise_cap': None},
                                     'abstraction': model['schema'], 'iteration': model['iteration'],
                                     'average_rule': 'opponent-sampled', 'identity': {'players': 2}}}
+    if tables is not None:
+        header['checkpoint_header']['identity']['card_tables'] = {
+            name.removesuffix('-k50.bin'): pin['sha256'] for name, pin in pins['card_tables'].items()}
+        header['checkpoint_header']['native_state'] = {'completed_nodes': model['actual_nodes']}
     source = tmp_path / 'small.gz'
-    source.write_bytes(gzip.compress((json.dumps(header) + '\n').encode(), mtime=0))
+    import random
+    source.write_bytes(gzip.compress((json.dumps(header) + '\n' + random.Random(0).randbytes(4096).hex()).encode(), mtime=0))
     model.update(bytes=source.stat().st_size, sha256=verifier.sha(source))
     monkeypatch.setitem(verifier.RELEASES, release, {**verifier.RELEASES[release], 'model': model})
     directory = tmp_path / 'package'
-    builder.build(release, source, directory, 'a' * 40)
+    builder.build(release, source, directory, 'a' * 40, card_tables=tables)
     return release, source, directory
 
 
@@ -39,7 +54,9 @@ def rehash(directory, release):
 def test_exact_bytes_source_and_preservation(prepared):
     release, source, directory = prepared
     model = verifier.RELEASES[release]['model']['file']
-    assert source.read_bytes() == (directory / model).read_bytes()
+    payload = (b''.join((directory / p['file']).read_bytes() for p in verifier.part_layout(release))
+               if verifier.part_layout(release) else (directory / model).read_bytes())
+    assert source.read_bytes() == payload
     assert (directory / verifier.RELEASES[release]['verifier']).is_file()
     result = verifier.verify_bundle(directory, 'a' * 40)
     assert (result['status'], result['release']) == ('unpublished-owner-review', release)
@@ -54,7 +71,8 @@ def test_exact_bytes_source_and_preservation(prepared):
 def test_approved_bundle_binds_its_own_source_and_tag(prepared, tmp_path):
     release, source, _ = prepared
     directory = tmp_path / 'approved'
-    builder.build(release, source, directory, 'c' * 40, publication_approved=True)
+    builder.build(release, source, directory, 'c' * 40, publication_approved=True,
+                  card_tables=source.parent / 'tables')
     data = json.loads((directory / 'release-manifest.json').read_text())
     assert (data['status'], data['release_tag'], data['approved_release_source_commit']) == (
         'owner-approved-publication', release, 'c' * 40)
@@ -104,20 +122,66 @@ def test_corruption_duplicate_missing_symlink(prepared):
     sums.write_text('\n'.join(old.splitlines()[:-1]))
     with pytest.raises(ValueError, match='Missing'): verifier.verify_bundle(directory)
     sums.write_text(old)
-    model = directory / verifier.RELEASES[release]['model']['file']
+    parts = verifier.part_layout(release)
+    model = directory / (parts[0]['file'] if parts else verifier.RELEASES[release]['model']['file'])
     model.write_bytes(model.read_bytes() + b'X'); rehash(directory, release)
-    with pytest.raises(ValueError, match='fixed export'): verifier.verify_bundle(directory)
+    with pytest.raises(ValueError, match='fixed export|part size'): verifier.verify_bundle(directory)
     model.unlink(); model.symlink_to(directory / 'MODEL_CARD.md')
     with pytest.raises(ValueError, match='regular'): verifier.verify_bundle(directory)
 
 
-def test_published_v050_manifest_still_verifies():
-    """The rebuilt v0.5.0 manifest equals the published one, so its bundle keeps verifying."""
-    source = 'b9c9bd161422e87371a2641ae4c60304c66eed79'
-    data = verifier.manifest('v0.5.0', source, True)
-    assert hashlib_sha(json.dumps(data, indent=2, sort_keys=True) + '\n') == \
-        '9a7a7209087e5e8ec7d93ab06f382233777cefcbbe0e905f48ea845468cee729'
+@pytest.mark.parametrize('release,source,expected', [
+    ('v0.5.0', 'b9c9bd161422e87371a2641ae4c60304c66eed79',
+     '9a7a7209087e5e8ec7d93ab06f382233777cefcbbe0e905f48ea845468cee729'),
+    ('v0.5.1', 'dca7547e6eca82ce77f3e42230b82fabc1c29a4c',
+     '47185da27bd8589b249938fd52c58b57975423f56c1e32037d35b26f8f765df6'),
+    ('v0.5.2', '3a3bc4218bab96637d6a27a69b73383ee8bb196c',
+     '0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b'),
+])
+def test_published_manifests_still_verify(release, source, expected):
+    """Each rebuilt manifest equals the SHA recorded at publication."""
+    data = verifier.manifest(release, source, True)
+    assert hashlib_sha(json.dumps(data, indent=2, sort_keys=True) + '\n') == expected
     assert verifier.assets('v0.5.0') >= {'verify_v050_bundle.py', 'release-manifest.json'}
+
+
+def test_split_reassembly_and_rehashed_substitution(prepared, tmp_path):
+    release, source, directory = prepared
+    if release != 'v0.5.3':
+        return
+    output = tmp_path / 'assembled.gz'
+    verifier.verify_bundle(directory, 'a' * 40, assemble=output)
+    assert output.read_bytes() == source.read_bytes()
+    with pytest.raises(ValueError, match='Preserve'):
+        verifier.verify_bundle(directory, assemble=output)
+    with pytest.raises(ValueError, match='outside'):
+        verifier.verify_bundle(directory, assemble=directory / 'forbidden.gz')
+    manifest_path = directory / 'release-manifest.json'
+    data = json.loads(manifest_path.read_text())
+    part = data['model_parts'][-1]
+    path = directory / part['file']
+    payload = path.read_bytes(); path.write_bytes(payload[:-1] + bytes([payload[-1] ^ 1]))
+    part['sha256'] = verifier.sha(path)
+    manifest_path.write_text(json.dumps(data)); rehash(directory, release)
+    failed = tmp_path / 'failed.gz'
+    with pytest.raises(ValueError, match='fixed export'):
+        verifier.verify_bundle(directory, assemble=failed)
+    assert not failed.exists() and not list(tmp_path.glob('failed.gz.assembling-*'))
+
+
+def test_split_order_and_fixed_table_refused_even_when_rehashed(prepared):
+    release, _, directory = prepared
+    if release != 'v0.5.3':
+        return
+    path = directory / 'release-manifest.json'; original = path.read_text()
+    data = json.loads(original); data['model_parts'].reverse()
+    path.write_text(json.dumps(data)); rehash(directory, release)
+    with pytest.raises(ValueError, match='ordered layout'):
+        verifier.verify_bundle(directory)
+    path.write_text(original)
+    table = directory / 'river-k50.bin'; table.write_bytes(b'wrong table'); rehash(directory, release)
+    with pytest.raises(ValueError, match='Pinned card table'):
+        verifier.verify_bundle(directory)
 
 
 def hashlib_sha(text):
@@ -134,6 +198,17 @@ def test_runtime_release_selection_pins_translation_and_keeps_hu20_catalog(tmp_p
     from src.play_api.service import PlayService, PlayError
     from src.play_api.versions import DEFAULT_VERSION, RELEASES
     policy = fixture_policy(tmp_path, True)
+    if release == 'v0.5.3':
+        from src.blueprint.abstraction import HU100_EQUITY_MENU_V2_SCHEMA
+        from src.blueprint.equity_buckets import EQUITY_K50_SHA256
+        policy.abstraction = HU100_EQUITY_MENU_V2_SCHEMA
+        policy.identity = {'card_tables': EQUITY_K50_SHA256}
+        policy.equity_cards = SimpleNamespace(sha256=EQUITY_K50_SHA256)
+        policy.adapter_id = verifier.K50_MENU_V2_INFERENCE['adapter']
+        policy.description['action_translation'] = verifier.K50_MENU_V2_INFERENCE['translation']
+        assembled = tmp_path.parent / (tmp_path.name + '-model') / verifier.RELEASES[release]['model']['file']
+        assembled.parent.mkdir(); assembled.touch()
+        monkeypatch.setattr(hu100_release, 'verify_model', lambda *a: None)
     monkeypatch.setattr(hu100_release, 'verify_bundle', lambda _: {'release': release})
     monkeypatch.setattr(hu100_release, 'load_pinned', lambda *a, **k: policy)
     args = SimpleNamespace(hu100_release=tmp_path, hu100_research=None,
@@ -141,13 +216,13 @@ def test_runtime_release_selection_pins_translation_and_keeps_hu20_catalog(tmp_p
     runtime = single_table(args)
     try:
         assert runtime.model_catalog()['default'] == release
-        assert inference_record(policy) == verifier.INFERENCE
+        assert inference_record(policy) == verifier.inference(release)
         assert runtime.model_info()['name'] == verifier.RELEASES[release]['name']
         assert runtime.model_info()['research'] is (release == 'v0.5.0')
         assert (tmp_path / 'data' / release / 'private.sqlite').exists()
         assert DEFAULT_VERSION == 'v0.4.2'
         assert [r.version for r in RELEASES] == ['v0.4.2', 'v0.4.1', 'v0.4.0']
-        with pytest.raises(ValueError, match='incompatible'):
+        with pytest.raises(ValueError, match='incompatible|not yet supported'):
             PlayService(tmp_path / 'wrong.sqlite', policy, table=PlayTable())
         with pytest.raises(PlayError):
             runtime.create('release-wrong-001', {'modelVersion': 'v0.4.2'})
