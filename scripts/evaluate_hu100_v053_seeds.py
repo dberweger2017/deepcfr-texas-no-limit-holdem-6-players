@@ -19,6 +19,7 @@ from scripts.run_hu100_k50_v2 import restore, pin, header
 from scripts.run_hu200_frozen_evaluation import series, estimate
 from scripts.train_hu100_v053_seeds import BASE, ROOT, BINARY, TABLES, SEEDS, command, read, revision, require_disk
 from src.blueprint.average import AveragePolicy
+from src.blueprint.policy_cache import folder as cache_folder
 from src.policies.files import file_hash
 
 PR=286
@@ -113,32 +114,57 @@ def prepare():
     pairs={label:[models[int(label.split('-')[1])],release] for label in labels()}
     put(BASE/'evaluation-inputs.json',dict(models=models,release=release,pairs=pairs,
         restored_original=restored,release_publication_verification=verified,owners=owners,source=revision()))
-    verification_seconds=time()-tick
-    cache_costs={}
-    for spec in [*models.values(),release]:
-        require_disk(8_000_000_000)
-        started=time()
-        model=AveragePolicy(spec['path'],spec['sha256'],expected_schema=spec['abstraction'],
-            card_buckets=Path(spec['card_buckets']) if spec.get('card_buckets') else None,
-            sorted_rows=True,cache=CACHE)
-        cache_costs[spec['name']]=dict(seconds=time()-started,description=model.description,
-            source_sha256=spec['sha256'],no_hands=True)
-        del model;gc.collect()
-    put(BASE/'evaluation-preparation.json',dict(whole_seconds=time()-tick,
-        input_verification_and_restoration_seconds=verification_seconds,caches=cache_costs,
-        one_off_not_scaled_with_blocks=True))
+    put(BASE/'evaluation-input-preparation.json',dict(whole_seconds=time()-tick,
+        input_verification_and_restoration_seconds=time()-tick,no_hands=True))
+
+
+def build_cache(spec,phase):
+    target=cache_folder(CACHE,spec['sha256'],spec['abstraction'])
+    if target.exists():return None
+    # One candidate plus the release cache is sufficient at any moment. Cache
+    # rebuilds are fixed preparation, explicitly quoted before final hands.
+    require_disk(spec['entries']*(35+8*(6 if spec.get('card_buckets') else 4))+1024**2)
+    started=time()
+    model=AveragePolicy(spec['path'],spec['sha256'],expected_schema=spec['abstraction'],
+        card_buckets=Path(spec['card_buckets']) if spec.get('card_buckets') else None,
+        sorted_rows=True,cache=CACHE)
+    receipt=dict(phase=phase,seconds=time()-started,description=model.description,
+        source_sha256=spec['sha256'],no_hands=True,path=str(target))
+    del model;gc.collect()
+    put(BASE/f"cache-{phase}-{spec['name']}.json",receipt)
+    return receipt
+
+
+def remove_candidate_cache(spec,phase):
+    target=cache_folder(CACHE,spec['sha256'],spec['abstraction'])
+    if not target.resolve().is_relative_to(CACHE.resolve()):
+        raise ValueError('Cache cleanup outside this campaign')
+    put(BASE/f"cache-removed-{phase}-{spec['name']}.json",dict(path=str(target),at=time(),
+        source_sha256=spec['sha256'],manifest=read(target/'manifest.json'),
+        all_phase_consumers_finished=True,canonical_average_retained=True,
+        rebuild='AveragePolicy with this pinned average, schema, K50 tables and sorted_rows=True'))
+    shutil.rmtree(target)
 
 
 def evaluate():
     roots=read(BASE/'roots.json'); reservation=read(BASE/'root-reservation.json')
     if not reservation['fresh'] or sorted(reservation['roots'])!=sorted(n for r in roots.values() for n in r.values()):
         raise ValueError('Root reservation differs')
-    pairs=read(BASE/'evaluation-inputs.json')['pairs']; costs={}
+    pairs=read(BASE/'evaluation-inputs.json')['pairs']; costs={}; cache_costs=[]
     for label in labels():
+        for spec in pairs[label]:
+            built=build_cache(spec,'pilot')
+            if built:cache_costs.append(built)
         opponent=label.split('-',2)[2] if label.startswith('panel-') else None
         costs[label]=run_pair(label,pairs[label],64 if opponent else 1024,roots[label]['pilot'],opponent,True)
+        if not opponent:remove_candidate_cache(pairs[label][0],'pilot')
     put(BASE/'pilot-costs.json',costs)
-    counts,options=select_counts(costs,time()-read(BASE/'budget.json')['started'])
+    candidate_hashes={pair[0]['sha256'] for pair in pairs.values()}
+    future_cache_seconds=sum(c['seconds'] for c in cache_costs if c['source_sha256'] in candidate_hashes)
+    put(BASE/'evaluation-preparation.json',dict(input_preparation=read(BASE/'evaluation-input-preparation.json'),
+        pilot_cache_builds=cache_costs,quoted_future_cache_build_seconds=future_cache_seconds,
+        cache_rebuilds_are_fixed_one_off_work=True,one_off_not_scaled_with_blocks=True))
+    counts,options=select_counts(costs,time()-read(BASE/'budget.json')['started'],future_cache_seconds)
     compact_costs={label:{k:cost[k] for k in ('blocks','fixed_seconds','block_work_seconds',
         'audit_fixed_seconds','audit_block_work_seconds','paired_sd_bb_per_100')} for label,cost in costs.items()}
     inputs=read(BASE/'evaluation-inputs.json')
@@ -169,12 +195,14 @@ def evaluate():
         raise ValueError('Canonical plan not posted/read back')
     # Account for coordinator latency without changing the one pre-outcome count
     # choice. If the frozen size no longer fits, stop instead of reducing again.
-    future=(counts['fixed_seconds']+counts['scaled_block_seconds'])*1.25+1800
+    future=(counts['fixed_seconds']+counts['scaled_block_seconds']+counts['additional_preparation_seconds'])*1.25+1800
     if time()+future>read(BASE/'budget.json')['deadline']:
         raise ValueError('Posted count choice no longer fits; no second reduction')
     for label in labels():
+        for spec in pairs[label]:build_cache(spec,'final')
         opponent=label.split('-',2)[2] if label.startswith('panel-') else None
         run_pair(label,pairs[label],counts['panel'] if opponent else counts['direct'],roots[label]['final'],opponent)
+        if not opponent:remove_candidate_cache(pairs[label][0],'final')
     put(BASE/'all-final-verified.json',dict(status='verified',at=time(),labels=labels(),source=revision()))
     readout(plan)
 
@@ -226,7 +254,8 @@ def readout(plan):
 def archive_seed(seed):
     dest=Path.home()/f'Local/Research-Cloud/PR-{PR}-hu100-v053-three-seeds'
     dest.mkdir(parents=True,exist_ok=True)
-    files=[(p,'research/'+p.relative_to(BASE).as_posix()) for p in sorted((BASE/str(seed)).rglob('*')) if p.is_file()]
+    files=[(p,'research/'+p.relative_to(BASE).as_posix()) for p in sorted((BASE/str(seed)).rglob('*'))
+        if p.is_file() and p.name!='5000000000.average.gz']
     for kind in ('pilot','final'):
         for label in labels():
             if label.split('-')[1]!=str(seed):continue
@@ -235,7 +264,9 @@ def archive_seed(seed):
     additional=sum(p.stat().st_size for p,_ in files)+average.stat().st_size+512*1024**2
     require_disk(additional)
     metadata=dict(pr=PR,source=revision(),seed=seed,summary_sha256=file_hash(BASE/'summary.json'),
-        shared_dependencies='shared-evidence ZIP, PR272 original average, PR163 K50 tables and pinned v0.5.2 release',
+        average_export=dict(member=f'averages/{seed}/5000000000.average.gz',
+            archive=f'hu100-v053-seed-{seed}-average.zip',**pin(average)),
+        shared_dependencies='shared-evidence ZIP, separate seed average ZIP, PR272 original average, PR163 K50 tables and pinned v0.5.2 release',
         originals_retained=True)
     put(BASE/str(seed)/'archive-receipt.json',seal(files,dest/f'hu100-v053-seed-{seed}-evidence.zip',metadata))
     put(BASE/str(seed)/'average-archive-receipt.json',seal([(average,f'averages/{seed}/5000000000.average.gz')],

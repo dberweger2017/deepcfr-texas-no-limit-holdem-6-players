@@ -73,7 +73,9 @@ One feature PR, left for owner merge. Report actual counters, all audits,
 three panels, three direct matches, coverage, fixed/per-block costs, all guards
 and every failure. Archive raw evidence and a separate average-only ZIP per
 new seed in this PR's existing Research-Cloud folder, embedded manifests and
-complete local member readback. Reference accepted #272/#163/release inputs.
+complete local member readback. The average export lives in its separate ZIP,
+referenced by the raw-evidence manifest, avoiding duplicate archive storage.
+Reference accepted #272/#163/release inputs.
 Record actual Drive IDs, whole/member hashes and restore commands in
 RESULTS_INDEX, and update ROADMAP Current position. Local integrity, native
 upload status and independent cloud metadata acceptance are separate claims.
