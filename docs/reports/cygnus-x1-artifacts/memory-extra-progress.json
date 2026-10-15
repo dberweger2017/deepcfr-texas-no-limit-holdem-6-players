@@ -1,13 +1,13 @@
 {
-  "observed_at_utc": "2026-10-15T02:23:31Z",
+  "observed_at_utc": "2026-10-15T04:23:42Z",
   "classification": "in_progress_selected_pattern_screen_not_full_pass",
   "job": "memory-extra",
   "status": "running",
-  "elapsed_s": 7376.7,
-  "temperature_c": 62,
-  "peak_temperature_c": 64,
+  "elapsed_s": 14587.5,
+  "temperature_c": 60.0,
+  "peak_temperature_c": 65.0,
   "peak_family_rss_gib": 112.025,
-  "minimum_available_gib": 10.738,
+  "minimum_available_gib": 10.662,
   "swap_growth_bytes": 0,
   "maximum_throttle_counter": 0,
   "instances": [
@@ -15,105 +15,113 @@
       "instance": "memory-extra-instances/instance-0.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9803,
+      "log_bytes": 18938,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "        ok\n  Walking Ones        :            setting   0testing   0setting   1testing   1"
+      "tail": "75setting  76testing  76setting  77testing  77setting  78testing  78setting  79testing  79"
     },
     {
       "instance": "memory-extra-instances/instance-1.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9847,
+      "log_bytes": 19026,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "nes        :            setting   0testing   0setting   1testing   1setting   2testing   2"
+      "tail": "77setting  78testing  78setting  79testing  79setting  80testing  80setting  81testing  81"
     },
     {
       "instance": "memory-extra-instances/instance-2.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9803,
+      "log_bytes": 18938,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "        ok\n  Walking Ones        :            setting   0testing   0setting   1testing   1"
+      "tail": "75setting  76testing  76setting  77testing  77setting  78testing  78setting  79testing  79"
     },
     {
       "instance": "memory-extra-instances/instance-3.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9869,
+      "log_bytes": 19026,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": ":            setting   0testing   0setting   1testing   1setting   2testing   2setting   3"
+      "tail": "77setting  78testing  78setting  79testing  79setting  80testing  80setting  81testing  81"
     },
     {
       "instance": "memory-extra-instances/instance-4.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9781,
+      "log_bytes": 18872,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "ting 127           ok\n  Walking Ones        :            setting   0testing   0setting   1"
+      "tail": "74testing  74setting  75testing  75setting  76testing  76setting  77testing  77setting  78"
     },
     {
       "instance": "memory-extra-instances/instance-5.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9847,
+      "log_bytes": 18982,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "nes        :            setting   0testing   0setting   1testing   1setting   2testing   2"
+      "tail": "76setting  77testing  77setting  78testing  78setting  79testing  79setting  80testing  80"
     },
     {
       "instance": "memory-extra-instances/instance-6.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9825,
+      "log_bytes": 18938,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "  Walking Ones        :            setting   0testing   0setting   1testing   1setting   2"
+      "tail": "75setting  76testing  76setting  77testing  77setting  78testing  78setting  79testing  79"
     },
     {
       "instance": "memory-extra-instances/instance-7.log",
       "initial_allocation_locked": true,
       "scan_scope": "full",
-      "log_bytes": 9803,
+      "log_bytes": 18894,
       "observed_FAILURE_count": 0,
       "completed_patterns": [
         "Stuck Address",
         "Checkerboard",
-        "Bit Spread"
+        "Bit Spread",
+        "Walking Ones"
       ],
-      "tail": "        ok\n  Walking Ones        :            setting   0testing   0setting   1testing   1"
+      "tail": "74setting  75testing  75setting  76testing  76setting  77testing  77setting  78testing  78"
     }
   ],
   "compute_cutoff_utc": "2026-10-15T04:50:00Z",
@@ -122,12 +130,12 @@
   "resource_snapshot": {
     "job": "memory-extra",
     "status": "incomplete",
-    "samples": 3661,
+    "samples": 7240,
     "started_utc": "2026-10-15T00:20:34.716733+00:00",
-    "last_sample_utc": "2026-10-15T02:23:43.503587+00:00",
+    "last_sample_utc": "2026-10-15T04:24:08.509623+00:00",
     "max_sample_gap_seconds": 2.092947881003056,
     "min_temperature_c": 40.0,
-    "max_temperature_c": 64.0,
+    "max_temperature_c": 68.0,
     "median_temperature_c": 62.0,
     "clock_mhz_all_logical_cpus_min_median_max": [
       800.0,
@@ -154,11 +162,11 @@
       },
       "coretemp/Core 2": {
         "min_c": 31.0,
-        "max_c": 64.0
+        "max_c": 68.0
       },
       "coretemp/Core 3": {
         "min_c": 40.0,
-        "max_c": 61.0
+        "max_c": 65.0
       },
       "coretemp/Core 4": {
         "min_c": 31.0,
@@ -178,10 +186,10 @@
       },
       "coretemp/Package id 0": {
         "min_c": 40.0,
-        "max_c": 64.0
+        "max_c": 68.0
       },
       "iwlwifi_1/temp1_input": {
-        "min_c": 28.0,
+        "min_c": 26.0,
         "max_c": 44.0
       },
       "nvme/Composite": {
@@ -189,11 +197,11 @@
         "max_c": 36.85
       },
       "pch_cometlake/temp1_input": {
-        "min_c": 41.0,
+        "min_c": 39.0,
         "max_c": 45.0
       }
     },
-    "raw_stream_bytes": 12520472,
-    "raw_stream_sha256": "abcf99a2585a90514a62d78deb39115417a48ef18fc352e11b37f784f232ba49"
+    "raw_stream_bytes": 24758517,
+    "raw_stream_sha256": "97d85bc5fbc115408219ec1cdb3fd58ccf6b6176aeda5a3ee0ab0a6dbfa62cdf"
   }
 }

@@ -77,12 +77,12 @@ Wi-Fi AX201 is the active uplink; wired Ethernet is down.
    Full boot-time **memtest86+ remains the owner's job**. Additional selected
    pre-XMP selected-pattern coverage started October 15 at **00:20:34 UTC**,
    after all primary stages closed. All eight 14 GiB allocations are locked;
-   at **7,376.7 s**, all eight have completed **Stuck Address, Checkerboard and
-   Bit Spread**, zero errors, **64 °C peak**, 112.025 GiB peak RSS, no swap/throttle
-   change. Walking Ones is in progress. The dated resource snapshot contains
-   3,661 readings through 2026-10-15T02:23:43.503587+00:00.
-   All-logical clock min/median/max remain approximately800/4,700/4,801MHz,
-   including idle siblings.
+   at **14,587.5 s**, all eight have completed **Stuck Address, Checkerboard,
+   Bit Spread and Walking Ones**, zero errors, **65 °C peak**, 112.025 GiB peak
+   RSS, no swap/throttle change. Walking Zeroes is in progress. The dated
+   resource snapshot contains 7,240 readings through 2026-10-15T04:24:08.509623+00:00.
+   All-logical clock min/median/max are approximately
+   800/4700/4801 MHz, including idle siblings.
    [Thermal/clock CSV through this snapshot](cygnus-x1-artifacts/memory-extra-temperatures.csv). Mask `0x1ec00` selects Checkerboard, Bit Spread, Walking Ones/Zeros
    and 8-/16-bit writes, plus mandatory Stuck Address. Block Sequential and
    Bit Flip are omitted. The guard stops by **04:50 UTC /06:50 Madrid**;

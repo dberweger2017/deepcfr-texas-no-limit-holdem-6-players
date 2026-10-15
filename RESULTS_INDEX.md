@@ -35,8 +35,8 @@ including the approximately1.8GiB initial memlock-shrink output. Eight original
 both preceding failures remain archived and diagnosed.
 
 **Additional RAM screen is still active** under the absolute October15
-04:50UTC cutoff; all eight have completed Stuck Address, Checkerboard and Bit Spread with
-zero errors as of 02:23UTC; Walking Ones is in progress. [Dated per-instance/thermal progress](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
+04:50UTC cutoff; all eight have completed Stuck Address, Checkerboard, Bit Spread and Walking
+Ones with zero errors as of 04:23UTC; Walking Zeroes is in progress. [Dated per-instance/thermal progress](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
 Extra RAM, the closed archive guard, newer source and final report will enter a
 separate closeout bundle; they are not covered by main-bundle acceptance.
 Pinned K50 inputs are excluded as independently retrievable dependencies:
