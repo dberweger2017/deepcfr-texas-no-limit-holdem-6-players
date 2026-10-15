@@ -1,0 +1,156 @@
+{
+  "archive_sha256": "ea57f0e4910c458c5597c194da25342aaf912f2f098452e8e0982b1121dddb3f",
+  "member_source": "existing sealed MANIFEST.json; no payload rehash repeated",
+  "members": [
+    {
+      "bytes": 225158368,
+      "member": "inputs/phase1-scoped-average.gz",
+      "sha256": "fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e",
+      "source_mtime_ns": 1792060053260445968
+    },
+    {
+      "bytes": 1751776,
+      "member": "runtime/hu20-trainer",
+      "sha256": "df8a5d6fefaafd29786de769b5772792580df2ea299341d0bf87dfd7850330f9",
+      "source_mtime_ns": 1792065937735491172
+    },
+    {
+      "bytes": 846136,
+      "member": "runtime/nplayer_arena",
+      "sha256": "93cb35676b51d8e52cebe0fc3fef34ffb1edf2980124d2477cb82a0bd27b67a9",
+      "source_mtime_ns": 1792065317184988569
+    },
+    {
+      "bytes": 928688,
+      "member": "runtime/nplayer_policy",
+      "sha256": "0f9f6e29f8d9fa79f32ba5098ab9aee8b3920c0c2de078208c60b26b46cbea2b",
+      "source_mtime_ns": 1792065314916956827
+    },
+    {
+      "bytes": 923184,
+      "member": "runtime/nplayer_train",
+      "sha256": "510c6ae9e4d81597c3d4290b70f4202111ff2481330ec21c80ce023c5046f9cc",
+      "source_mtime_ns": 1792065302608785810
+    },
+    {
+      "bytes": 1027,
+      "member": "runtime/pins.json",
+      "sha256": "0a0f4bf1a7ebf67fc72aeb4e19d976deb0d9cd66d20949a144f075f22dcedbeb",
+      "source_mtime_ns": 1792086780397644706
+    },
+    {
+      "bytes": 266084,
+      "member": "runtime/source.patch",
+      "sha256": "61f1b2e2226a1baf1c72c51b5ec952a41d6eefba675a5bde5f3523b0a5244457",
+      "source_mtime_ns": 1792086780397644706
+    },
+    {
+      "bytes": 705933433,
+      "member": "training/2026101541/1000m-average.gz",
+      "sha256": "990246065bfc1f8a13c5ca3456090689b5ab52105c860d4bca1531b3f5e3db70",
+      "source_mtime_ns": 1792070418689699712
+    },
+    {
+      "bytes": 1199517402,
+      "member": "training/2026101541/1000m.gz",
+      "sha256": "262334b77373c7f418078861ea57fbce181d126c5dda032aa2ff22758a876f21",
+      "source_mtime_ns": 1792070096498663955
+    },
+    {
+      "bytes": 368509266,
+      "member": "training/2026101541/200m-average.gz",
+      "sha256": "b84cb3f9d53f917b3933c1d04907d399d246d22b278c6becf666f68b24345ebb",
+      "source_mtime_ns": 1792067544310235060
+    },
+    {
+      "bytes": 608659055,
+      "member": "training/2026101541/200m.gz",
+      "sha256": "9bd59d4fc5703555937affdb1165a01bbd94d622a92813df6d35b7abd0b72947",
+      "source_mtime_ns": 1792067371218176479
+    },
+    {
+      "bytes": 535768539,
+      "member": "training/2026101541/500m-average.gz",
+      "sha256": "c1c42458202238ed5a479c0f93665efcf7f813cc342db1de8977cd1778a54154",
+      "source_mtime_ns": 1792068721792513354
+    },
+    {
+      "bytes": 899668183,
+      "member": "training/2026101541/500m.gz",
+      "sha256": "0614773664ceab82603bfa29b73fc50576c8280655272dbd573221778c92baa0",
+      "source_mtime_ns": 1792068476483129783
+    },
+    {
+      "bytes": 713944774,
+      "member": "training/2026101542/1000m-average.gz",
+      "sha256": "34ab3e9262ebf37ddf13f9f4e127c8eb7e2bb35e1f84d807af06815de6ba0077",
+      "source_mtime_ns": 1792074133182909821
+    },
+    {
+      "bytes": 1213459994,
+      "member": "training/2026101542/1000m.gz",
+      "sha256": "b98b9ba1df66250f410e810df42b7ec9e74f11d025098fab06a71a2bc51ea735",
+      "source_mtime_ns": 1792073793532162272
+    },
+    {
+      "bytes": 372310533,
+      "member": "training/2026101542/200m-average.gz",
+      "sha256": "8ec620448d3c97bb0bc6d97689a65c1fc98b3fa6440d427c44430357bf338be0",
+      "source_mtime_ns": 1792071336657617751
+    },
+    {
+      "bytes": 614931155,
+      "member": "training/2026101542/200m.gz",
+      "sha256": "642ea0ccfcd5140c3d80ff75905e28214ff8f73f9da8be2f146ceb33fb8d3036",
+      "source_mtime_ns": 1792071164653927448
+    },
+    {
+      "bytes": 543076678,
+      "member": "training/2026101542/500m-average.gz",
+      "sha256": "5d7229e5265415be69ffa32214a321c1cf9f16eb10acba736cafe46fd856b049",
+      "source_mtime_ns": 1792072515991156253
+    },
+    {
+      "bytes": 911700738,
+      "member": "training/2026101542/500m.gz",
+      "sha256": "24a4c24d4ade446d2abcc6a781ef6ae540e6dfe67fd700dd3f35e2cebe6ee390",
+      "source_mtime_ns": 1792072265141707626
+    },
+    {
+      "bytes": 720740809,
+      "member": "training/2026101543/1000m-average.gz",
+      "sha256": "558efcc9f2a54b74202acc658aa018343123ff11f4fd8522b3dd8aefe25aad91",
+      "source_mtime_ns": 1792077858212005800
+    },
+    {
+      "bytes": 1224977760,
+      "member": "training/2026101543/1000m.gz",
+      "sha256": "3c793e3282d8074841c7e39a17ade7e9de1d0b87c974b8d90962cea1c5b36b4e",
+      "source_mtime_ns": 1792077523948668487
+    },
+    {
+      "bytes": 372740700,
+      "member": "training/2026101543/200m-average.gz",
+      "sha256": "5319f011f85c21962b5143a7f0c15d3017584416bb2eedd9149d424b09d1c16f",
+      "source_mtime_ns": 1792075088814636492
+    },
+    {
+      "bytes": 616036446,
+      "member": "training/2026101543/200m.gz",
+      "sha256": "ad55f265878af4cfd8923e39784ee802415ecdb8423e8bd52168ad103cd2f7db",
+      "source_mtime_ns": 1792074874898175894
+    },
+    {
+      "bytes": 542710496,
+      "member": "training/2026101543/500m-average.gz",
+      "sha256": "e109ff9cf5f059d8ce5e48d907b703b7b6589f1a1aa63f592a36cc0b0995a2dd",
+      "source_mtime_ns": 1792076242327797516
+    },
+    {
+      "bytes": 911740482,
+      "member": "training/2026101543/500m.gz",
+      "sha256": "c97414bae9e6df578957d6e50ac2c8ccec945afc36a365c4c04f35c29fc1c5af",
+      "source_mtime_ns": 1792075934088505965
+    }
+  ]
+}
