@@ -1,0 +1,28 @@
+{
+  "head": "5395cc9f875beaf8fe9738bdce7b0fd22b1f213e",
+  "run": 38739527836,
+  "job": 116437429082,
+  "url": "https://github.com/dberweger2017/CFR-NLHE-6max/actions/runs/38739527836/job/116437429082",
+  "failed_step": "Build and check native training parity",
+  "native_library_tests_passed": 37,
+  "failed_test": "tests::instrumentation_cannot_change_updates_or_checkpoint_bytes",
+  "clone_bytes": 19928,
+  "measured_bytes": 20072,
+  "diagnosis": "Process-wide counters admit allocations from libtest coordinator threads; test accounting needs thread isolation.",
+  "fix": "Test-only thread-local allocation counter; non-test observer still uses process-wide usize accounting. Original table/count/checkpoint equality assertions retained.",
+  "validation_commands": [
+    "cargo test --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_size",
+    "cargo check --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_size --example hu_size_reference"
+  ],
+  "scientific_source_changed_on_m4": false,
+  "scientific_retry": false,
+  "raw_log_local_path": "planning/ci-5395cc9-full-0-job.log",
+  "validation": {
+    "example_tests_passed": 2,
+    "production_examples_checked": [
+      "nplayer_size",
+      "hu_size_reference"
+    ],
+    "production_check_passed": true
+  }
+}

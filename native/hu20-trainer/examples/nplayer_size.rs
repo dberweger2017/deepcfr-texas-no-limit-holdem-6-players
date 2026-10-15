@@ -144,16 +144,16 @@ mod tests {
                 for _ in 0..30 {
                     plain.step(&game);
                     let old_observer = watched.survey.borrow().allocated;
-                    let before = memory::live();
+                    let before = memory::accounted_live();
                     observed.step(&watched);
-                    measured += memory::live() as i128
-                        - before as i128
+                    measured += memory::accounted_live()
+                        - before
                         - (watched.survey.borrow().allocated - old_observer) as i128;
                 }
                 // A deep clone owns exactly the same hash capacity and payloads.
-                let before = memory::live();
+                let before = memory::accounted_live();
                 let copy = observed.table.clone();
-                assert_eq!(memory::live() - before, measured as usize);
+                assert_eq!(memory::accounted_live() - before, measured);
                 drop(copy);
                 assert_eq!(plain.table, observed.table);
                 assert_eq!(plain.counts, observed.counts);

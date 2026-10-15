@@ -504,6 +504,12 @@ path and the exact `research/...` member from its manifest. For closed resource
 traces use the lifecycle receipt and
 `research/guards/operations/partial-preservation/resources.jsonl`.
 For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Seed2026101501 is accepted; seed2026101502 remains upload-pending and is not yet an accepted cloud backup.
+Closeout CI on5395cc9 failed the inherited N-player example allocation test
+(19,928vs20,072bytes), after37library tests passed. The executing test now
+uses thread-local allocation accounting; production counters remain global.
+Both targeted tests and both non-test example checks pass. [Failure receipt](docs/reports/hu100-v053-three-seeds-artifacts/ci-5395cc9-allocation-failure.json);
+raw job log retained at `planning/ci-5395cc9-full-0-job.log` and the linked CI job.
+The stopped M4 scientific source and outputs are unchanged.
 No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
