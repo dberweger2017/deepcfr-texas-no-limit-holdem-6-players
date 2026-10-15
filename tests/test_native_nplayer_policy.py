@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import pytest
 from scripts.check_nplayer_policy_replay import check
+from scripts.audit_nplayer_policy import audit
 
 BINARY=Path('native/hu20-trainer/target/release/examples/nplayer_policy')
 TRAIN=Path('native/hu20-trainer/target/release/examples/nplayer_train')
@@ -47,6 +48,12 @@ def test_export_probabilities_match_checkpoint_and_name_continuation(model):
     r=run('export',checkpoint,sha(checkpoint),'average',root/'invalid-full.gz',code=2)
     assert 'full average unavailable' in r.stderr
     assert not (root/'invalid-full.gz').exists()
+    assert audit(checkpoint,export)['rows']==source[0]['entries']
+    corrupted=root/'wrong-probabilities.gz'
+    policy[1][4]=[0.0]*len(policy[1][4])
+    with gzip.open(corrupted,'wt') as f:
+        for row in policy:f.write(json.dumps(row)+'\n')
+    with pytest.raises(AssertionError):audit(checkpoint,corrupted)
 
 
 def test_three_distinct_policy_instances_reproduce_and_match_pinned_engine(model):
