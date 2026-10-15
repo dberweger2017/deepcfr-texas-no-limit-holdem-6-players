@@ -1,6 +1,6 @@
 # v0.5.3 release preparation
 
-**Not ready: real legacy trace checks, final translation science, final asset
+**Not ready: final translation science, final asset
 build and real-model runtime smoke remain pending.**
 PR298 targets current main after merged PR296. The owner declared PR272's
 original seed 2026100601 as the candidate. No release, tag, publication, merge
@@ -34,7 +34,11 @@ uses the same pinned tables and mandatory translation identity.
 
 The [v1 trace receipt](verification/v1-identity.json) matches current main and
 PR271's published hashes byte-for-byte for the adapter shared by v0.5.0–v0.5.2.
-This is a synthetic stored-average regression, not a real-model strength test.
+This is a synthetic stored-average regression. Separately, the
+[real released-model receipt](verification/real-release-traces.json) proves identical
+main/branch hashes for all v0.5.0–v0.5.2 hands and deterministic decision fields:
+64 duplicate blocks /256 hands per source and release, with every hand
+independently replayed. Only elapsed telemetry is excluded; no poker means were read.
 Every v0.5.0–v0.5.2 manifest rebuilds to its published SHA256. Wrong part order,
 rehashed substituted payloads, table corruption and inference identities are
 refused in tests. HU20's default remains v0.4.2.
@@ -44,7 +48,10 @@ after verification. Final assets are absent. Their intended directory is
 `results/v053-release-package/assets/` in the isolated M1 checkout; the final PR
 must list every asset's exact bytes and SHA256. Science archives, manifest/member
 readback, native/cloud upload acceptance, RESULTS_INDEX and cleanup receipts
-remain pending. No research data or synced file has been removed by this task.
+remain pending. The [interim cleanup receipt](verification/cleanup-interim.json)
+records normal inactive archive-cache eviction and completed regenerable
+v050/v051 lookup-cache retirement. All canonical inputs and unique evidence
+remain; no synced file was deleted or forcibly offloaded.
 
 The initial low-space admission and engineering test failures/corrections remain
 in [the failure record](verification/failures.json). Tests use small deterministic

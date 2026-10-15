@@ -1,3 +1,43 @@
+## PR298 — active M1 v0.5.3 translation and release package
+
+[PR298](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298),
+[prospective protocol](docs/releases/v0.5.3/TRANSLATION_PROTOCOL.md),
+[readiness](docs/releases/v0.5.3/READINESS.md).
+**Open work: retain the entire nonsynced M1 checkout
+`~/Local/hu100-v053-release-package/` and its active dependencies.**
+Ignored `results/v053-release-package/` holds restored pinned models/tables,
+compatibility traces, working caches and every failure/resource receipt.
+The owner declared PR272's original seed; no selection or publication.
+All three real released-model main/branch traces match, independently replayed;
+[compact hashes](docs/releases/v0.5.3/verification/real-release-traces.json).
+Primary pilots/finals, safeguard, final assets and real runtime smoke are pending.
+
+Designated evidence folder
+[PR-298-hu100-v053-release-package](https://drive.google.com/drive/folders/1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-),
+ID `1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-`, parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Folder metadata is confirmed;
+**no new science archive or upload acceptance is claimed yet.**
+
+Model restoration verified indexed PR272 archive/embedded manifest/member SHA256;
+K50 tables verified indexed PR163 archive/sidecar manifest/all three members.
+[Exact pins and members](docs/releases/v0.5.3/TRANSLATION_PROTOCOL.md).
+Released v0.5.2 uses all seven verified published assets and its pinned source.
+Actual commands/receipts are `models/v053/retrieval.json`,
+`models/tables/retrieval.json`, `science/v052-restoration.json`; `config.json`
+records the concrete local paths. Released v050/v051 bytes use their published
+release downloads; those full models remain available locally.
+
+[Interim cleanup receipt](docs/releases/v0.5.3/verification/cleanup-interim.json)
+records exact removed regenerable v050/v051 cache paths, unchanged input pins,
+cache manifests and regeneration commands. They were exclusive to completed
+compatibility checks; no live handle remained. The v052 cache is retained.
+Two unchanged accepted inactive PR272/PR163 native archive caches were normally
+evicted after current merged-owner/native/cloud/handle/dependency review:
+5,188,251,648 allocated bytes reclaimed. Same-size/same-ID uploaded placeholders
+and extracted inputs remain. No synced file deletion or forced offload.
+Restore archive contents through their unchanged Drive links in the receipt;
+do not delete or mutate active models, tables, evidence, shared Git or other PRs.
+
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 
 [PR296](https://github.com/dberweger2017/CFR-NLHE-6max/pull/296),

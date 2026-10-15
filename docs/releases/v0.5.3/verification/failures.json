@@ -1,48 +1,69 @@
 {
-  "failures": [
+  "administrative_observations": [
     {
-      "stage": "initial focused tests",
-      "result": "10 failed /19 passed",
-      "causes": [
-        "New test passed a postflop Hand as the initial witness replay root (nine cases); corrected to retain initial Hand.start",
-        "Updated unsupported-schema error text broke an existing regex (one case); preserved expected explicit HU100/HU200 wording"
-      ],
-      "correction_result": "29 passed in 0.97s",
-      "scientific_hands": 0
+      "result": "Foundation resource-key probe returned empty object; fileproviderctl evaluate supplies native upload fields successfully; no mutation",
+      "stage": "native metadata probe"
     },
     {
-      "stage": "bundle-tests-1",
-      "result": "1 failed, 20 passed, 60 errors",
-      "cause": "New gzip fixture appended random binary after its JSON header, causing buffered UTF-8 decoding errors. Switched deterministic random payload to ASCII hex."
+      "result": "A context mismatch rejected one combined patch before changes; corrected exact context; no runtime or scientific effect",
+      "stage": "source patch"
     },
     {
-      "stage": "bundle-tests-2",
-      "result": "2 failed, 79 passed",
-      "cause": "Existing-destination test reached missing-table check first; new HU20 rejection used the explicit K50 unsupported error. Moved destination-preservation check earlier and accepted the precise existing refusal in the test."
-    },
-    {
-      "stage": "restoration wrapper launch",
-      "result": "ModuleNotFoundError: No module named src",
-      "classification": "administrative pre-hand import path",
-      "no_download_children_or_hands_started": true,
-      "preserved": "science/guards/restore-tables-release-000 and science/administrative-failure-restore-import.json",
-      "correction": "Run identical helper through python -c runpy.run_path, keeping repository on sys.path; corrected restoration in progress"
+      "result": "preview_open rejected about:blank as an invalid URL; corrected by omitting the URL. Native collaborative browser then initialized successfully; no science or app state affected.",
+      "stage": "browser admission probe"
     }
   ],
-  "storage": "Initial 13 GiB prevented restoration; owner freed space; 36 GiB observed at 2026-10-15T16:57:22Z. No deletion performed by this task.",
   "correction_validation": {
     "focused_suite": "246 passed in 15.62s",
     "raw_logs": "results/v053-release-package/",
     "scientific_hands": 0
   },
-  "administrative_observations": [
+  "failures": [
     {
-      "stage": "native metadata probe",
-      "result": "Foundation resource-key probe returned empty object; fileproviderctl evaluate supplies native upload fields successfully; no mutation"
+      "causes": [
+        "New test passed a postflop Hand as the initial witness replay root (nine cases); corrected to retain initial Hand.start",
+        "Updated unsupported-schema error text broke an existing regex (one case); preserved expected explicit HU100/HU200 wording"
+      ],
+      "correction_result": "29 passed in 0.97s",
+      "result": "10 failed /19 passed",
+      "scientific_hands": 0,
+      "stage": "initial focused tests"
     },
     {
-      "stage": "source patch",
-      "result": "A context mismatch rejected one combined patch before changes; corrected exact context; no runtime or scientific effect"
+      "cause": "New gzip fixture appended random binary after its JSON header, causing buffered UTF-8 decoding errors. Switched deterministic random payload to ASCII hex.",
+      "result": "1 failed, 20 passed, 60 errors",
+      "stage": "bundle-tests-1"
+    },
+    {
+      "cause": "Existing-destination test reached missing-table check first; new HU20 rejection used the explicit K50 unsupported error. Moved destination-preservation check earlier and accepted the precise existing refusal in the test.",
+      "result": "2 failed, 79 passed",
+      "stage": "bundle-tests-2"
+    },
+    {
+      "classification": "administrative pre-hand import path",
+      "correction": "Identical helper run with python -c runpy.run_path; restoration completed and all inputs verified",
+      "no_download_children_or_hands_started": true,
+      "preserved": "science/guards/restore-tables-release-000 and science/administrative-failure-restore-import.json",
+      "result": "ModuleNotFoundError: No module named src",
+      "stage": "restoration wrapper launch"
+    },
+    {
+      "classification": "administrative, pre-hand",
+      "correction_receipt": {
+        "actual_and_published": "38badc1bfc70d727191fcbd26584527e0ea68b4aecc3ca187403a214e2a3c0b3",
+        "at": 1792085482.163376,
+        "classification": "pre-hand manual pin transcription error",
+        "correction": "Parse all seven asset pins directly from the unchanged publication record; verify without repeating downloads",
+        "mistyped": "38badc1bfc70d727191fcbd26584527e0ea68b4aecc3ea187403a214e2a3c0b3",
+        "no_hands_started": true,
+        "no_payload_changed": true
+      },
+      "correction_result": "Separate validation-only worker parsed all seven pins from unchanged PUBLICATION.md; all verified without redownload or payload change",
+      "preserved": "science/guards/restore-tables-release-001 and administrative-failure-checksum-transcription.json",
+      "result": "Unchanged published SHA256SUMS rejected by a one-character copied checksum pin typo",
+      "stage": "v0.5.2 restoration checksum validation"
     }
-  ]
+  ],
+  "scientific_failures_or_final_hand_reruns": 0,
+  "storage": "Initial 13 GiB prevented restoration; owner freed space. Normal inactive uploaded archive-cache eviction later reclaimed 5,188,251,648 allocated bytes. Completed regenerable v050/v051 policy caches were retired with exact inputs and rebuild commands. All canonical models, tables and unique evidence retained."
 }
