@@ -1,0 +1,264 @@
+{
+  "status": "passed",
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "recipe": {
+    "stack_bb": 200,
+    "seed": 2026101302,
+    "roots_per_seat": 1,
+    "average_rule": "opponent-sampled",
+    "menu": "v1",
+    "max_entries": 85373862
+  },
+  "checkpoints": {
+    "fresh20m": {
+      "bytes": 270143830,
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+    },
+    "prefix10m": {
+      "bytes": 148448690,
+      "sha256": "fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db"
+    },
+    "resumed20m": {
+      "bytes": 270143830,
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+    }
+  },
+  "milestones": {
+    "fresh20m": {
+      "audit_status": "unaudited",
+      "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+      "checkpoint_bytes": 270143830,
+      "checkpoint_sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b",
+      "completed_nodes": 20002695,
+      "elapsed_seconds_including_writes": 51.790855947,
+      "entries_per_completed_node": 0.39413079087592945,
+      "iteration": 8728,
+      "new_entries": 7883678,
+      "nodes_per_second_including_writes": 386220.5911497136,
+      "nodes_since_previous_save": 20002695,
+      "overshoot_nodes": 2695,
+      "path": "/home/dberweger/cygnus-qualification-20261014/gate-results/fresh20m.gz",
+      "process_rss_bytes_after_save": 2082725888,
+      "recent_nodes_per_second_including_writes": 386220.5911497136,
+      "requested_nodes": 20000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1792019230.0517066,
+      "write_seconds": 39.043899986,
+      "write_started": 1792019191.0078063
+    },
+    "prefix10m": {
+      "audit_status": "unaudited",
+      "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+      "checkpoint_bytes": 148448690,
+      "checkpoint_sha256": "fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db",
+      "completed_nodes": 10001913,
+      "elapsed_seconds_including_writes": 27.267790403,
+      "entries_per_completed_node": 0.4416090201944368,
+      "iteration": 4260,
+      "new_entries": 4416935,
+      "nodes_per_second_including_writes": 366803.2081873268,
+      "nodes_since_previous_save": 10001913,
+      "overshoot_nodes": 1913,
+      "path": "/home/dberweger/cygnus-qualification-20261014/gate-results/prefix10m.gz",
+      "process_rss_bytes_after_save": 1774153728,
+      "recent_nodes_per_second_including_writes": 366803.2081873268,
+      "requested_nodes": 10000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1792019265.0912707,
+      "write_seconds": 21.541983955,
+      "write_started": 1792019243.549285
+    },
+    "resumed20m": {
+      "audit_status": "unaudited",
+      "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+      "checkpoint_bytes": 270143830,
+      "checkpoint_sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b",
+      "completed_nodes": 20002695,
+      "elapsed_seconds_including_writes": 47.371547982,
+      "entries_per_completed_node": 0.39413079087592945,
+      "iteration": 8728,
+      "new_entries": 3466743,
+      "nodes_per_second_including_writes": 211113.68376224575,
+      "nodes_since_previous_save": 10000782,
+      "overshoot_nodes": 2695,
+      "path": "/home/dberweger/cygnus-qualification-20261014/gate-results/resumed20m.gz",
+      "process_rss_bytes_after_save": 2085355520,
+      "recent_nodes_per_second_including_writes": 211113.68376224575,
+      "requested_nodes": 20000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1792019324.918885,
+      "write_seconds": 40.246789226,
+      "write_started": 1792019284.672095
+    }
+  },
+  "resources": [
+    {
+      "job": "build-identity",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 2.0206733380000514,
+      "sampled_peak_family_rss_bytes": 8151040,
+      "status": "passed",
+      "samples": 2,
+      "started_utc": "2026-10-14T23:06:08.469076+00:00",
+      "last_sample_utc": "2026-10-14T23:06:10.481796+00:00",
+      "max_sample_gap_seconds": 2.0127281950008182,
+      "min_temperature_c": 32.0,
+      "max_temperature_c": 38.0,
+      "median_temperature_c": 35.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        4372.915
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 132172886016,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 30.0,
+          "max_c": 30.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 30.0,
+          "max_c": 38.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 32.0,
+          "max_c": 32.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 32.0,
+          "max_c": 38.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 30.0,
+          "max_c": 30.0
+        },
+        "nvme/Composite": {
+          "min_c": 35.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 43.0,
+          "max_c": 44.0
+        }
+      },
+      "raw_stream_bytes": 6810,
+      "raw_stream_sha256": "83762919d93711361f958164ad9f9aef3a22f6f8000f7c121ef62efe19da5ad4"
+    },
+    {
+      "job": "recovery-gates",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 158.68790436500058,
+      "sampled_peak_family_rss_bytes": 2102525952,
+      "status": "passed",
+      "samples": 80,
+      "started_utc": "2026-10-14T23:06:10.524423+00:00",
+      "last_sample_utc": "2026-10-14T23:08:49.204486+00:00",
+      "max_sample_gap_seconds": 2.0122074280006927,
+      "min_temperature_c": 32.0,
+      "max_temperature_c": 62.0,
+      "median_temperature_c": 55.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        5118.772
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 129997938688,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 31.0,
+          "max_c": 46.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 58.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 30.0,
+          "max_c": 53.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 31.0,
+          "max_c": 58.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 30.0,
+          "max_c": 63.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 30.0,
+          "max_c": 59.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 32.0,
+          "max_c": 49.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 32.0,
+          "max_c": 44.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 32.0,
+          "max_c": 62.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 28.0,
+          "max_c": 32.0
+        },
+        "nvme/Composite": {
+          "min_c": 34.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 42.0,
+          "max_c": 44.0
+        }
+      },
+      "raw_stream_bytes": 272356,
+      "raw_stream_sha256": "fc2872d1ab112e96f03b168205b640ab1f35e57de9b01f6fe35f28b25c0e339b"
+    }
+  ],
+  "full_checkpoint_binaries": "Retained on bb128 under gate-results; Research-Cloud archive pending; not in Git",
+  "scope": "Exact fresh20M/resumed20M match to #250 M4 reference; no campaign"
+}

@@ -1,0 +1,292 @@
+{
+  "status": "passed",
+  "method": "stress-ng --cpu-method int64 --verify --timeout60s --metrics-brief",
+  "sampling_seconds": 0.5,
+  "worker_steps": [
+    {
+      "workers": 1,
+      "verification": "passed; zero failed/untrustworthy metrics",
+      "bogo_ops": 176284,
+      "stressor_real_seconds": 60.0,
+      "bogo_ops_s_real": 2938.07,
+      "bogo_ops_s_cpu": 2938.47,
+      "assigned_cpu_per_sample_max_mhz_min_median_max": [
+        800.0,
+        5000.0,
+        5007.796
+      ],
+      "clock_scope": "Maximum of CPU0\u20137 each sample; proxy, not named-worker effective residency",
+      "resources": {
+        "job": "cpu-1",
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 60.30153427600089,
+        "sampled_peak_family_rss_bytes": 33931264,
+        "status": "passed",
+        "samples": 120,
+        "started_utc": "2026-10-14T23:51:43.210255+00:00",
+        "last_sample_utc": "2026-10-14T23:52:43.504291+00:00",
+        "max_sample_gap_seconds": 0.5115390739993018,
+        "min_temperature_c": 43.0,
+        "max_temperature_c": 57.0,
+        "median_temperature_c": 55.0,
+        "clock_mhz_all_logical_cpus_min_median_max": [
+          800.0,
+          800.0,
+          5007.796
+        ],
+        "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+        "minimum_available_bytes": 132059901952,
+        "maximum_swap_growth_bytes": 0,
+        "maximum_throttle_counter_delta": 0,
+        "device_temperature_ranges_c": {
+          "acpitz/temp1_input": {
+            "min_c": 27.8,
+            "max_c": 27.8
+          },
+          "coretemp/Core 0": {
+            "min_c": 32.0,
+            "max_c": 40.0
+          },
+          "coretemp/Core 1": {
+            "min_c": 31.0,
+            "max_c": 42.0
+          },
+          "coretemp/Core 2": {
+            "min_c": 31.0,
+            "max_c": 37.0
+          },
+          "coretemp/Core 3": {
+            "min_c": 30.0,
+            "max_c": 38.0
+          },
+          "coretemp/Core 4": {
+            "min_c": 30.0,
+            "max_c": 40.0
+          },
+          "coretemp/Core 5": {
+            "min_c": 42.0,
+            "max_c": 57.0
+          },
+          "coretemp/Core 6": {
+            "min_c": 31.0,
+            "max_c": 37.0
+          },
+          "coretemp/Core 7": {
+            "min_c": 31.0,
+            "max_c": 38.0
+          },
+          "coretemp/Package id 0": {
+            "min_c": 43.0,
+            "max_c": 57.0
+          },
+          "iwlwifi_1/temp1_input": {
+            "min_c": 28.0,
+            "max_c": 31.0
+          },
+          "nvme/Composite": {
+            "min_c": 35.85,
+            "max_c": 35.85
+          },
+          "pch_cometlake/temp1_input": {
+            "min_c": 41.0,
+            "max_c": 44.0
+          }
+        },
+        "raw_stream_bytes": 408125,
+        "raw_stream_sha256": "3d3aae641b5e0bcadf21483e68ddb881a694c98d11ebed1aaaefb32e0b19f161"
+      }
+    },
+    {
+      "workers": 4,
+      "verification": "passed; zero failed/untrustworthy metrics",
+      "bogo_ops": 677248,
+      "stressor_real_seconds": 60.0,
+      "bogo_ops_s_real": 11287.56,
+      "bogo_ops_s_cpu": 2822.03,
+      "assigned_cpu_per_sample_max_mhz_min_median_max": [
+        800.0,
+        4800.42,
+        4820.686
+      ],
+      "clock_scope": "Maximum of CPU0\u20137 each sample; proxy, not named-worker effective residency",
+      "resources": {
+        "job": "cpu-4",
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 60.32435735800027,
+        "sampled_peak_family_rss_bytes": 50307072,
+        "status": "passed",
+        "samples": 120,
+        "started_utc": "2026-10-14T23:52:43.546499+00:00",
+        "last_sample_utc": "2026-10-14T23:53:43.863505+00:00",
+        "max_sample_gap_seconds": 0.5113206710011582,
+        "min_temperature_c": 46.0,
+        "max_temperature_c": 64.0,
+        "median_temperature_c": 61.5,
+        "clock_mhz_all_logical_cpus_min_median_max": [
+          800.0,
+          800.0,
+          4974.118
+        ],
+        "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+        "minimum_available_bytes": 132041113600,
+        "maximum_swap_growth_bytes": 0,
+        "maximum_throttle_counter_delta": 0,
+        "device_temperature_ranges_c": {
+          "acpitz/temp1_input": {
+            "min_c": 27.8,
+            "max_c": 27.8
+          },
+          "coretemp/Core 0": {
+            "min_c": 37.0,
+            "max_c": 50.0
+          },
+          "coretemp/Core 1": {
+            "min_c": 41.0,
+            "max_c": 60.0
+          },
+          "coretemp/Core 2": {
+            "min_c": 37.0,
+            "max_c": 51.0
+          },
+          "coretemp/Core 3": {
+            "min_c": 38.0,
+            "max_c": 45.0
+          },
+          "coretemp/Core 4": {
+            "min_c": 36.0,
+            "max_c": 64.0
+          },
+          "coretemp/Core 5": {
+            "min_c": 41.0,
+            "max_c": 61.0
+          },
+          "coretemp/Core 6": {
+            "min_c": 37.0,
+            "max_c": 64.0
+          },
+          "coretemp/Core 7": {
+            "min_c": 38.0,
+            "max_c": 62.0
+          },
+          "coretemp/Package id 0": {
+            "min_c": 46.0,
+            "max_c": 64.0
+          },
+          "iwlwifi_1/temp1_input": {
+            "min_c": 28.0,
+            "max_c": 30.0
+          },
+          "nvme/Composite": {
+            "min_c": 34.85,
+            "max_c": 35.85
+          },
+          "pch_cometlake/temp1_input": {
+            "min_c": 41.0,
+            "max_c": 44.0
+          }
+        },
+        "raw_stream_bytes": 409038,
+        "raw_stream_sha256": "45dab2d19e2e3c58c398da5c2e1942c1b4b5c661c3e1e3c6489820da22e62a72"
+      }
+    },
+    {
+      "workers": 8,
+      "verification": "passed; zero failed/untrustworthy metrics",
+      "bogo_ops": 1326471,
+      "stressor_real_seconds": 60.0,
+      "bogo_ops_s_real": 22108.1,
+      "bogo_ops_s_cpu": 2763.62,
+      "assigned_cpu_per_sample_max_mhz_min_median_max": [
+        800.0,
+        4700.002,
+        4700.007
+      ],
+      "clock_scope": "Maximum of CPU0\u20137 each sample; proxy, not named-worker effective residency",
+      "resources": {
+        "job": "cpu-8",
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 60.46194004000063,
+        "sampled_peak_family_rss_bytes": 72437760,
+        "status": "passed",
+        "samples": 120,
+        "started_utc": "2026-10-14T23:53:43.906617+00:00",
+        "last_sample_utc": "2026-10-14T23:54:44.355565+00:00",
+        "max_sample_gap_seconds": 0.5211340010027925,
+        "min_temperature_c": 46.0,
+        "max_temperature_c": 76.0,
+        "median_temperature_c": 72.0,
+        "clock_mhz_all_logical_cpus_min_median_max": [
+          800.0,
+          4699.997,
+          4712.607
+        ],
+        "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+        "minimum_available_bytes": 132019826688,
+        "maximum_swap_growth_bytes": 0,
+        "maximum_throttle_counter_delta": 0,
+        "device_temperature_ranges_c": {
+          "acpitz/temp1_input": {
+            "min_c": 27.8,
+            "max_c": 27.8
+          },
+          "coretemp/Core 0": {
+            "min_c": 46.0,
+            "max_c": 72.0
+          },
+          "coretemp/Core 1": {
+            "min_c": 41.0,
+            "max_c": 69.0
+          },
+          "coretemp/Core 2": {
+            "min_c": 42.0,
+            "max_c": 73.0
+          },
+          "coretemp/Core 3": {
+            "min_c": 42.0,
+            "max_c": 70.0
+          },
+          "coretemp/Core 4": {
+            "min_c": 42.0,
+            "max_c": 75.0
+          },
+          "coretemp/Core 5": {
+            "min_c": 41.0,
+            "max_c": 72.0
+          },
+          "coretemp/Core 6": {
+            "min_c": 41.0,
+            "max_c": 73.0
+          },
+          "coretemp/Core 7": {
+            "min_c": 41.0,
+            "max_c": 71.0
+          },
+          "coretemp/Package id 0": {
+            "min_c": 46.0,
+            "max_c": 76.0
+          },
+          "iwlwifi_1/temp1_input": {
+            "min_c": 28.0,
+            "max_c": 30.0
+          },
+          "nvme/Composite": {
+            "min_c": 35.85,
+            "max_c": 35.85
+          },
+          "pch_cometlake/temp1_input": {
+            "min_c": 41.0,
+            "max_c": 44.0
+          }
+        },
+        "raw_stream_bytes": 409959,
+        "raw_stream_sha256": "060acc2212f31ad9f0eeb10b29ff5944ecce8610944da07e1104da973f3b673c"
+      }
+    }
+  ],
+  "governor": "intel_pstate powersave, unchanged",
+  "sched_autogroup_enabled": 1,
+  "limitations": "One-minute integer checks only; no AVX or 16-worker stress, no long thermal soak"
+}

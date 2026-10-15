@@ -1,0 +1,565 @@
+{
+  "classification": "CPU neural numerical reproducibility; identical GRU input sequences diverge under default MKL, strict CNR restores identity",
+  "default_trace": {
+    "torch": "2.5.1+cpu",
+    "threads": 2,
+    "capability": "AVX2",
+    "MKL_CBWR": null,
+    "mkldnn": true,
+    "cases": [
+      {
+        "street": "flop",
+        "variant": "scaled_baseline",
+        "candidates_equal": true,
+        "output_identical": false,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": false,
+            "max_abs_hidden_delta": 2.9802322387695312e-08
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "flop",
+        "variant": "learned_separate_card_branch",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "flop",
+        "variant": "explicit_visible_features",
+        "candidates_equal": true,
+        "output_identical": false,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": false,
+            "max_abs_hidden_delta": 2.9802322387695312e-08
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "scaled_baseline",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "learned_separate_card_branch",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "explicit_visible_features",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      }
+    ]
+  },
+  "strict_trace": {
+    "torch": "2.5.1+cpu",
+    "threads": 2,
+    "capability": "AVX2",
+    "MKL_CBWR": "AVX2,STRICT",
+    "mkldnn": true,
+    "cases": [
+      {
+        "street": "flop",
+        "variant": "scaled_baseline",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "flop",
+        "variant": "learned_separate_card_branch",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "flop",
+        "variant": "explicit_visible_features",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "scaled_baseline",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "learned_separate_card_branch",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      },
+      {
+        "street": "turn",
+        "variant": "explicit_visible_features",
+        "candidates_equal": true,
+        "output_identical": true,
+        "gru": [
+          {
+            "all_step_inputs_identical_across_batch": true,
+            "batch_sizes": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "hidden_rows_identical": true,
+            "max_abs_hidden_delta": 0.0
+          }
+        ],
+        "first_identical_input_divergence": null
+      }
+    ]
+  },
+  "matrix": [
+    {
+      "name": "baseline2",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "2"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 1
+    },
+    {
+      "name": "single1",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "1"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 1
+    },
+    {
+      "name": "compatible2",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "2",
+        "MKL_CBWR": "COMPATIBLE"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 1
+    },
+    {
+      "name": "aten-default2",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "2",
+        "ATEN_CPU_CAPABILITY": "default"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 1
+    },
+    {
+      "name": "baseline2-gru",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "2"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 1
+    },
+    {
+      "name": "strict-avx2",
+      "environment": {
+        "QUALIFICATION_TORCH_THREADS": "2",
+        "MKL_CBWR": "AVX2,STRICT"
+      },
+      "probe_exit": 0,
+      "strict_test_exit": 0
+    }
+  ],
+  "unchanged_focused_suite": {
+    "default": {
+      "passed": 12,
+      "failed": 1
+    },
+    "strict_AVX2": {
+      "passed": 13,
+      "failed": 0
+    }
+  },
+  "max_observed_default_gru_hidden_difference": 2.9802322387695312e-08,
+  "test_assertions_and_model_source": "unchanged",
+  "next": "Full suite rerun with MKL_CBWR=AVX2,STRICT; no full-suite pass yet",
+  "documentation": [
+    "https://www.intel.com/content/www/us/en/developer/archive/training/conditional-numerical-reproducibility-cnr.html",
+    "https://docs.pytorch.org/docs/main/notes/numerical_accuracy.html"
+  ]
+}

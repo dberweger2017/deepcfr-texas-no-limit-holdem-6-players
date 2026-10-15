@@ -1,0 +1,16 @@
+{
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "binary_hashes": {
+    "/home/dberweger/cygnus-qualification-20261014/trainer-first": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436"
+  },
+  "checkout_and_staging_paths_absent": true,
+  "status": "passed",
+  "scope": "Retained/current binary identity and path scan; second-location build not repeated",
+  "historical_method_pr": 243,
+  "historical_output_parity_prs": [
+    129,
+    133
+  ],
+  "cross_platform_gate": "Pending fresh20M and 10M-resumed20M #250 exact checkpoint SHA256"
+}

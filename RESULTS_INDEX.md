@@ -12,6 +12,69 @@ ZIP and Lost and Found, both open roots and server/model inputs are untouched.
 SHA256 `88092d3dc5c84cf75a3e6cf45a6e3101bcc14a15c666bb4c18198a83e7d37385`). No retry/manipulation of the failed upload,
 payload download, repeat hashes, synced deletion, force offload or unpinning.
 
+## PR283 cygnus-x1 qualification — October 14–15, RAM still partial
+
+[PR283](https://github.com/dberweger2017/CFR-NLHE-6max/pull/283), owner-authorized qualification record.
+[Report](docs/reports/cygnus-x1-qualification.md) ·
+[Archive/member/retrieval/upload receipt](docs/reports/cygnus-x1-artifacts/archive-main.json).
+Scientific source `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
+main archive feature snapshot `0fa1d860`. Run root
+`bb128:/home/dberweger/cygnus-qualification-20261014/`; coordinator
+`~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
+
+**Accepted main bundle:** [cygnus-main-20261015.zip](https://drive.google.com/file/d/11bu2M3AY66AscCgF5onO4tHampdxErMf/view?usp=drivesdk),
+ID `11bu2M3AY66AscCgF5onO4tHampdxErMf`, **3,553,618,907 bytes**,
+SHA256 `35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c`;
+[folder](https://drive.google.com/drive/folders/1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa)
+ID `1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa`;
+all **528 member sizes/hashes passed readback on cygnus**. Whole archive and
+manifest hashes pass after transfer; cloud staging bytes also match.
+At October15 **01:23 UTC**, native uploaded/no-pending/no-conflicts/exact-size
+acceptance and independent Drive ID/name/size/parent confirmation pass.
+**Remote Drive bytes were not downloaded.** No originals are removed.
+
+The linked compact receipt names all four checkpoint members and the native
+binary, with full sizes/SHA256s and usable restoration commands. Matched 500M
+is `research/benchmark-results/500m.gz`, SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`;
+20M fresh/resumed members reproduce exact #250 SHA256
+`4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+Full raw logs, failed attempts and original three-hour RAM timecap are preserved,
+including the approximately1.8GiB initial memlock-shrink output. Eight original
+112GiB instances had zero observed errors/ten completed patterns, not a full pass.
+[Full-suite outcome](docs/reports/cygnus-x1-artifacts/tests-passed.json):
+2219Python/54subtests/16Rust pass in strict-MKL mode, twoMac-specific skips;
+both preceding failures remain archived and diagnosed.
+
+**Additional RAM screen closed at04:50UTC /06:50Madrid:**16166.65s,
+zero errors all8, four completed patterns, Walking Zeroes123–127/128 incomplete;
+8/16-bit writes not reached. Peak68°C,no swap/throttle. All eight actual child
+waitcodes−15/SIGTERM, all owned PIDs gone. Expected deadline stop is partial,
+not a full RAM pass. [Final per-instance outcomes/thermal hash](docs/reports/cygnus-x1-artifacts/memory-extra-final.json).
+**Accepted final closeout:** [cygnus-closeout-20261015.zip](https://drive.google.com/file/d/1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4/view?usp=drivesdk),
+ID `1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4`, same owning folder,
+**1,973,287bytes /98members**, SHA256
+`de676c142fa9288d46d72ad13754a9d1932b510539166e459d5cc813ae6e8c91`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`32cce8027be12305a1d6cc359aa28b9399d67b0151bacb863181e559c6aecf0c`.
+All member sizes/hashes passed local readback; staging copy SHA matches.
+At04:56UTC native uploaded/no-pending/no-conflicts/exact-size and independent
+Drive ID/name/size/parent checks pass; no remote Drive byte download.
+[Final pins/upload evidence/retrieval commands](docs/reports/cygnus-x1-artifacts/archive-closeout.json).
+Feature snapshot `ef021cb95a906916330317baec91dfa793feb106`; no models in this
+closeout (use main archive). Main archive guard raw telemetry is now included.
+Both immutable bundles retain report snapshots preceding their own upload
+acceptance; these Git receipts/index provide the final acceptance record.
+Recurring qualification checks are disabled; no subsequent testing scheduled.
+Pinned K50 inputs are excluded as independently retrievable dependencies:
+[PR163 restoration/member hashes and commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+All three table sizes/fullSHA256s passed on both coordinator and bb128 before use.
+The retained8GiB fio scratch and rebuildable caches are excluded. Keep the open
+PR root/dependencies intact. No cleanup, campaigns, Slumbot, XMP changes,
+proprietary driver installation or persistent changes to other machines.
+
 ## Another 30 GB on M4 — October 14
 
 Owner-requested cleanup exceeds the target with **32.500 GB**

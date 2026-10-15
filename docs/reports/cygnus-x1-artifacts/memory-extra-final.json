@@ -1,0 +1,374 @@
+{
+  "classification": "accepted deadline-limited partial; not a full pass",
+  "observed_at_utc": "2026-10-15T04:54:02Z",
+  "job": {
+    "job": "memory-extra",
+    "status": {
+      "exit_code": 143,
+      "stop_reason": "absolute testing deadline reached",
+      "elapsed_seconds": 16166.650345377999,
+      "sampled_peak_family_rss_bytes": 120285618176,
+      "status": "failed"
+    },
+    "elapsed_s": 16166.1,
+    "temperature_c": 61.0,
+    "peak_temperature_c": 68.0,
+    "peak_family_rss_gib": 112.025,
+    "minimum_available_gib": 10.607,
+    "swap_growth_bytes": 0,
+    "maximum_throttle_counter": 0
+  },
+  "instances": [
+    {
+      "instance": "memory-extra-instances/instance-0.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20940,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "21testing 121setting 122testing 122setting 123testing 123setting 124testing 124setting 125"
+    },
+    {
+      "instance": "memory-extra-instances/instance-1.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 21006,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "22setting 123testing 123setting 124testing 124setting 125testing 125setting 126testing 126"
+    },
+    {
+      "instance": "memory-extra-instances/instance-2.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20940,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "21testing 121setting 122testing 122setting 123testing 123setting 124testing 124setting 125"
+    },
+    {
+      "instance": "memory-extra-instances/instance-3.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 21050,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "23setting 124testing 124setting 125testing 125setting 126testing 126setting 127testing 127"
+    },
+    {
+      "instance": "memory-extra-instances/instance-4.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20852,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "19testing 119setting 120testing 120setting 121testing 121setting 122testing 122setting 123"
+    },
+    {
+      "instance": "memory-extra-instances/instance-5.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20940,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "21testing 121setting 122testing 122setting 123testing 123setting 124testing 124setting 125"
+    },
+    {
+      "instance": "memory-extra-instances/instance-6.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20896,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "20testing 120setting 121testing 121setting 122testing 122setting 123testing 123setting 124"
+    },
+    {
+      "instance": "memory-extra-instances/instance-7.log",
+      "initial_allocation_locked": true,
+      "scan_scope": "full",
+      "log_bytes": 20896,
+      "observed_FAILURE_count": 0,
+      "completed_patterns": [
+        "Stuck Address",
+        "Checkerboard",
+        "Bit Spread",
+        "Walking Ones"
+      ],
+      "tail": "20testing 120setting 121testing 121setting 122testing 122setting 123testing 123setting 124"
+    }
+  ],
+  "closed_receipts": [
+    {
+      "receipt": "memory-extra/result.json",
+      "content": {
+        "exit_code": 143,
+        "stop_reason": "absolute testing deadline reached",
+        "elapsed_seconds": 16166.650345377999,
+        "sampled_peak_family_rss_bytes": 120285618176,
+        "status": "failed"
+      }
+    },
+    {
+      "receipt": "memory-extra-instances/results.json",
+      "content": [
+        {
+          "instance": 0,
+          "pid": 37484,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 1,
+          "pid": 37485,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 2,
+          "pid": 37486,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 3,
+          "pid": 37487,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 4,
+          "pid": 37488,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 5,
+          "pid": 37489,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 6,
+          "pid": 37490,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        },
+        {
+          "instance": 7,
+          "pid": 37491,
+          "exit_code": -15,
+          "termination_signal": 15,
+          "requested_mib": 14336,
+          "test_mask": "0x1ec00"
+        }
+      ]
+    }
+  ],
+  "process_identities": [
+    {
+      "owned_process_identity": {
+        "instance": 0,
+        "pid": 37484,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 1,
+        "pid": 37485,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 2,
+        "pid": 37486,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 3,
+        "pid": 37487,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 4,
+        "pid": 37488,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 5,
+        "pid": 37489,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 6,
+        "pid": 37490,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    },
+    {
+      "owned_process_identity": {
+        "instance": 7,
+        "pid": 37491,
+        "requested_mib": 14336,
+        "test_mask": "0x1ec00"
+      },
+      "current_command": null
+    }
+  ],
+  "resource_summary": {
+    "job": "memory-extra",
+    "exit_code": 143,
+    "stop_reason": "absolute testing deadline reached",
+    "elapsed_seconds": 16166.650345377999,
+    "sampled_peak_family_rss_bytes": 120285618176,
+    "status": "failed",
+    "samples": 8009,
+    "started_utc": "2026-10-15T00:20:34.716733+00:00",
+    "last_sample_utc": "2026-10-15T04:50:00.851583+00:00",
+    "max_sample_gap_seconds": 2.092947881003056,
+    "min_temperature_c": 40.0,
+    "max_temperature_c": 68.0,
+    "median_temperature_c": 61.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      4699.997,
+      4800.999
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 11389222912,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 31.0,
+        "max_c": 64.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 31.0,
+        "max_c": 61.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 31.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 40.0,
+        "max_c": 65.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 31.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 32.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 31.0,
+        "max_c": 62.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 30.0,
+        "max_c": 61.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 40.0,
+        "max_c": 68.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 26.0,
+        "max_c": 44.0
+      },
+      "nvme/Composite": {
+        "min_c": 33.85,
+        "max_c": 36.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 38.0,
+        "max_c": 45.0
+      }
+    },
+    "raw_stream_bytes": 27388100,
+    "raw_stream_sha256": "79944ba6d79c7ec20b60422f2a182cccc608b603696ef8b6e7c3261e7e0d22c1"
+  },
+  "unfinished": "Walking Zeroes settings123\u2013127 of128; narrow8/16-bit writes not reached; Block Sequential and Bit Flip omitted by selected mask",
+  "all_owned_instance_processes_exited": true,
+  "test_mask": "0x1ec00",
+  "originals_retained": true
+}

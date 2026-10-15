@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "source_status": "",
+  "environment": {
+    "python": "3.11.17 (main, Oct 14 2026, 01:05:33) [Clang 23.1.3 ]",
+    "platform": "Linux-6.12.111+deb13-amd64-x86_64-with-glibc2.41",
+    "torch": "2.5.1+cpu",
+    "torch_cuda": null
+  },
+  "node_install": {
+    "url": "https://nodejs.org/dist/latest-v22.x/node-v22.23.3-linux-x64.tar.xz",
+    "sha256_source": "https://nodejs.org/dist/latest-v22.x/SHASUMS256.txt",
+    "sha256": "df450af89261115ef9f9e3830c3eeb2cc9213b63c720b1af623cb5dcbe2e02de",
+    "bytes": 31001304,
+    "checksum_manifest_sha256": "4fe99a2ba9d552a6f51c13ed68fb11104cfa5df601aec616be689253a8139e7a"
+  },
+  "first_build": {
+    "binary": "native/hu20-trainer/target/release/hu20-trainer",
+    "binary_bytes": 1752760,
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2",
+    "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+    "native_tree": "39bdd06f9362512699cf02ed6ab5e3d598ff3557",
+    "native_tree_clean": true,
+    "remapped_prefixes": [
+      "native",
+      "cargo-home"
+    ],
+    "rustc": [
+      "rustc 1.99.0 (b940084d7 2026-09-28)",
+      "binary: rustc",
+      "commit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4",
+      "commit-date: 2026-09-28",
+      "host: x86_64-unknown-linux-gnu",
+      "release: 1.99.0",
+      "LLVM version: 23.1.1"
+    ]
+  },
+  "resources": {
+    "job": "setup",
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 84.52459019999878,
+    "sampled_peak_family_rss_bytes": 1291505664,
+    "status": "passed",
+    "samples": 43,
+    "started_utc": "2026-10-14T22:07:49.723074+00:00",
+    "last_sample_utc": "2026-10-14T22:09:14.239961+00:00",
+    "max_sample_gap_seconds": 2.024088854999718,
+    "min_temperature_c": 34.0,
+    "max_temperature_c": 59.0,
+    "median_temperature_c": 39.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      797.301,
+      800.0815,
+      4896.556
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 131816710144,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 32.0,
+        "max_c": 56.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 32.0,
+        "max_c": 53.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 32.0,
+        "max_c": 59.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 31.0,
+        "max_c": 57.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 31.0,
+        "max_c": 50.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 31.0,
+        "max_c": 59.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 32.0,
+        "max_c": 51.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 31.0,
+        "max_c": 53.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 34.0,
+        "max_c": 59.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 34.0,
+        "max_c": 43.0
+      },
+      "nvme/Composite": {
+        "min_c": 36.85,
+        "max_c": 38.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 44.0,
+        "max_c": 46.0
+      }
+    },
+    "raw_stream_bytes": 146754,
+    "raw_stream_sha256": "b14e1cc166be99419ccc4e12595d060426a35c8faebdadeac946cfa5e5e0f757"
+  },
+  "installed_requirements": [
+    "absl-py==2.5.1",
+    "filelock==3.32.3",
+    "fsspec==2026.7.0",
+    "grpcio==1.84.0",
+    "iniconfig==2.3.1",
+    "jinja2==3.1.6",
+    "markdown==3.11.1",
+    "markupsafe==3.0.3",
+    "mpmath==1.3.0",
+    "networkx==3.6.1",
+    "numpy==1.26.4",
+    "packaging==26.3",
+    "pillow==12.3.0",
+    "pluggy==1.6.0",
+    "pokers @ git+https://github.com/dberweger2017/pokers.git@5db20e3d5d6862b32a7402035c1340b622d3b005",
+    "protobuf==7.36.2",
+    "psutil==7.2.2",
+    "pygments==2.21.0",
+    "pytest==9.0.3",
+    "scipy==1.17.1",
+    "setuptools==84.0.0",
+    "sympy==1.13.1",
+    "tensorboard==2.21.0",
+    "tensorboard-data-server==0.7.2",
+    "torch==2.5.1+cpu",
+    "tqdm==4.70.1",
+    "typing-extensions==4.16.0",
+    "werkzeug==3.1.9"
+  ],
+  "scope": "Setup and first build completed; test suite and two-location equality still pending"
+}
