@@ -43,7 +43,12 @@ the existing exporter measures its current/average sizes. Project checkpoint,
 current and average bytes from that sample with a 1.5 multiplier and header
 allowance; the full cache array projection is `35*union_keys + 8*action_slots +
 768` bytes plus manifest allowance. Audit workspace and archive duplication
-are separate peak reservations. No sample outcomes or alternate blends exist.
+are separate peak reservations. The SQLite ledger reserves 1.5 times the
+exact menu-weighted TEXT payload estimate plus 128 MiB. Initial traces reserve
+4 GiB, revised only from cost-only pilot byte sizes before finals. Archive
+reservation doubles retained blend checkpoint/current/average and trace/log
+bytes; caches retire before sealing. No sample outcomes or alternate blends
+exist.
 
 For each union key/action, raw blend accumulator is `fsum(A_s/W_s)` over
 present seeds, checked identical action menus. A missing key contributes zero.
@@ -120,3 +125,9 @@ limited to source/PR/report/archive administration. Do not assume enough disk
 for hydration of the full source ZIPs. Revisit ETA after input admission,
 union count and cost pilots; no finite final ETA is claimed while storage is
 unresolved. Keep originals and all open-PR dependencies.
+
+The active runtime environment is `~/Local/hu20-k50-5b-first-pass-20261012/.venv/`;
+retain it while PR297 runs. Seed1421 checkpoint, the frozen exporter and card
+tables have verified read-only APFS clones under PR297's own ignored
+`results/hu200-v055-blend/protected-inputs/`, protecting active dependencies
+during the owner's storage work. Original indexed files are unchanged.
