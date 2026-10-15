@@ -25,6 +25,13 @@ def test_fixed_roots_and_counts_separate_pilots_and_pair_all_models():
     assert {c['blocks'] for c in direct} == {131072}
 
 
+def test_cost_projection_keeps_fixed_setup_separate():
+    costs = dict(primary=dict(load_or_validation_seconds=10, play_seconds=2),
+                 repeat=dict(load_or_validation_seconds=11, play_seconds=3),
+                 audit_fixed_setup_seconds=12, audit_block_work_seconds=4, blocks=3)
+    assert campaign.cost_projection(costs,30) == 33+10*9
+
+
 def test_pilot_pairs_replay_repeat_and_share_blend_arms(tmp_path, monkeypatch):
     dev_source(monkeypatch)
     specs = [dict(fixture_spec(tmp_path/name, name=name), translation=asdict(TranslationOptions()))

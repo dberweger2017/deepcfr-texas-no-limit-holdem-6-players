@@ -52,8 +52,20 @@ def pair(out, specs, blocks, root, opponent, cache, pilot=False):
                                      reproduce=out/'play', stack_bb=200, opponent=opponent,
                                      cache=cache, cache_read_only=True)
     direct.put(out/'costs.json', dict(primary=primary, repeat=repeat,
-                                    audit_seconds=checked['seconds'], blocks=blocks, pilot=pilot,
+                                    audit_seconds=checked['seconds'],
+                                    audit_fixed_setup_seconds=checked['fixed_setup_seconds'],
+                                    audit_block_work_seconds=checked['block_work_seconds'],
+                                    blocks=blocks, pilot=pilot,
                                     **({'paired_sd_bb_per_100': checked['paired_sd_bb_per_100']} if pilot else {})))
+
+
+def cost_projection(cost, final_blocks):
+    """Pay model/table setup once; trace hashing and complete replay scale with blocks."""
+    fixed = sum(cost[arm]['load_or_validation_seconds'] for arm in ('primary', 'repeat'))
+    fixed += cost['audit_fixed_setup_seconds']
+    work = sum(cost[arm]['play_seconds'] for arm in ('primary', 'repeat'))
+    work += cost['audit_block_work_seconds']
+    return fixed + final_blocks/cost['blocks']*work
 
 
 def candidate_fingerprints(folder):

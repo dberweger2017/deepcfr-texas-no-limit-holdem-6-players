@@ -43,6 +43,7 @@ struct Input {
     next: Option<Row>,
     previous: Option<[u8; 16]>,
     count: u64,
+    action_slots: u64,
     keys: Sha256,
     roots: BTreeSet<String>,
     root_mass: BTreeMap<String, f64>,
@@ -82,6 +83,7 @@ impl Input {
             next: None,
             previous: None,
             count: 0,
+            action_slots: 0,
             keys: Sha256::new(),
             roots: roots.clone(),
             root_mass: BTreeMap::new(),
@@ -101,6 +103,7 @@ impl Input {
             );
             self.previous = Some(key);
             self.count += 1;
+            self.action_slots += node.len as u64;
             assert!(
                 self.count <= self.spec["entries"].as_u64().unwrap(),
                 "input entry cap"
@@ -131,7 +134,7 @@ impl Input {
             "input changed while streaming"
         );
         let mass = fsum(self.root_mass.values().copied());
-        json!({"spec":self.spec,"entries":self.count,
+        json!({"spec":self.spec,"entries":self.count,"action_slots":self.action_slots,
             "sorted_key_sha256":format!("{:x}",self.keys.clone().finalize()),
             "iteration_weight":self.weight,"root_mass":mass,
             "root_mass_minus_weight":mass-self.weight as f64,"root_masses":self.root_mass,

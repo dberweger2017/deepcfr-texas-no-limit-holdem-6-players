@@ -75,7 +75,11 @@ distinct deals within a panel root; all four models share each script
 scenario's deals and role streams. Cost-only pilots: 128 direct blocks per seed and 32 blocks per
 script/seed, separate roots from finals. No reduced final counts; pilot reports
 only cost, variance and coverage. Declare a resource/time envelope from pilots
-before final hands. Every final hand independently replays and completely
+before final hands. The quote is fixed primary/reproduction/audit setup
+plus target blocks times measured primary/reproduction/audit block work per
+pilot block, with a **1.5 planning multiplier**. Cache rebuilds and archive
+reserves are separate. Trace hashing remains in scalable audit work.
+Every final hand independently replays and completely
 reproduces; verify all comparisons and stream hashes before reading any result.
 The two-model harness runs three pairs per script, with the blend arm
 repeated. Before readout, its hand and deterministic decision fingerprints
@@ -102,7 +106,7 @@ reserved for preservation/archiving; the intake stage itself is capped at six
 hours. No final-count reduction or scientific retry follows a stop. Cost
 pilots must admit the full remaining counts before final play.
 
-The blend cache is written as the existing six NumPy arrays through bounded
+All four caches are written as the existing six NumPy arrays through bounded
 file streams, passing exported float64 probabilities unchanged. Its bytes
 are tested against the original cache builder. Retain the blend cache, but
 build only one seed cache at a time for its complete pilot/final comparison
