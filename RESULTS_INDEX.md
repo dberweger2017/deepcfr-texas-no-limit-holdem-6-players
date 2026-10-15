@@ -1,3 +1,27 @@
+## PR292 — Three-player full-average blueprint (active, October 15, 2026)
+
+[PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292), branch
+`feature/nplayer-blueprint-phase2`; [protocol](docs/nplayer-blueprint-phase2-protocol.md),
+[report](docs/reports/nplayer-blueprint-phase2.md). Fresh sequential cash seeds
+2026101541–1543, all-street averages, scheduled 200M/500M/1B endpoints. Harness
+qualification passes; training and final evaluation remain pending at this entry.
+
+**Protected active evidence; cloud archival pending:**
+`bb128:/home/dberweger/nplayer-blueprint-phase2-20261015/` and this worktree's
+ignored `planning/nplayer-phase2/`. Preserve all commands, resource/VRM/fan traces,
+source bundles, checkpoints, exports, audits, raw duplicate traces, replay and
+reproduction receipts, failures and partials. No archive upload or removal is
+claimed yet. The owner explicitly requested manifests, archive readback and
+cloud indexing as part of this campaign; receipts will be added at closeout.
+
+The host repo is a shared clone of PR291's protected checkout, with `.venv` and
+K50 `tables` from #283. Preserve the complete PR291→PR289→PR288→#283 shared Git
+chain and the [indexed K50 input provenance](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+The smoke qualification reads PR291's original `smoke/scoped-average.gz`,
+225,158,368 bytes, SHA256 `fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`;
+its full provenance and host retrieval command remain in the PR291 entry below.
+Do not remove that input while Phase 2 is active. No M4 access or cleanup.
+
 ## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
 
 [PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), branch
