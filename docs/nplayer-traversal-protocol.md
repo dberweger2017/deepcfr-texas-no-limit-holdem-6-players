@@ -3,8 +3,9 @@
 The owner confirmed the independent rules/information review of
 [PR288](https://github.com/dberweger2017/CFR-NLHE-6max/pull/288) at `231b3eb6` on
 October 15, 2026. No blocking findings remain in that review. This work starts
-on `feature/nplayer-traversal-known-games`, stacked on that unmerged parent;
-the owner still decides every merge.
+on `feature/nplayer-traversal-known-games`, initially stacked on that parent.
+The owner subsequently merged PR288; PR289 now targets main. The owner still
+decides every merge.
 
 ## Algorithm and scope
 
@@ -104,6 +105,16 @@ per-player limit, approximately three minutes quoted from the measured
 10.5–10.7 seconds per 500,000 iterations, capped at ten minutes total. The prior
 failed endpoint stays recorded. The runner also checks exact split/resume for
 the first confirmation seed inside that same cap.
+
+The approved confirmation passes at source `7900a8019ed6b868891c0b733adfa0da768f1a1e`:
+maximum per-player BR gains are **0.021380, 0.021521 and 0.019345 chips/hand**.
+All nine gains are below the unchanged 0.025 limit, and independent OpenSpiel
+values and best responses agree to 1e-10. Fresh and split/resumed checkpoint
+and average-export bytes match. The complete guarded job, including build,
+reference checks and recovery, takes **182.97 seconds**, below its 600-second
+cap. This resolves the known-game threshold; independent traversal review and
+the remaining HU checks still gate dependent work. Full results belong in
+the [traversal report](reports/nplayer-traversal.md).
 
 Cash adapter correctness tests use at most 20,000-node targets and complete
 iteration boundaries; they are not the later size experiment or smoke run.

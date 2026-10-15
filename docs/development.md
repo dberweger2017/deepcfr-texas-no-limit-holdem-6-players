@@ -23,16 +23,18 @@ The [research history](research-history.md) indexes completed experiments.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.
 - `native/hu20-trainer/`: native training, game/key parity, exports and bench.
-  `src/nplayer.rs` is an isolated 2–6-player rules core; training still uses the
-  existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
+  `src/nplayer.rs` is an isolated 2–6-player rules core; default training uses
+  the existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
   `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity`
   followed by `python -m scripts.check_nplayer_parity --out results/nplayer-parity`.
   The separate [N-player traversal gate](nplayer-traversal-protocol.md) uses
   `multi_cfr.rs` for both Kuhn/Leduc and the cash adapter. Build experimental
   commands with `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example multi_known --example nplayer_train`.
   `multi_known kuhn 3 2000000 2026101501 NEW_OUTPUT_DIRECTORY` runs the declared
-  small-game experiment; its Leduc gate is currently failed at the first fixed
-  endpoint, so it does not authorize dependent campaigns. The cash command requires
+  small-game experiment. Leduc failed its first fixed endpoint; the separately
+  owner-approved three-seed confirmation passes at 2M iterations with the same
+  limit. Independent traversal review still gates dependent size/smoke work.
+  The cash command requires
   explicit `--players`, `--nodes`, `--max-entries`, `--max-seconds`, `--card-buckets`
   and `--out`; optional `--stack-bb`, `--stacks`, blinds, `--last-average-street`
   (0=preflop through 3=river), `--freeze-at-cap`, `--telemetry` and `--stop-file`

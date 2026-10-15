@@ -1,0 +1,191 @@
+[
+  {
+    "game": "kuhn",
+    "seed": 2026101501,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/kuhn-2026101501/average.json",
+      "sha256": "5ab0efd369ab8641fc0beaa78ff827db502bc6604efba39f9f6445ca05d5574a",
+      "information_sets": 48,
+      "values": [
+        -0.02938340392143235,
+        -0.020805841413668813,
+        0.05018924533510105
+      ],
+      "best_response": [
+        -0.02900923239489983,
+        -0.01994530513819362,
+        0.05053668381757792
+      ],
+      "gains": [
+        0.0003741715265325185,
+        0.0008605362754751933,
+        0.0003474384824768695
+      ]
+    },
+    "checkpoint_sha256": "3973ab587c3b4c06037618cf60c999b14b3c05969d559b3c7cb85380a26087e0",
+    "gain_gate_passed": true,
+    "fitted_beta": 0.2048717910784008,
+    "published_value_max_error": 2.7491919664519165e-05,
+    "published_value_gate_passed": true,
+    "status": "passed"
+  },
+  {
+    "game": "kuhn",
+    "seed": 2026101502,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/kuhn-2026101502/average.json",
+      "sha256": "577da8cc08a01f12aacf08f5e94a690a02210290f6038923ae24eb170e2ae229",
+      "information_sets": 48,
+      "values": [
+        -0.029782626659152545,
+        -0.02092128760355144,
+        0.050703914262704264
+      ],
+      "best_response": [
+        -0.02943447519901443,
+        -0.01875049393899625,
+        0.05116386611665602
+      ],
+      "gains": [
+        0.00034815146013811304,
+        0.002170793664555193,
+        0.00045995185395175664
+      ]
+    },
+    "checkpoint_sha256": "75ef7309a3bf365d231cf8162717337c1dc973af6100d786a2182fbaf8874586",
+    "gain_gate_passed": true,
+    "fitted_beta": 0.2158384910622817,
+    "published_value_max_error": 8.79542702181095e-05,
+    "published_value_gate_passed": true,
+    "status": "passed"
+  },
+  {
+    "game": "kuhn",
+    "seed": 2026101503,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/kuhn-2026101503/average.json",
+      "sha256": "415f78f757fba1f970c1049ab623f48f3e2c252af7790691b7aee4235c3e7cc3",
+      "information_sets": 48,
+      "values": [
+        -0.02713569860188325,
+        -0.020243330213626343,
+        0.047379028815509594
+      ],
+      "best_response": [
+        -0.02632062563786064,
+        -0.01912317085391857,
+        0.05056241580352444
+      ],
+      "gains": [
+        0.0008150729640226118,
+        0.001120159359707773,
+        0.003183386988014847
+      ]
+    },
+    "checkpoint_sha256": "824ebae00496fc4539e79b2dcb3f569f5eb4b9f65e33310badbd83478699b743",
+    "gain_gate_passed": true,
+    "fitted_beta": 0.14417672900871414,
+    "published_value_max_error": 0.0005900031197069895,
+    "published_value_gate_passed": true,
+    "status": "passed"
+  },
+  {
+    "game": "leduc",
+    "seed": 2026101501,
+    "iterations": 500000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/leduc-2026101501/average.json",
+      "sha256": "66b44f7befa88a787b2462db0532cea94e24ee4d619e52f49a869f2d30234a17",
+      "information_sets": 7428,
+      "values": [
+        -0.08037447591675428,
+        -0.009516840587522973,
+        0.0898913165042772
+      ],
+      "best_response": [
+        -0.04910996350123392,
+        0.02135288608816438,
+        0.13231587134491546
+      ],
+      "gains": [
+        0.03126451241552036,
+        0.030869726675687353,
+        0.04242455484063826
+      ]
+    },
+    "checkpoint_sha256": "8767c73459c32e5cb9ba5f8415de43c1a2bb8814ef3116a784f3fc40e0f83743",
+    "gain_gate_passed": false,
+    "status": "failed"
+  },
+  {
+    "game": "leduc",
+    "seed": 2026101502,
+    "iterations": 500000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/leduc-2026101502/average.json",
+      "sha256": "0e17571f22524407ba25df98adac7c0e4c1fc0994c44fab431484ee8e78a9fd8",
+      "information_sets": 7428,
+      "values": [
+        -0.06928347756143444,
+        -0.013035209861195551,
+        0.08231868742263002
+      ],
+      "best_response": [
+        -0.036990551617085365,
+        0.02008666715262325,
+        0.12687914360364197
+      ],
+      "gains": [
+        0.03229292594434907,
+        0.0331218770138188,
+        0.044560456181011954
+      ]
+    },
+    "checkpoint_sha256": "e8a078cad2b2e73f5939e5fb4bdbbbf0311210eb7572b0a5606ed0e4b161830b",
+    "gain_gate_passed": false,
+    "status": "failed"
+  },
+  {
+    "game": "leduc",
+    "seed": 2026101503,
+    "iterations": 500000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../known-results/leduc-2026101503/average.json",
+      "sha256": "0546e4d69aa9682321f729097983e232cbbd84849a016829455f664f9f737feb",
+      "information_sets": 7428,
+      "values": [
+        -0.07468798075142469,
+        -0.011946659664716808,
+        0.08663464041614147
+      ],
+      "best_response": [
+        -0.04287106912758004,
+        0.018485033422213137,
+        0.11725773807565965
+      ],
+      "gains": [
+        0.031816911623844646,
+        0.030431693086929945,
+        0.030623097659518178
+      ]
+    },
+    "checkpoint_sha256": "6b8130e72f4b9ee40ebc9a80742012669d472028763ad1d41fc3a0bfb231959f",
+    "gain_gate_passed": false,
+    "status": "failed"
+  }
+]
