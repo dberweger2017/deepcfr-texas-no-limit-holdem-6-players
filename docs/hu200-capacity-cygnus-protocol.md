@@ -24,7 +24,11 @@ established explanation of the later inconclusive learning curve.
 
 ## Admission and exact identity
 
-Before large training, measure per-entry memory and menu lengths in guarded
+A bounded preliminary measurement may re-save the qualified seed1302 500M
+checkpoint with zero training steps:300M-cap header only, all rows identical,
+full post-write verification and every-row current/average audit. Limit this
+operation to5400s, two CPUs,12GiB RSS, the same heat/swap guards and50GB floor.
+Then, before large training, measure per-entry memory and menu lengths in guarded
 500M prefixes, including saved table RSS and sampled train/save peaks. Account
 for fixed card tables, aging of initially regret-free entries, shard index
 growth/sort workspaces, three simultaneous residents, one export/audit, the OS
@@ -127,11 +131,13 @@ checkpoint until its successor audits. After20B audits, retain20B recovery and
 both5B/20B averages;5B recovery can then retire. This applies only to this new
 campaign, never another open PR. Keep all incomplete/failed attempts.
 
-Worst staged training budget: nine checkpoints while20B is being written
-(three each5B/10B/20B)162GB, six retained averages69GB, one current export9GB,
-restored twins10GB, traces10GB, staging/growth20GB, floor50GB: **330GB**,
-below the353.837GB initial available. Release5B recovery after a verified10B
-successor when its5B average has audited to reduce that bound further.
+Worst staged training budget: six checkpoints (old and new recovery per seed)
+120GB at20GB each, six retained averages69GB, one current export10GB, one
+full-audit SQLite workspace50GB, restored twins10GB, traces10GB, staging/growth
+20GB and floor50GB: **339GB**, below353.837GB initially available. Release5B
+recovery after a verified10B successor once its5B average has audited. Archive
+input transport copies are retired after their verified extraction; the Drive
+originals remain. Actual audit workspace growth is monitored within the budget.
 No cache construction during training. After training: three20B recovery54GB,
 six averages69GB, twins10GB, three20B large caches55.5GB and three twin caches
 15.5GB, traces10GB, staging/growth20GB, floor50GB: **284GB**. Retire inactive20B
@@ -159,8 +165,10 @@ hashes and match audited headers/parents. Existing source archives stay intact.
 
 Restoration records are #265's model index and #278's per-seed model indexes.
 The Drive connector rejected the3,162,672,661-byte seed1421 archive before
-invocation: its raw download limit is268,435,456 bytes. Preserve that failure;
-do not claim restoration or use excluded machines to work around it.
+invocation: its raw download limit is268,435,456 bytes. Preserve that failure.
+Use the established read-only synced Drive archive to SSH transfer route for
+file I/O only; all hashes, extraction and model/scientific work run on bb128.
+No other campaign working originals or upload processes are involved.
 
 ## Evaluation fixed before final hands
 
