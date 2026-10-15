@@ -1,3 +1,17 @@
+## Urgent M1 uploaded cache release — October 15
+
+Owner-requested urgent cleanup releases **20.953 GB**, restoring
+verified M1 free space to **27.310 GB** at 2026-10-15T05:21:29Z.
+Only PR278's uploaded, unused seed-2 full ZIP cache becomes online-only; its
+[unchanged Drive file](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk) and same-size placeholder remain. Standing
+inactive-cache permission applies after current upload/identity/dependency/open
+handle checks; no original or active input is removed. Failed seed1 canonical
+ZIP and Lost and Found, both open roots and server/model inputs are untouched.
+[Exact path/restoration and preservation](docs/artifacts/storage-vacuum-20261015-m1.md),
+[accepted receipt](https://drive.google.com/file/d/1_gUqcJQor8xpb_1EbdJr2y_2_AVeOh1X/view?usp=drivesdk) (ID `1_gUqcJQor8xpb_1EbdJr2y_2_AVeOh1X`, 6,335 bytes,
+SHA256 `88092d3dc5c84cf75a3e6cf45a6e3101bcc14a15c666bb4c18198a83e7d37385`). No retry/manipulation of the failed upload,
+payload download, repeat hashes, synced deletion, force offload or unpinning.
+
 ## Another 30 GB on M4 — October 14
 
 Owner-requested cleanup exceeds the target with **32.500 GB**
