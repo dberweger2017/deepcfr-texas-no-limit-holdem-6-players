@@ -1,0 +1,16 @@
+{
+  "source": "78954644aa316ab01d9d794bc430a48728f9df5d",
+  "native_tree": "6a024f9b93134c09e59883ca551f822fc3bcbe4e",
+  "phase": "main",
+  "binary_sha256": "383149746fa95d27a89fab15d9d1790209ccc8b5e31bc8a954b05d02353a12fc",
+  "legacy_binary_sha256": "cd2c6dfa0f9a0cf2478dcc4839bf250942f1385a59aa58a55551f9a9f9ad4079",
+  "seed": 2026101521,
+  "pilot_admission": {
+    "status": "passed",
+    "quotes_seconds": {
+      "n3-20bb-scope3": 64.01736396421526,
+      "n3-100bb-scope3": 62.266757865392265
+    },
+    "results": 2
+  }
+}
