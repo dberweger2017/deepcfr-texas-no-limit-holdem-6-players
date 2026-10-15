@@ -4121,3 +4121,42 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - R4 members: `research/training/4/checkpoint.gz`, `research/training/4/current.gz`, `research/training/4/average.gz`; average SHA256 `db5104eb8c1d0f73fb1cbb50374e76b8add1b36ff27e3554b07ccc46e32c1c29`, actual1,000,002,794 nodes /40,858,142 entries. R8 corresponding `research/training/8/` members; average SHA256 `ef4002afa076f2f1c687ecb5d82b31127b3b64d872a546c75b35cddc345b8f30`, actual1,000,009,152 nodes /41,049,696 entries. All current/average rows audited before play.
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
+
+## PR301 — HU200 capacity on cygnus-x1 (preflight, October 15, 2026)
+
+[PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
+`f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
+[report](docs/reports/hu200-capacity-cygnus.md). No large training/final hands yet.
+Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
+Open PR292 root/archives/upload processes/shared inputs remain protected.
+
+Canonical destination: [PR-301-hu200-capacity-cygnus](https://drive.google.com/drive/folders/159JoTfd8HUyblui5QgSMc6w1JNz-z7px),
+folder ID `159JoTfd8HUyblui5QgSMc6w1JNz-z7px`, under the existing research project
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. No archive uploaded or accepted yet.
+Future archive receipts must supply whole/member hashes, local readback,
+Drive piece/archive IDs and separate upload/metadata acceptance.
+
+The three fixed twins are restoring from their already indexed #265/#278
+accepted Drive archives through read-only synced archive I/O and SSH; no model
+work runs on the coordinator. [Exact archive IDs, hashes, members and model pins](docs/reports/hu200-capacity-cygnus-artifacts/drive-inputs.json).
+Restoration and verification on bb128 remain pending. For retrieval, download the
+named accepted archive to ignored `inputs/archives/`, verify its whole SHA256
+and embedded `ARCHIVE-MANIFEST.json` hash, extract the named member to fresh
+`inputs/seed-SEED/`, then verify its exact model SHA256. Original restoration
+commands: [#265](docs/reports/hu200-k50-frozen-artifacts/model-index.json),
+[#278 seed1421](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json),
+[#278 seed1422](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+
+Qualified input dependencies remain read-only at
+`/home/dberweger/cygnus-qualification-20261014/`: `trainer-first` SHA256
+`d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436`,
+`benchmark-results/500m.gz` SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`,
+and three #163 tables under `tables/`. All four input hashes have been freshly
+verified on bb128 before the guarded no-step memory calibration. Existing
+[qualified archive/restoration pins](docs/reports/cygnus-x1-artifacts/archive-main.json)
+and [#163 table provenance](docs/reports/cygnus-x1-artifacts/input-restoration.json)
+remain authoritative. No original removed or altered. Memory calibration output
+and full thermal/resource stream await completion and archival; no result yet.
+[Administrative failures](docs/reports/hu200-capacity-cygnus-artifacts/admin-failures.json)
+include connector413 and the corrected source-transfer prerequisite race.
