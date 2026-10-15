@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Completed-work storage (October 15):** 19.342 GB reclaimed across M1/M4 from accepted uploaded ZIP caches, one unchanged backed-up ZIP and inactive rebuildable caches; verified 37.846/47.149 GB free. Worktrees, models/tables, server inputs and failed/uploading seed1 copies remain. [Exact restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-completed.md).
+
 - **Cygnus-x1 /bb128 qualification ([#283](https://github.com/dberweger2017/CFR-NLHE-6max/pull/283)):** exact fresh/resumed 20M and matched 500M M4 checkpoints reproduce; compute throughput is 41.1% of M4. Full suite passes with strict MKL; 112 GiB RAM screens remain partial with zero observed errors. Guarded CPU diagnostics ready; BIOS fan/PL1, full boot-time/XMP RAM and connected-storage checks remain owner work. Both evidence archives accepted; recurring checks disabled; no campaign authorized. [Measurements and limits](docs/reports/cygnus-x1-qualification.md).
 
 - **Urgent M1 storage (October 15):** 20.953 GB released from the confirmed uploaded unused PR278 seed-2 ZIP cache; 27.310 GB free. Open roots/inputs and failed seed1 canonical ZIP/Lost and Found remain untouched. [Restoration receipt](docs/artifacts/storage-vacuum-20261015-m1.md).
