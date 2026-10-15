@@ -4,23 +4,48 @@
 [report](docs/reports/hu200-v055-blend.md),
 [corrected protocol and predeclared seed weights](docs/hu200-v055-blend-protocol.md).
 Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declaration
-`33215e6b`. **Ongoing /not a final blend result.** The owner authorized raw
-20B checkpoint inputs after the normalized-export stop; its original evidence
-is retained. Local seed2026101421 checkpoint hash, exact average reproduction
-and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Sequential remaining-input restoration began October 15 at 17:52 UTC under both
-locks/guards, with 72.95 GB free and a 56.53-GB maximum sequential requirement.
-Seed2026101302 now passes whole archive/manifest/raw checkpoint SHA256 verification
-and exact released-average reproduction (October 15,20:37 UTC). Seed2026101422 also passes whole archive/manifest/raw SHA256 and exact
-released-average reproduction (October 15,23:05 UTC /October 16,01:05 Madrid).
-All three raw/average proofs now pass; the actual union/capacity stage starts
-at23:07:32 UTC. Its admission remains pending.
-Zero final hands, no blend/cache or strength result.
-No research-original removal, release, tag, default or merge.
+`33215e6b`, qualified scientific source `24df6228`. **Final capacity stop /no playing result.**
+All three raw checkpoint SHA256s verify and all released average SHA256s
+reproduce exactly. The union contains **156,208,331 keys**: 88,880,705 in one
+seed,34,741,832 in two,32,585,794 in all three. The declared disk gate needs
+**74,474,288,086 bytes free** with floor/margin; **63,332,925,440** are available,
+a **11,141,362,646-byte shortfall**. Only the fixed unplayed compression probe
+exists; no full blend, cache build, pilot or final hand runs. The original
+normalized-export stop is preserved separately. The M4 releases October16 at
+**01:19:22 Madrid /October15,23:19:22UTC**, both locks free,63.30GB available.
+All canonical inputs/unique evidence remain; only two verified inactive ZIP
+cache copies are normally released, preserving cloud files/placeholders.
+No research-original removal, release, tag, default, Slumbot or merge change.
 
 Designated [Research-Cloud folder](https://drive.google.com/drive/folders/1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH),
 ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
 `~/Local/Research-Cloud/PR-297-hu200-v055-blend/`.
+
+**Corrected raw-input continuation, primary archive accepted:**
+
+| ZIP /Drive ID | Bytes /members | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [hu200-v055-blend-continuation-M4-20261016.zip](https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view) | 10,571,715 /188 | `1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6` | `6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689` |
+
+All members verify against embedded `ARCHIVE-MANIFEST.json`, followed by whole
+archive SHA256. Separate current native/upload and independent exact Drive
+ID/name/size/direct-parent checks accept the upload; remote output-archive bytes
+are not downloaded. [Readback](docs/reports/hu200-v055-blend-artifacts/continuation-archive-receipt.json),
+[acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-primary-upload-acceptance.json),
+[union manifest](docs/reports/hu200-v055-blend-artifacts/continuation-union-scan.json),
+[gate/resource summary](docs/reports/hu200-v055-blend-artifacts/continuation-capacity-stop.json),
+[M4 release](docs/reports/hu200-v055-blend-artifacts/continuation-m4-release.json).
+
+Retrieve the ZIP into a fresh ignored directory, verify its whole SHA256,
+then extract and verify each member against `ARCHIVE-MANIFEST.json`.
+`research/hu200-v055-blend/` contains input proofs, source-cache receipts,
+raw resources/failures, union/probe/audit/gate and stop summary;
+`research/hu200-v055-blend-{inputs,tooling,tooling-post-review,python-tests,qualified-tools}/`
+preserves earlier proof/build/check histories. `control/`, `source/` and
+`bin/hu200_blend` preserve exact implementation. Indexed canonical input files
+are excluded after SHA256 verification and retained locally; their retrieval
+links below remain dependencies. No full blended player is claimed.
 
 **Historical normalized-export stop archives, both accepted:**
 

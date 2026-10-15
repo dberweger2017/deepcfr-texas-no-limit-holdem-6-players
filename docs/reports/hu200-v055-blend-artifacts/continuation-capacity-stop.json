@@ -1,0 +1,310 @@
+{
+  "action_slots": 482975338,
+  "all_three_raw_sha256s_verified": true,
+  "all_three_released_average_sha256s_reproduced": true,
+  "at": 1792106159.650395,
+  "cache_built": false,
+  "canonical_inputs_and_unique_evidence_retained": true,
+  "disk_shortfall_bytes": 11141362646,
+  "final_hands": 0,
+  "full_blend_built": false,
+  "gate": {
+    "all_seed_averages_reproduced": true,
+    "archive_workspace": "one ZIP alongside retained originals; same-filesystem atomic publication required",
+    "at": 1792105988.366254,
+    "audit_payload_multiplier": 1.5,
+    "audit_workspace_bytes": 22654759739,
+    "blend_cache_bytes": 9331111441,
+    "checkpoint_and_cache_workspace": "one streamed output; no sort or full-table RAM copy",
+    "compression_multiplier": 1.5,
+    "configuration_sha256": "6701d356d8b3127f206aef0c8c476a456d3cd18b77e273eacbd6d4bfed111a5c",
+    "disk_floor_bytes": 17179869184,
+    "free_bytes": 63332925440,
+    "future_peak_additional_bytes": {
+      "archive": 55146935254,
+      "audit": 45664824614,
+      "merge_and_exports": 23010064875,
+      "play": 41751838676
+    },
+    "margin_bytes": 2147483648,
+    "projected_outputs": {
+      "average": 9470525264,
+      "checkpoint": 9093004374,
+      "current": 4446535237
+    },
+    "required_free_bytes": 74474288086,
+    "scan_report": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union/scan.json",
+    "scan_sha256": "9779acaa44cc10e9b08c096a87bd1b1ce2822464b517619893c1621b40ab18e6",
+    "scope": "first union/export/cache/audit/archive capacity gate",
+    "seed_cache_bytes": [
+      5115564345,
+      5115586684,
+      5115695064
+    ],
+    "status": "capacity-stop",
+    "trace_reserve_bytes": 4294967296
+  },
+  "inputs": [
+    {
+      "action_slots": 265932556,
+      "entries": 85373907,
+      "iteration_weight": 138958528171590,
+      "missing_root_keys": [],
+      "root_mass": 138958528171589.98,
+      "root_mass_minus_weight": -0.015625,
+      "sorted_key_sha256": "0318ed5894960151e5e55f8fde538bdfe1eda1d3ec496877eaf735f34ef4bf3c",
+      "spec": {
+        "average_path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/average.gz",
+        "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "entries": 85373907,
+        "iterations": 16670844,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/checkpoint.gz",
+        "seed": 2026101302,
+        "sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "weight": 138958528171590
+      }
+    },
+    {
+      "action_slots": 265935309,
+      "entries": 85373916,
+      "iteration_weight": 140199312593278,
+      "missing_root_keys": [],
+      "root_mass": 140199312593278.0,
+      "root_mass_minus_weight": 0.0,
+      "sorted_key_sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df",
+      "spec": {
+        "average_path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend-inputs/seed-2026101421.average.gz",
+        "average_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "entries": 85373916,
+        "iterations": 16745107,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/checkpoint-2026101421.gz",
+        "seed": 2026101421,
+        "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+        "weight": 140199312593278
+      }
+    },
+    {
+      "action_slots": 265948804,
+      "entries": 85373928,
+      "iteration_weight": 141586223234856,
+      "missing_root_keys": [],
+      "root_mass": 141586223234856.06,
+      "root_mass_minus_weight": 0.0625,
+      "sorted_key_sha256": "1fc63ca8eb21d6246a87da3745598b68d57cd40c4cf6331dbcf2f333750860b1",
+      "spec": {
+        "average_path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101422/average.gz",
+        "average_sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "entries": 85373928,
+        "iterations": 16827728,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101422/checkpoint.gz",
+        "seed": 2026101422,
+        "sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c",
+        "weight": 141586223234856
+      }
+    }
+  ],
+  "keys_in_exactly_1_2_3_seeds": [
+    88880705,
+    34741832,
+    32585794
+  ],
+  "membership_masks": [
+    0,
+    29640707,
+    29579228,
+    11614468,
+    29660770,
+    11532938,
+    11594426,
+    32585794
+  ],
+  "model_identity": "hu200-v055-sequence-blend-2026101529701",
+  "pilot_hands": 0,
+  "pins": {
+    "all-inputs-verified.json": {
+      "bytes": 4002,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/all-inputs-verified.json",
+      "sha256": "3e68694f05e8b648d4f6a2200df45fe56137f11875c29fd6f38feb6c1e85daf4"
+    },
+    "capacity-gate.json": {
+      "bytes": 1310,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/capacity-gate.json",
+      "sha256": "340805b5624b8583861e5384598e89882c77d975b7a4502f7fbe8dda9f1e2e0a"
+    },
+    "merge-config.json": {
+      "bytes": 8501,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/merge-config.json",
+      "sha256": "6701d356d8b3127f206aef0c8c476a456d3cd18b77e273eacbd6d4bfed111a5c"
+    },
+    "union/sample-audit.json": {
+      "bytes": 598,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union/sample-audit.json",
+      "sha256": "c5b4a5608917aaf59e81695061fc229a70a0902168fbccd526f6017905ca34e9"
+    },
+    "union/sample-pins.json": {
+      "bytes": 699,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union/sample-pins.json",
+      "sha256": "c08ead0f5c37be370ad459f56109b78fc493aad6beae53be212f6be37b372bdb"
+    },
+    "union/scan.json": {
+      "bytes": 36689,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union/scan.json",
+      "sha256": "9779acaa44cc10e9b08c096a87bd1b1ce2822464b517619893c1621b40ab18e6"
+    }
+  },
+  "playing_outcomes_read": false,
+  "research_originals_removed": [],
+  "resources": [
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 687079424,
+      "minimum_free_disk_bytes": 72989573120,
+      "minimum_free_percent": 84,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/protect-inputs/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 19939328,
+      "samples": 2,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 628359168,
+      "minimum_free_disk_bytes": 45582946304,
+      "minimum_free_percent": 84,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/release-archive-cache-2026101302/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 117899264,
+      "samples": 3,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 586416128,
+      "minimum_free_disk_bytes": 42368970752,
+      "minimum_free_percent": 81,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/release-archive-cache-2026101422/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 251609088,
+      "samples": 3,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 678690816,
+      "minimum_free_disk_bytes": 45590859776,
+      "minimum_free_percent": 71,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/restore-2026101302/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 57212928,
+      "samples": 1956,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 628359168,
+      "minimum_free_disk_bytes": 42371039232,
+      "minimum_free_percent": 74,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/restore-2026101422/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 53493760,
+      "samples": 1743,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 586416128,
+      "minimum_free_disk_bytes": 63330897920,
+      "minimum_free_percent": 81,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/retire-final-caches/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 19988480,
+      "samples": 2,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 586416128,
+      "minimum_free_disk_bytes": 63299280896,
+      "minimum_free_percent": 81,
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/guards/operations/union/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 72581120,
+      "samples": 68,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 737411072,
+      "minimum_free_disk_bytes": 56814055424,
+      "minimum_free_percent": 75,
+      "path": "results/hu200-v055-blend-inputs/guards/operations/local-seed-reproduction/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 72056832,
+      "samples": 156,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 703856640,
+      "minimum_free_disk_bytes": 73037799424,
+      "minimum_free_percent": 85,
+      "path": "results/hu200-v055-blend-tooling/guards/operations/merge-tool-tests/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 387923968,
+      "samples": 4,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 703856640,
+      "minimum_free_disk_bytes": 72998203392,
+      "minimum_free_percent": 85,
+      "path": "results/hu200-v055-blend-tooling-post-review/guards/operations/merge-tool-tests/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 332742656,
+      "samples": 3,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 687079424,
+      "minimum_free_disk_bytes": 72991145984,
+      "minimum_free_percent": 85,
+      "path": "results/hu200-v055-blend-python-tests/guards/operations/focused-tests/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 19922944,
+      "samples": 2,
+      "stops": []
+    },
+    {
+      "any_breach": false,
+      "maximum_swap_bytes": 678690816,
+      "minimum_free_disk_bytes": 72970104832,
+      "minimum_free_percent": 84,
+      "path": "results/hu200-v055-blend-qualified-tools/guards/operations/all-tooling-checks/resources.jsonl",
+      "sampled_peak_family_rss_bytes": 240287744,
+      "samples": 3,
+      "stops": []
+    }
+  ],
+  "rule": "fsum(raw Node.average_s[action] / (T_s*(T_s+1)/2)); absent keys contribute zero",
+  "sample_audit": {
+    "all_nodes_verified": 38103,
+    "average_sha256": "a38b74ac79f9bd4de86a40cb8bccaaf021b811ef4a806a69de94e60fa9a1c2f4",
+    "checkpoint_sha256": "161389f2aa153481364a1ae15d441aa960a26e6647b600e93b7b14362e0ee8b5",
+    "counts": {
+      "entries": 38103,
+      "positive_mass": 30340,
+      "zero_mass": 7763
+    },
+    "current_sha256": "4dd7130e90c3ef132500091506a5506f75fe5c3e0bc4fe2cb2bbff9fd4d1db06",
+    "maximum_tv": 0.8,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.1909005008745039
+  },
+  "source": "24df622856e4a301ed9bd328184164521abfb1b5",
+  "status": "capacity-stop",
+  "training_performed": false,
+  "union_disk_samples": 69,
+  "union_keys": 156208331,
+  "union_sampled_peak_output_allocated_bytes": 4882432,
+  "union_sampled_peak_output_logical_bytes": 3805718,
+  "union_scan_kernel_peak_rss_bytes": 5095424,
+  "union_scan_seconds": 324.83227075,
+  "unplayed_fixed_compression_sample": {
+    "bytes": 1478499,
+    "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union/sample.gz",
+    "rows": 38103,
+    "sha256": "161389f2aa153481364a1ae15d441aa960a26e6647b600e93b7b14362e0ee8b5"
+  }
+}

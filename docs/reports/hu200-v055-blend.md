@@ -1,9 +1,17 @@
 # Frozen HU200 v0.5.5 three-seed blend
 
-**Owner-authorized continuation:** use raw `Node.average` values from the three
-20B checkpoints. The original stop below remains part of the record. The fixed
-blend and evaluation are unchanged; current work is input admission and export
-reproduction. [Corrected protocol](../hu200-v055-blend-protocol.md).
+**Capacity stop, October 16:** all three raw checkpoint SHA256s verify and the
+existing exporter reproduces every released average exactly. The union contains
+**156,208,331 keys**. The declared disk gate requires **74.474 GB free**, including
+the 16-GiB floor and 2-GiB margin; **63.333 GB** is available, a **11.141-GB
+shortfall**. No full blend, cache build, pilot or final hand runs. There is no
+playing-strength result. The **M4 is released at 01:19:22 Madrid** with both
+research locks free. Canonical inputs and unique evidence remain.
+
+The owner authorized the corrected raw-input continuation after the original
+normalized-export stop, which remains a separate section below. The blend rule,
+weights and final counts are unchanged.
+[Corrected protocol](../hu200-v055-blend-protocol.md).
 
 ## Original normalized-export stop
 
@@ -265,3 +273,124 @@ raw inputs and exact reproduced averages remain protected. Free disk is
 **23:07:32 UTC /01:07:32 Madrid**. All three required input/export proofs now pass;
 full blend, caches and final play remain unstarted pending that gate.
 [Third-seed proof, resource summary and cache-release receipt](hu200-v055-blend-artifacts/continuation-seed-2026101422-verified.json).
+
+
+## Raw-input union and disk-capacity stop
+
+Scientific source is `24df6228`; later commits add only reports and receipts.
+All model restoration, verification, test/build work and the streaming union run
+on the 16-GB Apple M4. M1 handles source/PR and administrative closeout only.
+No training runs. The original frozen exporter SHA256 is
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+
+The predeclared per-seat linear iteration weights remain in force. Root-infoset
+mass is a diagnostic, not an alternative denominator selected after results.
+All 169 root keys occur in each seed. The measured float64 root masses are:
+
+| Seed | Declared W = T(T+1)/2 | Root mass (exact float64 decimal) | Mass minus W |
+|---|---:|---:|---:|
+| 2026101302 | 138,958,528,171,590 | 138,958,528,171,589.984375 | −0.015625 |
+| 2026101421 | 140,199,312,593,278 | 140,199,312,593,278.000000 | 0 |
+| 2026101422 | 141,586,223,234,856 | 141,586,223,234,856.062500 | +0.0625 |
+
+These differences are below 5×10⁻¹⁶ of W and arise in floating-point sums. No
+normalization choice changes. For each key/action, the fixed rule is
+`fsum(raw Node.average_s[action] / W_s)` over seeds containing that key. Absent
+keys contribute zero; joint zero-mass rows remain uniform through the existing
+exporter. The proposed identity `hu200-v055-sequence-blend-2026101529701` is
+distinct from every seed; regrets/visits are zero, and iteration 1 is a synthetic
+format marker with no training/resume claim.
+
+| Key membership | Keys |
+|---|---:|
+| Exactly one seed | 88,880,705 |
+| Exactly two seeds | 34,741,832 |
+| All three seeds | 32,585,794 |
+| Union | **156,208,331** |
+
+The weighted membership count is 256,121,751, matching the sum of the three
+input key counts. The union contains **482,975,338 action slots**. Per-input
+sorted-key SHA256s, membership masks, menus, root masses, raw/average SHA256s
+and the fixed rule are in the
+[union manifest](hu200-v055-blend-artifacts/continuation-union-scan.json).
+
+The one fixed, unplayed compression probe contains **38,103 rows** selected by
+the declared first-12-key-bits rule. Its checkpoint and both existing-exporter
+outputs pass every-row audit with uniform zero-mass handling. It is a size probe,
+not a complete player or a second blend candidate. No probe hand is played.
+
+The declared gate uses that measured compression with a 1.5 multiplier, exact
+cache dimensions, the existing auditor's disk ledger, a 4-GiB initial trace
+reserve and coexisting originals/archive. **GB below is decimal; GiB is binary.**
+
+| Projected item | GB |
+|---|---:|
+| Blended raw checkpoint | 9.093 |
+| Current export required by the existing auditor | 4.447 |
+| Average export | 9.471 |
+| Blend cache, including manifest allowance | 9.331 |
+| Largest one-seed cache | 5.116 |
+| Audit ledger/workspace | 22.655 |
+| Largest additional peak: retained evidence plus one archive | 55.147 |
+| Floor plus margin: 16 GiB + 2 GiB | 19.327 |
+| **Required free disk** | **74.474** |
+| **Observed free disk** | **63.333** |
+| **Shortfall** | **11.141** |
+
+The gate stops at **23:13:08 UTC October 15 /01:13:08 Madrid October 16**,
+before full merge, cache build or play. Counts and capacity margins are not
+reduced. The direct matches, seven-script panel and played missing-key shares
+have no observations; every predeclared final root remains unused. This is a
+resource stop, not a playing-strength decision.
+[Gate, sample audit and resource summary](hu200-v055-blend-artifacts/continuation-capacity-stop.json).
+
+The streaming scan takes **324.83 seconds**; 68 guard samples show a
+**72,581,120-byte family peak**, and `/usr/bin/time -l` records a
+**5,095,424-byte native peak**. The 69 disk samples record probe-stage peaks of
+**3,805,718 logical /4,882,432 allocated bytes** at five-second cadence. Full-merge
+and cache-build resource peaks are unavailable because those stages never run.
+All corrected-continuation guards are clear. The M4's qualified checks pass
+**5 native and 31 Python tests**; no outcome is read and no scientific retry occurs.
+
+## Corrected-continuation evidence and release
+
+The [M4 continuation archive](https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view)
+is **10,571,715 bytes /188 members**. Whole SHA256
+`1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689`.
+All member sizes/hashes and the whole archive pass local readback. Separate
+current native uploaded1/uploading0/no-conflicts and independent Drive
+ID/name/size/direct-parent checks accept the upload. Remote output-archive
+bytes are not downloaded.
+[Readback](hu200-v055-blend-artifacts/continuation-archive-receipt.json),
+[upload acceptance](hu200-v055-blend-artifacts/continuation-primary-upload-acceptance.json).
+
+Its `research/hu200-v055-blend/` tree preserves all corrected input proofs,
+source-ZIP cache-release preflights/receipts, original/revised clock, failures,
+resource traces, union/sample/audit/gate and the capacity-stop summary. The
+other `research/hu200-v055-blend-*` trees preserve the first local seed proof
+and tooling/check histories. `control/`, `source/` and `bin/hu200_blend` preserve
+exact implementation and execution provenance. The manifest excludes only
+already indexed, verified canonical input checkpoints/averages/tables and the
+then-live archive guard; those inputs remain locally protected. Retrieve those
+inputs with their exact [RESULTS_INDEX](../../RESULTS_INDEX.md) restoration links.
+
+Only the two inactive, verified input-ZIP download caches are released:
+**47,651,127,296 allocated bytes of temporary download-cache turnover** in total.
+The same cloud files and placeholders remain. No research original, active
+input, unique evidence, other PR path or synced file is deleted; no forced
+offload occurs. No policy cache exists to retire.
+[First cache receipt](hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json),
+[second cache receipt](hu200-v055-blend-artifacts/continuation-seed-2026101422-verified.json).
+
+The archive guard closes with return code 0, four clear samples and a
+117,456,896-byte family peak. The M4 releases at **23:19:22 UTC October 15
+/01:19:22 Madrid October 16**, both locks verified available and all this
+campaign's jobs closed, with **63,302,443,008 bytes free**. The machine reports
+Apple M4 and 17,179,869,184 physical-memory bytes.
+[Release](hu200-v055-blend-artifacts/continuation-m4-release.json),
+[closed archive guard summary](hu200-v055-blend-artifacts/continuation-closeout-resources.json).
+M1 administrative closeout supplements the closed guard and final receipts;
+no further M4 model work runs. No release, tag, default, Slumbot or merge change.
+The owner decides continuation and merge.

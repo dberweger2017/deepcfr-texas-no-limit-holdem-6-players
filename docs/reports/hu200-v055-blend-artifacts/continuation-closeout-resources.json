@@ -1,0 +1,74 @@
+{
+  "any_breach": false,
+  "archive_guard_returncode": 0,
+  "at": 1792106451.6773179,
+  "m4_release": {
+    "at": 1792106362.916182,
+    "both_research_locks_available_at": 1792106362.9161758,
+    "canonical_inputs_and_evidence_retained": true,
+    "chip": "Apple M4",
+    "final_hands": 0,
+    "free_disk_bytes": 63302443008,
+    "host": "dberwegerch-m4.local",
+    "lock_paths": [
+      "/Users/dberweger/Local/.hu20-m4-research.lock",
+      "/Users/dberweger/Local/.hu100-m4-research.lock"
+    ],
+    "locks_released": true,
+    "madrid": "2026-10-16T01:19:22.916182+02:00",
+    "own_jobs": [
+      {
+        "create_time": 1792106201.519346,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/archive-continuation-launch.json",
+        "pid": 911
+      },
+      {
+        "create_time": 1792096670.151058,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/release-archive-cache-2026101302-launch.json",
+        "pid": 89804
+      },
+      {
+        "create_time": 1792105590.533421,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/release-archive-cache-2026101422-launch.json",
+        "pid": 99893
+      },
+      {
+        "create_time": 1792086757.605079,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/restore-2026101302-launch.json",
+        "pid": 78176
+      },
+      {
+        "create_time": 1792096726.268828,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/restore-2026101422-launch.json",
+        "pid": 89882
+      },
+      {
+        "create_time": 1792106126.162729,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/retire-final-caches-launch.json",
+        "pid": 777
+      },
+      {
+        "create_time": 1792105652.327724,
+        "live": false,
+        "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/union-launch.json",
+        "pid": 99971
+      }
+    ],
+    "physical_memory_bytes": 17179869184,
+    "primary_archive_locally_verified": true,
+    "primary_native_upload_accepted": true,
+    "source": "24df622856e4a301ed9bd328184164521abfb1b5",
+    "status": "M4 released; no further scientific work authorized by this stopped campaign",
+    "unique_research_originals_removed": [],
+    "utc": "2026-10-15T23:19:22.916182+00:00"
+  },
+  "minimum_free_disk_bytes": 63322189824,
+  "peak_family_rss_bytes": 117456896,
+  "samples": 4
+}
