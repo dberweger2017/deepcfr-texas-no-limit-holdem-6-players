@@ -233,7 +233,9 @@ administrative work after completed science, with no repeated training/export.
 [Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
 All administrative/server/observer sources, failures and raw resource readings
 have been collected for the small closeout supplement; it awaits full-upload
-acceptance. Both full uploads remain undisturbed.
+acceptance. The **04:51 CEST** native/independent metadata check still finds
+both full uploads pending with unchanged partial remote sizes; uploads remain
+undisturbed.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures
