@@ -142,3 +142,24 @@ Each scheduled training segment has its own **1,800-second traversal clock**;
 checkpoint I/O is included in the whole-seed supervisor clock. Stop the campaign
 on any failed seed or audit. No concurrent seeds or evaluation. Final evaluation
 has a separately committed quote using actual row counts before final hands.
+
+## Telemetry interpretation and execution boundary
+
+Entry `visits` counts traverser regret-update visits, not opponent-average
+updates and not iteration-weighted mass. All-street averaging can retain
+opponent-only keys with zero regret visits; report those zero-visit shares as
+well as the mean. A training missing decision is a lookup absent from the
+iteration-start table, before that iteration's batched inserts; it is not the
+same as the final policy's played missing-key rate. Each milestone audit gives
+cumulative and since-previous-save missing/decision counts by street. Evaluation
+reports actual played lookup misses separately, by identity and street.
+
+All 42 final contrasts run sequentially inside one exclusive on-host supervisor
+whose wall cap is the committed manifest's budget. Each contrast still loads
+from scratch for its second pass. Any failed contrast or thermal/resource stop
+ends the matrix; all-case readout also requires that outer guard to pass.
+Archives retain source/model/raw-trace originals on bb128. ZIP member SHA256/size
+and CRC readback precedes transport splitting; each 128-MiB byte part is hashed
+and their concatenated hash must equal the ZIP. Small M1 transport buffers avoid
+staging the entire campaign on the owner's nearly full laptop. Split archives
+must be concatenated in indexed order before extraction.

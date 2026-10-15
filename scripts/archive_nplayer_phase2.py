@@ -32,7 +32,8 @@ def seal(root, paths, out, owner_status, part_bytes=128*1024**2):
     files={}
     for relative in paths:
         base=root/relative
-        if not base.exists() or base.is_symlink(): raise ValueError('explicit local source required')
+        if not base.exists() or base.is_symlink() or not base.resolve().is_relative_to(root):
+            raise ValueError('explicit source inside root required')
         selected=sorted(base.rglob('*')) if base.is_dir() else [base]
         for path in selected:
             if path.is_symlink(): continue

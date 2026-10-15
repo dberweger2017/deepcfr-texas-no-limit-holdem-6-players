@@ -31,7 +31,8 @@ Admission on bb128: **47 native and 380 Python checks pass**, including
 focused Python admission tests cover two distinct full-average models in both
 lineups, all-hand pinned-engine replay, exact reproduction, corrupted settlement
 rejection, correct block/seat denominators, refusal to continue partial training
-and synthetic VRM stop behavior. All 18 small HU20/HU100/HU200 checkpoint/current/average identities match the
+and synthetic VRM stop behavior. All 18 small HU20/HU100/HU200
+checkpoint/current/average identities match the
 qualified baseline. Fresh/resumed HU100 retain SHA256
 `792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416`.
 The fresh20M and resumed10M→20M #250 checkpoints both retain SHA256
@@ -67,8 +68,11 @@ GiB**, still a scenario rather than a guarantee. Keep the 80-GiB RSS guard.
 
 No research attempt has failed so far. Tests were written before implementation
 and initially failed on absent modules as intended. A light M1 statistics test
-could not run because that interpreter lacks SciPy; the guarded bb128 run then
-passed using its installed research environment. Synthetic corruption and
+could not run because that interpreter lacks SciPy (and later pytest); the
+guarded bb128 run passed using its installed research environment. The existing
+M1 project environment subsequently ran 12 small controller/archive/statistics
+checks in 0.82 seconds; three native integration checks correctly skipped there.
+No dependencies were installed or native workload run on the laptop. Synthetic corruption and
 thermal tests are deliberately failing inputs, not undisclosed campaign reruns.
 
 ## Outstanding work
