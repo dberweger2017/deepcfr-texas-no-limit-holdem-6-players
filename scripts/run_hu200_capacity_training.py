@@ -219,7 +219,7 @@ class Campaign:
             checked = json.loads((old / 'audit.json').read_text())
             value = checked['files']['checkpoint']
             items.append(dict(path=value['path'], expected=value, replacement=str(new)))
-        self.retire_files('recovery-' + Path(newer[SEEDS[0]]['path']).parent.name, items)
+        self.retire_files('recovery-' + Path(older[SEEDS[0]]['path']).parent.name + '-to-' + Path(newer[SEEDS[0]]['path']).parent.name, items)
 
     def run(self):
         fresh = self.stage('gate-fresh20m', 20_000_000)
@@ -242,6 +242,8 @@ class Campaign:
             records = self.stage(str(nodes), nodes, previous)
             self.trim_exports(str(nodes), records, nodes in (5_000_000_000, 20_000_000_000))
             self.replace_recovery(previous, records)
+            if nodes == 2_000_000_000:
+                self.replace_recovery(normalized, records)
             milestones[str(nodes)] = records
             put(self.base / ('milestone-' + str(nodes) + '.json'), records)
             previous = records
