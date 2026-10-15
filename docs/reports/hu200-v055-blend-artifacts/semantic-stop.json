@@ -1,0 +1,14 @@
+{
+  "alternative_formula_chosen": false,
+  "archive_hashes_verified": false,
+  "at": 1792081702.474036,
+  "blend_built": false,
+  "cache_build": false,
+  "complete_model_extractions": 0,
+  "final_hands": 0,
+  "input_hashes_verified": false,
+  "pilot_hands": 0,
+  "reason": "exports already normalized; owner-directed stop",
+  "source_inspection_conclusive": true,
+  "union_scan": false
+}

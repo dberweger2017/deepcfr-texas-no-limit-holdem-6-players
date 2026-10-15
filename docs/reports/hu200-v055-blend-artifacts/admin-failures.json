@@ -1,0 +1,53 @@
+{
+  "status": "administrative-setup-failures-preserved",
+  "failures": [
+    {
+      "action": "initial repository artifact check",
+      "error": "System Python 3.9: TypeError: zip() takes no keyword arguments",
+      "resolution": "Reran with available Python 3.11; check passed before commit"
+    },
+    {
+      "action": "first remote inventory probe",
+      "error": "rg: command not found",
+      "resolution": "Used available system find/grep for M4 inventory"
+    },
+    {
+      "action": "remote glob inventories",
+      "error": "zsh: no matches found for absent .venv and average-export paths",
+      "resolution": "Inspected exact directories; model originals are absent; indexed archives used"
+    },
+    {
+      "action": "local archive-helper search",
+      "error": "zsh: no matches found: scripts/*upload*",
+      "resolution": "Searched explicit existing archive scripts"
+    },
+    {
+      "action": "initial M4 preflight setup",
+      "error": "ModuleNotFoundError: No module named 'psutil'",
+      "resolution": "Failed before admission or input reads; used existing hu20-k50-5b-first-pass environment without installing packages"
+    },
+    {
+      "action": "candidate Python environment checks",
+      "error": "ModuleNotFoundError: No module named 'psutil' in system/deepcfr-training environments",
+      "resolution": "Available K50 environment import verified"
+    },
+    {
+      "action": "first archive packaging setup",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: 'gh' in M4 noninteractive PATH",
+      "resolution": "Read fresh M1 GitHub owner status copied to the M4; separate successful sealing guard; failed guard/log retained in primary archive"
+    },
+    {
+      "action": "premature archive receipt read",
+      "error": "archive-receipt.json not found following failed archive setup",
+      "resolution": "Read only after successful packaging"
+    }
+  ],
+  "scientific_attempts_retried": 0,
+  "hand_retries": 0,
+  "intentional_termination": {
+    "action": "stopped unnecessary input restoration after conclusive source finding",
+    "error": "RuntimeError('Supervisor interrupted: 15')",
+    "resource_breach": false,
+    "full_input_hashes_verified": false
+  }
+}
