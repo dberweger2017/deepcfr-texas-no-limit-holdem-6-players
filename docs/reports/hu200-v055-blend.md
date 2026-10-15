@@ -197,7 +197,9 @@ and three pinned tables in this PR's own ignored root; originals are retained.
 The fixed 16-hour wall envelope starts at **17:52:37 UTC**; its final two hours
 are reserved for preservation, and intake is capped at six hours.
 [Clock](hu200-v055-blend-artifacts/continuation-campaign-clock.json).
-The PR description carries provisional M4 release **October 16 00:50–03:50
-Madrid**, review readiness **02:50–05:50 Madrid**. Union sizing and cost-only
+The initial post-admission estimates were M4 release October 16 00:50–03:50
+Madrid and review readiness 02:50–05:50. At 18:00 UTC, the roughly 4-MB/s
+first-archive arrival rate widened the provisional estimates in the PR to M4
+release **03:00–07:00 Madrid**, review readiness **05:00–09:00 Madrid**. Union sizing and cost-only
 pilots must replace these estimates before any final hand. No final hand, full
 blend or policy cache exists yet.
