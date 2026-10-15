@@ -3,7 +3,8 @@
 [PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), October 15, 2026.
 [Predeclared protocol](../nplayer-size-smoke-protocol.md). The owner cleared the
 independent traversal/information/regret review of PR289 at `5df55c52`; both CI
-shards passed before this dependent work. No merge is performed here.
+shards passed before this dependent work. The owner subsequently reviewed
+PR291 and authorized integration of the remaining Phase 1 PRs.
 
 ## Size gate
 
@@ -242,14 +243,15 @@ All 20 guarded jobs pass; none is automatically extended. The implementation
 and smoke-receipt revision `734a950b` also passes all five GitHub checks,
 including both full CI shards. [CI snapshot](nplayer-size-smoke-artifacts/ci-implementation.json).
 Final receipt/prose edits leave the tested native tree unchanged. The final PR
-head must still pass its own checks before the owner merges it.
+head must still pass its own checks before the owner-authorized merge.
 
 This completes the requested Phase 1 implementation and evidence, following
 reviewed million-hand rule parity and the reviewed known-game traversal gate.
 The initial failed Leduc study remains recorded beside its separately approved
 passing confirmation. This is not a general multiplayer equilibrium guarantee
-or an NLHE strength claim. PR289 remains owner-merge pending; PR291 awaits its
-own review/merge. No release, search or longer N-player campaign is started.
+or an NLHE strength claim. PR289 merged as `54080512` with owner authorization;
+the owner also reviewed PR291 and authorized its merge after green checks.
+No release, search or longer N-player campaign is started.
 The Phase 2 configuration above is a recommendation only.
 
 All raw data, generated policies/checkpoints and failure/setup evidence remain

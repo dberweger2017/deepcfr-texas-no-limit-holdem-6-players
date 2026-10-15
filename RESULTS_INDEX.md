@@ -1,4 +1,4 @@
-## PR291 — N-player size measurements and bounded smoke (open, October 15, 2026)
+## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
 
 [PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), branch
 `feature/nplayer-size-smoke`; [report](docs/reports/nplayer-size-smoke.md),
@@ -7,7 +7,7 @@ PR289 review at `5df55c52` before these dependent measurements. Size study
 source `78954644`; export/loader native implementation `0e836e52`; fixed smoke
 runner `cdd8959a`. Full source, binary and input pins are in the report receipts.
 
-**Protected open-PR evidence, not an accepted cloud archive:**
+**Protected working evidence, not an accepted cloud archive:**
 `bb128:/home/dberweger/nplayer-size-smoke-20261015/`. Retain the complete root:
 pilot/main size measurements, commands/logs/watchdog resources, source bundles,
 key-compatibility checkpoints, policy fixtures, the fixed smoke's fresh/prefix/
@@ -41,7 +41,7 @@ member, hashes and retrieval provenance are in
 Protect the entire dependency chain, active worktree and ignored local
 `planning/nplayer-size-smoke/` helpers/receipt copies. No M4 use or cleanup.
 
-## PR289 — N-player traversal and known games (review cleared; owner merge pending, October 15, 2026)
+## PR289 — N-player traversal and known games (merged with owner authorization, October 15, 2026)
 
 [PR289](https://github.com/dberweger2017/CFR-NLHE-6max/pull/289), branch
 `feature/nplayer-traversal-known-games`; [report](docs/reports/nplayer-traversal.md),
