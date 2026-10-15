@@ -7,7 +7,8 @@
 Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 those audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
-Its cap terminal is verified and frozen continuation is running. It is not yet a 20B result.
+Its **20,000,000,096-node** terminal is verified; final current/average exports
+are complete and the every-row audit is running.
 
 ## Fixed recipe, source and clock
 
@@ -90,7 +91,7 @@ and **0 stop readings**. Maximum observed gap is
 [Closed resource summary](hu200-v055-confirmation-artifacts/seed-2026101421-resource-summary.json).
 The small completion observer has separate retained readings; it does no training.
 
-## Seed 2026101422: running
+## Seed 2026101422: 20B verified, audit running
 
 [Admission and detached launch](hu200-v055-confirmation-artifacts/seed-2026101422-launch.json)
 confirm seed 1's successful audit, released locks and worker exit before launch.
@@ -99,17 +100,28 @@ Growing terminal: **755,276,076 actual nodes /494,507 iterations /
 85,373,928 entries**, 66-entry complete-iteration overshoot.
 Stage 2 resumes that terminal SHA256 with `--max-entries 85373928`
 and frozen/recovery mode. Latest verified frozen save:
-**10,000,002,576 nodes /8,041,286 iterations**, all **85,373,928 keys**
-and the stage-1 sorted-key digest unchanged. Mean traverser visits/key is
-**18.9896**, zero-visit share **21.11%**.
-[Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json).
-The **October 15 01:51 CEST** check verifies the second-seed supervisor identity,
-current RSS **8.79 GiB**, free memory **80%**,
-disk **40.46 GiB**, swap below the original baseline and no stops.
-The target-named terminal temporary file is being written; 20B is not yet
-verified and no between-save count is inferred.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261014T2351Z.json),
-[per-save statistics](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
+**20,000,000,096 nodes /16,827,728 iterations**, all **85,373,928 keys**
+and the stage-1 sorted-key digest unchanged:
+`1fc63ca8eb21d6246a87da3745598b68d57cd40c4cf6331dbcf2f333750860b1`.
+[Stage-1 bytes/counts/keys](hu200-v055-confirmation-artifacts/seed-2026101422-stage1-verified.json),
+[verified frozen terminal and lineage](hu200-v055-confirmation-artifacts/seed-2026101422-frozen-complete.json).
+
+| Save | Actual nodes | Iterations | Entries | Mean visits/key | Zero visits | After-save RSS GiB | Write s |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 500M | 500,000,820 | 320,010 | 69,055,433 | 1.4340 | 46.44% | 2.992 | 259.28 |
+| Cap | 755,276,076 | 494,507 | 85,373,928 | 1.7507 | 44.22% | 3.967 | 304.41 |
+| 2B frozen | 2,000,001,235 | 1,396,928 | 85,373,928 | 4.1401 | 34.82% | 2.213 | 297.39 |
+| 5B frozen | 5,000,000,239 | 3,772,546 | 85,373,928 | 9.7493 | 26.43% | 1.806 | 314.63 |
+| 10B frozen | 10,000,002,576 | 8,041,286 | 85,373,928 | 18.9896 | 21.11% | 1.378 | 320.92 |
+| 20B frozen | 20,000,000,096 | 16,827,728 | 85,373,928 | 37.3934 | 16.63% | 1.648 | 332.36 |
+
+The **October 15 02:21 CEST** check verifies the second-seed supervisor identity.
+Current/average exports are complete and **the every-row audit is running**;
+science completion and server admission await its successful receipt.
+Current RSS **0.14 GiB**, free memory **88%**, disk **33.15 GiB**,
+pressure level 1 and no stops across **2,857 readings**.
+[Health receipt](hu200-v055-confirmation-artifacts/health/20261015T0021Z.json),
+[all per-save statistics and frozen missing-decision shares](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
 
