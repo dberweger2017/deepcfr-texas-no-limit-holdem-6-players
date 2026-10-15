@@ -19,6 +19,14 @@
       "stage": "bundle-tests-2",
       "result": "2 failed, 79 passed",
       "cause": "Existing-destination test reached missing-table check first; new HU20 rejection used the explicit K50 unsupported error. Moved destination-preservation check earlier and accepted the precise existing refusal in the test."
+    },
+    {
+      "stage": "restoration wrapper launch",
+      "result": "ModuleNotFoundError: No module named src",
+      "classification": "administrative pre-hand import path",
+      "no_download_children_or_hands_started": true,
+      "preserved": "science/guards/restore-tables-release-000 and science/administrative-failure-restore-import.json",
+      "correction": "Run identical helper through python -c runpy.run_path, keeping repository on sys.path; corrected restoration in progress"
     }
   ],
   "storage": "Initial 13 GiB prevented restoration; owner freed space; 36 GiB observed at 2026-10-15T16:57:22Z. No deletion performed by this task.",
@@ -26,5 +34,15 @@
     "focused_suite": "246 passed in 15.62s",
     "raw_logs": "results/v053-release-package/",
     "scientific_hands": 0
-  }
+  },
+  "administrative_observations": [
+    {
+      "stage": "native metadata probe",
+      "result": "Foundation resource-key probe returned empty object; fileproviderctl evaluate supplies native upload fields successfully; no mutation"
+    },
+    {
+      "stage": "source patch",
+      "result": "A context mismatch rejected one combined patch before changes; corrected exact context; no runtime or scientific effect"
+    }
+  ]
 }

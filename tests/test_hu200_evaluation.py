@@ -15,7 +15,7 @@ from src.blueprint.abstraction import (HU200_SCHEMA, HU200_EQUITY_SCHEMA,
     HU200_MENU_V2_SCHEMA, HU200_EQUITY_MENU_V2_SCHEMA, schema_choices, information_key)
 from src.blueprint.artifact import _identity, _format
 from src.blueprint.average import EXTRACTIONS, ZERO_MASS_RULES, format_for_schema
-from src.blueprint.solver import PilotConfig, HU200_GAME
+from src.blueprint.solver import PilotConfig, HU200_GAME, HU100_GAME
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 from src.policies.files import file_hash
@@ -24,17 +24,19 @@ from tests.test_v2_consumers import dev_source
 
 def fixture_spec(folder, schema=HU200_SCHEMA, name='candidate', cards=None):
     folder.mkdir(parents=True)
-    config=PilotConfig(seed=47,raise_cap=None,abstraction=schema,game=HU200_GAME)
+    from src.blueprint.abstraction import STACK_BY_SCHEMA
+    stack=STACK_BY_SCHEMA[schema]
+    config=PilotConfig(seed=47,raise_cap=None,abstraction=schema,game=HU100_GAME if stack==10000 else HU200_GAME)
     identity=_identity(config)
     if cards is not None:identity['card_tables']=cards.sha256
     header={'format':_format(config),'kind':'training','abstraction':schema,
         'config':asdict(config),'identity':identity,'iteration':10,'checkpoint_format':'jsonl-v2',
-        'average_rule':'opponent-sampled','table':{'player_ids':['a','b'],'stacks':[20000,20000],
+        'average_rule':'opponent-sampled','table':{'player_ids':['a','b'],'stacks':[stack,stack],
         'button':0,'small_blind':50,'big_blind':100,'chip_unit':'0.01'}}
     meta={'format':format_for_schema(schema),'kind':'diagnostic-inference',
         'checkpoint_header':header,'source_checkpoint_sha256':'a'*64,
         'extraction':EXTRACTIONS['opponent-sampled'],'zero_mass_rule':ZERO_MASS_RULES['uniform']}
-    hand=Hand.start(Table(('a','b'),(20000,20000)),hand_id='fixture',seed=3)
+    hand=Hand.start(Table(('a','b'),(stack,stack)),hand_id='fixture',seed=3)
     view=hand.observe(hand.actor);menu=schema_choices(view,schema)
     row=[information_key(view,menu,schema=schema,equity_cards=cards),[c.name for c in menu],
          [1/len(menu)]*len(menu),10,1]
@@ -45,7 +47,7 @@ def fixture_spec(folder, schema=HU200_SCHEMA, name='candidate', cards=None):
         'source_checkpoint_sha256':'a'*64,**({'card_buckets':str(cards.directory)} if cards is not None else {})}
 
 
-def synthetic_cards(folder, specs, root, blocks, monkeypatch):
+def synthetic_cards(folder, specs, root, blocks, monkeypatch, *, stack_bb=200):
     # Populate actual binary tables from the engine's scheduled full boards/holes.
     # Betting cannot change a fixed deck, so both menu variants reach only these situations.
     from src.blueprint.equity_buckets import EquityCards
@@ -53,9 +55,9 @@ def synthetic_cards(folder, specs, root, blocks, monkeypatch):
     folder.mkdir()
     situations=[]
     for opponent in (None,*direct.PANEL_OPPONENTS):
-        plan=direct.make_plan(specs,blocks,root,'fixture',stack_bb=200,opponent=opponent)
+        plan=direct.make_plan(specs,blocks,root,'fixture',stack_bb=stack_bb,opponent=opponent)
         for b in build_schedule(plan):
-            h=Hand.start(Table(('a','b'),(20000,20000),button=b.button),hand_id='cards',seed=b.deal_seeds[0])
+            h=Hand.start(Table(('a','b'),(stack_bb*100,stack_bb*100),button=b.button),hand_id='cards',seed=b.deal_seeds[0])
             # Deal the full board via legal check/call transitions.
             holes=[h.observe(seat).hole_cards for seat in (0,1)]
             while not h.finished:

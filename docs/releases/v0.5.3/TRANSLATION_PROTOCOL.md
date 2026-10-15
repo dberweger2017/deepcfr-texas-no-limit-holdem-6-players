@@ -45,6 +45,15 @@ keys search; on-menu missing histories remain uniform. Real bets never change.
 Search remains unsupported. Prove v1 deterministic trace identity against main,
 including the released v0.5.0–v0.5.2 adapter, before final hands.
 
+Additionally compare real v0.5.0, v0.5.1 and v0.5.2 policy trace hashes between
+clean main and the branch, using the same common harness, pinned release bytes
+and read-only caches. Roots `20261015530500/501/502`, respectively; 64 duplicate
+blocks per release against pot_pressure, with two identically translated release
+arms. Independently replay every compatibility hand. Hash all hand rows and all
+deterministic decision fields; exclude only elapsed telemetry. Do not compute
+or report poker means. These compatibility hands are separate from the final
+experiment and never enter its statistics.
+
 ## Frozen science
 
 Seven scripted opponents: random, check_call, tight_aggressive,
