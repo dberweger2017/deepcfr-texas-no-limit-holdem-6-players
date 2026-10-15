@@ -378,3 +378,18 @@ NVIDIA driver/DKMS and firmware, Secure Boot module signing/enrollment,
 reboot and nouveau handoff, followed by `nvidia-smi`, VRAM and bounded CUDA
 checks. [Debian’s driver instructions](https://wiki.debian.org/NvidiaGraphicsDrivers)
 cover the packaged driver and Secure Boot enrollment. No driver install or OS package-repository change has been performed; the bounded NVK VRAM checks above are the only GPU loads.
+
+## Evidence archive, upload pending
+
+The primary bundle contains **528 members /3,553,618,907 bytes**, including
+all four trainer checkpoints, the exact native binary, raw logs and failed
+attempts. All member sizes/SHA256s passed readback on cygnus. The transferred
+archive and its Research-Cloud staging copy both match whole SHA256
+`35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256 is
+`e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa`.
+At **00:30:41 UTC**, native status was uploading, not uploaded, with zero
+conflicts; **cloud acceptance is pending**. No remote Drive bytes were
+downloaded. All originals remain. Extra RAM and the final archive-guard logs
+will be preserved in a separate closeout bundle after they stop.
+[Archive/transport/upload snapshot](cygnus-x1-artifacts/archive-main.json).

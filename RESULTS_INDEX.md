@@ -11,8 +11,10 @@ Root inventory is complete. The unsupported NVMe self-test-log read and the
 approximately 1.8 GiB of original per-instance allocation-shrink output.
 Additional selected-mask 112 GiB coverage is running until October 15 04:50 UTC;
 [dated progress receipt](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
-The main bundle has passed on-host member readback; transport/cloud acceptance
-are pending. Originals are retained. No full-memory pass yet. Matched500M cost-only result passes, exact #250
+The main bundle has passed all 528 on-host member readbacks, whole-SHA
+transport verification and Research-Cloud staging-copy verification.
+[Archive pins and dated native-upload snapshot](docs/reports/cygnus-x1-artifacts/archive-main.json);
+upload is in progress, cloud acceptance pending. Originals are retained. No full-memory pass yet. Matched500M cost-only result passes, exact #250
 checkpoint SHA2c4c1484...8f4312d/2727516803bytes retained on bb128 benchmark-results/500m.gz.
 [Full model/hash/cost/resource receipt](docs/reports/cygnus-x1-artifacts/trainer-benchmark.json);
 archive/index acceptance remains pending.
