@@ -125,6 +125,11 @@ impl Input {
     }
 
     fn summary(&self) -> Value {
+        assert_eq!(
+            sha256_file(Path::new(self.spec["path"].as_str().unwrap())),
+            self.spec["sha256"].as_str().unwrap(),
+            "input changed while streaming"
+        );
         let mass = fsum(self.root_mass.values().copied());
         json!({"spec":self.spec,"entries":self.count,
             "sorted_key_sha256":format!("{:x}",self.keys.clone().finalize()),

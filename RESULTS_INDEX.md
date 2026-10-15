@@ -6,8 +6,8 @@
 Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declaration
 `33215e6b`. **Ongoing /not a final blend result.** The owner authorized raw
 20B checkpoint inputs after the normalized-export stop; its original evidence
-is retained. Local seed2026101421 hash is verified; exact average reproduction
-and root-mass scan are running on M4. Other input restoration/capacity and union
+is retained. Local seed2026101421 checkpoint hash, exact average reproduction
+and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Other input restoration/capacity and union
 admission remain unresolved. Zero final hands, no blend/cache or strength result.
 No cleanup, release, tag, default or merge.
 

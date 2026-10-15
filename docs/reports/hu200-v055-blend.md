@@ -128,8 +128,17 @@ the blend rule and final evaluation counts remain fixed. The original stop's
 non-completion statements above are dated observations, not a cancellation of
 this continuation. [Predeclared weights and protocol](../hu200-v055-blend-protocol.md).
 No merge or final hand has begun. Seed2026101421's existing 20B checkpoint
-matches full SHA256 `c70e8e01…`; exact existing-exporter reproduction and a
-169-root-infoset mass scan run next on M4 under both locks/guards.
+matches its full pinned SHA256; exact existing-exporter reproduction and the
+169-root-infoset mass scan **pass** under both M4 locks/guards. Its average
+reproduces all 85,373,916 rows in **724.79 seconds**, exact full SHA256
+`c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444`.
+Root mass is exactly **140,199,312,593,278.0**, equal to scheduled W with zero
+observed floating-point difference and zero missing root keys. The full
+check takes **779.12 seconds**, 156 readings, peak family **72,056,832 bytes
+(68.72 MiB)** and no resource breach.
+[Reproduction receipt](hu200-v055-blend-artifacts/local-average-reproduced.json),
+[root diagnostic](hu200-v055-blend-artifacts/local-root-mass-summary.json),
+[resources](hu200-v055-blend-artifacts/local-seed-resources.json).
 
 Full remaining checkpoint archives are online-only. The Drive connected fetch
 refuses the 26.698-GB PR265 ZIP with HTTP413 (256-MiB tool limit); native
@@ -149,3 +158,7 @@ This is a retrieval-capacity issue before the requested union gate, not a
 measured union failure. Checkpoint-only archives or additional M4 capacity
 would permit the next check without forced offloading or research deletion.
 Final ETA awaits that input admission, then union sizing and cost pilots.
+
+The owner is arranging additional M4 storage and instructed continued work.
+The native three-lookahead union/merge tool is implemented; guarded fixture
+tests and its build follow the completed local-seed check, before real merging.
