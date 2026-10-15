@@ -1,0 +1,223 @@
+{
+  "one_gib": {
+    "status": "passed",
+    "icd": "/usr/share/vulkan/icd.d/nouveau_icd.json",
+    "devices": [
+      {
+        "name": "NVIDIA GeForce RTX 2070 SUPER (NVK TU104)",
+        "vendor_id": "0x10de",
+        "device_id": "0x1e84",
+        "device_type": 2,
+        "api_version": 4210993,
+        "driver_version": 104857607
+      }
+    ],
+    "scope": "Declared 1/4 GiB VRAM fill/copy/readback, not CUDA or shader arithmetic",
+    "heaps": [
+      {
+        "bytes": 8589934592,
+        "flags": 1
+      },
+      {
+        "bytes": 268435456,
+        "flags": 1
+      },
+      {
+        "bytes": 101237915648,
+        "flags": 0
+      }
+    ],
+    "tested_vram_bytes": 1073741824,
+    "readback_chunk_bytes": 67108864,
+    "device_local_type": 0,
+    "host_coherent_type": 2,
+    "patterns_completed": [
+      "0x0",
+      "0xffffffff",
+      "0xa5a5a5a5",
+      "0x5a5a5a5a"
+    ],
+    "elapsed_seconds": 4.028259935999813,
+    "verified_readback_bytes": 4294967296,
+    "end_to_end_verified_mib_s": 1016.8162097472426,
+    "rate_scope": "Includes GPU fill/copy, synchronization and CPU byte verification; not peak PCIe bandwidth"
+  },
+  "four_gib_single_buffer": {
+    "status": "failed before pattern execution",
+    "guard": {
+      "exit_code": 1,
+      "stop_reason": null,
+      "elapsed_seconds": 2.018243375001475,
+      "sampled_peak_family_rss_bytes": 9216000,
+      "status": "failed"
+    },
+    "error": "vkCreateBuffer: VK_ERROR_OUT_OF_DEVICE_MEMORY (-2)",
+    "original_output": "Traceback (most recent call last):\n  File \"/home/dberweger/cygnus-qualification-20261014/gpu_vram.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/home/dberweger/cygnus-qualification-20261014/gpu_vram.py\", line 171, in main\n    local, local_memory, local_type = buffer(size, 1, 2)  # Device-local, not host-visible.\n                                      ~~~~~~^^^^^^^^^^^^\n  File \"/home/dberweger/cygnus-qualification-20261014/gpu_vram.py\", line 151, in buffer\n    check(create_buffer(device, c.byref(BufferInfo(12, None, 0, size, 3, 0, 0, None)),\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        None, c.byref(handle)), 'create buffer')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/dberweger/cygnus-qualification-20261014/gpu_vram.py\", line 57, in check\n    raise RuntimeError(f'{operation}: VkResult {code}')\nRuntimeError: create buffer: VkResult -2\n"
+  },
+  "resources": [
+    {
+      "job": "gpu-1g",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 6.039792524999939,
+      "sampled_peak_family_rss_bytes": 109223936,
+      "status": "passed",
+      "samples": 4,
+      "started_utc": "2026-10-15T00:06:03.776239+00:00",
+      "last_sample_utc": "2026-10-15T00:06:09.808768+00:00",
+      "max_sample_gap_seconds": 2.013969455998449,
+      "min_temperature_c": 33.0,
+      "max_temperature_c": 41.0,
+      "median_temperature_c": 39.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        5093.91
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 131891142656,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 31.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 31.0,
+          "max_c": 40.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 30.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 33.0,
+          "max_c": 41.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 29.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 30.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 30.0,
+          "max_c": 32.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 33.0,
+          "max_c": 41.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 29.0,
+          "max_c": 31.0
+        },
+        "nvme/Composite": {
+          "min_c": 34.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 42.0,
+          "max_c": 43.0
+        }
+      },
+      "raw_stream_bytes": 13610,
+      "raw_stream_sha256": "c11b24b2e565efe194749bdf434c91ff0767e2fac6af63a0191722aaa5db5d03"
+    },
+    {
+      "job": "gpu-4g",
+      "exit_code": 1,
+      "stop_reason": null,
+      "elapsed_seconds": 2.018243375001475,
+      "sampled_peak_family_rss_bytes": 9216000,
+      "status": "failed",
+      "samples": 2,
+      "started_utc": "2026-10-15T00:07:13.275464+00:00",
+      "last_sample_utc": "2026-10-15T00:07:15.283914+00:00",
+      "max_sample_gap_seconds": 2.008461334000458,
+      "min_temperature_c": 32.0,
+      "max_temperature_c": 34.0,
+      "median_temperature_c": 33.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        3572.884,
+        4701.879
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 132095647744,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 29.0,
+          "max_c": 30.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 30.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 29.0,
+          "max_c": 30.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "nvme/Composite": {
+          "min_c": 34.85,
+          "max_c": 35.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 42.0,
+          "max_c": 43.0
+        }
+      },
+      "raw_stream_bytes": 6836,
+      "raw_stream_sha256": "6a1f444616616de1c1ef0961cbf64709fc9840ea3cabb3cbd4f7d1206acf8635"
+    }
+  ],
+  "gpu_temperature_and_clock": "not exposed by available hwmon/API telemetry",
+  "kernel_postcheck": "unverified: unprivileged journal query lacks system/kernel visibility; no entries is not a clean-kernel verdict",
+  "diagnosis": "Pending read-only maxBufferSize/maxMemoryAllocationSize query; no blind retry or driver install",
+  "scope": "VRAM/transfer patterns only; not CUDA/shader arithmetic or full GPU qualification"
+}

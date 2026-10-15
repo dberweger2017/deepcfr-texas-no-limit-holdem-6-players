@@ -316,6 +316,29 @@ These short integer checks do not validate AVX, long heat soak or 16 threads.
 [Measurements/resources](cygnus-x1-artifacts/cpu-steps.json) · full 0.5-second
 thermal/clock CSVs `cpu-{1,4,8}-temperatures.csv` alongside the receipt.
 
+## RTX VRAM smoke: 1 GiB passes, 4 GiB single buffer rejected
+
+Forced the installed nouveau/NVK ICD and identified the actual discrete
+**NVIDIA GeForce RTX 2070 SUPER (NVK TU104), vendor/device 10de:1e84**;
+CPU fallback is refused. The exposed device-local heap is 8 GiB.
+A **1 GiB non-host-visible device-local allocation** passes zero/all-ones/A5/5A
+patterns, each fully copied back in 64 MiB chunks and compared byte-for-byte:
+**4 GiB total readback, zero mismatches**, 4.028 s test /6.040 s guard wall.
+The **1,016.82 MiB/s** rate includes fill/copy/synchronization/CPU comparison,
+not peak PCIe bandwidth.
+
+The declared **4 GiB single-buffer attempt failed before any pattern**:
+`vkCreateBuffer` returned **VK_ERROR_OUT_OF_DEVICE_MEMORY (-2)**. It is
+preserved as a failure; 4 GiB coverage is not claimed. A read-only driver
+max-buffer/allocation-limit query is the next diagnostic, before any retry.
+GPU temperature/clock telemetry is unavailable. The unprivileged journal query
+cannot see system/kernel messages, so its empty output does not establish
+absence of new faults. CPU thermal/clock/throttle readings are retained.
+This tests transfers/VRAM only; no CUDA or shader arithmetic was qualified,
+and no proprietary driver, reboot or system configuration was changed.
+[Original GPU outcomes/failure/resources](cygnus-x1-artifacts/gpu-results.json) ·
+full `gpu-{1g,4g}-temperatures.csv` alongside the receipt.
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
@@ -333,4 +356,4 @@ NVIDIA driver/DKMS and firmware, Secure Boot module signing/enrollment,
 reboot and nouveau handoff, followed by `nvidia-smi`, VRAM and bounded CUDA
 checks. [Debian’s driver instructions](https://wiki.debian.org/NvidiaGraphicsDrivers)
 cover the packaged driver and Secure Boot enrollment. No driver install,
-repository change or GPU load has been performed.
+repository change has been performed; the bounded NVK VRAM checks above are the only GPU loads.
