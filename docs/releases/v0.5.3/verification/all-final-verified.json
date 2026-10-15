@@ -1,0 +1,47 @@
+{
+  "at": 1792091208.5818791,
+  "comparisons": {
+    "direct": {
+      "exact_reproduction": true,
+      "hands": 262144,
+      "independent_replay": true
+    },
+    "panel-check_call": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-half_pot_pressure": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-loose_aggressive": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-matched_pot_pressure": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-pot_pressure": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-random": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    },
+    "panel-tight_aggressive": {
+      "exact_reproduction": true,
+      "hands": 65536,
+      "independent_replay": true
+    }
+  },
+  "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+  "status": "verified"
+}

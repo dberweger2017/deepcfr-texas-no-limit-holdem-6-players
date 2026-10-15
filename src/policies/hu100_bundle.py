@@ -146,6 +146,8 @@ RELEASES['v0.5.3'] = {
     },
     'evidence': {'candidate_declared_without_seed_selection': True,
                  'three_fixed_seed_evaluation_pr': 296,
+                 'translation_safeguard_pr': 298,
+                 'translation_safeguard_passed': True,
                  'external_benchmark_established': False},
 }
 

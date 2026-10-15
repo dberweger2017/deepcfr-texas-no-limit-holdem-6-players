@@ -13,7 +13,7 @@ from random import Random
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import choices
+from src.blueprint.abstraction import schema_choices
 from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
 from src.game.hand import Hand
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
@@ -273,7 +273,7 @@ class PlayService:
             try:
                 view.legal_actions.validate(action)
                 if state["playMode"] == "restricted" and action not in tuple(
-                    item.action for item in choices(view, raise_cap=None, free_fold=False)
+                    item.action for item in schema_choices(view, self.policy.abstraction)
                 ):
                     raise PlayError("Action is outside the restricted menu")
             except ValueError as exc:
@@ -432,7 +432,7 @@ class PlayService:
         view = hand.observe(0)
         legal = view.legal_actions
         own_turn = not hand.finished and hand.actor == 0 and (benchmark is None or benchmark["status"] == "ACTIVE")
-        menu = choices(view, raise_cap=None, free_fold=False) if own_turn and state["playMode"] == "restricted" else ()
+        menu = schema_choices(view, self.policy.abstraction) if own_turn and state["playMode"] == "restricted" else ()
         if benchmark is None or benchmark["status"] == "ACTIVE":
             response["phase"] = "finished" if hand.finished else "playing"
         response["hand"] = {

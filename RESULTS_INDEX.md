@@ -10,7 +10,14 @@ compatibility traces, working caches and every failure/resource receipt.
 The owner declared PR272's original seed; no selection or publication.
 All three real released-model main/branch traces match, independently replayed;
 [compact hashes](docs/releases/v0.5.3/verification/real-release-traces.json).
-Primary pilots/finals, safeguard, final assets and real runtime smoke are pending.
+All 720,896 original final hands replay/reproduce before readout; all seven
+paired contrasts are 0.00 [0.00,0.00] BB/100, passing the declared safeguard.
+Fresh descriptive direct gain is +37.10 [30.16,44.04] BB/100; independent
+statistics agree exactly. Random alone raises off-menu (8,231 all-ins per arm);
+8,222 v2 attempts select no witness. All other scripted sizes are on-menu.
+[Report](docs/reports/hu100-v053-translation.md),
+[raw pins and verification](docs/releases/v0.5.3/verification/final-verification.json).
+Final assets, real M1 runtime smoke and archive acceptance remain pending.
 
 Designated evidence folder
 [PR-298-hu100-v053-release-package](https://drive.google.com/drive/folders/1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-),
@@ -30,7 +37,10 @@ release downloads; those full models remain available locally.
 [Interim cleanup receipt](docs/releases/v0.5.3/verification/cleanup-interim.json)
 records exact removed regenerable v050/v051 cache paths, unchanged input pins,
 cache manifests and regeneration commands. They were exclusive to completed
-compatibility checks; no live handle remained. The v052 cache is retained.
+compatibility checks; no live handle remained. The two primary caches are also now inactive and retired after complete scientific
+verification and fresh unchanged-inventory/handle checks: 10,063,863,808 allocated
+bytes reclaimed. All canonical inputs remain.
+[Primary cleanup receipt](docs/releases/v0.5.3/verification/cleanup-primary-receipt.json).
 Two unchanged accepted inactive PR272/PR163 native archive caches were normally
 evicted after current merged-owner/native/cloud/handle/dependency review:
 5,188,251,648 allocated bytes reclaimed. Same-size/same-ID uploaded placeholders

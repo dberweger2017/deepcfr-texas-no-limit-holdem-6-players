@@ -1,0 +1,1921 @@
+{
+  "budget_clock": "Active guarded final and readout work; battery pauses consume no work and retain the same roots/source/counts",
+  "counts": {
+    "direct": 131072,
+    "panel": 16384
+  },
+  "frozen_at": 1792088179.975648,
+  "global_replay_and_reproduction_before_outcomes": true,
+  "guards": {
+    "ac_required": false,
+    "battery_pause_at_percent": 10,
+    "critical_pressure": 4,
+    "disk_floor_gib": 16,
+    "family_rss_gib": 13,
+    "free_percent": 8,
+    "machine": "M1",
+    "sample_seconds": 5,
+    "sustained_seconds": 60,
+    "swap_growth_bytes": 4000000000
+  },
+  "inputs": {
+    "candidate_selection": "owner-declared seed 2026100601",
+    "machine": "Apple M1",
+    "models": {
+      "direct": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "bytes": 2121415396,
+          "entries": 70466972,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 3716073,
+          "name": "v052-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v052/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+          "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        }
+      ],
+      "panel": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ]
+    },
+    "owners": {
+      "163": {
+        "mergedAt": "2026-10-05T08:15:20Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/163"
+      },
+      "240": {
+        "mergedAt": "2026-10-12T14:09:16Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/240"
+      },
+      "272": {
+        "mergedAt": "2026-10-14T15:46:17Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/272"
+      },
+      "296": {
+        "mergedAt": "2026-10-15T16:03:12Z",
+        "state": "MERGED",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/296"
+      }
+    },
+    "retrieval": {
+      "candidate": {
+        "archive": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-average-M4-20261014.zip",
+        "model": {
+          "actual_nodes": 5000006023,
+          "bytes": 3196291551,
+          "checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "entries": 97290578,
+          "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "file": "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+          "iteration": 1794658,
+          "players": 2,
+          "raise_cap": null,
+          "resumable": false,
+          "schema": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "seed": 2026100601,
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "training_budget_nodes": 5000000000
+        },
+        "provenance": {
+          "archive_bytes": 3196298276,
+          "archive_name": "hu100-v2-frozen-5b-average-M4-20261014.zip",
+          "archive_sha256": "ea29e019781d390d6fb284c7e4675b73f197587ad28103656247f89304d7df2d",
+          "drive_archive_id": "1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX",
+          "drive_folder_id": "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+          "manifest_member": "ARCHIVE-MANIFEST.json",
+          "manifest_sha256": "bc31a32e532d276fb95e501ff1e014c8fc419219b48c5a1c71c5005b923e6e67",
+          "member": "averages/5000000000.average.gz",
+          "pr": 272,
+          "scientific_source_commit": "fd066d26e61cab1ecc2d7f9e131ce2beac296998"
+        },
+        "release": "v0.5.3",
+        "remote_cloud_bytes_downloaded_by_this_command": false,
+        "status": "verified-local-archive-and-model",
+        "target": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz"
+      },
+      "tables": {
+        "archive": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+        "archive_bytes": 1991949530,
+        "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+        "drive_archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+        "manifest": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-163-equity-buckets/ARCHIVE-MANIFEST.json",
+        "manifest_sha256": "a5d64a7882da34840dad53905e4a03284f822487732ce691ecc82cdf1585bdef",
+        "members": {
+          "hu20-equity-buckets-20261005/flop-k50.bin": {
+            "bytes": 12867944,
+            "mtime_ns": 1792085026459222870,
+            "restored_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables/flop-k50.bin",
+            "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+          },
+          "hu20-equity-buckets-20261005/river-k50.bin": {
+            "bytes": 1231562564,
+            "mtime_ns": 1792085032922706901,
+            "restored_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables/river-k50.bin",
+            "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          },
+          "hu20-equity-buckets-20261005/turn-k50.bin": {
+            "bytes": 139600524,
+            "mtime_ns": 1792085034319404068,
+            "restored_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables/turn-k50.bin",
+            "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          }
+        },
+        "native_drive_archive_hydrated_and_verified": true,
+        "status": "verified"
+      },
+      "v052": {
+        "all_published_asset_bytes_and_hashes_match": true,
+        "at": 1792085486.9034991,
+        "expected_assets": {
+          "INSTALL.md": {
+            "bytes": 2144,
+            "sha256": "c0d0a2fcd7e6fe724b041881c15b360f8869d2fb01ece35c6ad9e3e706954fe0"
+          },
+          "MODEL_CARD.md": {
+            "bytes": 6055,
+            "sha256": "21819e27ef83aabb1bf2b287510dd224dbab6d1193180e1b22a657ec468b86c9"
+          },
+          "O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz": {
+            "bytes": 2121415396,
+            "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+          },
+          "RELEASE_NOTES.md": {
+            "bytes": 1519,
+            "sha256": "55a3a7f09045039813bdab116fc82ac1f70bf4bc565e55c7fe679285e63bdae6"
+          },
+          "SHA256SUMS": {
+            "bytes": 543,
+            "sha256": "38badc1bfc70d727191fcbd26584527e0ea68b4aecc3ca187403a214e2a3c0b3"
+          },
+          "release-manifest.json": {
+            "bytes": 2549,
+            "sha256": "0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b"
+          },
+          "verify_hu100_bundle.py": {
+            "bytes": 11821,
+            "sha256": "e27a621be82e533dc5bdc29646fec6944b26e501cbc1bd871859b84f7e3bd817"
+          }
+        },
+        "no_payload_changed_or_download_repeated": true,
+        "publication_record": "/Users/dberweger/Local/hu100-v053-release-package/docs/releases/v0.5.2/PUBLICATION.md",
+        "publication_record_sha256": "a481042550782e68dd6cf67e4eb2e483c27a30811562d92ff7ae1caacc793fc2",
+        "source": "RESULTS_INDEX PR254 indexed published v0.5.2 download",
+        "status": "verified",
+        "verifier": {
+          "hashes": {
+            "INSTALL.md": "c0d0a2fcd7e6fe724b041881c15b360f8869d2fb01ece35c6ad9e3e706954fe0",
+            "MODEL_CARD.md": "21819e27ef83aabb1bf2b287510dd224dbab6d1193180e1b22a657ec468b86c9",
+            "O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+            "RELEASE_NOTES.md": "55a3a7f09045039813bdab116fc82ac1f70bf4bc565e55c7fe679285e63bdae6",
+            "release-manifest.json": "0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b",
+            "verify_hu100_bundle.py": "e27a621be82e533dc5bdc29646fec6944b26e501cbc1bd871859b84f7e3bd817"
+          },
+          "inference": {
+            "adapter": "hu100-public-menu-translation-v1",
+            "translation": {
+              "max_events": 128,
+              "max_states": 512,
+              "version": "hu100-public-menu-translation-v1"
+            }
+          },
+          "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "package_source_commit": "3a3bc4218bab96637d6a27a69b73383ee8bb196c",
+          "release": "v0.5.2",
+          "status": "owner-approved-publication"
+        }
+      }
+    },
+    "source": "d2735721f3e412203372f9f312cf23cc971236cc",
+    "tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    }
+  },
+  "no_count_selection": true,
+  "no_failed_hand_reruns": true,
+  "no_pilot_pooling": true,
+  "pilots": {
+    "direct": {
+      "audit": {
+        "actions_replayed": 9059,
+        "all_native_menu_actions": true,
+        "block_work_seconds": 3.3641434170422144,
+        "coverage": {
+          "v052-on/flop": {
+            "decisions": 1265,
+            "lookup": {
+              "missing-key": 216,
+              "positive-mass-known-key": 1049
+            },
+            "visit_bands": {
+              "0": 216,
+              "10-99": 6,
+              "100+": 1043
+            }
+          },
+          "v052-on/preflop": {
+            "decisions": 2143,
+            "lookup": {
+              "missing-key": 170,
+              "positive-mass-known-key": 1972,
+              "zero-mass": 1
+            },
+            "visit_bands": {
+              "0": 170,
+              "10-99": 5,
+              "100+": 1968
+            }
+          },
+          "v052-on/river": {
+            "decisions": 431,
+            "lookup": {
+              "missing-key": 149,
+              "positive-mass-known-key": 282
+            },
+            "visit_bands": {
+              "0": 149,
+              "1-9": 2,
+              "10-99": 12,
+              "100+": 268
+            }
+          },
+          "v052-on/turn": {
+            "decisions": 744,
+            "lookup": {
+              "missing-key": 184,
+              "positive-mass-known-key": 560
+            },
+            "visit_bands": {
+              "0": 184,
+              "1-9": 3,
+              "10-99": 22,
+              "100+": 535
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 1186,
+            "lookup": {
+              "missing-key": 2,
+              "positive-mass-known-key": 1184
+            },
+            "visit_bands": {
+              "0": 2,
+              "1-9": 3,
+              "10-99": 52,
+              "100+": 1129
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 2132,
+            "lookup": {
+              "missing-key": 1,
+              "positive-mass-known-key": 2131
+            },
+            "visit_bands": {
+              "0": 1,
+              "1-9": 2,
+              "10-99": 42,
+              "100+": 2087
+            }
+          },
+          "v053-on/river": {
+            "decisions": 437,
+            "lookup": {
+              "missing-key": 23,
+              "positive-mass-known-key": 414
+            },
+            "visit_bands": {
+              "0": 24,
+              "1-9": 30,
+              "10-99": 129,
+              "100+": 254
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 721,
+            "lookup": {
+              "missing-key": 11,
+              "positive-mass-known-key": 710
+            },
+            "visit_bands": {
+              "0": 12,
+              "1-9": 15,
+              "10-99": 92,
+              "100+": 602
+            }
+          }
+        },
+        "fixed_setup_seconds": 14.274374999979045,
+        "hands_replayed": 2048,
+        "paired_sd_bb_per_100": 1235.509322567784,
+        "raw_hash_seconds": 0.0007774170371703804,
+        "seconds": 17.63851841702126,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 1024,
+      "paired_sd_bb_per_100": 1235.509322567784,
+      "pilot": true,
+      "primary": {
+        "decisions": 9059,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 1216523,
+            "sha256": "1b2a0aa675f26a010b8a38d0fc775e8c3aea94bd9a7999a22eaebd2e359ae6c3"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 199349,
+            "sha256": "0fb8158b02cc98ca75f644deeacb75a1671fa21bfcc53c7be63ea2b2be946dcb"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 12.989604624977801,
+        "play_seconds": 7.584544666984584,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 20.593322374974377,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 9059,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 1212645,
+            "sha256": "0c0c16cdf0ad317aa63c5a4ef5a0996c1221a94ac06940318d60afacfc851ac4"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 199349,
+            "sha256": "7ef3701b68abda128f39b72bb1afcf6c762984647d7b62bdaace916d5168b398"
+          }
+        },
+        "hands": 2048,
+        "load_or_validation_seconds": 13.68057366705034,
+        "play_seconds": 3.9900520000373945,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 17.690154958050698,
+        "status": "complete"
+      }
+    },
+    "panel-check_call": {
+      "audit": {
+        "actions_replayed": 2062,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 1327.112534253003,
+          "candidate": 1327.112534253003
+        },
+        "block_work_seconds": 0.3513422909891233,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "100+": 114
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 128,
+            "lookup": {
+              "positive-mass-known-key": 128
+            },
+            "visit_bands": {
+              "100+": 128
+            }
+          },
+          "v053-off/river": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "1-9": 7,
+              "10-99": 25,
+              "100+": 82
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 112
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "100+": 114
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 128,
+            "lookup": {
+              "positive-mass-known-key": 128
+            },
+            "visit_bands": {
+              "100+": 128
+            }
+          },
+          "v053-on/river": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "1-9": 7,
+              "10-99": 25,
+              "100+": 82
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 114,
+            "lookup": {
+              "positive-mass-known-key": 114
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 112
+            }
+          }
+        },
+        "fixed_setup_seconds": 10.932694418006577,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00018154102144762874,
+        "scripted_bets_against_candidate_menu": {},
+        "seconds": 11.2840367089957,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 2062,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 94208,
+            "sha256": "863d7cdaa0686e14cb46f49506f2464a44b4e053b7513aa403bc518aa4915969"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 26753,
+            "sha256": "df1a3ef8694730d88ca82fc4a35ba85457e6d42bcea8a50b962dd1b96a77b437"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.586787125037517,
+        "play_seconds": 0.7265933340531774,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 10.315208709042054,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 2062,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 94390,
+            "sha256": "b0618678fb87cf93edc323ef8b9cd9d55dacbe8597ebb44e91d458a063bd81bf"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 26753,
+            "sha256": "2bf9713015663ea4390c12d28af486ff3ed23038069f429a5b4d975e0ee453dd"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.656465374981053,
+        "play_seconds": 0.6153549579903483,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 10.273719833989162,
+        "status": "complete"
+      }
+    },
+    "panel-half_pot_pressure": {
+      "audit": {
+        "actions_replayed": 672,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 856.8272117432605,
+          "candidate": 856.8272117432605
+        },
+        "block_work_seconds": 0.12946537497919053,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 29,
+            "lookup": {
+              "positive-mass-known-key": 29
+            },
+            "visit_bands": {
+              "100+": 29
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 92,
+            "lookup": {
+              "positive-mass-known-key": 92
+            },
+            "visit_bands": {
+              "1-9": 1,
+              "10-99": 2,
+              "100+": 89
+            }
+          },
+          "v053-off/river": {
+            "decisions": 11,
+            "lookup": {
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "10-99": 6,
+              "100+": 5
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 18,
+            "lookup": {
+              "positive-mass-known-key": 18
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 17
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 29,
+            "lookup": {
+              "positive-mass-known-key": 29
+            },
+            "visit_bands": {
+              "100+": 29
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 92,
+            "lookup": {
+              "positive-mass-known-key": 92
+            },
+            "visit_bands": {
+              "1-9": 1,
+              "10-99": 2,
+              "100+": 89
+            }
+          },
+          "v053-on/river": {
+            "decisions": 11,
+            "lookup": {
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "10-99": 6,
+              "100+": 5
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 18,
+            "lookup": {
+              "positive-mass-known-key": 18
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 17
+            }
+          }
+        },
+        "fixed_setup_seconds": 10.997547959035728,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00013520795619115233,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "baseline/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 19
+          },
+          "baseline/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 3
+          },
+          "baseline/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          },
+          "candidate/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "candidate/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 19
+          },
+          "candidate/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 3
+          },
+          "candidate/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          }
+        },
+        "seconds": 11.127013334014919,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 672,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 33486,
+            "sha256": "df585bdf0584b6f718219d5822f611514fae48ee5fcca8e0e827fdcd87836206"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 18527,
+            "sha256": "31e2f7615a1a6c92916592591cd37bb6bed116d00e206cfbf61e21dc6b642745"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.745448875008151,
+        "play_seconds": 0.21370970795396715,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 9.961081958026625,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 672,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 33311,
+            "sha256": "6e7cca984b92d5d0029ef21b3b8023030b42c782e5dd8bc6564832e04ed5710a"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 18527,
+            "sha256": "46192b5c2af471343ca9c1688518888f8f539dfdb368ea65f9a6296564c282de"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.639477082993835,
+        "play_seconds": 0.2185829999507405,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 9.859995040984359,
+        "status": "complete"
+      }
+    },
+    "panel-loose_aggressive": {
+      "audit": {
+        "actions_replayed": 904,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 1317.3464353405163,
+          "candidate": 1317.3464353405163
+        },
+        "block_work_seconds": 0.18258916697232053,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 44,
+            "lookup": {
+              "positive-mass-known-key": 44
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 43
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 108,
+            "lookup": {
+              "positive-mass-known-key": 108
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 107
+            }
+          },
+          "v053-off/river": {
+            "decisions": 24,
+            "lookup": {
+              "missing-key": 2,
+              "positive-mass-known-key": 22
+            },
+            "visit_bands": {
+              "0": 2,
+              "1-9": 1,
+              "10-99": 8,
+              "100+": 13
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 36,
+            "lookup": {
+              "positive-mass-known-key": 36
+            },
+            "visit_bands": {
+              "0": 1,
+              "10-99": 10,
+              "100+": 25
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 44,
+            "lookup": {
+              "positive-mass-known-key": 44
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 43
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 108,
+            "lookup": {
+              "positive-mass-known-key": 108
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 107
+            }
+          },
+          "v053-on/river": {
+            "decisions": 24,
+            "lookup": {
+              "missing-key": 2,
+              "positive-mass-known-key": 22
+            },
+            "visit_bands": {
+              "0": 2,
+              "1-9": 1,
+              "10-99": 8,
+              "100+": 13
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 36,
+            "lookup": {
+              "positive-mass-known-key": 36
+            },
+            "visit_bands": {
+              "0": 1,
+              "10-99": 10,
+              "100+": 25
+            }
+          }
+        },
+        "fixed_setup_seconds": 11.158634125022218,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00013179198140278459,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 8
+          },
+          "baseline/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 26
+          },
+          "baseline/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 11
+          },
+          "baseline/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 12
+          },
+          "candidate/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 8
+          },
+          "candidate/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 26
+          },
+          "candidate/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 11
+          },
+          "candidate/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 12
+          }
+        },
+        "seconds": 11.341223291994538,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 904,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 45747,
+            "sha256": "2eecc888db8b2309e742c0f39e335abf7297125f4e813fa78d4334b5bf59259b"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 20848,
+            "sha256": "643ae0fb842be6808239a80cf948d85100e2d57d2d67e6b76a168f864f2c4529"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.727095041947905,
+        "play_seconds": 0.29953074996592477,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 10.028555832977872,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 904,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 45619,
+            "sha256": "9a3b73d298241ea5215b6c66cc7177726711e01559eb42ab05ac2b57626f9a5e"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 20848,
+            "sha256": "36184feb5f096e446303eb15827dc9e78949be6041f2f81c2e96899ac801a58d"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.84825662500225,
+        "play_seconds": 0.29405779199441895,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 10.144354458025191,
+        "status": "complete"
+      }
+    },
+    "panel-matched_pot_pressure": {
+      "audit": {
+        "actions_replayed": 634,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 851.7218751034646,
+          "candidate": 851.7218751034646
+        },
+        "block_work_seconds": 0.1296224999241531,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 33,
+            "lookup": {
+              "positive-mass-known-key": 33
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 32
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 83,
+            "lookup": {
+              "positive-mass-known-key": 83
+            },
+            "visit_bands": {
+              "100+": 83
+            }
+          },
+          "v053-off/river": {
+            "decisions": 10,
+            "lookup": {
+              "missing-key": 1,
+              "positive-mass-known-key": 9
+            },
+            "visit_bands": {
+              "0": 1,
+              "1-9": 1,
+              "10-99": 4,
+              "100+": 4
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 12,
+            "lookup": {
+              "positive-mass-known-key": 12
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 10
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 33,
+            "lookup": {
+              "positive-mass-known-key": 33
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 32
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 83,
+            "lookup": {
+              "positive-mass-known-key": 83
+            },
+            "visit_bands": {
+              "100+": 83
+            }
+          },
+          "v053-on/river": {
+            "decisions": 10,
+            "lookup": {
+              "missing-key": 1,
+              "positive-mass-known-key": 9
+            },
+            "visit_bands": {
+              "0": 1,
+              "1-9": 1,
+              "10-99": 4,
+              "100+": 4
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 12,
+            "lookup": {
+              "positive-mass-known-key": 12
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 10
+            }
+          }
+        },
+        "fixed_setup_seconds": 11.282538958068471,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00014158396515995264,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 12
+          },
+          "baseline/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 11
+          },
+          "baseline/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "baseline/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          },
+          "candidate/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 12
+          },
+          "candidate/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 11
+          },
+          "candidate/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "candidate/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          }
+        },
+        "seconds": 11.412161457992624,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 634,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 30982,
+            "sha256": "e70ccb06844a1d76f59cb2aad39c5593e86f67671f27407f9f3572799f8a07cd"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 18238,
+            "sha256": "6a91e71f5405109ed677af2820b9bd7af70d9d393cb133dc6ed26132cbe972d4"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.597486709011719,
+        "play_seconds": 0.1858449160354212,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 9.785250874992926,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 634,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 31068,
+            "sha256": "cb0e29f6ada7505d359c92271bc76d59900f0acb9402617dda6c9c38ab100215"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 18238,
+            "sha256": "8d5a0ef12692ea4432a789262baeecd586e2ab9cd164361c3565f84c34ba2bdb"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.863508958020248,
+        "play_seconds": 0.24231775000225753,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 10.108079832978547,
+        "status": "complete"
+      }
+    },
+    "panel-pot_pressure": {
+      "audit": {
+        "actions_replayed": 536,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 644.0479113028559,
+          "candidate": 644.0479113028559
+        },
+        "block_work_seconds": 0.11094079102622345,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 22,
+            "lookup": {
+              "positive-mass-known-key": 22
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 21
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 81,
+            "lookup": {
+              "positive-mass-known-key": 81
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 80
+            }
+          },
+          "v053-off/river": {
+            "decisions": 3,
+            "lookup": {
+              "positive-mass-known-key": 3
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 1
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 11,
+            "lookup": {
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "1-9": 1,
+              "10-99": 2,
+              "100+": 8
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 22,
+            "lookup": {
+              "positive-mass-known-key": 22
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 21
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 81,
+            "lookup": {
+              "positive-mass-known-key": 81
+            },
+            "visit_bands": {
+              "10-99": 1,
+              "100+": 80
+            }
+          },
+          "v053-on/river": {
+            "decisions": 3,
+            "lookup": {
+              "positive-mass-known-key": 3
+            },
+            "visit_bands": {
+              "10-99": 2,
+              "100+": 1
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 11,
+            "lookup": {
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "1-9": 1,
+              "10-99": 2,
+              "100+": 8
+            }
+          }
+        },
+        "fixed_setup_seconds": 11.375206249998882,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00012808298924937844,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "baseline/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 13
+          },
+          "baseline/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 2
+          },
+          "baseline/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 7
+          },
+          "candidate/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 5
+          },
+          "candidate/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 13
+          },
+          "candidate/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 2
+          },
+          "candidate/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 7
+          }
+        },
+        "seconds": 11.486147041025106,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 536,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 26451,
+            "sha256": "b6777e408ef68261ecc1ddea765a0e534c95fd5c2eedf0b97ed7f43692dd7cee"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 17498,
+            "sha256": "e9667dd953edca3595932472aeb334d4f2fcada1b23410e10da249cfbdeddd65"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.812037167022936,
+        "play_seconds": 0.16082133300369605,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 9.974746708991006,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 536,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 26280,
+            "sha256": "af8f20042d8ffab0c65aba14aa071224c854c60940f7215ca7c2c99d3908c706"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 17498,
+            "sha256": "e13366b6133e274f9b3d1c575fe945afc1ed057a63cc4f2862b22e99a084c871"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.698930166952778,
+        "play_seconds": 0.16658933297730982,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 9.867404791992158,
+        "status": "complete"
+      }
+    },
+    "panel-random": {
+      "audit": {
+        "actions_replayed": 728,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 2490.7366824355718,
+          "candidate": 2490.7366824355718
+        },
+        "block_work_seconds": 0.14520520897349343,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 33,
+            "lookup": {
+              "missing-key": 4,
+              "positive-mass-known-key": 29
+            },
+            "visit_bands": {
+              "0": 4,
+              "100+": 29
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 134,
+            "lookup": {
+              "missing-key": 26,
+              "positive-mass-known-key": 108
+            },
+            "visit_bands": {
+              "0": 26,
+              "10-99": 3,
+              "100+": 105
+            }
+          },
+          "v053-off/river": {
+            "decisions": 2,
+            "lookup": {
+              "positive-mass-known-key": 2
+            },
+            "visit_bands": {
+              "100+": 2
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 13,
+            "lookup": {
+              "missing-key": 2,
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "0": 2,
+              "100+": 11
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 33,
+            "lookup": {
+              "missing-key": 4,
+              "positive-mass-known-key": 29
+            },
+            "visit_bands": {
+              "0": 4,
+              "100+": 29
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 134,
+            "lookup": {
+              "missing-key": 26,
+              "positive-mass-known-key": 108
+            },
+            "visit_bands": {
+              "0": 26,
+              "10-99": 3,
+              "100+": 105
+            }
+          },
+          "v053-on/river": {
+            "decisions": 2,
+            "lookup": {
+              "positive-mass-known-key": 2
+            },
+            "visit_bands": {
+              "100+": 2
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 13,
+            "lookup": {
+              "missing-key": 2,
+              "positive-mass-known-key": 11
+            },
+            "visit_bands": {
+              "0": 2,
+              "100+": 11
+            }
+          }
+        },
+        "fixed_setup_seconds": 10.950389999023173,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.00012816698290407658,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 4,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  300,
+                  600,
+                  900,
+                  1200
+                ],
+                "pot_after_call": 600,
+                "raise_to": 9700
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  700,
+                  1300,
+                  1900,
+                  2500
+                ],
+                "pot_after_call": 1200,
+                "raise_to": 9500
+              },
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  200,
+                  400,
+                  600,
+                  800
+                ],
+                "pot_after_call": 400,
+                "raise_to": 9800
+              },
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  300,
+                  600,
+                  900,
+                  1200
+                ],
+                "pot_after_call": 600,
+                "raise_to": 9700
+              }
+            ],
+            "raises": 8
+          },
+          "baseline/preflop": {
+            "off_menu": 26,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 300,
+                "offered_raise_to": [
+                  500,
+                  600,
+                  900,
+                  1200,
+                  1500
+                ],
+                "pot_after_call": 600,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 400,
+                "offered_raise_to": [
+                  700,
+                  800,
+                  1200,
+                  1600,
+                  2000
+                ],
+                "pot_after_call": 800,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              }
+            ],
+            "raises": 42
+          },
+          "baseline/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 1
+          },
+          "baseline/turn": {
+            "off_menu": 2,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  400,
+                  800,
+                  1200,
+                  1600
+                ],
+                "pot_after_call": 800,
+                "raise_to": 9600
+              },
+              {
+                "maximum_bet": 800,
+                "offered_raise_to": [
+                  1600,
+                  2000,
+                  3200,
+                  4400,
+                  5600
+                ],
+                "pot_after_call": 2400,
+                "raise_to": 9600
+              }
+            ],
+            "raises": 2
+          },
+          "candidate/flop": {
+            "off_menu": 4,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  300,
+                  600,
+                  900,
+                  1200
+                ],
+                "pot_after_call": 600,
+                "raise_to": 9700
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  700,
+                  1300,
+                  1900,
+                  2500
+                ],
+                "pot_after_call": 1200,
+                "raise_to": 9500
+              },
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  200,
+                  400,
+                  600,
+                  800
+                ],
+                "pot_after_call": 400,
+                "raise_to": 9800
+              },
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  300,
+                  600,
+                  900,
+                  1200
+                ],
+                "pot_after_call": 600,
+                "raise_to": 9700
+              }
+            ],
+            "raises": 8
+          },
+          "candidate/preflop": {
+            "off_menu": 26,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 300,
+                "offered_raise_to": [
+                  500,
+                  600,
+                  900,
+                  1200,
+                  1500
+                ],
+                "pot_after_call": 600,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 400,
+                "offered_raise_to": [
+                  700,
+                  800,
+                  1200,
+                  1600,
+                  2000
+                ],
+                "pot_after_call": 800,
+                "raise_to": 10000
+              },
+              {
+                "maximum_bet": 100,
+                "offered_raise_to": [
+                  200,
+                  300,
+                  400,
+                  500
+                ],
+                "pot_after_call": 200,
+                "raise_to": 10000
+              }
+            ],
+            "raises": 42
+          },
+          "candidate/river": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 1
+          },
+          "candidate/turn": {
+            "off_menu": 2,
+            "off_menu_examples": [
+              {
+                "maximum_bet": 0,
+                "offered_raise_to": [
+                  100,
+                  400,
+                  800,
+                  1200,
+                  1600
+                ],
+                "pot_after_call": 800,
+                "raise_to": 9600
+              },
+              {
+                "maximum_bet": 800,
+                "offered_raise_to": [
+                  1600,
+                  2000,
+                  3200,
+                  4400,
+                  5600
+                ],
+                "pot_after_call": 2400,
+                "raise_to": 9600
+              }
+            ],
+            "raises": 2
+          }
+        },
+        "seconds": 11.095595207996666,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 728,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 36543,
+            "sha256": "3ae189925d97d9ac4ec8c97692004fefb664d0ec452db074233fcd8cdff5902d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19698,
+            "sha256": "0b220d128ab26447fbcfafd8c87554d63912c31c342bdbebc6311ae2b42588e2"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 10.023614750010893,
+        "play_seconds": 0.20773908402770758,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 10.233157417038456,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 728,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 36864,
+            "sha256": "47550393af98981ce8432adeba18a53ce6a16be1a224ecc64387047dd2ed161d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 19698,
+            "sha256": "d75ca5cdaca46ca6eb7b3e2129cd264977878985f4f5995e5e4744f864d47784"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.687400207971223,
+        "play_seconds": 0.2281633749953471,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 9.917484541947488,
+        "status": "complete"
+      }
+    },
+    "panel-tight_aggressive": {
+      "audit": {
+        "actions_replayed": 468,
+        "all_native_menu_actions": false,
+        "arm_sd_bb_per_100": {
+          "baseline": 60.40127061629989,
+          "candidate": 60.40127061629989
+        },
+        "block_work_seconds": 0.09553641598904505,
+        "coverage": {
+          "v053-off/flop": {
+            "decisions": 16,
+            "lookup": {
+              "positive-mass-known-key": 16
+            },
+            "visit_bands": {
+              "100+": 16
+            }
+          },
+          "v053-off/preflop": {
+            "decisions": 71,
+            "lookup": {
+              "positive-mass-known-key": 71
+            },
+            "visit_bands": {
+              "100+": 71
+            }
+          },
+          "v053-off/turn": {
+            "decisions": 4,
+            "lookup": {
+              "positive-mass-known-key": 4
+            },
+            "visit_bands": {
+              "100+": 4
+            }
+          },
+          "v053-on/flop": {
+            "decisions": 16,
+            "lookup": {
+              "positive-mass-known-key": 16
+            },
+            "visit_bands": {
+              "100+": 16
+            }
+          },
+          "v053-on/preflop": {
+            "decisions": 71,
+            "lookup": {
+              "positive-mass-known-key": 71
+            },
+            "visit_bands": {
+              "100+": 71
+            }
+          },
+          "v053-on/turn": {
+            "decisions": 4,
+            "lookup": {
+              "positive-mass-known-key": 4
+            },
+            "visit_bands": {
+              "100+": 4
+            }
+          }
+        },
+        "fixed_setup_seconds": 11.092701417044736,
+        "hands_replayed": 256,
+        "paired_sd_bb_per_100": 0.0,
+        "raw_hash_seconds": 0.0001414999715052545,
+        "scripted_bets_against_candidate_menu": {
+          "baseline/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 1
+          },
+          "baseline/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          },
+          "baseline/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 2
+          },
+          "candidate/flop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 1
+          },
+          "candidate/preflop": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 4
+          },
+          "candidate/turn": {
+            "off_menu": 0,
+            "off_menu_examples": [],
+            "raises": 2
+          }
+        },
+        "seconds": 11.188237833033781,
+        "settlement_sum_zero": true,
+        "status": "verified"
+      },
+      "blocks": 64,
+      "paired_sd_bb_per_100": 0.0,
+      "pilot": true,
+      "primary": {
+        "decisions": 468,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 21034,
+            "sha256": "f632cab544801870464ba52b28be8683db41e6c1bef7c495eeeb2c61dffdf3b7"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 16446,
+            "sha256": "a53c8ad05f96e41ea7ccee3612b39d579cb5735f84089fe670110141ca766571"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.833839458005968,
+        "play_seconds": 0.11917195899877697,
+        "reproduced_all_hands_and_decisions": false,
+        "seconds": 9.954952833009884,
+        "status": "complete"
+      },
+      "repeat": {
+        "decisions": 468,
+        "files": {
+          "decisions.jsonl.gz": {
+            "bytes": 21051,
+            "sha256": "2c3e10d29b7cd8258dab3afcac4256dd22a2d2a456c579b493104e8934ca560d"
+          },
+          "hands.jsonl.gz": {
+            "bytes": 16446,
+            "sha256": "98039fe653b8e11b03e46efc3e162db0b225b760055176a80a7571c6cdb181ba"
+          }
+        },
+        "hands": 256,
+        "load_or_validation_seconds": 9.744666833023075,
+        "play_seconds": 0.14678599999751896,
+        "reproduced_all_hands_and_decisions": true,
+        "seconds": 9.893403583031613,
+        "status": "complete"
+      }
+    }
+  },
+  "quote": {
+    "active_work_budget_seconds": 6099.586327497818,
+    "fixed_seconds": 255.19928079319652,
+    "margin": 1.25,
+    "scaled_block_seconds": 3184.469781205058,
+    "scientific_closeout_seconds": 1800
+  },
+  "roots": {
+    "direct": 20261015530103,
+    "panel": 20261015530104,
+    "pilot_direct": 20261015530101,
+    "pilot_panel": 20261015530102
+  },
+  "rule": "Adopt translation iff no seven-opponent paired nominal Student-t95 upper bound is below -20 BB/100; all gains and direct descriptive",
+  "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+  "total_original_final_hands": 720896,
+  "translation": {
+    "max_events": 128,
+    "max_states": 512,
+    "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+  }
+}

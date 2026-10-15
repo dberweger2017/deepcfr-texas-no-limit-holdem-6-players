@@ -11,6 +11,42 @@
     {
       "result": "preview_open rejected about:blank as an invalid URL; corrected by omitting the URL. Native collaborative browser then initialized successfully; no science or app state affected.",
       "stage": "browser admission probe"
+    },
+    {
+      "at": 1792092021.6180549,
+      "cause": "Two helper Add File patches inadvertently targeted the checkout root; AST probes looked under results and raised FileNotFoundError. This was not a tool no-op.",
+      "classification": "administrative source path mistake",
+      "correction": "Original source versions preserved in the ignored administrative-source-placement folder; correct helper files had already been written and checked under results. Primary tracked scientific source and all hands were unaffected.",
+      "items": [
+        {
+          "bytes": 4116,
+          "mtime_ns": 1792089260655051636,
+          "original_path": "/Users/dberweger/Local/hu100-v053-release-package/recount-science.py",
+          "preserved_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/science/administrative-source-placement/recount-science-initial-root.py",
+          "sha256": "88a3ba6aba73bdb42a9dccb7bcf6ecf02a3890df6e4a66d577c17f4d5d27ca9b"
+        },
+        {
+          "bytes": 2989,
+          "mtime_ns": 1792089501203811452,
+          "original_path": "/Users/dberweger/Local/hu100-v053-release-package/record-resources.py",
+          "preserved_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/science/administrative-source-placement/record-resources-initial-root.py",
+          "sha256": "781521a0472f44815013d3bed32d91f664dc238a10f1bb843bf071e7ad957823"
+        }
+      ],
+      "no_scientific_hand_reruns": true,
+      "owner": {
+        "state": "OPEN",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+      }
+    },
+    {
+      "at": 1792092596.3580291,
+      "cause": "CSV writer default CRLF line endings were flagged as trailing whitespace",
+      "correction": "LF line endings; parsed CSV rows are identical; generator now sets lineterminator",
+      "log": "whitespace-first.log",
+      "original": "science/lookup-telemetry-original-crlf.csv",
+      "scientific_data_unchanged": true,
+      "stage": "precommit whitespace check"
     }
   ],
   "correction_validation": {
@@ -62,8 +98,23 @@
       "preserved": "science/guards/restore-tables-release-001 and administrative-failure-checksum-transcription.json",
       "result": "Unchanged published SHA256SUMS rejected by a one-character copied checksum pin typo",
       "stage": "v0.5.2 restoration checksum validation"
+    },
+    {
+      "at": 1792088611.269367,
+      "cause": "New test create request omitted required visibility",
+      "corrected_result": "2 passed in 0.79s",
+      "correction": "Add visibility: developer to the fixture request",
+      "first_result": "2 failed in 1.00s",
+      "logs": [
+        "runtime-menu-fix-first.log",
+        "runtime-menu-fix-corrected.log"
+      ],
+      "no_scientific_hands_or_primary_source_affected": true,
+      "source_before_correction": "runtime-menu-test-initial.py",
+      "stage": "isolated runtime regression tests"
     }
   ],
   "scientific_failures_or_final_hand_reruns": 0,
+  "scientific_final_hands": 720896,
   "storage": "Initial 13 GiB prevented restoration; owner freed space. Normal inactive uploaded archive-cache eviction later reclaimed 5,188,251,648 allocated bytes. Completed regenerable v050/v051 policy caches were retired with exact inputs and rebuild commands. All canonical models, tables and unique evidence retained."
 }

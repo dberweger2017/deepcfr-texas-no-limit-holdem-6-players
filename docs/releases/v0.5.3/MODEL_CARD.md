@@ -1,6 +1,6 @@
 # v0.5.3 candidate model card: heads-up 100 BB
 
-**Preparation only: translation adoption and runtime readiness are pending.**
+**Unpublished owner-review bundle. Translation passes the declared safeguard.**
 The owner declared PR272's original seed as the candidate, without seed selection.
 No further training or export is part of this task.
 
@@ -17,13 +17,13 @@ Average: **3,196,291,551 bytes**, SHA256
 Checkpoint SHA256
 `401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6`.
 The task's initial byte count belonged to the earlier parent; archive verification
-must match this average's exact whole hash. Downloads split the unchanged gzip
+matched this average's exact whole hash. Downloads split the unchanged gzip
 bytes into ordered parts; the standalone verifier checks every part and the whole.
 
 Table: two seats, reset 10,000 chips each hand, blinds 50/100, chip unit 0.01,
 no ante or rake. The policy sees only its seat's legal observation, public history
 and private hole cards. Translation changes lookup history labels only; real
-wagers stay untouched. The proposed adapter
+wagers stay untouched. The package’s explicit adapter
 `hu100-public-menu-translation-equity-k50-menu-v2` uses at most 512 public states
 and 128 history events, without hidden cards, deck access or extra RNG draws.
 
@@ -45,14 +45,28 @@ are smaller. Relative to the release, the original matched-pot contrast is
 −26.57 [−40.79,−12.34]; passing the historical upper-bound rule does not establish
 20-BB/100 non-inferiority. All PR296 final hands independently replay/reproduce.
 
-The new translation experiment and its telemetry are **pending**. See
-[prospective protocol](TRANSLATION_PROTOCOL.md). It has no outcome-dependent sample
-selection: 16,384 paired blocks per seven opponents and 131,072 direct blocks.
-Adoption requires no opponent contrast's nominal 95% upper bound below −20.
+The new fixed-count experiment passes the declared safeguard: all seven paired
+on-minus-off contrasts are **0.00 [0.00, 0.00] BB/100**, at 16,384 duplicate
+blocks each. The fresh descriptive direct match, both models with translation
+on, is **+37.10 [30.16, 44.04] BB/100** over 131,072 blocks. All 720,896 original
+hands independently replay and exactly reproduce before readout; a separate
+statistics recount agrees exactly. Pilots are unpooled.
+
+The v2 adapter selected no witness in these matches. Random made 8,231 off-menu
+raises per arm, all all-ins outside v2's conditional all-in menu; 8,222 attempted
+lookups found no witness and kept uniform fallback. The other six opponents
+used on-menu sizes. No translation strength gain is measured here. The
+v0.5.2 baseline selected 81,783 translations in direct play. See the
+[fixed protocol](https://github.com/dberweger2017/CFR-NLHE-6max/blob/PACKAGE_SOURCE_COMMIT/docs/releases/v0.5.3/TRANSLATION_PROTOCOL.md) and
+[full report](https://github.com/dberweger2017/CFR-NLHE-6max/blob/PACKAGE_SOURCE_COMMIT/docs/reports/hu100-v053-translation.md).
+
+Adoption uses exactly the declared rule: no opponent contrast’s nominal 95%
+upper bound below −20 BB/100. This does not establish non-inferiority against
+arbitrary opponents or benefit against human off-menu wagers.
 
 Limits: scripted opponents only; no external HU100 benchmark; per-fixed-seed
 intervals cover deal/action variation, not a training-seed population. Sparse
 late-street training support remains despite denser retained keys; this is CFR
 on a restricted frozen game. No general human, multiplayer or exploitability
-claim. M1 load time, peak RSS, human/spectator smoke and independent journal replay
-remain pending. The HU20 default stays v0.4.2.
+claim. Measured M1 load time, peak RSS and human/spectator/restart journal evidence
+are maintained in [PR298’s package readiness record](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298). The HU20 default stays v0.4.2.
