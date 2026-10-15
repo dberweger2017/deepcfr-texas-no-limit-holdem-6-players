@@ -148,3 +148,17 @@ the moved average reader, compact storage and checksum helper.
 
 The [maintenance audit](reports/necessary-cleaning.md) records the remaining
 retirement candidates and why evidence/worktree removal is not automatic.
+
+## Three-player Phase 2 research
+
+The [Phase 2 protocol](nplayer-blueprint-phase2-protocol.md) fixes the sequential
+seeds, all-street averages and duplicate evaluation. Build `--example nplayer_arena`.
+Its CLI is `nplayer_arena K50 BLOCKS ROOT NEW_TRACE SINGLETON PAIR`, where a player
+specification is `policy=PATH@SHA256` or `bot=random|check-call|tight-aggressive|pot-pressure`.
+Each block plays all six seat permutations. `scripts.check_nplayer_policy_replay`
+checks every transition and the duplicate schedule; `scripts.analyze_nplayer_arena`
+requires that receipt and a complete identical reproduction before calculating
+block-cluster intervals. `scripts.machine_qualification.vrm_watchdog` is the
+exclusive four-CPU on-host guard while cygnus-x1's VRM heatsink is absent; it logs
+Thermistor 15 and fan1 and supplies `NPLAYER_STOP_FILE` to its child. Campaign
+entry points consume the fixed protocol and do not authorize another run.
