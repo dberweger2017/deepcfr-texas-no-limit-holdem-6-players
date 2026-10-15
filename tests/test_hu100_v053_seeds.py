@@ -61,3 +61,26 @@ def test_fair_direct_v2_off_release_translation_on_replays(tmp_path,monkeypatch)
     _,repeat=direct.execute(specs,2,20261015286991,'qualification-test',tmp_path/'repeat',source,
         stack_bb=100,cache=tmp_path/'cache',cache_read_only=True,reproduce=tmp_path/'play')
     assert repeat['reproduced_all_hands_and_decisions']
+
+
+def test_selected_key_coverage_counts_translation_witness_visits(tmp_path,monkeypatch):
+    import gzip,json
+    from scripts import hu100_selected_coverage as coverage
+    name='release'
+    rows=[dict(policy=name,street='river',probabilities=[.25,.75],
+               translation=dict(selected_key='witness',mode='translated')),
+          dict(policy=name,street='river',probabilities=[.5,.5],
+               translation=dict(selected_key=None,mode='uniform'))]
+    with gzip.open(tmp_path/'decisions.jsonl.gz','wt') as stream:
+        for row in rows:stream.write(json.dumps(row)+'\n')
+    monkeypatch.setattr(coverage.policy_cache,'load',lambda *args:({'witness':(('fold','call'),(.25,.75))},set(),{'witness':15}))
+    replay=dict(status='verified',coverage={'release/river':dict(decisions=2,lookup={'missing-key':2},visit_bands={'0':2})})
+    result=coverage.selected_coverage(tmp_path,[dict(name=name,sha256='pinned',abstraction='schema')],tmp_path/'cache',replay)
+    cell=result['coverage']['release/river']
+    assert cell['native_lookup']=={'missing-key':2}
+    assert cell['lookup']=={'positive-mass-known-key':1,'missing-key':1}
+    assert cell['visit_bands']=={'10-99':1,'0':1}
+    assert cell['translation_modes']=={'translated':1,'uniform':1}
+    assert replay['coverage']['release/river']['lookup']=={'missing-key':2}
+    with pytest.raises(ValueError,match='replay'):
+        coverage.selected_coverage(tmp_path,[],tmp_path/'cache',dict(status='incomplete'))

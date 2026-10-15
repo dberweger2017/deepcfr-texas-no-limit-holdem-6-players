@@ -81,9 +81,9 @@ def render():
     for seed in (2026100601,*SEEDS):
         for key,row in sorted(summary['coverage'][f'direct-{seed}'].items()):
             counts=row['lookup'];total=row['decisions'];miss=counts.get('missing-key',0)
-            coverage.append([seed,key,total,miss,f'{100*miss/total:.2f}%',counts.get('zero-mass',0),counts.get('positive-mass-known-key',0)])
-    parts += [table(['Seed','Policy/street','Decisions','Missing key','Missing %','Zero mass','Positive mass'],coverage),
-        'Coverage describes reached decisions for both sides, including the release’s public-history translation. Missing-key and zero-mass fallbacks remain part of the policy package; this table does not isolate a causal translation or menu effect. Full reached visit bands and all panel coverage are in the compact summary.\n',
+            coverage.append([seed,key,total,row['native_lookup'].get('missing-key',0),miss,f'{100*miss/total:.2f}%',counts.get('zero-mass',0),counts.get('positive-mass-known-key',0),row['translation_modes'].get('translated',0)])
+    parts += [table(['Seed','Policy/street','Decisions','Native missing','Effective missing','Effective missing %','Zero mass','Positive mass','Translated'],coverage),
+        'Coverage counts the actual key selected after translation, with exact native missing counts retained separately. An exact-native miss can be covered by a positive-mass translation witness; its visits belong to that selected key. Missing-key and zero-mass fallbacks remain part of the policy package; this table does not isolate a causal translation or menu effect. Full reached visit bands and all panel coverage are in the compact summary.\n',
         '## Costs, prospective declaration and verification\n']
     counts=plan['counts']
     final_costs={label:read(BASE/'final'/label/'costs.json') for label in read(BASE/'all-final-verified.json')['labels']}

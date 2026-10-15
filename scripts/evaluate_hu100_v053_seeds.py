@@ -16,6 +16,7 @@ from scripts import evaluate_hu100_direct as direct
 from scripts.archive_hu100_4b_seed_ladder import seal
 from scripts.evaluate_hu100_v2_frozen_5b import projected_cost, recommendation
 from scripts.run_hu100_k50_v2 import restore, pin, header
+from scripts.hu100_selected_coverage import selected_coverage
 from scripts.run_hu200_frozen_evaluation import series, estimate
 from scripts.train_hu100_v053_seeds import BASE, ROOT, BINARY, TABLES, SEEDS, command, read, revision, require_disk
 from src.blueprint.average import AveragePolicy
@@ -59,16 +60,21 @@ def pair_worker(folder, specs, blocks, root, opponent, pilot):
     # cost_only seals means for pilots and final workers alike. No summary is
     # computed until the global barrier proves all seventeen final contrasts.
     checked=direct.audit(folder/'play',folder/'replay.json',cost_only=True)
+    gc.collect()
+    selected=selected_coverage(folder/'play',specs,CACHE,checked)
+    put(folder/'reached-key-coverage.json',selected)
     registry,repeat=direct.execute(specs,blocks,root,'hu100-v053-qualification',folder/'reproduction',revision(),
         reproduce=folder/'play',stack_bb=100,opponent=opponent,cache=CACHE,cache_read_only=True)
     del registry; gc.collect()
     if not repeat['reproduced_all_hands_and_decisions']:
         raise ValueError('Exact reproduction incomplete; no rerun')
-    fixed=original['load_or_validation_seconds']+repeat['load_or_validation_seconds']+checked['fixed_setup_seconds']
-    block_work=original['seconds']+repeat['seconds']+checked['seconds']-fixed
+    fixed=original['load_or_validation_seconds']+repeat['load_or_validation_seconds']+checked['fixed_setup_seconds']+selected['fixed_setup_seconds']
+    block_work=original['seconds']+repeat['seconds']+checked['seconds']+selected['seconds']-fixed
     put(folder/'costs.json',dict(primary=original,repeat=repeat,audit_seconds=checked['seconds'],
         audit_fixed_seconds=checked['fixed_setup_seconds'],audit_block_work_seconds=checked['block_work_seconds'],
         fixed_seconds=fixed,block_work_seconds=block_work,blocks=blocks,pilot=pilot,
+        selected_coverage_fixed_seconds=selected['fixed_setup_seconds'],
+        selected_coverage_block_seconds=selected['block_work_seconds'],
         paired_sd_bb_per_100=checked['paired_sd_bb_per_100']))
 
 
@@ -221,7 +227,9 @@ def verify_final_files():
                 p=folder/stage/name
                 if p.stat().st_size!=expected['bytes'] or file_hash(p)!=expected['sha256']:
                     raise ValueError('Verified final bytes changed')
-        coverage[label]=read(folder/'replay.json')['coverage']
+        selected=read(folder/'reached-key-coverage.json')
+        if selected['status']!='verified':raise ValueError('Selected-key coverage incomplete')
+        coverage[label]=selected['coverage']
     return coverage
 
 
