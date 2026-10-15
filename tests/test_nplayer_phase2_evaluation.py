@@ -26,3 +26,15 @@ def test_final_readout_refuses_missing_reproduction(tmp_path):
     receipt.write_text(json.dumps({'status':'passed','trace_sha256':runner.sha(trace)}))
     with pytest.raises(ValueError,match='exact reproduction required'):
         verified_readout(trace,receipt,other)
+
+
+def test_manifest_preparation_requires_all_three_training_guards(tmp_path):
+    from scripts.prepare_nplayer_phase2_evaluation import prepare
+    training=tmp_path/'training';seed=training/'2026101541';seed.mkdir(parents=True)
+    (seed/'result.json').write_text(json.dumps({'status':'passed'}))
+    guard=tmp_path/'guards/seed-2026101541';guard.mkdir(parents=True)
+    (guard/'result.json').write_text(json.dumps({'status':'failed'}))
+    costs=tmp_path/'costs.json';costs.write_text(json.dumps({'status':'passed'}))
+    with pytest.raises(ValueError,match='training/guard failure'):
+        prepare(training,tmp_path/'unused',costs,tmp_path/'manifest.json')
+    assert not (tmp_path/'manifest.json').exists()
