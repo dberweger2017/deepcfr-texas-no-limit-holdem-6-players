@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Additional M1/M4 storage (October 15):** 8.370/7.675 GB retired; verified 37.297/80.231 GB free. Older merged archival originals and inactive caches cleared; open PR292/297/298 inputs/source remain. [Exact restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-more.md).
+
 - **M4/M1 storage (October 15 evening):** 17.075/25.208 GB reclaimed; 73.785/38.578 GB free at verification. Merged readout caches/restored input, archived old retrieval copies and inactive rebuildable caches retired; open PR292/297/298 dependencies and release inputs remain. [Restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-evening.md).
 
 - **Merged PR286 storage cleanup (October 15):** 50.124 GB reclaimed on M4 from eight unchanged archived model originals and two accepted uploaded ZIP caches; 78.787 GB free. Partial evidence, original-seed/released inputs, tables, source and open PR292 dependencies remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-pr286.md).
