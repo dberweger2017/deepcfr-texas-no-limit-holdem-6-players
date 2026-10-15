@@ -134,6 +134,7 @@ impl Input {
             "input changed while streaming"
         );
         let mass = fsum(self.root_mass.values().copied());
+        assert!(mass.is_finite(), "nonfinite root mass");
         json!({"spec":self.spec,"entries":self.count,"action_slots":self.action_slots,
             "sorted_key_sha256":format!("{:x}",self.keys.clone().finalize()),
             "iteration_weight":self.weight,"root_mass":mass,
@@ -153,7 +154,12 @@ fn combined(rows: &[(&Node, u64)]) -> Node {
     // Regrets and traverser visits deliberately carry no training interpretation.
     let mut output = Node::empty(first.code, first.len as usize);
     for action in 0..first.len as usize {
-        output.average[action] = fsum(rows.iter().map(|(r, w)| r.average[action] / *w as f64));
+        output.average[action] = fsum(rows.iter().map(|(r, w)| {
+            let raw = r.average[action];
+            let scaled = raw / *w as f64;
+            assert!(raw == 0.0 || scaled > 0.0, "positive accumulator underflow");
+            scaled
+        }));
         assert!(output.average[action].is_finite() && output.average[action] >= 0.0);
     }
     output
@@ -407,6 +413,12 @@ mod tests {
         let a = node(&[1., 1.]);
         let b = Node::empty(hu20_trainer::key::code_of(&["check", "min"]), 2);
         combined(&[(&a, 1), (&b, 1)]);
+    }
+
+    #[test]
+    #[should_panic(expected = "positive accumulator underflow")]
+    fn numerical_underflow_is_reported_instead_of_becoming_zero_mass() {
+        combined(&[(&node(&[f64::from_bits(1), 1.]), 3)]);
     }
 
     #[test]
