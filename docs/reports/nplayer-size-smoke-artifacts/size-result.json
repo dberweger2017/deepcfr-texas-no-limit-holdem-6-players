@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "results": 8,
+  "capacity_terminals": [],
+  "scope_comparisons": [
+    {
+      "stack_bb": 20,
+      "matched_endpoint": true,
+      "fingerprints_equal": true
+    },
+    {
+      "stack_bb": 100,
+      "matched_endpoint": true,
+      "fingerprints_equal": true
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "kind": "descriptive single-seed growth; forecasts are scenarios, not bounds or saturation claims",
+  "models": [
+    {
+      "name": "n2-20bb-scope3",
+      "endpoint": {
+        "average_entries_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "average_payload_bytes": 44714888,
+        "elapsed_seconds": 20.02304609,
+        "entries": 1906936,
+        "entries_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 57726,
+        "nodes": 20000230,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "reached_keys": 1906936,
+        "regret_payload_bytes": 44714888,
+        "requested_live_bytes": 1834177182,
+        "requested_peak_bytes": 1967227731,
+        "rss_bytes": 1894084608,
+        "table_requested_bytes": 362059552,
+        "training_seconds": 19.900963976999932
+      },
+      "retained_bytes_per_entry": 189.86455339875067,
+      "last_interval_entries_per_node": 0.05218798755304147,
+      "local_power_exponent": 0.4613172757441659,
+      "reached_keys_per_node": 0.09534570352440946,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 5516341,
+          "last_interval_linear_entries": 11300762,
+          "origin_linear_entries": 19069141,
+          "origin_linear_table_requested_gib": 2.864120142100578,
+          "planning_peak_gib": 6.589490344314104
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 11590390,
+          "last_interval_linear_entries": 53051152,
+          "origin_linear_entries": 95345704,
+          "origin_linear_table_requested_gib": 12.289350607221914,
+          "planning_peak_gib": 24.744642612313818
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 24352580,
+          "last_interval_linear_entries": 261803103,
+          "origin_linear_entries": 476728518,
+          "origin_linear_table_requested_gib": 85.82175288915226,
+          "planning_peak_gib": 155.12977883413026
+        }
+      ]
+    },
+    {
+      "name": "n2-100bb-scope3",
+      "endpoint": {
+        "average_entries_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "average_payload_bytes": 166487880,
+        "elapsed_seconds": 19.335788124,
+        "entries": 6577449,
+        "entries_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 13719,
+        "nodes": 20001131,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "reached_keys": 6577449,
+        "regret_payload_bytes": 166487880,
+        "requested_live_bytes": 2438433311,
+        "requested_peak_bytes": 2565362500,
+        "rss_bytes": 2626547712,
+        "table_requested_bytes": 878235296,
+        "training_seconds": 19.117480090999912
+      },
+      "retained_bytes_per_entry": 133.52217493438565,
+      "last_interval_entries_per_node": 0.2725307607748834,
+      "local_power_exponent": 0.7719275272955793,
+      "reached_keys_per_node": 0.32885385331459505,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 38901475,
+          "last_interval_linear_entries": 55632678,
+          "origin_linear_entries": 65770771,
+          "origin_linear_table_requested_gib": 11.225903095602703,
+          "planning_peak_gib": 21.47769088197471
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 134747355,
+          "last_interval_linear_entries": 273657287,
+          "origin_linear_entries": 328853854,
+          "origin_linear_table_requested_gib": 48.004515371261746,
+          "planning_peak_gib": 90.04502029342076
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 466739368,
+          "last_interval_linear_entries": 1363780330,
+          "origin_linear_entries": 1644269267,
+          "origin_linear_table_requested_gib": 207.5225766552627,
+          "planning_peak_gib": 396.31916710734515
+        }
+      ]
+    },
+    {
+      "name": "n3-20bb-scope3",
+      "endpoint": {
+        "average_entries_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "average_payload_bytes": 115351152,
+        "elapsed_seconds": 22.646438989,
+        "entries": 4907804,
+        "entries_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 38198,
+        "nodes": 20000408,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "reached_keys": 4907804,
+        "regret_payload_bytes": 115351152,
+        "requested_live_bytes": 2336159886,
+        "requested_peak_bytes": 2551231683,
+        "rss_bytes": 2481762304,
+        "table_requested_bytes": 775961840,
+        "training_seconds": 22.46433771000007
+      },
+      "retained_bytes_per_entry": 158.10774839419014,
+      "last_interval_entries_per_node": 0.17915199480487845,
+      "local_power_exponent": 0.6552684259407924,
+      "reached_keys_per_node": 0.2453851941420395,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 22189619,
+          "last_interval_linear_entries": 37155090,
+          "origin_linear_entries": 49077039,
+          "origin_linear_table_requested_gib": 6.211038829531637,
+          "planning_peak_gib": 13.187796717282502
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 63703429,
+          "last_interval_linear_entries": 180476686,
+          "origin_linear_entries": 245385195,
+          "origin_linear_table_requested_gib": 43.24269408805354,
+          "planning_peak_gib": 79.06429935691936
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 182884029,
+          "last_interval_linear_entries": 897084666,
+          "origin_linear_entries": 1226925971,
+          "origin_linear_table_requested_gib": 183.71347020554748,
+          "planning_peak_gib": 341.4155620819649
+        }
+      ]
+    },
+    {
+      "name": "n3-100bb-scope3",
+      "endpoint": {
+        "average_entries_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "average_payload_bytes": 245248856,
+        "elapsed_seconds": 20.301467971,
+        "entries": 9668463,
+        "entries_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "hash_capacity": 14680064,
+        "iteration": 8531,
+        "nodes": 20002195,
+        "observer_requested_bytes": 352321552,
+        "reached_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "reached_keys": 9668463,
+        "regret_payload_bytes": 245248856,
+        "requested_live_bytes": 3317375583,
+        "requested_peak_bytes": 3745545828,
+        "rss_bytes": 3586060288,
+        "table_requested_bytes": 1581016768,
+        "training_seconds": 20.024720286999912
+      },
+      "retained_bytes_per_entry": 163.5230716609248,
+      "last_interval_entries_per_node": 0.45074495579306284,
+      "local_power_exponent": 0.9057765522636259,
+      "reached_keys_per_node": 0.48337010013151055,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 77819928,
+          "last_interval_linear_entries": 90801566,
+          "origin_linear_entries": 96674021,
+          "origin_linear_table_requested_gib": 12.692614685029458,
+          "planning_peak_gib": 25.24687407932497
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 334350104,
+          "last_interval_linear_entries": 451397531,
+          "origin_linear_entries": 483370101,
+          "origin_linear_table_requested_gib": 87.83807317655229,
+          "planning_peak_gib": 157.64093567639284
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 1436521409,
+          "last_interval_linear_entries": 2254377354,
+          "origin_linear_entries": 2416850501,
+          "origin_linear_table_requested_gib": 374.19036563416637,
+          "planning_peak_gib": 685.5487436617321
+        }
+      ]
+    },
+    {
+      "name": "n3-20bb-scope0",
+      "endpoint": {
+        "average_entries_by_street": [
+          244461,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 5569864,
+        "elapsed_seconds": 19.081312769,
+        "entries": 2209039,
+        "entries_by_street": [
+          244461,
+          266884,
+          589717,
+          1107977
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 38198,
+        "nodes": 20000408,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "reached_keys": 4907804,
+        "regret_payload_bytes": 51613472,
+        "requested_live_bytes": 1890011158,
+        "requested_peak_bytes": 2017188659,
+        "rss_bytes": 1927430144,
+        "table_requested_bytes": 329813112,
+        "training_seconds": 18.975520886000023
+      },
+      "retained_bytes_per_entry": 149.30162482418825,
+      "last_interval_entries_per_node": 0.0857278055101368,
+      "local_power_exponent": 0.7085980854756181,
+      "reached_keys_per_node": 0.2453851941420395,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 11292633,
+          "last_interval_linear_entries": 17640010,
+          "origin_linear_entries": 22089940,
+          "origin_linear_table_requested_gib": 2.5638004832611845,
+          "planning_peak_gib": 5.928759867053428
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 35325149,
+          "last_interval_linear_entries": 86222254,
+          "origin_linear_entries": 110449697,
+          "origin_linear_table_requested_gib": 10.787752284376435,
+          "planning_peak_gib": 21.440989889444573
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 110502679,
+          "last_interval_linear_entries": 429133476,
+          "origin_linear_entries": 552248485,
+          "origin_linear_table_requested_gib": 78.31376136227753,
+          "planning_peak_gib": 138.61151521772973
+        }
+      ]
+    },
+    {
+      "name": "n3-100bb-scope0",
+      "endpoint": {
+        "average_entries_by_street": [
+          363567,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 9339552,
+        "elapsed_seconds": 17.017146522,
+        "entries": 3646141,
+        "entries_by_street": [
+          363567,
+          360754,
+          911894,
+          2009926
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 8531,
+        "nodes": 20002195,
+        "observer_requested_bytes": 352321552,
+        "reached_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "reached_keys": 9668463,
+        "regret_payload_bytes": 92335488,
+        "requested_live_bytes": 2110663631,
+        "requested_peak_bytes": 2262602476,
+        "rss_bytes": 2167873536,
+        "table_requested_bytes": 374304816,
+        "training_seconds": 16.892233624999978
+      },
+      "retained_bytes_per_entry": 102.65780067199815,
+      "last_interval_entries_per_node": 0.17252665756514038,
+      "local_power_exponent": 0.9247543504381643,
+      "reached_keys_per_node": 0.48337010013151055,
+      "forecasts": [
+        {
+          "nodes": 200000000,
+          "local_power_fit_entries": 30657994,
+          "last_interval_linear_entries": 34700561,
+          "origin_linear_entries": 36457409,
+          "origin_linear_table_requested_gib": 5.0093187070296885,
+          "planning_peak_gib": 10.06766495485944
+        },
+        {
+          "nodes": 1000000000,
+          "local_power_fit_entries": 135806103,
+          "last_interval_linear_entries": 172721887,
+          "origin_linear_entries": 182287044,
+          "origin_linear_table_requested_gib": 20.98409344957326,
+          "planning_peak_gib": 39.088640467433066
+        },
+        {
+          "nodes": 5000000000,
+          "local_power_fit_entries": 601582009,
+          "last_interval_linear_entries": 862828517,
+          "origin_linear_entries": 911435220,
+          "origin_linear_table_requested_gib": 88.67046718826164,
+          "planning_peak_gib": 165.9122681039469
+        }
+      ]
+    },
+    {
+      "name": "production-hu20",
+      "endpoint": {
+        "elapsed_seconds": 13.812562083,
+        "entries": 1698921,
+        "iteration": 60246,
+        "nodes": 20000292,
+        "requested_peak_bytes": 1545955653,
+        "retained_training_requested_bytes": 161769622,
+        "rss_bytes": 1531187200
+      },
+      "retained_bytes_per_entry_including_scratch": 95.21903725953119
+    },
+    {
+      "name": "production-hu100",
+      "endpoint": {
+        "elapsed_seconds": 13.865743038,
+        "entries": 6285547,
+        "iteration": 14448,
+        "nodes": 20000949,
+        "requested_peak_bytes": 1921994567,
+        "retained_training_requested_bytes": 537741974,
+        "rss_bytes": 1913200640
+      },
+      "retained_bytes_per_entry_including_scratch": 85.55213635344704
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source": "cdd8959ac62a55a009958d393063284c7570e18e",
+  "native_tree": "a77c1acbbc7a64c4c1a2f10b70094e6b7781539d",
+  "train_binary_sha256": "4daeb775923ecf014b59417edf5e4f4ed2cda76500f5680b0fe53e6472c4addf",
+  "policy_binary_sha256": "8ad07d140818c0b882cca4dd92787be94c174b77f732f8cc23e85572d85c5ead",
+  "players": 3,
+  "stack_bb": 20,
+  "seed": 2026101531,
+  "nodes": 200000000,
+  "scope": 0,
+  "max_entries": 30000000,
+  "play_seed": 2026101532,
+  "play_hands": 128
+}

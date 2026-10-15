@@ -1,0 +1,47 @@
+{
+  "binaries": {
+    "reviewed": {
+      "path": "/home/dberweger/nplayer-traversal-20261015/repo/native/hu20-trainer/target/release/examples/nplayer_train",
+      "sha256": "7eef2c89093bde2e5950d12b5be891becc311da73c7681a24e2bf466949081a2"
+    },
+    "candidate": {
+      "path": "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/examples/nplayer_train",
+      "sha256": "4daeb775923ecf014b59417edf5e4f4ed2cda76500f5680b0fe53e6472c4addf"
+    }
+  },
+  "comparisons": [
+    {
+      "stack_bb": 20,
+      "scope": 0,
+      "hashes": {
+        "reviewed": "93a60b92a1c554f9f6f7193ff33de1d71b8db997caa89a7038c70667c53ca1f9",
+        "candidate": "93a60b92a1c554f9f6f7193ff33de1d71b8db997caa89a7038c70667c53ca1f9"
+      }
+    },
+    {
+      "stack_bb": 20,
+      "scope": 3,
+      "hashes": {
+        "reviewed": "8ae23c2cd6507040805c3c442c950bb66b40b075414a3985f6fb6aa96de6aeda",
+        "candidate": "8ae23c2cd6507040805c3c442c950bb66b40b075414a3985f6fb6aa96de6aeda"
+      }
+    },
+    {
+      "stack_bb": 100,
+      "scope": 0,
+      "hashes": {
+        "reviewed": "d28152dd74ca34ad2e13527d53ff9f6e33dc9d34b2e1ad48ff815399b947ec00",
+        "candidate": "d28152dd74ca34ad2e13527d53ff9f6e33dc9d34b2e1ad48ff815399b947ec00"
+      }
+    },
+    {
+      "stack_bb": 100,
+      "scope": 3,
+      "hashes": {
+        "reviewed": "ba17eed260a4f241838754a7d06c66f1fec5c8a73eaee9adec472aa303619945",
+        "candidate": "ba17eed260a4f241838754a7d06c66f1fec5c8a73eaee9adec472aa303619945"
+      }
+    }
+  ],
+  "status": "passed"
+}

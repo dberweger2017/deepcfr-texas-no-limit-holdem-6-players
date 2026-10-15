@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checkpoint_sha256": "2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a",
+  "policy_sha256": "fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e",
+  "strategy": "scoped-average",
+  "last_average_street": 0,
+  "rows": 8246876,
+  "average_rows": 444827,
+  "current_rows": 7802049,
+  "zero_mass_rows": 146453,
+  "elapsed_seconds": 54.197328401998675
+}

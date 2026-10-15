@@ -1,4 +1,47 @@
-## PR289 — N-player traversal and known games (review pending, October 15, 2026)
+## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
+
+[PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), branch
+`feature/nplayer-size-smoke`; [report](docs/reports/nplayer-size-smoke.md),
+[protocol](docs/nplayer-size-smoke-protocol.md). The owner cleared the independent
+PR289 review at `5df55c52` before these dependent measurements. Size study
+source `78954644`; export/loader native implementation `0e836e52`; fixed smoke
+runner `cdd8959a`. Full source, binary and input pins are in the report receipts.
+
+**Protected working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-size-smoke-20261015/`. Retain the complete root:
+pilot/main size measurements, commands/logs/watchdog resources, source bundles,
+key-compatibility checkpoints, policy fixtures, the fixed smoke's fresh/prefix/
+resumed checkpoints, scoped-average export and privileged replay traces,
+independent audits, regression payloads and all setup/failure evidence.
+Compact receipts and the growth figure live in
+`docs/reports/nplayer-size-smoke-artifacts/`. Generated checkpoint/policy/trace
+payloads are not committed. Cloud archival/upload acceptance and cleanup remain
+pending; no original has been removed. A transport ref-name error before the
+small audit test was corrected before any compute; it did not rerun an experiment.
+
+For a needed model, copy its receipt-named path into a fresh ignored directory,
+for example `rsync -a bb128:/home/dberweger/nplayer-size-smoke-20261015/smoke/scoped-average.gz results/nplayer-smoke/`,
+and verify its full SHA256 against the smoke result before use. This is host
+retrieval, not cloud restoration. The policy explicitly combines a preflop
+average with postflop current regret matching; it is not a released model.
+The completed 200,000,154-node smoke has a 335,278,630-byte fresh/resumed
+checkpoint, SHA256 `2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a`.
+Its 225,158,368-byte scoped export has SHA256
+`fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`.
+[Recovery pins](docs/reports/nplayer-size-smoke-artifacts/smoke--recovery.json),
+[export audit](docs/reports/nplayer-size-smoke-artifacts/smoke--export-audit.json)
+and [exact operations](docs/reports/nplayer-size-smoke-artifacts/smoke--operations.json)
+record the remaining paths and identities.
+
+Dependencies: `repo` is a shared clone of PR289's host checkout, which itself
+depends on PR288 and #283's shared Git objects. `.venv` and `tables` refer to
+#283's qualified environment and pinned K50 inputs. Original Drive archive,
+member, hashes and retrieval provenance are in
+[#283's input receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Protect the entire dependency chain, active worktree and ignored local
+`planning/nplayer-size-smoke/` helpers/receipt copies. No M4 use or cleanup.
+
+## PR289 — N-player traversal and known games (merged with owner authorization, October 15, 2026)
 
 [PR289](https://github.com/dberweger2017/CFR-NLHE-6max/pull/289), branch
 `feature/nplayer-traversal-known-games`; [report](docs/reports/nplayer-traversal.md),

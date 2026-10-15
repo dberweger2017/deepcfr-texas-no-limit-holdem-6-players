@@ -1,0 +1,241 @@
+[
+  {
+    "name": "fresh",
+    "wall_seconds": 304.9074230959959,
+    "report": {
+      "checkpoint": "/home/dberweger/nplayer-size-smoke-20261015/smoke/fresh.gz",
+      "counts": {
+        "decisions": [
+          14580837,
+          21822248,
+          33756886,
+          48380067
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444853,
+          2857678,
+          7196867,
+          18181024
+        ],
+        "nodes": 200000154,
+        "terminals": 81460116,
+        "traverser": [
+          13179591,
+          13181293,
+          13170540,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 297.245640672,
+      "entries": 8246876,
+      "frozen_at": null,
+      "identity": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 359261,
+      "sha256": "2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a",
+      "stop_reason": "nodes"
+    }
+  },
+  {
+    "name": "prefix",
+    "wall_seconds": 172.25623256999825,
+    "report": {
+      "checkpoint": "/home/dberweger/nplayer-size-smoke-20261015/smoke/prefix.gz",
+      "counts": {
+        "decisions": [
+          8205460,
+          11702190,
+          16786572,
+          22830025
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          383512,
+          2227734,
+          5295787,
+          11936862
+        ],
+        "nodes": 100000619,
+        "terminals": 40476372,
+        "traverser": [
+          6595610,
+          6613261,
+          6598585,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 164.806077599,
+      "entries": 5846944,
+      "frozen_at": null,
+      "identity": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 185260,
+      "sha256": "745b2c2a8f811b18feae65c92cc4cee362838563288987af349e72f4849af956",
+      "stop_reason": "nodes"
+    }
+  },
+  {
+    "name": "resumed",
+    "wall_seconds": 244.36637126099959,
+    "report": {
+      "checkpoint": "/home/dberweger/nplayer-size-smoke-20261015/smoke/resumed.gz",
+      "counts": {
+        "decisions": [
+          14580837,
+          21822248,
+          33756886,
+          48380067
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444853,
+          2857678,
+          7196867,
+          18181024
+        ],
+        "nodes": 200000154,
+        "terminals": 81460116,
+        "traverser": [
+          13179591,
+          13181293,
+          13170540,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 230.378285751,
+      "entries": 8246876,
+      "frozen_at": null,
+      "identity": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 359261,
+      "sha256": "2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a",
+      "stop_reason": "nodes"
+    }
+  },
+  {
+    "name": "export",
+    "wall_seconds": 96.06291488400166,
+    "report": {
+      "bytes": 225158368,
+      "mode": "scoped-average",
+      "sha256": "fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e"
+    }
+  },
+  {
+    "name": "play-0",
+    "wall_seconds": 14.646675284995581,
+    "report": {
+      "decisions_by_street": [
+        448,
+        175,
+        94,
+        61
+      ],
+      "distinct_policy_instances": 3,
+      "hands": 128,
+      "loaded_weight_tables": 1,
+      "misses_by_street": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "players": 3,
+      "seat_decisions": [
+        254,
+        280,
+        244
+      ],
+      "trace_sha256": "f167f100e90ba2f43bdf0d1b22f3c31bfb199bf8e0b53e2f958909cfa4f668f1"
+    }
+  },
+  {
+    "name": "play-1",
+    "wall_seconds": 14.803537032996246,
+    "report": {
+      "decisions_by_street": [
+        448,
+        175,
+        94,
+        61
+      ],
+      "distinct_policy_instances": 3,
+      "hands": 128,
+      "loaded_weight_tables": 1,
+      "misses_by_street": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "players": 3,
+      "seat_decisions": [
+        254,
+        280,
+        244
+      ],
+      "trace_sha256": "f167f100e90ba2f43bdf0d1b22f3c31bfb199bf8e0b53e2f958909cfa4f668f1"
+    }
+  }
+]

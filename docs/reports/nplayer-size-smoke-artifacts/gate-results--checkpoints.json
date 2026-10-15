@@ -1,0 +1,14 @@
+{
+  "fresh20m": {
+    "bytes": 270143830,
+    "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+  },
+  "prefix10m": {
+    "bytes": 148448690,
+    "sha256": "fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db"
+  },
+  "resumed20m": {
+    "bytes": 270143830,
+    "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b"
+  }
+}
