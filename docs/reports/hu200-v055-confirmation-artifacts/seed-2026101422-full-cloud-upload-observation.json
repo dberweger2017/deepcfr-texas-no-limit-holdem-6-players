@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-15T03:52:39.078632+00:00",
+  "file": {
+    "id": "1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO",
+    "title": "hu200-v055-seed-2026101422-full-20261014.zip",
+    "mime_type": "application/zip",
+    "size": "20953054295",
+    "url": "https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": "2026-10-15T02:13:28.666Z",
+    "parent_ids": [
+      "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "accepted": true,
+  "native_receipt": "seed-2026101422-full-native-upload-observation.json",
+  "reason": "Native upload and independent ID/name/size/direct-parent match",
+  "remote_archive_bytes_downloaded": false
+}

@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-10-15T04:24:29.346439+00:00",
+  "reason": "Terminal upload block; owner forbids upload manipulation; no authorized dependent work remains",
+  "receipts": [
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:0af01d54-8444-4273-a3a6-b33f27559c33:schedule-task:pr278-m4-health-30m-20261014-v1",
+      "deleted": true
+    },
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:0af01d54-8444-4273-a3a6-b33f27559c33:schedule-task:pr278-training-completion-20261014",
+      "deleted": true
+    }
+  ],
+  "no_follow_on_schedule": true
+}

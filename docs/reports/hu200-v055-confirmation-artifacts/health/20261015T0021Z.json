@@ -1,0 +1,112 @@
+{
+  "observed_utc": "2026-10-15T00:21:34.119981+00:00",
+  "owned_supervisor": {
+    "pid": 9907,
+    "create_time": 1792009339.852762,
+    "alive": true
+  },
+  "sample_age_seconds": 1.5662550926208496,
+  "phase": {
+    "at": 1792023042.509373,
+    "name": "audit-final",
+    "seed": 2026101422,
+    "stop_file": null
+  },
+  "deadline": 1792036636.171959,
+  "current": {
+    "family_rss_bytes": 151420928,
+    "free_percent": 88,
+    "disk_free_bytes": 35592847360,
+    "swap_growth_bytes": 187097416,
+    "pressure_level": 1,
+    "stop": []
+  },
+  "cumulative": {
+    "samples": 2857,
+    "peak_family_rss_bytes": 9457319936,
+    "min_free_percent": 40,
+    "min_disk_free_bytes": 35592847360,
+    "max_swap_growth_bytes": 187097416,
+    "stop_readings": 0,
+    "max_observed_gap_seconds": 5.051055500051007
+  },
+  "latest_verified_save": {
+    "actual_nodes": 20000000096,
+    "checkpoint_bytes": 4957316628,
+    "checkpoint_sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c",
+    "entries": 85373928,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 281947633,
+      "discarded_updates_since_previous_save": 592206853,
+      "interval_start_iteration": 8041286,
+      "missing_opponent_by_street": [
+        227819,
+        2705151,
+        36081583,
+        272744013
+      ],
+      "missing_opponent_share_by_street": [
+        0.0027086165546467336,
+        0.008774546221614131,
+        0.03772921924969857,
+        0.10862065671910358
+      ],
+      "missing_traverser_by_street": [
+        223047,
+        3410465,
+        42337001,
+        235977120
+      ],
+      "missing_traverser_share_by_street": [
+        0.006308434409642234,
+        0.025184294547957432,
+        0.09392231023188119,
+        0.19160117612989386
+      ],
+      "opponent_decisions_by_street": [
+        84108989,
+        308295259,
+        956329967,
+        2510977389
+      ],
+      "state": {
+        "discarded_traverser_visits": 561907109,
+        "discarded_updates": 1210228146,
+        "entries": 85373928,
+        "since_iteration": 494507,
+        "version": 1
+      },
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        35356950,
+        135420311,
+        450766180,
+        1231605801
+      ]
+    },
+    "iterations": 16827728,
+    "mean_traverser_visits_per_key": 37.39338133768426,
+    "requested_nodes": 20000000000,
+    "rss_bytes_after_save": 1769259008,
+    "status": "saved",
+    "write_seconds": 332.355151125,
+    "zero_average_mass_share": 0.2225829880991302,
+    "zero_visit_share": 0.16625918863660577
+  },
+  "latest_keys": {
+    "entries": 85373928,
+    "iteration": 16827728,
+    "method": "SHA256 of concatenated sorted 32-character serialized keys",
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101422/frozen/20000000000.gz",
+    "seconds": 47.704487323760986,
+    "sha256": "1fc63ca8eb21d6246a87da3745598b68d57cd40c4cf6331dbcf2f333750860b1"
+  },
+  "stage1_sorted_keys_sha256": "1fc63ca8eb21d6246a87da3745598b68d57cd40c4cf6331dbcf2f333750860b1",
+  "failure_latch": false,
+  "science_complete": null
+}

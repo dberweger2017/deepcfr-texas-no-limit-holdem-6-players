@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-15T01:52:45.203432+00:00",
+  "native_receipt": "seed-2026101422-average-native-upload-observation.json",
+  "file": {
+    "id": "1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT",
+    "title": "hu200-v055-seed-2026101422-final-average-20261014.zip",
+    "mime_type": "application/zip",
+    "size": "3162066289",
+    "url": "https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": "2026-10-15T01:25:10.857Z",
+    "parent_ids": [
+      "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "accepted": true,
+  "remote_archive_bytes_downloaded": false
+}

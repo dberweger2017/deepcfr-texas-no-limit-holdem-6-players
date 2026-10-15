@@ -1,0 +1,402 @@
+{
+  "frozen": [
+    {
+      "actual_nodes": 2000001235,
+      "checkpoint_bytes": 3907794759,
+      "checkpoint_sha256": "f9946baa6e9102a0ac110ac08ca105a1a03ccd55b4a0c1f751f5f633ee8496ad",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 38941013,
+        "discarded_updates_since_previous_save": 89102610,
+        "interval_start_iteration": 494507,
+        "missing_opponent_by_street": [
+          62805,
+          481924,
+          5587879,
+          44225064
+        ],
+        "missing_opponent_share_by_street": [
+          0.006111071757731253,
+          0.013269916991014024,
+          0.05082871612487885,
+          0.1491011373819499
+        ],
+        "missing_traverser_by_street": [
+          53158,
+          448700,
+          5202729,
+          33236426
+        ],
+        "missing_traverser_share_by_street": [
+          0.011009414480492866,
+          0.025467901022666488,
+          0.08947988205858133,
+          0.2047341132328373
+        ],
+        "opponent_decisions_by_street": [
+          10277248,
+          36317032,
+          109935474,
+          296611178
+        ],
+        "state": {
+          "discarded_traverser_visits": 38941013,
+          "discarded_updates": 89102610,
+          "entries": 85373928,
+          "since_iteration": 494507,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          4828413,
+          17618256,
+          58144120,
+          162339463
+        ]
+      },
+      "iterations": 1396928,
+      "mean_traverser_visits_per_key": 4.140093729785983,
+      "requested_nodes": 2000000000,
+      "rss_bytes_after_save": 2376630272,
+      "status": "saved",
+      "write_seconds": 297.385825083,
+      "zero_average_mass_share": 0.314427256995836,
+      "zero_visit_share": 0.3482365834215804
+    },
+    {
+      "actual_nodes": 5000000239,
+      "checkpoint_bytes": 4354826440,
+      "checkpoint_sha256": "67a819934d85bf45fdcc308cb2bd6f4dcc6ce9cf4d571857125714262094dc3a",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 93397345,
+        "discarded_updates_since_previous_save": 209904985,
+        "interval_start_iteration": 1396928,
+        "missing_opponent_by_street": [
+          145043,
+          1097343,
+          13335018,
+          102463839
+        ],
+        "missing_opponent_share_by_street": [
+          0.00582586050164345,
+          0.01233562285647724,
+          0.04853111577841397,
+          0.13970550708019416
+        ],
+        "missing_traverser_by_street": [
+          116790,
+          1090375,
+          12966961,
+          79223219
+        ],
+        "missing_traverser_share_by_street": [
+          0.010517960234383275,
+          0.02661989783867303,
+          0.09409366887099667,
+          0.20717392173231824
+        ],
+        "opponent_decisions_by_street": [
+          24896408,
+          88957243,
+          274772541,
+          733427344
+        ],
+        "state": {
+          "discarded_traverser_visits": 132338358,
+          "discarded_updates": 299007595,
+          "entries": 85373928,
+          "since_iteration": 494507,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          11103864,
+          40960901,
+          137809070,
+          382399572
+        ]
+      },
+      "iterations": 3772546,
+      "mean_traverser_visits_per_key": 9.749254198541738,
+      "requested_nodes": 5000000000,
+      "rss_bytes_after_save": 1938751488,
+      "status": "saved",
+      "write_seconds": 314.628369958,
+      "zero_average_mass_share": 0.27255920566288105,
+      "zero_visit_share": 0.26428039014440097
+    },
+    {
+      "actual_nodes": 10000002576,
+      "checkpoint_bytes": 4667701831,
+      "checkpoint_sha256": "20d5192bd9d866e6cd52f37abb5dc40bf3169941fd8288c7307a7d1b51e7dc9a",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 147621118,
+        "discarded_updates_since_previous_save": 319013698,
+        "interval_start_iteration": 3772546,
+        "missing_opponent_by_street": [
+          222639,
+          1615960,
+          20047224,
+          150391951
+        ],
+        "missing_opponent_share_by_street": [
+          0.005341546581895065,
+          0.010696398023246125,
+          0.042730267817844066,
+          0.12078319213343741
+        ],
+        "missing_traverser_by_street": [
+          157250,
+          1787042,
+          21520275,
+          124156551
+        ],
+        "missing_traverser_share_by_street": [
+          0.008783491705227917,
+          0.026475895360179497,
+          0.09499196405620638,
+          0.1987907454874292
+        ],
+        "opponent_decisions_by_street": [
+          41680625,
+          151075156,
+          469157462,
+          1245139728
+        ],
+        "state": {
+          "discarded_traverser_visits": 279959476,
+          "discarded_updates": 618021293,
+          "entries": 85373928,
+          "since_iteration": 494507,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          17902903,
+          67496943,
+          226548374,
+          624559009
+        ]
+      },
+      "iterations": 8041286,
+      "mean_traverser_visits_per_key": 18.989617497744746,
+      "requested_nodes": 10000000000,
+      "rss_bytes_after_save": 1479819264,
+      "status": "saved",
+      "write_seconds": 320.921598125,
+      "zero_average_mass_share": 0.24594727561322938,
+      "zero_visit_share": 0.21113800691002527
+    },
+    {
+      "actual_nodes": 20000000096,
+      "checkpoint_bytes": 4957316628,
+      "checkpoint_sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 281947633,
+        "discarded_updates_since_previous_save": 592206853,
+        "interval_start_iteration": 8041286,
+        "missing_opponent_by_street": [
+          227819,
+          2705151,
+          36081583,
+          272744013
+        ],
+        "missing_opponent_share_by_street": [
+          0.0027086165546467336,
+          0.008774546221614131,
+          0.03772921924969857,
+          0.10862065671910358
+        ],
+        "missing_traverser_by_street": [
+          223047,
+          3410465,
+          42337001,
+          235977120
+        ],
+        "missing_traverser_share_by_street": [
+          0.006308434409642234,
+          0.025184294547957432,
+          0.09392231023188119,
+          0.19160117612989386
+        ],
+        "opponent_decisions_by_street": [
+          84108989,
+          308295259,
+          956329967,
+          2510977389
+        ],
+        "state": {
+          "discarded_traverser_visits": 561907109,
+          "discarded_updates": 1210228146,
+          "entries": 85373928,
+          "since_iteration": 494507,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          35356950,
+          135420311,
+          450766180,
+          1231605801
+        ]
+      },
+      "iterations": 16827728,
+      "mean_traverser_visits_per_key": 37.39338133768426,
+      "requested_nodes": 20000000000,
+      "rss_bytes_after_save": 1769259008,
+      "status": "saved",
+      "write_seconds": 332.355151125,
+      "zero_average_mass_share": 0.2225829880991302,
+      "zero_visit_share": 0.16625918863660577
+    }
+  ],
+  "stage1": [
+    {
+      "actual_nodes": 500000820,
+      "checkpoint_bytes": 2726310329,
+      "checkpoint_sha256": "45144a01a799b81d185c20e15772fe70793518a3d35b03fa84eb6db0bfa46966",
+      "entries": 69055433,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 0,
+        "discarded_updates_since_previous_save": 0,
+        "interval_start_iteration": 0,
+        "missing_opponent_by_street": [
+          58854,
+          596886,
+          5459484,
+          33955938
+        ],
+        "missing_opponent_share_by_street": [
+          0.013333439057184898,
+          0.03963506991115666,
+          0.12622066456235853,
+          0.29573300803223673
+        ],
+        "missing_traverser_by_street": [
+          101393,
+          592895,
+          4667620,
+          23767903
+        ],
+        "missing_traverser_share_by_street": [
+          0.044043144411108154,
+          0.07374109555391796,
+          0.19207402184061068,
+          0.369178877464234
+        ],
+        "opponent_decisions_by_street": [
+          4414015,
+          15059542,
+          43253488,
+          114819574
+        ],
+        "state": null,
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          2302129,
+          8040225,
+          24301152,
+          64380452
+        ]
+      },
+      "iterations": 320010,
+      "mean_traverser_visits_per_key": 1.4339778015728322,
+      "requested_nodes": 500000000,
+      "rss_bytes_after_save": 3212230656,
+      "status": "saved",
+      "write_seconds": 259.277893875,
+      "zero_average_mass_share": 0.35708774717262287,
+      "zero_visit_share": 0.46443437694467865
+    },
+    {
+      "actual_nodes": 755276076,
+      "checkpoint_bytes": 3445287989,
+      "checkpoint_sha256": "94422a4a48305468dabfebeb36440282a5dd954376ff5cdb627b1773ff706317",
+      "entries": 85373928,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 0,
+        "discarded_updates_since_previous_save": 0,
+        "interval_start_iteration": 320010,
+        "missing_opponent_by_street": [
+          1902,
+          46563,
+          770430,
+          7768436
+        ],
+        "missing_opponent_share_by_street": [
+          0.0009213928825064212,
+          0.006381879918192202,
+          0.03524276189478094,
+          0.12945449789804891
+        ],
+        "missing_traverser_by_street": [
+          9926,
+          76929,
+          954687,
+          6714198
+        ],
+        "missing_traverser_share_by_street": [
+          0.00988560740813038,
+          0.020902506594442084,
+          0.07954651122098516,
+          0.19889919032287104
+        ],
+        "opponent_decisions_by_street": [
+          2064266,
+          7296126,
+          21860659,
+          60009008
+        ],
+        "state": null,
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          1004086,
+          3680372,
+          12001620,
+          33756789
+        ]
+      },
+      "iterations": 494507,
+      "mean_traverser_visits_per_key": 1.7507314996681422,
+      "requested_nodes": 1000000000,
+      "rss_bytes_after_save": 4259250176,
+      "status": "incomplete-target",
+      "write_seconds": 304.409916084,
+      "zero_average_mass_share": 0.36153823214037895,
+      "zero_visit_share": 0.44215713021895864
+    }
+  ]
+}

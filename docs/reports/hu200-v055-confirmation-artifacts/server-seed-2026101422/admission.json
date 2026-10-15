@@ -1,0 +1,13 @@
+{
+  "at": 1792026025.839219,
+  "host": {
+    "MemAvailable_bytes": 7897321472,
+    "MemFree_bytes": 209678336,
+    "MemTotal_bytes": 16773292032,
+    "SwapFree_bytes": 13795328,
+    "SwapTotal_bytes": 4294963200
+  },
+  "minimum_available_bytes": 2000000000,
+  "model_sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+  "source": "ff6cc77aa9510854eef49114355f272d6c465570"
+}

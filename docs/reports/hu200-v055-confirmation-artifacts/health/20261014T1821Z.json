@@ -1,0 +1,114 @@
+{
+  "observed_utc": "2026-10-14T18:22:15.538564+00:00",
+  "owned_supervisor": {
+    "pid": 93795,
+    "create_time": 1791993435.559815,
+    "alive": true
+  },
+  "last_sample_at": 1792002135.0550919,
+  "sample_age_seconds": 0.4836721420288086,
+  "phase": {
+    "at": 1791994403.600141,
+    "name": "frozen-train",
+    "seed": 2026101421,
+    "stop_file": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/stop.request"
+  },
+  "deadline": 1792036636.171959,
+  "current": {
+    "family_rss_bytes": 9363062784,
+    "free_percent": 82,
+    "disk_free_bytes": 68782960640,
+    "swap_growth_bytes": -351346360,
+    "pressure_level": 1,
+    "stop": []
+  },
+  "cumulative": {
+    "samples": 1732,
+    "peak_family_rss_bytes": 9363062784,
+    "min_free_percent": 34,
+    "min_disk_free_bytes": 45379137536,
+    "max_swap_growth_bytes": 0,
+    "stop_readings": 0,
+    "max_observed_gap_seconds": 5.064935749978758
+  },
+  "latest_verified_save": {
+    "actual_nodes": 10000000162,
+    "checkpoint_bytes": 4666227519,
+    "checkpoint_sha256": "4941f4dfee990ef57944274c6614d625ad25e78c53c8dfec45df26ab657d5234",
+    "entries": 85373916,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 148108421,
+      "discarded_updates_since_previous_save": 320164790,
+      "interval_start_iteration": 3813020,
+      "missing_opponent_by_street": [
+        172619,
+        1587115,
+        20039571,
+        151088000
+      ],
+      "missing_opponent_share_by_street": [
+        0.004150200227524228,
+        0.010452252666367769,
+        0.04253319181787519,
+        0.12164555055578309
+      ],
+      "missing_traverser_by_street": [
+        128706,
+        1757892,
+        21607790,
+        124614033
+      ],
+      "missing_traverser_share_by_street": [
+        0.007212653464184681,
+        0.025920207685816692,
+        0.09490035170786346,
+        0.19972118408240438
+      ],
+      "opponent_decisions_by_street": [
+        41592933,
+        151844301,
+        471151356,
+        1242034742
+      ],
+      "state": {
+        "discarded_traverser_visits": 279450450,
+        "discarded_updates": 616710974,
+        "entries": 85373916,
+        "since_iteration": 496692,
+        "version": 1
+      },
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        17844473,
+        67819364,
+        227689251,
+        623939987
+      ]
+    },
+    "iterations": 8053874,
+    "mean_traverser_visits_per_key": 19.00206840693591,
+    "requested_nodes": 10000000000,
+    "rss_bytes_after_save": 2228568064,
+    "status": "saved",
+    "write_seconds": 314.484744792,
+    "zero_average_mass_share": 0.2461520214206878,
+    "zero_visit_share": 0.21189357180242266
+  },
+  "latest_keys": {
+    "entries": 85373916,
+    "iteration": 8053874,
+    "method": "SHA256 of concatenated sorted 32-character serialized keys",
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/10000000000.gz",
+    "seconds": 50.448676109313965,
+    "sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df"
+  },
+  "stage1_sorted_keys_sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df",
+  "failure_latch": false,
+  "seed2_started": false,
+  "server_preparation_started": false
+}

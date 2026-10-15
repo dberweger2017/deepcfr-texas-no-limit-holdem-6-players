@@ -1,0 +1,38 @@
+{
+  "status": "uploading-verified",
+  "at": "2026-10-15T05:49:12.811155+00:00",
+  "source": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip",
+  "retry_path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-retry-20261015.zip",
+  "bytes": 20952808971,
+  "archive_sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+  "manifest_sha256": "6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39",
+  "source_mtime_ns": 1792013553901647327,
+  "method": "cp -c -p clone to ignored staging; strip copied sync identities there; atomic same-filesystem rename",
+  "removed_staging_sync_metadata": [],
+  "seconds": 0.014420270919799805,
+  "free_before": 27148726272,
+  "free_after": 27148976128,
+  "source_and_failed_partial_retained": true,
+  "no_reseal_or_rehash": true,
+  "owner_instruction": "Retry; verify uploading only, do not wait for completion; Vacuum Cleaner takes over",
+  "cloud_upload_accepted": false,
+  "setup_failures_preserved": [
+    "Initial read-only metadata helper used unavailable os.listxattr; corrected to native xattr CLI",
+    "cp rejected combined -c -X before copying; corrected to clone then strip sync metadata only in ignored staging"
+  ],
+  "verified_at": "2026-10-15T05:50:01.230371+00:00",
+  "drive_ui": {
+    "status": "Syncing",
+    "retry_status": "Uploading",
+    "displayed_size": "19.51 GB",
+    "displayed_percent": 10,
+    "displayed_eta": "37 minutes"
+  },
+  "native": {
+    "uploaded": 0,
+    "uploading": 1,
+    "accepted": false
+  },
+  "completion_not_awaited_per_owner": true,
+  "progress_observed_utc": "2026-10-15T05:52:13.289815+00:00"
+}

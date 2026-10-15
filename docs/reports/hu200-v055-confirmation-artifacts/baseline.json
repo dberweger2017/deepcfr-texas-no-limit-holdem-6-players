@@ -1,0 +1,20 @@
+{
+  "at": 1791993436.171959,
+  "clock_origin": "detached first-build supervisor, immediately before build worker",
+  "controller": {
+    "bytes": 19030,
+    "mtime_ns": 1791993433972598302,
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/planning/hu200-v055/campaign.py",
+    "sha256": "e7b3ce914b3bc76cc2576107ffa8489f15cc976cc607796d0b6e9e52f6ff22f5"
+  },
+  "deadline": 1792036636.171959,
+  "disk_free_bytes": 52864663552,
+  "free_percent": 88,
+  "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 88%\n",
+  "locks": "both exclusive nonblocking flocks held",
+  "monotonic": 277695.466170375,
+  "pressure_level": 1,
+  "source": "9c449929e4b41e8c60383e682bea1e0e1e4c01d5",
+  "swap_bytes": 1086198906,
+  "swap_raw": "vm.swapusage: total = 2048.00M  used = 1035.88M  free = 1012.12M  (encrypted)\n"
+}

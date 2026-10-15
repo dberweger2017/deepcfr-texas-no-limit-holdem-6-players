@@ -1,0 +1,243 @@
+{
+  "actual_entries": 85373916,
+  "actual_iterations": 496692,
+  "actual_nodes": 754080075,
+  "checkpoint": {
+    "bytes": 3444252731,
+    "mtime_ns": 1791994339204697933,
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/1000000000.gz",
+    "sha256": "c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39"
+  },
+  "keys": {
+    "entries": 85373916,
+    "iteration": 496692,
+    "method": "SHA256 of concatenated sorted 32-character serialized keys",
+    "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/1000000000.gz",
+    "seconds": 41.78250527381897,
+    "sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df"
+  },
+  "nominal_cap": 85373862,
+  "saves": [
+    {
+      "pin": {
+        "bytes": 2730179385,
+        "mtime_ns": 1791993910802633837,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/500000000.gz",
+        "sha256": "251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f"
+      },
+      "telemetry": {
+        "audit_status": "unaudited",
+        "binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+        "checkpoint_bytes": 2730179385,
+        "checkpoint_sha256": "251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f",
+        "completed_nodes": 500000695,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            6596746,
+            22983949,
+            67562680,
+            179381008
+          ],
+          "entries": 69180237,
+          "positive_average_mass_keys": 44432038,
+          "traverser_visits": 99048328,
+          "traverser_visits_by_street": [
+            2248375,
+            8005951,
+            24336772,
+            64457230
+          ],
+          "visits_histogram": {
+            "0": 32161877,
+            "1": 23502906,
+            "10-99": 1346793,
+            "100+": 34801,
+            "2-9": 12133860
+          },
+          "zero_average_mass_keys": 24748199
+        },
+        "elapsed_seconds_including_writes": 460.262176959,
+        "entries_per_completed_node": 0.13836028167920847,
+        "frozen_table": {
+          "discarded_traverser_visits_since_previous_save": 0,
+          "discarded_updates_since_previous_save": 0,
+          "interval_start_iteration": 0,
+          "missing_opponent_by_street": [
+            59231,
+            595396,
+            5437928,
+            34030426
+          ],
+          "missing_opponent_share_by_street": [
+            0.013621422827077083,
+            0.0397513739820235,
+            0.12580251639826745,
+            0.29611301153012914
+          ],
+          "missing_traverser_by_street": [
+            99913,
+            590126,
+            4668548,
+            23841987
+          ],
+          "missing_traverser_share_by_street": [
+            0.044437871796297324,
+            0.07371091829065654,
+            0.19183102837138796,
+            0.36988848264190066
+          ],
+          "opponent_decisions_by_street": [
+            4348371,
+            14977998,
+            43225908,
+            114923778
+          ],
+          "state": null,
+          "streets": [
+            "preflop",
+            "flop",
+            "turn",
+            "river"
+          ],
+          "traverser_decisions_by_street": [
+            2248375,
+            8005951,
+            24336772,
+            64457230
+          ]
+        },
+        "iteration": 320364,
+        "new_entries": 69180237,
+        "nodes_per_second_including_writes": 1086338.8738643625,
+        "nodes_since_previous_save": 500000695,
+        "overshoot_nodes": 695,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/500000000.gz",
+        "process_rss_bytes_after_save": 5287034880,
+        "recent_nodes_per_second_including_writes": 1086338.8738643625,
+        "requested_nodes": 500000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791993910.803536,
+        "write_seconds": 236.13928425,
+        "write_started": 1791993674.664384
+      }
+    },
+    {
+      "pin": {
+        "bytes": 3444252731,
+        "mtime_ns": 1791994339204697933,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/1000000000.gz",
+        "sha256": "c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39"
+      },
+      "telemetry": {
+        "audit_status": "unaudited",
+        "binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+        "checkpoint_bytes": 3444252731,
+        "checkpoint_sha256": "c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39",
+        "completed_nodes": 754080075,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            9683989,
+            33923140,
+            101426041,
+            272508099
+          ],
+          "entries": 85373916,
+          "positive_average_mass_keys": 54465279,
+          "traverser_visits": 149256165,
+          "traverser_visits_by_street": [
+            3251590,
+            11663555,
+            36345505,
+            97995515
+          ],
+          "visits_histogram": {
+            "0": 37770060,
+            "1": 28614177,
+            "10-99": 2263734,
+            "100+": 65906,
+            "2-9": 16660039
+          },
+          "zero_average_mass_keys": 30908637
+        },
+        "elapsed_seconds_including_writes": 888.664111459,
+        "entries_per_completed_node": 0.11321598173774848,
+        "frozen_table": {
+          "discarded_traverser_visits_since_previous_save": 0,
+          "discarded_updates_since_previous_save": 0,
+          "interval_start_iteration": 320364,
+          "missing_opponent_by_street": [
+            1595,
+            46206,
+            769398,
+            7703256
+          ],
+          "missing_opponent_share_by_street": [
+            0.0007653448034287447,
+            0.0063455947171955785,
+            0.03520526636280425,
+            0.1292735417454077
+          ],
+          "missing_traverser_by_street": [
+            10657,
+            78982,
+            954854,
+            6647582
+          ],
+          "missing_traverser_share_by_street": [
+            0.010622847545142367,
+            0.021593917766931574,
+            0.07951330086196437,
+            0.19820876350713817
+          ],
+          "opponent_decisions_by_street": [
+            2084028,
+            7281587,
+            21854628,
+            59588806
+          ],
+          "state": null,
+          "streets": [
+            "preflop",
+            "flop",
+            "turn",
+            "river"
+          ],
+          "traverser_decisions_by_street": [
+            1003215,
+            3657604,
+            12008733,
+            33538285
+          ]
+        },
+        "iteration": 496692,
+        "new_entries": 16193679,
+        "nodes_per_second_including_writes": 848554.6623031269,
+        "nodes_since_previous_save": 254079380,
+        "overshoot_nodes": 0,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/1000000000.gz",
+        "process_rss_bytes_after_save": 3879026688,
+        "recent_nodes_per_second_including_writes": 593086.4441509659,
+        "requested_nodes": 1000000000,
+        "status": "incomplete-target",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791994339.205229,
+        "write_seconds": 292.609006833,
+        "write_started": 1791994046.596387
+      }
+    }
+  ],
+  "status": "entry-cap"
+}
