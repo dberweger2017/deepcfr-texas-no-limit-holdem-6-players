@@ -1,7 +1,7 @@
 # First three-player blueprint: Phase 2 protocol
 
-Status: harness/admission and all three sequential training seeds complete.
-Final regression closeout is running; final evaluation has not started.
+Status: harness/admission, all three sequential training seeds and regression
+closeout complete. Final evaluation is admitted by the pinned manifest below.
 The owner authorized this campaign on October 15, 2026. No search, release or
 merge is authorized. PR289 and PR291 are already merged; the feature branch
 starts at main `623e2e8741dd8c267f062ded28b9bcc5dde36a0f`.
@@ -143,6 +143,34 @@ Each scheduled training segment has its own **1,800-second traversal clock**;
 checkpoint I/O is included in the whole-seed supervisor clock. Stop the campaign
 on any failed seed or audit. No concurrent seeds or evaluation. Final evaluation
 has a separately committed quote using actual row counts before final hands.
+
+## Model-pinned final evaluation admission
+
+Before any final hands, the [evaluation manifest](reports/nplayer-blueprint-phase2-artifacts/evaluation-manifest.json)
+pins all nine full-average exports, their checkpoint lineages, the arena binary,
+and all 42 roots/lineups/block counts. Its exact SHA256 is
+`b46b197a9b68a4b0b189121e477eaf34095443c97c5e1c86c961a6224aa8613c`.
+Every model SHA256 agrees with its successful every-row milestone audit.
+All three training guards, 23 focused post-training checks and the existing
+HU20 1B average identity gate passed before admission.
+
+Measured rates from the fixed smoke qualification, scaled by actual model row
+counts and the fixed number of hands, give:
+
+| Cost | Seconds | Minutes |
+| --- | ---: | ---: |
+| One-off model loading, including both fresh passes | 5,021.74 | 83.70 |
+| Two-pass play | 495.14 | 8.25 |
+| Independent engine replay of every first-pass hand | 613.26 | 10.22 |
+| Total projection | 6,130.14 | 102.17 |
+
+The unchanged budget rule, twice projected work plus 600 seconds rounded up to
+the next minute, gives a **12,900-second /215-minute whole-evaluation cap**.
+This includes loading, both passes, hashing and replay. Counts remain
+2,064,384 final hands plus the same number of reproduction hands, with no
+outcome-driven reruns or extension. The guard remains one job, four CPUs and
+80 GiB family RSS with the same CPU/VRM/resource stops. Outcomes remain withheld
+until every fixed contrast, all-hand replay and exact reproduction pass.
 
 ## Telemetry interpretation and execution boundary
 

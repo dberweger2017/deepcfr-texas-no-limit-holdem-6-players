@@ -39,7 +39,9 @@ The fresh20M and resumed10M→20M #250 checkpoints both retain SHA256
 `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
 The rebuilt HU executable itself differs, so these were freshly executed
 identity checks, not a claim of executable-byte reuse. The existing HU20
-1B release-identity regression is running; it changes no release. After training,
+1B release-identity regression passed, retaining the required 142,677,367-byte
+average SHA256 `571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`
+in 780.66 guarded seconds; it changes no release. After training,
 23 focused harness/controller/statistics/archive/watchdog checks passed in
 34.24 seconds under a 35.36-second successful supervisor. This includes the
 two-model real-K50 fixture and the full controller/replay/readout fixture.
@@ -130,10 +132,22 @@ segmented decisions/misses, and zero-regret-visit entries by street.
 These are training coverage measurements; final played lookup misses are
 measured separately during evaluation. No final comparison readout yet.
 
+## Final evaluation admission
+
+The [committed manifest](nplayer-blueprint-phase2-artifacts/evaluation-manifest.json)
+pins all nine audited full averages and the unchanged arena executable, with
+42 fixed contrasts ×8,192 six-hand blocks. Manifest SHA256
+`b46b197a9b68a4b0b189121e477eaf34095443c97c5e1c86c961a6224aa8613c`.
+Projected cost is 83.70 minutes of fresh model loads, 8.25 minutes of two-pass
+play and 10.22 minutes of engine replay: **102.17 minutes total**. The fixed
+whole-evaluation cap is **215 minutes**, one job/four CPUs/80 GiB family RSS
+with the same thermal guards. This declaration precedes final hands. No
+comparison readout is available yet.
+
 ## Outstanding work
 
-Focused regression closeout, final evaluation, complete resource receipts,
-archives/readback and indexed cloud acceptance remain outstanding.
+Final evaluation, complete resource receipts, archives/readback and indexed
+cloud acceptance remain outstanding.
 All working evidence is retained under
 `/home/dberweger/nplayer-blueprint-phase2-20261015/`; its shared source/input
 parents are protected. No cleanup has occurred.
