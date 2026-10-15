@@ -295,6 +295,27 @@ it is not safe to assume that coefficient remains constant as regrets age.
 This estimate follows the [compact-store layout](native-compact-table.md),
 is unmeasured at that size, predicts no node budget and authorizes no campaign.
 
+## Stepped i7 integer verification
+
+Each `stress-ng --cpu-method int64 --verify` step ran 60 seconds under its own
+85 °C guard, sampled every 0.5 s, cooling below 60 °C between steps.
+
+| Workers | Bogo-ops/s, real time | Peak package °C | Median package °C |
+|---|---:|---:|---:|
+| 1 | 2,938.07 | 57 | 55 |
+| 4 | 11,287.56 | 64 | 61.5 |
+| 8 | 22,108.10 | 76 | 72 |
+
+All verification checks pass, with zero failed/untrustworthy stressor metrics,
+swap growth or throttle-counter change. Eight-worker scaling is **7.52×**
+the one-worker rate for this particular integer method. Eight-worker sampled
+all-logical-CPU clock median **4,700 MHz**; one/four-worker active-clock proxies
+and full per-step clocks/resources are in the receipt. Governor remains
+powersave/intel_pstate and sched-autogroup remains enabled; no tuning was done.
+These short integer checks do not validate AVX, long heat soak or 16 threads.
+[Measurements/resources](cygnus-x1-artifacts/cpu-steps.json) · full 0.5-second
+thermal/clock CSVs `cpu-{1,4,8}-temperatures.csv` alongside the receipt.
+
 PR163’s indexed K50 archive and all three extracted table members now pass
 full SHA256/size checks in the ignored coordinator input directory. The tables
 total **1,384,031,032 bytes**. [Retrieval and member receipt](cygnus-x1-artifacts/input-restoration.json).
