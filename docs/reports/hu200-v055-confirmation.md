@@ -3,12 +3,12 @@
 [Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278) ·
 [Owner-approved acceptance](../hu200-v055-acceptance-protocol.md).
 
-**Seed 2026101421 has reached 20B and passed every-row current/average audits.**
+**Both seeds reached 20B and passed every-row current/average audits on the 16-GiB M4.**
 Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 those audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
-Its **20,000,000,096-node** terminal is verified; final current/average exports
-are complete and the every-row audit is running.
+It finished science at **October 15 00:38:20 UTC /02:38:20 CEST**, within
+the original clock. Server and archive preparation remain in progress.
 
 ## Fixed recipe, source and clock
 
@@ -91,7 +91,7 @@ and **0 stop readings**. Maximum observed gap is
 [Closed resource summary](hu200-v055-confirmation-artifacts/seed-2026101421-resource-summary.json).
 The small completion observer has separate retained readings; it does no training.
 
-## Seed 2026101422: 20B verified, audit running
+## Seed 2026101422: complete science
 
 [Admission and detached launch](hu200-v055-confirmation-artifacts/seed-2026101422-launch.json)
 confirm seed 1's successful audit, released locks and worker exit before launch.
@@ -115,13 +115,30 @@ and the stage-1 sorted-key digest unchanged:
 | 10B frozen | 10,000,002,576 | 8,041,286 | 85,373,928 | 18.9896 | 21.11% | 1.378 | 320.92 |
 | 20B frozen | 20,000,000,096 | 16,827,728 | 85,373,928 | 37.3934 | 16.63% | 1.648 | 332.36 |
 
-The **October 15 02:21 CEST** check verifies the second-seed supervisor identity.
-Current/average exports are complete and **the every-row audit is running**;
-science completion and server admission await its successful receipt.
-Current RSS **0.14 GiB**, free memory **88%**, disk **33.15 GiB**,
-pressure level 1 and no stops across **2,857 readings**.
-[Health receipt](hu200-v055-confirmation-artifacts/health/20261015T0021Z.json),
-[all per-save statistics and frozen missing-decision shares](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
+Current and average exports use **uniform zero-mass play**. The final audit
+verifies **all 85,373,928 rows**: **66,371,144 positive-mass /19,002,784
+uniform-fallback rows**. Audit takes **1,654.83 s**; unweighted current/average
+TV is **0.3305658**. It checks stored accumulators/current regrets, with the
+same limits as seed 1. Science finished **00:38:20 UTC /02:38:20 CEST**, inside
+the original deadline; supervisor exited zero, no reasons.
+[Every-row audit](hu200-v055-confirmation-artifacts/seed-2026101422-final.audit.json),
+[science completion](hu200-v055-confirmation-artifacts/seed-2026101422-science-complete.json).
+
+| Final file | Bytes | SHA256 |
+|---|---:|---|
+| Checkpoint | 4,957,316,628 | `e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c` |
+| Current | 2,301,944,453 | `1bfd938c992591a79cec66ad93065996856fbc456096127fe893b235131d91d5` |
+| Average | 3,162,064,602 | `b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f` |
+
+Closed **3,058 five-second readings**: peak family RSS **8.808 GiB**,
+minimum free memory **40%**, minimum disk **30.783 GiB**,
+maximum swap growth **340,650,886 bytes**, pressure levels **[1, 2]**,
+**zero stop readings**, maximum observed gap **5.05 s**.
+At the 02:51 CEST check, the correct second-seed supervisor identity is exited,
+both nonblocking research locks are free and no trainer remains.
+[Closed resources](hu200-v055-confirmation-artifacts/seed-2026101422-resource-summary.json),
+[release check](hu200-v055-confirmation-artifacts/seed-2026101422-release-confirmation.json),
+[per-save statistics and missing-decision shares](hu200-v055-confirmation-artifacts/seed-2026101422-learning-curve.json).
 
 ## Server preparation and archives
 
@@ -143,7 +160,10 @@ limits 200/50, policy seed 20261014055201, account `deepcfr-v055-s21`, and a fre
 output path under `v055-runs-pr278`. The owner logs in and starts it.
 [Exact launcher](hu200-v055-confirmation-artifacts/server-seed-2026101421/run-v055-seed-2026101421.sh),
 [launcher receipt](hu200-v055-confirmation-artifacts/server-seed-2026101421/launcher-receipt.json).
-Seed 2's server work awaits its final audits; cache builds do not overlap.
+Seed 2's audited final average transfer is now detached on the M1, followed by
+remote SHA256 verification and its first offline cache build. The first cache
+build is closed; builds do not overlap. Its launcher awaits successful cache
+verification. No play or credentials.
 
 [Canonical PR278 Research-Cloud folder](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP):
 `~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`, confirmed under project
@@ -167,6 +187,10 @@ version. Do not use that full remote version for restoration.
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified. M4 originals remain.
 Seed 2 archives and the closed administrative/server supplement are pending.
+The M1 has about **22.28 GiB free**; seed-2 archive admission requires about
+25 GiB including headroom. The owner has been asked for 6 GiB more. The
+administrative wrapper checks actual selected bytes before starting an archive;
+M4 originals and resumable checkpoints remain intact.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures

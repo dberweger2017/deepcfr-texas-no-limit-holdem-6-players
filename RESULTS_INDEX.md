@@ -17,7 +17,14 @@ Retain cap, 5B and final checkpoints for resume. Seed **2026101422** launches
 20:22:19 UTC after those audits with 7.58 hours left and 58.66 GiB free; its
 cap is 755,276,076 actual nodes /85,373,928 entries. Its verified frozen save is
 20,000,000,096 nodes /16,827,728 iterations with unchanged keys; training and
-exports are complete, and the final every-row audit is running. Same executable, tables, baseline and guards.
+exports and every-row audits are complete at October 15 **00:38:20 UTC**.
+Final average `seed-2026101422/frozen/20000000000.average.gz`, **3,162,064,602 bytes**,
+SHA256 `b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`.
+[Final model pins/audit](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-final.audit.json),
+[closed resources](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-resource-summary.json).
+Both seeds finish inside the original deadline with unchanged guards; M4 workers
+are exited and both research locks are free. Seed 2 server transfer is active;
+its archive awaits sufficient M1 space (owner asked for 6 GiB more).
 
 First average transfer to db-ocean is SHA256 verified, its new read-only cache
 passes all payload hashes, and `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`
