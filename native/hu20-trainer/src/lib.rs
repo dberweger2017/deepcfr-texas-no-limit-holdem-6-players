@@ -7,6 +7,12 @@ pub mod cfr;
 pub mod export;
 pub mod game;
 pub mod nplayer;
+pub mod multi_cfr;
+pub mod small_games;
+pub mod small_exact;
+pub mod multi_checkpoint;
+#[cfg(test)]
+mod multi_tests;
 pub mod key;
 pub mod parity;
 pub mod store;
