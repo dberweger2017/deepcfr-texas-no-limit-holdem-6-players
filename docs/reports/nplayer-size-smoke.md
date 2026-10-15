@@ -65,6 +65,12 @@ scenarios. These are one-seed extrapolations, not statistical bounds or proof
 of saturation. The last interval is 10M to 20M nodes. Do not use its power fit
 alone to admit a much longer run.
 
+Over the final measured interval, retained growth is **0.0857 keys/node**
+for 20-BB preflop averaging and **0.1725 keys/node** at 100 BB. Full-street
+three-player figures are 0.1792 and 0.4507. Local power exponents for the
+preflop-scoped tables are 0.709 and 0.925 respectively; the deeper table is
+still growing nearly linearly over this short interval.
+
 The more conservative origin-linear scenario for three-player 20 BB with
 preflop averages gives **22.1M /110.4M /552.2M retained entries** at
 **200M /1B /5B nodes**. Planning peaks are **5.9 /21.4 /138.6 GiB** after adding
@@ -136,3 +142,68 @@ three-instance repeatability plus independent engine parity. A streaming Python
 audit separately recalculates every exported probability; a deliberately wrong
 probability row proves it rejects corrupted output.
 
+
+## Smoke result
+
+The complete fixed batch passes in **908.81 seconds (15.15 minutes)** under
+its 1,800-second watchdog. Fresh and resumed runs end at **200,000,154 nodes**,
+**359,261 complete iterations** and **8,246,876 entries**, with no freezing,
+discarded updates or capacity/time stop. Their complete **335,278,630-byte**
+checkpoints are identical:
+
+`2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a`
+
+The independent prefix ends at 100,000,619 nodes /5,846,944 entries.
+[Recovery](nplayer-size-smoke-artifacts/smoke--recovery.json),
+[fixed admission](nplayer-size-smoke-artifacts/smoke--admission.json),
+[operations and exact commands](nplayer-size-smoke-artifacts/smoke--operations.json).
+
+| Operation | Process wall seconds | Traversal Mnodes/s | Sampled family peak GiB |
+|---|---:|---:|---:|
+| Fresh 200M | 304.91 | 1.059 | 2.756 |
+| Fresh 100M prefix | 172.26 | 1.108 | 2.127 |
+| Resume 100M to 200M | 244.37 | 1.007 | 2.817 |
+| Scoped export | 96.06 | — | 1.565 |
+| First / repeated 128-hand play | 14.65 /14.80 | — | 1.189 /1.190 |
+
+Traversal rates use the last periodic telemetry point, excluding startup,
+checkpoint load/save and final hashing; the resumed rate subtracts prefix nodes.
+Process wall time includes those costs. Generic traversal is single-threaded;
+this is not an eight-thread scaling benchmark. Save/load costs are material:
+the fresh traversal reaches its last periodic point in 188.91 seconds, while
+the complete fresh process takes 304.91 seconds.
+[Full measurements](nplayer-size-smoke-artifacts/smoke-statistics.json).
+
+The guard's final maximum is **68°C**, with **2.817 GiB sampled family RSS**,
+zero swap growth and no thermal-throttle counter increase. Minimum available
+RAM is 120.50 GiB and free disk 386.01 GiB. CPU affinity is 0–7; explicit child
+settings cap Rayon at four and BLAS/MKL at two threads. Two-second RSS samples
+can miss brief allocation peaks, especially in the small pilots; they are
+observations, not hard measured maxima between samples. The on-host resource
+limits remain independent of the allocation model.
+[All guard receipts](nplayer-size-smoke-artifacts/guards.json).
+
+The terminal has fewer entries than the 22.1M origin-linear scenario and its
+observed RSS is below the 5.9-GiB planning scenario. This is a useful check at
+200M on a different fixed seed, not evidence to enlarge the Phase 2 budget or
+treat the projection as a guaranteed bound.
+
+The **scoped-average export** has SHA256
+`fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`.
+The independent streaming audit checks **all 8,246,876 rows** in 54.20 seconds:
+444,827 preflop-average rows, 7,802,049 current-policy continuation rows and
+146,453 zero-mass uniform rows. No audit mismatch.
+[Audit](nplayer-size-smoke-artifacts/smoke--export-audit.json).
+
+Both 128-hand plays use three separate action RNG/policy instances sharing one
+immutable weight table. All **778 decisions** per play match the pinned pokers
+engine's actions, states, public history and settlement. Seats make 254/280/244
+decisions; one turn decision misses its key and uses the declared uniform
+fallback. The complete privileged traces are byte-identical, SHA256
+`f167f100e90ba2f43bdf0d1b22f3c31bfb199bf8e0b53e2f958909cfa4f668f1`.
+[First oracle check](nplayer-size-smoke-artifacts/smoke--play-0-oracle.json),
+[repeat](nplayer-size-smoke-artifacts/smoke--play-1-oracle.json),
+[final result](nplayer-size-smoke-artifacts/smoke--result.json).
+These few self-play hands establish the pipeline, not NLHE strength or general
+coverage. Multiway abstraction, search and a full later-street average remain
+separate work.

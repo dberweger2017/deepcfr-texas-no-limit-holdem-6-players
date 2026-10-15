@@ -1,0 +1,21 @@
+{
+  "sources": [
+    {
+      "commit": "5df55c52d6b9679e71cf9eaa24dd1f29f523468f",
+      "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0"
+    },
+    {
+      "commit": "78954644aa316ab01d9d794bc430a48728f9df5d",
+      "native_tree": "6a024f9b93134c09e59883ca551f822fc3bcbe4e"
+    },
+    {
+      "commit": "0e836e52f14f38300b401f80a18d82a90b1d3881",
+      "native_tree": "a77c1acbbc7a64c4c1a2f10b70094e6b7781539d"
+    },
+    {
+      "commit": "cdd8959ac62a55a009958d393063284c7570e18e",
+      "native_tree": "a77c1acbbc7a64c4c1a2f10b70094e6b7781539d"
+    }
+  ],
+  "interpretation": "Reviewed traversal parent; fixed size study; export/loader and observation-key extraction; independent audit and fixed smoke runner. Later report-only commits retain the final native tree."
+}

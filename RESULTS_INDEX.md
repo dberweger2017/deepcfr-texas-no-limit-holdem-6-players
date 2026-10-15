@@ -24,6 +24,14 @@ for example `rsync -a bb128:/home/dberweger/nplayer-size-smoke-20261015/smoke/sc
 and verify its full SHA256 against the smoke result before use. This is host
 retrieval, not cloud restoration. The policy explicitly combines a preflop
 average with postflop current regret matching; it is not a released model.
+The completed 200,000,154-node smoke has a 335,278,630-byte fresh/resumed
+checkpoint, SHA256 `2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a`.
+Its 225,158,368-byte scoped export has SHA256
+`fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`.
+[Recovery pins](docs/reports/nplayer-size-smoke-artifacts/smoke--recovery.json),
+[export audit](docs/reports/nplayer-size-smoke-artifacts/smoke--export-audit.json)
+and [exact operations](docs/reports/nplayer-size-smoke-artifacts/smoke--operations.json)
+record the remaining paths and identities.
 
 Dependencies: `repo` is a shared clone of PR289's host checkout, which itself
 depends on PR288 and #283's shared Git objects. `.venv` and `tables` refer to
