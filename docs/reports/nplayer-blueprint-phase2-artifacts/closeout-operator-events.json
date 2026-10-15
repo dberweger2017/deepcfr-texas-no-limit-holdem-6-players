@@ -20,6 +20,11 @@
       "stage": "report formatting",
       "event": "The staged whitespace check rejected CSV CRLF line endings.",
       "action": "Normalized only the generated table to LF; parsed CSV rows remained exactly equal. No research data or readout was rerun."
+    },
+    {
+      "stage": "native upload flag visibility",
+      "event": "After successful API upload and cloud metadata, the latest piece appeared natively with the correct size, no conflicts, isUploaded=0 and isUploading=0. The original helper treated this transient state as a hard acceptance failure.",
+      "action": "Preserved the first native observation, classified a clean pending flag as deferred acceptance, retained the buffer and re-observed without repeating the upload. Actual errors or identity mismatches still fail."
     }
   ]
 }
