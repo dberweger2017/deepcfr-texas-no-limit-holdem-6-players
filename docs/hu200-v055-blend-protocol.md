@@ -37,11 +37,19 @@ action slots and per-menu counts. Project compressed checkpoint/current/average,
 exact cache backing sizes, audit SQLite workspace, evidence/archive duplication
 and all retained input/download space. Require the 16-GiB disk floor plus an
 explicit 2-GiB margin at each peak; stop and report if capacity fails.
+For compression cost only, the scan retains up to 100,000 keys whose first
+12 digest bits are zero. The same fixed formula produces this unplayed sample;
+the existing exporter measures its current/average sizes. Project checkpoint,
+current and average bytes from that sample with a 1.5 multiplier and header
+allowance; the full cache array projection is `35*union_keys + 8*action_slots +
+768` bytes plus manifest allowance. Audit workspace and archive duplication
+are separate peak reservations. No sample outcomes or alternate blends exist.
 
 For each union key/action, raw blend accumulator is `fsum(A_s/W_s)` over
 present seeds, checked identical action menus. A missing key contributes zero.
 Output the trainer's JSONL-v2 checkpoint under distinct research seed/model
-identity **2026101529701** and a blend manifest; retain game/schema/card-table
+identity **2026101529701** and a blend manifest; header iteration is the
+format-required synthetic marker **1**, with no training-iteration claim; retain game/schema/card-table
 identity. Set regrets and visits to zero, document that no training/regret
 interpretation is asserted, and omit seed recovery/frozen counters. Mark
 synthetic provenance in a separate manifest and header extension. Do not
