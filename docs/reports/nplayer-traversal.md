@@ -9,9 +9,10 @@ confirmation after failing its first endpoint.** Both games use the same
 external-sampling traversal as the N-player cash adapter. Native exact values
 and per-player best responses agree with independent OpenSpiel calculations.
 These are finite-game correctness and approximation results, not a multiplayer
-CFR equilibrium guarantee or an NLHE strength claim. Independent review of
-traversal, information access and regret math is still required before size
-measurement or the later bounded cash-game smoke.
+CFR equilibrium guarantee or an NLHE strength claim. The owner cleared the
+independent traversal, information-access and regret-math review at `5df55c52`
+on October 15 before the separate [size/smoke PR291](nplayer-size-smoke.md).
+The owner still decides the merge.
 
 The first fixed study used `1578d66fe7e47bed1d72ee34651893d76d625824`.
 The final implementation and confirmation use

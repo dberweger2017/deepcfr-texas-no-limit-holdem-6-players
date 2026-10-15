@@ -33,6 +33,8 @@ visited-regret fingerprints at matching complete-iteration endpoints.
 | Production HU20 K50 | all streets | — | 1,698,921 | 154.3 | 95.2 |
 | Production HU100 K50 | all streets | — | 6,285,547 | 512.8 | 85.6 |
 
+![Measured key and storage growth](nplayer-size-smoke-artifacts/size-growth.svg)
+
 Production HU uses its unchanged compact store, key format and RNG; generic HU
 uses the new key/traversal convention. These are two comparisons, not a claim
 that player count alone explains every difference. The generic HashMap has
@@ -100,6 +102,37 @@ before starting. A capacity/time/resource stop is reported, not retried or
 extended. The 200M origin-linear estimate is about 22.1M entries /5.9 GiB
 planning peak; the entry and host limits provide separate protection.
 
-Implementation and smoke results follow after this written admission. Any
-export using a postflop current-policy continuation must name that behavior
-explicitly; it is not a full-street average or a search implementation.
+The play check is fixed at **128 hands**, seed **2026101532**, with three
+separate policy instances, an exact repeated trace and independent pinned-engine
+replay of every transition. It measures legal/reproducible play, not strength.
+
+## Export and loader boundary
+
+`nplayer-policy-v1` records N, full game/table identity, source checkpoint SHA256,
+strategy mode, averaging scope and missing-key behavior. Exports are sorted,
+atomic and deterministic. Both checkpoint and policy loads require the complete
+expected SHA256. The loader validates metadata, sorted unique keys, owner/street,
+action dimensions, finite normalized probabilities and row count.
+
+`average` refuses a checkpoint without all-street averages. `scoped-average`
+uses stored average probabilities through the chosen street and **current
+regret-matching probabilities afterward**, named `current-after-average-scope`
+in the header. Zero-mass and missing rows play uniform over the exact legal
+menu. This is a minimal research continuation, not a full-street average or
+search. The same export command also supports explicitly selected `current`.
+
+Each seat owns its action RNG; identical models can share immutable weight
+storage. Different matching-identity model files may be supplied per seat.
+`Policy::choose` accepts only the acting seat's immutable observation and public
+K50 tables. Decks, other holes, chance RNG and privileged replay records belong
+to the harness, never the policy. The shared observation-to-key helper is a
+mechanical extraction from the reviewed cash adapter. At both 20/100 BB and
+scope 0/3, complete 100k-node checkpoints match the reviewed PR289 binary exactly.
+
+Rust fixtures cover N=2–6, strategy scope, deterministic export and malformed
+metadata/rows/probabilities. Real-K50 tests compare every exported probability
+with its source accumulator, reject an unavailable full average, and check
+three-instance repeatability plus independent engine parity. A streaming Python
+audit separately recalculates every exported probability; a deliberately wrong
+probability row proves it rejects corrupted output.
+
