@@ -88,6 +88,23 @@ impl Entry {
 }
 pub type Table = HashMap<Key, Entry, BuildHasherDefault<KeyHasher>>;
 
+fn sample_policy<R: Rng>(rng: &mut R, policy: &[f64]) -> usize {
+    let draw: f64 = rng.gen();
+    let mut cumulative = 0.;
+    for (i, &p) in policy.iter().enumerate() {
+        cumulative += p;
+        if draw < cumulative {
+            return i;
+        }
+    }
+    // Rounded cumulative probabilities can end just below one. The fallback
+    // must still have positive mass; the last legal action may have zero regret.
+    policy
+        .iter()
+        .rposition(|&p| p > 0.)
+        .expect("empty policy support")
+}
+
 #[derive(Clone, Debug, Default, PartialEq, Eq)]
 pub struct Counts {
     pub nodes: u64,
@@ -142,16 +159,7 @@ impl<R: Rng> Traversal<'_, R> {
                     *sum += self.weight * p;
                 }
             }
-            let draw: f64 = self.rng.gen();
-            let mut cumulative = 0.;
-            let mut action = n - 1;
-            for (i, &p) in policy[..n].iter().enumerate() {
-                cumulative += p;
-                if draw < cumulative {
-                    action = i;
-                    break;
-                }
-            }
+            let action = sample_policy(self.rng, &policy[..n]);
             let saved = state.save();
             state.apply(action);
             let value = self.run(state);
@@ -177,6 +185,17 @@ impl<R: Rng> Traversal<'_, R> {
         }
         delta.visits += 1;
         value
+    }
+}
+
+#[cfg(test)]
+mod sampling_tests {
+    #[test]
+    fn rounding_cannot_sample_a_zero_probability_action() {
+        let mut rng = rand::rngs::mock::StepRng::new(u64::MAX, 0);
+        let mut policy = [1. / 6.; 7];
+        policy[6] = 0.;
+        assert_eq!(super::sample_policy(&mut rng, &policy), 5);
     }
 }
 

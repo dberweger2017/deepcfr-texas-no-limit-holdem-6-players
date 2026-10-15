@@ -27,6 +27,20 @@ The [research history](research-history.md) indexes completed experiments.
   existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
   `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity`
   followed by `python -m scripts.check_nplayer_parity --out results/nplayer-parity`.
+  The separate [N-player traversal gate](nplayer-traversal-protocol.md) uses
+  `multi_cfr.rs` for both Kuhn/Leduc and the cash adapter. Build experimental
+  commands with `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example multi_known --example nplayer_train`.
+  `multi_known kuhn 3 2000000 2026101501 NEW_OUTPUT_DIRECTORY` runs the declared
+  small-game experiment; its Leduc gate is currently failed at the first fixed
+  endpoint, so it does not authorize dependent campaigns. The cash command requires
+  explicit `--players`, `--nodes`, `--max-entries`, `--max-seconds`, `--card-buckets`
+  and `--out`; optional `--stack-bb`, `--stacks`, blinds, `--last-average-street`
+  (0=preflop through 3=river), `--freeze-at-cap`, `--telemetry` and `--stop-file`
+  control a bounded run. Resume requires `--resume` plus `--resume-sha256` and
+  identical game/seed/averaging/cap settings. This version supports only the exact
+  HU v1 sizing convention, including its conditional jam and duplicate removal.
+  N-player checkpoints use a distinct N-tagged format; legacy HU commands and
+  checkpoints remain supported through their unchanged entry point.
   Equal-stack HU20/HU100/HU200 identities are supported. HU100 operator commands
   are in [the native HU100 protocol](native-hu100-preparation.md); it authorizes no runs.
   The [HU200 M1 feasibility report](reports/hu200-feasibility.md),

@@ -16,14 +16,15 @@ def digest(path: Path) -> str:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def main(out: Path) -> None:
+def main(out: Path, study: str = "initial") -> None:
     out.mkdir(parents=True, exist_ok=False)
     binary = Path("native/hu20-trainer/target/release/examples/multi_known").resolve()
     assert not subprocess.check_output(["git", "status", "--porcelain"], text=True).strip(), "commit the tested source before main runs"
-    admission = {"source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+    confirmation = study == "leduc-confirmation"
+    admission = {"study": study, "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
                  "native_tree": subprocess.check_output(["git", "rev-parse", "HEAD:native"], text=True).strip(),
-                 "binary_sha256": digest(binary), "seeds": [2026101501, 2026101502, 2026101503],
-                 "endpoints": {"kuhn": 2_000_000, "leduc": 500_000},
+                 "binary_sha256": digest(binary), "seeds": [2026101511, 2026101512, 2026101513] if confirmation else [2026101501, 2026101502, 2026101503],
+                 "endpoints": {"leduc": 2_000_000} if confirmation else {"kuhn": 2_000_000, "leduc": 500_000},
                  "per_player_gain_limits": {"kuhn": 0.005, "leduc": 0.025}}
     (out / "admission.json").write_text(json.dumps(admission, indent=2) + "\n")
     results = []
@@ -76,4 +77,6 @@ def main(out: Path) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
-    main(parser.parse_args().out)
+    parser.add_argument("--study", choices=["initial", "leduc-confirmation"], default="initial")
+    args = parser.parse_args()
+    main(args.out, args.study)

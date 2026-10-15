@@ -86,3 +86,28 @@ BR thresholds, Kuhn must match the published result, recovery/frozen/averaging
 tests and existing HU byte gates must pass, and the owner must arrange an
 independent review of the traversal, information keys and regret math. No
 release, search or long NLHE training is part of this gate.
+
+## First fixed endpoint (October 15)
+
+Source `1578d66fe7e47bed1d72ee34651893d76d625824`: all three Kuhn seeds pass;
+maximum per-player BR gains are 0.000861, 0.002171 and 0.003183 chips/hand.
+Published-family utility errors are below 0.000591 chips/player. All three
+Leduc seeds fail the 0.025 limit: maximum gains are 0.042425, 0.044560 and
+0.031817. Independent OpenSpiel values/BRs match, and both full fresh/resumed
+checkpoint/average byte comparisons pass. All six planned endpoints are retained;
+the combined run lasts 112.58 seconds including build and watchdog closure.
+
+No threshold is relaxed and no dependent size/smoke work starts. The owner
+approved a new fixed confirmation on October 15: Leduc only, three fresh seeds
+2026101511–2026101513, 2,000,000 complete iterations each, unchanged 0.025
+per-player limit, approximately three minutes quoted from the measured
+10.5–10.7 seconds per 500,000 iterations, capped at ten minutes total. The prior
+failed endpoint stays recorded. The runner also checks exact split/resume for
+the first confirmation seed inside that same cap.
+
+Cash adapter correctness tests use at most 20,000-node targets and complete
+iteration boundaries; they are not the later size experiment or smoke run.
+They check all N=2–6 at short stacks, three-player 20-BB exact resume, frozen
+membership and scoped averages with the pinned K50 inputs. The existing HU
+native suites and identity gates (HU100, #250 fresh/resume, HU20 v0.4.1) remain
+required; each bounded identity job has a fifteen-minute on-host guard.
