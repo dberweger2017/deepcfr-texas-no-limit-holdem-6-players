@@ -246,7 +246,11 @@ Seed2026101501 reaches5,000,004,085 nodes /1,794,239 iterations with the same
 97,291,138 sorted keys; every final current/average row audits. Average SHA256
 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`.
 Seed2026101502 continues frozen from330,510,042 nodes /101,154 iterations
-/97,291,445 entries. Compact lineage/audit receipts are in the report artifacts.
+/97,291,445 entries to5,000,003,034 nodes /1,776,372 iterations with unchanged
+sorted keys; every final current/average row audits. Average SHA256
+`a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`.
+Compact lineage/audit receipts are in the report artifacts. Both training stages
+are complete; verified-input/cost-only evaluation preparation is running.
 No final-hand outcomes, archive integrity or upload acceptance are claimed yet.
 
 Designated Research-Cloud folder

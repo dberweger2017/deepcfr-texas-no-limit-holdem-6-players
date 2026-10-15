@@ -16,8 +16,16 @@ Average SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000
 [Final lineage and membership](hu100-v053-three-seeds-artifacts/2026101501-training-verified.json). [Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101501-stage1-verified.json).
 
 Seed **2026101502** reached its stage-1 capacity terminal at **330,510,042 nodes
-/101,154 iterations /97,291,445 entries** and is continuing frozen to 5B.
+/101,154 iterations /97,291,445 entries**. Its frozen continuation reached
+**5,000,003,034 nodes /1,776,372 iterations**, with identical sorted keys.
+All **97,291,445** final current/average rows pass
+[the full audit](hu100-v053-three-seeds-artifacts/2026101502-5b.audit.json).
+Average SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`.
+[Final lineage and membership](hu100-v053-three-seeds-artifacts/2026101502-training-verified.json).
 [Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101502-stage1-verified.json).
+
+Both seeds are fully audited. Verified-input preparation and cost-only pilots
+precede the final evaluation; no final hands have started.
 
 No final hands run before the canonical roots/counts/measured cost plan is
 posted and read back in the PR description. Outcomes remain sealed through
