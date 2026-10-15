@@ -203,3 +203,6 @@ first-archive arrival rate widened the provisional estimates in the PR to M4
 release **03:00–07:00 Madrid**, review readiness **05:00–09:00 Madrid**. Union sizing and cost-only
 pilots must replace these estimates before any final hand. No final hand, full
 blend or policy cache exists yet.
+
+[Continuation setup and planning failures](hu200-v055-blend-artifacts/continuation-admin-failures.json)
+are retained separately from the original stop; no scientific hand was retried.
