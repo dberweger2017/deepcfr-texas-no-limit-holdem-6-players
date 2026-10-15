@@ -155,6 +155,7 @@ def supervise(plan, output):
                     break
                 time.sleep(1)
     finally:
+        owned = []
         for proc, identity in zip(processes, identities):
             # A finished leader's PID may have been reused during another long job.
             try:
@@ -162,7 +163,15 @@ def supervise(plan, output):
             except FileNotFoundError:
                 continue
             if current == identity:
-                base.terminate_group(proc)
+                owned.append(proc)
+        # Broadcast first: one group's grace must not delay stopping the others.
+        for proc in owned:
+            try:
+                os.killpg(proc.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        for proc in owned:
+            base.terminate_group(proc)
         for log in logs:
             log.close()
         for sig, handler in previous.items():

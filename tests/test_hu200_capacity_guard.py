@@ -60,6 +60,7 @@ def synthetic_run(monkeypatch, tmp_path, *, cpu_stop):
     monkeypatch.setattr(guard.base, 'read_int', lambda path:
         341 if path.name == 'fan' else 40000 if calls[0] == 1 or cpu_stop else 95000)
     monkeypatch.setattr(guard.base, 'group_rss', lambda pid: 1024)
+    monkeypatch.setattr(guard.os, 'killpg', lambda pid, sig: None)
     monkeypatch.setattr(guard.shutil, 'disk_usage', lambda path: SimpleNamespace(free=200_000_000_000))
     ticks = iter(range(1000))
     monkeypatch.setattr(guard.time, 'monotonic', lambda: next(ticks))
