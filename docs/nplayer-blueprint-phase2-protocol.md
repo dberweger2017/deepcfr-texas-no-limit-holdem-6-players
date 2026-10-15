@@ -80,3 +80,17 @@ costs and total runtime caps will be committed **before any final hands**.
 The PR291 scoped-average smoke model is only a harness proof/cost input, not a
 Phase 2 model or a strength result. Its original provenance is in
 [the Phase 1 report](reports/nplayer-size-smoke.md).
+
+## Fixed harness qualification (before final hands)
+
+After unit/integration tests, use the exact PR291 smoke export
+`fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`.
+Nine fixed cases: self-play, then random, check/call, tight-aggressive and
+pot-pressure, singleton-model then paired-model for each bot. Roots
+2026101551–2026101559 in that order; **64 blocks/384 hands per case**, twice
+from scratch. Every first trace replays in the pinned engine and its complete
+bytes must equal the second trace. This is 6,912 executed hands, 3,456 separately
+replayed; no outcome-based choice or extension. Cap the combined qualification
+at **900 seconds**, 80 GiB family RSS and the same thermal guards. Record load,
+play and replay time separately; do not use poker outcomes to select final
+counts. Synthetic tests and tiny model fixtures are separate correctness work.
