@@ -34,11 +34,13 @@ including the approximately1.8GiB initial memlock-shrink output. Eight original
 2219Python/54subtests/16Rust pass in strict-MKL mode, twoMac-specific skips;
 both preceding failures remain archived and diagnosed.
 
-**Additional RAM screen is still active** under the absolute October15
-04:50UTC cutoff; all eight have completed Stuck Address, Checkerboard, Bit Spread and Walking
-Ones with zero errors as of 04:23UTC; Walking Zeroes is in progress. [Dated per-instance/thermal progress](docs/reports/cygnus-x1-artifacts/memory-extra-progress.json).
-Extra RAM, the closed archive guard, newer source and final report will enter a
-separate closeout bundle; they are not covered by main-bundle acceptance.
+**Additional RAM screen closed at04:50UTC /06:50Madrid:**16166.65s,
+zero errors all8, four completed patterns, Walking Zeroes123–127/128 incomplete;
+8/16-bit writes not reached. Peak68°C,no swap/throttle. All eight actual child
+waitcodes−15/SIGTERM, all owned PIDs gone. Expected deadline stop is partial,
+not a full RAM pass. [Final per-instance outcomes/thermal hash](docs/reports/cygnus-x1-artifacts/memory-extra-final.json).
+Final extra-RAM/closed-archive-guard/source bundle acceptance is pending.
+Recurring qualification checks are disabled; no subsequent testing scheduled.
 Pinned K50 inputs are excluded as independently retrievable dependencies:
 [PR163 restoration/member hashes and commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
 All three table sizes/fullSHA256s passed on both coordinator and bb128 before use.
