@@ -206,3 +206,14 @@ blend or policy cache exists yet.
 
 [Continuation setup and planning failures](hu200-v055-blend-artifacts/continuation-admin-failures.json)
 are retained separately from the original stop; no scientific hand was retried.
+
+At **19:36 UTC /21:36 Madrid**, the native Drive rate remains variable and the
+first ZIP has about 20.3/26.7 GB resident. Before the second intake worker or
+any merge/final hand, intake's initial six-hour allocation is revised to eight
+hours **within the same 16-hour overall envelope**. The science deadline,
+two-hour preservation reserve, memory/disk guards, formula and counts are
+unchanged. The already running first worker keeps its original deadline.
+[Original/revised clocks and owner-status receipt](hu200-v055-blend-artifacts/continuation-intake-budget-reallocation.json).
+At 21:16 Madrid the provisional full-run ETA widened to M4 release **06:00–10:00
+Madrid October 16**, review readiness **08:00–12:00**, conditional on union
+admission and cost pilots; the PR description carries the latest estimate.

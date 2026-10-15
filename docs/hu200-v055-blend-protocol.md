@@ -110,8 +110,11 @@ locks and the existing five-second guards: 13-GiB family RSS, 8% free memory,
 critical pressure and 4,000,000,000-byte swap growth sustained for 60 observed
 seconds; immediate 16-GiB disk floor. PID creation-time ownership checks apply.
 The full intake starts a fixed 16-hour wall envelope, with its last two hours
-reserved for preservation/archiving; the intake stage itself is capped at six
-hours. No final-count reduction or scientific retry follows a stop. Cost
+reserved for preservation/archiving; intake initially had six hours. At 19:36 UTC, before the second intake
+worker or any merge/final hand, observed native Drive throughput reallocates
+up to eight hours to intake within the unchanged overall envelope. The first
+worker keeps its existing six-hour deadline; later intake workers use the
+revised allocation. No final-count reduction or scientific retry follows a stop. Cost
 pilots must admit the full remaining counts before final play.
 
 All four caches are written as the existing six NumPy arrays through bounded
@@ -147,3 +150,7 @@ unpinning, synced deletion or removal of extracted research originals; retain
 any refusal. Sequential intake requires at most 56,525,196,918 free bytes
 including the 16-GiB floor and 2-GiB margin. This does not admit construction;
 the actual union gate still decides that.
+
+[Intake allocation revision](reports/hu200-v055-blend-artifacts/continuation-intake-budget-reallocation.json)
+preserves the original/revised clocks. Overall/science deadlines, closeout
+reserve, memory/disk thresholds, blend rule and counts are unchanged.

@@ -1,0 +1,32 @@
+{
+  "at": 1792093013.586509,
+  "blend_rule_or_counts_changed": false,
+  "closeout_reserve_changed": false,
+  "current_first_worker_deadline_unchanged": true,
+  "initial_clock_sha256": "b60790dc81ea1e69d6403d8dfb7e99617a595007f2690f4cf9612d4289600a8a",
+  "overall_deadline_changed": false,
+  "owner": {
+    "headRefOid": "71057c9c0bd6391c23ffd84331874ecca3a3a2da",
+    "number": 297,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/297"
+  },
+  "previous": {
+    "closeout_reserve_seconds": 7200,
+    "deadline": 1792144357.646911,
+    "intake_deadline": 1792108357.646911,
+    "science_end": 1792137157.646911,
+    "started": 1792086757.646911
+  },
+  "reason": "Observed native Drive throughput requires more intake slack; reallocate within the unchanged overall envelope before second intake worker or any merge/final hand",
+  "resource_thresholds_changed": false,
+  "revised": {
+    "closeout_reserve_seconds": 7200,
+    "deadline": 1792144357.646911,
+    "intake_allocation_revision": 1,
+    "intake_deadline": 1792115557.646911,
+    "science_end": 1792137157.646911,
+    "started": 1792086757.646911
+  },
+  "science_deadline_changed": false
+}
