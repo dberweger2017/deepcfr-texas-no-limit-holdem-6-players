@@ -1,0 +1,14 @@
+{
+  "scheduledTaskId": "scheduled-task:command:mcp:2cfa3e26-d00d-4080-9fba-b1380d3d419e:schedule-task:pr286-hu100-v053-heavy-30m-20261015-v1",
+  "title": "PR286 HU100 three-seed qualification — 30-minute checks",
+  "prompt": "Continue the EXISTING owner-authorized PR286 HU100 v0.5.3 three-seed campaign in THIS thread. Owner explicitly requested 30-minute T3 checks to save tokens. Do ONE compact health/phase check: tail /Users/dberweger/Local/hu100-v053-three-seeds-20261015/planning/coordinator-detached.log and, if needed, one bounded ssh m4 compact status of the same root/results/hu100-v053-seeds. Both scientific workers and metadata coordinator are detached tmux (M4 hu100-v053-seeds; M1 hu100-v053-coordinator). Never duplicate/restart scientific work, rebuild active source, reset baseline, inspect partial/pilot outcomes, rerun failed hands, extend budget, change recipe/counts/roots, use other-machine research compute, or clean other/synced roots. Original deadline epoch1792096452.0033312 = Oct15 20:34:12UTC/22:34:12Madrid remains binding. Continuous M4 guard already holds both locks and retains5s readings with original stops. Verify PID creation before signals. Healthy unchanged: brief status only, end immediately without waits/busy polling/PR comments. On phase transition, failure, stopped coordinator, archive readiness or deadline, read planning/HANDOFF.md for exact current state and remaining authorized closeout before acting. Coordinator automatically enables evaluation only after both audits, posts/reads back canonical roots/counts/costJSON in PR description before final hands, and opens archive handshake. Every final hand across17 comparisons must replay/reproduce before any readout. Keep owner release/merge decision; no tag/default/Slumbot/credentials. Storage is still short ~17GiB for retained models+allZIPs; guards binding, no deletion authorization inferred. When all local science/seed archives finish, actively complete shared/lifecycle archives, raw guards, selected-key coverage report, RESULTS_INDEX/ROADMAP, Drive IDs/hashes/restore/upload receipts and final green PR per HANDOFF; no repeated multi-GB audits/hashes. Disable ONLY this schedule on terminal stop, budget expiration or completed handoff; do not create follow-on work. PR286 linked; owner decides merge. Retain every failure and report partial truthfully.",
+  "enabled": false,
+  "projectId": "2550e1b8-1d4d-4a4c-bc42-61d77b350ce4",
+  "boundThreadId": "c6df8ab0-f4c3-4d67-b3a6-d50d159ab593",
+  "schedule": {
+    "type": "interval",
+    "everyMs": 1800000
+  },
+  "nextRunAt": null,
+  "lastRunStatus": "succeeded"
+}

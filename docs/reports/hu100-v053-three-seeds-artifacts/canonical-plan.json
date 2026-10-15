@@ -1,0 +1,433 @@
+{
+  "cost_scaling": "Only per-block play, raw trace hashes, replay and reproduction scale; loading/table/model admission stays fixed",
+  "counts": {
+    "additional_preparation_seconds": 1305.1677544116974,
+    "closeout_seconds": 1800,
+    "direct": 131072,
+    "elapsed_seconds": 15341.308700799942,
+    "fits": true,
+    "fixed_seconds": 627.7728287904174,
+    "panel": 16384,
+    "planning_margin": 1.25,
+    "projected_whole_seconds": 33958.229483028714,
+    "scaled_block_seconds": 11520.596042580903
+  },
+  "deadline": 1792096452.0033312,
+  "direct": "Fresh v2-off versus released v0.5.2 translation512/128-on for all three seeds; descriptive, never gated",
+  "evaluation_inputs_sha256": "ca500e5709502eaa436276945a47e249b87c48db81ee5be19ce9e4160989b2ce",
+  "every_final_hand_independently_replayed_and_exactly_reproduced_before_readout": true,
+  "first_build": {
+    "at": 1792046130.446622,
+    "source": "fb7d57aa669a623838136a317c1c4952121d34db"
+  },
+  "frozen_at": 1792061393.326133,
+  "historical_rule": "No primary upper<-20 and pot_pressure lower>-20; comparison with PR272 only",
+  "intervals": "Nominal paired Student-t95 conditional on each fixed policy pair",
+  "models": {
+    "2026100601": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3196291551,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794658,
+      "name": "v2-2026100601",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/inputs/2026100601.average.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+      "translation": null
+    },
+    "2026101501": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3190242513,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97291138,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794239,
+      "name": "v2-2026101501",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/5000000000.average.gz",
+      "sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000",
+      "source_checkpoint_sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b",
+      "translation": null
+    },
+    "2026101502": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3187447872,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97291445,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1776372,
+      "name": "v2-2026101502",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.average.gz",
+      "sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+      "source_checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+      "translation": null
+    }
+  },
+  "no_failed_hand_reruns": true,
+  "no_outcome_extension": true,
+  "no_pilot_pooling": true,
+  "one_off_preparation": {
+    "cache_rebuilds_are_fixed_one_off_work": true,
+    "input_preparation": {
+      "input_verification_and_restoration_seconds": 696.0233538150787,
+      "no_hands": true,
+      "whole_seconds": 696.0233526229858
+    },
+    "one_off_not_scaled_with_blocks": true,
+    "pilot_cache_builds": [
+      {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 97290578,
+          "iteration": 1794658,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026100601,
+          "weights_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "zero_mass_entries": 22158016
+        },
+        "no_hands": true,
+        "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+        "phase": "pilot",
+        "seconds": 434.51971983909607,
+        "source_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+      },
+      {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "entries": 70466972,
+          "iteration": 3716073,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026100601,
+          "weights_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "zero_mass_entries": 22611215
+        },
+        "no_hands": true,
+        "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+        "phase": "pilot",
+        "seconds": 302.7748427391052,
+        "source_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+      },
+      {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 97291138,
+          "iteration": 1794239,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026101501,
+          "weights_sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000",
+          "zero_mass_entries": 22187149
+        },
+        "no_hands": true,
+        "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+        "phase": "pilot",
+        "seconds": 436.61494278907776,
+        "source_sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000"
+      },
+      {
+        "description": {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "card_tables": {
+            "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+            "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+          },
+          "entries": 97291445,
+          "iteration": 1776372,
+          "kind": "holdem-hu100-stored-cfr-average-research-v1",
+          "num_players": 2,
+          "source_checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+          "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+          "training_seed": 2026101502,
+          "weights_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+          "zero_mass_entries": 22259667
+        },
+        "no_hands": true,
+        "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache/a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+        "phase": "pilot",
+        "seconds": 434.03309178352356,
+        "source_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+      }
+    ],
+    "quoted_future_cache_build_seconds": 1305.1677544116974
+  },
+  "opponents": [
+    "random",
+    "check_call",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure",
+    "half_pot_pressure",
+    "matched_pot_pressure"
+  ],
+  "pilot_costs_sha256": "c21ea3a46835e3d1d97aa9e0ec66e799897dbd43594e5b3c1114d77eb426b1b6",
+  "pilots": {
+    "direct-2026100601": {
+      "audit_block_work_seconds": 2.5137741250218824,
+      "audit_fixed_seconds": 10.595026750001125,
+      "block_work_seconds": 17.51857175095938,
+      "blocks": 1024,
+      "fixed_seconds": 36.30288641707739,
+      "paired_sd_bb_per_100": 1327.0774537981654
+    },
+    "direct-2026101501": {
+      "audit_block_work_seconds": 3.4662696669693105,
+      "audit_fixed_seconds": 11.447310791059863,
+      "block_work_seconds": 15.866870083031245,
+      "blocks": 1024,
+      "fixed_seconds": 37.34617895906558,
+      "paired_sd_bb_per_100": 1144.8775322599702
+    },
+    "direct-2026101502": {
+      "audit_block_work_seconds": 2.7429708759882487,
+      "audit_fixed_seconds": 11.028405541030224,
+      "block_work_seconds": 17.32650891895173,
+      "blocks": 1024,
+      "fixed_seconds": 36.85579224902904,
+      "paired_sd_bb_per_100": 1323.6577557242115
+    },
+    "panel-2026101501-check_call": {
+      "audit_block_work_seconds": 0.28147883299971,
+      "audit_fixed_seconds": 10.57643958402332,
+      "block_work_seconds": 2.9075751670170575,
+      "blocks": 64,
+      "fixed_seconds": 37.22552841802826,
+      "paired_sd_bb_per_100": 943.3073274589244
+    },
+    "panel-2026101501-half_pot_pressure": {
+      "audit_block_work_seconds": 0.11028062499826774,
+      "audit_fixed_seconds": 10.616493917012122,
+      "block_work_seconds": 0.7505560840363614,
+      "blocks": 64,
+      "fixed_seconds": 37.03021370904753,
+      "paired_sd_bb_per_100": 791.2646809929688
+    },
+    "panel-2026101501-loose_aggressive": {
+      "audit_block_work_seconds": 0.18760537501657382,
+      "audit_fixed_seconds": 10.876983832975384,
+      "block_work_seconds": 1.4034333750023507,
+      "blocks": 64,
+      "fixed_seconds": 36.76567349897232,
+      "paired_sd_bb_per_100": 1533.7829309798306
+    },
+    "panel-2026101501-matched_pot_pressure": {
+      "audit_block_work_seconds": 0.10700179100967944,
+      "audit_fixed_seconds": 10.629489124985412,
+      "block_work_seconds": 0.8868045400013216,
+      "blocks": 64,
+      "fixed_seconds": 36.53759095905116,
+      "paired_sd_bb_per_100": 1047.612124994038
+    },
+    "panel-2026101501-pot_pressure": {
+      "audit_block_work_seconds": 0.12605387496296316,
+      "audit_fixed_seconds": 10.454493041033857,
+      "block_work_seconds": 0.9863784579210915,
+      "blocks": 64,
+      "fixed_seconds": 36.063444999046624,
+      "paired_sd_bb_per_100": 1436.1660801149076
+    },
+    "panel-2026101501-random": {
+      "audit_block_work_seconds": 0.13454404199728742,
+      "audit_fixed_seconds": 10.698970791010652,
+      "block_work_seconds": 1.420362917939201,
+      "blocks": 64,
+      "fixed_seconds": 36.59728941612411,
+      "paired_sd_bb_per_100": 1574.2057060342254
+    },
+    "panel-2026101501-tight_aggressive": {
+      "audit_block_work_seconds": 0.10926408303203061,
+      "audit_fixed_seconds": 10.584221333963796,
+      "block_work_seconds": 0.7683424580027349,
+      "blocks": 64,
+      "fixed_seconds": 37.42558112606639,
+      "paired_sd_bb_per_100": 1397.8028371617297
+    },
+    "panel-2026101502-check_call": {
+      "audit_block_work_seconds": 0.45848216698504984,
+      "audit_fixed_seconds": 10.920146125019528,
+      "block_work_seconds": 3.2081204999121837,
+      "blocks": 64,
+      "fixed_seconds": 37.74767350003822,
+      "paired_sd_bb_per_100": 955.2972578953948
+    },
+    "panel-2026101502-half_pot_pressure": {
+      "audit_block_work_seconds": 0.10154587496072054,
+      "audit_fixed_seconds": 10.577130750054494,
+      "block_work_seconds": 0.8479293749551289,
+      "blocks": 64,
+      "fixed_seconds": 36.32013916707365,
+      "paired_sd_bb_per_100": 643.5958745995714
+    },
+    "panel-2026101502-loose_aggressive": {
+      "audit_block_work_seconds": 0.1700468340422958,
+      "audit_fixed_seconds": 10.640248082985636,
+      "block_work_seconds": 1.422164500982035,
+      "blocks": 64,
+      "fixed_seconds": 36.442162497958634,
+      "paired_sd_bb_per_100": 1218.6953080931485
+    },
+    "panel-2026101502-matched_pot_pressure": {
+      "audit_block_work_seconds": 0.11100354103837162,
+      "audit_fixed_seconds": 10.543811251001898,
+      "block_work_seconds": 0.9774712900398299,
+      "blocks": 64,
+      "fixed_seconds": 36.08454437699402,
+      "paired_sd_bb_per_100": 1385.6558041911028
+    },
+    "panel-2026101502-pot_pressure": {
+      "audit_block_work_seconds": 0.15100541606079787,
+      "audit_fixed_seconds": 10.96317854191875,
+      "block_work_seconds": 1.6647702920017764,
+      "blocks": 64,
+      "fixed_seconds": 38.502092164882924,
+      "paired_sd_bb_per_100": 918.869697823027
+    },
+    "panel-2026101502-random": {
+      "audit_block_work_seconds": 0.18313387496164069,
+      "audit_fixed_seconds": 11.07436000002781,
+      "block_work_seconds": 1.506859916029498,
+      "blocks": 64,
+      "fixed_seconds": 37.4339299989515,
+      "paired_sd_bb_per_100": 2022.7911095236348
+    },
+    "panel-2026101502-tight_aggressive": {
+      "audit_block_work_seconds": 0.10683704202529043,
+      "audit_fixed_seconds": 10.945881374995224,
+      "block_work_seconds": 0.8955840410199016,
+      "blocks": 64,
+      "fixed_seconds": 37.09210733301006,
+      "paired_sd_bb_per_100": 699.9322352403634
+    }
+  },
+  "pr": 286,
+  "projection_options": [
+    {
+      "additional_preparation_seconds": 1305.1677544116974,
+      "closeout_seconds": 1800,
+      "direct": 131072,
+      "elapsed_seconds": 15341.308700799942,
+      "fits": true,
+      "fixed_seconds": 627.7728287904174,
+      "panel": 16384,
+      "planning_margin": 1.25,
+      "projected_whole_seconds": 33958.229483028714,
+      "scaled_block_seconds": 11520.596042580903
+    }
+  ],
+  "release": {
+    "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+    "bytes": 2121415396,
+    "entries": 70466972,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "iteration": 3716073,
+    "name": "v052",
+    "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+    "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+    "translation": {
+      "max_events": 128,
+      "max_states": 512
+    }
+  },
+  "release_rule": "No improvement-release pass/fail gate; owner judges the overall package",
+  "resource_guards": {
+    "critical_pressure": 4,
+    "family_rss_bytes": 13958643712,
+    "minimum_disk_bytes": 17179869184,
+    "minimum_free_percent": 8,
+    "sample_seconds": 5,
+    "sustained_seconds": 60,
+    "swap_growth_bytes": 4000000000
+  },
+  "root_reservation_sha256": "abb79df0974be5a61effc208c0dee86428c25fb5dbfed454eab412e21a0abb3e",
+  "roots": {
+    "direct-2026100601": {
+      "final": 20261015286101,
+      "pilot": 20261015286001
+    },
+    "direct-2026101501": {
+      "final": 20261015286109,
+      "pilot": 20261015286009
+    },
+    "direct-2026101502": {
+      "final": 20261015286117,
+      "pilot": 20261015286017
+    },
+    "panel-2026101501-check_call": {
+      "final": 20261015286103,
+      "pilot": 20261015286003
+    },
+    "panel-2026101501-half_pot_pressure": {
+      "final": 20261015286107,
+      "pilot": 20261015286007
+    },
+    "panel-2026101501-loose_aggressive": {
+      "final": 20261015286105,
+      "pilot": 20261015286005
+    },
+    "panel-2026101501-matched_pot_pressure": {
+      "final": 20261015286108,
+      "pilot": 20261015286008
+    },
+    "panel-2026101501-pot_pressure": {
+      "final": 20261015286106,
+      "pilot": 20261015286006
+    },
+    "panel-2026101501-random": {
+      "final": 20261015286102,
+      "pilot": 20261015286002
+    },
+    "panel-2026101501-tight_aggressive": {
+      "final": 20261015286104,
+      "pilot": 20261015286004
+    },
+    "panel-2026101502-check_call": {
+      "final": 20261015286111,
+      "pilot": 20261015286011
+    },
+    "panel-2026101502-half_pot_pressure": {
+      "final": 20261015286115,
+      "pilot": 20261015286015
+    },
+    "panel-2026101502-loose_aggressive": {
+      "final": 20261015286113,
+      "pilot": 20261015286013
+    },
+    "panel-2026101502-matched_pot_pressure": {
+      "final": 20261015286116,
+      "pilot": 20261015286016
+    },
+    "panel-2026101502-pot_pressure": {
+      "final": 20261015286114,
+      "pilot": 20261015286014
+    },
+    "panel-2026101502-random": {
+      "final": 20261015286110,
+      "pilot": 20261015286010
+    },
+    "panel-2026101502-tight_aggressive": {
+      "final": 20261015286112,
+      "pilot": 20261015286012
+    }
+  },
+  "source": "ed090caecde29569a5c7cd44e49f6dc434145e9c"
+}

@@ -384,6 +384,142 @@ deletion, force offload, unpinning, payload download or repeated hashes.
 [Owner-authorized PR278 comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185) delivered and independently
 read back. M1 inspected only; no other agent's reclamation credited.
 
+## PR286 — HU100 v0.5.3 three-seed campaign (terminal partial)
+
+[PR286](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286),
+[report](docs/reports/hu100-v053-three-seeds.md), [protocol](docs/hu100-v053-three-seeds-protocol.md).
+Scientific checkout `ed090caecde29569a5c7cd44e49f6dc434145e9c` on M4;
+branch `feature/hu100-v053-three-seeds`. Native main tree
+`39bdd06f9362512699cf02ed6ab5e3d598ff3557`, binary SHA256
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+Both fresh seeds complete training and every-row audits, with unchanged sorted
+keys: 2026101501 reaches5,000,004,085 nodes /1,794,239 iterations /97,291,138entries;
+2026101502 reaches5,000,003,034 /1,776,372 /97,291,445.
+[Exact four-model pins per seed](docs/reports/hu100-v053-three-seeds-artifacts/model-index.json).
+
+**Terminal stop October15 12:00:39 UTC:** next-cache preventive admission would
+leave17,107,308,881bytes below the16GiB floor. Nine/17 comparisons and983,040
+original final hands replay/reproduce; all17 global barrier is absent. No
+outcomes/coverage readout, qualification claim, scientific retry or budget extension.
+The canonical prospective roots/counts/cost plan and PR readback remain unchanged,
+SHA256 `f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`.
+Full16,384panel/131,072direct counts selected; unused counts are not rerun.
+Both model sets remain at the M4 unsynced root
+`~/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds`.
+Only the owned, unused regenerable release cache was removed with full
+manifest/input/rebuild provenance. No model, unique evidence, other PR root or
+synced file was removed. The campaign's T3 timer is disabled.
+
+Designated folder [PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),
+ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+The following have embedded `ARCHIVE-MANIFEST.json`, complete local member
+size/SHA256 readback and whole hashing. Average members also match their
+existing full training audit pins. **All seven ZIPs have upload acceptance:**
+native uploaded/no-pending/no-conflicts/exact-size status plus independent
+Drive ID/name/size/direct-parent metadata. [Complete archive catalog and eight
+model member pins](docs/reports/hu100-v053-three-seeds-artifacts/archive-catalog.json).
+Local readback and cloud acceptance are separate recorded checks; remote ZIP
+bytes were not downloaded or verified.
+
+| Locally verified ZIP | Bytes | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [hu100-v053-seed-2026101501-average.zip](https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk) | 3,190,246,314 | `19b1510446d5f5b76603e91d01dab347aa92d2e21115ebe339ab2eb827ff31ed` | `e0e79eeda29f02f8e2bb3fa858e0edc7c2c36f680b0088b370d2910b64009b0e` |
+| [hu100-v053-seed-2026101502-average.zip](https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk) | 3,187,451,673 | `275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df` | `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b` |
+| [hu100-v053-terminal-partial-evidence.zip](https://drive.google.com/file/d/1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm/view?usp=drivesdk) | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
+| [hu100-v053-seed-2026101501-models.zip](https://drive.google.com/file/d/1DyUOyR9PGV7z5GjUO1H9qeUUsjACog4C/view?usp=drivesdk) | 10,931,284,102 | `d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce` | `82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a` |
+| [hu100-v053-seed-2026101502-models.zip](https://drive.google.com/file/d/1p5qbkxd2dbh_YyArMhM_JfYkMM92uJi2/view?usp=drivesdk) | 10,931,431,016 | `4bf18e7d43fe85767acab9ad12876431a77ea6a47df4cf2c0d06cb0724182f29` | `2601251e90e707c5bf91f1d6f4e546d49779006a286378dd0d38e6697dea3f4c` |
+
+The475-member partial evidence ZIP retains all pilots/final raw traces, both
+training lineages/telemetry/audits, source/native build, prospective declarations,
+closed whole-campaign guard samples and failures. It excludes averages (separate
+ZIPs), stage1/final checkpoints/current exports (retained, separately sealed model
+bundles), indexed inputs and its own live archival guard. Closed archival guard
+readings and final lifecycle receipts follow in a separate lifecycle ZIP.
+Model bundles total21,862,715,118bytes with3members each. The owner freed
+space; both were sealed/read back inside the original deadline with16.91GiB
+remaining. Historical storage-admission refusals remain in receipts. No models
+or synced files were deleted.
+
+Average members are `averages/2026101501/5000000000.average.gz` (3,190,242,513bytes,
+SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`)
+and `averages/2026101502/5000000000.average.gz` (3,187,447,872bytes,
+SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`).
+All remaining exact model paths/bytes/hashes are in the linked model index;
+both model ZIPs pass local readback and cloud upload acceptance. Protected indexed dependencies:
+[#272 original average](#pr272--hu100-v2-frozen-5b-october-14-2026),
+[#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
+[v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
+
+The closed preservation guard's6raw readings are in the8-member lifecycle ZIP
+[hu100-v053-terminal-partial-lifecycle.zip](https://drive.google.com/file/d/1lBZqdODLY0lPXT6o3_x2M0rn5n9f1PXl/view?usp=drivesdk),
+14,603bytes, whole SHA256 `6df10db32c400dfcfac8e9878185b5436ddc12a4fbcb95c344aff1b67beb3ed0`,
+manifest SHA256 `2569c69dcc5c81dc784e6704f0f0e131e49049d47508bde3b8926fe48a930371`.
+Complete local readback passed. Its native uploaded/no-pending/no-conflict state
+and independent Drive ID/name/size/direct-parent metadata are accepted; receipts
+are in the report artifacts. Its own final two observations are retained in
+[the compact final lifecycle receipt](docs/reports/hu100-v053-three-seeds-artifacts/partial-final-lifecycle.json),
+with the original raw stream also retained locally. Both average uploads and the final closeout ZIP below now also have native and
+independent Drive acceptance. The full2026101501model ZIP is also accepted by
+native upload status and independent ID/name/size/direct-parent metadata;
+[cloud receipt](docs/reports/hu100-v053-three-seeds-artifacts/cloud-model-2026101501-metadata.json) and
+[native receipt](docs/reports/hu100-v053-three-seeds-artifacts/native-model-upload-observation-ci-green-1.json).
+The2026101502model ZIP is now also accepted; [native receipt](docs/reports/hu100-v053-three-seeds-artifacts/native-model-upload-observation-check-6674072.json)
+and [independent cloud receipt](docs/reports/hu100-v053-three-seeds-artifacts/cloud-model-2026101502-metadata.json).
+Remote archive bytes were not downloaded or verified.
+
+Final [hu100-v053-terminal-closeout.zip](https://drive.google.com/file/d/1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S/view?usp=drivesdk),
+472,010bytes /84members, whole SHA256
+`350d0f056d20bf063a4eb2baf1f8a3991474dae8e7bccb7e7a74ef74bd73a02f`,
+manifest SHA256 `6a99e468e469ed8cdb7ed6e57a2a750a275ec5f55dd09fcc9c6481d2f97598d7`.
+It retains the closed model-archive guard, previous lifecycle guard,
+all model/archive receipts, final report snapshot, failures and36comparisons of
+archived raw trace hashes against existing play/reproduction completion pins,
+without another raw-hash pass or outcome readout. Native and independent cloud
+acceptance pass. Its final two guard observations are in
+[terminal-final-lifecycle.json](docs/reports/hu100-v053-three-seeds-artifacts/terminal-final-lifecycle.json),
+with raw originals retained. Across all operations3,914five-second samples
+survive in raw archives or the tiny compact final lifecycle receipt.
+[M4 released receipt](docs/reports/hu100-v053-three-seeds-artifacts/m4-released.json):
+all owned science/archive workers exited and both locks verified free;
+26.77GiB free at the release observation after owner-managed cleanup. Archival closeout is complete;
+final reporting-branch CI and owner review remain. The campaign timer stays disabled.
+
+After downloading an accepted named archive to a fresh ignored directory, this
+command verifies whole, embedded manifest and extracted member hashes. Change
+`seed` to2026101502 for the second average. Do not overwrite active inputs.
+
+```sh
+python - <<'PYRESTORE'
+import json
+from pathlib import Path
+from scripts.run_hu100_k50_v2 import restore
+seed = 2026101501
+receipt = json.loads(Path(f'docs/reports/hu100-v053-three-seeds-artifacts/{seed}-average-archive-receipt.json').read_text())
+receipt['path'] = f'results/pr286-downloads/hu100-v053-seed-{seed}-average.zip'
+restore(receipt, f'averages/{seed}/5000000000.average.gz',
+        Path(f'results/pr286-restored/{seed}/5000000000.average.gz'))
+PYRESTORE
+```
+
+For a checkpoint instead of an average, select its exact filename from
+`archive-catalog.json["models"][str(seed)]`, use that row’s `archive` and
+`member`, and load the corresponding archive receipt; the same `restore`
+function verifies the whole/manifest/member hashes before use.
+
+For a raw evidence member use the partial archive receipt, its downloaded ZIP
+path and the exact `research/...` member from its manifest. For closed resource
+traces use the lifecycle receipt and
+`research/guards/operations/partial-preservation/resources.jsonl`.
+For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Both seeds’ model archives are accepted; exact Drive IDs and eight archive/member/size/hash mappings are in the catalog above.
+Closeout CI on5395cc9 failed the inherited N-player example allocation test
+(19,928vs20,072bytes), after37library tests passed. The executing test now
+uses thread-local allocation accounting; production counters remain global.
+Both targeted tests and both non-test example checks pass. [Failure receipt](docs/reports/hu100-v053-three-seeds-artifacts/ci-5395cc9-allocation-failure.json);
+raw job log retained at `planning/ci-5395cc9-full-0-job.log` and the linked CI job.
+The stopped M4 scientific source and outputs are unchanged.
+No release, default change or merge; owner decides.
+
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 
 [PR272](https://github.com/dberweger2017/CFR-NLHE-6max/pull/272),
