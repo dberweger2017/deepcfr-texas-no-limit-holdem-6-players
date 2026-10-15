@@ -69,7 +69,7 @@
     }
   ],
   "owner_publication_approval": false,
-  "package_source_commit": "f31c9c662818e3db58f3d25d35937da603d50539",
+  "package_source_commit": "ffa9ff7d9b68cd96c9cec218088f5a62fc6dcca2",
   "provenance": {
     "archive_bytes": 3196298276,
     "archive_name": "hu100-v2-frozen-5b-average-M4-20261014.zip",
