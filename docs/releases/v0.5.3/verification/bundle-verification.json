@@ -1,0 +1,54 @@
+{
+  "all_part_table_and_whole_hashes_verified": true,
+  "build": {
+    "publication_approved": false,
+    "result": {
+      "hashes": {
+        "INSTALL.md": "dde48669b09e7398c7d9a7dafbcce572e66aac44280ecd08ff7f395635c5d454",
+        "MODEL_CARD.md": "b7baa93ca0012a4253dea7bb66791931b0ac16ccf9a0bb97860deaee9ab61fa9",
+        "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-001": "3a0a95117efe3fafc1c99a93563683de57f976ec776ee0b755daf682af5a66c7",
+        "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-002": "9ef0c480cc7ffea65a22c01d986b4ad6522060445d855a5e73734fcec3160592",
+        "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-003": "f4171fa4309ada3df445cf0f70ff333296f4be4ff285eec88c1f51e49089f0e6",
+        "RELEASE_NOTES.md": "5b7f497aed598e57f5202a8d1704a13a55a1ad9965917b5ec25ce45bff7bbbf7",
+        "flop-k50.bin": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "release-manifest.json": "232659dfb5eb55851ca576711b245efc127ed678f464431b6115f09736f4ae42",
+        "river-k50.bin": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn-k50.bin": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+        "verify_hu100_bundle.py": "e43e44e1a6fe1264ddfd74646eaf0ff4a31e94d318fe70ce62086dd4851717d7"
+      },
+      "inference": {
+        "adapter": "hu100-public-menu-translation-equity-k50-menu-v2",
+        "translation": {
+          "max_events": 128,
+          "max_states": 512,
+          "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+        }
+      },
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "package_source_commit": "f31c9c662818e3db58f3d25d35937da603d50539",
+      "release": "v0.5.3",
+      "status": "unpublished-owner-review"
+    },
+    "seconds": 17.065081119537354,
+    "source": "f31c9c662818e3db58f3d25d35937da603d50539"
+  },
+  "standalone": {
+    "assembled_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets-model/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+    "bytes": 3196291551,
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-I",
+      "-S",
+      "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/verify_hu100_bundle.py",
+      "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets",
+      "--expect-source",
+      "f31c9c662818e3db58f3d25d35937da603d50539",
+      "--assemble",
+      "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets-model/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz"
+    ],
+    "seconds": 9.346129894256592,
+    "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+    "status": "verified",
+    "stdlib_only_site_disabled": true
+  }
+}
