@@ -5,6 +5,7 @@ from random import Random
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest
+from src.blueprint.abstraction import schema_choices
 from src.game.hand import Hand
 from src.game.types import Action, ActionKind
 from src.play_api.configuration import distribution, policy_table, recorded_table
@@ -45,6 +46,8 @@ def audit_state(state, policy):
                 'maxRaiseTo': legal.max_raise_to}, 'Legal bounds'
             action = Action(ActionKind(action_row['kind']), action_row['raiseTo'])
             legal.validate(action)
+            if hand.actor == 0 and state['playMode'] == 'restricted':
+                assert action in tuple(item.action for item in schema_choices(view, policy.abstraction)), 'Restricted human menu'
             if audited and hand.actor == 1:
                 record = next(decisions)
                 menu, probabilities, _, telemetry = distribution(policy, view)

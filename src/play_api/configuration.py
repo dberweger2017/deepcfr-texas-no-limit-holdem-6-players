@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import json
 from math import fsum, isfinite
 
-from src.blueprint.abstraction import HU100_SCHEMA, HU20_UNCAPPED_SCHEMA, EQUITY_SCHEMAS
+from src.blueprint.abstraction import HU100_SCHEMA, HU20_UNCAPPED_SCHEMA, EQUITY_SCHEMAS, HU100_EQUITY_MENU_V2_SCHEMA
 from src.blueprint.solver import HU100_GAME, HU20_UNCAPPED_GAME
 from src.game.hand import Table
 
@@ -31,9 +31,20 @@ class PlayTable:
                      small_blind=self.small_blind, big_blind=self.big_blind, chip_unit=self.chip_unit)
 
     def validate_policy(self, policy):
-        if policy.abstraction in EQUITY_SCHEMAS:
+        k50_release = self.stack == 10000 and policy.abstraction == HU100_EQUITY_MENU_V2_SCHEMA
+        if k50_release:
+            from src.blueprint.equity_buckets import EQUITY_K50_SHA256
+            from src.blueprint.action_translation import HU100_K50_MENU_V2_VERSION
+            cards = getattr(policy, 'equity_cards', None)
+            translation = policy.description.get('action_translation')
+            if (cards is None or cards.sha256 != EQUITY_K50_SHA256
+                    or policy.identity.get('card_tables') != EQUITY_K50_SHA256
+                    or getattr(policy, 'adapter_id', None) != HU100_K50_MENU_V2_VERSION
+                    or translation != {'version': HU100_K50_MENU_V2_VERSION, 'max_states': 512, 'max_events': 128}):
+                raise ValueError('K50 release table or translation identity differs')
+        elif policy.abstraction in EQUITY_SCHEMAS:
             raise ValueError("K50 models are not yet supported by the web runtime; use the evaluation harnesses")
-        expected = (HU100_GAME, HU100_SCHEMA) if self.stack == 10000 else (HU20_UNCAPPED_GAME, HU20_UNCAPPED_SCHEMA)
+        expected = (HU100_GAME, HU100_EQUITY_MENU_V2_SCHEMA if k50_release else HU100_SCHEMA) if self.stack == 10000 else (HU20_UNCAPPED_GAME, HU20_UNCAPPED_SCHEMA)
         if ((policy.game, policy.abstraction) != expected
                 or getattr(policy, 'players', 2) != 2 or getattr(policy, 'raise_cap', None) is not None):
             raise ValueError('Model and local table configuration are incompatible')

@@ -8,7 +8,9 @@ from fractions import Fraction
 from heapq import heappop, heappush
 from itertools import count
 
-from src.blueprint.abstraction import HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, Choice, choices, information_key
+from src.blueprint.abstraction import (HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA,
+    HU200_EQUITY_SCHEMA, HU100_EQUITY_MENU_V2_SCHEMA, EQUITY_SCHEMAS,
+    V2_RAISE_LABELS, _v2_raise_size, Choice, choices, information_key, menu_sizes)
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, Observation
 from src.game.types import Action, ActionKind, LegalActions, Player, Street, pots_for
 
@@ -16,6 +18,7 @@ VERSION = "hu100-public-menu-translation-v1"
 HU200_VERSION = "hu200-public-menu-translation-v1"
 HU100_K50_VERSION = "hu100-public-menu-translation-equity-k50-v1"
 HU200_K50_VERSION = "hu200-public-menu-translation-equity-k50-v1"
+HU100_K50_MENU_V2_VERSION = "hu100-public-menu-translation-equity-k50-menu-v2"
 
 
 def version_for_schema(schema: str) -> str:
@@ -27,7 +30,9 @@ def version_for_schema(schema: str) -> str:
         return HU100_K50_VERSION
     if schema == HU200_EQUITY_SCHEMA:
         return HU200_K50_VERSION
-    raise ValueError("Action translation requires an explicit HU100/HU200 menu-v1 schema")
+    if schema == HU100_EQUITY_MENU_V2_SCHEMA:
+        return HU100_K50_MENU_V2_VERSION
+    raise ValueError("Action translation requires an explicit HU100/HU200 supported schema")
 
 
 @dataclass(frozen=True, slots=True)
@@ -87,14 +92,14 @@ class Betting:
             kinds.append(ActionKind.RAISE)
         return LegalActions(tuple(kinds), call, low, high)
 
-    def menu(self, view: Observation):
+    def menu(self, view: Observation, schema: str = HU100_SCHEMA):
         players = tuple(Player(s, view.players[s].player_id, view.history[0].stacks[s],
                                self.stacks[s], self.bets[s], self.contributed[s],
                                self.folded[s]) for s in (0, 1))
         public = replace(view, seat=self.actor, actor=self.actor, players=players,
                          legal_actions=self.legal(), pots=pots_for(players),
                          street=self.street)
-        return choices(public, raise_cap=None, free_fold=False)
+        return choices(public, raise_cap=None, free_fold=False, menu_sizes=menu_sizes(schema))
 
     def apply(self, action: Action):
         legal = self.legal(); legal.validate(action)
@@ -152,7 +157,7 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
     """Nearest positive-mass witness within a deterministic work bound."""
     version_for_schema(schema)
     # Validate game identity even when a work bound or on-menu path returns early.
-    if schema in (HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA) and equity_cards is None:
+    if schema in EQUITY_SCHEMAS and equity_cards is None:
         raise ValueError("K50 translation requires the policy's own equity tables")
     information_key(view, menu, schema=schema, equity_cards=equity_cards)
     empty = TranslationResult(None, 0., 0, 0, False)
@@ -172,7 +177,7 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
         elif isinstance(event, ActionTaken):
             if state.actor != event.seat or state.street != event.street:
                 raise ValueError("Public betting actor/street differs")
-            original_menu = state.menu(view)
+            original_menu = state.menu(view, schema)
             name = next((c.name for c in original_menu if c.action == event.action), None)
             off_menu |= event.action.kind == ActionKind.RAISE and name is None
             before = state
@@ -200,7 +205,7 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
         if position == len(steps):
             if state.actor != view.seat or state.flags != flags:
                 continue
-            if tuple(c.name for c in state.menu(view)) != target_names:
+            if tuple(c.name for c in state.menu(view, schema)) != target_names:
                 continue
             key = information_key(view, menu, schema=schema, equity_cards=equity_cards,
                                   history_label_overrides=dict(overrides))
@@ -218,7 +223,7 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
             continue
         if state.actor != event.seat or state.street != event.street:
             continue
-        candidate_menu = state.menu(view)
+        candidate_menu = state.menu(view, schema)
         candidates = (tuple(c for c in candidate_menu if c.action.kind == ActionKind.RAISE)
                       if event.action.kind == ActionKind.RAISE and name is None
                       else tuple(c for c in candidate_menu if c.name == name))
@@ -227,6 +232,13 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
             changed, cost, path, token_path, override = mismatches, distance, targets, labels, overrides
             if choice.action.kind == ActionKind.RAISE:
                 token = raise_label(paid, state.pot, state.stacks[event.seat], view.big_blind)
+                if menu_sizes(schema) == "v2":
+                    # V2 history encodes the raise above a call / pot after calling.
+                    # V1 keeps its original paid/pre-action-pot labels and ordering.
+                    after_call = state.pot + max(state.bets) - state.bets[event.seat]
+                    token = V2_RAISE_LABELS[_v2_raise_size(choice.action.raise_to, max(state.bets), after_call)]
+                    if paid == state.stacks[event.seat]:
+                        token += "-all-in"
                 changed += int((paid == state.stacks[event.seat])
                                != (event.paid == observed.stacks[event.seat]))
                 cost += size_distance(event.paid, observed.pot, paid, state.pot, view.big_blind)
@@ -235,4 +247,3 @@ def translate(view: Observation, menu: tuple[Choice, ...], entries, zero_mass,
             heappush(queue, (changed, cost, path, token_path, next(serial),
                              position+1, child, override))
     return TranslationResult(None, 0., 0, examined, bool(queue))
-

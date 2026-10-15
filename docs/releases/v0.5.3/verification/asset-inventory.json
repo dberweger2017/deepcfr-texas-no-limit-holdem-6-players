@@ -1,0 +1,60 @@
+{
+  "all_under_github_2_gib": true,
+  "assets": {
+    "INSTALL.md": {
+      "bytes": 1930,
+      "sha256": "090490800c5afaf9bff4770d7473f3b4c86f5dcdf8d59ad7ebeeed8bf74aae9e"
+    },
+    "MODEL_CARD.md": {
+      "bytes": 4512,
+      "sha256": "a437a8033988e0a043a6943a4326c992fa00f65cb0c78270a59bf8749fad7ed5"
+    },
+    "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-001": {
+      "bytes": 1073741824,
+      "sha256": "3a0a95117efe3fafc1c99a93563683de57f976ec776ee0b755daf682af5a66c7"
+    },
+    "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-002": {
+      "bytes": 1073741824,
+      "sha256": "9ef0c480cc7ffea65a22c01d986b4ad6522060445d855a5e73734fcec3160592"
+    },
+    "O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-003": {
+      "bytes": 1048807903,
+      "sha256": "f4171fa4309ada3df445cf0f70ff333296f4be4ff285eec88c1f51e49089f0e6"
+    },
+    "RELEASE_NOTES.md": {
+      "bytes": 2561,
+      "sha256": "ee375032ec3809875def74dadd89b0d8228f3cc9fd0b530198e7a20f36a882d4"
+    },
+    "SHA256SUMS": {
+      "bytes": 1066,
+      "sha256": "5b15fe1a6af11b52fc857ab2aa1c1dc1f690bd18812dd5d84be4c1aa41593d03"
+    },
+    "flop-k50.bin": {
+      "bytes": 12867944,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    "release-manifest.json": {
+      "bytes": 3633,
+      "sha256": "09eac56394e76f50bf126bb9065198749cb0c082e8f682ec1829a8dcce9e20ff"
+    },
+    "river-k50.bin": {
+      "bytes": 1231562564,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    "turn-k50.bin": {
+      "bytes": 139600524,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "verify_hu100_bundle.py": {
+      "bytes": 19347,
+      "sha256": "e43e44e1a6fe1264ddfd74646eaf0ff4a31e94d318fe70ce62086dd4851717d7"
+    }
+  },
+  "directory": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets",
+  "publication_approved": false,
+  "source": "ffa9ff7d9b68cd96c9cec218088f5a62fc6dcca2",
+  "whole_model": {
+    "bytes": 3196291551,
+    "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+  }
+}

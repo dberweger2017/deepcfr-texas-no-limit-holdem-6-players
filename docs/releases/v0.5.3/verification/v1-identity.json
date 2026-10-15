@@ -1,0 +1,38 @@
+{
+  "status": "verified",
+  "baseline_source": "98658f7be1bd53ef4efbc6c71a74431d8d83ec08",
+  "results": {
+    "100": {
+      "decisions": 256,
+      "hands": 64,
+      "table_sha256": "244d806753170953231dd16d3d74388d232621a6767cf2754003c57767b9f061",
+      "trace_sha256": "6de5d7774cbc2a3fb4dc26fb52345e7e1efb6f28504a9f4f612b27565b455693",
+      "translated": 64,
+      "translation": {
+        "max_events": 128,
+        "max_states": 512,
+        "version": "hu100-public-menu-translation-v1"
+      }
+    },
+    "200": {
+      "decisions": 256,
+      "hands": 64,
+      "table_sha256": "4748886e0e81d0dc859d5799a5f50ea1c517ce988c5c8de05de161aeb52edee7",
+      "trace_sha256": "0caa010deb641780d6de5cfe09023eff16f4c71856b47c58d3daf65c8f66502d",
+      "translated": 64,
+      "translation": {
+        "max_events": 128,
+        "max_states": 512,
+        "version": "hu200-public-menu-translation-v1"
+      }
+    }
+  },
+  "raw_trace_bytes_equal": true,
+  "hu100_releases_using_this_adapter": [
+    "v0.5.0",
+    "v0.5.1",
+    "v0.5.2"
+  ],
+  "synthetic_stored_average": true,
+  "real_v052_regression_pending_input_restoration": true
+}

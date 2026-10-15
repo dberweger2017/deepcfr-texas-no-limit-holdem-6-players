@@ -1,0 +1,92 @@
+{
+  "all_in_raises": 1,
+  "browser": {
+    "cases": [
+      {
+        "case": "restricted-v2-400",
+        "hands": 1,
+        "phase": "finished",
+        "sessionId": "ozR4Wf2xjGqkbaS6avLeH7S5"
+      },
+      {
+        "case": "free-off-menu-800",
+        "hands": 1,
+        "phase": "finished",
+        "sessionId": "r-_qFib01D-zQb_oiehQJm7a"
+      },
+      {
+        "case": "free-all-in-10000",
+        "hands": 1,
+        "phase": "finished",
+        "sessionId": "JNZlVb3HoltSxJGBDNAIdU8Q"
+      },
+      {
+        "case": "spectator-step-complete",
+        "hands": 1,
+        "phase": "finished",
+        "sessionId": "EuJJrSnzJqO8ze1LCbQU-w50"
+      }
+    ],
+    "completed_at": 1792096624.6560152,
+    "private_token_not_archived": true,
+    "proof": "browser-proof.json",
+    "screenshots": {
+      "allin": {
+        "bytes": 364771,
+        "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/browser-allin.png",
+        "sha256": "9cbc9ab98ab0c654175953ce0668c258736020e7de496fec9806ea7f6ee553d3"
+      },
+      "offmenu": {
+        "bytes": 364671,
+        "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/browser-offmenu.png",
+        "sha256": "1ec49e4213b8c4157d53baec6a4e1f35fa4eede6c2fcc94fa6a22e05c3ae3afc"
+      },
+      "restricted": {
+        "bytes": 353583,
+        "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/browser-restricted.png",
+        "sha256": "5d4b210511db1c37fd38b09e6954a262bb9be0c661248923d869df1ec1b5686e"
+      },
+      "spectator": {
+        "bytes": 367900,
+        "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/browser-spectator.png",
+        "sha256": "80b3924b278b1399cde554fc50111ea5bfa64ddd93cc3d7d81e0aaeba6930345"
+      }
+    },
+    "status": "verified"
+  },
+  "hands": 20,
+  "lost_reply_verified": true,
+  "off_menu_550_raises": 0,
+  "off_menu_800_raises": 2,
+  "restart_hand_session": "GC7TpAsx5YAWAh0O9hK47MQd",
+  "seconds": 0.61411883297842,
+  "sessions": [
+    {
+      "hands": 4,
+      "id": "NZzveaRjV-N28vX3zNzO6eGW",
+      "mode": "restricted"
+    },
+    {
+      "hands": 7,
+      "id": "o4VeBU2swFYrAqVL0Yvqii7R",
+      "mode": "free"
+    },
+    {
+      "hands": 8,
+      "id": "6wCEASqAjsvGEHUQURfLmGw3",
+      "mode": "spectator"
+    }
+  ],
+  "starts": [
+    {
+      "load_seconds": 587.861588083033,
+      "max_cli_child_rss_bytes_so_far": 1735606272,
+      "pid": 97551
+    },
+    {
+      "load_seconds": 581.9686727079679,
+      "max_cli_child_rss_bytes_so_far": 1735606272,
+      "pid": 3574
+    }
+  ]
+}

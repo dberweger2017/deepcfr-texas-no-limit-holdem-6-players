@@ -1,0 +1,656 @@
+{
+  "baseline_swap_bytes": 3616737853,
+  "failed_guard_roots": [
+    "archive-evidence-000",
+    "archive-evidence-upload-000",
+    "restore-tables-release-000",
+    "restore-tables-release-001",
+    "runtime-journal-audit-000",
+    "runtime-smoke-000"
+  ],
+  "guards": {
+    "archive-evidence-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.071914196014404,
+      "max_swap_growth_bytes": 1645802947,
+      "min_battery_percent": 31,
+      "min_disk_free_bytes": 24037126144,
+      "min_free_memory_percent": 64,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1792098109.037977,
+        "peak_family_rss_bytes": 118194176,
+        "samples": 2,
+        "seconds": 5.152839183807373,
+        "started": 1792098103.8851368,
+        "status": "failed"
+      },
+      "samples": 2,
+      "sustained_breaches": []
+    },
+    "archive-evidence-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.069008111953735,
+      "max_swap_growth_bytes": 1645802947,
+      "min_battery_percent": 31,
+      "min_disk_free_bytes": 23429341184,
+      "min_free_memory_percent": 67,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792098172.778408,
+        "peak_family_rss_bytes": 118751232,
+        "samples": 2,
+        "seconds": 5.153707027435303,
+        "started": 1792098167.6246998,
+        "status": "complete"
+      },
+      "samples": 2,
+      "sustained_breaches": []
+    },
+    "archive-evidence-upload-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.10586404800415,
+      "max_swap_growth_bytes": 1629025731,
+      "min_battery_percent": 21,
+      "min_disk_free_bytes": 21205139456,
+      "min_free_memory_percent": 58,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Guard stop: declared active-work budget exhausted')",
+        "finished": 1792100105.447953,
+        "peak_family_rss_bytes": 121929728,
+        "samples": 357,
+        "seconds": 1805.221185207367,
+        "started": 1792098300.2267678,
+        "status": "failed"
+      },
+      "samples": 357,
+      "sustained_breaches": []
+    },
+    "archive-evidence-upload-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.0803868770599365,
+      "max_swap_growth_bytes": 1327035843,
+      "min_battery_percent": 21,
+      "min_disk_free_bytes": 21256761344,
+      "min_free_memory_percent": 64,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792100253.186938,
+        "peak_family_rss_bytes": 112820224,
+        "samples": 10,
+        "seconds": 45.78436493873596,
+        "started": 1792100207.402573,
+        "status": "complete"
+      },
+      "samples": 10,
+      "sustained_breaches": []
+    },
+    "archive-lifecycle-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.06467604637146,
+      "max_swap_growth_bytes": 1327035843,
+      "min_battery_percent": 20,
+      "min_disk_free_bytes": 21265883136,
+      "min_free_memory_percent": 65,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792100321.104675,
+        "peak_family_rss_bytes": 118734848,
+        "samples": 2,
+        "seconds": 5.162275075912476,
+        "started": 1792100315.942399,
+        "status": "complete"
+      },
+      "samples": 2,
+      "sustained_breaches": []
+    },
+    "build-assets-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.095870018005371,
+      "max_swap_growth_bytes": 1572926915,
+      "min_battery_percent": 67,
+      "min_disk_free_bytes": 24798613504,
+      "min_free_memory_percent": 47,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792092690.0244238,
+        "peak_family_rss_bytes": 170131456,
+        "samples": 7,
+        "seconds": 30.497711896896362,
+        "started": 1792092659.526711,
+        "status": "complete"
+      },
+      "samples": 7,
+      "sustained_breaches": []
+    },
+    "build-assets-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.076588153839111,
+      "max_swap_growth_bytes": 940373443,
+      "min_battery_percent": 53,
+      "min_disk_free_bytes": 26784382976,
+      "min_free_memory_percent": 51,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792095244.513431,
+        "peak_family_rss_bytes": 138313728,
+        "samples": 7,
+        "seconds": 30.410154104232788,
+        "started": 1792095214.103277,
+        "status": "complete"
+      },
+      "samples": 7,
+      "sustained_breaches": []
+    },
+    "cleanup-primary-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.073119163513184,
+      "max_swap_growth_bytes": 1581315523,
+      "min_battery_percent": 70,
+      "min_disk_free_bytes": 22925901824,
+      "min_free_memory_percent": 55,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792091674.9170291,
+        "peak_family_rss_bytes": 117325824,
+        "samples": 3,
+        "seconds": 10.22386622428894,
+        "started": 1792091664.693163,
+        "status": "complete"
+      },
+      "samples": 3,
+      "sustained_breaches": []
+    },
+    "compatibility-v050-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.094865798950195,
+      "max_swap_growth_bytes": 54851011,
+      "min_battery_percent": 89,
+      "min_disk_free_bytes": 25656672256,
+      "min_free_memory_percent": 40,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792086129.112585,
+        "peak_family_rss_bytes": 1193984000,
+        "samples": 82,
+        "seconds": 409.74563789367676,
+        "started": 1792085719.366946,
+        "status": "complete"
+      },
+      "samples": 82,
+      "sustained_breaches": []
+    },
+    "compatibility-v051-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.171427249908447,
+      "max_swap_growth_bytes": 241172480,
+      "min_battery_percent": 92,
+      "min_disk_free_bytes": 25633730560,
+      "min_free_memory_percent": 33,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792086744.1338701,
+        "peak_family_rss_bytes": 844120064,
+        "samples": 113,
+        "seconds": 565.8844332695007,
+        "started": 1792086178.2494369,
+        "status": "complete"
+      },
+      "samples": 113,
+      "sustained_breaches": []
+    },
+    "compatibility-v052-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.07992696762085,
+      "max_swap_growth_bytes": 1376979517,
+      "min_battery_percent": 93,
+      "min_disk_free_bytes": 28868419584,
+      "min_free_memory_percent": 33,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792087199.121321,
+        "peak_family_rss_bytes": 1111900160,
+        "samples": 90,
+        "seconds": 448.69635581970215,
+        "started": 1792086750.4249651,
+        "status": "complete"
+      },
+      "samples": 90,
+      "sustained_breaches": []
+    },
+    "final-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.195678234100342,
+      "max_swap_growth_bytes": 2185295299,
+      "min_battery_percent": 71,
+      "min_disk_free_bytes": 22723485696,
+      "min_free_memory_percent": 37,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792091211.859809,
+        "peak_family_rss_bytes": 5919965184,
+        "samples": 586,
+        "seconds": 2951.807503938675,
+        "started": 1792088260.052305,
+        "status": "complete"
+      },
+      "samples": 586,
+      "sustained_breaches": []
+    },
+    "pilots-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.074164867401123,
+      "max_swap_growth_bytes": 2269181379,
+      "min_battery_percent": 88,
+      "min_disk_free_bytes": 25070350336,
+      "min_free_memory_percent": 57,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792088185.5306501,
+        "peak_family_rss_bytes": 1495105536,
+        "samples": 57,
+        "seconds": 282.8555471897125,
+        "started": 1792087902.675103,
+        "status": "complete"
+      },
+      "samples": 57,
+      "sustained_breaches": []
+    },
+    "prepare-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.153519153594971,
+      "max_swap_growth_bytes": 2294347203,
+      "min_battery_percent": 90,
+      "min_disk_free_bytes": 25099132928,
+      "min_free_memory_percent": 33,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792087853.164087,
+        "peak_family_rss_bytes": 1060061184,
+        "samples": 118,
+        "seconds": 590.4376509189606,
+        "started": 1792087262.7264361,
+        "status": "complete"
+      },
+      "samples": 118,
+      "sustained_breaches": []
+    },
+    "readout-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.072815895080566,
+      "max_swap_growth_bytes": 1606481347,
+      "min_battery_percent": 70,
+      "min_disk_free_bytes": 23339208704,
+      "min_free_memory_percent": 58,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792091335.695709,
+        "peak_family_rss_bytes": 344096768,
+        "samples": 7,
+        "seconds": 30.399768829345703,
+        "started": 1792091305.295939,
+        "status": "complete"
+      },
+      "samples": 7,
+      "sustained_breaches": []
+    },
+    "readout-lookup-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.070158004760742,
+      "max_swap_growth_bytes": 1572926915,
+      "min_battery_percent": 69,
+      "min_disk_free_bytes": 32590434304,
+      "min_free_memory_percent": 60,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792092161.856399,
+        "peak_family_rss_bytes": 120225792,
+        "samples": 5,
+        "seconds": 20.300448894500732,
+        "started": 1792092141.5559502,
+        "status": "complete"
+      },
+      "samples": 5,
+      "sustained_breaches": []
+    },
+    "readout-recount-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.07413387298584,
+      "max_swap_growth_bytes": 1606481347,
+      "min_battery_percent": 70,
+      "min_disk_free_bytes": 23309135872,
+      "min_free_memory_percent": 59,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792091380.011266,
+        "peak_family_rss_bytes": 250134528,
+        "samples": 4,
+        "seconds": 15.25459098815918,
+        "started": 1792091364.756675,
+        "status": "complete"
+      },
+      "samples": 4,
+      "sustained_breaches": []
+    },
+    "readout-sizes-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.053869962692261,
+      "max_swap_growth_bytes": 1598092739,
+      "min_battery_percent": 70,
+      "min_disk_free_bytes": 23076835328,
+      "min_free_memory_percent": 60,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792091545.894043,
+        "peak_family_rss_bytes": 149405696,
+        "samples": 3,
+        "seconds": 10.175264835357666,
+        "started": 1792091535.7187781,
+        "status": "complete"
+      },
+      "samples": 3,
+      "sustained_breaches": []
+    },
+    "real-refusals-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.064428806304932,
+      "max_swap_growth_bytes": 1645802947,
+      "min_battery_percent": 31,
+      "min_disk_free_bytes": 24042270720,
+      "min_free_memory_percent": 58,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792098029.383137,
+        "peak_family_rss_bytes": 162889728,
+        "samples": 7,
+        "seconds": 30.37461495399475,
+        "started": 1792097999.008522,
+        "status": "complete"
+      },
+      "samples": 7,
+      "sustained_breaches": []
+    },
+    "restore-model-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.549303770065308,
+      "max_swap_growth_bytes": 105182659,
+      "min_battery_percent": 75,
+      "min_disk_free_bytes": 32410554368,
+      "min_free_memory_percent": 27,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792084460.897272,
+        "peak_family_rss_bytes": 116932608,
+        "samples": 189,
+        "seconds": 964.5988981723785,
+        "started": 1792083496.298374,
+        "status": "complete"
+      },
+      "samples": 189,
+      "sustained_breaches": []
+    },
+    "restore-tables-release-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 0,
+      "max_swap_growth_bytes": 88405443,
+      "min_battery_percent": 78,
+      "min_disk_free_bytes": 32433573888,
+      "min_free_memory_percent": 56,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1792084510.59664,
+        "peak_family_rss_bytes": 97370112,
+        "samples": 1,
+        "seconds": 0.08694314956665039,
+        "started": 1792084510.509697,
+        "status": "failed"
+      },
+      "samples": 1,
+      "sustained_breaches": []
+    },
+    "restore-tables-release-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.140666961669922,
+      "max_swap_growth_bytes": 88405443,
+      "min_battery_percent": 79,
+      "min_disk_free_bytes": 26851475456,
+      "min_free_memory_percent": 47,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1792085281.6514292,
+        "peak_family_rss_bytes": 336134144,
+        "samples": 146,
+        "seconds": 735.7853062152863,
+        "started": 1792084545.866123,
+        "status": "failed"
+      },
+      "samples": 146,
+      "sustained_breaches": []
+    },
+    "runtime-journal-audit-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.177126884460449,
+      "max_swap_growth_bytes": 1780345733,
+      "min_battery_percent": 36,
+      "min_disk_free_bytes": 24149446656,
+      "min_free_memory_percent": 34,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1792097239.1297312,
+        "peak_family_rss_bytes": 286523392,
+        "samples": 116,
+        "seconds": 579.7403979301453,
+        "started": 1792096659.389332,
+        "status": "failed"
+      },
+      "samples": 116,
+      "sustained_breaches": []
+    },
+    "runtime-journal-audit-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.062870740890503,
+      "max_swap_growth_bytes": 1645802947,
+      "min_battery_percent": 31,
+      "min_disk_free_bytes": 24050954240,
+      "min_free_memory_percent": 34,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792097988.43621,
+        "peak_family_rss_bytes": 372948992,
+        "samples": 114,
+        "seconds": 569.5381598472595,
+        "started": 1792097418.89805,
+        "status": "complete"
+      },
+      "samples": 114,
+      "sustained_breaches": []
+    },
+    "runtime-smoke-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.1749491691589355,
+      "max_swap_growth_bytes": 2763385733,
+      "min_battery_percent": 58,
+      "min_disk_free_bytes": 23754854400,
+      "min_free_memory_percent": 33,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": "RuntimeError('Worker exit 1')",
+        "finished": 1792094026.606117,
+        "peak_family_rss_bytes": 530284544,
+        "samples": 230,
+        "seconds": 1154.4871289730072,
+        "started": 1792092872.118987,
+        "status": "failed"
+      },
+      "samples": 230,
+      "sustained_breaches": []
+    },
+    "runtime-smoke-001": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.1111791133880615,
+      "max_swap_growth_bytes": 1869611008,
+      "min_battery_percent": 42,
+      "min_disk_free_bytes": 24168013824,
+      "min_free_memory_percent": 33,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1,
+        2
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792096629.036819,
+        "peak_family_rss_bytes": 1292009472,
+        "samples": 274,
+        "seconds": 1376.9733109474182,
+        "started": 1792095252.063508,
+        "status": "complete"
+      },
+      "samples": 274,
+      "sustained_breaches": []
+    },
+    "verify-v052-000": {
+      "gap_resets": 0,
+      "max_sample_gap_seconds": 5.07098388671875,
+      "max_swap_growth_bytes": 63239619,
+      "min_battery_percent": 87,
+      "min_disk_free_bytes": 26846396416,
+      "min_free_memory_percent": 51,
+      "observed_breach_timers": [],
+      "pressure_levels": [
+        1
+      ],
+      "receipt": {
+        "failure": null,
+        "finished": 1792085488.137231,
+        "peak_family_rss_bytes": 119865344,
+        "samples": 2,
+        "seconds": 5.157977104187012,
+        "started": 1792085482.979253,
+        "status": "complete"
+      },
+      "samples": 2,
+      "sustained_breaches": []
+    }
+  },
+  "machine": "Apple M1",
+  "max_sample_gap_seconds": 5.549303770065308,
+  "max_swap_growth_bytes": 2763385733,
+  "min_battery_percent": 20,
+  "min_disk_free_bytes": 21205139456,
+  "min_free_memory_percent": 27,
+  "peak_sampled_family_rss_bytes": 5919965184,
+  "raw_observations_retained": true,
+  "sample_seconds": 5,
+  "sustained_breaches": [],
+  "sustained_seconds": 60,
+  "total_samples": 2534
+}

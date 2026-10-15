@@ -72,6 +72,10 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 v0.5.3 packaging ([#298](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298)), prepared for owner review on M1:** owner-declared PR272 original seed; all 720,896 final hands replay/reproduce before readout. Seven translation on-minus-off contrasts are exactly zero, passing the declared upper-bound safeguard; fresh direct versus translated v0.5.2 is descriptively +37.10 [30.16,44.04] BB/100. No v2 witness selected in these matches; random deep all-ins fall back uniformly. Real released-model trace hashes and old manifests are unchanged. All 12 assets, real CLI/browser/refusal checks and every runtime journal (37 completed hands plus one partial) verify. Both evidence archives have local readback and native/cloud acceptance; failures, resources and cleanup are indexed. No release, tag, default change or owner merge. [Science](docs/reports/hu100-v053-translation.md).
+
+- **Additional M1/M4 storage (October 15):** 8.370/7.675 GB retired; verified 37.297/80.231 GB free. Older merged archival originals and inactive caches cleared; open PR292/297/298 inputs/source remain. [Exact restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-more.md).
+
 - **M4/M1 storage (October 15 evening):** 17.075/25.208 GB reclaimed; 73.785/38.578 GB free at verification. Merged readout caches/restored input, archived old retrieval copies and inactive rebuildable caches retired; open PR292/297/298 dependencies and release inputs remain. [Restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-evening.md).
 
 - **Merged PR286 storage cleanup (October 15):** 50.124 GB reclaimed on M4 from eight unchanged archived model originals and two accepted uploaded ZIP caches; 78.787 GB free. Partial evidence, original-seed/released inputs, tables, source and open PR292 dependencies remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-pr286.md).

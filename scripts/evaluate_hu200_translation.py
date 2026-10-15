@@ -16,7 +16,7 @@ from scripts.run_hu200_feasibility import write
 from src.arena.policies import make_policy
 from src.arena.runner import public_events
 from src.arena.schedule import canonical, digest
-from src.blueprint.abstraction import HU200_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU200_SCHEMA, choices, information_key, schema_choices, menu_sizes
 from src.blueprint.action_translation import TranslationOptions
 from src.blueprint.average import AveragePolicy
 from src.game.hand import Hand, Table
@@ -42,7 +42,7 @@ def verify_witness(initial, view, menu, info, model):
             raise ValueError('Witness actor/terminal differs')
         wv=witness.observe(witness.actor);rv=real.observe(real.actor)
         if wv.street!=event.street or rv.street!=event.street:raise ValueError('Witness street differs')
-        wm=choices(wv,raise_cap=None,free_fold=False);rm=choices(rv,raise_cap=None,free_fold=False)
+        wm=schema_choices(wv,model.abstraction);rm=schema_choices(rv,model.abstraction)
         action=event.action
         if action.kind==ActionKind.RAISE:
             action=Action(ActionKind.RAISE,next(targets))
@@ -55,12 +55,20 @@ def verify_witness(initial, view, menu, info, model):
             ratio=Fraction(wp,max(wv.pot,wv.big_blind))
             size=0 if ratio<Fraction(1,2) else 1 if ratio<Fraction(3,2) else 2 if ratio<3 else 3
             labels[index]=f'raise-{size}'+('-all-in' if wp==wv.players[event.seat].stack else '')
+            if menu_sizes(model.abstraction)=='v2':
+                # Independently reconstruct v2's public ratio and rational boundaries.
+                above=action.raise_to-max(p.street_bet for p in wv.players)
+                ratio=Fraction(above,wv.pot+wv.legal_actions.call_amount)
+                band=sum(ratio>=edge for edge in (Fraction(7,20),Fraction(3,4),
+                    Fraction(5,4),Fraction(7,4),Fraction(5,2)))
+                labels[index]=('raise-s','raise-h','raise-p','raise-o15','raise-o2','raise-x')[band]+(
+                    '-all-in' if wp==wv.players[event.seat].stack else '')
             distance+=abs(Fraction(rp,max(rv.pot,rv.big_blind)+rp)-Fraction(wp,max(wv.pot,wv.big_blind)+wp))
             changes+=int((wp==wv.players[event.seat].stack)!=(rp==rv.players[event.seat].stack))
         elif not any(c.action==action for c in wm):raise ValueError('Witness nonraise outside menu')
         wv.legal_actions.validate(action);witness=witness.apply(action);real=real.apply(event.action)
     if next(targets,None) is not None:raise ValueError('Extra witness targets')
-    wv=witness.observe(witness.actor);wm=choices(wv,raise_cap=None,free_fold=False)
+    wv=witness.observe(witness.actor);wm=schema_choices(wv,model.abstraction)
     if (wv.actor!=view.actor or wv.street!=view.street or wv.hole_cards!=view.hole_cards or wv.board!=view.board
             or tuple((p.folded,p.all_in) for p in wv.players)!=tuple((p.folded,p.all_in) for p in view.players)
             or tuple(c.name for c in wm)!=tuple(c.name for c in menu)
