@@ -1,0 +1,77 @@
+{
+  "all_raw_resource_streams_retained": true,
+  "baseline": {
+    "at": 1792072956.6896331,
+    "disk_free_bytes": 78460211200,
+    "free_percent": 87,
+    "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 87%\n",
+    "identity": "Apple M4",
+    "monotonic": 357215.91884975,
+    "pressure_level": 1,
+    "swap_bytes": 972292096,
+    "swap_raw": "vm.swapusage: total = 2048.00M  used = 927.25M  free = 1120.75M  (encrypted)\n"
+  },
+  "breach_observations": 0,
+  "maximum_swap_growth_bytes": 0,
+  "minimum_disk_free_bytes": 60672786432,
+  "minimum_free_percent": 53,
+  "operations": {
+    "archive-evidence": {
+      "cpu_seconds_by_identity": {
+        "(71843, 1792076765.79974)": 0.069771996
+      },
+      "failure": null,
+      "finished": 1792076770.93008,
+      "peak_family_rss_bytes": 19808256,
+      "reasons": [],
+      "returncode": 0,
+      "samples": 2,
+      "started": 1792076765.835233,
+      "status": "complete",
+      "wall_seconds": 5.094846963882446
+    },
+    "archive-lifecycle": {
+      "cpu_seconds_by_identity": {
+        "(72025, 1792076990.227331)": 0.059055168
+      },
+      "failure": null,
+      "finished": 1792076995.33687,
+      "peak_family_rss_bytes": 19988480,
+      "reasons": [],
+      "returncode": 0,
+      "samples": 2,
+      "started": 1792076990.2569458,
+      "status": "complete",
+      "wall_seconds": 5.0799241065979
+    },
+    "completion": {
+      "cpu_seconds_by_identity": {
+        "(67503, 1792072956.652014)": 11.595340032,
+        "(67512, 1792072956.718671)": 751.4383605759999,
+        "(69172, 1792074426.99113)": 135.643788288,
+        "(69375, 1792074591.431226)": 286.098574336,
+        "(69736, 1792074910.892284)": 106.514026496,
+        "(69881, 1792075034.451875)": 155.60973926399998,
+        "(70088, 1792075217.750645)": 124.35304806399999,
+        "(70255, 1792075361.632357)": 122.8476032,
+        "(70419, 1792075505.688651)": 117.283201536,
+        "(70585, 1792075640.428481)": 925.2688783360001
+      },
+      "failure": null,
+      "finished": 1792076669.967443,
+      "peak_family_rss_bytes": 8418230272,
+      "reasons": [],
+      "returncode": 0,
+      "samples": 739,
+      "started": 1792072956.691457,
+      "status": "complete",
+      "wall_seconds": 3713.275985956192
+    }
+  },
+  "peak_family_rss_bytes": 8418230272,
+  "pressure_levels": [
+    1
+  ],
+  "samples": 743,
+  "stop_observations": []
+}

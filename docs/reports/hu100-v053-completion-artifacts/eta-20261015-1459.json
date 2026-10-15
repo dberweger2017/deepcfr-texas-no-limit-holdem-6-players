@@ -1,0 +1,18 @@
+{
+  "at": 1792076323.583515,
+  "m4_compute_free_eta_utc": "2026-10-15T15:15:00Z",
+  "m4_window_utc": [
+    "15:05",
+    "15:25"
+  ],
+  "pr_owner_closeout_ready_eta_utc": "2026-10-15T15:45:00Z",
+  "pr_window_utc": [
+    "15:30",
+    "16:05"
+  ],
+  "posted_in_pr_description": true,
+  "readback_verified": true,
+  "replaces": "eta-20261015-1433.json",
+  "basis": "All seven new panels verified; final direct original/replay/selected coverage complete, exact reproduction running; no outcome readout.",
+  "no_deadline_or_scientific_change": true
+}
