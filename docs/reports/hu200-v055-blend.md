@@ -217,3 +217,14 @@ unchanged. The already running first worker keeps its original deadline.
 At 21:16 Madrid the provisional full-run ETA widened to M4 release **06:00–10:00
 Madrid October 16**, review readiness **08:00–12:00**, conditional on union
 admission and cost pilots; the PR description carries the latest estimate.
+
+
+At **20:25 UTC /22:25 Madrid**, the seed 2026101302 full archive, embedded
+manifest and extracted checkpoint all match their declared SHA256 pins. The
+unchanged frozen exporter is checking exact reproduction of its released
+average; that proof is still pending. Seed 2026101422 restoration and the actual
+union/capacity gate follow. No blend or final hand has run. The PR description
+was updated at 22:27 Madrid; provisional release/review windows remain those
+above. The administrative controller was reattached while the same original M4
+worker and guard continued; no scientific job, deadline or baseline was reset.
+[Controller receipt](hu200-v055-blend-artifacts/continuation-controller-reattach-status.json).
