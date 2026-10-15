@@ -382,6 +382,7 @@ mod tests {
         let b = node(&[2., 4.]);
         assert_eq!(&combined(&[(&a, 3)]).average[..2], &[0., 0.]);
         assert_eq!(&combined(&[(&b, 2)]).average[..2], &[1., 2.]);
+        assert_eq!(&combined(&[(&b, 2), (&a, 3)]).average[..2], &[1., 2.]);
         assert_eq!(weight(16_670_844), 138_958_528_171_590);
         assert_eq!(weight(16_745_107), 140_199_312_593_278);
         assert_eq!(weight(16_827_728), 141_586_223_234_856);

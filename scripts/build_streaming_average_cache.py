@@ -95,7 +95,8 @@ def build(path: Path, sha256: str, schema: str, cache: Path, entries: int, slots
             stream.close()
     # An incomplete build stays at its explicit partial path for the failure archive.
     after = path.stat()
-    if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
+    if ((before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns)
+            or file_hash(path) != sha256):
         raise ValueError('Canonical average changed during cache build')
     files = {name: {'bytes': (temporary/(name+'.npy')).stat().st_size,
                     'sha256': file_hash(temporary/(name+'.npy')), 'length': lengths[name]}
