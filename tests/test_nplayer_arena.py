@@ -86,5 +86,49 @@ class NativeHarnessTests(unittest.TestCase):
             self.assertIn('clean stop before block 0', result.stderr)
 
 
+class NativeModelHarnessTests(unittest.TestCase):
+    def test_distinct_full_average_models_in_both_lineups(self):
+        import json
+        import os
+        from pathlib import Path
+        import subprocess
+        import tempfile
+        from scripts.audit_nplayer_policy import audit, sha
+        from scripts.check_nplayer_policy_replay import check
+        binary = Path(os.environ.get('NPLAYER_ARENA_BINARY', 'native/hu20-trainer/target/release/examples/nplayer_arena'))
+        tables = os.environ.get('NPLAYER_K50_TABLES')
+        if not binary.exists() or not tables: self.skipTest('build arena and set NPLAYER_K50_TABLES')
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root); models=[]
+            for seed in (101,102):
+                checkpoint=root/f'{seed}.gz'; export=root/f'{seed}-average.gz'
+                result=subprocess.run([str(binary.with_name('nplayer_train')),'--players','3',
+                    '--nodes','10000','--max-entries','1000000','--max-seconds','60',
+                    '--last-average-street','3','--seed',str(seed),'--card-buckets',tables,'--out',str(checkpoint)],
+                    capture_output=True,text=True,timeout=90)
+                self.assertEqual(result.returncode,0,result.stderr)
+                self.assertEqual(json.loads(result.stdout)['stop_reason'],'nodes')
+                result=subprocess.run([str(binary.with_name('nplayer_policy')),'export',str(checkpoint),sha(checkpoint),
+                    'average',str(export)],capture_output=True,text=True,timeout=90)
+                self.assertEqual(result.returncode,0,result.stderr)
+                receipt=audit(checkpoint,export)
+                self.assertEqual(receipt['current_rows'],0)
+                self.assertEqual(sum(s['entries'] for s in receipt['by_street']),receipt['rows'])
+                models.append(f'policy={export}@{sha(export)}')
+            for reverse in (False,True):
+                traces=[]
+                for repeat in (0,1):
+                    trace=root/f'models-{reverse}-{repeat}.jsonl'
+                    pair=list(reversed(models)) if reverse else models
+                    result=subprocess.run([str(binary),tables,'3','7711',str(trace),*pair],
+                        capture_output=True,text=True,timeout=90)
+                    self.assertEqual(result.returncode,0,result.stderr)
+                    with trace.open() as f: header=json.loads(next(f))
+                    self.assertEqual(header['loaded_weight_tables'],2)
+                    self.assertEqual(check(trace)['hands'],18)
+                    traces.append(trace)
+                self.assertEqual(sha(traces[0]),sha(traces[1]))
+
+
 if __name__ == '__main__':
     unittest.main()

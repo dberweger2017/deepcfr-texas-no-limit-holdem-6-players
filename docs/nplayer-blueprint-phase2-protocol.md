@@ -94,3 +94,51 @@ replayed; no outcome-based choice or extension. Cap the combined qualification
 at **900 seconds**, 80 GiB family RSS and the same thermal guards. Record load,
 play and replay time separately; do not use poker outcomes to select final
 counts. Synthetic tests and tiny model fixtures are separate correctness work.
+
+## Final block reservation
+
+Fix **8,192 independent blocks (49,152 hands) per contrast**, all six
+permutations, then one complete fresh-process reproduction. The 42 contrasts
+are enumerated by `scripts/nplayer_phase2_matrix.py`: first each seed's 200M
+and reverse, 500M and reverse; then each seed's four bots in the stated order,
+singleton-model and paired-model; then all six ordered cross-seed pairs in
+ascending seed order. Roots **202610150801–202610150842** map to that order.
+Repository search found no pre-existing uses before reservation.
+
+Total: **2,064,384 final hands**, independently replayed, plus **2,064,384
+reproduction hands**. Counts and roots are fixed before any Phase 2 model is
+trained or final hands played. The smoke-model qualification measures cost
+only. A separately committed admission manifest will pin the nine model
+hashes and the measured/scaled cost quote before final hands. A missing audit,
+failed replay, non-identical reproduction or any resource stop prevents a
+settled readout. Keep all partial data and do not replace roots.
+
+## Training admission quote
+
+The nine fixed smoke-model cases passed all-hand replay and exact reproduction
+in **263.62 seconds**, peak **2.339 GiB family RSS**, CPU **65°C**, VRM **66.5°C**,
+fan1 **337–611 RPM**. The immutable 8,246,876-row table loads in about 12.5 seconds;
+384 hands take roughly 0.03 seconds to play and 0.08 seconds to replay. The
+[complete cost receipt](reports/nplayer-blueprint-phase2-artifacts/harness-costs.json)
+separates these costs. Each case has 768 executed hands and 384 independent
+engine replays, with no mismatch. No poker outcome was used to set final counts.
+
+Clarification: Phase 1's **39.1 GiB** figure describes 100-BB **preflop** averages.
+Its uncapped 20-BB **full-average** origin-linear scenario is **79.1 GiB** at 1B
+nodes, with 245.4M entries. The owner's 150M-entry terminal cap limits that
+scenario: the same measured layout and allocation allowances at 150M entries
+project **43.41 GiB** including hash-growth overlap, vectors, sorting and K50.
+This is a planning scenario, not an RSS guarantee. Keep the independent 80-GiB
+guard; a capacity/resource stop is retained and does not authorize freezing,
+changing averages, increasing limits or continuing the campaign.
+
+At Phase 1's roughly 0.9M full-average nodes/s, 1B nodes costs about 19 minutes
+of traversal per seed. Checkpoint writing/loading, three complete exports and
+three every-row audits are additional, material one-off costs. With the local
+power-fit endpoint of roughly 64M keys and the measured smoke export/audit
+rates, plan approximately **45–100 minutes per seed including those costs**;
+allow a fixed **3-hour whole-seed cap**, at most **9 hours across three seeds**.
+Each scheduled training segment has its own **1,800-second traversal clock**;
+checkpoint I/O is included in the whole-seed supervisor clock. Stop the campaign
+on any failed seed or audit. No concurrent seeds or evaluation. Final evaluation
+has a separately committed quote using actual row counts before final hands.

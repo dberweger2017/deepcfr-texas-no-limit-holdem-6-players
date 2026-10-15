@@ -39,7 +39,10 @@ def audit(checkpoint,policy):
             counts['rows']+=1;counts['average_rows' if use_average else 'current_rows']+=1;counts['zero_mass_rows']+=not total
         assert not b.readline()
     assert counts['rows']==source['entries']
-    for stats in streets:
+    for street,stats in enumerate(streets):
+        stats['decisions']=source['counts']['decisions'][street]
+        stats['missing_decisions']=source['counts']['missing'][street]
+        stats['missing_decision_share']=stats['missing_decisions']/stats['decisions'] if stats['decisions'] else None
         stats['visits_per_key']=stats['visits']/stats['entries'] if stats['entries'] else None
     return {'by_street':streets,'status':'passed','checkpoint_sha256':cp_sha,'policy_sha256':policy_sha,'strategy':mode,'last_average_street':source['last_average_street'],**counts}
 

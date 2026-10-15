@@ -1,0 +1,954 @@
+{
+  "status": "passed",
+  "seconds": 262.89735031099553,
+  "cases": [
+    {
+      "name": "self",
+      "root": 2026101551,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              439,
+              157,
+              85,
+              55
+            ],
+            [
+              444,
+              164,
+              86,
+              51
+            ],
+            [
+              438,
+              158,
+              86,
+              45
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.436360204,
+          "misses_by_identity_street": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              1,
+              0
+            ]
+          ],
+          "play_seconds": 0.028025383,
+          "status": "passed",
+          "trace_sha256": "edcb5bd6102393403bbd1bcebf96e010eda8be26d699d984c03f54b03303705e"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              439,
+              157,
+              85,
+              55
+            ],
+            [
+              444,
+              164,
+              86,
+              51
+            ],
+            [
+              438,
+              158,
+              86,
+              45
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.581431905,
+          "misses_by_identity_street": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              1,
+              0
+            ]
+          ],
+          "play_seconds": 0.028344395,
+          "status": "passed",
+          "trace_sha256": "edcb5bd6102393403bbd1bcebf96e010eda8be26d699d984c03f54b03303705e"
+        }
+      ],
+      "replay_seconds": 0.08408260099531617,
+      "trace_bytes": 950633
+    },
+    {
+      "name": "random-singleton",
+      "root": 2026101552,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              474,
+              96,
+              37,
+              5
+            ],
+            [
+              532,
+              209,
+              77,
+              16
+            ],
+            [
+              538,
+              176,
+              60,
+              18
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.497062274,
+          "misses_by_identity_street": [
+            [
+              0,
+              3,
+              3,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.02635909,
+          "status": "passed",
+          "trace_sha256": "729e630a4ff8000bc37e8eecf2d9af3d2bd2eed133164a521af7e607b96a2a81"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              474,
+              96,
+              37,
+              5
+            ],
+            [
+              532,
+              209,
+              77,
+              16
+            ],
+            [
+              538,
+              176,
+              60,
+              18
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.592131817,
+          "misses_by_identity_street": [
+            [
+              0,
+              3,
+              3,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.026680773,
+          "status": "passed",
+          "trace_sha256": "729e630a4ff8000bc37e8eecf2d9af3d2bd2eed133164a521af7e607b96a2a81"
+        }
+      ],
+      "replay_seconds": 0.07250655299867503,
+      "trace_bytes": 964478
+    },
+    {
+      "name": "random-pair",
+      "root": 2026101553,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              521,
+              232,
+              82,
+              31
+            ],
+            [
+              477,
+              164,
+              61,
+              23
+            ],
+            [
+              485,
+              173,
+              47,
+              19
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.430538306,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              5,
+              2,
+              0
+            ],
+            [
+              0,
+              4,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.028562467,
+          "status": "passed",
+          "trace_sha256": "bb12e9f1538061409e0c63207401cd7be28edd1c1361bfdbc065db7ba5252f67"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              521,
+              232,
+              82,
+              31
+            ],
+            [
+              477,
+              164,
+              61,
+              23
+            ],
+            [
+              485,
+              173,
+              47,
+              19
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.595490818,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              5,
+              2,
+              0
+            ],
+            [
+              0,
+              4,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.02850712,
+          "status": "passed",
+          "trace_sha256": "bb12e9f1538061409e0c63207401cd7be28edd1c1361bfdbc065db7ba5252f67"
+        }
+      ],
+      "replay_seconds": 0.07358934699732345,
+      "trace_bytes": 988156
+    },
+    {
+      "name": "check-call-singleton",
+      "root": 2026101554,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              384,
+              208,
+              182,
+              164
+            ],
+            [
+              453,
+              434,
+              413,
+              396
+            ],
+            [
+              453,
+              434,
+              413,
+              396
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.527783185,
+          "misses_by_identity_street": [
+            [
+              0,
+              2,
+              40,
+              78
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.045733408,
+          "status": "passed",
+          "trace_sha256": "9007497072518fa122f56be036710d21369e593a6d8e1bb9cfcb3e5a053296be"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              384,
+              208,
+              182,
+              164
+            ],
+            [
+              453,
+              434,
+              413,
+              396
+            ],
+            [
+              453,
+              434,
+              413,
+              396
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.638557155,
+          "misses_by_identity_street": [
+            [
+              0,
+              2,
+              40,
+              78
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.046050995,
+          "status": "passed",
+          "trace_sha256": "9007497072518fa122f56be036710d21369e593a6d8e1bb9cfcb3e5a053296be"
+        }
+      ],
+      "replay_seconds": 0.11407421100011561,
+      "trace_bytes": 1626908
+    },
+    {
+      "name": "check-call-pair",
+      "root": 2026101555,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              493,
+              418,
+              400,
+              378
+            ],
+            [
+              422,
+              210,
+              182,
+              164
+            ],
+            [
+              420,
+              208,
+              170,
+              152
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.492084796,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              3,
+              9
+            ],
+            [
+              0,
+              1,
+              7,
+              4
+            ]
+          ],
+          "play_seconds": 0.041055945,
+          "status": "passed",
+          "trace_sha256": "a0fa610bf2b12e6ebf6003af42cb0d316c8d0dea49e2853c94a94c0928ce6c3c"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              493,
+              418,
+              400,
+              378
+            ],
+            [
+              422,
+              210,
+              182,
+              164
+            ],
+            [
+              420,
+              208,
+              170,
+              152
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.618345275,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              3,
+              9
+            ],
+            [
+              0,
+              1,
+              7,
+              4
+            ]
+          ],
+          "play_seconds": 0.041248905,
+          "status": "passed",
+          "trace_sha256": "a0fa610bf2b12e6ebf6003af42cb0d316c8d0dea49e2853c94a94c0928ce6c3c"
+        }
+      ],
+      "replay_seconds": 0.10032560699619353,
+      "trace_bytes": 1402189
+    },
+    {
+      "name": "tight-aggressive-singleton",
+      "root": 2026101556,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              273,
+              79,
+              42,
+              13
+            ],
+            [
+              334,
+              48,
+              25,
+              8
+            ],
+            [
+              333,
+              50,
+              24,
+              12
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.491874336,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.016806013,
+          "status": "passed",
+          "trace_sha256": "601d3ce2854c1b4c72354792bd0d83bbcff00dd84f691fb884c5b746e7f5c278"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              273,
+              79,
+              42,
+              13
+            ],
+            [
+              334,
+              48,
+              25,
+              8
+            ],
+            [
+              333,
+              50,
+              24,
+              12
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.607108318,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.017001914,
+          "status": "passed",
+          "trace_sha256": "601d3ce2854c1b4c72354792bd0d83bbcff00dd84f691fb884c5b746e7f5c278"
+        }
+      ],
+      "replay_seconds": 0.05094226799701573,
+      "trace_bytes": 634701
+    },
+    {
+      "name": "tight-aggressive-pair",
+      "root": 2026101557,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              371,
+              59,
+              31,
+              7
+            ],
+            [
+              364,
+              137,
+              86,
+              41
+            ],
+            [
+              363,
+              141,
+              69,
+              33
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.612769513,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.022427566,
+          "status": "passed",
+          "trace_sha256": "e7c613d85d9f1be095dafb05eaf6d77342f5a190dc683349447861c0c318c94e"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              371,
+              59,
+              31,
+              7
+            ],
+            [
+              364,
+              137,
+              86,
+              41
+            ],
+            [
+              363,
+              141,
+              69,
+              33
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.508748664,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.022378588,
+          "status": "passed",
+          "trace_sha256": "e7c613d85d9f1be095dafb05eaf6d77342f5a190dc683349447861c0c318c94e"
+        }
+      ],
+      "replay_seconds": 0.060451896002632566,
+      "trace_bytes": 785153
+    },
+    {
+      "name": "pot-pressure-singleton",
+      "root": 2026101558,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              312,
+              61,
+              18,
+              12
+            ],
+            [
+              351,
+              50,
+              18,
+              12
+            ],
+            [
+              351,
+              50,
+              14,
+              7
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.566262522,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.017287114,
+          "status": "passed",
+          "trace_sha256": "0b85152a1d480c68387776c6f388994b3abf02b7aeede21891f64190bc886336"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              312,
+              61,
+              18,
+              12
+            ],
+            [
+              351,
+              50,
+              18,
+              12
+            ],
+            [
+              351,
+              50,
+              14,
+              7
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.590794367,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.017248397,
+          "status": "passed",
+          "trace_sha256": "0b85152a1d480c68387776c6f388994b3abf02b7aeede21891f64190bc886336"
+        }
+      ],
+      "replay_seconds": 0.05076585899951169,
+      "trace_bytes": 639804
+    },
+    {
+      "name": "pot-pressure-pair",
+      "root": 2026101559,
+      "blocks": 64,
+      "runs": [
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              385,
+              66,
+              19,
+              7
+            ],
+            [
+              387,
+              128,
+              46,
+              30
+            ],
+            [
+              386,
+              123,
+              46,
+              27
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.620463673,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.02217207,
+          "status": "passed",
+          "trace_sha256": "a4b34e01d45d3ffb7959cecb1ab90d8a0e62c594af617bb60b03ec8c8466dfb1"
+        },
+        {
+          "blocks": 64,
+          "decisions_by_identity_street": [
+            [
+              385,
+              66,
+              19,
+              7
+            ],
+            [
+              387,
+              128,
+              46,
+              30
+            ],
+            [
+              386,
+              123,
+              46,
+              27
+            ]
+          ],
+          "hands": 384,
+          "load_seconds": 12.468093529,
+          "misses_by_identity_street": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "play_seconds": 0.022128291,
+          "status": "passed",
+          "trace_sha256": "a4b34e01d45d3ffb7959cecb1ab90d8a0e62c594af617bb60b03ec8c8466dfb1"
+        }
+      ],
+      "replay_seconds": 0.059465681995789055,
+      "trace_bytes": 768923
+    }
+  ],
+  "source": "54dfbbb8af50571211f261b1954cff061749bbc2",
+  "binary_sha256": "93cb35676b51d8e52cebe0fc3fef34ffb1edf2980124d2477cb82a0bd27b67a9",
+  "smoke_sha256": "fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e"
+}
