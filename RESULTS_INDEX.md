@@ -242,8 +242,12 @@ Build SHA256 matches #272 exactly:
 `4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
 Fresh seeds **2026101501 then 2026101502**, sequential. One original 14-hour
 clock, both shared locks and every five-second whole-family reading retained.
-No final-hand outcomes, audit completion, archive integrity or upload acceptance
-are claimed by this initial entry.
+Seed2026101501 reaches5,000,004,085 nodes /1,794,239 iterations with the same
+97,291,138 sorted keys; every final current/average row audits. Average SHA256
+`83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`.
+Seed2026101502 continues frozen from330,510,042 nodes /101,154 iterations
+/97,291,445 entries. Compact lineage/audit receipts are in the report artifacts.
+No final-hand outcomes, archive integrity or upload acceptance are claimed yet.
 
 Designated Research-Cloud folder
 [PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),

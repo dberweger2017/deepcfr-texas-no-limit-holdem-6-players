@@ -9,8 +9,15 @@ recipe, one 14-hour clock and full resource guard. The current-main build is
 byte-identical to #272; [receipt](hu100-v053-three-seeds-artifacts/build-receipt.json).
 
 Seed 2026101501 reached **330,748,996 nodes /100,827 iterations /97,291,138 entries**
-at its first complete-iteration capacity stop. Its stage-2 frozen 5B
-continuation is running. [Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101501-stage1-verified.json).
+at its first complete-iteration capacity stop. Its stage-2 continuation reached **5,000,004,085 nodes /1,794,239 iterations**
+with identical sorted keys. All **97,291,138** final current/average rows pass
+[the full audit](hu100-v053-three-seeds-artifacts/2026101501-5b.audit.json).
+Average SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`.
+[Final lineage and membership](hu100-v053-three-seeds-artifacts/2026101501-training-verified.json). [Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101501-stage1-verified.json).
+
+Seed **2026101502** reached its stage-1 capacity terminal at **330,510,042 nodes
+/101,154 iterations /97,291,445 entries** and is continuing frozen to 5B.
+[Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101502-stage1-verified.json).
 
 No final hands run before the canonical roots/counts/measured cost plan is
 posted and read back in the PR description. Outcomes remain sealed through

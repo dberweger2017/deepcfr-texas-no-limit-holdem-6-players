@@ -1,0 +1,202 @@
+{
+  "final_keys": {
+    "entries": 97291138,
+    "sorted_key_sha256": "f57545364be45d8ba85f65d18adc36a890141e17d3aab3554dcd217485c36f84",
+    "stored_visits": 513121995
+  },
+  "header": {
+    "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+      "max_entries": 97291138,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101501
+    },
+    "format": "holdem-hu100-native-reopening-blueprint-v1",
+    "frozen_table": {
+      "discarded_traverser_visits": 426078658,
+      "discarded_updates": 1091677333,
+      "entries": 97291138,
+      "since_iteration": 100827,
+      "version": 1
+    },
+    "identity": {
+      "action_menu": "hu100-min-half-pot-overbet-conditional-jam-native-reopening-v2",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        10000,
+        10000
+      ]
+    },
+    "iteration": 1794239,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 5000004085,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        84674351,
+        307108526,
+        774088450,
+        1570099885
+      ],
+      "traverser_visits_by_street": [
+        26052890,
+        100097247,
+        270756841,
+        542293675
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        10000,
+        10000
+      ]
+    }
+  },
+  "initial_keys": {
+    "entries": 97291138,
+    "sorted_key_sha256": "f57545364be45d8ba85f65d18adc36a890141e17d3aab3554dcd217485c36f84",
+    "stored_visits": 63827518
+  },
+  "source": "ed090caecde29569a5c7cd44e49f6dc434145e9c",
+  "status": "verified",
+  "telemetry": [
+    {
+      "audit_status": "unaudited",
+      "binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+      "checkpoint_bytes": 4859625626,
+      "checkpoint_sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b",
+      "completed_nodes": 5000004085,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          84674351,
+          307108526,
+          774088450,
+          1570099885
+        ],
+        "entries": 97291138,
+        "positive_average_mass_keys": 75103989,
+        "traverser_visits": 513121995,
+        "traverser_visits_by_street": [
+          26052890,
+          100097247,
+          270756841,
+          542293675
+        ],
+        "visits_histogram": {
+          "0": 32019282,
+          "1": 22606127,
+          "10-99": 11478694,
+          "100+": 413483,
+          "2-9": 30773552
+        },
+        "zero_average_mass_keys": 22187149
+      },
+      "elapsed_seconds_including_writes": 2360.227613333,
+      "entries_per_completed_node": 0.01945821170264104,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 426078658,
+        "discarded_updates_since_previous_save": 1091677333,
+        "interval_start_iteration": 100827,
+        "missing_opponent_by_street": [
+          1878906,
+          13282009,
+          112487508,
+          546950949
+        ],
+        "missing_opponent_share_by_street": [
+          0.03533346018159862,
+          0.06971532159805129,
+          0.23981842130467929,
+          0.5669663088689597
+        ],
+        "missing_traverser_by_street": [
+          1610801,
+          11244863,
+          87079929,
+          326143065
+        ],
+        "missing_traverser_share_by_street": [
+          0.06934387467484317,
+          0.12348908522190474,
+          0.3452788986035071,
+          0.6409003066107503
+        ],
+        "opponent_decisions_by_street": [
+          53176394,
+          190517790,
+          469052825,
+          964697444
+        ],
+        "state": {
+          "discarded_traverser_visits": 426078658,
+          "discarded_updates": 1091677333,
+          "entries": 97291138,
+          "since_iteration": 100827,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          23229175,
+          91059570,
+          252201711,
+          508882679
+        ]
+      },
+      "iteration": 1794239,
+      "new_entries": 0,
+      "nodes_per_second_including_writes": 1978307.1186114554,
+      "nodes_since_previous_save": 4669255089,
+      "overshoot_nodes": 4085,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/stage2-requested-5000000000.checkpoint.gz",
+      "process_rss_bytes_after_save": 1900642304,
+      "recent_nodes_per_second_including_writes": 1978307.1186114554,
+      "requested_nodes": 5000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1792049131.681079,
+      "write_seconds": 345.310469584,
+      "write_started": 1792048786.371194
+    }
+  ]
+}
