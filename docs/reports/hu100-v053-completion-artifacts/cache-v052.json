@@ -1,0 +1,17 @@
+{
+  "description": {
+    "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+    "entries": 70466972,
+    "iteration": 3716073,
+    "kind": "holdem-hu100-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026100601,
+    "weights_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+    "zero_mass_entries": 22611215
+  },
+  "path": "/Users/dberweger/Local/hu100-v053-complete-20261015/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+  "seconds": 300.7802197933197,
+  "source_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+}

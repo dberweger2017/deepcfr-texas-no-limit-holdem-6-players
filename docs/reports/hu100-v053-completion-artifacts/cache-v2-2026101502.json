@@ -1,0 +1,22 @@
+{
+  "description": {
+    "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 97291445,
+    "iteration": 1776372,
+    "kind": "holdem-hu100-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026101502,
+    "weights_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+    "zero_mass_entries": 22259667
+  },
+  "path": "/Users/dberweger/Local/hu100-v053-complete-20261015/policy-cache/a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+  "seconds": 425.010901927948,
+  "source_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+}
