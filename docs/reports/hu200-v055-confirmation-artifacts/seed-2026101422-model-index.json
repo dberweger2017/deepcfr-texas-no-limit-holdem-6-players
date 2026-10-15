@@ -9,7 +9,7 @@
     "full": {
       "all_member_sizes_and_hashes_readback": true,
       "bytes": 20953054295,
-      "cloud_upload_accepted": false,
+      "cloud_upload_accepted": true,
       "manifest_path": "ARCHIVE-MANIFEST.json",
       "manifest_sha256": "6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1",
       "members": 48,
@@ -18,11 +18,11 @@
       "seconds": 2926.597860097885,
       "sha256": "73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb",
       "status": "locally-verified",
-      "upload_acceptance": "pending; native uploading1/uploaded0; independent metadata not yet accepted",
+      "upload_acceptance": "accepted by native and independent ID/name/size/direct-parent match",
       "drive_id": "1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO",
       "drive_url": "https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk",
       "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
-      "remote_observed_bytes": 16234
+      "remote_observed_bytes": 20953054295
     },
     "final-average": {
       "status": "locally-verified",
@@ -98,7 +98,7 @@
   },
   "average_only_member": "averages/seed-2026101422/final.average.gz",
   "restore_average_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101422-final-average-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101422-average 76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e '{\"averages/seed-2026101422/final.average.gz\":{\"bytes\":3162064602,\"sha256\":\"b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f\"}}'",
-  "restore_note": "Both local ZIPs pass complete member readback and whole SHA256. Average cloud ZIP is accepted; full cloud ZIP is pending and must not be used remotely. Full local command runs on M1; average local command runs on M4. For accepted cloud retrieval download selected ZIP into a fresh ignored path and substitute its path; commands refuse overwrite and verify whole/member hashes.",
+  "restore_note": "Both seed2 ZIPs have complete local readback and native/independent cloud upload acceptance. Download chosen accepted ZIP into a fresh ignored path and substitute that path; commands refuse overwrites and verify whole/member SHA256. Existing full local command runs on M1; average local command runs on M4.",
   "input_tables": "Already indexed PR163 archive/table provenance; docs/reports/hu200-v055-confirmation-artifacts/inputs.json",
   "remote_archive_bytes_downloaded": false,
   "restore_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101422-full-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101422 73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb '{\"research/seed-2026101422/frozen/20000000000.average.gz\":{\"bytes\":3162064602,\"sha256\":\"b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f\"},\"research/seed-2026101422/frozen/20000000000.current.gz\":{\"bytes\":2301944453,\"sha256\":\"1bfd938c992591a79cec66ad93065996856fbc456096127fe893b235131d91d5\"},\"research/seed-2026101422/frozen/20000000000.gz\":{\"bytes\":4957316628,\"sha256\":\"e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c\"},\"research/seed-2026101422/frozen/5000000000.gz\":{\"bytes\":4354826440,\"sha256\":\"67a819934d85bf45fdcc308cb2bd6f4dcc6ce9cf4d571857125714262094dc3a\"},\"research/seed-2026101422/stage1/1000000000.gz\":{\"bytes\":3445287989,\"sha256\":\"94422a4a48305468dabfebeb36440282a5dd954376ff5cdb627b1773ff706317\"},\"research/seed-2026101422/stage1/500000000.gz\":{\"bytes\":2726310329,\"sha256\":\"45144a01a799b81d185c20e15772fe70793518a3d35b03fa84eb6db0bfa46966\"}}'"

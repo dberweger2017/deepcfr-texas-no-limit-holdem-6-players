@@ -57,8 +57,9 @@ verified: **20,953,054,295 bytes**, SHA256
 `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb`,
 manifest `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1`,
 48 members, complete local readback. [Drive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
-is **not upload-accepted**: native uploading1/uploaded0 and independent remote
-size16,234 bytes. Neither partial full remote version is a restoration source.
+is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
+and independent ID/name/exact20,953,054,295-byte size/direct-parent match.
+Seed 1 full remains pending; its partial remote version is not a restoration source.
 [Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
 No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.

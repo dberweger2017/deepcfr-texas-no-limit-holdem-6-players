@@ -205,7 +205,7 @@ an atomic same-filesystem rename into Research-Cloud:
 | Seed-2 ZIP | Bytes | Whole SHA256 | Manifest SHA256 | Status |
 |---|---:|---|---|---|
 | Final average | 3,162,066,289 | `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e` | `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089` | Local readback and upload accepted |
-| Full | 20,953,054,295 | `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb` | `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1` | 48 members; local readback passed; upload pending |
+| Full | 20,953,054,295 | `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb` | `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1` | 48 members; local readback and upload accepted |
 
 [Average readback](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-receipt.json),
 [native upload observation](hu200-v055-confirmation-artifacts/seed-2026101422-average-native-upload-observation.json),
@@ -219,8 +219,9 @@ At **04:21 CEST**, the original M1 archive worker is exited and the complete
 whole hashing (**2,926.60 s** sealing/readback). No failure receipt; M1 has
 **5.82 GiB free**. Both scientific/full archive lineages are now locally sealed.
 The [second full ZIP](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
-is still uploading, and its independent Drive size is only **16,234 bytes**;
-do not use that remote version. Seed 1's full upload likewise remains partial.
+is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
+and independent exact ID/name/20,953,054,295-byte size/direct-parent match.
+Seed 1’s full upload remains pending with its earlier partial remote size.
 [Full local readback](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-receipt.json),
 [native observation](hu200-v055-confirmation-artifacts/seed-2026101422-full-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101422-full-cloud-upload-observation.json),
@@ -233,9 +234,9 @@ administrative work after completed science, with no repeated training/export.
 [Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
 All administrative/server/observer sources, failures and raw resource readings
 have been collected for the small closeout supplement; it awaits full-upload
-acceptance. The **05:21 CEST** native/independent metadata check still finds
-both full uploads pending with unchanged partial remote sizes; uploads remain
-undisturbed.
+acceptance of seed 1’s full ZIP. The **05:51 CEST** check accepts seed 2’s
+full ZIP; seed 1 remains native uploaded0/uploading1 with its unchanged partial
+remote size. Uploads remain undisturbed.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures
