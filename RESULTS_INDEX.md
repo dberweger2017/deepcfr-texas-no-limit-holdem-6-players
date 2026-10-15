@@ -49,8 +49,10 @@ remote partial size. Never restore that partial full remote version. No remote b
 pending. Seed 2's average-only ZIP is locally member-readback verified:
 **3,162,066,289 bytes**, SHA256 `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e`,
 manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
-one member `averages/seed-2026101422/final.average.gz`. Native upload is pending;
-Drive ID/independent acceptance await completion. Seed 2 full ZIP is actively
+one member `averages/seed-2026101422/final.average.gz`. **Upload accepted:**
+[Drive `1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT`](https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk),
+native uploaded1/uploading0/no conflicts plus independent ID/name/size/parent
+match. No remote archive bytes downloaded. Seed 2 full ZIP is actively
 sealing on M1, with 2-GiB admission headroom; it is not yet verified.
 [Second seed model pins and average restore command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
 No research originals/synced files removed or evicted; other open roots

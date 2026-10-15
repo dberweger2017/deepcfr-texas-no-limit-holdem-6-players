@@ -8,7 +8,7 @@ Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 seed 1’s audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
 It finished science at **October 15 00:38:20 UTC /02:38:20 CEST**, within
-the original clock. Server and archive preparation remain in progress.
+the original clock. Both server preparations are complete; archive closeout continues.
 
 ## Fixed recipe, source and clock
 
@@ -204,12 +204,19 @@ an atomic same-filesystem rename into Research-Cloud:
 
 | Seed-2 ZIP | Bytes | Whole SHA256 | Manifest SHA256 | Status |
 |---|---:|---|---|---|
-| Final average | 3,162,066,289 | `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e` | `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089` | Locally verified; native upload pending |
-| Full | Pending | Pending | Pending | Sealing on M1; do not use yet |
+| Final average | 3,162,066,289 | `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e` | `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089` | Local readback and upload accepted |
+| Full | Pending | Pending | Pending | Sealing on M1; 10.40 GB at 03:51 CEST; do not use yet |
 
 [Average readback](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-receipt.json),
 [native upload observation](hu200-v055-confirmation-artifacts/seed-2026101422-average-native-upload-observation.json),
 [model pins and average restoration command](hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+The **[second average ZIP](https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk) is upload-accepted**:
+native uploaded1/uploading0/no conflicts, independently matching ID/name/
+3,162,066,289-byte size/direct parent. No remote archive bytes downloaded.
+[Independent acceptance](hu200-v055-confirmation-artifacts/seed-2026101422-average-cloud-upload-acceptance.json).
+The 03:51 CEST check validates the original M1 archive process creation time;
+its full ZIP is still growing, with no failure receipt and **12.63 GiB disk free**.
+[Archive progress](hu200-v055-confirmation-artifacts/seed-2026101422-full-archive-progress.json).
 The original-baseline M4 archive guard exits zero, **4 readings /15.13 s**,
 peak family RSS **0.109 GiB**, no breach. Its first helper invocation failed
 before opening a ZIP because `PYTHONPATH` was missing; that source/log/failure
