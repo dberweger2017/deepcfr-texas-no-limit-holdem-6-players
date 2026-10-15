@@ -250,7 +250,12 @@ Seed2026101502 continues frozen from330,510,042 nodes /101,154 iterations
 sorted keys; every final current/average row audits. Average SHA256
 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`.
 Compact lineage/audit receipts are in the report artifacts. Both training stages
-are complete; verified-input/cost-only evaluation preparation is running.
+are complete. All17 cost-only pilots pass; the canonical prospective plan and
+PR-description readback precede final hands, SHA256
+`f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`.
+Full16,384panel/131,072direct blocks retained; whole projection9.433h with
+25% future-work margin and30min closeout. Final evaluation is running;
+outcomes remain sealed until all17 comparisons independently replay/reproduce.
 No final-hand outcomes, archive integrity or upload acceptance are claimed yet.
 
 Designated Research-Cloud folder

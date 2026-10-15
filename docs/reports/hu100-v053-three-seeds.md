@@ -24,11 +24,20 @@ Average SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19
 [Final lineage and membership](hu100-v053-three-seeds-artifacts/2026101502-training-verified.json).
 [Stage-1 receipt](hu100-v053-three-seeds-artifacts/2026101502-stage1-verified.json).
 
-Both seeds are fully audited. Verified-input preparation and cost-only pilots
-precede the final evaluation; no final hands have started.
+Both seeds are fully audited. All **17 cost-only pilots** are complete. The
+[canonical plan](hu100-v053-three-seeds-artifacts/canonical-plan.json) and
+[exact PR-description readback](hu100-v053-three-seeds-artifacts/plan-posted.json)
+precede final hands. The full **16,384 blocks per panel opponent /131,072 direct
+blocks per seed** fit the original budget: projected whole campaign
+**9.433 hours**, including 25% future-work margin and 30-minute closeout
+reserve. Only per-block work scales; fixed admission and cache rebuilds remain
+one-off costs. Final evaluation is running; one of 17 comparisons has fully
+replayed/reproduced at the 11:17 UTC checkpoint. Outcomes stay sealed until
+every final comparison independently verifies. The costed closeout estimate is
+approximately **18:00 Madrid**, conditional on resolving archive disk headroom.
 
-No final hands run before the canonical roots/counts/measured cost plan is
-posted and read back in the PR description. Outcomes remain sealed through
+The canonical roots/counts/measured cost plan was posted and read back in the
+PR description before final hands. Outcomes remain sealed through
 independent replay and exact reproduction of every final hand. The final report
 will place both new panels beside #272 and report three fresh direct matches
 against v0.5.2 with translation on (512/128), v2 off. There is no improvement-
