@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-15T05:53:24.292877+00:00",
+  "file": {
+    "id": "1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi",
+    "title": "hu200-v055-confirmation-closeout-20261015.zip",
+    "mime_type": "application/zip",
+    "size": "873329",
+    "url": "https://drive.google.com/file/d/1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": "2026-10-15T05:51:39.141Z",
+    "parent_ids": [
+      "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_receipt": "closeout-native-upload-observation.json",
+  "accepted": true,
+  "remote_archive_bytes_downloaded": false
+}

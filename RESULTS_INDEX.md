@@ -64,9 +64,26 @@ manifest `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1`,
 is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
 and independent ID/name/exact20,953,054,295-byte size/direct-parent match.
 Seed 1 full remains sync-blocked; its partial remote version is not a restoration source.
-No upload manipulation is authorized. The final supplement awaits full acceptance;
-all collected raw evidence remains ignored locally. Campaign interval and disabled
-webhook removed at the terminal block; [receipts](docs/reports/hu200-v055-confirmation-artifacts/schedule-removal.json).
+The owner later authorized retry and handoff without waiting for completion.
+`hu200-v055-seed-2026101421-full-retry-20261015.zip` in the same canonical folder
+is an APFS clone of the complete verified original: **20,952,808,971 bytes**,
+whole SHA256 `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d`
+and the same manifest/member hashes. **Visibly uploading**, native uploaded0/
+uploading1; no cloud acceptance yet. Original/failed partials retained.
+[Retry](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-upload-retry.json),
+[acceptance handoff to Vacuum Cleaner](docs/reports/hu200-v055-confirmation-artifacts/upload-handoff.json).
+The [closeout supplement](https://drive.google.com/file/d/1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi/view?usp=drivesdk) is **upload-accepted**: **873,329 bytes**,
+SHA256 `14f92de8e5423bd743af96ea4d14b47d81fa55d2f6bc041fda77585b7152f458`,
+manifest `b6b1dacebf5b9ddd48ce70658f0ae645dcbdd4614b089bf56994e255ab9c1edb`,
+159 members; full local readback, native uploaded/no-pending/no-conflicts and
+independent ID/name/size/direct-parent match. It retains all closed administrative,
+server, observer and archive failure/source/resource evidence, excluding private
+callback data. No remote archive bytes downloaded.
+[Receipt](docs/reports/hu200-v055-confirmation-artifacts/closeout-archive-receipt.json),
+[restore command](docs/reports/hu200-v055-confirmation-artifacts/closeout-archive-index.json).
+Retry upload is confirmed progressing at **10%**; Vacuum Cleaner takes over
+completion/acceptance and Drive ID indexing per owner. No new monitor or cleanup.
+Campaign interval and disabled webhook removed at the terminal block; [receipts](docs/reports/hu200-v055-confirmation-artifacts/schedule-removal.json).
 [Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
 No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.

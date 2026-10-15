@@ -8,8 +8,9 @@ Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
 seed 1’s audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
 It finished science at **October 15 00:38:20 UTC /02:38:20 CEST**, within
-the original clock. Both server preparations are complete. **Archive closeout is blocked by a
-Google Drive sync error for seed 1’s full ZIP.**
+the original clock. Both server preparations are complete. The owner-authorized retry of seed 1’s
+full ZIP is **visibly uploading**; the owner assigned upload acceptance to
+Vacuum Cleaner and instructed this campaign not to wait.
 
 ## Fixed recipe, source and clock
 
@@ -197,7 +198,8 @@ size is still the earlier 592,464,795-byte partial. Do not restore that version.
 The complete verified **20,952,808,971-byte local archive remains at its
 canonical path**, modification time unchanged since sealing. The separately
 reported Lost and Found copy is **1,481,657,243 bytes**, an earlier partial;
-it is retained. No payload was read, rehashed, moved, retried or deleted.
+it is retained. The original failure is preserved; the authorized retry below
+retains both copies.
 [Sync error and exact local paths](hu200-v055-confirmation-artifacts/seed-2026101421-sync-error.json).
 [Native observation](hu200-v055-confirmation-artifacts/seed-2026101421-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
@@ -239,15 +241,40 @@ before opening a ZIP because `PYTHONPATH` was missing; that source/log/failure
 is retained, and the corrected environment passes an import preflight. This is
 administrative work after completed science, with no repeated training/export.
 [Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
-All administrative/server/observer sources, failures and raw resource readings
-have been collected for the small closeout supplement; it awaits full-upload
-acceptance of seed 1’s full ZIP. Its repair is outside the current authorization
-“Leave live uploads undisturbed: never rebuild/re-download/manipulate.” No
-dependent supplement is sealed before that acceptance. All scientific originals,
-verified ZIPs, raw administrative evidence and the failed-upload partial remain.
-The proposed owner-authorized next action would retry **only the intact
-canonical full ZIP**, preserving the Lost and Found partial and all other paths.
-No synced deletion, eviction or other open-PR cleanup occurs here.
+The owner subsequently authorized the upload retry and directed a handoff as
+soon as uploading was verified, without waiting for acceptance. A completed
+APFS clone of the intact verified ZIP was staged outside Drive and atomically
+published into the same folder as
+`hu200-v055-seed-2026101421-full-retry-20261015.zip`.
+The **20,952,808,971 bytes**, whole SHA256 and 52-member manifest are identical
+to the original verified ZIP; no reseal or repeat hashing occurred. The original
+ZIP, old partial cloud version and Lost and Found partial remain untouched.
+Drive's sync activity visibly progresses from **0% to 10% uploaded**,
+19.51 GiB; the retry's native state is uploaded0/uploading1. **Upload completion
+and acceptance are not claimed.**
+[Retry receipt](hu200-v055-confirmation-artifacts/seed-2026101421-upload-retry.json),
+[native observation](hu200-v055-confirmation-artifacts/seed-2026101421-retry-native-upload-observation.json),
+[Vacuum Cleaner handoff](hu200-v055-confirmation-artifacts/upload-handoff.json).
+
+The [closeout supplement](https://drive.google.com/file/d/1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi/view?usp=drivesdk) is **locally verified and upload-accepted**:
+**873,329 bytes**, whole SHA256
+`14f92de8e5423bd743af96ea4d14b47d81fa55d2f6bc041fda77585b7152f458`,
+manifest SHA256 `b6b1dacebf5b9ddd48ce70658f0ae645dcbdd4614b089bf56994e255ab9c1edb`,
+**159 members**. Complete local member readback, native uploaded1/uploading0/no
+conflicts and independent exact ID/name/size/direct-parent match all pass.
+It retains closed administrative/server/observer sources, failures and receipts,
+all **190/169 server**, **2,906 observer**, and **2/4 failed/corrected archive-guard**
+readings. Both full scientific archives separately retain all scientific readings.
+The private callback is excluded; no remote archive bytes were downloaded.
+[Local readback](hu200-v055-confirmation-artifacts/closeout-archive-receipt.json),
+[independent acceptance](hu200-v055-confirmation-artifacts/closeout-cloud-upload-acceptance.json).
+
+The owner explicitly assigns the large retry’s completion/acceptance to Vacuum
+Cleaner. No monitor is recreated, no cleanup is performed, and the PR remains
+draft for the owner’s merge decision. Two retry setup errors occurred before publication: this Python lacks
+`os.listxattr`, and `cp` rejects combined `-c -X`; native `xattr` and a clone
+followed by sync-identity checks corrected them. Their receipt is retained.
+No scientific retry, budget extension, cleanup, synced deletion or eviction.
 
 ## Guards, supervision and preserved administrative failures
 
@@ -275,5 +302,6 @@ with no repeated training/export. All closed administrative logs/source will ent
 the closeout supplement.
 
 Nine focused clock/recipe/key-order/guard tests and staged repository artifact
-checks pass. Final checks/review remain for the completed PR. No Slumbot play,
+checks pass. No unresolved source-review finding; only the owner-directed retry upload
+acceptance remains with Vacuum Cleaner. No Slumbot play,
 credentials, release, tag, default change or merge; the owner decides merge.
