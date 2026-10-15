@@ -1,3 +1,69 @@
+## PR297 — frozen HU200 v0.5.5 blend, raw-input continuation
+
+[PR297](https://github.com/dberweger2017/CFR-NLHE-6max/pull/297),
+[report](docs/reports/hu200-v055-blend.md),
+[corrected protocol and predeclared seed weights](docs/hu200-v055-blend-protocol.md).
+Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declaration
+`33215e6b`. **Ongoing /not a final blend result.** The owner authorized raw
+20B checkpoint inputs after the normalized-export stop; its original evidence
+is retained. Local seed2026101421 hash is verified; exact average reproduction
+and root-mass scan are running on M4. Other input restoration/capacity and union
+admission remain unresolved. Zero final hands, no blend/cache or strength result.
+No cleanup, release, tag, default or merge.
+
+Designated [Research-Cloud folder](https://drive.google.com/drive/folders/1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH),
+ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
+`~/Local/Research-Cloud/PR-297-hu200-v055-blend/`.
+
+**Historical normalized-export stop archives, both accepted:**
+
+| ZIP /Drive ID | Bytes /members | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [preflight-M4-20261015.zip](https://drive.google.com/file/d/1sNQv6L7WMcSMB73AEvy-robzwQwMieIg/view) | 157,264 /35 | `59667b090aa52987ab8658ee9c6b42577a3f78588f0665704fe1aa6591b407ec` | `c46abb7d35977c6dfdc55e980c7e30cda3e5fe72543e302a87eb96adb2668e2a` |
+| [closeout-M1-admin-20261015.zip](https://drive.google.com/file/d/1DdiCXX_odWKJXkjzH1q3VTeG8a2DAkpI/view) | 29,834 /15 | `7669f8d3ce21b56e6a94e6edeb3c4e0bfa3a98e7762992162ff7072895361dda` | `94d5b7d7a039581dccb7960a5c6fc4a0adb65b81a6cf1ee7d951e2fb286cd016` |
+
+Each embeds `ARCHIVE-MANIFEST.json`; every member size/SHA256, manifest bytes
+and whole archive hash pass local readback. Separate current native
+uploaded1/uploading0/no-conflicts and independent exact ID/name/size/direct-parent
+metadata confirm both uploads. Remote output archive bytes were not downloaded.
+[Primary readback](docs/reports/hu200-v055-blend-artifacts/archive-receipt.json),
+[native/cloud acceptance](docs/reports/hu200-v055-blend-artifacts/native-upload-observation.json),
+[independent primary metadata](docs/reports/hu200-v055-blend-artifacts/cloud-upload-observation.json),
+[closeout readback](docs/reports/hu200-v055-blend-artifacts/closeout-receipt.json),
+[closeout native](docs/reports/hu200-v055-blend-artifacts/closeout-native-upload.json),
+[closeout independent metadata](docs/reports/hu200-v055-blend-artifacts/closeout-cloud-upload.json).
+
+The primary stores `research/guards/operations/input-verification/` raw resources,
+intent, worker/stop/receipt and the first failed archive guard; `source/` holds
+exact exporter/averager/guard and administrative helpers. Its incomplete restore
+read is not a verified archive/input hash. The closeout stores the successful
+sealing guard at `closed-seal-guard/`, final release, no-removal receipt and
+expanded setup-failure summary under `receipts/`. All originals remain.
+[Failures](docs/reports/hu200-v055-blend-artifacts/admin-failures.json).
+Restoration: download a named ZIP into a fresh ignored path; verify the whole
+SHA256 above, then verify each extracted member against `ARCHIVE-MANIFEST.json`.
+Neither ZIP contains a model or a completed union/evaluation.
+
+**Corrected raw-input dependencies:** accepted PR265 full ZIP
+`1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI`, whole
+`5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f`,
+member `research/frozen/20000000000.gz`,4,960,844,586 bytes,
+`c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f`;
+[PR265 restoration index](#pr265-exact-hu200-k50-frozen-continuation-october-1314).
+PR278's seed2026101421 local checkpoint and seed2026101422 full archive use the
+[existing per-seed model/index/restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json)
+and [second-seed model/index/restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+Second full archive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`,20,953,054,295 bytes,
+whole `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb`,
+member `research/seed-2026101422/frozen/20000000000.gz`,4,957,316,628 bytes,
+`e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c`.
+Use the same PR163 table pins/restoration record; originals/tables/shared Git
+and open-PR dependencies stay protected. No current remote raw-input hash check
+is claimed merely from cloud metadata. Full SHA256 verification is mandatory
+before use. The stopped-preflight release is historical: the owner then
+reauthorized M4 use for this corrected continuation.
+
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 
 [PR296](https://github.com/dberweger2017/CFR-NLHE-6max/pull/296),

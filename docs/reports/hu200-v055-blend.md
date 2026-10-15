@@ -23,7 +23,7 @@ No training, union scan, merge, cache construction, pilot or final play occurred
 No Slumbot request, credentials, db-ocean or cygnus-x1 was used. The M1 performed
 administration only; the sole admitted M4 worker began an archive read.
 
-## Export and weighting semantics
+### Export and weighting semantics
 
 `native/hu20-trainer/src/export.rs`, function `export_in`, reads each checkpoint
 row as `[key, names, regrets, accumulated, visits]`. It computes
@@ -53,7 +53,7 @@ of positive-mass raw accumulators by multiplication. That would require a
 revised interpretation and is not performed under this instruction. A uniform
 zero-mass probability vector still represents zero accumulator mass.
 
-## Requested campaign, not run
+### Requested campaign, not run
 
 The requested single rule was `sum_s accumulator_s(key, action) / W_s`, with
 missing keys contributing zero, uniform zero-mass rows, and a distinct output
@@ -68,7 +68,7 @@ and cache capacity projections, merge/cache resource peaks, played missing-key
 shares and poker results are **not measured**. There is no capacity admission
 or playing-strength conclusion. No release, tag, default change or merge.
 
-## Evidence and resources
+### Original stop evidence and resources
 
 The M4 `Mac16,1` has 17,179,869,184 bytes RAM. A bounded administrative
 verification worker acquired both exclusive nonblocking research locks under
@@ -120,3 +120,32 @@ from Drive. This does not establish the uncompleted input archive hashes.
 All owned M4 workers exited and both locks were available at **16:29:26 UTC /
 18:29:26 Madrid, October 15**. Remaining work is administrative closeout.
 [Release receipt](hu200-v055-blend-artifacts/final-compute-release.json).
+
+## Corrected raw-input continuation (owner decision, October 15)
+
+The owner authorized replacing the source with raw 20B checkpoint `Node.average`;
+the blend rule and final evaluation counts remain fixed. The original stop's
+non-completion statements above are dated observations, not a cancellation of
+this continuation. [Predeclared weights and protocol](../hu200-v055-blend-protocol.md).
+No merge or final hand has begun. Seed2026101421's existing 20B checkpoint
+matches full SHA256 `c70e8e01…`; exact existing-exporter reproduction and a
+169-root-infoset mass scan run next on M4 under both locks/guards.
+
+Full remaining checkpoint archives are online-only. The Drive connected fetch
+refuses the 26.698-GB PR265 ZIP with HTTP413 (256-MiB tool limit); native
+Drive hydration is available, but its disk requirement must be admitted first.
+The initial capacity observation is 59,400,392,704 free bytes. Even optimistically
+reclaiming all 10,064,002,807 bytes of identified inactive PR296 policy caches,
+full hydration of PR265/seed1422 archives, both extracted checkpoints, the
+16-GiB floor and a 2-GiB margin require **76,896,637,928 bytes**, leaving a
+**7,432,242,417-byte deficit** before outputs, union or cache construction.
+The local reproduction adds its separate average output to future requirements.
+Additional inspected build targets total under 2 GB and cannot close that gap.
+No cache has been removed merely to approach a failing admission. No full ZIP
+is being downloaded for this continuation until storage is resolved; the
+original preflight's on-demand download may continue under ordinary Drive.
+
+This is a retrieval-capacity issue before the requested union gate, not a
+measured union failure. Checkpoint-only archives or additional M4 capacity
+would permit the next check without forced offloading or research deletion.
+Final ETA awaits that input admission, then union sizing and cost pilots.
