@@ -1,0 +1,74 @@
+{
+  "at": 1792095174.040035,
+  "canonical_inputs_and_unique_evidence_retained": true,
+  "completed_at": 1792095174.639081,
+  "failure_latch_preserved": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/science/integration-failure-runtime-smoke-000.json",
+  "free_after": 33621479424,
+  "free_before": 25829146624,
+  "no_open_handles": true,
+  "original_runtime_evidence": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke-attempt-000",
+  "owner": {
+    "headRefOid": "c0e4701576c4fadf020ba190c8fb114e18a1e4b4",
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+  },
+  "reason": "Retire only inactive derived package payloads before mandatory clean-source rebuild for validated spectator K50 fix",
+  "regenerable_output_only": true,
+  "restore": "git checkout f31c9c662818e3db58f3d25d35937da603d50539; python -m scripts.build_hu100_bundle --release v0.5.3 --source /Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz --card-tables /Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables --out FRESH_DIRECTORY --source-sha f31c9c662818e3db58f3d25d35937da603d50539",
+  "rows": [
+    {
+      "allocated_bytes": 1073741824,
+      "bytes": 1073741824,
+      "mtime_ns": 1792092663804507518,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-001",
+      "sha256": "3a0a95117efe3fafc1c99a93563683de57f976ec776ee0b755daf682af5a66c7"
+    },
+    {
+      "allocated_bytes": 1073741824,
+      "bytes": 1073741824,
+      "mtime_ns": 1792092665187158639,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-002",
+      "sha256": "9ef0c480cc7ffea65a22c01d986b4ad6522060445d855a5e73734fcec3160592"
+    },
+    {
+      "allocated_bytes": 1048809472,
+      "bytes": 1048807903,
+      "mtime_ns": 1792092666564302474,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz.part-003",
+      "sha256": "f4171fa4309ada3df445cf0f70ff333296f4be4ff285eec88c1f51e49089f0e6"
+    },
+    {
+      "allocated_bytes": 12869632,
+      "bytes": 12867944,
+      "mtime_ns": 1792092667077559246,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/flop-k50.bin",
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    {
+      "allocated_bytes": 1231564800,
+      "bytes": 1231562564,
+      "mtime_ns": 1792092668363470195,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/river-k50.bin",
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    {
+      "allocated_bytes": 139603968,
+      "bytes": 139600524,
+      "mtime_ns": 1792092667171305652,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets/turn-k50.bin",
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    {
+      "allocated_bytes": 3212836864,
+      "bytes": 3196291551,
+      "mtime_ns": 1792092684874030175,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets-model/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+    }
+  ],
+  "scientific_failure": false,
+  "scientific_hands_rerun": false,
+  "small_asset_metadata": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/assets-attempt-000",
+  "source": "f31c9c662818e3db58f3d25d35937da603d50539",
+  "status": "retired"
+}

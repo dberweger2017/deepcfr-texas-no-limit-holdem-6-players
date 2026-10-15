@@ -1,0 +1,38 @@
+{
+  "at": 1792082827.6031518,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/v053-release-package",
+      "headRefOid": "5b03e260e55becb907a5ca7cff5ec7ad2bf58a6b",
+      "number": 298,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+    },
+    {
+      "headRefName": "feature/hu200-v055-frozen-blend",
+      "headRefOid": "7513f07b62c51644f7af72c1593170af4d7cc62c",
+      "number": 297,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/297"
+    },
+    {
+      "headRefName": "feature/nplayer-blueprint-phase2",
+      "headRefOid": "71aa93612ac9c5de1a51862d94ce430db5c41e1b",
+      "number": 292,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/292"
+    }
+  ],
+  "pr": 298,
+  "roots": [
+    20261015530101,
+    20261015530102,
+    20261015530103,
+    20261015530104
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "98658f7be1bd53ef4efbc6c71a74431d8d83ec08",
+    "pr292": "71aa93612ac9c5de1a51862d94ce430db5c41e1b",
+    "pr297": "7513f07b62c51644f7af72c1593170af4d7cc62c"
+  }
+}

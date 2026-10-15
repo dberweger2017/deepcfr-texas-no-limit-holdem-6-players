@@ -1,0 +1,172 @@
+{
+  "all_off_menu_raises_are_all_in": true,
+  "attempt_reason_counts": {
+    "missing-key": 8222
+  },
+  "cells": {
+    "baseline/flop": {
+      "off_menu": 1944,
+      "off_menu_all_in": 1944,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 2,
+        "8500": 3,
+        "8600": 1,
+        "8700": 1,
+        "8800": 2,
+        "9000": 5,
+        "9100": 23,
+        "9200": 9,
+        "9300": 41,
+        "9400": 14,
+        "9500": 127,
+        "9600": 143,
+        "9700": 291,
+        "9800": 470,
+        "9900": 812
+      },
+      "raises": 3997
+    },
+    "baseline/preflop": {
+      "off_menu": 5468,
+      "off_menu_all_in": 5468,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "10000": 5468
+      },
+      "raises": 10748
+    },
+    "baseline/river": {
+      "off_menu": 202,
+      "off_menu_all_in": 202,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 1,
+        "8400": 2,
+        "8500": 2,
+        "8600": 1,
+        "8700": 1,
+        "8800": 3,
+        "8900": 1,
+        "9000": 5,
+        "9100": 7,
+        "9200": 6,
+        "9300": 4,
+        "9400": 16,
+        "9500": 19,
+        "9600": 46,
+        "9700": 33,
+        "9800": 23,
+        "9900": 32
+      },
+      "raises": 442
+    },
+    "baseline/turn": {
+      "off_menu": 617,
+      "off_menu_all_in": 617,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 4,
+        "8400": 2,
+        "8500": 5,
+        "8600": 1,
+        "8800": 9,
+        "9000": 11,
+        "9100": 13,
+        "9200": 13,
+        "9300": 10,
+        "9400": 39,
+        "9500": 50,
+        "9600": 80,
+        "9700": 95,
+        "9800": 134,
+        "9900": 151
+      },
+      "raises": 1363
+    },
+    "candidate/flop": {
+      "off_menu": 1944,
+      "off_menu_all_in": 1944,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 2,
+        "8500": 3,
+        "8600": 1,
+        "8700": 1,
+        "8800": 2,
+        "9000": 5,
+        "9100": 23,
+        "9200": 9,
+        "9300": 41,
+        "9400": 14,
+        "9500": 127,
+        "9600": 143,
+        "9700": 291,
+        "9800": 470,
+        "9900": 812
+      },
+      "raises": 3997
+    },
+    "candidate/preflop": {
+      "off_menu": 5468,
+      "off_menu_all_in": 5468,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "10000": 5468
+      },
+      "raises": 10748
+    },
+    "candidate/river": {
+      "off_menu": 202,
+      "off_menu_all_in": 202,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 1,
+        "8400": 2,
+        "8500": 2,
+        "8600": 1,
+        "8700": 1,
+        "8800": 3,
+        "8900": 1,
+        "9000": 5,
+        "9100": 7,
+        "9200": 6,
+        "9300": 4,
+        "9400": 16,
+        "9500": 19,
+        "9600": 46,
+        "9700": 33,
+        "9800": 23,
+        "9900": 32
+      },
+      "raises": 442
+    },
+    "candidate/turn": {
+      "off_menu": 617,
+      "off_menu_all_in": 617,
+      "off_menu_non_all_in": 0,
+      "off_menu_raise_to_counts": {
+        "8200": 4,
+        "8400": 2,
+        "8500": 5,
+        "8600": 1,
+        "8800": 9,
+        "9000": 11,
+        "9100": 13,
+        "9200": 13,
+        "9300": 10,
+        "9400": 39,
+        "9500": 50,
+        "9600": 80,
+        "9700": 95,
+        "9800": 134,
+        "9900": 151
+      },
+      "raises": 1363
+    }
+  },
+  "hands_replayed": 65536,
+  "no_new_hands_or_outcome_contrasts": true,
+  "status": "verified",
+  "v053_on_attempted_decisions": 8222
+}

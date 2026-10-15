@@ -1,0 +1,70 @@
+{
+  "full_receipts": "research/compatibility/<release>/identity.json in pending PR298 archive",
+  "no_poker_outcomes_read": true,
+  "releases": {
+    "v0.5.0": {
+      "all_hands_independently_replayed": true,
+      "baseline_source": "98658f7be1bd53ef4efbc6c71a74431d8d83ec08",
+      "blocks": 64,
+      "branch_source": "51b8bee3ce1a15045b3882d94ed60ceeff613ecf",
+      "common_harness_sha256": "e44473b4c3e4017532f5d6d6aa303f671656d56556e6effca7ec4316a524e07e",
+      "decisions_per_source": 736,
+      "excluded_elapsed_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands_per_source": 256,
+      "identical_trace_sha256": {
+        "decisions": "4f024209f9558036f716fe1ae8bece7f01f51cb4a30ec35e112d8f1ba83d27e6",
+        "hands": "40f972302c546c3b64b87368796be2ceb29c2081f370d466d2601d96decaef64"
+      },
+      "model_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "root": 20261015530500,
+      "runtime_module_provenance_verified": true,
+      "translated_per_source": 50
+    },
+    "v0.5.1": {
+      "all_hands_independently_replayed": true,
+      "baseline_source": "98658f7be1bd53ef4efbc6c71a74431d8d83ec08",
+      "blocks": 64,
+      "branch_source": "629489280f37b25ed1c80f14fd86b2fb62591b94",
+      "common_harness_sha256": "e44473b4c3e4017532f5d6d6aa303f671656d56556e6effca7ec4316a524e07e",
+      "decisions_per_source": 782,
+      "excluded_elapsed_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands_per_source": 256,
+      "identical_trace_sha256": {
+        "decisions": "ec63027a3e15f558898d713851f6071c7f39c362fe804abfd0e82b8731f9a57f",
+        "hands": "96cafcccecce933bd79fad14604440725fe28da2478596682ceb51831b766f5f"
+      },
+      "model_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "root": 20261015530501,
+      "runtime_module_provenance_verified": true,
+      "translated_per_source": 80
+    },
+    "v0.5.2": {
+      "all_hands_independently_replayed": true,
+      "baseline_source": "98658f7be1bd53ef4efbc6c71a74431d8d83ec08",
+      "blocks": 64,
+      "branch_source": "629489280f37b25ed1c80f14fd86b2fb62591b94",
+      "common_harness_sha256": "e44473b4c3e4017532f5d6d6aa303f671656d56556e6effca7ec4316a524e07e",
+      "decisions_per_source": 750,
+      "excluded_elapsed_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands_per_source": 256,
+      "identical_trace_sha256": {
+        "decisions": "bbbfbff74c87bdeee31e45754fe83877dbbc4f7e369d84cea4942fd9a38eafbd",
+        "hands": "7f183f44bd725ec90d6fdffa463a0358c3fefce22d4d673201c247d8774eff67"
+      },
+      "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "root": 20261015530502,
+      "runtime_module_provenance_verified": true,
+      "translated_per_source": 86
+    }
+  },
+  "status": "verified"
+}

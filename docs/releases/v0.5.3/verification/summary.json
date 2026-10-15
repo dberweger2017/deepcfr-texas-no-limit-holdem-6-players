@@ -1,0 +1,3129 @@
+{
+  "adopt_translation": true,
+  "all_final_hands_independently_replayed_and_exactly_reproduced": true,
+  "canonical_plan_sha256": "a2eec9a4ca9499f63df906ef61c8bcb4b205b410e2d65d99e9f994ea253cc5b4",
+  "direct": {
+    "bb_per_100": 37.099456787109375,
+    "blocks": 131072,
+    "ci95": [
+      30.158715552348518,
+      44.04019802187023
+    ],
+    "sd": 1282.06107587755
+  },
+  "off_menu_bets": {
+    "check_call": {},
+    "half_pot_pressure": {
+      "baseline/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1818
+      },
+      "baseline/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 4397
+      },
+      "baseline/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 775
+      },
+      "baseline/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1173
+      },
+      "candidate/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1818
+      },
+      "candidate/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 4397
+      },
+      "candidate/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 775
+      },
+      "candidate/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1173
+      }
+    },
+    "loose_aggressive": {
+      "baseline/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 2574
+      },
+      "baseline/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 6216
+      },
+      "baseline/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1864
+      },
+      "baseline/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 2193
+      },
+      "candidate/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 2574
+      },
+      "candidate/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 6216
+      },
+      "candidate/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1864
+      },
+      "candidate/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 2193
+      }
+    },
+    "matched_pot_pressure": {
+      "baseline/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1555
+      },
+      "baseline/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 3941
+      },
+      "baseline/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 548
+      },
+      "baseline/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 916
+      },
+      "candidate/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1555
+      },
+      "candidate/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 3941
+      },
+      "candidate/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 548
+      },
+      "candidate/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 916
+      }
+    },
+    "pot_pressure": {
+      "baseline/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1471
+      },
+      "baseline/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 3866
+      },
+      "baseline/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 442
+      },
+      "baseline/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 844
+      },
+      "candidate/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1471
+      },
+      "candidate/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 3866
+      },
+      "candidate/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 442
+      },
+      "candidate/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 844
+      }
+    },
+    "random": {
+      "baseline/flop": {
+        "off_menu": 1944,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 600,
+            "offered_raise_to": [
+              1200,
+              1500,
+              2400,
+              3300,
+              4200
+            ],
+            "pot_after_call": 1800,
+            "raise_to": 9700
+          },
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              400,
+              600,
+              1000,
+              1400,
+              1800
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9800
+          }
+        ],
+        "raises": 3997
+      },
+      "baseline/preflop": {
+        "off_menu": 5468,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              300,
+              400,
+              600,
+              800,
+              1000
+            ],
+            "pot_after_call": 400,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 300,
+            "offered_raise_to": [
+              500,
+              600,
+              900,
+              1200,
+              1500
+            ],
+            "pot_after_call": 600,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              400,
+              500
+            ],
+            "pot_after_call": 200,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              400,
+              500
+            ],
+            "pot_after_call": 200,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 300,
+            "offered_raise_to": [
+              500,
+              600,
+              900,
+              1200,
+              1500
+            ],
+            "pot_after_call": 600,
+            "raise_to": 10000
+          }
+        ],
+        "raises": 10748
+      },
+      "baseline/river": {
+        "off_menu": 202,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              400,
+              800,
+              1200,
+              1600
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9600
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              700,
+              1300,
+              1900,
+              2500
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9500
+          },
+          {
+            "maximum_bet": 400,
+            "offered_raise_to": [
+              800,
+              1000,
+              1600,
+              2200,
+              2800
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9800
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              1100,
+              2200,
+              3300,
+              4400
+            ],
+            "pot_after_call": 2200,
+            "raise_to": 8900
+          }
+        ],
+        "raises": 442
+      },
+      "baseline/turn": {
+        "off_menu": 617,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 600,
+            "offered_raise_to": [
+              1200,
+              1500,
+              2400,
+              3300,
+              4200
+            ],
+            "pot_after_call": 1800,
+            "raise_to": 9700
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              500,
+              700,
+              900
+            ],
+            "pot_after_call": 400,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              700,
+              1300,
+              1900,
+              2500
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9500
+          },
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              400,
+              600,
+              1000,
+              1400,
+              1800
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9800
+          }
+        ],
+        "raises": 1363
+      },
+      "candidate/flop": {
+        "off_menu": 1944,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 600,
+            "offered_raise_to": [
+              1200,
+              1500,
+              2400,
+              3300,
+              4200
+            ],
+            "pot_after_call": 1800,
+            "raise_to": 9700
+          },
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              400,
+              600,
+              1000,
+              1400,
+              1800
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9800
+          }
+        ],
+        "raises": 3997
+      },
+      "candidate/preflop": {
+        "off_menu": 5468,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              300,
+              400,
+              600,
+              800,
+              1000
+            ],
+            "pot_after_call": 400,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 300,
+            "offered_raise_to": [
+              500,
+              600,
+              900,
+              1200,
+              1500
+            ],
+            "pot_after_call": 600,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              400,
+              500
+            ],
+            "pot_after_call": 200,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              400,
+              500
+            ],
+            "pot_after_call": 200,
+            "raise_to": 10000
+          },
+          {
+            "maximum_bet": 300,
+            "offered_raise_to": [
+              500,
+              600,
+              900,
+              1200,
+              1500
+            ],
+            "pot_after_call": 600,
+            "raise_to": 10000
+          }
+        ],
+        "raises": 10748
+      },
+      "candidate/river": {
+        "off_menu": 202,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              400,
+              800,
+              1200,
+              1600
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9600
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              700,
+              1300,
+              1900,
+              2500
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9500
+          },
+          {
+            "maximum_bet": 400,
+            "offered_raise_to": [
+              800,
+              1000,
+              1600,
+              2200,
+              2800
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9800
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              1100,
+              2200,
+              3300,
+              4400
+            ],
+            "pot_after_call": 2200,
+            "raise_to": 8900
+          }
+        ],
+        "raises": 442
+      },
+      "candidate/turn": {
+        "off_menu": 617,
+        "off_menu_examples": [
+          {
+            "maximum_bet": 600,
+            "offered_raise_to": [
+              1200,
+              1500,
+              2400,
+              3300,
+              4200
+            ],
+            "pot_after_call": 1800,
+            "raise_to": 9700
+          },
+          {
+            "maximum_bet": 0,
+            "offered_raise_to": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "pot_after_call": 200,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              300,
+              500,
+              700,
+              900
+            ],
+            "pot_after_call": 400,
+            "raise_to": 9900
+          },
+          {
+            "maximum_bet": 100,
+            "offered_raise_to": [
+              200,
+              700,
+              1300,
+              1900,
+              2500
+            ],
+            "pot_after_call": 1200,
+            "raise_to": 9500
+          },
+          {
+            "maximum_bet": 200,
+            "offered_raise_to": [
+              400,
+              600,
+              1000,
+              1400,
+              1800
+            ],
+            "pot_after_call": 800,
+            "raise_to": 9800
+          }
+        ],
+        "raises": 1363
+      }
+    },
+    "tight_aggressive": {
+      "baseline/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 687
+      },
+      "baseline/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1754
+      },
+      "baseline/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 360
+      },
+      "baseline/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 451
+      },
+      "candidate/flop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 687
+      },
+      "candidate/preflop": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 1754
+      },
+      "candidate/river": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 360
+      },
+      "candidate/turn": {
+        "off_menu": 0,
+        "off_menu_examples": [],
+        "raises": 451
+      }
+    }
+  },
+  "panel": {
+    "check_call": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 250.4058837890625,
+          "blocks": 16384,
+          "ci95": [
+            233.97427193849325,
+            266.83749563963175
+          ],
+          "sd": 1073.0252939719355
+        },
+        "candidate": {
+          "bb_per_100": 250.4058837890625,
+          "blocks": 16384,
+          "ci95": [
+            233.97427193849325,
+            266.83749563963175
+          ],
+          "sd": 1073.0252939719355
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "half_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 17.47894287109375,
+          "blocks": 16384,
+          "ci95": [
+            5.053772763794507,
+            29.904112978392995
+          ],
+          "sd": 811.3946415168149
+        },
+        "candidate": {
+          "bb_per_100": 17.47894287109375,
+          "blocks": 16384,
+          "ci95": [
+            5.053772763794507,
+            29.904112978392995
+          ],
+          "sd": 811.3946415168149
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "loose_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 40.84014892578125,
+          "blocks": 16384,
+          "ci95": [
+            21.623052381896578,
+            60.05724546966592
+          ],
+          "sd": 1254.924401562867
+        },
+        "candidate": {
+          "bb_per_100": 40.84014892578125,
+          "blocks": 16384,
+          "ci95": [
+            21.623052381896578,
+            60.05724546966592
+          ],
+          "sd": 1254.924401562867
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "matched_pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 26.39312744140625,
+          "blocks": 16384,
+          "ci95": [
+            14.179295351324768,
+            38.60695953148773
+          ],
+          "sd": 797.5937411477694
+        },
+        "candidate": {
+          "bb_per_100": 26.39312744140625,
+          "blocks": 16384,
+          "ci95": [
+            14.179295351324768,
+            38.60695953148773
+          ],
+          "sd": 797.5937411477694
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "pot_pressure": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 40.01617431640625,
+          "blocks": 16384,
+          "ci95": [
+            27.40658099390304,
+            52.62576763890946
+          ],
+          "sd": 823.4379380910723
+        },
+        "candidate": {
+          "bb_per_100": 40.01617431640625,
+          "blocks": 16384,
+          "ci95": [
+            27.40658099390304,
+            52.62576763890946
+          ],
+          "sd": 823.4379380910723
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "random": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 136.1724853515625,
+          "blocks": 16384,
+          "ci95": [
+            99.6981188412586,
+            172.6468518618664
+          ],
+          "sd": 2381.8672326904502
+        },
+        "candidate": {
+          "bb_per_100": 136.1724853515625,
+          "blocks": 16384,
+          "ci95": [
+            99.6981188412586,
+            172.6468518618664
+          ],
+          "sd": 2381.8672326904502
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    },
+    "tight_aggressive": {
+      "arms": {
+        "baseline": {
+          "bb_per_100": 29.51812744140625,
+          "blocks": 16384,
+          "ci95": [
+            19.9921676893467,
+            39.0440871934658
+          ],
+          "sd": 622.0689641573063
+        },
+        "candidate": {
+          "bb_per_100": 29.51812744140625,
+          "blocks": 16384,
+          "ci95": [
+            19.9921676893467,
+            39.0440871934658
+          ],
+          "sd": 622.0689641573063
+        }
+      },
+      "contrast": {
+        "bb_per_100": 0.0,
+        "blocks": 16384,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "sd": 0.0
+      }
+    }
+  },
+  "rule": "Adopt translation iff no seven-opponent paired nominal Student-t95 upper bound is below -20 BB/100; all gains and direct descriptive",
+  "severe_regressions": {
+    "check_call": false,
+    "half_pot_pressure": false,
+    "loose_aggressive": false,
+    "matched_pot_pressure": false,
+    "pot_pressure": false,
+    "random": false,
+    "tight_aggressive": false
+  },
+  "telemetry": {
+    "direct": {
+      "v052-on/flop": {
+        "all_in_changes": {
+          "0": 25102
+        },
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.05241437500808388,
+          "mean": 0.00013854591471838555,
+          "n": 162993,
+          "p50": 5.345896352082491e-05,
+          "p90": 0.00036083400482311845,
+          "p99": 0.0009646670077927411
+        },
+        "decisions": 162993,
+        "distance": {
+          "max": 1.1878855939952047,
+          "mean": 0.17531927962727675,
+          "n": 25102,
+          "p50": 0.1543040293040293,
+          "p90": 0.2916666666666667,
+          "p99": 0.5740079365079365
+        },
+        "firing_share": 0.15400661378095992,
+        "lookup_seconds": {
+          "max": 0.05239704198902473,
+          "mean": 0.0001357767839227208,
+          "n": 162993,
+          "p50": 5.079200491309166e-05,
+          "p90": 0.0003578330506570637,
+          "p99": 0.0009615420131012797
+        },
+        "modes": {
+          "exact": 134693,
+          "translated": 25102,
+          "uniform": 3198
+        },
+        "states": {
+          "0": 134696,
+          "10": 940,
+          "11": 746,
+          "12": 1011,
+          "13": 774,
+          "14": 437,
+          "15": 318,
+          "16": 199,
+          "17": 131,
+          "18": 69,
+          "19": 59,
+          "20": 82,
+          "21": 50,
+          "22": 44,
+          "23": 30,
+          "24": 29,
+          "25": 58,
+          "26": 27,
+          "27": 6,
+          "28": 2,
+          "29": 29,
+          "30": 5,
+          "31": 1,
+          "32": 1,
+          "33": 5,
+          "34": 5,
+          "35": 2,
+          "37": 1,
+          "4": 2605,
+          "41": 1,
+          "5": 5278,
+          "50": 1,
+          "55": 1,
+          "6": 10994,
+          "7": 1230,
+          "8": 1103,
+          "9": 2023
+        }
+      },
+      "v052-on/preflop": {
+        "all_in_changes": {
+          "0": 19482
+        },
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.05388483399292454,
+          "mean": 6.128385500630405e-05,
+          "n": 273895,
+          "p50": 3.3917021937668324e-05,
+          "p90": 5.145900649949908e-05,
+          "p99": 0.0005842910031788051
+        },
+        "decisions": 273895,
+        "distance": {
+          "max": 1.0855117105117105,
+          "mean": 0.14228409381179769,
+          "n": 19482,
+          "p50": 0.125,
+          "p90": 0.16666666666666666,
+          "p99": 0.4083333333333333
+        },
+        "firing_share": 0.07112944741598058,
+        "lookup_seconds": {
+          "max": 0.053863000008277595,
+          "mean": 5.852296346279723e-05,
+          "n": 273895,
+          "p50": 3.125000512227416e-05,
+          "p90": 4.741695011034608e-05,
+          "p99": 0.000581290980335325
+        },
+        "modes": {
+          "exact": 252526,
+          "translated": 19482,
+          "uniform": 1887
+        },
+        "states": {
+          "0": 252548,
+          "10": 273,
+          "11": 80,
+          "12": 47,
+          "13": 27,
+          "14": 17,
+          "15": 13,
+          "16": 3,
+          "17": 21,
+          "18": 13,
+          "19": 2,
+          "2": 7930,
+          "21": 1,
+          "22": 1,
+          "25": 1,
+          "3": 9082,
+          "4": 680,
+          "5": 827,
+          "6": 766,
+          "7": 624,
+          "8": 431,
+          "9": 508
+        }
+      },
+      "v052-on/river": {
+        "all_in_changes": {
+          "0": 15747
+        },
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.07009666599333286,
+          "mean": 0.0004739060706814056,
+          "n": 55265,
+          "p50": 0.0003648329875431955,
+          "p90": 0.0010564160184003413,
+          "p99": 0.0017025829874910414
+        },
+        "decisions": 55265,
+        "distance": {
+          "max": 1.3457352655825938,
+          "mean": 0.26725341487803994,
+          "n": 15747,
+          "p50": 0.21861471861471862,
+          "p90": 0.5247619047619048,
+          "p99": 0.7730096778815315
+        },
+        "firing_share": 0.28493621641183386,
+        "lookup_seconds": {
+          "max": 0.07008779200259596,
+          "mean": 0.00047092819988525685,
+          "n": 55265,
+          "p50": 0.0003616670146584511,
+          "p90": 0.0010531250154599547,
+          "p99": 0.001698375039268285
+        },
+        "modes": {
+          "exact": 35225,
+          "translated": 15747,
+          "uniform": 4293
+        },
+        "states": {
+          "0": 35232,
+          "10": 471,
+          "11": 3472,
+          "12": 3149,
+          "13": 1573,
+          "14": 1601,
+          "15": 1389,
+          "16": 796,
+          "17": 766,
+          "18": 899,
+          "19": 687,
+          "20": 596,
+          "21": 610,
+          "22": 552,
+          "23": 482,
+          "24": 486,
+          "25": 474,
+          "26": 280,
+          "27": 348,
+          "28": 201,
+          "29": 170,
+          "30": 121,
+          "31": 117,
+          "32": 85,
+          "33": 105,
+          "34": 96,
+          "35": 66,
+          "36": 50,
+          "37": 67,
+          "38": 39,
+          "39": 44,
+          "40": 36,
+          "41": 35,
+          "42": 29,
+          "43": 29,
+          "44": 18,
+          "45": 16,
+          "46": 13,
+          "47": 5,
+          "48": 14,
+          "49": 3,
+          "50": 3,
+          "51": 2,
+          "52": 6,
+          "53": 3,
+          "54": 5,
+          "55": 1,
+          "56": 1,
+          "57": 2,
+          "58": 2,
+          "59": 3,
+          "61": 3,
+          "62": 1,
+          "63": 2,
+          "65": 4,
+          "67": 1,
+          "70": 1,
+          "71": 1,
+          "72": 1,
+          "77": 1
+        }
+      },
+      "v052-on/turn": {
+        "all_in_changes": {
+          "0": 21452
+        },
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.13713879202259704,
+          "mean": 0.00029346703308549626,
+          "n": 96564,
+          "p50": 7.741700392216444e-05,
+          "p90": 0.0007233339711092412,
+          "p99": 0.0014014170155860484
+        },
+        "decisions": 96564,
+        "distance": {
+          "max": 1.2867021867021866,
+          "mean": 0.21911032208424405,
+          "n": 21452,
+          "p50": 0.16666666666666666,
+          "p90": 0.3922258297258297,
+          "p99": 0.7043831168831168
+        },
+        "firing_share": 0.22215318338097012,
+        "lookup_seconds": {
+          "max": 0.13711237499956042,
+          "mean": 0.00029059645319352883,
+          "n": 96564,
+          "p50": 7.470801938325167e-05,
+          "p90": 0.0007202910492196679,
+          "p99": 0.001397915999405086
+        },
+        "modes": {
+          "exact": 70821,
+          "translated": 21452,
+          "uniform": 4291
+        },
+        "states": {
+          "0": 70848,
+          "10": 2279,
+          "11": 1569,
+          "12": 1857,
+          "13": 861,
+          "14": 817,
+          "15": 1105,
+          "16": 795,
+          "17": 664,
+          "18": 639,
+          "19": 670,
+          "20": 375,
+          "21": 422,
+          "22": 278,
+          "23": 147,
+          "24": 158,
+          "25": 84,
+          "26": 109,
+          "27": 92,
+          "28": 61,
+          "29": 86,
+          "30": 35,
+          "31": 46,
+          "32": 43,
+          "33": 33,
+          "34": 22,
+          "35": 23,
+          "36": 15,
+          "37": 34,
+          "38": 16,
+          "39": 5,
+          "40": 6,
+          "41": 16,
+          "43": 5,
+          "44": 1,
+          "45": 10,
+          "46": 2,
+          "49": 7,
+          "51": 2,
+          "52": 1,
+          "53": 1,
+          "57": 1,
+          "7": 1065,
+          "8": 5895,
+          "9": 5364
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.010860958020202816,
+          "mean": 9.987251581213465e-05,
+          "n": 155362,
+          "p50": 4.895898746326566e-05,
+          "p90": 0.0002263339702039957,
+          "p99": 0.000730041996575892
+        },
+        "decisions": 155362,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.010857708984985948,
+          "mean": 9.696960610417726e-05,
+          "n": 155362,
+          "p50": 4.616699879989028e-05,
+          "p90": 0.00022287503816187382,
+          "p99": 0.0007262500002980232
+        },
+        "modes": {
+          "exact": 155177,
+          "uniform": 185
+        },
+        "states": {
+          "0": 155362
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.008628999989014119,
+          "mean": 5.1902819225418865e-05,
+          "n": 271381,
+          "p50": 3.7375022657215595e-05,
+          "p90": 4.2041996493935585e-05,
+          "p99": 0.0005373749881982803
+        },
+        "decisions": 271381,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.008625541988294572,
+          "mean": 4.909673954820984e-05,
+          "n": 271381,
+          "p50": 3.462500171735883e-05,
+          "p90": 3.9166014175862074e-05,
+          "p99": 0.000534208957105875
+        },
+        "modes": {
+          "exact": 271324,
+          "uniform": 57
+        },
+        "states": {
+          "0": 271381
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.025893457990605384,
+          "mean": 0.0005541317384714769,
+          "n": 53378,
+          "p50": 0.0004928339621983469,
+          "p90": 0.0009975829743780196,
+          "p99": 0.0018600000184960663
+        },
+        "decisions": 53378,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.016690374992322177,
+          "mean": 0.0005505862380011198,
+          "n": 53378,
+          "p50": 0.0004896250320598483,
+          "p90": 0.000994333007838577,
+          "p99": 0.0018570829997770488
+        },
+        "modes": {
+          "exact": 49175,
+          "uniform": 4203
+        },
+        "states": {
+          "0": 53378
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.011262750020250678,
+          "mean": 0.00020190828495317373,
+          "n": 94765,
+          "p50": 5.787500413134694e-05,
+          "p90": 0.0005328750121407211,
+          "p99": 0.0010970000294037163
+        },
+        "decisions": 94765,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.011259582999628037,
+          "mean": 0.000198931721075872,
+          "n": 94765,
+          "p50": 5.500001134350896e-05,
+          "p90": 0.0005296669551171362,
+          "p99": 0.0010939589701592922
+        },
+        "modes": {
+          "exact": 93504,
+          "uniform": 1261
+        },
+        "states": {
+          "0": 94765
+        }
+      }
+    },
+    "panel-check_call": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0014262499753385782,
+          "mean": 4.3094516521022505e-05,
+          "n": 28124,
+          "p50": 4.29159845225513e-05,
+          "p90": 4.525005351752043e-05,
+          "p99": 5.766702815890312e-05
+        },
+        "decisions": 28124,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0014069160097278655,
+          "mean": 4.025357660357372e-05,
+          "n": 28124,
+          "p50": 4.012498538941145e-05,
+          "p90": 4.233303479850292e-05,
+          "p99": 5.41660119779408e-05
+        },
+        "modes": {
+          "exact": 28124
+        },
+        "states": {
+          "0": 28124
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.001835834002122283,
+          "mean": 3.525977116503043e-05,
+          "n": 32768,
+          "p50": 3.4334021620452404e-05,
+          "p90": 3.654096508398652e-05,
+          "p99": 5.037500523030758e-05
+        },
+        "decisions": 32768,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0017596249817870557,
+          "mean": 3.236057130528991e-05,
+          "n": 32768,
+          "p50": 3.1542032957077026e-05,
+          "p90": 3.3541000448167324e-05,
+          "p99": 4.595803329721093e-05
+        },
+        "modes": {
+          "exact": 32768
+        },
+        "states": {
+          "0": 32768
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0004271669895388186,
+          "mean": 4.95997268339796e-05,
+          "n": 28110,
+          "p50": 4.9124995712190866e-05,
+          "p90": 5.204102490097284e-05,
+          "p99": 6.295798812061548e-05
+        },
+        "decisions": 28110,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00040441600140184164,
+          "mean": 4.6772788905686714e-05,
+          "n": 28110,
+          "p50": 4.633399657905102e-05,
+          "p90": 4.9166963435709476e-05,
+          "p99": 5.94580196775496e-05
+        },
+        "modes": {
+          "exact": 28001,
+          "uniform": 109
+        },
+        "states": {
+          "0": 28110
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0006747909937985241,
+          "mean": 4.6576304890681254e-05,
+          "n": 28124,
+          "p50": 4.616600926965475e-05,
+          "p90": 4.862499190494418e-05,
+          "p99": 5.970802158117294e-05
+        },
+        "decisions": 28124,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0006204999517649412,
+          "mean": 4.373685650418463e-05,
+          "n": 28124,
+          "p50": 4.337495192885399e-05,
+          "p90": 4.57499991171062e-05,
+          "p99": 5.608401261270046e-05
+        },
+        "modes": {
+          "exact": 28121,
+          "uniform": 3
+        },
+        "states": {
+          "0": 28124
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00658987503265962,
+          "mean": 4.906186507067713e-05,
+          "n": 28124,
+          "p50": 4.7708977945148945e-05,
+          "p90": 5.133304512128234e-05,
+          "p99": 6.312498589977622e-05
+        },
+        "decisions": 28124,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0010647920425981283,
+          "mean": 4.599276686649806e-05,
+          "n": 28124,
+          "p50": 4.491704748943448e-05,
+          "p90": 4.841701593250036e-05,
+          "p99": 5.995796527713537e-05
+        },
+        "modes": {
+          "exact": 28124
+        },
+        "states": {
+          "0": 28124
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0005974999512545764,
+          "mean": 3.849685971601957e-05,
+          "n": 32768,
+          "p50": 3.774999640882015e-05,
+          "p90": 4.0207989513874054e-05,
+          "p99": 5.224999040365219e-05
+        },
+        "decisions": 32768,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0005944159929640591,
+          "mean": 3.565124702653577e-05,
+          "n": 32768,
+          "p50": 3.4958007745444775e-05,
+          "p90": 3.724999260157347e-05,
+          "p99": 4.85840137116611e-05
+        },
+        "modes": {
+          "exact": 32768
+        },
+        "states": {
+          "0": 32768
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.007628957973793149,
+          "mean": 0.00039865851030134695,
+          "n": 28110,
+          "p50": 0.00032125000143423676,
+          "p90": 0.0008758750045672059,
+          "p99": 0.0014171670190989971
+        },
+        "decisions": 28110,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0076142080361023545,
+          "mean": 0.00039560184014327654,
+          "n": 28110,
+          "p50": 0.0003179999766871333,
+          "p90": 0.0008726250380277634,
+          "p99": 0.0014137920225039124
+        },
+        "modes": {
+          "exact": 28001,
+          "uniform": 109
+        },
+        "states": {
+          "0": 28110
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0014630839577876031,
+          "mean": 9.019401114291742e-05,
+          "n": 28124,
+          "p50": 5.2916002459824085e-05,
+          "p90": 0.0001942089875228703,
+          "p99": 0.000759041984565556
+        },
+        "decisions": 28124,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.001452249998692423,
+          "mean": 8.733661989102906e-05,
+          "n": 28124,
+          "p50": 5.0084025133401155e-05,
+          "p90": 0.00019087496912106872,
+          "p99": 0.0007563339895568788
+        },
+        "modes": {
+          "exact": 28121,
+          "uniform": 3
+        },
+        "states": {
+          "0": 28124
+        }
+      }
+    },
+    "panel-half_pot_pressure": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0025007090298458934,
+          "mean": 4.4940594518012436e-05,
+          "n": 7112,
+          "p50": 4.412501584738493e-05,
+          "p90": 4.8084009904414415e-05,
+          "p99": 5.570799112319946e-05
+        },
+        "decisions": 7112,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0024766659480519593,
+          "mean": 4.20172838389421e-05,
+          "n": 7112,
+          "p50": 4.1249964851886034e-05,
+          "p90": 4.51250234618783e-05,
+          "p99": 5.24159986525774e-05
+        },
+        "modes": {
+          "exact": 7094,
+          "uniform": 18
+        },
+        "states": {
+          "0": 7112
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00022262497805058956,
+          "mean": 3.478391997340506e-05,
+          "n": 22407,
+          "p50": 3.370898775756359e-05,
+          "p90": 3.791600465774536e-05,
+          "p99": 4.4625019654631615e-05
+        },
+        "decisions": 22407,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00021304102847352624,
+          "mean": 3.196934379954624e-05,
+          "n": 22407,
+          "p50": 3.0957977287471294e-05,
+          "p90": 3.4999975468963385e-05,
+          "p99": 4.116701893508434e-05
+        },
+        "modes": {
+          "exact": 22380,
+          "uniform": 27
+        },
+        "states": {
+          "0": 22407
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00016320799477398396,
+          "mean": 5.042001303241662e-05,
+          "n": 1705,
+          "p50": 5.037500523030758e-05,
+          "p90": 5.329196574166417e-05,
+          "p99": 6.029201904311776e-05
+        },
+        "decisions": 1705,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00015666696708649397,
+          "mean": 4.755259557050868e-05,
+          "n": 1705,
+          "p50": 4.754198016598821e-05,
+          "p90": 5.037500523030758e-05,
+          "p99": 5.708297248929739e-05
+        },
+        "modes": {
+          "exact": 1589,
+          "uniform": 116
+        },
+        "states": {
+          "0": 1705
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 9.645899990573525e-05,
+          "mean": 4.77377516734147e-05,
+          "n": 3299,
+          "p50": 4.762498429045081e-05,
+          "p90": 5.091703496873379e-05,
+          "p99": 5.883298581466079e-05
+        },
+        "decisions": 3299,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 9.250000584870577e-05,
+          "mean": 4.486714240412557e-05,
+          "n": 3299,
+          "p50": 4.474999150261283e-05,
+          "p90": 4.795799031853676e-05,
+          "p99": 5.5334006901830435e-05
+        },
+        "modes": {
+          "exact": 3257,
+          "uniform": 42
+        },
+        "states": {
+          "0": 3299
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.008645750000141561,
+          "mean": 0.00023051687021834327,
+          "n": 7112,
+          "p50": 5.041697295382619e-05,
+          "p90": 0.0008322090143337846,
+          "p99": 0.002083833038341254
+        },
+        "decisions": 7112,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.008641708001960069,
+          "mean": 0.00022746655321405012,
+          "n": 7112,
+          "p50": 4.7499954234808683e-05,
+          "p90": 0.0008292080019600689,
+          "p99": 0.0020808749832212925
+        },
+        "modes": {
+          "exact": 7094,
+          "uniform": 18
+        },
+        "states": {
+          "0": 7112
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005877916992176324,
+          "mean": 0.00010175120843697102,
+          "n": 22407,
+          "p50": 3.783300053328276e-05,
+          "p90": 4.39169816672802e-05,
+          "p99": 0.0012030419893562794
+        },
+        "decisions": 22407,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0058745419955812395,
+          "mean": 9.885745823754747e-05,
+          "n": 22407,
+          "p50": 3.50000336766243e-05,
+          "p90": 4.087504930794239e-05,
+          "p99": 0.0012001249706372619
+        },
+        "modes": {
+          "exact": 22380,
+          "uniform": 27
+        },
+        "states": {
+          "0": 22407
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005233125004451722,
+          "mean": 0.0010897369188177359,
+          "n": 1705,
+          "p50": 0.0009699579677544534,
+          "p90": 0.001795249991118908,
+          "p99": 0.003623125026933849
+        },
+        "decisions": 1705,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.005229666014201939,
+          "mean": 0.0010864545569326347,
+          "n": 1705,
+          "p50": 0.0009668749989941716,
+          "p90": 0.0017921670223586261,
+          "p99": 0.0036197079461999238
+        },
+        "modes": {
+          "exact": 1589,
+          "uniform": 116
+        },
+        "states": {
+          "0": 1705
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005756500002462417,
+          "mean": 0.0005200989129404004,
+          "n": 3299,
+          "p50": 0.0003376249806024134,
+          "p90": 0.0011113329674117267,
+          "p99": 0.003067541983909905
+        },
+        "decisions": 3299,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.005739792017266154,
+          "mean": 0.0005169015511995727,
+          "n": 3299,
+          "p50": 0.0003341659903526306,
+          "p90": 0.0011074579670093954,
+          "p99": 0.003064249991439283
+        },
+        "modes": {
+          "exact": 3257,
+          "uniform": 42
+        },
+        "states": {
+          "0": 3299
+        }
+      }
+    },
+    "panel-loose_aggressive": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005984540970530361,
+          "mean": 4.501470149767652e-05,
+          "n": 12038,
+          "p50": 4.349998198449612e-05,
+          "p90": 4.7707988414913416e-05,
+          "p99": 6.633298471570015e-05
+        },
+        "decisions": 12038,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.005971500009763986,
+          "mean": 4.206665586147127e-05,
+          "n": 12038,
+          "p50": 4.0666956920176744e-05,
+          "p90": 4.4707965571433306e-05,
+          "p99": 6.137503078207374e-05
+        },
+        "modes": {
+          "exact": 12035,
+          "uniform": 3
+        },
+        "states": {
+          "0": 12038
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.004112416005227715,
+          "mean": 3.5859526104430586e-05,
+          "n": 27486,
+          "p50": 3.404199378564954e-05,
+          "p90": 3.812497016042471e-05,
+          "p99": 5.41249755769968e-05
+        },
+        "decisions": 27486,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004098540986888111,
+          "mean": 3.296923943051724e-05,
+          "n": 27486,
+          "p50": 3.125000512227416e-05,
+          "p90": 3.5167031455785036e-05,
+          "p99": 4.9209047574549913e-05
+        },
+        "modes": {
+          "exact": 27475,
+          "uniform": 11
+        },
+        "states": {
+          "0": 27486
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0007171249599196017,
+          "mean": 5.085688796774125e-05,
+          "n": 5236,
+          "p50": 4.98339650221169e-05,
+          "p90": 5.3875031881034374e-05,
+          "p99": 7.570802699774504e-05
+        },
+        "decisions": 5236,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0007040839991532266,
+          "mean": 4.7948095371919654e-05,
+          "n": 5236,
+          "p50": 4.700000863522291e-05,
+          "p90": 5.0875009037554264e-05,
+          "p99": 7.137499051168561e-05
+        },
+        "modes": {
+          "exact": 5046,
+          "uniform": 190
+        },
+        "states": {
+          "0": 5236
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00026775000151246786,
+          "mean": 4.774384710619926e-05,
+          "n": 7496,
+          "p50": 4.68340003862977e-05,
+          "p90": 5.095801316201687e-05,
+          "p99": 6.829202175140381e-05
+        },
+        "decisions": 7496,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00025049998657777905,
+          "mean": 4.484280970582705e-05,
+          "n": 7496,
+          "p50": 4.39999857917428e-05,
+          "p90": 4.800001624971628e-05,
+          "p99": 6.404099985957146e-05
+        },
+        "modes": {
+          "exact": 7470,
+          "uniform": 26
+        },
+        "states": {
+          "0": 7496
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0026120420079678297,
+          "mean": 0.00015350299957606766,
+          "n": 12038,
+          "p50": 4.941696533933282e-05,
+          "p90": 0.0006054170080460608,
+          "p99": 0.0010864170035347342
+        },
+        "decisions": 12038,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0026026670238934457,
+          "mean": 0.00015049799326131088,
+          "n": 12038,
+          "p50": 4.658295074477792e-05,
+          "p90": 0.00060224998742342,
+          "p99": 0.0010834169806912541
+        },
+        "modes": {
+          "exact": 12035,
+          "uniform": 3
+        },
+        "states": {
+          "0": 12038
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00893608300248161,
+          "mean": 8.014849885612174e-05,
+          "n": 27486,
+          "p50": 3.795797238126397e-05,
+          "p90": 4.45000478066504e-05,
+          "p99": 0.0009574160212650895
+        },
+        "decisions": 27486,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.008925375004764646,
+          "mean": 7.713592267267714e-05,
+          "n": 27486,
+          "p50": 3.516604192554951e-05,
+          "p90": 4.1249964851886034e-05,
+          "p99": 0.0009543339838273823
+        },
+        "modes": {
+          "exact": 27475,
+          "uniform": 11
+        },
+        "states": {
+          "0": 27486
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.004594957979861647,
+          "mean": 0.000850077240617652,
+          "n": 5236,
+          "p50": 0.0008060410036705434,
+          "p90": 0.001459833001717925,
+          "p99": 0.001967958000022918
+        },
+        "decisions": 5236,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004569958953652531,
+          "mean": 0.0008467073125024437,
+          "n": 5236,
+          "p50": 0.0008020420209504664,
+          "p90": 0.001456541009247303,
+          "p99": 0.0019577080383896828
+        },
+        "modes": {
+          "exact": 5046,
+          "uniform": 190
+        },
+        "states": {
+          "0": 5236
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0030493749654851854,
+          "mean": 0.0003591226614187218,
+          "n": 7496,
+          "p50": 0.00021579203894361854,
+          "p90": 0.0008972089854069054,
+          "p99": 0.0013389170053415
+        },
+        "decisions": 7496,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.003041708027012646,
+          "mean": 0.00035592716192146275,
+          "n": 7496,
+          "p50": 0.00021249998826533556,
+          "p90": 0.0008941249689087272,
+          "p99": 0.001335957960691303
+        },
+        "modes": {
+          "exact": 7470,
+          "uniform": 26
+        },
+        "states": {
+          "0": 7496
+        }
+      }
+    },
+    "panel-matched_pot_pressure": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00010783300967887044,
+          "mean": 4.3353256154887025e-05,
+          "n": 6391,
+          "p50": 4.3042004108428955e-05,
+          "p90": 4.654098302125931e-05,
+          "p99": 5.1957962568849325e-05
+        },
+        "decisions": 6391,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00010112498421221972,
+          "mean": 4.050256040686384e-05,
+          "n": 6391,
+          "p50": 4.020897904410958e-05,
+          "p90": 4.358397563919425e-05,
+          "p99": 4.8625050112605095e-05
+        },
+        "modes": {
+          "exact": 6390,
+          "uniform": 1
+        },
+        "states": {
+          "0": 6391
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0002604160108603537,
+          "mean": 3.400897310983379e-05,
+          "n": 21967,
+          "p50": 3.308296436443925e-05,
+          "p90": 3.6874960642308e-05,
+          "p99": 4.179199459031224e-05
+        },
+        "decisions": 21967,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0002347080153413117,
+          "mean": 3.123245666118727e-05,
+          "n": 21967,
+          "p50": 3.0333001632243395e-05,
+          "p90": 3.4040946047753096e-05,
+          "p99": 3.833300434052944e-05
+        },
+        "modes": {
+          "exact": 21964,
+          "uniform": 3
+        },
+        "states": {
+          "0": 21967
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0001908330013975501,
+          "mean": 4.941099784886922e-05,
+          "n": 1304,
+          "p50": 4.937499761581421e-05,
+          "p90": 5.258299643173814e-05,
+          "p99": 5.6999968364834785e-05
+        },
+        "decisions": 1304,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00018562504556030035,
+          "mean": 4.659661392187071e-05,
+          "n": 1304,
+          "p50": 4.654203075915575e-05,
+          "p90": 4.9667025450617075e-05,
+          "p99": 5.40419714525342e-05
+        },
+        "modes": {
+          "exact": 1261,
+          "uniform": 43
+        },
+        "states": {
+          "0": 1304
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0002589580253697932,
+          "mean": 4.6620205288007314e-05,
+          "n": 2768,
+          "p50": 4.641595296561718e-05,
+          "p90": 4.958402132615447e-05,
+          "p99": 5.500001134350896e-05
+        },
+        "decisions": 2768,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0002447499427944422,
+          "mean": 4.3800854860304324e-05,
+          "n": 2768,
+          "p50": 4.354200791567564e-05,
+          "p90": 4.6749948523938656e-05,
+          "p99": 5.199998850002885e-05
+        },
+        "modes": {
+          "exact": 2760,
+          "uniform": 8
+        },
+        "states": {
+          "0": 2768
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0038924579857848585,
+          "mean": 0.00015587596583206798,
+          "n": 6391,
+          "p50": 4.945899127051234e-05,
+          "p90": 0.0005968339974060655,
+          "p99": 0.0010483340010978281
+        },
+        "decisions": 6391,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0038889579591341317,
+          "mean": 0.00015292319268163948,
+          "n": 6391,
+          "p50": 4.658300895243883e-05,
+          "p90": 0.0005938750109635293,
+          "p99": 0.0010452500428073108
+        },
+        "modes": {
+          "exact": 6390,
+          "uniform": 1
+        },
+        "states": {
+          "0": 6391
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.001341791998129338,
+          "mean": 7.144422078566718e-05,
+          "n": 21967,
+          "p50": 3.708404256030917e-05,
+          "p90": 4.187499871477485e-05,
+          "p99": 0.0008800000068731606
+        },
+        "decisions": 21967,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0013385830097831786,
+          "mean": 6.861129038729645e-05,
+          "n": 21967,
+          "p50": 3.4333032090216875e-05,
+          "p90": 3.9000005926936865e-05,
+          "p99": 0.0008764579542912543
+        },
+        "modes": {
+          "exact": 21964,
+          "uniform": 3
+        },
+        "states": {
+          "0": 21967
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.004088749992661178,
+          "mean": 0.0008754974686964901,
+          "n": 1304,
+          "p50": 0.0008469169843010604,
+          "p90": 0.0014773330185562372,
+          "p99": 0.0019088340341113508
+        },
+        "decisions": 1304,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004081709019374102,
+          "mean": 0.0008723203392243698,
+          "n": 1304,
+          "p50": 0.0008437910000793636,
+          "p90": 0.0014742499915882945,
+          "p99": 0.0019054170115850866
+        },
+        "modes": {
+          "exact": 1261,
+          "uniform": 43
+        },
+        "states": {
+          "0": 1304
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.003627625002991408,
+          "mean": 0.00036372396259449526,
+          "n": 2768,
+          "p50": 0.00023529102327302098,
+          "p90": 0.0009029999491758645,
+          "p99": 0.001289666979573667
+        },
+        "decisions": 2768,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0036237919703125954,
+          "mean": 0.0003606705208478234,
+          "n": 2768,
+          "p50": 0.00023191695800051093,
+          "p90": 0.0009001250145956874,
+          "p99": 0.0012866249890066683
+        },
+        "modes": {
+          "exact": 2760,
+          "uniform": 8
+        },
+        "states": {
+          "0": 2768
+        }
+      }
+    },
+    "panel-pot_pressure": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00033549999352544546,
+          "mean": 4.3800111575177646e-05,
+          "n": 6189,
+          "p50": 4.316703416407108e-05,
+          "p90": 4.691601498052478e-05,
+          "p99": 5.512498319149017e-05
+        },
+        "decisions": 6189,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00032712501706555486,
+          "mean": 4.0908244246306064e-05,
+          "n": 6189,
+          "p50": 4.02920413762331e-05,
+          "p90": 4.391703987494111e-05,
+          "p99": 5.183299072086811e-05
+        },
+        "modes": {
+          "exact": 6189
+        },
+        "states": {
+          "0": 6189
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0007255829987116158,
+          "mean": 3.423445860966509e-05,
+          "n": 21879,
+          "p50": 3.3167016226798296e-05,
+          "p90": 3.7040968891233206e-05,
+          "p99": 4.4042011722922325e-05
+        },
+        "decisions": 21879,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0007112500024959445,
+          "mean": 3.1439698480526464e-05,
+          "n": 21879,
+          "p50": 3.041699528694153e-05,
+          "p90": 3.416696563363075e-05,
+          "p99": 4.0583021473139524e-05
+        },
+        "modes": {
+          "exact": 21879
+        },
+        "states": {
+          "0": 21879
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0002470419858582318,
+          "mean": 4.962335456686254e-05,
+          "n": 1142,
+          "p50": 4.941696533933282e-05,
+          "p90": 5.2749994210898876e-05,
+          "p99": 6.200000643730164e-05
+        },
+        "decisions": 1142,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00023266702191904187,
+          "mean": 4.680466907704004e-05,
+          "n": 1142,
+          "p50": 4.662497667595744e-05,
+          "p90": 4.9875001423060894e-05,
+          "p99": 5.866604624316096e-05
+        },
+        "modes": {
+          "exact": 1122,
+          "uniform": 20
+        },
+        "states": {
+          "0": 1142
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00028262496925890446,
+          "mean": 4.68791646349908e-05,
+          "n": 2663,
+          "p50": 4.641700070351362e-05,
+          "p90": 4.999997327104211e-05,
+          "p99": 5.8500037994235754e-05
+        },
+        "decisions": 2663,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0002549999626353383,
+          "mean": 4.4025510648867713e-05,
+          "n": 2663,
+          "p50": 4.358298610895872e-05,
+          "p90": 4.7042034566402435e-05,
+          "p99": 5.554204108193517e-05
+        },
+        "modes": {
+          "exact": 2659,
+          "uniform": 4
+        },
+        "states": {
+          "0": 2663
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.004725584003608674,
+          "mean": 0.0002043003631034307,
+          "n": 6189,
+          "p50": 4.9667025450617075e-05,
+          "p90": 0.0008122079889290035,
+          "p99": 0.0016243329737335443
+        },
+        "decisions": 6189,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004721874953247607,
+          "mean": 0.0002013280548374708,
+          "n": 6189,
+          "p50": 4.683295264840126e-05,
+          "p90": 0.0008089579641819,
+          "p99": 0.001620916009414941
+        },
+        "modes": {
+          "exact": 6189
+        },
+        "states": {
+          "0": 6189
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005782291991636157,
+          "mean": 8.983307485362906e-05,
+          "n": 21879,
+          "p50": 3.7167046684771776e-05,
+          "p90": 4.241697024554014e-05,
+          "p99": 0.001173167023807764
+        },
+        "decisions": 21879,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00577862502541393,
+          "mean": 8.697919468596115e-05,
+          "n": 21879,
+          "p50": 3.4416967537254095e-05,
+          "p90": 3.9417005609720945e-05,
+          "p99": 0.0011703750351443887
+        },
+        "modes": {
+          "exact": 21879
+        },
+        "states": {
+          "0": 21879
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00592216697987169,
+          "mean": 0.0011708657447376733,
+          "n": 1142,
+          "p50": 0.0010165419662371278,
+          "p90": 0.0019629590096883476,
+          "p99": 0.003537709009833634
+        },
+        "decisions": 1142,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.005918999959249049,
+          "mean": 0.0011675438887297769,
+          "n": 1142,
+          "p50": 0.0010134580079466105,
+          "p90": 0.0019598749931901693,
+          "p99": 0.0035346249933354557
+        },
+        "modes": {
+          "exact": 1122,
+          "uniform": 20
+        },
+        "states": {
+          "0": 1142
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.005643207987304777,
+          "mean": 0.0005607352293428024,
+          "n": 2663,
+          "p50": 0.0003678750363178551,
+          "p90": 0.0012787500163540244,
+          "p99": 0.0025515000452287495
+        },
+        "decisions": 2663,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.005633541964925826,
+          "mean": 0.0005575812615531486,
+          "n": 2663,
+          "p50": 0.0003648749552667141,
+          "p90": 0.0012757080257870257,
+          "p99": 0.0025484999641776085
+        },
+        "modes": {
+          "exact": 2659,
+          "uniform": 4
+        },
+        "states": {
+          "0": 2663
+        }
+      }
+    },
+    "panel-random": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.018327375000808388,
+          "mean": 4.473561042830345e-05,
+          "n": 10958,
+          "p50": 4.1624996811151505e-05,
+          "p90": 4.6707980800420046e-05,
+          "p99": 6.200000643730164e-05
+        },
+        "decisions": 10958,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.01830258296104148,
+          "mean": 4.196423721012067e-05,
+          "n": 10958,
+          "p50": 3.887497587129474e-05,
+          "p90": 4.39169816672802e-05,
+          "p99": 5.829200381413102e-05
+        },
+        "modes": {
+          "exact": 9013,
+          "uniform": 1945
+        },
+        "states": {
+          "0": 10958
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0027880409616045654,
+          "mean": 3.3621896804591345e-05,
+          "n": 32650,
+          "p50": 3.3167016226798296e-05,
+          "p90": 3.687501884996891e-05,
+          "p99": 5.34169957973063e-05
+        },
+        "decisions": 32650,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.002757500042207539,
+          "mean": 3.087604157220156e-05,
+          "n": 32650,
+          "p50": 3.0499999411404133e-05,
+          "p90": 3.4167023841291666e-05,
+          "p99": 4.958297358825803e-05
+        },
+        "modes": {
+          "exact": 27180,
+          "uniform": 5470
+        },
+        "states": {
+          "0": 32650
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0007793750264681876,
+          "mean": 4.9850233786568404e-05,
+          "n": 1367,
+          "p50": 4.854198778048158e-05,
+          "p90": 5.2749994210898876e-05,
+          "p99": 8.337496547028422e-05
+        },
+        "decisions": 1367,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0007573750335723162,
+          "mean": 4.708718778613216e-05,
+          "n": 1367,
+          "p50": 4.5833003241568804e-05,
+          "p90": 5.004199920222163e-05,
+          "p99": 7.887498941272497e-05
+        },
+        "modes": {
+          "exact": 1097,
+          "uniform": 270
+        },
+        "states": {
+          "0": 1367
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0007522079977206886,
+          "mean": 4.6183055819931314e-05,
+          "n": 3958,
+          "p50": 4.554097540676594e-05,
+          "p90": 5.0125003326684237e-05,
+          "p99": 6.35830219835043e-05
+        },
+        "decisions": 3958,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0007389580132439733,
+          "mean": 4.3451094417185714e-05,
+          "n": 3958,
+          "p50": 4.2834028135985136e-05,
+          "p90": 4.737498238682747e-05,
+          "p99": 6.029196083545685e-05
+        },
+        "modes": {
+          "exact": 3319,
+          "uniform": 639
+        },
+        "states": {
+          "0": 3958
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0025588750140741467,
+          "mean": 0.0002267504411627666,
+          "n": 10958,
+          "p50": 5.0166971050202847e-05,
+          "p90": 0.0006774590001441538,
+          "p99": 0.0010841669864021242
+        },
+        "decisions": 10958,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0025469170068390667,
+          "mean": 0.00022384810692243663,
+          "n": 10958,
+          "p50": 4.745804471895099e-05,
+          "p90": 0.000674291979521513,
+          "p99": 0.00108074996387586
+        },
+        "modes": {
+          "exact": 9013,
+          "uniform": 1945
+        },
+        "states": {
+          "0": 9017,
+          "10": 511,
+          "11": 348,
+          "12": 77,
+          "13": 17,
+          "14": 2,
+          "8": 217,
+          "9": 769
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0031348750344477594,
+          "mean": 0.0001017434592055696,
+          "n": 32650,
+          "p50": 3.7958030588924885e-05,
+          "p90": 0.00023375003365799785,
+          "p99": 0.0008602089947089553
+        },
+        "decisions": 32650,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0031245829886756837,
+          "mean": 9.895037706537745e-05,
+          "n": 32650,
+          "p50": 3.529200330376625e-05,
+          "p90": 0.000230959034524858,
+          "p99": 0.0008573749801144004
+        },
+        "modes": {
+          "exact": 27180,
+          "uniform": 5470
+        },
+        "states": {
+          "0": 27185,
+          "10": 18,
+          "11": 2,
+          "5": 2774,
+          "6": 644,
+          "7": 1395,
+          "8": 568,
+          "9": 64
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.004195875022560358,
+          "mean": 0.0010802580194664273,
+          "n": 1367,
+          "p50": 0.0010675409575924277,
+          "p90": 0.0016724999877624214,
+          "p99": 0.0021175830042921007
+        },
+        "decisions": 1367,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004183459037449211,
+          "mean": 0.0010770932396045384,
+          "n": 1367,
+          "p50": 0.001064457988832146,
+          "p90": 0.0016697500250302255,
+          "p99": 0.0021112500107847154
+        },
+        "modes": {
+          "exact": 1097,
+          "uniform": 270
+        },
+        "states": {
+          "0": 1166,
+          "14": 3,
+          "15": 49,
+          "16": 76,
+          "17": 52,
+          "18": 19,
+          "19": 2
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.15931258402997628,
+          "mean": 0.0005951044255141226,
+          "n": 3958,
+          "p50": 0.0005232500261627138,
+          "p90": 0.001074666972272098,
+          "p99": 0.0016836660215631127
+        },
+        "decisions": 3958,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.1592957089887932,
+          "mean": 0.0005920366805278333,
+          "n": 3958,
+          "p50": 0.0005204170010983944,
+          "p90": 0.0010718749836087227,
+          "p99": 0.001680833986029029
+        },
+        "modes": {
+          "exact": 3319,
+          "uniform": 639
+        },
+        "states": {
+          "0": 3343,
+          "11": 34,
+          "12": 181,
+          "13": 219,
+          "14": 134,
+          "15": 30,
+          "16": 13,
+          "17": 4
+        }
+      }
+    },
+    "panel-tight_aggressive": {
+      "v053-off/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00048449996393173933,
+          "mean": 4.4057268336851825e-05,
+          "n": 5308,
+          "p50": 4.2750034481287e-05,
+          "p90": 4.762498429045081e-05,
+          "p99": 6.00829953327775e-05
+        },
+        "decisions": 5308,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0004793750122189522,
+          "mean": 4.1115559765980626e-05,
+          "n": 5308,
+          "p50": 3.987498348578811e-05,
+          "p90": 4.458299372345209e-05,
+          "p99": 5.604204488918185e-05
+        },
+        "modes": {
+          "exact": 5307,
+          "uniform": 1
+        },
+        "states": {
+          "0": 5308
+        }
+      },
+      "v053-off/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0006844999734312296,
+          "mean": 3.438152888568013e-05,
+          "n": 19033,
+          "p50": 3.3208983950316906e-05,
+          "p90": 3.737496444955468e-05,
+          "p99": 4.7290988732129335e-05
+        },
+        "decisions": 19033,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0006725830025970936,
+          "mean": 3.153163152973656e-05,
+          "n": 19033,
+          "p50": 3.0458031687885523e-05,
+          "p90": 3.4415978007018566e-05,
+          "p99": 4.33750101365149e-05
+        },
+        "modes": {
+          "exact": 19031,
+          "uniform": 2
+        },
+        "states": {
+          "0": 19033
+        }
+      },
+      "v053-off/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00020679098088294268,
+          "mean": 5.004069422236295e-05,
+          "n": 1135,
+          "p50": 4.895904567092657e-05,
+          "p90": 5.3916999604552984e-05,
+          "p99": 7.07080471329391e-05
+        },
+        "decisions": 1135,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.00020012498134747148,
+          "mean": 4.7176658783091586e-05,
+          "n": 1135,
+          "p50": 4.6124972868710756e-05,
+          "p90": 5.079200491309166e-05,
+          "p99": 6.666698027402163e-05
+        },
+        "modes": {
+          "exact": 1124,
+          "uniform": 11
+        },
+        "states": {
+          "0": 1135
+        }
+      },
+      "v053-off/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.000621457991655916,
+          "mean": 4.728129248496306e-05,
+          "n": 2249,
+          "p50": 4.554202314466238e-05,
+          "p90": 5.062494892627001e-05,
+          "p99": 6.433302769437432e-05
+        },
+        "decisions": 2249,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0006044170004315674,
+          "mean": 4.439197458213352e-05,
+          "n": 2249,
+          "p50": 4.270800855010748e-05,
+          "p90": 4.758400609716773e-05,
+          "p99": 5.9750047512352467e-05
+        },
+        "modes": {
+          "exact": 2247,
+          "uniform": 2
+        },
+        "states": {
+          "0": 2249
+        }
+      },
+      "v053-on/flop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0037161249783821404,
+          "mean": 0.00020279564959698547,
+          "n": 5308,
+          "p50": 4.954100586473942e-05,
+          "p90": 0.0008601250010542572,
+          "p99": 0.0015551659744232893
+        },
+        "decisions": 5308,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.0037119999760761857,
+          "mean": 0.0001997288286704542,
+          "n": 5308,
+          "p50": 4.658399848267436e-05,
+          "p90": 0.0008570000063627958,
+          "p99": 0.0015522500034421682
+        },
+        "modes": {
+          "exact": 5307,
+          "uniform": 1
+        },
+        "states": {
+          "0": 5308
+        }
+      },
+      "v053-on/preflop": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0067219159682281315,
+          "mean": 9.107707923324992e-05,
+          "n": 19033,
+          "p50": 3.716698847711086e-05,
+          "p90": 4.39169816672802e-05,
+          "p99": 0.0011953330249525607
+        },
+        "decisions": 19033,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.006717084033880383,
+          "mean": 8.813884257253457e-05,
+          "n": 19033,
+          "p50": 3.4374999813735485e-05,
+          "p90": 4.0542043279856443e-05,
+          "p99": 0.001192290976177901
+        },
+        "modes": {
+          "exact": 19031,
+          "uniform": 2
+        },
+        "states": {
+          "0": 19033
+        }
+      },
+      "v053-on/river": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.0042073329677805305,
+          "mean": 0.0010827979955018092,
+          "n": 1135,
+          "p50": 0.0009679169743321836,
+          "p90": 0.0019149170257151127,
+          "p99": 0.002670624991878867
+        },
+        "decisions": 1135,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.004203957971185446,
+          "mean": 0.001079355572178008,
+          "n": 1135,
+          "p50": 0.0009615829912945628,
+          "p90": 0.0019116660114377737,
+          "p99": 0.002658165991306305
+        },
+        "modes": {
+          "exact": 1124,
+          "uniform": 11
+        },
+        "states": {
+          "0": 1135
+        }
+      },
+      "v053-on/turn": {
+        "all_in_changes": {},
+        "bounds": 0,
+        "decision_seconds": {
+          "max": 0.00853233301313594,
+          "mean": 0.0005649561585004165,
+          "n": 2249,
+          "p50": 0.00042699999175965786,
+          "p90": 0.001243791019078344,
+          "p99": 0.002246667048893869
+        },
+        "decisions": 2249,
+        "distance": null,
+        "firing_share": 0.0,
+        "lookup_seconds": {
+          "max": 0.008520832983776927,
+          "mean": 0.0005616479039636535,
+          "n": 2249,
+          "p50": 0.0004231250495649874,
+          "p90": 0.0012407079921104014,
+          "p99": 0.0022435829741880298
+        },
+        "modes": {
+          "exact": 2247,
+          "uniform": 2
+        },
+        "states": {
+          "0": 2249
+        }
+      }
+    }
+  }
+}

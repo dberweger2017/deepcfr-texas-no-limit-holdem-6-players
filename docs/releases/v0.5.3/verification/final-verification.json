@@ -1,0 +1,2795 @@
+{
+  "direct": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+          "bytes": 2121415396,
+          "entries": 70466972,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 3716073,
+          "name": "v052-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v052/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+          "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+          "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        }
+      ],
+      "plan": {
+        "baseline": "v052-on",
+        "blocks": 131072,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+            "card_buckets": null,
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v052-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v052/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+            "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+          }
+        ],
+        "opponents": [
+          "v052-on"
+        ],
+        "pool": null,
+        "root_seed": 20261015530103,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "direct-translation",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "3406c7e5a8ba0b4084a048079a5504e2c53a3df1a3b1732046c22fccffa8b0a0",
+      "play_options": {
+        "v052-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-v1"
+          },
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "08dc253419df7ec627ce13d920b3af4d108e0975bd8f0d2c0ab10104f81fbac6",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 1163603,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 155968795,
+          "sha256": "1300ad3d15358b7105a3ab1e3bd061ca1123a6f3e2b450d0059e46d26b110cf9"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 25464275,
+          "sha256": "59f30346306e05ecccf784087084ef7435995692f2e4f7570dcf598eb3eb63dd"
+        }
+      },
+      "hands": 262144,
+      "load_or_validation_seconds": 13.119280958955642,
+      "play_seconds": 463.6077655410045,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 479.17047841695603,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 1163603,
+      "all_native_menu_actions": true,
+      "block_work_seconds": 434.8261068749707,
+      "coverage": {
+        "v052-on/flop": {
+          "decisions": 162993,
+          "lookup": {
+            "missing-key": 28297,
+            "positive-mass-known-key": 134693,
+            "zero-mass": 3
+          },
+          "visit_bands": {
+            "0": 28300,
+            "1-9": 72,
+            "10-99": 837,
+            "100+": 133784
+          }
+        },
+        "v052-on/preflop": {
+          "decisions": 273895,
+          "lookup": {
+            "missing-key": 21347,
+            "positive-mass-known-key": 252526,
+            "zero-mass": 22
+          },
+          "visit_bands": {
+            "0": 21347,
+            "1-9": 6,
+            "10-99": 538,
+            "100+": 252004
+          }
+        },
+        "v052-on/river": {
+          "decisions": 55265,
+          "lookup": {
+            "missing-key": 20033,
+            "positive-mass-known-key": 35225,
+            "zero-mass": 7
+          },
+          "visit_bands": {
+            "0": 20057,
+            "1-9": 268,
+            "10-99": 1395,
+            "100+": 33545
+          }
+        },
+        "v052-on/turn": {
+          "decisions": 96564,
+          "lookup": {
+            "missing-key": 25716,
+            "positive-mass-known-key": 70821,
+            "zero-mass": 27
+          },
+          "visit_bands": {
+            "0": 25741,
+            "1-9": 337,
+            "10-99": 2187,
+            "100+": 68299
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 155362,
+          "lookup": {
+            "missing-key": 183,
+            "positive-mass-known-key": 155177,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 186,
+            "1-9": 524,
+            "10-99": 6438,
+            "100+": 148214
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 271381,
+          "lookup": {
+            "missing-key": 57,
+            "positive-mass-known-key": 271324
+          },
+          "visit_bands": {
+            "0": 59,
+            "1-9": 248,
+            "10-99": 4484,
+            "100+": 266590
+          }
+        },
+        "v053-on/river": {
+          "decisions": 53378,
+          "lookup": {
+            "missing-key": 4187,
+            "positive-mass-known-key": 49175,
+            "zero-mass": 16
+          },
+          "visit_bands": {
+            "0": 4562,
+            "1-9": 3731,
+            "10-99": 16271,
+            "100+": 28814
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 94765,
+          "lookup": {
+            "missing-key": 1260,
+            "positive-mass-known-key": 93504,
+            "zero-mass": 1
+          },
+          "visit_bands": {
+            "0": 1344,
+            "1-9": 1993,
+            "10-99": 13460,
+            "100+": 77968
+          }
+        }
+      },
+      "fixed_setup_seconds": 15.648004084010608,
+      "hands_replayed": 262144,
+      "raw_hash_seconds": 0.08905087498715147,
+      "seconds": 450.4741109589813,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 1163603,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 155970761,
+          "sha256": "c4c8260d3f0734c37ec42443ca6658640fa44daf20a6c6c292607d6163d2c856"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 25464275,
+          "sha256": "d7afee5b181e6c2bb9756745985f7ddead56dbbdd236512fd5331df8e587334d"
+        }
+      },
+      "hands": 262144,
+      "load_or_validation_seconds": 14.24447874998441,
+      "play_seconds": 547.8810663329787,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 564.6051956669544,
+      "status": "complete"
+    }
+  },
+  "panel-check_call": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": null,
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "check_call"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "check_call",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "1b59bd6d18263fbf85e10cf9329c218864d30c751ea59d8db33fe09796943ec2",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "98d61fddef7d790cf008f10fde7a306663591501983c236df8ffd3f9beed9966",
+      "scripted_opponent": "check_call",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 511272,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 22930177,
+          "sha256": "c605e791bd0eb0ece8901b0d9a24857dca250bd19c64d18eb5c914f1159a65f2"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 6553076,
+          "sha256": "f4e52afd39daa00fe308d78b47be2fbda2f20ff9de50173300206978c228880f"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.983462750038598,
+      "play_seconds": 125.5013339999714,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 136.78395783301676,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 511272,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 90.89729666692438,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 28124,
+          "lookup": {
+            "positive-mass-known-key": 28124
+          },
+          "visit_bands": {
+            "100+": 28124
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 32768,
+          "lookup": {
+            "positive-mass-known-key": 32768
+          },
+          "visit_bands": {
+            "100+": 32768
+          }
+        },
+        "v053-off/river": {
+          "decisions": 28110,
+          "lookup": {
+            "missing-key": 109,
+            "positive-mass-known-key": 28001
+          },
+          "visit_bands": {
+            "0": 133,
+            "1-9": 1425,
+            "10-99": 6614,
+            "100+": 19938
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 28124,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 28121
+          },
+          "visit_bands": {
+            "0": 3,
+            "10-99": 521,
+            "100+": 27600
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 28124,
+          "lookup": {
+            "positive-mass-known-key": 28124
+          },
+          "visit_bands": {
+            "100+": 28124
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 32768,
+          "lookup": {
+            "positive-mass-known-key": 32768
+          },
+          "visit_bands": {
+            "100+": 32768
+          }
+        },
+        "v053-on/river": {
+          "decisions": 28110,
+          "lookup": {
+            "missing-key": 109,
+            "positive-mass-known-key": 28001
+          },
+          "visit_bands": {
+            "0": 133,
+            "1-9": 1425,
+            "10-99": 6614,
+            "100+": 19938
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 28124,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 28121
+          },
+          "visit_bands": {
+            "0": 3,
+            "10-99": 521,
+            "100+": 27600
+          }
+        }
+      },
+      "fixed_setup_seconds": 12.765816541097593,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.014888374949805439,
+      "scripted_bets_against_candidate_menu": {},
+      "seconds": 103.66311320802197,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 511272,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 22918451,
+          "sha256": "570f73bb3e80f66281e0b1636e711586e1b74587fdbcda08d1929c22656cc5d1"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 6553076,
+          "sha256": "2f68ef9078130045227ac4b7cdd2a1ed92a981cd8e2cb687edb74cb552eff317"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 11.812685541983228,
+      "play_seconds": 149.9230256669689,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 162.0636475419742,
+      "status": "complete"
+    }
+  },
+  "panel-half_pot_pressure": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": {
+        "bluff_frequency": 0.2,
+        "continue_at": 0.4,
+        "pot_denominator": 2,
+        "pot_numerator": 1,
+        "raise_at": 0.6,
+        "raise_frequency": 0.95
+      },
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "half_pot_pressure"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "half_pot_pressure",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "de21e1e29b0690eefc967be1ce1bb77a171975affb333082a44556f7ffff13e6",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "ff9095bd23f01ab21d1ac71a539a2debcd523b33ad0b02894888fb650d851613",
+      "scripted_opponent": "half_pot_pressure",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 158846,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 7404355,
+          "sha256": "fc7b22395a846e1ed43c641d6e4d5fc9e137babf5e1227ae7eb383d2d2318b42"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4380109,
+          "sha256": "4ffb29157009026269dcbd8e4899331675afda241c34f3ea3e74aa28f985e91e"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 11.068067874992266,
+      "play_seconds": 42.372968083946034,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 53.74226600001566,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 158846,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 34.49580520897871,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 7112,
+          "lookup": {
+            "missing-key": 18,
+            "positive-mass-known-key": 7094
+          },
+          "visit_bands": {
+            "0": 19,
+            "1-9": 29,
+            "10-99": 215,
+            "100+": 6849
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 22407,
+          "lookup": {
+            "missing-key": 27,
+            "positive-mass-known-key": 22380
+          },
+          "visit_bands": {
+            "0": 29,
+            "1-9": 67,
+            "10-99": 542,
+            "100+": 21769
+          }
+        },
+        "v053-off/river": {
+          "decisions": 1705,
+          "lookup": {
+            "missing-key": 116,
+            "positive-mass-known-key": 1589
+          },
+          "visit_bands": {
+            "0": 120,
+            "1-9": 90,
+            "10-99": 473,
+            "100+": 1022
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 3299,
+          "lookup": {
+            "missing-key": 40,
+            "positive-mass-known-key": 3257,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 44,
+            "1-9": 43,
+            "10-99": 347,
+            "100+": 2865
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 7112,
+          "lookup": {
+            "missing-key": 18,
+            "positive-mass-known-key": 7094
+          },
+          "visit_bands": {
+            "0": 19,
+            "1-9": 29,
+            "10-99": 215,
+            "100+": 6849
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 22407,
+          "lookup": {
+            "missing-key": 27,
+            "positive-mass-known-key": 22380
+          },
+          "visit_bands": {
+            "0": 29,
+            "1-9": 67,
+            "10-99": 542,
+            "100+": 21769
+          }
+        },
+        "v053-on/river": {
+          "decisions": 1705,
+          "lookup": {
+            "missing-key": 116,
+            "positive-mass-known-key": 1589
+          },
+          "visit_bands": {
+            "0": 120,
+            "1-9": 90,
+            "10-99": 473,
+            "100+": 1022
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 3299,
+          "lookup": {
+            "missing-key": 40,
+            "positive-mass-known-key": 3257,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 44,
+            "1-9": 43,
+            "10-99": 347,
+            "100+": 2865
+          }
+        }
+      },
+      "fixed_setup_seconds": 12.733859208005015,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.006504999997559935,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1818
+        },
+        "baseline/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 4397
+        },
+        "baseline/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 775
+        },
+        "baseline/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1173
+        },
+        "candidate/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1818
+        },
+        "candidate/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 4397
+        },
+        "candidate/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 775
+        },
+        "candidate/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1173
+        }
+      },
+      "seconds": 47.229664416983724,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 158846,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 7404749,
+          "sha256": "ffa8df1b085351051cfd63d8ef6face562a7e3067be3cd4041f631be45a1d4cf"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4380109,
+          "sha256": "a7d5f39d8fd648c2babae184df079b1077ee00f9bafe2e318bcfbbfcfff9da64"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.535766791028436,
+      "play_seconds": 51.67336441704538,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 62.51272333302768,
+      "status": "complete"
+    }
+  },
+  "panel-loose_aggressive": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": {
+        "bluff_frequency": 0.15,
+        "continue_at": 0.27,
+        "pot_denominator": 2,
+        "pot_numerator": 2,
+        "raise_at": 0.5,
+        "raise_frequency": 0.85
+      },
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "loose_aggressive"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "loose_aggressive",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "6391c4dade7c8892da670b17d5558e7b00358061f0a60505b5c36e1ad08e3691",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "38445e9eed09e076a2dbaa7e09c1250e73e78252c56c150842f62e8498977055",
+      "scripted_opponent": "loose_aggressive",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 222796,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 10850035,
+          "sha256": "432b4cf60d3ce59f8387211e052e8bbc2cafe2cca3d6c319e8b015a8c86b8fed"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4985962,
+          "sha256": "f80a5d6578a37f60f14b3aa01992ff08f6893a8683c66ebf9dbc570661aa79dd"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.329748000018299,
+      "play_seconds": 60.77559337503044,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 71.40778754203347,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 222796,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 55.55148362502223,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 12038,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 12035
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 17,
+            "10-99": 455,
+            "100+": 11563
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 27486,
+          "lookup": {
+            "missing-key": 9,
+            "positive-mass-known-key": 27475,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 9,
+            "1-9": 33,
+            "10-99": 965,
+            "100+": 26479
+          }
+        },
+        "v053-off/river": {
+          "decisions": 5236,
+          "lookup": {
+            "missing-key": 188,
+            "positive-mass-known-key": 5046,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 220,
+            "1-9": 460,
+            "10-99": 1600,
+            "100+": 2956
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 7496,
+          "lookup": {
+            "missing-key": 26,
+            "positive-mass-known-key": 7470
+          },
+          "visit_bands": {
+            "0": 30,
+            "1-9": 106,
+            "10-99": 1122,
+            "100+": 6238
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 12038,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 12035
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 17,
+            "10-99": 455,
+            "100+": 11563
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 27486,
+          "lookup": {
+            "missing-key": 9,
+            "positive-mass-known-key": 27475,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 9,
+            "1-9": 33,
+            "10-99": 965,
+            "100+": 26479
+          }
+        },
+        "v053-on/river": {
+          "decisions": 5236,
+          "lookup": {
+            "missing-key": 188,
+            "positive-mass-known-key": 5046,
+            "zero-mass": 2
+          },
+          "visit_bands": {
+            "0": 220,
+            "1-9": 460,
+            "10-99": 1600,
+            "100+": 2956
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 7496,
+          "lookup": {
+            "missing-key": 26,
+            "positive-mass-known-key": 7470
+          },
+          "visit_bands": {
+            "0": 30,
+            "1-9": 106,
+            "10-99": 1122,
+            "100+": 6238
+          }
+        }
+      },
+      "fixed_setup_seconds": 17.722199208976235,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.007936458045151085,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 2574
+        },
+        "baseline/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 6216
+        },
+        "baseline/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1864
+        },
+        "baseline/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 2193
+        },
+        "candidate/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 2574
+        },
+        "candidate/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 6216
+        },
+        "candidate/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1864
+        },
+        "candidate/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 2193
+        }
+      },
+      "seconds": 73.27368283399846,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 222796,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 10859818,
+          "sha256": "21d6c8aea5b6d97f8343aba9c1077206ad16411c6ef7c267a6ece55710161ca3"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4985962,
+          "sha256": "73e1d3cf2b3757bace519809266a948a2f51b8d0bd8dd8d95aaa5e30fa606c00"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.547447125019971,
+      "play_seconds": 82.88635145901935,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 93.77158487500856,
+      "status": "complete"
+    }
+  },
+  "panel-matched_pot_pressure": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": {
+        "bluff_frequency": 0.2,
+        "continue_at": 0.4,
+        "pot_denominator": 2,
+        "pot_numerator": 2,
+        "raise_at": 0.6,
+        "raise_frequency": 0.95
+      },
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "matched_pot_pressure"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "matched_pot_pressure",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "bb07e072da9cd6d6171efaf3e72022ecd04485d3fe76478b3387ff7b60353238",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "27c054a6cc49addb4d8faa7e92239c53563e9fff1ccceed21c736b29fa1d25cf",
+      "scripted_opponent": "matched_pot_pressure",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 150148,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 6975230,
+          "sha256": "dbf1acab34059d2485e1cf4cd10dc100dbffa5c4e644a34151ca07b10d041f23"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4307989,
+          "sha256": "5c131a9593b9c3cdba3cf7f39ccefc0732a7658b97ba0eed5f5143f683b80562"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 11.264957000035793,
+      "play_seconds": 37.06398762500612,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 48.63291887502419,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 150148,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 30.838539583957754,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 6391,
+          "lookup": {
+            "missing-key": 1,
+            "positive-mass-known-key": 6390
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 2,
+            "10-99": 187,
+            "100+": 6201
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 21967,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 21964
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 17,
+            "10-99": 581,
+            "100+": 21366
+          }
+        },
+        "v053-off/river": {
+          "decisions": 1304,
+          "lookup": {
+            "missing-key": 43,
+            "positive-mass-known-key": 1261
+          },
+          "visit_bands": {
+            "0": 50,
+            "1-9": 86,
+            "10-99": 331,
+            "100+": 837
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 2768,
+          "lookup": {
+            "missing-key": 8,
+            "positive-mass-known-key": 2760
+          },
+          "visit_bands": {
+            "0": 8,
+            "1-9": 35,
+            "10-99": 341,
+            "100+": 2384
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 6391,
+          "lookup": {
+            "missing-key": 1,
+            "positive-mass-known-key": 6390
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 2,
+            "10-99": 187,
+            "100+": 6201
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 21967,
+          "lookup": {
+            "missing-key": 3,
+            "positive-mass-known-key": 21964
+          },
+          "visit_bands": {
+            "0": 3,
+            "1-9": 17,
+            "10-99": 581,
+            "100+": 21366
+          }
+        },
+        "v053-on/river": {
+          "decisions": 1304,
+          "lookup": {
+            "missing-key": 43,
+            "positive-mass-known-key": 1261
+          },
+          "visit_bands": {
+            "0": 50,
+            "1-9": 86,
+            "10-99": 331,
+            "100+": 837
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 2768,
+          "lookup": {
+            "missing-key": 8,
+            "positive-mass-known-key": 2760
+          },
+          "visit_bands": {
+            "0": 8,
+            "1-9": 35,
+            "10-99": 341,
+            "100+": 2384
+          }
+        }
+      },
+      "fixed_setup_seconds": 12.626050207996741,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.006082416977733374,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1555
+        },
+        "baseline/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 3941
+        },
+        "baseline/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 548
+        },
+        "baseline/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 916
+        },
+        "candidate/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1555
+        },
+        "candidate/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 3941
+        },
+        "candidate/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 548
+        },
+        "candidate/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 916
+        }
+      },
+      "seconds": 43.464589791954495,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 150148,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 6967394,
+          "sha256": "b478513e1c12ac40c9178030c689d2c7940a8f59ba6adb41645bb7c73e462bd2"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4307989,
+          "sha256": "4a8faaf30b65919f9abf78ea09a51df7673c6667e93748d8b6445e8bd415ddc2"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.772647125006188,
+      "play_seconds": 45.69666520797182,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 56.77334008301841,
+      "status": "complete"
+    }
+  },
+  "panel-pot_pressure": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": {
+        "bluff_frequency": 0.2,
+        "continue_at": 0.4,
+        "pot_denominator": 2,
+        "pot_numerator": 3,
+        "raise_at": 0.6,
+        "raise_frequency": 0.95
+      },
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "pot_pressure"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "pot_pressure",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "0a51a3443bac622893647e674f01eea3d3c9779408d0e5782b3151b27f837302",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "59f034681fcec5dc4f5fd8a8031bfaff914a6083f4adc3b74f6fecada58ccffa",
+      "scripted_opponent": "pot_pressure",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 147648,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 6852291,
+          "sha256": "f8e835abcaf27de51d27922bd763a0f4c10d2edc7fcc69e3ddde5e09106b692c"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4281411,
+          "sha256": "c4c107ca6e3e22e4a56f8b73fcb650fc3d572828487890c1dfc4559629e1c853"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 16.33429408300435,
+      "play_seconds": 37.95460275001824,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 54.594784250017256,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 147648,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 33.50126754201483,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 6189,
+          "lookup": {
+            "positive-mass-known-key": 6189
+          },
+          "visit_bands": {
+            "1-9": 4,
+            "10-99": 218,
+            "100+": 5967
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 21879,
+          "lookup": {
+            "positive-mass-known-key": 21879
+          },
+          "visit_bands": {
+            "1-9": 1,
+            "10-99": 323,
+            "100+": 21555
+          }
+        },
+        "v053-off/river": {
+          "decisions": 1142,
+          "lookup": {
+            "missing-key": 20,
+            "positive-mass-known-key": 1122
+          },
+          "visit_bands": {
+            "0": 28,
+            "1-9": 66,
+            "10-99": 283,
+            "100+": 765
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 2663,
+          "lookup": {
+            "missing-key": 4,
+            "positive-mass-known-key": 2659
+          },
+          "visit_bands": {
+            "0": 4,
+            "1-9": 38,
+            "10-99": 389,
+            "100+": 2232
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 6189,
+          "lookup": {
+            "positive-mass-known-key": 6189
+          },
+          "visit_bands": {
+            "1-9": 4,
+            "10-99": 218,
+            "100+": 5967
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 21879,
+          "lookup": {
+            "positive-mass-known-key": 21879
+          },
+          "visit_bands": {
+            "1-9": 1,
+            "10-99": 323,
+            "100+": 21555
+          }
+        },
+        "v053-on/river": {
+          "decisions": 1142,
+          "lookup": {
+            "missing-key": 20,
+            "positive-mass-known-key": 1122
+          },
+          "visit_bands": {
+            "0": 28,
+            "1-9": 66,
+            "10-99": 283,
+            "100+": 765
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 2663,
+          "lookup": {
+            "missing-key": 4,
+            "positive-mass-known-key": 2659
+          },
+          "visit_bands": {
+            "0": 4,
+            "1-9": 38,
+            "10-99": 389,
+            "100+": 2232
+          }
+        }
+      },
+      "fixed_setup_seconds": 12.967548790969886,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.005936834029853344,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1471
+        },
+        "baseline/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 3866
+        },
+        "baseline/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 442
+        },
+        "baseline/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 844
+        },
+        "candidate/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1471
+        },
+        "candidate/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 3866
+        },
+        "candidate/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 442
+        },
+        "candidate/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 844
+        }
+      },
+      "seconds": 46.468816332984716,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 147648,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 6850518,
+          "sha256": "8f4796e9b471f84a9465212bc436e3c69b350de0d3af993ef36d0635433d8640"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4281411,
+          "sha256": "bbc4100e4f4e8ee7d2e4c7261f421c4f7893356e302f9bb1eef7fa9caddf8e7f"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.687768584000878,
+      "play_seconds": 51.45232662500348,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 62.651896250026766,
+      "status": "complete"
+    }
+  },
+  "panel-random": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": null,
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "random"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "random",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "80af9c24cd96066bd3c2800856cb9a3fe1be68e7ac44f1117d2a545b8be29ce4",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "c5c8cc7ef26414acafe4b4bec9b39f4b18cf9ea3714f84143d02e8dad71dcff6",
+      "scripted_opponent": "random",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 197352,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 9606284,
+          "sha256": "77481fa2199485276817b2e139206bab9f68579b4a99fbf779b55b2ef0a1c270"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4903843,
+          "sha256": "2e2dbb7eabaf284058d1331294c439ce9d342000d6516be1ce15fcae78ad417b"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.74190850002924,
+      "play_seconds": 51.83807800000068,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 62.87865983397933,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 197352,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 40.29803937498946,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 10958,
+          "lookup": {
+            "missing-key": 1945,
+            "positive-mass-known-key": 9013
+          },
+          "visit_bands": {
+            "0": 1945,
+            "1-9": 15,
+            "10-99": 179,
+            "100+": 8819
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 32650,
+          "lookup": {
+            "missing-key": 5470,
+            "positive-mass-known-key": 27180
+          },
+          "visit_bands": {
+            "0": 5470,
+            "1-9": 5,
+            "10-99": 215,
+            "100+": 26960
+          }
+        },
+        "v053-off/river": {
+          "decisions": 1367,
+          "lookup": {
+            "missing-key": 270,
+            "positive-mass-known-key": 1097
+          },
+          "visit_bands": {
+            "0": 277,
+            "1-9": 40,
+            "10-99": 259,
+            "100+": 791
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 3958,
+          "lookup": {
+            "missing-key": 639,
+            "positive-mass-known-key": 3319
+          },
+          "visit_bands": {
+            "0": 641,
+            "1-9": 58,
+            "10-99": 306,
+            "100+": 2953
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 10958,
+          "lookup": {
+            "missing-key": 1945,
+            "positive-mass-known-key": 9013
+          },
+          "visit_bands": {
+            "0": 1945,
+            "1-9": 15,
+            "10-99": 179,
+            "100+": 8819
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 32650,
+          "lookup": {
+            "missing-key": 5470,
+            "positive-mass-known-key": 27180
+          },
+          "visit_bands": {
+            "0": 5470,
+            "1-9": 5,
+            "10-99": 215,
+            "100+": 26960
+          }
+        },
+        "v053-on/river": {
+          "decisions": 1367,
+          "lookup": {
+            "missing-key": 270,
+            "positive-mass-known-key": 1097
+          },
+          "visit_bands": {
+            "0": 277,
+            "1-9": 40,
+            "10-99": 259,
+            "100+": 791
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 3958,
+          "lookup": {
+            "missing-key": 639,
+            "positive-mass-known-key": 3319
+          },
+          "visit_bands": {
+            "0": 641,
+            "1-9": 58,
+            "10-99": 306,
+            "100+": 2953
+          }
+        }
+      },
+      "fixed_setup_seconds": 13.441247417009436,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.008650208008475602,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 1944,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 600,
+              "offered_raise_to": [
+                1200,
+                1500,
+                2400,
+                3300,
+                4200
+              ],
+              "pot_after_call": 1800,
+              "raise_to": 9700
+            },
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                400,
+                600,
+                1000,
+                1400,
+                1800
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9800
+            }
+          ],
+          "raises": 3997
+        },
+        "baseline/preflop": {
+          "off_menu": 5468,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                300,
+                400,
+                600,
+                800,
+                1000
+              ],
+              "pot_after_call": 400,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 300,
+              "offered_raise_to": [
+                500,
+                600,
+                900,
+                1200,
+                1500
+              ],
+              "pot_after_call": 600,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                400,
+                500
+              ],
+              "pot_after_call": 200,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                400,
+                500
+              ],
+              "pot_after_call": 200,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 300,
+              "offered_raise_to": [
+                500,
+                600,
+                900,
+                1200,
+                1500
+              ],
+              "pot_after_call": 600,
+              "raise_to": 10000
+            }
+          ],
+          "raises": 10748
+        },
+        "baseline/river": {
+          "off_menu": 202,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                400,
+                800,
+                1200,
+                1600
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9600
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                700,
+                1300,
+                1900,
+                2500
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9500
+            },
+            {
+              "maximum_bet": 400,
+              "offered_raise_to": [
+                800,
+                1000,
+                1600,
+                2200,
+                2800
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9800
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                1100,
+                2200,
+                3300,
+                4400
+              ],
+              "pot_after_call": 2200,
+              "raise_to": 8900
+            }
+          ],
+          "raises": 442
+        },
+        "baseline/turn": {
+          "off_menu": 617,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 600,
+              "offered_raise_to": [
+                1200,
+                1500,
+                2400,
+                3300,
+                4200
+              ],
+              "pot_after_call": 1800,
+              "raise_to": 9700
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                500,
+                700,
+                900
+              ],
+              "pot_after_call": 400,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                700,
+                1300,
+                1900,
+                2500
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9500
+            },
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                400,
+                600,
+                1000,
+                1400,
+                1800
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9800
+            }
+          ],
+          "raises": 1363
+        },
+        "candidate/flop": {
+          "off_menu": 1944,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 600,
+              "offered_raise_to": [
+                1200,
+                1500,
+                2400,
+                3300,
+                4200
+              ],
+              "pot_after_call": 1800,
+              "raise_to": 9700
+            },
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                400,
+                600,
+                1000,
+                1400,
+                1800
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9800
+            }
+          ],
+          "raises": 3997
+        },
+        "candidate/preflop": {
+          "off_menu": 5468,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                300,
+                400,
+                600,
+                800,
+                1000
+              ],
+              "pot_after_call": 400,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 300,
+              "offered_raise_to": [
+                500,
+                600,
+                900,
+                1200,
+                1500
+              ],
+              "pot_after_call": 600,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                400,
+                500
+              ],
+              "pot_after_call": 200,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                400,
+                500
+              ],
+              "pot_after_call": 200,
+              "raise_to": 10000
+            },
+            {
+              "maximum_bet": 300,
+              "offered_raise_to": [
+                500,
+                600,
+                900,
+                1200,
+                1500
+              ],
+              "pot_after_call": 600,
+              "raise_to": 10000
+            }
+          ],
+          "raises": 10748
+        },
+        "candidate/river": {
+          "off_menu": 202,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                400,
+                800,
+                1200,
+                1600
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9600
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                700,
+                1300,
+                1900,
+                2500
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9500
+            },
+            {
+              "maximum_bet": 400,
+              "offered_raise_to": [
+                800,
+                1000,
+                1600,
+                2200,
+                2800
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9800
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                1100,
+                2200,
+                3300,
+                4400
+              ],
+              "pot_after_call": 2200,
+              "raise_to": 8900
+            }
+          ],
+          "raises": 442
+        },
+        "candidate/turn": {
+          "off_menu": 617,
+          "off_menu_examples": [
+            {
+              "maximum_bet": 600,
+              "offered_raise_to": [
+                1200,
+                1500,
+                2400,
+                3300,
+                4200
+              ],
+              "pot_after_call": 1800,
+              "raise_to": 9700
+            },
+            {
+              "maximum_bet": 0,
+              "offered_raise_to": [
+                100,
+                200,
+                300,
+                400
+              ],
+              "pot_after_call": 200,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                300,
+                500,
+                700,
+                900
+              ],
+              "pot_after_call": 400,
+              "raise_to": 9900
+            },
+            {
+              "maximum_bet": 100,
+              "offered_raise_to": [
+                200,
+                700,
+                1300,
+                1900,
+                2500
+              ],
+              "pot_after_call": 1200,
+              "raise_to": 9500
+            },
+            {
+              "maximum_bet": 200,
+              "offered_raise_to": [
+                400,
+                600,
+                1000,
+                1400,
+                1800
+              ],
+              "pot_after_call": 800,
+              "raise_to": 9800
+            }
+          ],
+          "raises": 1363
+        }
+      },
+      "seconds": 53.73928679199889,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 197352,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 9599795,
+          "sha256": "680b88130ac582d2ff15652b40795c6e1846f79ce5a39d6cbdd93a8651e7ca63"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4903843,
+          "sha256": "a13e31d27464e123398b96a00e01155dfdf6f1559b5d6922f53e6b2aa953c450"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.964009542018175,
+      "play_seconds": 63.21931883296929,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 74.48208945797523,
+      "status": "complete"
+    }
+  },
+  "panel-tight_aggressive": {
+    "inputs": {
+      "models": [
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-on",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": {
+            "max_events": 128,
+            "max_states": 512
+          }
+        },
+        {
+          "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+          "bytes": 3196291551,
+          "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+          "entries": 97290578,
+          "format": "holdem-hu100-stored-cfr-average-research-v1",
+          "iteration": 1794658,
+          "name": "v053-off",
+          "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+          "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+          "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+          "translation": null
+        }
+      ],
+      "opponent_style": {
+        "bluff_frequency": 0.04,
+        "continue_at": 0.51,
+        "pot_denominator": 2,
+        "pot_numerator": 2,
+        "raise_at": 0.67,
+        "raise_frequency": 0.85
+      },
+      "plan": {
+        "baseline": "v053-off",
+        "blocks": 16384,
+        "candidate": "v053-on",
+        "max_decisions": 1000,
+        "models": [
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-on",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          },
+          {
+            "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+            "card_buckets": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables",
+            "format": "holdem-hu100-stored-cfr-average-research-v1",
+            "name": "v053-off",
+            "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+            "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+          }
+        ],
+        "opponents": [
+          "tight_aggressive"
+        ],
+        "pool": null,
+        "root_seed": 20261015530104,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "tight_aggressive",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "test"
+      },
+      "plan_sha256": "2406f048c68277ba147ff0ee3929cdb426a9da187b2052a3b66e296bb064547e",
+      "play_options": {
+        "v053-off": {
+          "action_translation": null,
+          "missing_key_fallback": "uniform"
+        },
+        "v053-on": {
+          "action_translation": {
+            "max_events": 128,
+            "max_states": 512,
+            "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+          },
+          "missing_key_fallback": "uniform"
+        }
+      },
+      "policy_cache": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache",
+      "run_identity_sha256": "946f1d514b30b996c7fe6042ff04e553522474eb3cfa2be2a9b911accd8e50ce",
+      "scripted_opponent": "tight_aggressive",
+      "source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "translation": null
+    },
+    "originals": {
+      "decisions": 136736,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 5994738,
+          "sha256": "a8448d70531e345f64c4f9180ff1ae2561dd446950290ffff4a0aaf20b0da822"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4142210,
+          "sha256": "9b4916ccd5c987ae8b2e364cff6ac87516457c42b938ccaee3d7dae3b6f37b23"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.417588916025124,
+      "play_seconds": 35.24002483300865,
+      "reproduced_all_hands_and_decisions": false,
+      "seconds": 45.95932637498481,
+      "status": "complete"
+    },
+    "replay": {
+      "actions_replayed": 136736,
+      "all_native_menu_actions": false,
+      "block_work_seconds": 29.920660291041713,
+      "coverage": {
+        "v053-off/flop": {
+          "decisions": 5308,
+          "lookup": {
+            "missing-key": 1,
+            "positive-mass-known-key": 5307
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 5,
+            "10-99": 116,
+            "100+": 5186
+          }
+        },
+        "v053-off/preflop": {
+          "decisions": 19033,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 19031
+          },
+          "visit_bands": {
+            "0": 2,
+            "1-9": 11,
+            "10-99": 261,
+            "100+": 18759
+          }
+        },
+        "v053-off/river": {
+          "decisions": 1135,
+          "lookup": {
+            "missing-key": 11,
+            "positive-mass-known-key": 1124
+          },
+          "visit_bands": {
+            "0": 12,
+            "1-9": 42,
+            "10-99": 194,
+            "100+": 887
+          }
+        },
+        "v053-off/turn": {
+          "decisions": 2249,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 2247
+          },
+          "visit_bands": {
+            "0": 2,
+            "1-9": 20,
+            "10-99": 164,
+            "100+": 2063
+          }
+        },
+        "v053-on/flop": {
+          "decisions": 5308,
+          "lookup": {
+            "missing-key": 1,
+            "positive-mass-known-key": 5307
+          },
+          "visit_bands": {
+            "0": 1,
+            "1-9": 5,
+            "10-99": 116,
+            "100+": 5186
+          }
+        },
+        "v053-on/preflop": {
+          "decisions": 19033,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 19031
+          },
+          "visit_bands": {
+            "0": 2,
+            "1-9": 11,
+            "10-99": 261,
+            "100+": 18759
+          }
+        },
+        "v053-on/river": {
+          "decisions": 1135,
+          "lookup": {
+            "missing-key": 11,
+            "positive-mass-known-key": 1124
+          },
+          "visit_bands": {
+            "0": 12,
+            "1-9": 42,
+            "10-99": 194,
+            "100+": 887
+          }
+        },
+        "v053-on/turn": {
+          "decisions": 2249,
+          "lookup": {
+            "missing-key": 2,
+            "positive-mass-known-key": 2247
+          },
+          "visit_bands": {
+            "0": 2,
+            "1-9": 20,
+            "10-99": 164,
+            "100+": 2063
+          }
+        }
+      },
+      "fixed_setup_seconds": 13.658339750953019,
+      "hands_replayed": 65536,
+      "raw_hash_seconds": 0.005333541019354016,
+      "scripted_bets_against_candidate_menu": {
+        "baseline/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 687
+        },
+        "baseline/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1754
+        },
+        "baseline/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 360
+        },
+        "baseline/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 451
+        },
+        "candidate/flop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 687
+        },
+        "candidate/preflop": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 1754
+        },
+        "candidate/river": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 360
+        },
+        "candidate/turn": {
+          "off_menu": 0,
+          "off_menu_examples": [],
+          "raises": 451
+        }
+      },
+      "seconds": 43.57900004199473,
+      "settlement_sum_zero": true,
+      "status": "verified"
+    },
+    "reproduction": {
+      "decisions": 136736,
+      "files": {
+        "decisions.jsonl.gz": {
+          "bytes": 5975110,
+          "sha256": "b62dcd636ba245b838dc2c493cba1482ea4d15e3ac5a48b3a9ab3136448b4594"
+        },
+        "hands.jsonl.gz": {
+          "bytes": 4142210,
+          "sha256": "c096000613f238d6618cdaefcb9766d59b6c3c06525b1532b89300a4126e83b7"
+        }
+      },
+      "hands": 65536,
+      "load_or_validation_seconds": 10.994221333996393,
+      "play_seconds": 41.56932654202683,
+      "reproduced_all_hands_and_decisions": true,
+      "seconds": 52.867826667032205,
+      "status": "complete"
+    }
+  }
+}

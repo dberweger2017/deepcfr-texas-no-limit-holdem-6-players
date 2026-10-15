@@ -6,7 +6,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from src.policies.hu100_bundle import RELEASES, assets, manifest, sha, verify_bundle, verify_model
+from src.policies.hu100_bundle import RELEASES, assets, manifest, part_layout, sha, verify_bundle, verify_model
 
 
 def check_source(source_sha, release):
@@ -23,16 +23,40 @@ def check_source(source_sha, release):
             raise ValueError('Package asset source bytes differ')
 
 
-def build(release, source, destination, source_sha, *, publication_approved=False):
+def build(release, source, destination, source_sha, *, publication_approved=False, card_tables=None):
     source, destination = Path(source), Path(destination)
-    data = manifest(release, source_sha, publication_approved)
     check_source(source_sha, release)
     verify_model(source, release)
     pins = RELEASES[release]
     if destination.is_symlink() or destination.exists():
         raise ValueError('Preserve existing package; choose a fresh destination')
+    for name, pin in pins.get('card_tables', {}).items():
+        path = Path(card_tables) / name if card_tables is not None else None
+        if (path is None or path.is_symlink() or not path.is_file()
+                or path.stat().st_size != pin['bytes'] or sha(path) != pin['sha256']):
+            raise ValueError('Pinned card tables required: ' + name)
     destination.mkdir(parents=True)
-    shutil.copyfile(source, destination / pins['model']['file'])
+    parts = None
+    if 'part_bytes' in pins:
+        parts = []
+        with source.open('rb') as src:
+            for part in part_layout(release):
+                target = destination / part['file']
+                with target.open('xb') as dst:
+                    remaining = part['bytes']
+                    while remaining:
+                        chunk = src.read(min(8 * 1024**2, remaining))
+                        if not chunk:
+                            raise ValueError('Model ended inside a part')
+                        dst.write(chunk); remaining -= len(chunk)
+                parts.append({**part, 'sha256': sha(target)})
+            if src.read(1):
+                raise ValueError('Model exceeds fixed part layout')
+        for name in pins['card_tables']:
+            shutil.copyfile(Path(card_tables) / name, destination / name)
+    else:
+        shutil.copyfile(source, destination / pins['model']['file'])
+    data = manifest(release, source_sha, publication_approved, model_parts=parts)
     repo = Path(__file__).resolve().parents[1]
     for name in ('MODEL_CARD.md', 'RELEASE_NOTES.md', 'INSTALL.md'):
         text = (repo / 'docs/releases' / release / name).read_text()
@@ -50,9 +74,10 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--source-sha', required=True)
     parser.add_argument('--publication-approved', action='store_true')
+    parser.add_argument('--card-tables', type=Path)
     args = parser.parse_args()
     print(json.dumps(build(args.release, args.source, args.out, args.source_sha,
-                           publication_approved=args.publication_approved), sort_keys=True))
+                           publication_approved=args.publication_approved, card_tables=args.card_tables), sort_keys=True))
 
 
 if __name__ == '__main__':

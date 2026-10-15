@@ -69,7 +69,8 @@ def audit_states(states: list[dict], policies: dict, identities: dict) -> dict:
                                   'raiseTo': item.action.raise_to, 'probability': probability}
                                  for item, probability in zip(menu, probabilities)]
                 assert record['menu'] == expected_menu, 'Action distribution mismatch'
-                key = information_key(view, menu, schema=policy.abstraction)
+                key = information_key(view, menu, schema=policy.abstraction,
+                equity_cards=getattr(policy, "equity_cards", None))
                 source = ('missing' if not trained else
                           'zero-mass' if key in getattr(policy, 'zero_mass', ()) else 'trained')
                 if telemetry and telemetry['mode'] == 'translated':

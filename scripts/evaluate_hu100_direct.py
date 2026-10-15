@@ -132,12 +132,16 @@ class ScriptedProbe:
         return action
 
 
-def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, stack_bb=100, opponent=None, cache=None, cache_read_only=False):
+def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, stack_bb=100, opponent=None, cache=None, cache_read_only=False,
+            boundary_stop=None, resume=False):
     if subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()!=source:
         raise ValueError('Source differs')
     if subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],text=True).strip():
         raise ValueError('Clean committed source required')
-    out.mkdir(parents=True,exist_ok=False)
+    if not resume:
+        out.mkdir(parents=True,exist_ok=False)
+    elif not (out/'resume.json').is_file() or (out/'complete.json').exists():
+        raise ValueError('Resume requires an incomplete block-boundary checkpoint')
     plan=make_plan(specs,blocks,root,rung,stack_bb=stack_bb,opponent=opponent)
     cache=local_cache(cache)
     if any('translation' in s for s in specs) and cache is None:
@@ -158,7 +162,16 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
         inputs['policy_cache'] = str(cache)
         inputs['play_options'] = play_options(specs)
         inputs['run_identity_sha256'] = digest({k:v for k,v in inputs.items() if k != 'run_identity_sha256'})
-    put(out/'inputs.json', inputs)
+    resumed = None
+    if resume:
+        if json.loads((out/'inputs.json').read_text()) != json.loads(canonical(inputs)):
+            raise ValueError('Resumed input identity differs')
+        resumed = json.loads((out/'resume.json').read_text())
+        for name, pin in resumed['files'].items():
+            if (out/name).stat().st_size != pin['bytes'] or file_hash(out/name) != pin['sha256']:
+                raise ValueError('Paused raw stream changed')
+    else:
+        put(out/'inputs.json', inputs)
     contexts={}
     private_seeds=set()
     def seed_factory(block,rotation,arm,role):
@@ -169,12 +182,28 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
         contexts[seed]={'block':block.index,'rotation':rotation,'role':role,'seed':seed,
                         **({'arm':arm} if opponent else {})}
         return seed
-    hands=decisions=0
+    hands=resumed['hands'] if resumed else 0
+    decisions=resumed['decisions'] if resumed else 0
+    completed_blocks=resumed['next_block'] if resumed else 0
+    hands_per_block=4 if opponent else 2
+    if hands != completed_blocks*hands_per_block or not 0 <= completed_blocks <= blocks:
+        raise ValueError('Incomplete paused duplicate block')
     repeat_h=gzip.open(reproduce/'hands.jsonl.gz','rt') if reproduce else None
     repeat_d=gzip.open(reproduce/'decisions.jsonl.gz','rt') if reproduce else None
+    if resume and reproduce:
+        for _ in range(hands):next(repeat_h)
+        for _ in range(decisions):next(repeat_d)
+    def remaining_schedule():
+        nonlocal completed_blocks
+        for block in schedule[completed_blocks:]:
+            # This evaluator boundary completes both rotations and all paired arms.
+            if boundary_stop is not None and boundary_stop(completed_blocks):
+                return
+            yield block
+            completed_blocks += 1
     tick=perf_counter()
     try:
-        with gzip.open(out/'hands.jsonl.gz','wt') as hand_stream,gzip.open(out/'decisions.jsonl.gz','wt') as traces:
+        with gzip.open(out/'hands.jsonl.gz','at' if resume else 'wt') as hand_stream,gzip.open(out/'decisions.jsonl.gz','at' if resume else 'wt') as traces:
             def emit_decision(row):
                 nonlocal decisions
                 text=canonical(row)
@@ -192,18 +221,30 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None, *, s
                     raise ValueError('Failed direct hand: '+str(row['error']))
                 if repeat_h and canonical(json.loads(next(repeat_h)))!=canonical(row):raise ValueError('Reproduced direct hand differs')
                 hand_stream.write(canonical(row)+'\n');hands+=1
-            if not run_schedule(plan,schedule,emit,factory=factory,
+            if not run_schedule(plan,remaining_schedule(),emit,factory=factory,
                     seed_factory=seed_factory,arms=('candidate','baseline') if opponent else ('candidate',)):
                 raise ValueError('Direct runner stopped')
-        if reproduce and (next(repeat_h,None) is not None or next(repeat_d,None) is not None):
+        if completed_blocks == blocks and reproduce and (next(repeat_h,None) is not None or next(repeat_d,None) is not None):
             raise ValueError('Extra retained reproduction rows')
     finally:
         if repeat_h:repeat_h.close()
         if repeat_d:repeat_d.close()
     play_seconds=perf_counter()-tick
+    if resumed:
+        load_seconds+=resumed['load_or_validation_seconds']
+        play_seconds+=resumed['play_seconds']
+    active_seconds=perf_counter()-started+(resumed.get('active_seconds',0) if resumed else 0)
     pins={p.name:{'bytes':p.stat().st_size,'sha256':file_hash(p)} for p in out.glob('*.jsonl.gz')}
+    if completed_blocks != blocks:
+        paused={'status':'paused','hands':hands,'decisions':decisions,'files':pins,
+            'next_block':completed_blocks,'source':source,'reproduction':str(reproduce) if reproduce else None,
+            'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,'active_seconds':active_seconds}
+        put(out/f'pause-{completed_blocks:09d}-{len(list(out.glob("pause-*.json"))):03d}.json',paused)
+        temporary=out/'resume.json.tmp'
+        temporary.write_text(canonical(paused)+'\n');temporary.replace(out/'resume.json')
+        return registry,paused
     put(out/'complete.json',{'status':'complete','hands':hands,'decisions':decisions,'files':pins,
-        'seconds':perf_counter()-started,'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,
+        'seconds':active_seconds,'load_or_validation_seconds':load_seconds,'play_seconds':play_seconds,
         'reproduced_all_hands_and_decisions':bool(reproduce)})
     return registry,json.loads((out/'complete.json').read_text())
 
@@ -253,7 +294,7 @@ def audit(out,output,report=False,cost_only=False):
     schedule={b.index:b for b in build_schedule(plan)}
     arms=('candidate','baseline') if opponent else ('candidate',)
     expected={(b,r,a) for b in range(plan.blocks) for r in (0,1) for a in arms}
-    seen=set();values={};hands=actions=0;coverage={}
+    seen=set();values={};hands=actions=0;coverage={};scripted_bets={}
     with gzip.open(out/'hands.jsonl.gz','rt') as rows,gzip.open(out/'decisions.jsonl.gz','rt') as traces:
         for line in rows:
             row=json.loads(line);coord=(row['block'],row['rotation'],row['arm'])
@@ -286,6 +327,18 @@ def audit(out,output,report=False,cost_only=False):
                 if scripted is not None and role==1:
                     if scripted.choose_action(view)!=action:
                         raise ValueError('Scripted replay action differs')
+                    if action.kind==ActionKind.RAISE:
+                        schema=plan.models[0].abstraction or (HU200_SCHEMA if stack==20000 else HU100_SCHEMA)
+                        supported=any(c.action==action for c in schema_choices(view,schema))
+                        cell=scripted_bets.setdefault(row['arm']+'/'+view.street.value,
+                            {'raises':0,'off_menu':0,'off_menu_examples':[]})
+                        cell['raises']+=1;cell['off_menu']+=int(not supported)
+                        if not supported and len(cell['off_menu_examples'])<5:
+                            cell['off_menu_examples'].append(dict(raise_to=action.raise_to,
+                                maximum_bet=max(p.street_bet for p in view.players),
+                                pot_after_call=view.pot+view.legal_actions.call_amount,
+                                offered_raise_to=[c.action.raise_to for c in schema_choices(view,schema)
+                                    if c.action.kind==ActionKind.RAISE]))
                 else:
                     spec=models[policy]
                     menu=schema_choices(view,spec.abstraction or (HU200_SCHEMA if stack==20000 else HU100_SCHEMA))
@@ -337,7 +390,8 @@ def audit(out,output,report=False,cost_only=False):
     result={'status':'verified','hands_replayed':hands,'actions_replayed':actions,
         'seconds':elapsed,'fixed_setup_seconds':fixed_setup_seconds,
         'block_work_seconds':elapsed-fixed_setup_seconds,'raw_hash_seconds':raw_hash_seconds,
-        'settlement_sum_zero':True,'all_native_menu_actions':opponent is None,'coverage':coverage}
+        'settlement_sum_zero':True,'all_native_menu_actions':opponent is None,'coverage':coverage,
+        **({'scripted_bets_against_candidate_menu':scripted_bets} if opponent else {})}
     if cost_only:
         series=[sum(values[b,r,'candidate']- (values[b,r,'baseline'] if opponent else 0) for r in (0,1))/2
                 for b in range(plan.blocks)]
