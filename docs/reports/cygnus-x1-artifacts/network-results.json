@@ -1,0 +1,536 @@
+{
+  "status": "passed",
+  "measurement": "15-second single TCP stream, application bytes; both ends byte counts equal; no iperf3 on peers",
+  "throughput": [
+    {
+      "peer": "db-ocean",
+      "direction": "forward",
+      "client": {
+        "role": "client",
+        "peer": "100.96.144.26",
+        "direction": "forward",
+        "bytes": 174063616,
+        "seconds": 15.054762302999734,
+        "mbit_s": 92.49624138685577
+      },
+      "server": {
+        "role": "server",
+        "peer": "100.96.144.26",
+        "direction": "forward",
+        "bytes": 174063616,
+        "seconds": 15.307935670949519,
+        "mbit_s": 90.96647372529921
+      },
+      "guard": {
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 16.102617958998962,
+        "sampled_peak_family_rss_bytes": 14086144,
+        "status": "passed"
+      }
+    },
+    {
+      "peer": "db-ocean",
+      "direction": "reverse",
+      "client": {
+        "role": "client",
+        "peer": "100.96.144.26",
+        "direction": "reverse",
+        "bytes": 173015040,
+        "seconds": 15.342365608999899,
+        "mbit_s": 90.2155740043158
+      },
+      "server": {
+        "role": "server",
+        "peer": "100.96.144.26",
+        "direction": "reverse",
+        "bytes": 173015040,
+        "seconds": 15.061007633805275,
+        "mbit_s": 91.90091085892982
+      },
+      "guard": {
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 16.076672921000863,
+        "sampled_peak_family_rss_bytes": 14344192,
+        "status": "passed"
+      }
+    },
+    {
+      "peer": "m4",
+      "direction": "forward",
+      "client": {
+        "role": "client",
+        "peer": "100.122.216.94",
+        "direction": "forward",
+        "bytes": 131072000,
+        "seconds": 15.04716265299976,
+        "mbit_s": 69.68596167802832
+      },
+      "server": {
+        "role": "server",
+        "peer": "100.122.216.94",
+        "direction": "forward",
+        "bytes": 131072000,
+        "seconds": 15.192758084,
+        "mbit_s": 69.01814629065215
+      },
+      "guard": {
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 16.11267419900105,
+        "sampled_peak_family_rss_bytes": 14561280,
+        "status": "passed"
+      }
+    },
+    {
+      "peer": "m4",
+      "direction": "reverse",
+      "client": {
+        "role": "client",
+        "peer": "100.122.216.94",
+        "direction": "reverse",
+        "bytes": 153092096,
+        "seconds": 15.136371259999578,
+        "mbit_s": 80.9134994750409
+      },
+      "server": {
+        "role": "server",
+        "peer": "100.122.216.94",
+        "direction": "reverse",
+        "bytes": 153092096,
+        "seconds": 15.015799416,
+        "mbit_s": 81.56320779664841
+      },
+      "guard": {
+        "exit_code": 0,
+        "stop_reason": null,
+        "elapsed_seconds": 16.079839190000712,
+        "sampled_peak_family_rss_bytes": 15200256,
+        "status": "passed"
+      }
+    }
+  ],
+  "latency": {
+    "db-ocean": {
+      "min_ms": 14.354,
+      "avg_ms": 15.82,
+      "max_ms": 19.094,
+      "mdev_ms": 0.936
+    },
+    "m4": {
+      "min_ms": 5.58,
+      "avg_ms": 7.745,
+      "max_ms": 11.86,
+      "mdev_ms": 1.484
+    }
+  },
+  "packet_loss_each_peer_percent": 0,
+  "tailscale_paths": "direct UDP to both peers; M4 LAN endpoint",
+  "resources": [
+    {
+      "job": "network-db-ocean-forward",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 16.102617958998962,
+      "sampled_peak_family_rss_bytes": 14086144,
+      "status": "passed",
+      "samples": 9,
+      "started_utc": "2026-10-14T22:05:39.888594+00:00",
+      "last_sample_utc": "2026-10-14T22:05:55.983592+00:00",
+      "max_sample_gap_seconds": 2.0207205950009666,
+      "min_temperature_c": 32.0,
+      "max_temperature_c": 41.0,
+      "median_temperature_c": 33.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        799.997,
+        800.0,
+        4701.242
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 133017669632,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 31.0,
+          "max_c": 41.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 31.0,
+          "max_c": 31.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 30.0,
+          "max_c": 32.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 32.0,
+          "max_c": 41.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 33.0,
+          "max_c": 42.0
+        },
+        "nvme/Composite": {
+          "min_c": 36.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 43.0,
+          "max_c": 45.0
+        }
+      },
+      "raw_stream_bytes": 30666,
+      "raw_stream_sha256": "ab1a753f4f80687f7828fb8500e6325aa1ec4db59bb8ee87df2c2881139240f3"
+    },
+    {
+      "job": "network-db-ocean-reverse",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 16.076672921000863,
+      "sampled_peak_family_rss_bytes": 14344192,
+      "status": "passed",
+      "samples": 9,
+      "started_utc": "2026-10-14T22:05:57.703259+00:00",
+      "last_sample_utc": "2026-10-14T22:06:13.772858+00:00",
+      "max_sample_gap_seconds": 2.012736147000396,
+      "min_temperature_c": 34.0,
+      "max_temperature_c": 43.0,
+      "median_temperature_c": 37.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        1094.6255,
+        4802.381
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 133077278720,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 32.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 32.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 31.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 33.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 34.0,
+          "max_c": 42.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 34.0,
+          "max_c": 43.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 37.0,
+          "max_c": 41.0
+        },
+        "nvme/Composite": {
+          "min_c": 36.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 44.0,
+          "max_c": 45.0
+        }
+      },
+      "raw_stream_bytes": 30722,
+      "raw_stream_sha256": "962d32dad9dfa356e28b899ddf718abe6cef22c30b2ac9032aa2b8d31ff5798a"
+    },
+    {
+      "job": "network-latency",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 12.09223691400075,
+      "sampled_peak_family_rss_bytes": 25010176,
+      "status": "passed",
+      "samples": 7,
+      "started_utc": "2026-10-14T22:06:50.821879+00:00",
+      "last_sample_utc": "2026-10-14T22:07:02.907432+00:00",
+      "max_sample_gap_seconds": 2.0227695370012952,
+      "min_temperature_c": 33.0,
+      "max_temperature_c": 39.0,
+      "median_temperature_c": 37.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        799.094,
+        800.0,
+        4815.392
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 133042724864,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 32.0,
+          "max_c": 37.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 30.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 31.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 33.0,
+          "max_c": 39.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 33.0,
+          "max_c": 39.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 35.0,
+          "max_c": 39.0
+        },
+        "nvme/Composite": {
+          "min_c": 36.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 43.0,
+          "max_c": 44.0
+        }
+      },
+      "raw_stream_bytes": 23820,
+      "raw_stream_sha256": "1b0fa340073e03d38a06cee47031545a9999b96c09c9af51f43d6f448b5ae45e"
+    },
+    {
+      "job": "network-m4-forward",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 16.11267419900105,
+      "sampled_peak_family_rss_bytes": 14561280,
+      "status": "passed",
+      "samples": 9,
+      "started_utc": "2026-10-14T22:06:16.117243+00:00",
+      "last_sample_utc": "2026-10-14T22:06:32.216782+00:00",
+      "max_sample_gap_seconds": 2.0218500760001916,
+      "min_temperature_c": 33.0,
+      "max_temperature_c": 45.0,
+      "median_temperature_c": 34.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        799.62,
+        800.0,
+        4799.759
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 133073829888,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 32.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 32.0,
+          "max_c": 45.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 30.0,
+          "max_c": 33.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 31.0,
+          "max_c": 32.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 31.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 30.0,
+          "max_c": 32.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 33.0,
+          "max_c": 45.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 38.0,
+          "max_c": 42.0
+        },
+        "nvme/Composite": {
+          "min_c": 36.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 44.0,
+          "max_c": 46.0
+        }
+      },
+      "raw_stream_bytes": 30652,
+      "raw_stream_sha256": "eb292dbfa7d7ab3969491e32452be33ec38577fcfdd1972c4ad7be862f7c6b2d"
+    },
+    {
+      "job": "network-m4-reverse",
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 16.079839190000712,
+      "sampled_peak_family_rss_bytes": 15200256,
+      "status": "passed",
+      "samples": 9,
+      "started_utc": "2026-10-14T22:06:33.967254+00:00",
+      "last_sample_utc": "2026-10-14T22:06:50.039964+00:00",
+      "max_sample_gap_seconds": 2.0124479719997908,
+      "min_temperature_c": 37.0,
+      "max_temperature_c": 43.0,
+      "median_temperature_c": 38.0,
+      "clock_mhz_all_logical_cpus_min_median_max": [
+        800.0,
+        800.0,
+        4807.032
+      ],
+      "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+      "minimum_available_bytes": 133056307200,
+      "maximum_swap_growth_bytes": 0,
+      "maximum_throttle_counter_delta": 0,
+      "device_temperature_ranges_c": {
+        "acpitz/temp1_input": {
+          "min_c": 27.8,
+          "max_c": 27.8
+        },
+        "coretemp/Core 0": {
+          "min_c": 37.0,
+          "max_c": 43.0
+        },
+        "coretemp/Core 1": {
+          "min_c": 33.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 2": {
+          "min_c": 33.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 3": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 4": {
+          "min_c": 33.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 5": {
+          "min_c": 32.0,
+          "max_c": 34.0
+        },
+        "coretemp/Core 6": {
+          "min_c": 33.0,
+          "max_c": 35.0
+        },
+        "coretemp/Core 7": {
+          "min_c": 31.0,
+          "max_c": 34.0
+        },
+        "coretemp/Package id 0": {
+          "min_c": 37.0,
+          "max_c": 43.0
+        },
+        "iwlwifi_1/temp1_input": {
+          "min_c": 38.0,
+          "max_c": 40.0
+        },
+        "nvme/Composite": {
+          "min_c": 36.85,
+          "max_c": 36.85
+        },
+        "pch_cometlake/temp1_input": {
+          "min_c": 43.0,
+          "max_c": 46.0
+        }
+      },
+      "raw_stream_bytes": 30697,
+      "raw_stream_sha256": "5af09817a409cebca2e5ce1a473efc40b059e660eea8d97eb9e35a25ce98265b"
+    }
+  ],
+  "limitations": [
+    "AX201 Wi-Fi uplink; wired Ethernet down",
+    "M4 existing trainer active; snapshot rather than idle-peer capacity"
+  ]
+}

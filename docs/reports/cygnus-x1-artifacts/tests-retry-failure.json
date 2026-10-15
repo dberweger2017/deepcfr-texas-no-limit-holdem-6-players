@@ -1,0 +1,109 @@
+{
+  "status": "failed; unresolved neural bitwise-output invariant; dependent gates held",
+  "pip_repair": {
+    "exit_code": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 2.0210615519990824,
+    "sampled_peak_family_rss_bytes": 36028416,
+    "status": "passed"
+  },
+  "pip_version": "pip 26.2.1 from /home/dberweger/cygnus-qualification-20261014/repo-main/.venv/lib/python3.11/site-packages/pip (python 3.11)",
+  "rust_passed": 16,
+  "pytest": {
+    "passed": 1595,
+    "failed": 1,
+    "skipped": 3,
+    "subtests_passed": 54,
+    "seconds": 451.83
+  },
+  "failed_test": "tests/test_multistreet_invariants.py::test_hidden_world_and_future_cards_do_not_change_any_model_output[flop-board0]",
+  "assertion": "torch.equal on value tensors for equal visible observations; values print alike but differ in bytes",
+  "diagnosis": "pending: trace actual model inputs and first divergent arithmetic operation before any dependent work",
+  "resources": {
+    "job": "repo-tests-retry",
+    "exit_code": 1,
+    "stop_reason": null,
+    "elapsed_seconds": 482.12331518099927,
+    "sampled_peak_family_rss_bytes": 863145984,
+    "status": "failed",
+    "samples": 241,
+    "started_utc": "2026-10-14T22:21:19.949204+00:00",
+    "last_sample_utc": "2026-10-14T22:29:22.064483+00:00",
+    "max_sample_gap_seconds": 2.022125244000563,
+    "min_temperature_c": 39.0,
+    "max_temperature_c": 72.0,
+    "median_temperature_c": 63.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      799.969,
+      800.0,
+      5115.7
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 131990659072,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 38.0,
+        "max_c": 70.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 35.0,
+        "max_c": 66.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 35.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 34.0,
+        "max_c": 64.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 34.0,
+        "max_c": 70.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 34.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 36.0,
+        "max_c": 55.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 33.0,
+        "max_c": 63.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 39.0,
+        "max_c": 72.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 29.0,
+        "max_c": 32.0
+      },
+      "nvme/Composite": {
+        "min_c": 36.85,
+        "max_c": 37.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 42.0,
+        "max_c": 45.0
+      }
+    },
+    "raw_stream_bytes": 820185,
+    "raw_stream_sha256": "7d37be04698f5bd3e6e0acdc550e4ea74e995dc614db2184fe5d76c6439ee6f0"
+  },
+  "output_log_bytes": 9936,
+  "output_log_sha256": "fe0efb36f5e2bfa20b0bf025d4ec61fed1b6b7edc798378a48e88cd6f70fea7b",
+  "skips": [
+    "Owner-approved Mac resource profile",
+    "hu20-buckets native evaluator not built",
+    "K50_REAL_TABLES unset despite restored tables; full SHA verification pending"
+  ]
+}

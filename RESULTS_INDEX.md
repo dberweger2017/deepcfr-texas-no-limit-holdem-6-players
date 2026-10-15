@@ -1,4 +1,4 @@
-## PR278 — v0.5.5 confirmation seeds (in progress, October 14, 2026)
+## PR278 — v0.5.5 confirmation seeds (science complete, upload handoff, October 15, 2026)
 
 [PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), branch
 `feature/hu200-v055-confirmation`. [Report](docs/reports/hu200-v055-confirmation.md).
@@ -50,7 +50,7 @@ still partial. The intact verified local full ZIP remains canonical; the separat
 Lost and Found copy is an earlier **1,481,657,243-byte partial**. Both are retained.
 [Exact paths and read-only error receipt](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-sync-error.json).
 Never restore either partial copy. No remote bytes downloaded or verified. The
-final closeout supplement remains blocked. Seed 2's average-only ZIP is locally member-readback verified:
+closeout supplement was initially blocked; its later accepted upload is recorded below. Seed 2's average-only ZIP is locally member-readback verified:
 **3,162,066,289 bytes**, SHA256 `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e`,
 manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
 one member `averages/seed-2026101422/final.average.gz`. **Upload accepted:**
@@ -85,8 +85,102 @@ Retry upload is confirmed progressing at **10%**; Vacuum Cleaner takes over
 completion/acceptance and Drive ID indexing per owner. No new monitor or cleanup.
 Campaign interval and disabled webhook removed at the terminal block; [receipts](docs/reports/hu200-v055-confirmation-artifacts/schedule-removal.json).
 [Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
-No research originals/synced files removed or evicted; other open roots
-are untouched. Preserved administrative failures; no scientific retry.
+This campaign removed or evicted no research originals or synced files;
+other open roots are untouched. The later owner-authorized seed-2 ZIP cache
+release is recorded separately below. Preserved administrative failures; no scientific retry.
+
+## Urgent M1 uploaded cache release — October 15
+
+Owner-requested urgent cleanup releases **20.953 GB**, restoring
+verified M1 free space to **27.310 GB** at 2026-10-15T05:21:29Z.
+Only PR278's uploaded, unused seed-2 full ZIP cache becomes online-only; its
+[unchanged Drive file](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk) and same-size placeholder remain. Standing
+inactive-cache permission applies after current upload/identity/dependency/open
+handle checks; no original or active input is removed. Failed seed1 canonical
+ZIP and Lost and Found, both open roots and server/model inputs are untouched.
+[Exact path/restoration and preservation](docs/artifacts/storage-vacuum-20261015-m1.md),
+[accepted receipt](https://drive.google.com/file/d/1_gUqcJQor8xpb_1EbdJr2y_2_AVeOh1X/view?usp=drivesdk) (ID `1_gUqcJQor8xpb_1EbdJr2y_2_AVeOh1X`, 6,335 bytes,
+SHA256 `88092d3dc5c84cf75a3e6cf45a6e3101bcc14a15c666bb4c18198a83e7d37385`). No retry/manipulation of the failed upload,
+payload download, repeat hashes, synced deletion, force offload or unpinning.
+
+## PR283 cygnus-x1 qualification — October 14–15, RAM still partial
+
+[PR283](https://github.com/dberweger2017/CFR-NLHE-6max/pull/283), owner-authorized qualification record.
+[Report](docs/reports/cygnus-x1-qualification.md) ·
+[Archive/member/retrieval/upload receipt](docs/reports/cygnus-x1-artifacts/archive-main.json).
+Scientific source `ebd3d8d567e4248f9f1eb57edfaf25262338aa31`;
+main archive feature snapshot `0fa1d860`. Run root
+`bb128:/home/dberweger/cygnus-qualification-20261014/`; coordinator
+`~/Local/cygnus-x1-qualification/results/cygnus-qualification/`.
+
+**Accepted main bundle:** [cygnus-main-20261015.zip](https://drive.google.com/file/d/11bu2M3AY66AscCgF5onO4tHampdxErMf/view?usp=drivesdk),
+ID `11bu2M3AY66AscCgF5onO4tHampdxErMf`, **3,553,618,907 bytes**,
+SHA256 `35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c`;
+[folder](https://drive.google.com/drive/folders/1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa)
+ID `1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa`;
+all **528 member sizes/hashes passed readback on cygnus**. Whole archive and
+manifest hashes pass after transfer; cloud staging bytes also match.
+At October15 **01:23 UTC**, native uploaded/no-pending/no-conflicts/exact-size
+acceptance and independent Drive ID/name/size/parent confirmation pass.
+**Remote Drive bytes were not downloaded.** No originals are removed.
+
+The linked compact receipt names all four checkpoint members and the native
+binary, with full sizes/SHA256s and usable restoration commands. Matched 500M
+is `research/benchmark-results/500m.gz`, SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`;
+20M fresh/resumed members reproduce exact #250 SHA256
+`4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+Full raw logs, failed attempts and original three-hour RAM timecap are preserved,
+including the approximately1.8GiB initial memlock-shrink output. Eight original
+112GiB instances had zero observed errors/ten completed patterns, not a full pass.
+[Full-suite outcome](docs/reports/cygnus-x1-artifacts/tests-passed.json):
+2219Python/54subtests/16Rust pass in strict-MKL mode, twoMac-specific skips;
+both preceding failures remain archived and diagnosed.
+
+**Additional RAM screen closed at04:50UTC /06:50Madrid:**16166.65s,
+zero errors all8, four completed patterns, Walking Zeroes123–127/128 incomplete;
+8/16-bit writes not reached. Peak68°C,no swap/throttle. All eight actual child
+waitcodes−15/SIGTERM, all owned PIDs gone. Expected deadline stop is partial,
+not a full RAM pass. [Final per-instance outcomes/thermal hash](docs/reports/cygnus-x1-artifacts/memory-extra-final.json).
+**Accepted final closeout:** [cygnus-closeout-20261015.zip](https://drive.google.com/file/d/1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4/view?usp=drivesdk),
+ID `1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4`, same owning folder,
+**1,973,287bytes /98members**, SHA256
+`de676c142fa9288d46d72ad13754a9d1932b510539166e459d5cc813ae6e8c91`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`32cce8027be12305a1d6cc359aa28b9399d67b0151bacb863181e559c6aecf0c`.
+All member sizes/hashes passed local readback; staging copy SHA matches.
+At04:56UTC native uploaded/no-pending/no-conflicts/exact-size and independent
+Drive ID/name/size/parent checks pass; no remote Drive byte download.
+[Final pins/upload evidence/retrieval commands](docs/reports/cygnus-x1-artifacts/archive-closeout.json).
+Feature snapshot `ef021cb95a906916330317baec91dfa793feb106`; no models in this
+closeout (use main archive). Main archive guard raw telemetry is now included.
+Both immutable bundles retain report snapshots preceding their own upload
+acceptance; these Git receipts/index provide the final acceptance record.
+Recurring qualification checks are disabled; no subsequent testing scheduled.
+Pinned K50 inputs are excluded as independently retrievable dependencies:
+[PR163 restoration/member hashes and commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+All three table sizes/fullSHA256s passed on both coordinator and bb128 before use.
+The retained8GiB fio scratch and rebuildable caches are excluded. Keep the open
+PR root/dependencies intact. No cleanup, campaigns, Slumbot, XMP changes,
+proprietary driver installation or persistent changes to other machines.
+
+## Another 30 GB on M4 — October 14
+
+Owner-requested cleanup exceeds the target with **32.500 GB**
+reclaimed: five unchanged archived HU100 originals and three explicitly approved
+inactive rebuildable policy caches under merged PR272. Verified M4 free
+**77.768 GB** at 2026-10-14T16:20:35Z; live PR278 trainer still observed.
+[All five archive/member/hash restoration records and three exact cache rebuilds](docs/artifacts/storage-vacuum-20261014-30gb.md),
+[accepted private receipt](https://drive.google.com/file/d/1MHJdvblmb-eNeqKm2fiVWhtUaPCi9P2J/view?usp=drivesdk) (ID `1MHJdvblmb-eNeqKm2fiVWhtUaPCi9P2J`, 157,663 bytes,
+SHA256 `eb0d3fc94ca336847ea50da106ab1e9a7871a487e93b95888fcb75df91b4457c`). Current upload/dependency/source-history checks
+precede original retirement; parent copies match accepted PR260 pins without
+checkpoint retrieval or repeat payload hashes. Canonical tables, PR265 HU200
+averages, released model/Slumbot inputs and active #278 roots remain. Original
+retention snapshots are superseded only for these exact eight paths; cloud
+files remain. Owner now permits inactive rebuildable caches/regenerable output
+without repeated approval when there is no data loss or active-PR impact.
 
 ## M4 disk admission cleanup — October 14 evening
 
@@ -430,6 +524,17 @@ Members `evidence/real-direct/{play,reproduction}/`, `evidence/real-panel/{oppon
 Canonical #250 K50 input was used **read only**, not copied: `~/Local/slumbot-k50-20261013/model/research/training/1000000000.average.gz`, 2,221,370,011 bytes /SHA256 `60bd37c979e018f11f136370f468cc41b8e1435550531707e89d45f28709ec7c`, 752,593,175 actual nodes /85,373,907 entries. The `tables/` and verified `cache/` in that owner-provided root retain their original sizes/mtime; provenance/pins are `evidence/real-input.json`, confirmed by `evidence/read-only-verification.json`. Model archive/member/manifest hashes and restoration commands are the [PR250 record](#pr250-first-hu200-k50-model--october-13-2026); its separately indexed PR163 tables restore with the three pinned SHA256s. New local fixture caches are inside this PR root; existing model/cache roots, other worktrees and all running processes are untouched.
 
 Restoration: download archive ID `15xKqTRwRUVmdz3jxp-a5XRlOic67IKIE` to a **new ignored nonsynced path**, check `shasum -a 256 ARCHIVE.zip` against the whole hash above, then extract with `python -m zipfile -e ARCHIVE.zip NEW_RESTORE_ROOT`. Check `ARCHIVE-MANIFEST.json` SHA256 above and each required member's recorded byte count/SHA256 before use. Tiny fixtures are `evidence/hu200-{left,right}/average.gz`; HU100 fixtures are `evidence/hu100-fixtures/{training,average}.gz`, with exact sizes/hashes in the manifest. Real averages/tables restore through PR250/PR163 rather than this evidence ZIP. Restoring evidence does not authorize a campaign. No local deletion, cache eviction or synced-folder cleanup.
+
+## PR276/PR277 Slumbot: frozen 20B, translation and earlier models — October 14, 2026
+
+[PR276](https://github.com/dberweger2017/CFR-NLHE-6max/pull/276) ([report](docs/reports/slumbot-frozen-20b-comparison.md)): first 5,000 hands, frozen 20B **−47 ± 49 BB/100**, K50 752M −75 ± 57, 200M −172 ± 72, random −297 ± 87; first 10,000, frozen 20B **−52 ± 36** and K50 752M −77 ± 42. [PR277](https://github.com/dberweger2017/CFR-NLHE-6max/pull/277) ([report](docs/reports/slumbot-translation-comparison.md)): frozen 20B with #271's translation **+33 ± 46** over exactly 5,000 hands, +80 [+13, +147] above the same model without it.
+
+Archive `~/Local/Research-Cloud/PR-276-277-slumbot-frozen-20b-comparison/slumbot-frozen-20b-comparison-20261014.zip`, **26,922,026 bytes**, SHA256 `88fc2024f2098887a5e59aaebcdebd9051abd60fa9688e5ba1359de1b6afbf32`; embedded `ARCHIVE-MANIFEST.json` SHA256 `9a9c317a02907d1fb757f18d07282fdf67e07fbdbfa6d64ce5b4eabfc7e572a7`. Every member was read back against the manifest, and every journal's hash chain verified, before copying:
+- `research/k50-752m/`: `k50-752m-20261013-1132/journal.jsonl` (588 hands) and `k50-752m-20261013-1218/journal.jsonl` (53,863 hands, 373,796,261 bytes).
+- `research/frozen-20b/`: `hu200-k50-frozen-20b-20261014-080337/journal.jsonl` (490 hands) and a complete-row snapshot of the live `hu200-k50-frozen-20b-20261014-115437/journal.jsonl` (9,568 hands); the run continues to 50,000 on the Linux server.
+- `research/frozen-20b-translation/`: `5000-hands-seed-20261014027101/` (4,971 hands) and `29-hands-seed-20261014027102/` (29), each `journal.jsonl` and `summary.json`.
+
+Random and 200M journals are in PR264's archive. Analyses and profiles are committed beside both reports. Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr276` and check the manifest; reproduce with `scripts.analyze_slumbot_run --hands N`, `scripts.plot_slumbot_runs --hands N` and `scripts.profile_slumbot_runs --hands N`. Journals contain no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Local originals stay in `~/Local/slumbot-k50-20261013/accounts/` and on the Linux server.
 
 ## PR264 Slumbot comparison on dedicated accounts — October 13, 2026
 

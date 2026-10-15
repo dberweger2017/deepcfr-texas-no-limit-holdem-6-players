@@ -1,0 +1,102 @@
+{
+  "status": "accepted main evidence archive; extra RAM closeout pending",
+  "path": "/home/dberweger/cygnus-qualification-20261014/archive-payloads/cygnus-main-20261015.zip",
+  "bytes": 3553618907,
+  "sha256": "35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c",
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "e3007e860523ac036c4b72d71dfba864fb992d2a622541e2e0ee9553c0faa0aa",
+  "members": 528,
+  "all_member_sizes_and_hashes_readback": true,
+  "seconds": 34.375244789000135,
+  "originals_retained": true,
+  "cloud_upload_accepted": true,
+  "remote_archive_bytes_downloaded": false,
+  "coordinator_whole_sha256_verified": true,
+  "cloud_staging_copy_sha256_verified": true,
+  "cloud_staging_path": "/Users/dberweger/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-main-20261015.zip",
+  "transport_completed_utc": "2026-10-15T00:30:32Z",
+  "cygnus_archive_downloaded_and_verified": true,
+  "native_upload_snapshot": {
+    "at": 1792027411.7775528,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-main-20261015.zip",
+    "name": "cygnus-main-20261015.zip",
+    "bytes": 3553618907,
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "native_accepted": true,
+    "cloud_file_id": "11bu2M3AY66AscCgF5onO4tHampdxErMf",
+    "cloud_folder_id": "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa",
+    "remote_archive_bytes_downloaded": false
+  },
+  "required_members": {
+    "research/benchmark-results/500m.gz": {
+      "bytes": 2727516803,
+      "sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d",
+      "source_mtime_ns": 1792021069338909057,
+      "source_path": "/home/dberweger/cygnus-qualification-20261014/benchmark-results/500m.gz"
+    },
+    "research/gate-results/fresh20m.gz": {
+      "bytes": 270143830,
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b",
+      "source_mtime_ns": 1792019230048534719,
+      "source_path": "/home/dberweger/cygnus-qualification-20261014/gate-results/fresh20m.gz"
+    },
+    "research/gate-results/prefix10m.gz": {
+      "bytes": 148448690,
+      "sha256": "fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db",
+      "source_mtime_ns": 1792019265089291365,
+      "source_path": "/home/dberweger/cygnus-qualification-20261014/gate-results/prefix10m.gz"
+    },
+    "research/gate-results/resumed20m.gz": {
+      "bytes": 270143830,
+      "sha256": "4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b",
+      "source_mtime_ns": 1792019324914583806,
+      "source_path": "/home/dberweger/cygnus-qualification-20261014/gate-results/resumed20m.gz"
+    },
+    "research/trainer-first": {
+      "bytes": 1752760,
+      "sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+      "source_mtime_ns": 1792015754053101097,
+      "source_path": "/home/dberweger/cygnus-qualification-20261014/trainer-first"
+    }
+  },
+  "cloud_file_id": "11bu2M3AY66AscCgF5onO4tHampdxErMf",
+  "cloud_folder_id": "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa",
+  "cloud_url": "https://drive.google.com/file/d/11bu2M3AY66AscCgF5onO4tHampdxErMf/view?usp=drivesdk",
+  "cloud_folder_url": "https://drive.google.com/drive/folders/1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa",
+  "source_main": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+  "archive_feature_snapshot": "0fa1d860",
+  "independent_drive_readback": {
+    "observed_utc": "2026-10-15T01:23:32Z",
+    "id": "11bu2M3AY66AscCgF5onO4tHampdxErMf",
+    "name": "cygnus-main-20261015.zip",
+    "bytes": 3553618907,
+    "parent_ids": [
+      "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa"
+    ],
+    "mime_type": "application/zip",
+    "folder_name": "PR-283-cygnus-x1-qualification",
+    "folder_parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "metadata_matches": true,
+    "archive_bytes_downloaded": false
+  },
+  "retrieval_commands_from_canonical_research_cloud": [
+    "set -e",
+    "mkdir -p results/cygnus-restore",
+    "cp -n ~/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-main-20261015.zip results/cygnus-restore/",
+    "printf '%s  %s\\n' '35c53b9460d0ec1c5492b8e824c53e51c1bcd98757fd4b61ea29e78087f3925c' 'results/cygnus-restore/cygnus-main-20261015.zip' | shasum -a 256 -c -",
+    "unzip -n results/cygnus-restore/cygnus-main-20261015.zip research/benchmark-results/500m.gz research/gate-results/fresh20m.gz research/gate-results/prefix10m.gz research/gate-results/resumed20m.gz research/trainer-first -d results/cygnus-restore",
+    "printf '%s  %s\\n' '2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d' 'results/cygnus-restore/research/benchmark-results/500m.gz' | shasum -a 256 -c -",
+    "printf '%s  %s\\n' '4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b' 'results/cygnus-restore/research/gate-results/fresh20m.gz' | shasum -a 256 -c -",
+    "printf '%s  %s\\n' 'fc102fc232fa4376627bbcd10af5f77a0b8fdb25f8a62cf81d224de5fde9e5db' 'results/cygnus-restore/research/gate-results/prefix10m.gz' | shasum -a 256 -c -",
+    "printf '%s  %s\\n' '4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b' 'results/cygnus-restore/research/gate-results/resumed20m.gz' | shasum -a 256 -c -",
+    "printf '%s  %s\\n' 'd7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436' 'results/cygnus-restore/research/trainer-first' | shasum -a 256 -c -"
+  ]
+}

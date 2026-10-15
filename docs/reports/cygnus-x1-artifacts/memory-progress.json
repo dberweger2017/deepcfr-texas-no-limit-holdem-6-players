@@ -1,0 +1,31 @@
+{
+  "status": "running; full pass incomplete",
+  "sample_elapsed_seconds": 3233.7,
+  "instances": 8,
+  "locked_gib_total": 112,
+  "all_instances_completed_confirmed_patterns": [
+    "Stuck Address",
+    "Random Value",
+    "Compare XOR",
+    "Compare SUB",
+    "Compare MUL",
+    "Compare DIV",
+    "Compare OR",
+    "Compare AND",
+    "Sequential Increment",
+    "Solid Bits"
+  ],
+  "observed_errors_all_instances": 0,
+  "temperature_current_c": 63,
+  "temperature_peak_c": 81,
+  "sampled_peak_family_rss_gib": 112.025,
+  "minimum_available_gib": 11.626,
+  "swap_growth_bytes": 0,
+  "maximum_throttle_counter": 0,
+  "per_instance_exit_codes": "pending",
+  "source": "one read-only on-host status snapshot; no test restarted",
+  "scope": "Owner-selected three-hour partial RAM screen; no full-pass claim",
+  "time_cap_seconds": 10800,
+  "on_expected_time_stop": "Preserve per-instance errors/results and logs, then continue remaining diagnostics if no actual memory errors",
+  "current_pattern": "Block Sequential"
+}

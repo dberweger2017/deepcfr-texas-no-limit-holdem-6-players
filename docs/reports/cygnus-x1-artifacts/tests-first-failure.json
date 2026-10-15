@@ -1,0 +1,108 @@
+{
+  "status": "failed; suite incomplete",
+  "rust_lib": {
+    "passed": 16,
+    "failed": 0
+  },
+  "pytest": {
+    "passed": 1365,
+    "failed": 1,
+    "skipped": 2,
+    "subtests_passed": 54,
+    "seconds": 318.04
+  },
+  "failed_test": "tests/test_hu20_scaling.py::test_continuation_keeps_the_complete_parent_and_cumulative_iteration_weights",
+  "cause": "uv venv was created without pip; scripts.hu20_scaling_common.environment calls sys.executable -m pip freeze",
+  "error": "No module named pip",
+  "guard": {
+    "exit_code": 1,
+    "stop_reason": null,
+    "elapsed_seconds": 355.5405043570008,
+    "sampled_peak_family_rss_bytes": 879878144,
+    "status": "failed"
+  },
+  "resources": {
+    "job": "repo-tests",
+    "exit_code": 1,
+    "stop_reason": null,
+    "elapsed_seconds": 355.5405043570008,
+    "sampled_peak_family_rss_bytes": 879878144,
+    "status": "failed",
+    "samples": 178,
+    "started_utc": "2026-10-14T22:12:38.393785+00:00",
+    "last_sample_utc": "2026-10-14T22:18:33.926695+00:00",
+    "max_sample_gap_seconds": 2.0131688630008284,
+    "min_temperature_c": 39.0,
+    "max_temperature_c": 71.0,
+    "median_temperature_c": 58.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      800.0,
+      5100.064
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 132067508224,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {
+      "acpitz/temp1_input": {
+        "min_c": 27.8,
+        "max_c": 27.8
+      },
+      "coretemp/Core 0": {
+        "min_c": 34.0,
+        "max_c": 70.0
+      },
+      "coretemp/Core 1": {
+        "min_c": 34.0,
+        "max_c": 58.0
+      },
+      "coretemp/Core 2": {
+        "min_c": 34.0,
+        "max_c": 67.0
+      },
+      "coretemp/Core 3": {
+        "min_c": 34.0,
+        "max_c": 63.0
+      },
+      "coretemp/Core 4": {
+        "min_c": 34.0,
+        "max_c": 68.0
+      },
+      "coretemp/Core 5": {
+        "min_c": 34.0,
+        "max_c": 65.0
+      },
+      "coretemp/Core 6": {
+        "min_c": 38.0,
+        "max_c": 70.0
+      },
+      "coretemp/Core 7": {
+        "min_c": 34.0,
+        "max_c": 64.0
+      },
+      "coretemp/Package id 0": {
+        "min_c": 39.0,
+        "max_c": 71.0
+      },
+      "iwlwifi_1/temp1_input": {
+        "min_c": 32.0,
+        "max_c": 42.0
+      },
+      "nvme/Composite": {
+        "min_c": 36.85,
+        "max_c": 37.85
+      },
+      "pch_cometlake/temp1_input": {
+        "min_c": 43.0,
+        "max_c": 46.0
+      }
+    },
+    "raw_stream_bytes": 606844,
+    "raw_stream_sha256": "63ae07cd05e69e2a61ac428da9e67824a5bc759d4e1f4ff4e3bfd137d1eca803"
+  },
+  "output_log_bytes": 14065,
+  "output_log_sha256": "de5cb27438af63faf43026d8b86ad52660207770f957ab3919591ece465c5f15",
+  "corrective_action": "Install pip within existing isolated venv, then rerun full suite under new guard label; native/source unchanged",
+  "recovery_gates": "not started; suite must complete first"
+}

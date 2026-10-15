@@ -1,0 +1,56 @@
+[
+  {
+    "job": "memory",
+    "exit_code": -15,
+    "stop_reason": "supervisor signaled: [15]",
+    "elapsed_seconds": 36.65073816699987,
+    "sampled_peak_family_rss_bytes": 25370624,
+    "status": "failed",
+    "samples": 19,
+    "started_utc": "2026-10-14T18:33:59.768705+00:00",
+    "last_sample_utc": "2026-10-14T18:34:35.912478+00:00",
+    "max_sample_gap_seconds": 2.008787577000021,
+    "min_temperature_c": 46.0,
+    "max_temperature_c": 72.0,
+    "median_temperature_c": 68.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      4699.997,
+      4977.939
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 133040812032,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {},
+    "raw_stream_bytes": 51581,
+    "raw_stream_sha256": "ed1617c481dd99d41f855f4f940e1da6df149cc7a4f7f53cf2d2f38a1b9057da"
+  },
+  {
+    "job": "memory-locked",
+    "exit_code": -15,
+    "stop_reason": "wall-time budget exceeded",
+    "elapsed_seconds": 10800.797719067,
+    "sampled_peak_family_rss_bytes": 120285773824,
+    "status": "failed",
+    "samples": 5367,
+    "started_utc": "2026-10-14T18:40:30.773766+00:00",
+    "last_sample_utc": "2026-10-14T21:40:31.062501+00:00",
+    "max_sample_gap_seconds": 2.1061848439999267,
+    "min_temperature_c": 47.0,
+    "max_temperature_c": 81.0,
+    "median_temperature_c": 63.0,
+    "clock_mhz_all_logical_cpus_min_median_max": [
+      800.0,
+      4699.997,
+      4942.417
+    ],
+    "clock_scope": "All 16 logical CPUs, including idle siblings; scaling_cur_freq is a sampled reading, not effective-clock residency",
+    "minimum_available_bytes": 12405956608,
+    "maximum_swap_growth_bytes": 0,
+    "maximum_throttle_counter_delta": 0,
+    "device_temperature_ranges_c": {},
+    "raw_stream_bytes": 14584111,
+    "raw_stream_sha256": "4972840d49e1450d876fe5c5f28992f0ccf41195630772c132adb3509f7e90e1"
+  }
+]

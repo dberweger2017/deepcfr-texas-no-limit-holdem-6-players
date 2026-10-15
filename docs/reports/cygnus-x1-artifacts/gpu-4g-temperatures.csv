@@ -1,0 +1,3 @@
+utc,elapsed_s,package_c,clock_min_mhz,clock_median_mhz,clock_max_mhz,family_rss_gib,available_gib,swap_growth_bytes,max_throttle_delta
+2026-10-15T00:07:13.275464+00:00,0.0,34.0,800.0,3572.884,3793.4,0.0086,123.0237,0,0
+2026-10-15T00:07:15.283914+00:00,2.008,32.0,800.0,2544.947,4701.879,0.0,123.0269,0,0

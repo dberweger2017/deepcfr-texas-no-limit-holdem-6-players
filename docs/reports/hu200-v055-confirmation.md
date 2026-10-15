@@ -1,6 +1,6 @@
 # v0.5.5 M4 confirmation seeds
 
-[Draft PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278) ·
+[PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278) ·
 [Owner-approved acceptance](../hu200-v055-acceptance-protocol.md).
 
 **Both seeds reached 20B and passed every-row current/average audits on the 16-GiB M4.**

@@ -1,0 +1,53 @@
+{
+  "status": "accepted final closeout archive",
+  "bytes": 1973287,
+  "sha256": "de676c142fa9288d46d72ad13754a9d1932b510539166e459d5cc813ae6e8c91",
+  "members": 98,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "32cce8027be12305a1d6cc359aa28b9399d67b0151bacb863181e559c6aecf0c",
+  "all_member_sizes_and_hashes_readback": true,
+  "cloud_staging_copy_sha256_verified": true,
+  "cloud_staging_path": "/Users/dberweger/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-closeout-20261015.zip",
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false,
+  "cloud_upload_accepted": true,
+  "feature_revision": "ef021cb95a906916330317baec91dfa793feb106",
+  "native_upload_snapshot": {
+    "at": 1792040183.98524,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-closeout-20261015.zip",
+    "name": "cygnus-closeout-20261015.zip",
+    "bytes": 1973287,
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "native_accepted": true,
+    "cloud_file_id": "1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4",
+    "cloud_folder_id": "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa",
+    "remote_archive_bytes_downloaded": false
+  },
+  "cloud_file_id": "1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4",
+  "cloud_folder_id": "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa",
+  "cloud_url": "https://drive.google.com/file/d/1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4/view?usp=drivesdk",
+  "independent_drive_readback": {
+    "observed_utc": "2026-10-15T04:56:34Z",
+    "id": "1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4",
+    "name": "cygnus-closeout-20261015.zip",
+    "bytes": 1973287,
+    "parent_ids": [
+      "1-zIf0hQhu_VcUwqnGJsDKfpOGfJrBFBa"
+    ],
+    "metadata_matches": true,
+    "archive_bytes_downloaded": false
+  },
+  "retrieval_commands_from_canonical_research_cloud": [
+    "set -e",
+    "mkdir -p results/cygnus-closeout-restore",
+    "cp -n ~/Local/Research-Cloud/PR-283-cygnus-x1-qualification/cygnus-closeout-20261015.zip results/cygnus-closeout-restore/",
+    "printf '%s  %s\\n' 'de676c142fa9288d46d72ad13754a9d1932b510539166e459d5cc813ae6e8c91' 'results/cygnus-closeout-restore/cygnus-closeout-20261015.zip' | shasum -a 256 -c -",
+    "unzip -n results/cygnus-closeout-restore/cygnus-closeout-20261015.zip -d results/cygnus-closeout-restore"
+  ]
+}

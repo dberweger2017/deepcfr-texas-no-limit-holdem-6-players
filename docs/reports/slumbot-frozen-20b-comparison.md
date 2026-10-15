@@ -1,4 +1,4 @@
-# Slumbot: frozen 20B against earlier models, 5,000 hands each
+# Slumbot: frozen 20B against earlier models, 5,000 and 10,000 hands
 
 Four players against Slumbot's live API at 200 BB, on equal hands: the first
 5,000 of every run.
@@ -58,6 +58,27 @@ isn't separable from zero at this size. With the correction, frozen 20B is
 better than the 200M model and both K50 models better than random. Internally,
 frozen 20B beats K50 752M by +76.95 [71.93, 81.96] BB/100 in a direct match
 ([#268](hu200-frozen-evaluation.md)).
+
+## 10,000 hands
+
+K50 752M and frozen 20B have more than 10,000 hands each; random and 200M
+played 5,000, so their lines end there.
+
+| Player, first 10,000 hands | BB/100 [95%] | All-in adjusted |
+|---|---:|---:|
+| **Frozen 20B** | **−52 ± 36** | −48 ± 35 |
+| **K50 752M** | **−77 ± 42** | −81 ± 38 |
+
+Frozen 20B − K50 752M is **+25 [−31, +80]**, the same gap as at 5,000 hands
+with a narrower interval. Showdowns still decide it: they cost frozen 20B
+78 ± 33 BB/100 and K50 752M 108 ± 39, while every other ending adds up to a
+profit for both. Frozen 20B's 46 abandoned hands all came in its first 5,000.
+
+![Cumulative winnings and BB/100 so far up to 10,000 hands, all four players](slumbot-frozen-20b-comparison-artifacts/10000-with-random.png)
+
+![The same for the three trained models](slumbot-frozen-20b-comparison-artifacts/10000-models.png)
+
+![What hands ending on each street, and pots of each size, add over 10,000 hands](slumbot-frozen-20b-comparison-artifacts/10000-where-it-comes-from.png)
 
 ## Where the chips went
 
@@ -149,7 +170,7 @@ turn and river than K50 752M.
 | Machine | the Linux server | the Linux server |
 | Policy seeds | 20261014026801, 20261014026802 | 2026101308, 2026101309 |
 | Parts | 490 hands, then the rest (relaunched with a larger hand target) | 588 hands, then the rest (relaunched with the policy cache) |
-| Abandoned hands in the counted hands | 46 (45 unanswered requests, 1 refused), 0.9% | 0 |
+| Abandoned hands in the counted hands | 46 (45 unanswered requests, 1 refused): 0.9% of 5,000, 0.5% of 10,000 | 0 |
 
 The 200M and random runs are [#264's](slumbot-account-benchmarks.md). Every
 journal's hash chain verifies, every settlement recomputes from the public
@@ -158,7 +179,7 @@ verified nets in every session: abandoned hands, which Slumbot also counts,
 cost nothing. Frozen 20B's run continues past these hands; nothing after the
 counted hands was used.
 
-Frozen 20B with #271's action translation is reported separately.
+Frozen 20B with #271's action translation is reported in [its own comparison](slumbot-translation-comparison.md).
 
 ## Reproduce
 
