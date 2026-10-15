@@ -193,7 +193,10 @@ Main archive **528members/3,553,618,907bytes**, full member readback and whole
 transfer/staging SHA checks pass; native upload/no-pending/no-conflicts and
 independent Drive metadata acceptance pass. [Archive pins, model restoration
 commands and observed Drive links](cygnus-x1-artifacts/archive-main.json).
-Extra RAM/closed archive-guard/new source closeout is being sealed separately.
+[Accepted final closeout](cygnus-x1-artifacts/archive-closeout.json) contains
+98members/1,973,287bytes: full extra RAM logs/wait statuses, closed archive-guard
+telemetry and final source/report snapshot. Member hashes/readback, staging SHA,
+native upload and independent Drive metadata acceptance all pass.
 All originals retained; no remote Drive bytes were redownloaded.
 Full thermal/clock/throttle CSVs and compact receipts accompany this report.
 The recurring qualification check is disabled; no follow-on work is scheduled.

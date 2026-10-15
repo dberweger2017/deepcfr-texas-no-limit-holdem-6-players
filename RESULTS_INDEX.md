@@ -39,7 +39,20 @@ zero errors all8, four completed patterns, Walking Zeroes123–127/128 incomplet
 8/16-bit writes not reached. Peak68°C,no swap/throttle. All eight actual child
 waitcodes−15/SIGTERM, all owned PIDs gone. Expected deadline stop is partial,
 not a full RAM pass. [Final per-instance outcomes/thermal hash](docs/reports/cygnus-x1-artifacts/memory-extra-final.json).
-Final extra-RAM/closed-archive-guard/source bundle acceptance is pending.
+**Accepted final closeout:** [cygnus-closeout-20261015.zip](https://drive.google.com/file/d/1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4/view?usp=drivesdk),
+ID `1e7WOsx1JNQfSway6AuAcB9BUpTay3bK4`, same owning folder,
+**1,973,287bytes /98members**, SHA256
+`de676c142fa9288d46d72ad13754a9d1932b510539166e459d5cc813ae6e8c91`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`32cce8027be12305a1d6cc359aa28b9399d67b0151bacb863181e559c6aecf0c`.
+All member sizes/hashes passed local readback; staging copy SHA matches.
+At04:56UTC native uploaded/no-pending/no-conflicts/exact-size and independent
+Drive ID/name/size/parent checks pass; no remote Drive byte download.
+[Final pins/upload evidence/retrieval commands](docs/reports/cygnus-x1-artifacts/archive-closeout.json).
+Feature snapshot `ef021cb95a906916330317baec91dfa793feb106`; no models in this
+closeout (use main archive). Main archive guard raw telemetry is now included.
+Both immutable bundles retain report snapshots preceding their own upload
+acceptance; these Git receipts/index provide the final acceptance record.
 Recurring qualification checks are disabled; no subsequent testing scheduled.
 Pinned K50 inputs are excluded as independently retrievable dependencies:
 [PR163 restoration/member hashes and commands](docs/reports/cygnus-x1-artifacts/input-restoration.json).
