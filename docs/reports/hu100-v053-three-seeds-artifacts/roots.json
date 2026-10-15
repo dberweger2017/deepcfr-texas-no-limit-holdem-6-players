@@ -1,0 +1,70 @@
+{
+  "direct-2026100601": {
+    "final": 20261015286101,
+    "pilot": 20261015286001
+  },
+  "direct-2026101501": {
+    "final": 20261015286109,
+    "pilot": 20261015286009
+  },
+  "direct-2026101502": {
+    "final": 20261015286117,
+    "pilot": 20261015286017
+  },
+  "panel-2026101501-check_call": {
+    "final": 20261015286103,
+    "pilot": 20261015286003
+  },
+  "panel-2026101501-half_pot_pressure": {
+    "final": 20261015286107,
+    "pilot": 20261015286007
+  },
+  "panel-2026101501-loose_aggressive": {
+    "final": 20261015286105,
+    "pilot": 20261015286005
+  },
+  "panel-2026101501-matched_pot_pressure": {
+    "final": 20261015286108,
+    "pilot": 20261015286008
+  },
+  "panel-2026101501-pot_pressure": {
+    "final": 20261015286106,
+    "pilot": 20261015286006
+  },
+  "panel-2026101501-random": {
+    "final": 20261015286102,
+    "pilot": 20261015286002
+  },
+  "panel-2026101501-tight_aggressive": {
+    "final": 20261015286104,
+    "pilot": 20261015286004
+  },
+  "panel-2026101502-check_call": {
+    "final": 20261015286111,
+    "pilot": 20261015286011
+  },
+  "panel-2026101502-half_pot_pressure": {
+    "final": 20261015286115,
+    "pilot": 20261015286015
+  },
+  "panel-2026101502-loose_aggressive": {
+    "final": 20261015286113,
+    "pilot": 20261015286013
+  },
+  "panel-2026101502-matched_pot_pressure": {
+    "final": 20261015286116,
+    "pilot": 20261015286016
+  },
+  "panel-2026101502-pot_pressure": {
+    "final": 20261015286114,
+    "pilot": 20261015286014
+  },
+  "panel-2026101502-random": {
+    "final": 20261015286110,
+    "pilot": 20261015286010
+  },
+  "panel-2026101502-tight_aggressive": {
+    "final": 20261015286112,
+    "pilot": 20261015286012
+  }
+}
