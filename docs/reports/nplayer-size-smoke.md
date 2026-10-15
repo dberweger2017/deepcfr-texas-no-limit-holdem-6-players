@@ -108,7 +108,8 @@ before starting. A capacity/time/resource stop is reported, not retried or
 extended. The 200M origin-linear estimate is about 22.1M entries /5.9 GiB
 planning peak; the entry and host limits provide separate protection.
 
-The play check is fixed at **128 hands**, seed **2026101532**, with three
+The committed runner `cdd8959a` fixed the play check before execution at
+**128 hands**, seed **2026101532**, with three
 separate policy instances, an exact repeated trace and independent pinned-engine
 replay of every transition. It measures legal/reproducible play, not strength.
 
@@ -207,3 +208,51 @@ fallback. The complete privileged traces are byte-identical, SHA256
 These few self-play hands establish the pipeline, not NLHE strength or general
 coverage. Multiway abstraction, search and a full later-street average remain
 separate work.
+
+## Regression validation and limits
+
+The final native tree is `a77c1acbbc7a64c4c1a2f10b70094e6b7781539d`, built from
+`cdd8959a`; later edits add only documentation, receipts and the plotting helper.
+The remapped HU executable SHA256 is
+`3ecffc564294fe31774ce74e64dc50fac862704e5402f65834c2215f6c30c9a1`.
+It differs from the reviewed parent's executable, so output identities were
+re-executed rather than inferred from unchanged HU source files.
+
+- **43 Rust tests** pass: 37 library, five CLI and one allocation/sampler control.
+- **362 Python tests** pass with the real K50 tables and strict MKL, including
+  the native suite, export/loader/replay checks and existing compact-policy/audit
+  regressions. The independent every-row audit rejects its wrong-probability
+  control. [Test receipts](nplayer-size-smoke-artifacts/tests.json).
+- Four N-player cash configurations (20/100 BB × scope 0/3) reproduce the
+  reviewed PR289 complete checkpoint bytes after the observation-key helper
+  extraction. [Compatibility](nplayer-size-smoke-artifacts/key-compat--receipt.json).
+- All **18** HU20/HU100/HU200 × v1/v2 checkpoint/current/average identities
+  match the qualified baseline. HU100 fresh and resumed capacity terminals
+  retain `792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416`.
+  [HU identities](nplayer-size-smoke-artifacts/hu-identities--receipt.json).
+- #250 fresh 20M and 10M-to-20M resume both retain
+  `4009bbbce8d95a722e4e63e96dfc6e2b67957095f06c53487a29e4bf3d3acc8b`.
+  [Pinned recovery](nplayer-size-smoke-artifacts/gate-results--checkpoints.json).
+- The fixed HU20 v0.4.1 1B identity finishes in **784.18 seconds** under its
+  900-second guard. Its 142,677,367-byte average retains
+  `571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`.
+  [Release identity](nplayer-size-smoke-artifacts/hu20-release-identity--result.json).
+
+All 20 guarded jobs pass; none is automatically extended. The implementation
+and smoke-receipt revision `734a950b` also passes all five GitHub checks,
+including both full CI shards. [CI snapshot](nplayer-size-smoke-artifacts/ci-implementation.json).
+Final receipt/prose edits leave the tested native tree unchanged. The final PR
+head must still pass its own checks before the owner merges it.
+
+This completes the requested Phase 1 implementation and evidence, following
+reviewed million-hand rule parity and the reviewed known-game traversal gate.
+The initial failed Leduc study remains recorded beside its separately approved
+passing confirmation. This is not a general multiplayer equilibrium guarantee
+or an NLHE strength claim. PR289 remains owner-merge pending; PR291 awaits its
+own review/merge. No release, search or longer N-player campaign is started.
+The Phase 2 configuration above is a recommendation only.
+
+All raw data, generated policies/checkpoints and failure/setup evidence remain
+protected in the indexed bb128 root and its dependencies. Cloud archival and
+cleanup are pending; no originals were removed and no M4 compute was used.
+[Storage and retrieval](../../RESULTS_INDEX.md).

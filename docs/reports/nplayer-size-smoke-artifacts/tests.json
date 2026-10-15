@@ -14,5 +14,8 @@
   ],
   "policy-audit-tests": [
     "3 passed in 16.18s"
+  ],
+  "hu-build-tests": [
+    "362 passed in 266.26s (0:04:26)"
   ]
 }
