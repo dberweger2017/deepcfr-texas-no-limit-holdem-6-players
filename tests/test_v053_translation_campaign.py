@@ -49,3 +49,13 @@ def test_fixed_counts_budget_scales_only_block_work_and_global_barrier(tmp_path)
     with pytest.raises(ValueError,match='All final hands'):
         campaign.readout(tmp_path)
     assert not (tmp_path/'summary.json').exists()
+
+
+def test_final_resumes_and_readout_share_one_declared_science_budget(tmp_path):
+    campaign.put(tmp_path/'canonical-plan.json',dict(quote=dict(active_work_budget_seconds=1000)))
+    for stage,seconds in [('final-000',300),('readout-000',40)]:
+        campaign.put(tmp_path/'guards'/stage/'receipt.json',dict(seconds=seconds))
+    assert campaign.remaining_science_seconds(tmp_path)==660
+    campaign.put(tmp_path/'guards/final-001/receipt.json',dict(seconds=661))
+    with pytest.raises(ValueError,match='budget exhausted'):
+        campaign.remaining_science_seconds(tmp_path)

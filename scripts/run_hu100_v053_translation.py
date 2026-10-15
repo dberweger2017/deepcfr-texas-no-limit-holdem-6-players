@@ -103,6 +103,15 @@ def measured_quote(costs):
         scientific_closeout_seconds=1800,active_work_budget_seconds=1.25*(fixed+work)+1800)
 
 
+def remaining_science_seconds(base):
+    budget=read(base/'canonical-plan.json')['quote']['active_work_budget_seconds']
+    for stage in ('final','readout'):
+        budget-=sum(read(path)['seconds'] for path in (base/'guards').glob(stage+'-*/receipt.json'))
+    if budget <= 0:
+        raise ValueError('Declared scientific work budget exhausted')
+    return budget
+
+
 def freeze(base, costs):
     quote=measured_quote(costs)
     plan=dict(source=revision(),inputs=read(base/'inputs.json'),roots=ROOTS,counts=COUNTS,
@@ -110,7 +119,7 @@ def freeze(base, costs):
         translation={'version':version_for_schema(RELEASES['v0.5.3']['model']['schema']),**asdict(TranslationOptions())},
         total_original_final_hands=720896,global_replay_and_reproduction_before_outcomes=True,
         no_pilot_pooling=True,no_failed_hand_reruns=True,no_count_selection=True,
-        budget_clock='Active guarded final work; battery pauses consume no work and retain the same roots/source/counts',
+        budget_clock='Active guarded final and readout work; battery pauses consume no work and retain the same roots/source/counts',
         guards=dict(machine='M1',sample_seconds=5,sustained_seconds=60,family_rss_gib=13,
             free_percent=8,critical_pressure=4,swap_growth_bytes=4_000_000_000,disk_floor_gib=16,
             battery_pause_at_percent=10,ac_required=False))
@@ -218,10 +227,7 @@ def main():
         elif args.operation=='readout':readout(base)
         else:run_pairs(config,base,args.operation=='pilots')
     else:
-        budget=read(base/'canonical-plan.json')['quote']['active_work_budget_seconds'] if args.stage=='final' else 7200
-        if args.stage=='final':
-            spent=sum(read(p)['seconds'] for p in (base/'guards').glob('final-*/receipt.json'))
-            budget-=spent
+        budget=remaining_science_seconds(base) if args.stage in ('final','readout') else 7200
         print(json.dumps(guard(base,args.stage,[sys.executable,'-m','scripts.run_hu100_v053_translation',
             'worker','--operation',args.stage,'--config',str(args.config.resolve()),'--out',str(base)],active_budget=budget)))
 
