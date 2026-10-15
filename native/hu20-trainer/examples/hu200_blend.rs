@@ -300,6 +300,15 @@ fn run(
         }
     }
     let summaries: Vec<_> = inputs.iter().map(Input::summary).collect();
+    assert_eq!(membership.iter().sum::<u64>(), union);
+    assert_eq!(
+        membership
+            .iter()
+            .enumerate()
+            .map(|(mask, n)| mask.count_ones() as u64 * n)
+            .sum::<u64>(),
+        inputs.iter().map(|input| input.count).sum::<u64>()
+    );
     let overlaps = (1..=3)
         .map(|n| {
             membership
@@ -414,8 +423,8 @@ mod tests {
             hu20_trainer::key::MenuVersion::V1,
         );
         let groups = [
-            vec![(1, [90., 10.]), (3, [0., 10.])],
-            vec![(2, [0., 0.]), (3, [2., 0.])],
+            vec![(1, [90., 10.]), (3, [0., 10.]), (5, [2., 0.])],
+            vec![(2, [0., 0.]), (3, [2., 0.]), (5, [0., 3.])],
             vec![(3, [1., 1.]), (4, [0., 0.])],
         ];
         let mut specs = Vec::new();
@@ -425,7 +434,7 @@ mod tests {
             let path = directory.join(format!("seed-{seed}.gz"));
             let h = json!({"format":Game::Hu200.format(),"abstraction":cards::equity_schema(Game::Hu200),
                 "kind":"training","checkpoint_format":"jsonl-v2","average_rule":"opponent-sampled","iteration":t,
-                "config":{"seed":seed,"roots_per_seat":1,"max_entries":2,"max_nodes":1,"max_seconds":900.,
+                "config":{"seed":seed,"roots_per_seat":1,"max_entries":rows.len(),"max_nodes":1,"max_seconds":900.,
                     "game":Game::Hu200.id(),"abstraction":cards::equity_schema(Game::Hu200),"raise_cap":null},
                 "table":{"stacks":[20000,20000],"player_ids":["player-0","player-1"],"button":0,
                     "small_blind":50,"big_blind":100,"chip_unit":"0.01"},"identity":identity});
@@ -435,7 +444,7 @@ mod tests {
                 writeln!(gz, "{}", encoded(&format!("{key:032x}"), &node(values))).unwrap();
             }
             gz.finish().unwrap().flush().unwrap();
-            specs.push(json!({"path":path,"sha256":sha256_file(&path),"seed":seed,"iterations":t,"weight":weight(t),"entries":2}));
+            specs.push(json!({"path":path,"sha256":sha256_file(&path),"seed":seed,"iterations":t,"weight":weight(t),"entries":rows.len()}));
         }
         let config = directory.join("config.json");
         write_json(
@@ -445,10 +454,10 @@ mod tests {
         let scan = directory.join("scan.json");
         run("scan", &config, &scan, &directory.join("sample.gz"), None);
         let statistics: Value = serde_json::from_reader(File::open(&scan).unwrap()).unwrap();
-        assert_eq!(statistics["union_keys"], 4);
-        assert_eq!(statistics["action_slots"], 8);
-        assert_eq!(statistics["keys_in_exactly_1_2_3_seeds"], json!([3, 0, 1]));
-        assert_eq!(statistics["cache_array_bytes"], 972);
+        assert_eq!(statistics["union_keys"], 5);
+        assert_eq!(statistics["action_slots"], 10);
+        assert_eq!(statistics["keys_in_exactly_1_2_3_seeds"], json!([3, 1, 1]));
+        assert_eq!(statistics["cache_array_bytes"], 1023);
         let gate = directory.join("gate.json");
         write_json(
             &gate,
@@ -472,7 +481,7 @@ mod tests {
                 hu20_trainer::export::ZeroMass::Uniform
             )
             .unwrap(),
-            4
+            5
         );
         let rows = BufReader::new(GzDecoder::new(File::open(&average).unwrap()))
             .lines()
