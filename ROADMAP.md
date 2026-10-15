@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **M4 evidence-closeout space (October 15 afternoon):** 18.235 GB reclaimed from six archived inactive HU200 model copies and rebuildable caches; 40.041 GB free at verification. PR286 inputs/evidence and PR292 work remain. [Restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-closeout.md); [owner-requested bot comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286#issuecomment-6192153333).
+
 - **Three-player Phase 1 ([#291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291)), implementation/evidence complete and owner-reviewed:** #288's reviewed rules gate matches one million pinned-engine hands; #289's independently reviewed traversal is merged, with passing Kuhn and separately approved Leduc confirmation after its retained initial failure. Eight fixed size configurations and the 200M three-player smoke pass, including complete checkpoint/resume byte identity, every-row export audit and three-policy pinned-engine replay. Smoke: 1.059M traversal nodes/s, 2.817 GiB sampled peak, 68°C; all HU byte gates retained. [Report and Phase 2 recommendation](docs/reports/nplayer-size-smoke.md): 20 BB, v1 menu, preflop average, bounded 1B campaign. That campaign is not started; search/releases remain out of scope.
 
 - **M4 headroom for HU100 qualification (October 15):** 17.826 GB of unchanged archived merged PR278 seed-2 checkpoints/current export retired; 64.977 GB free at verification. Both final averages, all seed1 originals, shared K50 inputs and new HU100 work remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-m4-admission.md).
