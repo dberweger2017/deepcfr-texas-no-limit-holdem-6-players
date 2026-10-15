@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "engine": {
+    "url": "https://github.com/dberweger2017/pokers.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "requested_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    }
+  },
+  "hands": 128,
+  "decisions": 778,
+  "players": 3,
+  "trace_sha256": "f167f100e90ba2f43bdf0d1b22f3c31bfb199bf8e0b53e2f958909cfa4f668f1"
+}

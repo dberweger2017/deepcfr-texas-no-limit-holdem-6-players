@@ -1,0 +1,646 @@
+{
+  "candidate": "3ecffc564294fe31774ce74e64dc50fac862704e5402f65834c2215f6c30c9a1",
+  "baseline": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+  "comparisons": [
+    {
+      "stack_bb": 20,
+      "menu": "v1",
+      "hashes": {
+        "baseline": {
+          ".gz": "b655b0f00e3f2933a13490472c4828ad3857d15935a9c790eae6287ef32c7d6f",
+          "current": "eba7d6b1f919d86abff2b14b68cf82a5ec687880e963de854236ba154c6ea461",
+          "average": "38ac4199deacd2fe1ed803dc1bab5958fded90081504777ff70ca58ce58da76e"
+        },
+        "candidate": {
+          ".gz": "b655b0f00e3f2933a13490472c4828ad3857d15935a9c790eae6287ef32c7d6f",
+          "current": "eba7d6b1f919d86abff2b14b68cf82a5ec687880e963de854236ba154c6ea461",
+          "average": "38ac4199deacd2fe1ed803dc1bab5958fded90081504777ff70ca58ce58da76e"
+        }
+      }
+    },
+    {
+      "stack_bb": 20,
+      "menu": "v2",
+      "hashes": {
+        "baseline": {
+          ".gz": "a6a0268f5ffa84f38ad618426fc50766dff374e41f2395012a304083bf785450",
+          "current": "8bb16a24c23d3c914257c851c98bd5c0f8a0fdbe1f36d23ac8ef7ee67aef64d3",
+          "average": "8789eaddeef6f774aaa246ab94510e185c6a037a7ddc39d00ee601a9b05111ea"
+        },
+        "candidate": {
+          ".gz": "a6a0268f5ffa84f38ad618426fc50766dff374e41f2395012a304083bf785450",
+          "current": "8bb16a24c23d3c914257c851c98bd5c0f8a0fdbe1f36d23ac8ef7ee67aef64d3",
+          "average": "8789eaddeef6f774aaa246ab94510e185c6a037a7ddc39d00ee601a9b05111ea"
+        }
+      }
+    },
+    {
+      "stack_bb": 100,
+      "menu": "v1",
+      "hashes": {
+        "baseline": {
+          ".gz": "bebffc1293ee046e3041c1dc2c0f1c9900fbc29fdf8110b9bd198c98f2c32dbe",
+          "current": "3cc546606b10901cc1898a00ccc008cbc163e058e4dff617fc2af2b01a011de2",
+          "average": "0709c682b0707ca6567880de92fdde7fa4d2ca12f8688d25fc6a130204ad4192"
+        },
+        "candidate": {
+          ".gz": "bebffc1293ee046e3041c1dc2c0f1c9900fbc29fdf8110b9bd198c98f2c32dbe",
+          "current": "3cc546606b10901cc1898a00ccc008cbc163e058e4dff617fc2af2b01a011de2",
+          "average": "0709c682b0707ca6567880de92fdde7fa4d2ca12f8688d25fc6a130204ad4192"
+        }
+      }
+    },
+    {
+      "stack_bb": 100,
+      "menu": "v2",
+      "hashes": {
+        "baseline": {
+          ".gz": "2e0cb91dab24be09b43e481e5d791ba04b3f245115ca0ebcf33c182e99b84991",
+          "current": "e8d12cd602421771b3bf1b0b1284634392419e5689a5ad05767007c5a497aea0",
+          "average": "f2652f58ded8a39e808f4f18078d69b7deb22082aaee99b0840bb6c0332b58a1"
+        },
+        "candidate": {
+          ".gz": "2e0cb91dab24be09b43e481e5d791ba04b3f245115ca0ebcf33c182e99b84991",
+          "current": "e8d12cd602421771b3bf1b0b1284634392419e5689a5ad05767007c5a497aea0",
+          "average": "f2652f58ded8a39e808f4f18078d69b7deb22082aaee99b0840bb6c0332b58a1"
+        }
+      }
+    },
+    {
+      "stack_bb": 200,
+      "menu": "v1",
+      "hashes": {
+        "baseline": {
+          ".gz": "022714d5d1b520aaba53b626cc2c9f7a057f1a011e565fc5ac46f559e2b955d8",
+          "current": "509a9beaee43ecbd31f15e749ef62cc3aa3aab2bd83e0cd8b225d248e0e2adf8",
+          "average": "8417c9527961b6e178405a46f1c5965c68814d6d958bf6b3087dad85f7df77fa"
+        },
+        "candidate": {
+          ".gz": "022714d5d1b520aaba53b626cc2c9f7a057f1a011e565fc5ac46f559e2b955d8",
+          "current": "509a9beaee43ecbd31f15e749ef62cc3aa3aab2bd83e0cd8b225d248e0e2adf8",
+          "average": "8417c9527961b6e178405a46f1c5965c68814d6d958bf6b3087dad85f7df77fa"
+        }
+      }
+    },
+    {
+      "stack_bb": 200,
+      "menu": "v2",
+      "hashes": {
+        "baseline": {
+          ".gz": "a0517903bb7d4a3071eb3d3667445e2b9aed7cb214deef5423c983ff450389cc",
+          "current": "09b3ff3d29ae797abdd29054a1803188dc038dd48b1899c00a3e48799aecfeea",
+          "average": "58cfb6625ad4d5de1391a159c3b81ca9d12e519a5dc20f40f224a45ce3d9393e"
+        },
+        "candidate": {
+          ".gz": "a0517903bb7d4a3071eb3d3667445e2b9aed7cb214deef5423c983ff450389cc",
+          "current": "09b3ff3d29ae797abdd29054a1803188dc038dd48b1899c00a3e48799aecfeea",
+          "average": "58cfb6625ad4d5de1391a159c3b81ca9d12e519a5dc20f40f224a45ce3d9393e"
+        }
+      }
+    }
+  ],
+  "binary_byte_identical": false,
+  "commands": [
+    {
+      "label": "baseline-hu20-v1",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "20",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu20-v1-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu20-v1",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "20",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu20-v1-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu20-v2",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "20",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu20-v2-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu20-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu20-v2",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "20",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu20-v2-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu20-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu100-v1",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu100-v1-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu100-v1",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu100-v1-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu100-v2",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu100-v2-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu100-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu100-v2",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu100-v2-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu100-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu200-v1",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu200-v1-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu200-v1",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--menu",
+        "v1",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v1.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu200-v1-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v1.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v1.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v1.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu200-v2",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "baseline-hu200-v2-export",
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/repo-main/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/baseline-hu200-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu200-v2",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "200",
+        "--menu",
+        "v2",
+        "--seed",
+        "11",
+        "--nodes",
+        "100000",
+        "--average-rule",
+        "opponent-sampled",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v2.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "candidate-hu200-v2-export",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v2.gz",
+        "--current",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v2.current.gz",
+        "--average",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/candidate-hu200-v2.average.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "hu100-fresh",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--seed",
+        "2026100601",
+        "--average-rule",
+        "opponent-sampled",
+        "--max-entries",
+        "7642767",
+        "--nodes",
+        "50000000",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/hu100-fresh.gz"
+      ],
+      "exit_code": 3
+    },
+    {
+      "label": "hu100-prefix",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--seed",
+        "2026100601",
+        "--average-rule",
+        "opponent-sampled",
+        "--max-entries",
+        "7642767",
+        "--nodes",
+        "20000000",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/hu100-prefix.gz"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "hu100-resumed",
+      "argv": [
+        "/home/dberweger/nplayer-size-smoke-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--seed",
+        "2026100601",
+        "--average-rule",
+        "opponent-sampled",
+        "--max-entries",
+        "7642767",
+        "--nodes",
+        "50000000",
+        "--out",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/hu100-resumed.gz",
+        "--resume",
+        "/home/dberweger/nplayer-size-smoke-20261015/hu-identities/hu100-prefix.gz",
+        "--resume-sha256",
+        "ba4e95ec9a898211924722bed361b2fe05d2c5f61632099a318e37f4cafcd9a4"
+      ],
+      "exit_code": 3
+    }
+  ],
+  "hu100": {
+    "hu100-fresh": {
+      "sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416",
+      "bytes": 283895910,
+      "iteration": 30080,
+      "native_state": {
+        "completed_nodes": 39438279,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          760545,
+          2331123,
+          5799889,
+          13073449
+        ],
+        "traverser_visits_by_street": [
+          271144,
+          839984,
+          2094094,
+          4703664
+        ],
+        "version": 1
+      }
+    },
+    "hu100-prefix": {
+      "sha256": "ba4e95ec9a898211924722bed361b2fe05d2c5f61632099a318e37f4cafcd9a4",
+      "bytes": 177935257,
+      "iteration": 14561,
+      "native_state": {
+        "completed_nodes": 20001470,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          386457,
+          1205403,
+          2964887,
+          6593827
+        ],
+        "traverser_visits_by_street": [
+          136934,
+          436852,
+          1063527,
+          2350181
+        ],
+        "version": 1
+      }
+    },
+    "hu100-resumed": {
+      "sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416",
+      "bytes": 283895910,
+      "iteration": 30080,
+      "native_state": {
+        "completed_nodes": 39438279,
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          760545,
+          2331123,
+          5799889,
+          13073449
+        ],
+        "traverser_visits_by_street": [
+          271144,
+          839984,
+          2094094,
+          4703664
+        ],
+        "version": 1
+      }
+    }
+  },
+  "status": "passed"
+}

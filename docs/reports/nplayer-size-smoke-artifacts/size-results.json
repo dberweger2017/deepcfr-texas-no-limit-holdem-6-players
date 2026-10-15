@@ -1,0 +1,1694 @@
+[
+  {
+    "name": "n2-20bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 28.148513895997894,
+      "sampled_peak_family_rss_bytes": 1928675328,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035460,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 2,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          2971,
+          7772,
+          15995,
+          24897
+        ],
+        "average_payload_bytes": 1274944,
+        "elapsed_seconds": 0.080958821,
+        "entries": 51635,
+        "entries_by_street": [
+          2971,
+          7772,
+          15995,
+          24897
+        ],
+        "hash_capacity": 57344,
+        "iteration": 222,
+        "nodes": 100084,
+        "observer_requested_bytes": 1376272,
+        "reached_by_street": [
+          2971,
+          7772,
+          15995,
+          24897
+        ],
+        "reached_keys": 51635,
+        "regret_payload_bytes": 1274944,
+        "requested_live_bytes": 1392223246,
+        "requested_peak_bytes": 1393265363,
+        "rss_bytes": 1396252672,
+        "table_requested_bytes": 6809744,
+        "training_seconds": 0.07213366800000003
+      },
+      {
+        "average_entries_by_street": [
+          10357,
+          31297,
+          99308,
+          203499
+        ],
+        "average_payload_bytes": 8296584,
+        "elapsed_seconds": 0.83420552,
+        "entries": 344461,
+        "entries_by_street": [
+          10357,
+          31297,
+          99308,
+          203499
+        ],
+        "hash_capacity": 458752,
+        "iteration": 2638,
+        "nodes": 1000374,
+        "observer_requested_bytes": 11010064,
+        "reached_by_street": [
+          10357,
+          31297,
+          99308,
+          203499
+        ],
+        "reached_keys": 344461,
+        "regret_payload_bytes": 8296584,
+        "requested_live_bytes": 1445719198,
+        "requested_peak_bytes": 1457312323,
+        "rss_bytes": 1458061312,
+        "table_requested_bytes": 50671904,
+        "training_seconds": 0.8130433310000004
+      },
+      {
+        "average_entries_by_street": [
+          12422,
+          40393,
+          150821,
+          354325
+        ],
+        "average_payload_bytes": 13339688,
+        "elapsed_seconds": 1.756288112,
+        "entries": 557961,
+        "entries_by_street": [
+          12422,
+          40393,
+          150821,
+          354325
+        ],
+        "hash_capacity": 917504,
+        "iteration": 5361,
+        "nodes": 2000671,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          12422,
+          40393,
+          150821,
+          354325
+        ],
+        "reached_keys": 557961,
+        "regret_payload_bytes": 13339688,
+        "requested_live_bytes": 1500894174,
+        "requested_peak_bytes": 1530315139,
+        "rss_bytes": 1519509504,
+        "table_requested_bytes": 94836832,
+        "training_seconds": 1.7193824979999974
+      },
+      {
+        "average_entries_by_street": [
+          14819,
+          52142,
+          236019,
+          666995
+        ],
+        "average_payload_bytes": 22976624,
+        "elapsed_seconds": 4.635089116,
+        "entries": 969975,
+        "entries_by_street": [
+          14819,
+          52142,
+          236019,
+          666995
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 13851,
+        "nodes": 5000612,
+        "observer_requested_bytes": 44040208,
+        "reached_by_street": [
+          14819,
+          52142,
+          236019,
+          666995
+        ],
+        "reached_keys": 969975,
+        "regret_payload_bytes": 22976624,
+        "requested_live_bytes": 1610345582,
+        "requested_peak_bytes": 1676097683,
+        "rss_bytes": 1641357312,
+        "table_requested_bytes": 182268144,
+        "training_seconds": 4.575099550999978
+      },
+      {
+        "average_entries_by_street": [
+          16232,
+          60210,
+          308442,
+          1000162
+        ],
+        "average_payload_bytes": 32621688,
+        "elapsed_seconds": 9.629797952,
+        "entries": 1385046,
+        "entries_by_street": [
+          16232,
+          60210,
+          308442,
+          1000162
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 28348,
+        "nodes": 10000036,
+        "observer_requested_bytes": 44040208,
+        "reached_by_street": [
+          16232,
+          60210,
+          308442,
+          1000162
+        ],
+        "reached_keys": 1385046,
+        "regret_payload_bytes": 32621688,
+        "requested_live_bytes": 1629635710,
+        "requested_peak_bytes": 1676097683,
+        "rss_bytes": 1673359360,
+        "table_requested_bytes": 201558272,
+        "training_seconds": 9.54582472200003
+      },
+      {
+        "average_entries_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "average_payload_bytes": 44714888,
+        "elapsed_seconds": 20.02304609,
+        "entries": 1906936,
+        "entries_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 57726,
+        "nodes": 20000230,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          17307,
+          67980,
+          388583,
+          1433066
+        ],
+        "reached_keys": 1906936,
+        "regret_payload_bytes": 44714888,
+        "requested_live_bytes": 1834177182,
+        "requested_peak_bytes": 1967227731,
+        "rss_bytes": 1894084608,
+        "table_requested_bytes": 362059552,
+        "training_seconds": 19.900963976999932
+      },
+      {
+        "elapsed_seconds": 21.357334487,
+        "entries": 1906936,
+        "fingerprints": {
+          "reached_keys_sha256": "a6adc625f8ddd2270d590975ce0c25849c3185a2bffb94df4aa9e60b3890ff88",
+          "visited_regrets_sha256": "981bcdf8895656a35c421e99933429f6e75f689898439cf043c448553ad67122"
+        },
+        "nodes": 20000230,
+        "stop_reason": "nodes",
+        "training_seconds": 19.900963976999932
+      }
+    ]
+  },
+  {
+    "name": "n2-100bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 32.1719595090035,
+      "sampled_peak_family_rss_bytes": 2690600960,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035461,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 2,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          1655,
+          5643,
+          15323,
+          33727
+        ],
+        "average_payload_bytes": 1473216,
+        "elapsed_seconds": 0.078453928,
+        "entries": 56348,
+        "entries_by_street": [
+          1655,
+          5643,
+          15323,
+          33727
+        ],
+        "hash_capacity": 57344,
+        "iteration": 62,
+        "nodes": 101601,
+        "observer_requested_bytes": 1376272,
+        "reached_by_street": [
+          1655,
+          5643,
+          15323,
+          33727
+        ],
+        "reached_keys": 56348,
+        "regret_payload_bytes": 1473216,
+        "requested_live_bytes": 1392619791,
+        "requested_peak_bytes": 1393466884,
+        "rss_bytes": 1396998144,
+        "table_requested_bytes": 7206288,
+        "training_seconds": 0.06945071300000001
+      },
+      {
+        "average_entries_by_street": [
+          10898,
+          44757,
+          137178,
+          320095
+        ],
+        "average_payload_bytes": 13313328,
+        "elapsed_seconds": 0.772684483,
+        "entries": 512928,
+        "entries_by_street": [
+          10898,
+          44757,
+          137178,
+          320095
+        ],
+        "hash_capacity": 917504,
+        "iteration": 659,
+        "nodes": 1000579,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          10898,
+          44757,
+          137178,
+          320095
+        ],
+        "reached_keys": 512928,
+        "regret_payload_bytes": 13313328,
+        "requested_live_bytes": 1500841455,
+        "requested_peak_bytes": 1532290660,
+        "rss_bytes": 1517539328,
+        "table_requested_bytes": 94784112,
+        "training_seconds": 0.7480078709999994
+      },
+      {
+        "average_entries_by_street": [
+          17030,
+          74606,
+          254602,
+          625156
+        ],
+        "average_payload_bytes": 25094016,
+        "elapsed_seconds": 1.593419197,
+        "entries": 971394,
+        "entries_by_street": [
+          17030,
+          74606,
+          254602,
+          625156
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 1290,
+        "nodes": 2000810,
+        "observer_requested_bytes": 44040208,
+        "reached_by_street": [
+          17030,
+          74606,
+          254602,
+          625156
+        ],
+        "reached_keys": 971394,
+        "regret_payload_bytes": 25094016,
+        "requested_live_bytes": 1614580367,
+        "requested_peak_bytes": 1680119012,
+        "rss_bytes": 1643741184,
+        "table_requested_bytes": 186502928,
+        "training_seconds": 1.5463854449999999
+      },
+      {
+        "average_entries_by_street": [
+          28354,
+          134607,
+          539512,
+          1474004
+        ],
+        "average_payload_bytes": 55845472,
+        "elapsed_seconds": 4.184868143,
+        "entries": 2176477,
+        "entries_by_street": [
+          28354,
+          134607,
+          539512,
+          1474004
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 3255,
+        "nodes": 5000152,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          28354,
+          134607,
+          539512,
+          1474004
+        ],
+        "reached_keys": 2176477,
+        "regret_payload_bytes": 55845472,
+        "requested_live_bytes": 1856438351,
+        "requested_peak_bytes": 1975460964,
+        "rss_bytes": 1918992384,
+        "table_requested_bytes": 384320720,
+        "training_seconds": 4.100929668999994
+      },
+      {
+        "average_entries_by_street": [
+          39195,
+          197701,
+          901208,
+          2713951
+        ],
+        "average_payload_bytes": 98178008,
+        "elapsed_seconds": 9.054179417,
+        "entries": 3852055,
+        "entries_by_street": [
+          39195,
+          197701,
+          901208,
+          2713951
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 6679,
+        "nodes": 10000814,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          39195,
+          197701,
+          901208,
+          2713951
+        ],
+        "reached_keys": 3852055,
+        "regret_payload_bytes": 98178008,
+        "requested_live_bytes": 2301813567,
+        "requested_peak_bytes": 2565362500,
+        "rss_bytes": 2411806720,
+        "table_requested_bytes": 741615552,
+        "training_seconds": 8.906306910999993
+      },
+      {
+        "average_entries_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "average_payload_bytes": 166487880,
+        "elapsed_seconds": 19.335788124,
+        "entries": 6577449,
+        "entries_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 13719,
+        "nodes": 20001131,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          51042,
+          272776,
+          1429611,
+          4824020
+        ],
+        "reached_keys": 6577449,
+        "regret_payload_bytes": 166487880,
+        "requested_live_bytes": 2438433311,
+        "requested_peak_bytes": 2565362500,
+        "rss_bytes": 2626547712,
+        "table_requested_bytes": 878235296,
+        "training_seconds": 19.117480090999912
+      },
+      {
+        "elapsed_seconds": 23.725426276,
+        "entries": 6577449,
+        "fingerprints": {
+          "reached_keys_sha256": "0af19d545b1d2e4d4b9d61aab0ed3053e8831d9414489133733b9c8a510bd45b",
+          "visited_regrets_sha256": "b4f34d9d1fade0f2a752b993279dcab453ab18b97b9fd53cfe8c35e5b9b4e0eb"
+        },
+        "nodes": 20001131,
+        "stop_reason": "nodes",
+        "training_seconds": 19.117480090999912
+      }
+    ]
+  },
+  {
+    "name": "n3-20bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 34.17901125700155,
+      "sampled_peak_family_rss_bytes": 2533363712,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035524,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000,
+            2000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          9196,
+          12787,
+          16152,
+          21154
+        ],
+        "average_payload_bytes": 1447048,
+        "elapsed_seconds": 0.095792182,
+        "entries": 59289,
+        "entries_by_street": [
+          9196,
+          12787,
+          16152,
+          21154
+        ],
+        "hash_capacity": 114688,
+        "iteration": 180,
+        "nodes": 100154,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          9196,
+          12787,
+          16152,
+          21154
+        ],
+        "reached_keys": 59289,
+        "regret_payload_bytes": 1447048,
+        "requested_live_bytes": 1398203582,
+        "requested_peak_bytes": 1402403651,
+        "rss_bytes": 1402650624,
+        "table_requested_bytes": 11413792,
+        "training_seconds": 0.08699438599999997
+      },
+      {
+        "average_entries_by_street": [
+          52709,
+          92558,
+          145747,
+          208699
+        ],
+        "average_payload_bytes": 12010448,
+        "elapsed_seconds": 0.942233201,
+        "entries": 499713,
+        "entries_by_street": [
+          52709,
+          92558,
+          145747,
+          208699
+        ],
+        "hash_capacity": 917504,
+        "iteration": 1793,
+        "nodes": 1000012,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          52709,
+          92558,
+          145747,
+          208699
+        ],
+        "reached_keys": 499713,
+        "regret_payload_bytes": 12010448,
+        "requested_live_bytes": 1498235726,
+        "requested_peak_bytes": 1530437155,
+        "rss_bytes": 1514934272,
+        "table_requested_bytes": 92178352,
+        "training_seconds": 0.9177194539999988
+      },
+      {
+        "average_entries_by_street": [
+          81718,
+          153122,
+          265404,
+          400931
+        ],
+        "average_payload_bytes": 21526528,
+        "elapsed_seconds": 1.891019073,
+        "entries": 901175,
+        "entries_by_street": [
+          81718,
+          153122,
+          265404,
+          400931
+        ],
+        "hash_capacity": 917504,
+        "iteration": 3670,
+        "nodes": 2001053,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          81718,
+          153122,
+          265404,
+          400931
+        ],
+        "reached_keys": 901175,
+        "regret_payload_bytes": 21526528,
+        "requested_live_bytes": 1517267886,
+        "requested_peak_bytes": 1530437155,
+        "rss_bytes": 1545330688,
+        "table_requested_bytes": 111210512,
+        "training_seconds": 1.850391693999996
+      },
+      {
+        "average_entries_by_street": [
+          134968,
+          279473,
+          547566,
+          915111
+        ],
+        "average_payload_bytes": 44543328,
+        "elapsed_seconds": 5.115402023,
+        "entries": 1877118,
+        "entries_by_street": [
+          134968,
+          279473,
+          547566,
+          915111
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 9424,
+        "nodes": 5000877,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          134968,
+          279473,
+          547566,
+          915111
+        ],
+        "reached_keys": 1877118,
+        "regret_payload_bytes": 44543328,
+        "requested_live_bytes": 1833834094,
+        "requested_peak_bytes": 1968252883,
+        "rss_bytes": 1889951744,
+        "table_requested_bytes": 361716432,
+        "training_seconds": 5.0388231629999956
+      },
+      {
+        "average_entries_by_street": [
+          186004,
+          414500,
+          888990,
+          1626763
+        ],
+        "average_payload_bytes": 73583200,
+        "elapsed_seconds": 10.66277788,
+        "entries": 3116257,
+        "entries_by_street": [
+          186004,
+          414500,
+          888990,
+          1626763
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 18904,
+        "nodes": 10000257,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          186004,
+          414500,
+          888990,
+          1626763
+        ],
+        "reached_keys": 3116257,
+        "regret_payload_bytes": 73583200,
+        "requested_live_bytes": 1891913838,
+        "requested_peak_bytes": 1968252883,
+        "rss_bytes": 1984253952,
+        "table_requested_bytes": 419796176,
+        "training_seconds": 10.547602688999955
+      },
+      {
+        "average_entries_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "average_payload_bytes": 115351152,
+        "elapsed_seconds": 22.646438989,
+        "entries": 4907804,
+        "entries_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 38198,
+        "nodes": 20000408,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "reached_keys": 4907804,
+        "regret_payload_bytes": 115351152,
+        "requested_live_bytes": 2336159886,
+        "requested_peak_bytes": 2551231683,
+        "rss_bytes": 2481762304,
+        "table_requested_bytes": 775961840,
+        "training_seconds": 22.46433771000007
+      },
+      {
+        "elapsed_seconds": 25.809817915,
+        "entries": 4907804,
+        "fingerprints": {
+          "reached_keys_sha256": "a5dc5dd7b87e66bd6c67d11b8aa35c07ed987434703df4c29ed97d0c7b4a57c8",
+          "visited_regrets_sha256": "09623e343069c6783723b268923fdc79d5d85696cb56e96225a26781778dc681"
+        },
+        "nodes": 20000408,
+        "stop_reason": "nodes",
+        "training_seconds": 22.46433771000007
+      }
+    ]
+  },
+  {
+    "name": "n3-100bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 36.18998002100125,
+      "sampled_peak_family_rss_bytes": 3663409152,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035525,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          3699,
+          8269,
+          16413,
+          30588
+        ],
+        "average_payload_bytes": 1522368,
+        "elapsed_seconds": 0.08884665,
+        "entries": 58969,
+        "entries_by_street": [
+          3699,
+          8269,
+          16413,
+          30588
+        ],
+        "hash_capacity": 114688,
+        "iteration": 40,
+        "nodes": 100847,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          3699,
+          8269,
+          16413,
+          30588
+        ],
+        "reached_keys": 58969,
+        "regret_payload_bytes": 1522368,
+        "requested_live_bytes": 1398354223,
+        "requested_peak_bytes": 1402665892,
+        "rss_bytes": 1402826752,
+        "table_requested_bytes": 11564432,
+        "training_seconds": 0.07975958799999999
+      },
+      {
+        "average_entries_by_street": [
+          33348,
+          78139,
+          157195,
+          305115
+        ],
+        "average_payload_bytes": 14765312,
+        "elapsed_seconds": 0.851571676,
+        "entries": 573797,
+        "entries_by_street": [
+          33348,
+          78139,
+          157195,
+          305115
+        ],
+        "hash_capacity": 917504,
+        "iteration": 412,
+        "nodes": 1001046,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          33348,
+          78139,
+          157195,
+          305115
+        ],
+        "reached_keys": 573797,
+        "regret_payload_bytes": 14765312,
+        "requested_live_bytes": 1503745455,
+        "requested_peak_bytes": 1532182388,
+        "rss_bytes": 1522339840,
+        "table_requested_bytes": 97688080,
+        "training_seconds": 0.8264803819999997
+      },
+      {
+        "average_entries_by_street": [
+          62113,
+          150865,
+          310579,
+          605103
+        ],
+        "average_payload_bytes": 28979272,
+        "elapsed_seconds": 1.724295493,
+        "entries": 1128660,
+        "entries_by_street": [
+          62113,
+          150865,
+          310579,
+          605103
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 840,
+        "nodes": 2001646,
+        "observer_requested_bytes": 44040208,
+        "reached_by_street": [
+          62113,
+          150865,
+          310579,
+          605103
+        ],
+        "reached_keys": 1128660,
+        "regret_payload_bytes": 28979272,
+        "requested_live_bytes": 1622350911,
+        "requested_peak_bytes": 1680009796,
+        "rss_bytes": 1655885824,
+        "table_requested_bytes": 194273440,
+        "training_seconds": 1.6763294960000017
+      },
+      {
+        "average_entries_by_street": [
+          130848,
+          338922,
+          744555,
+          1496496
+        ],
+        "average_payload_bytes": 69306472,
+        "elapsed_seconds": 4.435367071,
+        "entries": 2710821,
+        "entries_by_street": [
+          130848,
+          338922,
+          744555,
+          1496496
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 2132,
+        "nodes": 5001171,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          130848,
+          338922,
+          744555,
+          1496496
+        ],
+        "reached_keys": 2710821,
+        "regret_payload_bytes": 69306472,
+        "requested_live_bytes": 1883360383,
+        "requested_peak_bytes": 1975134356,
+        "rss_bytes": 1959649280,
+        "table_requested_bytes": 411242720,
+        "training_seconds": 4.349276276000013
+      },
+      {
+        "average_entries_by_street": [
+          219229,
+          595797,
+          1400431,
+          2945652
+        ],
+        "average_payload_bytes": 131475920,
+        "elapsed_seconds": 9.491237898,
+        "entries": 5161109,
+        "entries_by_street": [
+          219229,
+          595797,
+          1400431,
+          2945652
+        ],
+        "hash_capacity": 7340032,
+        "iteration": 4252,
+        "nodes": 10002407,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          219229,
+          595797,
+          1400431,
+          2945652
+        ],
+        "reached_keys": 5161109,
+        "regret_payload_bytes": 131475920,
+        "requested_live_bytes": 2368409423,
+        "requested_peak_bytes": 2565611124,
+        "rss_bytes": 2512187392,
+        "table_requested_bytes": 808211376,
+        "training_seconds": 9.338133768000004
+      },
+      {
+        "average_entries_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "average_payload_bytes": 245248856,
+        "elapsed_seconds": 20.301467971,
+        "entries": 9668463,
+        "entries_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "hash_capacity": 14680064,
+        "iteration": 8531,
+        "nodes": 20002195,
+        "observer_requested_bytes": 352321552,
+        "reached_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "reached_keys": 9668463,
+        "regret_payload_bytes": 245248856,
+        "requested_live_bytes": 3317375583,
+        "requested_peak_bytes": 3745545828,
+        "rss_bytes": 3586060288,
+        "table_requested_bytes": 1581016768,
+        "training_seconds": 20.024720286999912
+      },
+      {
+        "elapsed_seconds": 26.505724486,
+        "entries": 9668463,
+        "fingerprints": {
+          "reached_keys_sha256": "17c7a6b8409cd7426a0a903c1c60bed5eb0653722bb6f8780d56414f1240383a",
+          "visited_regrets_sha256": "964a42896aef442873e6121153c7202ed88408da7c58d28cd60144d752bd1526"
+        },
+        "nodes": 20002195,
+        "stop_reason": "nodes",
+        "training_seconds": 20.024720286999912
+      }
+    ]
+  },
+  {
+    "name": "n3-20bb-scope0",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 28.149949188999017,
+      "sampled_peak_family_rss_bytes": 1979744256,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035524,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000,
+            2000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 0,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          9196,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 241984,
+        "elapsed_seconds": 0.086823174,
+        "entries": 25201,
+        "entries_by_street": [
+          9196,
+          3564,
+          5175,
+          7266
+        ],
+        "hash_capacity": 28672,
+        "iteration": 180,
+        "nodes": 100154,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          9196,
+          12787,
+          16152,
+          21154
+        ],
+        "reached_keys": 59289,
+        "regret_payload_bytes": 625200,
+        "requested_live_bytes": 1389786910,
+        "requested_peak_bytes": 1391153619,
+        "rss_bytes": 1393999872,
+        "table_requested_bytes": 2997120,
+        "training_seconds": 0.07826230500000005
+      },
+      {
+        "average_entries_by_street": [
+          52709,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 1299080,
+        "elapsed_seconds": 0.822008102,
+        "entries": 206755,
+        "entries_by_street": [
+          52709,
+          31096,
+          49625,
+          73325
+        ],
+        "hash_capacity": 229376,
+        "iteration": 1793,
+        "nodes": 1000012,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          52709,
+          92558,
+          145747,
+          208699
+        ],
+        "reached_keys": 499713,
+        "regret_payload_bytes": 4983728,
+        "requested_live_bytes": 1429379558,
+        "requested_peak_bytes": 1439925195,
+        "rss_bytes": 1435787264,
+        "table_requested_bytes": 23322184,
+        "training_seconds": 0.8029384710000006
+      },
+      {
+        "average_entries_by_street": [
+          81718,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 1966040,
+        "elapsed_seconds": 1.668358784,
+        "entries": 374172,
+        "entries_by_street": [
+          81718,
+          55777,
+          94215,
+          142462
+        ],
+        "hash_capacity": 458752,
+        "iteration": 3670,
+        "nodes": 2001053,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          81718,
+          153122,
+          265404,
+          400931
+        ],
+        "reached_keys": 901175,
+        "regret_payload_bytes": 8932440,
+        "requested_live_bytes": 1451034590,
+        "requested_peak_bytes": 1464112715,
+        "rss_bytes": 1460191232,
+        "table_requested_bytes": 44977216,
+        "training_seconds": 1.636913886000007
+      },
+      {
+        "average_entries_by_street": [
+          134968,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 3166168,
+        "elapsed_seconds": 4.336437278,
+        "entries": 792503,
+        "entries_by_street": [
+          134968,
+          112785,
+          208702,
+          336048
+        ],
+        "hash_capacity": 917504,
+        "iteration": 9424,
+        "nodes": 5000877,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          134968,
+          279473,
+          547566,
+          915111
+        ],
+        "reached_keys": 1877118,
+        "regret_payload_bytes": 18747328,
+        "requested_live_bytes": 1562188614,
+        "requested_peak_bytes": 1605763227,
+        "rss_bytes": 1577951232,
+        "table_requested_bytes": 90070952,
+        "training_seconds": 4.288916192999991
+      },
+      {
+        "average_entries_by_street": [
+          186004,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 4295744,
+        "elapsed_seconds": 9.033997765,
+        "entries": 1351748,
+        "entries_by_street": [
+          186004,
+          179198,
+          361501,
+          625045
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 18904,
+        "nodes": 10000257,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          186004,
+          414500,
+          888990,
+          1626763
+        ],
+        "reached_keys": 3116257,
+        "regret_payload_bytes": 31772576,
+        "requested_live_bytes": 1644500878,
+        "requested_peak_bytes": 1701706003,
+        "rss_bytes": 1668902912,
+        "table_requested_bytes": 172383216,
+        "training_seconds": 8.96383056100002
+      },
+      {
+        "average_entries_by_street": [
+          244461,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 5569864,
+        "elapsed_seconds": 19.081312769,
+        "entries": 2209039,
+        "entries_by_street": [
+          244461,
+          266884,
+          589717,
+          1107977
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 38198,
+        "nodes": 20000408,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          244461,
+          583910,
+          1358567,
+          2720866
+        ],
+        "reached_keys": 4907804,
+        "regret_payload_bytes": 51613472,
+        "requested_live_bytes": 1890011158,
+        "requested_peak_bytes": 2017188659,
+        "rss_bytes": 1927430144,
+        "table_requested_bytes": 329813112,
+        "training_seconds": 18.975520886000023
+      },
+      {
+        "elapsed_seconds": 22.214307421,
+        "entries": 2209039,
+        "fingerprints": {
+          "reached_keys_sha256": "a5dc5dd7b87e66bd6c67d11b8aa35c07ed987434703df4c29ed97d0c7b4a57c8",
+          "visited_regrets_sha256": "09623e343069c6783723b268923fdc79d5d85696cb56e96225a26781778dc681"
+        },
+        "nodes": 20000408,
+        "stop_reason": "nodes",
+        "training_seconds": 18.975520886000023
+      }
+    ]
+  },
+  {
+    "name": "n3-100bb-scope0",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 30.157440683004097,
+      "sampled_peak_family_rss_bytes": 2245222400,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035525,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 0,
+        "seed": 2026101521,
+        "target_nodes": 20000000
+      },
+      {
+        "average_entries_by_street": [
+          3699,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 105280,
+        "elapsed_seconds": 0.081631752,
+        "entries": 21733,
+        "entries_by_street": [
+          3699,
+          2364,
+          5295,
+          10375
+        ],
+        "hash_capacity": 28672,
+        "iteration": 40,
+        "nodes": 100847,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          3699,
+          8269,
+          16413,
+          30588
+        ],
+        "reached_keys": 58969,
+        "regret_payload_bytes": 563608,
+        "requested_live_bytes": 1389588615,
+        "requested_peak_bytes": 1390975044,
+        "rss_bytes": 1394040832,
+        "table_requested_bytes": 2798824,
+        "training_seconds": 0.073283378
+      },
+      {
+        "average_entries_by_street": [
+          33348,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 921160,
+        "elapsed_seconds": 0.758135682,
+        "entries": 210874,
+        "entries_by_street": [
+          33348,
+          22653,
+          50655,
+          104218
+        ],
+        "hash_capacity": 229376,
+        "iteration": 412,
+        "nodes": 1001046,
+        "observer_requested_bytes": 22020112,
+        "reached_by_street": [
+          33348,
+          78139,
+          157195,
+          305115
+        ],
+        "reached_keys": 573797,
+        "regret_payload_bytes": 5436224,
+        "requested_live_bytes": 1429454135,
+        "requested_peak_bytes": 1439262052,
+        "rss_bytes": 1435648000,
+        "table_requested_bytes": 23396760,
+        "training_seconds": 0.7396230879999997
+      },
+      {
+        "average_entries_by_street": [
+          62113,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 1695392,
+        "elapsed_seconds": 1.5319634039999999,
+        "entries": 414995,
+        "entries_by_street": [
+          62113,
+          44832,
+          100977,
+          207073
+        ],
+        "hash_capacity": 458752,
+        "iteration": 840,
+        "nodes": 2001646,
+        "observer_requested_bytes": 44040208,
+        "reached_by_street": [
+          62113,
+          150865,
+          310579,
+          605103
+        ],
+        "reached_keys": 1128660,
+        "regret_payload_bytes": 10667592,
+        "requested_live_bytes": 1474519191,
+        "requested_peak_bytes": 1494319460,
+        "rss_bytes": 1484001280,
+        "table_requested_bytes": 46441720,
+        "training_seconds": 1.5014746370000005
+      },
+      {
+        "average_entries_by_street": [
+          130848,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 3495952,
+        "elapsed_seconds": 3.914778454,
+        "entries": 1000369,
+        "entries_by_street": [
+          130848,
+          106275,
+          247458,
+          515788
+        ],
+        "hash_capacity": 1835008,
+        "iteration": 2132,
+        "nodes": 5001171,
+        "observer_requested_bytes": 88080400,
+        "reached_by_street": [
+          130848,
+          338922,
+          744555,
+          1496496
+        ],
+        "reached_keys": 2710821,
+        "regret_payload_bytes": 25573024,
+        "requested_live_bytes": 1637501535,
+        "requested_peak_bytes": 1703354844,
+        "rss_bytes": 1655660544,
+        "table_requested_bytes": 165383872,
+        "training_seconds": 3.861757728999996
+      },
+      {
+        "average_entries_by_street": [
+          219229,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 5750056,
+        "elapsed_seconds": 8.12657116,
+        "entries": 1920911,
+        "entries_by_street": [
+          219229,
+          197325,
+          479299,
+          1025058
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 4252,
+        "nodes": 10002407,
+        "observer_requested_bytes": 176160784,
+        "reached_by_street": [
+          219229,
+          595797,
+          1400431,
+          2945652
+        ],
+        "reached_keys": 5161109,
+        "regret_payload_bytes": 48888296,
+        "requested_live_bytes": 1887466175,
+        "requested_peak_bytes": 2021496972,
+        "rss_bytes": 1919393792,
+        "table_requested_bytes": 327268128,
+        "training_seconds": 8.038650596999993
+      },
+      {
+        "average_entries_by_street": [
+          363567,
+          0,
+          0,
+          0
+        ],
+        "average_payload_bytes": 9339552,
+        "elapsed_seconds": 17.017146522,
+        "entries": 3646141,
+        "entries_by_street": [
+          363567,
+          360754,
+          911894,
+          2009926
+        ],
+        "hash_capacity": 3670016,
+        "iteration": 8531,
+        "nodes": 20002195,
+        "observer_requested_bytes": 352321552,
+        "reached_by_street": [
+          363567,
+          1034019,
+          2575357,
+          5695520
+        ],
+        "reached_keys": 9668463,
+        "regret_payload_bytes": 92335488,
+        "requested_live_bytes": 2110663631,
+        "requested_peak_bytes": 2262602476,
+        "rss_bytes": 2167873536,
+        "table_requested_bytes": 374304816,
+        "training_seconds": 16.892233624999978
+      },
+      {
+        "elapsed_seconds": 23.073127967,
+        "entries": 3646141,
+        "fingerprints": {
+          "reached_keys_sha256": "17c7a6b8409cd7426a0a903c1c60bed5eb0653722bb6f8780d56414f1240383a",
+          "visited_regrets_sha256": "964a42896aef442873e6121153c7202ed88408da7c58d28cd60144d752bd1526"
+        },
+        "nodes": 20002195,
+        "stop_reason": "nodes",
+        "training_seconds": 16.892233624999978
+      }
+    ]
+  },
+  {
+    "name": "production-hu20",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 30.16141154700017,
+      "sampled_peak_family_rss_bytes": 1531256832,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384032397,
+        "kind": "production-hu",
+        "schema": "hu20-native-reopening-ordered-history-equity-k50-v1",
+        "seed": 2026101521,
+        "stack_bb": "20",
+        "target_nodes": 20000000
+      },
+      {
+        "elapsed_seconds": 0.053195055,
+        "entries": 50591,
+        "iteration": 254,
+        "nodes": 100085,
+        "requested_peak_bytes": 1422451013,
+        "retained_training_requested_bytes": 38282902,
+        "rss_bytes": 1394089984
+      },
+      {
+        "elapsed_seconds": 0.507062181,
+        "entries": 328572,
+        "iteration": 2704,
+        "nodes": 1000393,
+        "requested_peak_bytes": 1424845765,
+        "retained_training_requested_bytes": 40659094,
+        "rss_bytes": 1416482816
+      },
+      {
+        "elapsed_seconds": 1.09540246,
+        "entries": 521999,
+        "iteration": 5568,
+        "nodes": 2000732,
+        "requested_peak_bytes": 1451738797,
+        "retained_training_requested_bytes": 67594390,
+        "rss_bytes": 1433333760
+      },
+      {
+        "elapsed_seconds": 2.96604482,
+        "entries": 881536,
+        "iteration": 14536,
+        "nodes": 5000066,
+        "requested_peak_bytes": 1465208901,
+        "retained_training_requested_bytes": 81029270,
+        "rss_bytes": 1461022720
+      },
+      {
+        "elapsed_seconds": 6.492964227,
+        "entries": 1248556,
+        "iteration": 29637,
+        "nodes": 10000131,
+        "requested_peak_bytes": 1508215877,
+        "retained_training_requested_bytes": 124020886,
+        "rss_bytes": 1495494656
+      },
+      {
+        "elapsed_seconds": 13.812562083,
+        "entries": 1698921,
+        "iteration": 60246,
+        "nodes": 20000292,
+        "requested_peak_bytes": 1545955653,
+        "retained_training_requested_bytes": 161769622,
+        "rss_bytes": 1531187200
+      },
+      {
+        "checkpoint_bytes": 69828788,
+        "checkpoint_sha256": "0f0cc22ef84d5ae4e2a0a1db5ddafaa2409b1b5753321782385bbff506a228d3",
+        "elapsed_seconds": 23.39001578,
+        "entries": 1698921,
+        "nodes": 20000292,
+        "requested_peak_bytes": 1546850717,
+        "save_seconds": 9.577421468,
+        "stop_reason": "nodes",
+        "training_seconds": 13.812593991
+      }
+    ]
+  },
+  {
+    "name": "production-hu100",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 54.28126863799844,
+      "sampled_peak_family_rss_bytes": 1913667584,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384032399,
+        "kind": "production-hu",
+        "schema": "hu100-native-reopening-ordered-history-equity-k50-v1",
+        "seed": 2026101521,
+        "stack_bb": "100",
+        "target_nodes": 20000000
+      },
+      {
+        "elapsed_seconds": 0.055371211,
+        "entries": 56924,
+        "iteration": 68,
+        "nodes": 103225,
+        "requested_peak_bytes": 1423530359,
+        "retained_training_requested_bytes": 39080598,
+        "rss_bytes": 1396359168
+      },
+      {
+        "elapsed_seconds": 0.492096411,
+        "entries": 508312,
+        "iteration": 653,
+        "nodes": 1000887,
+        "requested_peak_bytes": 1445079415,
+        "retained_training_requested_bytes": 60634774,
+        "rss_bytes": 1434406912
+      },
+      {
+        "elapsed_seconds": 1.033124848,
+        "entries": 958121,
+        "iteration": 1311,
+        "nodes": 2001299,
+        "requested_peak_bytes": 1485808711,
+        "retained_training_requested_bytes": 101529238,
+        "rss_bytes": 1474605056
+      },
+      {
+        "elapsed_seconds": 2.820532796,
+        "entries": 2122417,
+        "iteration": 3356,
+        "nodes": 5001614,
+        "requested_peak_bytes": 1595215735,
+        "retained_training_requested_bytes": 210758294,
+        "rss_bytes": 1574535168
+      },
+      {
+        "elapsed_seconds": 6.280766412,
+        "entries": 3725764,
+        "iteration": 6755,
+        "nodes": 10000787,
+        "requested_peak_bytes": 1730134071,
+        "retained_training_requested_bytes": 345763030,
+        "rss_bytes": 1735319552
+      },
+      {
+        "elapsed_seconds": 13.865743038,
+        "entries": 6285547,
+        "iteration": 14448,
+        "nodes": 20000949,
+        "requested_peak_bytes": 1921994567,
+        "retained_training_requested_bytes": 537741974,
+        "rss_bytes": 1913200640
+      },
+      {
+        "checkpoint_bytes": 222097131,
+        "checkpoint_sha256": "d176608b9b8e0086bbd3cb55118164d299d762704a48611f3ef4351035a4826e",
+        "elapsed_seconds": 47.744571424,
+        "entries": 6285547,
+        "nodes": 20000949,
+        "requested_peak_bytes": 1922823071,
+        "save_seconds": 33.878801783,
+        "stop_reason": "nodes",
+        "training_seconds": 13.865768201
+      }
+    ]
+  }
+]

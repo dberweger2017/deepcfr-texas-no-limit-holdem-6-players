@@ -1,0 +1,19 @@
+{
+  "study": "initial",
+  "source_commit": "7900a8019ed6b868891c0b733adfa0da768f1a1e",
+  "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0",
+  "binary_sha256": "a5f6ebd5c6f6695f8483c76cf80eeb94b6157f27c1897a8ef993c64e061354d0",
+  "seeds": [
+    2026101501,
+    2026101502,
+    2026101503
+  ],
+  "endpoints": {
+    "kuhn": 2000000,
+    "leduc": 500000
+  },
+  "per_player_gain_limits": {
+    "kuhn": 0.005,
+    "leduc": 0.025
+  }
+}

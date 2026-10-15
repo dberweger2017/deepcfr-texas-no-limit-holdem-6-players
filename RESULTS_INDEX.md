@@ -1,3 +1,126 @@
+## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
+
+[PR291](https://github.com/dberweger2017/CFR-NLHE-6max/pull/291), branch
+`feature/nplayer-size-smoke`; [report](docs/reports/nplayer-size-smoke.md),
+[protocol](docs/nplayer-size-smoke-protocol.md). The owner cleared the independent
+PR289 review at `5df55c52` before these dependent measurements. Size study
+source `78954644`; export/loader native implementation `0e836e52`; fixed smoke
+runner `cdd8959a`. Full source, binary and input pins are in the report receipts.
+
+**Protected working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-size-smoke-20261015/`. Retain the complete root:
+pilot/main size measurements, commands/logs/watchdog resources, source bundles,
+key-compatibility checkpoints, policy fixtures, the fixed smoke's fresh/prefix/
+resumed checkpoints, scoped-average export and privileged replay traces,
+independent audits, regression payloads and all setup/failure evidence.
+Compact receipts and the growth figure live in
+`docs/reports/nplayer-size-smoke-artifacts/`. Generated checkpoint/policy/trace
+payloads are not committed. Cloud archival/upload acceptance and cleanup remain
+pending; no original has been removed. A transport ref-name error before the
+small audit test was corrected before any compute; it did not rerun an experiment.
+
+For a needed model, copy its receipt-named path into a fresh ignored directory,
+for example `rsync -a bb128:/home/dberweger/nplayer-size-smoke-20261015/smoke/scoped-average.gz results/nplayer-smoke/`,
+and verify its full SHA256 against the smoke result before use. This is host
+retrieval, not cloud restoration. The policy explicitly combines a preflop
+average with postflop current regret matching; it is not a released model.
+The completed 200,000,154-node smoke has a 335,278,630-byte fresh/resumed
+checkpoint, SHA256 `2bfe844a2bba1161b354bc5d7af721221786a23a57d775447cf8ede2fcc33b4a`.
+Its 225,158,368-byte scoped export has SHA256
+`fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`.
+[Recovery pins](docs/reports/nplayer-size-smoke-artifacts/smoke--recovery.json),
+[export audit](docs/reports/nplayer-size-smoke-artifacts/smoke--export-audit.json)
+and [exact operations](docs/reports/nplayer-size-smoke-artifacts/smoke--operations.json)
+record the remaining paths and identities.
+
+Dependencies: `repo` is a shared clone of PR289's host checkout, which itself
+depends on PR288 and #283's shared Git objects. `.venv` and `tables` refer to
+#283's qualified environment and pinned K50 inputs. Original Drive archive,
+member, hashes and retrieval provenance are in
+[#283's input receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Protect the entire dependency chain, active worktree and ignored local
+`planning/nplayer-size-smoke/` helpers/receipt copies. No M4 use or cleanup.
+
+## PR289 — N-player traversal and known games (merged with owner authorization, October 15, 2026)
+
+[PR289](https://github.com/dberweger2017/CFR-NLHE-6max/pull/289), branch
+`feature/nplayer-traversal-known-games`; [report](docs/reports/nplayer-traversal.md),
+[protocol](docs/nplayer-traversal-protocol.md). Initial scientific source
+`1578d66fe7e47bed1d72ee34651893d76d625824`; final core/confirmation source
+`7900a8019ed6b868891c0b733adfa0da768f1a1e`, native tree
+`e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0`. Rebase after the owner's PR288 merge
+produces `f4bc8d2b689060ce56f4fedd6fcb4b375aa19a78` with identical native bytes.
+
+**Protected open-PR working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-traversal-20261015/`. Retain the complete root,
+including failed setup probes, first failed Leduc quality study, separately
+owner-approved passing confirmation, analytical/uniform reference profiles,
+original-endpoint byte reproduction, commands, logs, watchdog telemetry,
+source bundles/stashes, binaries, small-game checkpoints/exports and cash/HU
+regression payloads. Compact receipts live in
+`docs/reports/nplayer-traversal-artifacts/`. No generated policy or checkpoint
+is committed to Git. Cloud archival/upload acceptance and cleanup are pending;
+no original has been removed.
+
+Each initial/confirmation result names its relative average-profile path and
+SHA256 plus its sibling checkpoint SHA256. Exact runtime arguments, binary
+hashes and source pins are in the corresponding admission/command receipts.
+For a needed payload, copy its receipt-named path into a fresh ignored local
+folder, for example `rsync -a bb128:/home/dberweger/nplayer-traversal-20261015/leduc-confirmation-results/leduc-2026101511/ results/nplayer-confirmation-seed1/`,
+then verify complete SHA256s against
+[confirmation results](docs/reports/nplayer-traversal-artifacts/leduc-confirmation-results--results.json).
+This is host retrieval, not accepted cloud restoration. This experiment's
+small-game exports are evaluator inputs, not cash-game policies for play.
+
+Dependencies: `repo` is a shared Git clone of PR288's host checkout and relies
+on both that object store and #283's qualification object store. Its `.venv`
+points to `/home/dberweger/cygnus-qualification-20261014/repo-main/.venv`;
+`reference-packages` is a separate OpenSpiel 2.0.2 installation, leaving the
+qualified environment unchanged. `tables` points to #283's qualification K50
+inputs; original archive/member/hash/retrieval provenance is in
+[#283's input receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Retain all these dependencies, the active checkout and its ignored local
+`planning/nplayer-traversal/` helper/receipt copies through independent review.
+No M4 data or process is used.
+
+## PR288 — N-player rules parity (reviewed and owner-merged, October 15, 2026)
+
+[PR288](https://github.com/dberweger2017/CFR-NLHE-6max/pull/288), branch
+`feature/nplayer-game-parity`; [report](docs/reports/nplayer-game-parity.md).
+Scientific source `35483892a3aba6e51cc1ba3f1c0963c7e3fb9c34`, native tree
+`a863c89425bb5f36f231dad52018c24e7b744f18`. One million three-player hands,
+5,981,964 decisions, zero pinned-engine mismatches; the ordered complete-trace
+SHA256 is `67ae6a3f153e021ec579f5547e1fb9b2fba132633da3b455c6ad1293ec21c366`.
+Traces stream without retaining bulky successful fixtures; the pinned source,
+engine and seeds in the [result](docs/reports/nplayer-game-parity-artifacts/million--result.json)
+reproduce the stream. No N-player training model has been produced.
+
+**Protected open-PR working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-phase1-20261015/`. This contains the failed initial
+pilot, corrected pilot, million/supplemental parity runs, exact commands, logs,
+watchdog telemetry and HU regression checkpoints/exports. Compact results are in
+`docs/reports/nplayer-game-parity-artifacts/`. Generated payloads remain outside
+Git. No Drive archive/upload acceptance or cleanup is claimed; archival closeout
+is pending. Retain this root and its dependencies through independent review.
+
+HU regression payload pins and commands are recorded in
+[HU identities](docs/reports/nplayer-game-parity-artifacts/hu-identities--receipt.json),
+[#250 fresh/resume](docs/reports/nplayer-game-parity-artifacts/gate-results--checkpoints.json)
+and [HU20 identity](docs/reports/nplayer-game-parity-artifacts/hu20-release-identity--result.json).
+For a needed payload, copy its receipt-named path from bb128 into a fresh ignored
+`results/` directory with `rsync -a bb128:/home/dberweger/nplayer-phase1-20261015/<path> results/<new-path>`
+and verify its complete SHA256 against the corresponding receipt before use.
+This is host retrieval, not cloud restoration.
+
+Read-only dependencies: `repo/.venv` points to
+`/home/dberweger/cygnus-qualification-20261014/repo-main/.venv`; the new shared
+Git clone also depends on that qualification checkout's object store.
+`tables` points to `/home/dberweger/cygnus-qualification-20261014/tables`.
+All three full K50 inputs were rehashed before use. Their exact Drive archive,
+member paths, sizes, hashes and retrieval commands remain in
+[#283's input restoration receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Do not remove these inputs, the shared Git store, or either active checkout.
+
 ## M4 headroom for HU100 seed qualification — October 15
 
 Owner-requested cleanup reclaims **17.826 GB** from five unchanged archived

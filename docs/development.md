@@ -23,6 +23,43 @@ The [research history](research-history.md) indexes completed experiments.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.
 - `native/hu20-trainer/`: native training, game/key parity, exports and bench.
+  `src/nplayer.rs` is an isolated 2–6-player rules core; default training uses
+  the existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
+  `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity`
+  followed by `python -m scripts.check_nplayer_parity --out results/nplayer-parity`.
+  The separate [N-player traversal gate](nplayer-traversal-protocol.md) uses
+  `multi_cfr.rs` for both Kuhn/Leduc and the cash adapter. Build experimental
+  commands with `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example multi_known --example nplayer_train`.
+  `multi_known kuhn 3 2000000 2026101501 NEW_OUTPUT_DIRECTORY` runs the declared
+  small-game experiment. Leduc failed its first fixed endpoint; the separately
+  owner-approved three-seed confirmation passes at 2M iterations with the same
+  limit. The owner cleared the independent traversal review at PR289 head
+  `5df55c52`; the [size/smoke report](reports/nplayer-size-smoke.md) follows.
+  The cash command requires
+  explicit `--players`, `--nodes`, `--max-entries`, `--max-seconds`, `--card-buckets`
+  and `--out`; optional `--stack-bb`, `--stacks`, blinds, `--last-average-street`
+  (0=preflop through 3=river), `--freeze-at-cap`, `--telemetry` and `--stop-file`
+  control a bounded run. Resume requires `--resume` plus `--resume-sha256` and
+  identical game/seed/averaging/cap settings. This version supports only the exact
+  HU v1 sizing convention, including its conditional jam and duplicate removal.
+  N-player checkpoints use a distinct N-tagged format; legacy HU commands and
+  checkpoints remain supported through their unchanged entry point.
+  Build `--example nplayer_size --example hu_size_reference` for the
+  [fixed size study](nplayer-size-smoke-protocol.md); run its guarded pilot/main
+  phases with `python -m scripts.run_nplayer_size_study --phase pilots|main --out NEW_DIRECTORY`.
+  `python -m scripts.analyze_nplayer_sizes RESULTS_JSON --out PROJECTIONS_JSON` emits growth scenarios.
+  Build `--example nplayer_policy` for minimal N-player research inference:
+  `nplayer_policy export CHECKPOINT SHA256 current|average|scoped-average NEW_OUTPUT`.
+  Full `average` requires all streets; `scoped-average` explicitly uses current
+  regret-matching probabilities after the stored averaging scope. Missing keys
+  and zero-mass rows use uniform probabilities over the exact legal menu.
+  `nplayer_policy play K50 HANDS SEED NEW_TRACE POLICY SHA256 [POLICY SHA256 ...]`
+  takes one independently seeded instance per seat, with matching game identities.
+  Only acting-seat observations enter policy methods; the replay harness owns
+  the privileged trace. Verify it with `python -m scripts.check_nplayer_policy_replay TRACE`
+  and every export row with `python -m scripts.audit_nplayer_policy CHECKPOINT POLICY`.
+  The fixed smoke runner requires its completed size/key/test admission receipts
+  and the external on-host watchdog; it is not a general campaign launcher.
   Equal-stack HU20/HU100/HU200 identities are supported. HU100 operator commands
   are in [the native HU100 protocol](native-hu100-preparation.md); it authorizes no runs.
   The [HU200 M1 feasibility report](reports/hu200-feasibility.md),

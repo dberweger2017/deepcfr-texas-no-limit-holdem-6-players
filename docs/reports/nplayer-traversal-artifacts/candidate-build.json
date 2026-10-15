@@ -1,0 +1,22 @@
+{
+  "binary": "native/hu20-trainer/target/release/hu20-trainer",
+  "binary_bytes": 1751776,
+  "binary_sha256": "25c587544fe163d1678039e6425417007c52a4fc270283b6946de9ef789ce0b1",
+  "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2",
+  "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+  "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0",
+  "native_tree_clean": true,
+  "remapped_prefixes": [
+    "native",
+    "cargo-home"
+  ],
+  "rustc": [
+    "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "binary: rustc",
+    "commit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4",
+    "commit-date: 2026-09-28",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.99.0",
+    "LLVM version: 23.1.1"
+  ]
+}

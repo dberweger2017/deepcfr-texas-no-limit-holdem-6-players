@@ -1,0 +1,92 @@
+[
+  {
+    "game": "leduc",
+    "seed": 2026101511,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../leduc-confirmation-results/leduc-2026101511/average.json",
+      "sha256": "1900ac080147a45bb21ccf7b9d4978f86c8447acb39282a72969ee2331a6c5ce",
+      "information_sets": 7428,
+      "values": [
+        -0.07804557762283687,
+        -0.010274228843929811,
+        0.08831980646676685
+      ],
+      "best_response": [
+        -0.05873689008154226,
+        0.008124031175019142,
+        0.10969932725691828
+      ],
+      "gains": [
+        0.01930868754129461,
+        0.018398260018948953,
+        0.02137952079015143
+      ]
+    },
+    "checkpoint_sha256": "5c8e31ae69094f822e9d420afc4d322c3c922100e61b1740dcbc3aa04acc1ed7",
+    "gain_gate_passed": true,
+    "status": "passed"
+  },
+  {
+    "game": "leduc",
+    "seed": 2026101512,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../leduc-confirmation-results/leduc-2026101512/average.json",
+      "sha256": "c5583ed2ef17494b17a670f1b7d0bb556d1aae300cd37461dda8a6fe60615885",
+      "information_sets": 7428,
+      "values": [
+        -0.08443701754118271,
+        -0.006646889992220795,
+        0.09108390753340354
+      ],
+      "best_response": [
+        -0.07032106122521037,
+        0.006802990354601579,
+        0.1126046112900283
+      ],
+      "gains": [
+        0.014115956315972344,
+        0.013449880346822374,
+        0.021520703756624765
+      ]
+    },
+    "checkpoint_sha256": "df4110598025a03ccea674da3b4652508cdf43d31b0984546e60e2be75e70a85",
+    "gain_gate_passed": true,
+    "status": "passed"
+  },
+  {
+    "game": "leduc",
+    "seed": 2026101513,
+    "iterations": 2000000,
+    "reference": {
+      "status": "passed",
+      "open_spiel_version": "2.0.2",
+      "input": "../leduc-confirmation-results/leduc-2026101513/average.json",
+      "sha256": "4d9d9889c12eb2f524020c12ff90c32f37574a009b5ac1cd5b3b0a839614cdb4",
+      "information_sets": 7428,
+      "values": [
+        -0.08248340029181306,
+        -0.009079734403930395,
+        0.09156313469574348
+      ],
+      "best_response": [
+        -0.06313822951209935,
+        0.005179166932153312,
+        0.1077405541440451
+      ],
+      "gains": [
+        0.019345170779713705,
+        0.014258901336083707,
+        0.016177419448301616
+      ]
+    },
+    "checkpoint_sha256": "240c133da6d7e0d116be6dc198d89184e0e820abb78795932019a53a4a5f214a",
+    "gain_gate_passed": true,
+    "status": "passed"
+  }
+]

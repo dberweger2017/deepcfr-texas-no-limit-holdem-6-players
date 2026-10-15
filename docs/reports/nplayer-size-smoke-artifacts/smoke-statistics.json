@@ -1,0 +1,299 @@
+{
+  "fresh": {
+    "wall_seconds": 304.9074230959959,
+    "sampled_peak_family_rss_bytes": 2959163392,
+    "bytes": 335278630,
+    "header": {
+      "average_rule": "opponent-sampled",
+      "counts": {
+        "decisions": [
+          14580837,
+          21822248,
+          33756886,
+          48380067
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444853,
+          2857678,
+          7196867,
+          18181024
+        ],
+        "nodes": 200000154,
+        "terminals": 81460116,
+        "traverser": [
+          13179591,
+          13181293,
+          13170540,
+          0,
+          0,
+          0
+        ]
+      },
+      "entries": 8246876,
+      "format": "nplayer-cfr-v1",
+      "freeze_at_cap": false,
+      "frozen_at": null,
+      "game": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 359261,
+      "last_average_street": 0,
+      "max_entries": 30000000,
+      "players": 3,
+      "seed": 2026101531
+    },
+    "last_periodic_telemetry": {
+      "counts": {
+        "decisions": [
+          14578666,
+          21818800,
+          33751083,
+          48370871
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444815,
+          2857491,
+          7196335,
+          18179430
+        ],
+        "nodes": 199965296,
+        "terminals": 81445876,
+        "traverser": [
+          13177549,
+          13178797,
+          13168301,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 188.910004154,
+      "entries": 8246180,
+      "frozen_at": null,
+      "iteration": 359200
+    },
+    "training_nodes_per_second": 1058521.473733004
+  },
+  "prefix": {
+    "wall_seconds": 172.25623256999825,
+    "sampled_peak_family_rss_bytes": 2283245568,
+    "bytes": 234354676,
+    "header": {
+      "average_rule": "opponent-sampled",
+      "counts": {
+        "decisions": [
+          8205460,
+          11702190,
+          16786572,
+          22830025
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          383512,
+          2227734,
+          5295787,
+          11936862
+        ],
+        "nodes": 100000619,
+        "terminals": 40476372,
+        "traverser": [
+          6595610,
+          6613261,
+          6598585,
+          0,
+          0,
+          0
+        ]
+      },
+      "entries": 5846944,
+      "format": "nplayer-cfr-v1",
+      "freeze_at_cap": false,
+      "frozen_at": null,
+      "game": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 185260,
+      "last_average_street": 0,
+      "max_entries": 30000000,
+      "players": 3,
+      "seed": 2026101531
+    },
+    "last_periodic_telemetry": {
+      "counts": {
+        "decisions": [
+          8203119,
+          11698530,
+          16780723,
+          22821506
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          383470,
+          2227378,
+          5294641,
+          11933739
+        ],
+        "nodes": 99966302,
+        "terminals": 40462424,
+        "traverser": [
+          6593305,
+          6610824,
+          6596549,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 90.246824422,
+      "entries": 5845595,
+      "frozen_at": null,
+      "iteration": 185200
+    },
+    "training_nodes_per_second": 1107698.8319561372
+  },
+  "resumed": {
+    "wall_seconds": 244.36637126099959,
+    "sampled_peak_family_rss_bytes": 3025047552,
+    "bytes": 335278630,
+    "header": {
+      "average_rule": "opponent-sampled",
+      "counts": {
+        "decisions": [
+          14580837,
+          21822248,
+          33756886,
+          48380067
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444853,
+          2857678,
+          7196867,
+          18181024
+        ],
+        "nodes": 200000154,
+        "terminals": 81460116,
+        "traverser": [
+          13179591,
+          13181293,
+          13170540,
+          0,
+          0,
+          0
+        ]
+      },
+      "entries": 8246876,
+      "format": "nplayer-cfr-v1",
+      "freeze_at_cap": false,
+      "frozen_at": null,
+      "game": {
+        "big_blind": 100,
+        "card_tables": [
+          "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+          "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+        ],
+        "game": "nlhe-cash",
+        "menu": "min-pot-conditional-jam-v1",
+        "players": 3,
+        "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+        "small_blind": 50,
+        "stacks": [
+          2000,
+          2000,
+          2000
+        ],
+        "utility_unit": "big-blind"
+      },
+      "iteration": 359261,
+      "last_average_street": 0,
+      "max_entries": 30000000,
+      "players": 3,
+      "seed": 2026101531
+    },
+    "last_periodic_telemetry": {
+      "counts": {
+        "decisions": [
+          14578666,
+          21818800,
+          33751083,
+          48370871
+        ],
+        "discarded_keys": 0,
+        "discarded_visits": 0,
+        "missing": [
+          444815,
+          2857491,
+          7196335,
+          18179430
+        ],
+        "nodes": 199965296,
+        "terminals": 81445876,
+        "traverser": [
+          13177549,
+          13178797,
+          13168301,
+          0,
+          0,
+          0
+        ]
+      },
+      "elapsed_seconds": 99.307888892,
+      "entries": 8246180,
+      "frozen_at": null,
+      "iteration": 359200
+    },
+    "training_nodes_per_second": 1006613.6549203485
+  },
+  "export": {
+    "wall_seconds": 96.06291488400166,
+    "sampled_peak_family_rss_bytes": 1680396288
+  },
+  "play-0": {
+    "wall_seconds": 14.646675284995581,
+    "sampled_peak_family_rss_bytes": 1276588032
+  },
+  "play-1": {
+    "wall_seconds": 14.803537032996246,
+    "sampled_peak_family_rss_bytes": 1278242816
+  }
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "name": "n3-20bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 6.040675340002053,
+      "sampled_peak_family_rss_bytes": 156753920,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035522,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000,
+            2000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101520,
+        "target_nodes": 100000
+      },
+      {
+        "average_entries_by_street": [
+          8160,
+          12379,
+          16406,
+          22045
+        ],
+        "average_payload_bytes": 1446200,
+        "elapsed_seconds": 0.094267065,
+        "entries": 58990,
+        "entries_by_street": [
+          8160,
+          12379,
+          16406,
+          22045
+        ],
+        "hash_capacity": 114688,
+        "iteration": 161,
+        "nodes": 100378,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          8160,
+          12379,
+          16406,
+          22045
+        ],
+        "reached_keys": 58990,
+        "regret_payload_bytes": 1446200,
+        "requested_live_bytes": 1398201884,
+        "requested_peak_bytes": 1402419393,
+        "rss_bytes": 1402503168,
+        "table_requested_bytes": 11412096,
+        "training_seconds": 0.085364874
+      },
+      {
+        "elapsed_seconds": 0.108056918,
+        "entries": 58990,
+        "fingerprints": {
+          "reached_keys_sha256": "c25054647d9edcdafa81f46ff8c89054de94a25668cd5931a565847de5922855",
+          "visited_regrets_sha256": "e4de584d49b069760a0854cd3bef02f38cd1c1cf3bb7c0d94ad634e46acb4853"
+        },
+        "nodes": 100378,
+        "stop_reason": "nodes",
+        "training_seconds": 0.085364874
+      }
+    ]
+  },
+  {
+    "name": "n3-100bb-scope3",
+    "guard": {
+      "exit_code": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 6.040733538997301,
+      "sampled_peak_family_rss_bytes": 156672000,
+      "status": "passed"
+    },
+    "records": [
+      {
+        "baseline_requested_bytes": 1384035523,
+        "entry_struct_bytes": 48,
+        "identity": {
+          "big_blind": 100,
+          "card_tables": [
+            "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+            "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+            "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+          ],
+          "game": "nlhe-cash",
+          "menu": "min-pot-conditional-jam-v1",
+          "players": 3,
+          "schema": "nplayer-button-live-actor-history-equity-k50-v1",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000
+          ],
+          "utility_unit": "big-blind"
+        },
+        "max_entries": 12000000,
+        "scope": 3,
+        "seed": 2026101520,
+        "target_nodes": 100000
+      },
+      {
+        "average_entries_by_street": [
+          4040,
+          8798,
+          16074,
+          30136
+        ],
+        "average_payload_bytes": 1518488,
+        "elapsed_seconds": 0.089981541,
+        "entries": 59048,
+        "entries_by_street": [
+          4040,
+          8798,
+          16074,
+          30136
+        ],
+        "hash_capacity": 114688,
+        "iteration": 41,
+        "nodes": 100440,
+        "observer_requested_bytes": 2752528,
+        "reached_by_street": [
+          4040,
+          8798,
+          16074,
+          30136
+        ],
+        "reached_keys": 59048,
+        "regret_payload_bytes": 1518488,
+        "requested_live_bytes": 1398346461,
+        "requested_peak_bytes": 1402683778,
+        "rss_bytes": 1402695680,
+        "table_requested_bytes": 11556672,
+        "training_seconds": 0.08102182899999998
+      },
+      {
+        "elapsed_seconds": 0.104022277,
+        "entries": 59048,
+        "fingerprints": {
+          "reached_keys_sha256": "c95fdf9c5089ab8ebbab0251cd1b11e48c94c8fe2f004aec168265ba6ddccb30",
+          "visited_regrets_sha256": "157ca5ef0b6547e11f274f63cc517d2b6484fb2b990490fbfeea36d3d4f1e4e2"
+        },
+        "nodes": 100440,
+        "stop_reason": "nodes",
+        "training_seconds": 0.08102182899999998
+      }
+    ]
+  }
+]

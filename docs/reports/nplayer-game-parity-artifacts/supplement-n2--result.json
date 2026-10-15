@@ -1,0 +1,29 @@
+{
+  "engine": {
+    "url": "https://github.com/dberweger2017/pokers.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "requested_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    }
+  },
+  "players": 2,
+  "seed": 202610180000,
+  "requested_hands": 1000,
+  "binary_sha256": "7ad653b50165354a471f588bd3957bb868c0d62425f36bd6af83ed61f7c2e77b",
+  "status": "passed",
+  "mismatches": 0,
+  "hands": 1000,
+  "decisions": 3320,
+  "forced_all_in_hands": 125,
+  "unequal_stack_hands": 698,
+  "side_pot_hands": 0,
+  "refund_hands": 394,
+  "multiway_showdowns": 0,
+  "preflop_decisions": 1640,
+  "flop_decisions": 809,
+  "turn_decisions": 520,
+  "river_decisions": 351,
+  "elapsed_seconds": 0.1907809679978527,
+  "checked_trace_sha256": "1ee52f478c84baf45190d42586ef26a4130857c68e95bc3464e4d88ed5e378d0"
+}

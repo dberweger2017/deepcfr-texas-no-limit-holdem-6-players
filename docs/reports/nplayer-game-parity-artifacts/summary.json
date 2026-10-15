@@ -1,0 +1,17 @@
+{
+  "source_commit": "35483892a3aba6e51cc1ba3f1c0963c7e3fb9c34",
+  "native_tree": "a863c89425bb5f36f231dad52018c24e7b744f18",
+  "source_clean": true,
+  "native_tests": [
+    "test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 37.41s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "23 passed in 0.39s"
+  ],
+  "python_tests": [
+    "342 passed, 1 skipped in 155.12s (0:02:35)"
+  ],
+  "real_k50_test": [
+    "1 passed in 5.53s"
+  ]
+}

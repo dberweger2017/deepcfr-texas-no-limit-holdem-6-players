@@ -1,0 +1,23 @@
+[
+  [
+    "/home/dberweger/nplayer-phase1-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+    "train",
+    "--seed",
+    "2026100601",
+    "--average-rule",
+    "opponent-sampled",
+    "--nodes",
+    "1000000000",
+    "--out",
+    "/home/dberweger/nplayer-phase1-20261015/hu20-release-identity/checkpoint.gz"
+  ],
+  [
+    "/home/dberweger/nplayer-phase1-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+    "export",
+    "/home/dberweger/nplayer-phase1-20261015/hu20-release-identity/checkpoint.gz",
+    "--average",
+    "/home/dberweger/nplayer-phase1-20261015/hu20-release-identity/average.gz",
+    "--zero-mass",
+    "uniform"
+  ]
+]
