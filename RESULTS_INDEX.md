@@ -1,3 +1,16 @@
+## M4 uploaded-cache supplement — October 15, 12:42 UTC
+
+Another **10.593 GB** released normally from five confirmed uploaded unused ZIP
+caches as PR286 packs its evidence. Total for this owner's closeout cleanup is
+**28.828 GB**; M4 has **28.742 GB free** after creating the large archives.
+Both full-model ZIPs and all PR286 originals/inputs remain; 12 protected paths
+match metadata again. Same-size native placeholders/cloud files survive.
+[Exact five paths, residency restoration and checks](docs/artifacts/storage-vacuum-20261015-closeout.md#uploaded-cache-supplement-during-archive-packing--1242-utc);
+[accepted supplement receipt](https://drive.google.com/file/d/1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm/view?usp=drivesdk),
+`1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm`, 24,884 bytes, SHA256 `b61caabfd1c12e9a006e025adfd3fb8c2439b7ebfd3a4e321282ddcf850b372c`.
+Normal native per-file eviction only; no forced offload/unpin/synced deletion,
+active original retirement, repeated payload hashes or unattended cleanup.
+
 ## M4 evidence-closeout space — October 15 afternoon
 
 Owner-requested cleanup reclaims **18.235 GB**: six unchanged archived inactive
