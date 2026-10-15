@@ -416,7 +416,8 @@ ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
 The following have embedded `ARCHIVE-MANIFEST.json`, complete local member
 size/SHA256 readback and whole hashing. Average members also match their
 existing full training audit pins. **Both average ZIPs, raw evidence and both lifecycle/closeout ZIPs have upload
-acceptance. The two full model ZIP uploads remain pending; local integrity does
+acceptance. Seed2026101501’s full model ZIP now also has upload acceptance.
+Only seed2026101502’s full model ZIP remains uploading; local integrity does
 not establish cloud acceptance.**
 
 | Locally verified ZIP | Bytes | Whole SHA256 | Manifest SHA256 |
@@ -424,7 +425,7 @@ not establish cloud acceptance.**
 | [hu100-v053-seed-2026101501-average.zip](https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk) | 3,190,246,314 | `19b1510446d5f5b76603e91d01dab347aa92d2e21115ebe339ab2eb827ff31ed` | `e0e79eeda29f02f8e2bb3fa858e0edc7c2c36f680b0088b370d2910b64009b0e` |
 | [hu100-v053-seed-2026101502-average.zip](https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk) | 3,187,451,673 | `275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df` | `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b` |
 | [hu100-v053-terminal-partial-evidence.zip](https://drive.google.com/file/d/1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm/view?usp=drivesdk) | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
-| hu100-v053-seed-2026101501-models.zip | 10,931,284,102 | `d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce` | `82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a` |
+| [hu100-v053-seed-2026101501-models.zip](https://drive.google.com/file/d/1DyUOyR9PGV7z5GjUO1H9qeUUsjACog4C/view?usp=drivesdk) | 10,931,284,102 | `d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce` | `82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a` |
 | hu100-v053-seed-2026101502-models.zip | 10,931,431,016 | `4bf18e7d43fe85767acab9ad12876431a77ea6a47df4cf2c0d06cb0724182f29` | `2601251e90e707c5bf91f1d6f4e546d49779006a286378dd0d38e6697dea3f4c` |
 
 The475-member partial evidence ZIP retains all pilots/final raw traces, both
@@ -443,7 +444,7 @@ SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`)
 and `averages/2026101502/5000000000.average.gz` (3,187,447,872bytes,
 SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`).
 All remaining exact model paths/bytes/hashes are in the linked model index;
-the model ZIPs pass local readback; cloud acceptance remains pending. Protected indexed dependencies:
+both model ZIPs pass local readback; only2026101502 cloud acceptance remains pending. Protected indexed dependencies:
 [#272 original average](#pr272--hu100-v2-frozen-5b-october-14-2026),
 [#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
 [v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
@@ -457,7 +458,11 @@ and independent Drive ID/name/size/direct-parent metadata are accepted; receipts
 are in the report artifacts. Its own final two observations are retained in
 [the compact final lifecycle receipt](docs/reports/hu100-v053-three-seeds-artifacts/partial-final-lifecycle.json),
 with the original raw stream also retained locally. Both average uploads and the final closeout ZIP below now also have native and
-independent Drive acceptance. Only the two full model ZIPs remain uploading.
+independent Drive acceptance. The full2026101501model ZIP is also accepted by
+native upload status and independent ID/name/size/direct-parent metadata;
+[cloud receipt](docs/reports/hu100-v053-three-seeds-artifacts/cloud-model-2026101501-metadata.json) and
+[native receipt](docs/reports/hu100-v053-three-seeds-artifacts/native-model-upload-observation-ci-green-1.json).
+Only the2026101502model ZIP remains uploading.
 Remote archive bytes were not downloaded or verified.
 
 Final [hu100-v053-terminal-closeout.zip](https://drive.google.com/file/d/1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S/view?usp=drivesdk),
@@ -474,8 +479,8 @@ with raw originals retained. Across all operations3,914five-second samples
 survive in raw archives or the tiny compact final lifecycle receipt.
 [M4 released receipt](docs/reports/hu100-v053-three-seeds-artifacts/m4-released.json):
 all owned science/archive workers exited and both locks verified free;
-16.91GiB free at closeout. The only remaining external dependency is upload
-acceptance for the two full model bundles. The campaign timer stays disabled.
+26.77GiB free at the release observation after owner-managed cleanup. The only
+remaining external dependency is upload acceptance for the2026101502model bundle. The campaign timer stays disabled.
 
 After downloading an accepted named archive to a fresh ignored directory, this
 command verifies whole, embedded manifest and extracted member hashes. Change
@@ -498,7 +503,7 @@ For a raw evidence member use the partial archive receipt, its downloaded ZIP
 path and the exact `research/...` member from its manifest. For closed resource
 traces use the lifecycle receipt and
 `research/guards/operations/partial-preservation/resources.jsonl`.
-For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Their uploads are pending; do not treat them as accepted cloud backups yet.
+For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Seed2026101501 is accepted; seed2026101502 remains upload-pending and is not yet an accepted cloud backup.
 No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
