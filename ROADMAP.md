@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **M4 headroom for HU100 qualification (October 15):** 17.826 GB of unchanged archived merged PR278 seed-2 checkpoints/current export retired; 64.977 GB free at verification. Both final averages, all seed1 originals, shared K50 inputs and new HU100 work remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-m4-admission.md).
+
 - **v0.5.5 confirmation training ([#278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278)), science/server preparation complete:** both M4 seeds reach 20B nodes with unchanged keys and pass every-row current/average audits inside the original clock. Both server caches and owner-started 10,000-completed-hand launchers are verified/prepared; no play. Both average ZIPs, seed 2 full ZIP and closeout supplement have upload acceptance. Seed 1 full retry is confirmed uploading at 10%; the owner assigned acceptance to Vacuum Cleaner without waiting. Campaign schedules are removed; no release/default change. [Report](docs/reports/hu200-v055-confirmation.md).
 
 - **Completed-work storage (October 15):** 19.342 GB reclaimed across M1/M4 from accepted uploaded ZIP caches, one unchanged backed-up ZIP and inactive rebuildable caches; verified 37.846/47.149 GB free. Worktrees, models/tables, server inputs and failed/uploading seed1 copies remain. [Exact restoration/rebuilds](docs/artifacts/storage-vacuum-20261015-completed.md).

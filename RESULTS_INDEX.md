@@ -1,3 +1,19 @@
+## M4 headroom for HU100 seed qualification — October 15
+
+Owner-requested cleanup reclaims **17.826 GB** from five unchanged archived
+PR278 seed-2 checkpoints/current export after its current merged status,
+upload acceptance and dependency/modification-history checks. Verified M4
+**64.977 GB /60.514 GiB free** at 2026-10-15T06:33:23Z.
+Both final averages, all seed1 originals, shared inputs/tables, new HU100 root
+and server preparations remain. Seed1 full retry is still unaccepted, so its
+checkpoints/current export remain. Earlier PR278 local retention snapshots are
+superseded only for these five exact paths.
+[Exact archive/member/hash restoration and preservation](docs/artifacts/storage-vacuum-20261015-m4-admission.md);
+[accepted per-path receipt](https://drive.google.com/file/d/1OSxDRcAd6hfmwf5cX9lJzOvycoqWZskG/view?usp=drivesdk),
+`1OSxDRcAd6hfmwf5cX9lJzOvycoqWZskG`, 39,825 bytes,
+SHA256 `847837f8987c157acc4eef7ffb5866e39dfa27fd1a70ddb93da904a95befa11e`. No payload download/repeated hashes,
+synced deletion, force offload or research-process signaling.
+
 ## PR278 — v0.5.5 confirmation seeds (science complete, upload handoff, October 15, 2026)
 
 [PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), branch
