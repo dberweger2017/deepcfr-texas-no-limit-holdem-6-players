@@ -147,7 +147,8 @@ def supervise(plan, output):
                     stop_files(jobs, hard)
                     break
                 codes = [proc.poll() for proc in processes]
-                if any(code is not None and code != 0 for code in codes):
+                allowed_codes = (0, 3) if requested is not None else (0,)
+                if any(code is not None and code not in allowed_codes for code in codes):
                     hard = 'A workload failed; stopping all owned work'
                     stop_files(jobs, hard)
                     break

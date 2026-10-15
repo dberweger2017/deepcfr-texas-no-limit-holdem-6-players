@@ -71,7 +71,7 @@ def synthetic_run(monkeypatch, tmp_path, *, cpu_stop):
         code = None
         def poll(self):
             if not cpu_stop and all(Path(j['stop_file']).exists() for j in jobs):
-                self.code = 0
+                self.code = 3
             return self.code
         def wait(self):
             return self.code
@@ -100,5 +100,5 @@ def test_vrm_clean_stop_of_all_three_is_still_a_failed_attempt(monkeypatch, tmp_
     result, jobs, stopped = synthetic_run(monkeypatch, tmp_path, cpu_stop=False)
     assert result['status'] == 'failed' and result['hard_stop_reason'] is None
     assert result['stop_reason'] == 'VRM >=95 C for 30 continuous observed seconds'
-    assert len(stopped) == 3 and result['exit_codes'] == [0, 0, 0]
+    assert len(stopped) == 3 and result['exit_codes'] == [3, 3, 3]
     assert all(Path(j['stop_file']).exists() for j in jobs)
