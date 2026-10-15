@@ -11,12 +11,16 @@ fn add(n: usize) {
 unsafe impl GlobalAlloc for Meter {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         let p = System.alloc(layout);
-        if !p.is_null() { add(layout.size()); }
+        if !p.is_null() {
+            add(layout.size());
+        }
         p
     }
     unsafe fn alloc_zeroed(&self, layout: Layout) -> *mut u8 {
         let p = System.alloc_zeroed(layout);
-        if !p.is_null() { add(layout.size()); }
+        if !p.is_null() {
+            add(layout.size());
+        }
         p
     }
     unsafe fn dealloc(&self, p: *mut u8, layout: Layout) {
@@ -26,12 +30,21 @@ unsafe impl GlobalAlloc for Meter {
     unsafe fn realloc(&self, p: *mut u8, old: Layout, size: usize) -> *mut u8 {
         let q = System.realloc(p, old, size);
         if !q.is_null() {
-            if size >= old.size() { add(size - old.size()); }
-            else { LIVE.fetch_sub(old.size() - size, Ordering::Relaxed); }
+            if size >= old.size() {
+                add(size - old.size());
+            } else {
+                LIVE.fetch_sub(old.size() - size, Ordering::Relaxed);
+            }
         }
         q
     }
 }
-pub fn live() -> usize { LIVE.load(Ordering::Relaxed) }
-pub fn peak() -> usize { PEAK.load(Ordering::Relaxed) }
-pub fn reset_peak() { PEAK.store(live(), Ordering::Relaxed); }
+pub fn live() -> usize {
+    LIVE.load(Ordering::Relaxed)
+}
+pub fn peak() -> usize {
+    PEAK.load(Ordering::Relaxed)
+}
+pub fn reset_peak() {
+    PEAK.store(live(), Ordering::Relaxed);
+}
