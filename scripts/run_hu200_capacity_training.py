@@ -12,7 +12,8 @@ import subprocess
 import sys
 import time
 
-from scripts.guard_hu200_capacity import supervise
+from scripts.guard_hu200_capacity import supervise, motherboard_sensors
+from scripts.machine_qualification import watchdog as sensors
 from scripts.hu200_capacity_preflight import BINARY_SHA, QUALIFIED, verify_rows
 from src.blueprint.abstraction import HU200_EQUITY_SCHEMA
 from src.diagnostics.cfr_average import audit
@@ -138,7 +139,31 @@ class Campaign:
             raise RuntimeError('Whole campaign time cap reached')
         return seconds
 
+    def cool_before_stage(self, label):
+        # Waiting is admission, not a failed scientific attempt or a retry.
+        package = sensors.package_sensor()
+        vrm, fan = motherboard_sensors()
+        path = self.base / 'guards' / 'admissions' / (label + '.jsonl')
+        path.parent.mkdir(parents=True, exist_ok=True)
+        started = time.monotonic()
+        with path.open('x', buffering=1) as readings:
+            while True:
+                row = sensors.sample(package)
+                row.update(vrm_c=sensors.read_int(vrm) / 1000, fan1_rpm=sensors.read_int(fan),
+                           free_disk_bytes=shutil.disk_usage(self.base).free)
+                readings.write(json.dumps(row) + '\n')
+                if (row['package_c'] >= 85 or row['available_bytes'] < 6 * 1024**3
+                        or row['swap_used_bytes'] - self.admission['swap_baseline_bytes'] > 256 * 1024**2
+                        or row['free_disk_bytes'] < 50_000_000_000 or row['fan1_rpm'] < 0):
+                    raise RuntimeError('Resource breach during idle admission')
+                if row['package_c'] < 68 and -20 <= row['vrm_c'] < 83:
+                    return
+                if time.monotonic() - started > min(300, self.remaining()):
+                    raise RuntimeError('Cooling admission timed out; no workload launched')
+                time.sleep(1)
+
     def guarded(self, label, jobs):
+        self.cool_before_stage(label)
         plan = dict(max_seconds=self.remaining(), aggregate_rss_gib=116,
             swap_baseline_bytes=self.admission['swap_baseline_bytes'], clean_save_grace_seconds=3600, jobs=jobs)
         result = supervise(plan, self.base / 'guards' / label)
