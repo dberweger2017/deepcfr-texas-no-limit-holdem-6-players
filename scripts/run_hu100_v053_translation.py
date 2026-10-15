@@ -116,7 +116,10 @@ def freeze(base, costs):
             battery_pause_at_percent=10,ac_required=False))
     put(base/'canonical-plan.json',plan)
     original=json.loads(gh('pr','view',298,'--json','body'))['body']
-    body=original+'\n\n## Canonical translation plan before final hands\n\nSHA256 `'+file_hash(base/'canonical-plan.json')+'`.\n\n```json\n'+json.dumps(plan,indent=2,sort_keys=True)+'\n```\n'
+    # The full input/receipt plan must fit GitHub's PR-body limit. Preserve its
+    # JSON values exactly; the archived canonical file remains pretty-printed.
+    payload=json.dumps(plan,sort_keys=True,separators=(',',':'))
+    body=original+'\n\n## Canonical translation plan before final hands\n\nSHA256 `'+file_hash(base/'canonical-plan.json')+'`.\n\nMeasured final science allowance: '+format(quote['active_work_budget_seconds']/3600,'.2f')+' active hours from launch, including replay/reproduction, margin and scientific closeout. Packaging/runtime/archive follow separately.\n\n```json\n'+payload+'\n```\n'
     path=base/'canonical-pr-body.md'; path.write_text(body)
     gh('pr','edit',298,'--body-file',path)
     if json.loads(gh('pr','view',298,'--json','body'))['body']!=body:
