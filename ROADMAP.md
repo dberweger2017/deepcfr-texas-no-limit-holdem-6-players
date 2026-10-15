@@ -72,6 +72,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **Three-player Phase 1, rules gate ([#288](https://github.com/dberweger2017/CFR-NLHE-6max/pull/288)), reviewed and owner-merged:** one million three-player hands match the pinned engine, including forced all-ins and unequal stacks; existing HU byte gates pass. [Rules report](docs/reports/nplayer-game-parity.md). The separate [generic traversal PR #289](https://github.com/dberweger2017/CFR-NLHE-6max/pull/289) records passing Kuhn and an owner-approved fresh Leduc confirmation after its preserved initial failure. Independent traversal/information/regret review gates size measurements and the bounded cash smoke; search and releases remain out of scope.
+
 - **M4 headroom for HU100 qualification (October 15):** 17.826 GB of unchanged archived merged PR278 seed-2 checkpoints/current export retired; 64.977 GB free at verification. Both final averages, all seed1 originals, shared K50 inputs and new HU100 work remain. [Exact restoration](docs/artifacts/storage-vacuum-20261015-m4-admission.md).
 
 - **v0.5.5 confirmation training ([#278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278)), science/server preparation complete:** both M4 seeds reach 20B nodes with unchanged keys and pass every-row current/average audits inside the original clock. Both server caches and owner-started 10,000-completed-hand launchers are verified/prepared; no play. Both average ZIPs, seed 2 full ZIP and closeout supplement have upload acceptance. Seed 1 full retry is confirmed uploading at 10%; the owner assigned acceptance to Vacuum Cleaner without waiting. Campaign schedules are removed; no release/default change. [Report](docs/reports/hu200-v055-confirmation.md).

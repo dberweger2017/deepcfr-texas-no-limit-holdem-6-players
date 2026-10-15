@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "original_quality_status": "failed",
+  "comparisons": [
+    {
+      "game": "kuhn",
+      "seed": 2026101501,
+      "iterations": 2000000,
+      "checkpoint_sha256": "3973ab587c3b4c06037618cf60c999b14b3c05969d559b3c7cb85380a26087e0",
+      "status": "passed"
+    },
+    {
+      "game": "kuhn",
+      "seed": 2026101502,
+      "iterations": 2000000,
+      "checkpoint_sha256": "75ef7309a3bf365d231cf8162717337c1dc973af6100d786a2182fbaf8874586",
+      "status": "passed"
+    },
+    {
+      "game": "kuhn",
+      "seed": 2026101503,
+      "iterations": 2000000,
+      "checkpoint_sha256": "824ebae00496fc4539e79b2dcb3f569f5eb4b9f65e33310badbd83478699b743",
+      "status": "passed"
+    },
+    {
+      "game": "leduc",
+      "seed": 2026101501,
+      "iterations": 500000,
+      "checkpoint_sha256": "8767c73459c32e5cb9ba5f8415de43c1a2bb8814ef3116a784f3fc40e0f83743",
+      "status": "failed"
+    },
+    {
+      "game": "leduc",
+      "seed": 2026101502,
+      "iterations": 500000,
+      "checkpoint_sha256": "e8a078cad2b2e73f5939e5fb4bdbbbf0311210eb7572b0a5606ed0e4b161830b",
+      "status": "failed"
+    },
+    {
+      "game": "leduc",
+      "seed": 2026101503,
+      "iterations": 500000,
+      "checkpoint_sha256": "6b8130e72f4b9ee40ebc9a80742012669d472028763ad1d41fc3a0bfb231959f",
+      "status": "failed"
+    }
+  ]
+}

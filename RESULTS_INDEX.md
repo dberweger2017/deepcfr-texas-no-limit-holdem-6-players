@@ -1,4 +1,46 @@
-## PR288 — N-player rules parity (open review, October 15, 2026)
+## PR289 — N-player traversal and known games (review pending, October 15, 2026)
+
+[PR289](https://github.com/dberweger2017/CFR-NLHE-6max/pull/289), branch
+`feature/nplayer-traversal-known-games`; [report](docs/reports/nplayer-traversal.md),
+[protocol](docs/nplayer-traversal-protocol.md). Initial scientific source
+`1578d66fe7e47bed1d72ee34651893d76d625824`; final core/confirmation source
+`7900a8019ed6b868891c0b733adfa0da768f1a1e`, native tree
+`e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0`. Rebase after the owner's PR288 merge
+produces `f4bc8d2b689060ce56f4fedd6fcb4b375aa19a78` with identical native bytes.
+
+**Protected open-PR working evidence, not an accepted cloud archive:**
+`bb128:/home/dberweger/nplayer-traversal-20261015/`. Retain the complete root,
+including failed setup probes, first failed Leduc quality study, separately
+owner-approved passing confirmation, analytical/uniform reference profiles,
+original-endpoint byte reproduction, commands, logs, watchdog telemetry,
+source bundles/stashes, binaries, small-game checkpoints/exports and cash/HU
+regression payloads. Compact receipts live in
+`docs/reports/nplayer-traversal-artifacts/`. No generated policy or checkpoint
+is committed to Git. Cloud archival/upload acceptance and cleanup are pending;
+no original has been removed.
+
+Each initial/confirmation result names its relative average-profile path and
+SHA256 plus its sibling checkpoint SHA256. Exact runtime arguments, binary
+hashes and source pins are in the corresponding admission/command receipts.
+For a needed payload, copy its receipt-named path into a fresh ignored local
+folder, for example `rsync -a bb128:/home/dberweger/nplayer-traversal-20261015/leduc-confirmation-results/leduc-2026101511/ results/nplayer-confirmation-seed1/`,
+then verify complete SHA256s against
+[confirmation results](docs/reports/nplayer-traversal-artifacts/leduc-confirmation-results--results.json).
+This is host retrieval, not accepted cloud restoration. This experiment's
+small-game exports are evaluator inputs, not cash-game policies for play.
+
+Dependencies: `repo` is a shared Git clone of PR288's host checkout and relies
+on both that object store and #283's qualification object store. Its `.venv`
+points to `/home/dberweger/cygnus-qualification-20261014/repo-main/.venv`;
+`reference-packages` is a separate OpenSpiel 2.0.2 installation, leaving the
+qualified environment unchanged. `tables` points to #283's qualification K50
+inputs; original archive/member/hash/retrieval provenance is in
+[#283's input receipt](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+Retain all these dependencies, the active checkout and its ignored local
+`planning/nplayer-traversal/` helper/receipt copies through independent review.
+No M4 data or process is used.
+
+## PR288 — N-player rules parity (reviewed and owner-merged, October 15, 2026)
 
 [PR288](https://github.com/dberweger2017/CFR-NLHE-6max/pull/288), branch
 `feature/nplayer-game-parity`; [report](docs/reports/nplayer-game-parity.md).

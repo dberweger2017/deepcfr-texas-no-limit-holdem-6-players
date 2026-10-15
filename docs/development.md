@@ -23,10 +23,26 @@ The [research history](research-history.md) indexes completed experiments.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.
 - `native/hu20-trainer/`: native training, game/key parity, exports and bench.
-  `src/nplayer.rs` is an isolated 2–6-player rules core; training still uses the
-  existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
+  `src/nplayer.rs` is an isolated 2–6-player rules core; default training uses
+  the existing HU path. Its [Phase 1 parity gate](nplayer-phase1-parity.md) runs with
   `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity`
   followed by `python -m scripts.check_nplayer_parity --out results/nplayer-parity`.
+  The separate [N-player traversal gate](nplayer-traversal-protocol.md) uses
+  `multi_cfr.rs` for both Kuhn/Leduc and the cash adapter. Build experimental
+  commands with `cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example multi_known --example nplayer_train`.
+  `multi_known kuhn 3 2000000 2026101501 NEW_OUTPUT_DIRECTORY` runs the declared
+  small-game experiment. Leduc failed its first fixed endpoint; the separately
+  owner-approved three-seed confirmation passes at 2M iterations with the same
+  limit. Independent traversal review still gates dependent size/smoke work.
+  The cash command requires
+  explicit `--players`, `--nodes`, `--max-entries`, `--max-seconds`, `--card-buckets`
+  and `--out`; optional `--stack-bb`, `--stacks`, blinds, `--last-average-street`
+  (0=preflop through 3=river), `--freeze-at-cap`, `--telemetry` and `--stop-file`
+  control a bounded run. Resume requires `--resume` plus `--resume-sha256` and
+  identical game/seed/averaging/cap settings. This version supports only the exact
+  HU v1 sizing convention, including its conditional jam and duplicate removal.
+  N-player checkpoints use a distinct N-tagged format; legacy HU commands and
+  checkpoints remain supported through their unchanged entry point.
   Equal-stack HU20/HU100/HU200 identities are supported. HU100 operator commands
   are in [the native HU100 protocol](native-hu100-preparation.md); it authorizes no runs.
   The [HU200 M1 feasibility report](reports/hu200-feasibility.md),

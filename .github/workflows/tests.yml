@@ -65,7 +65,7 @@ jobs:
         run: |
           cargo test --locked --manifest-path native/hu20-trainer/Cargo.toml --lib
           python -m scripts.build_native_trainer
-          cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity
+          cargo build --release --locked --manifest-path native/hu20-trainer/Cargo.toml --example nplayer_parity --example multi_known --example nplayer_train
           if strings native/hu20-trainer/target/release/hu20-trainer | grep -F -e "$GITHUB_WORKSPACE" -e /tmp/hu20-trainer-build; then
             echo "The native binary embeds a build path"; exit 1
           fi
