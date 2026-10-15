@@ -593,3 +593,26 @@ def test_first_hands_cutoff_spans_pooled_runs(tmp_path):
         terminals([a], 6)
     with pytest.raises(ValueError, match='fewer than'):
         analyze(a / 'journal.jsonl', workers=1, hands=6)
+
+
+def test_a_protocol_error_stops_the_run_and_keeps_its_reason(tmp_path):
+    from scripts.play_slumbot import play_hands
+
+    class Script:
+        def __init__(self, outcomes, sent):
+            self.outcomes, self.sent = list(outcomes), list(sent)
+        def post(self, endpoint, body):
+            return {k: v for k, v in dict(self.outcomes.pop(0), token='session-token-7f3a').items() if k != 'sent'}
+        def choose_action(self, view):
+            return decode(self.sent.pop(0))
+
+    a = json.loads(json.dumps(LIVE[1]))
+    bad = dict(a[0], action='kk')       # Slumbot's reply to a new hand that can't open a hand.
+    served = Script([*a, bad], [r['sent'] for r in a[1:]])
+    journal = PrefixJournal(tmp_path / 'journal.jsonl', {})
+    hands, stop, abandoned, rejections = play_hands(SlumbotConnection(served, HU200), served, journal, 2,
+                                                    max_abandoned=5, max_rejected=5)
+    journal.close()
+    assert len(hands) == 1 and stop.startswith('protocol error: ') and len(stop) > len('protocol error: ')
+    assert 'session-token' not in stop
+    assert verify_journal(tmp_path / 'journal.jsonl')['hands'] == 1
