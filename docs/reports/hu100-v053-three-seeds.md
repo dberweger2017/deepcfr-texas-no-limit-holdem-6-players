@@ -65,7 +65,7 @@ The new primary panel uses frozen v2 translation off versus v0.5.2 translation o
 
 The next seed’s cache admission refused **25,183,547,392 free bytes − 8,076,238,511 additional bytes**, which would leave **17,107,308,881 bytes**, below the **17,179,869,184-byte (16 GiB)** floor. This was a preventive refusal before cache construction or that seed’s final hands. The controller exited 1; the outer guard retained the failure and stopped. No resource breach triggered it. [Terminal receipts](hu100-v053-three-seeds-artifacts/partial-status.json).
 
-Both shared locks and detached tmux on M4; all **3,884** five-second readings retained. Sampled peak family RSS **9.450 GiB**, minimum free memory **41%**, minimum free disk **17.967 GiB**, maximum original-baseline swap growth **0.524 GB**, pressure levels **[1, 2]**. Original guards/baseline are unchanged for archival preservation. [Resources](hu100-v053-three-seeds-artifacts/resource-summary.json).
+Both shared locks and detached tmux on M4; all **3,912** five-second readings retained. Sampled peak family RSS **9.450 GiB**, minimum free memory **41%**, minimum free disk **16.914 GiB**, maximum original-baseline swap growth **0.524 GB**, pressure levels **[1, 2]**. Original guards/baseline are unchanged for archival preservation. [Resources](hu100-v053-three-seeds-artifacts/resource-summary.json).
 
 - Remote git fetch used a limited refspec; origin/feature/hu100-v053-three-seeds was absent. Worktree add failed before any build/training. Corrected to fetched FETCH_HEAD.
 
@@ -77,9 +77,9 @@ Both shared locks and detached tmux on M4; all **3,884** five-second readings re
 
 - A new synthetic direct test initially expected coverage grouped only by model; actual keys are model/street. Corrected assertion; no scientific final hand ran.
 
-- Closeout process enumeration initially encountered macOS AccessDenied on PID 1; corrected to permission-tolerant metadata enumeration. No process was signalled.
+- Closeout process enumeration initially encountered macOS AccessDenied on PID 1; corrected to permission-tolerant metadata enumeration. No process was signalled. Archival launch PATH, a Drive metadata argument and a nonexistent test filename were corrected before their intended actions. An initial broad merge whitespace check included existing upstream SVG whitespace; the campaign diff against incoming main passed without altering that SVG. [Closeout failures](hu100-v053-three-seeds-artifacts/closeout-failures.json).
 
 
-Both new model sets remain in their unsynced campaign root. Only this campaign’s inactive regenerable release cache is eligible for removal, with manifest/input/rebuild provenance; models, unique evidence and synced files stay. Separate average-only ZIPs and raw trace/shared/lifecycle archives are sealed where headroom permits, with manifests and full local readback. Full checkpoint/current bundles remain pending if they cannot fit above 16 GiB. Exact archive/member hashes, Drive locators, upload status and restore commands are in [RESULTS_INDEX](../../RESULTS_INDEX.md); no archive or upload completion is implied by this partial report.
+Both new model sets remain in their unsynced campaign root. This campaign’s inactive regenerable release cache was removed with manifest/input/rebuild provenance; no models, unique evidence, other roots or synced files were deleted. After the owner freed more space, both full checkpoint/current bundles and separate average-only ZIPs completed embedded manifests and full local readback, matching existing audit pins. The raw/shared evidence and first lifecycle ZIP have upload acceptance. Large model/average uploads remain pending; local integrity does not establish cloud acceptance. Final archival guard records are retained separately. [Exact hashes, Drive locators, member paths and restore commands](../../RESULTS_INDEX.md#pr286--hu100-v053-three-seed-campaign-terminal-partial).
 
 The campaign’s 30-minute schedule is disabled on this terminal stop. The owner decides merge and release.

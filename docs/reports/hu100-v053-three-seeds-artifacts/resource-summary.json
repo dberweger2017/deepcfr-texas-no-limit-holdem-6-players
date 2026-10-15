@@ -8,7 +8,7 @@
       "swap_growth": 0
     },
     "maximum_swap_growth_bytes": 524151685,
-    "minimum_disk_free_bytes": 19292119040,
+    "minimum_disk_free_bytes": 18161139712,
     "minimum_free_percent": 41,
     "peak_family_rss_bytes": 10146824192,
     "pressure_levels": [
@@ -22,7 +22,7 @@
       "free_memory": 0,
       "swap_growth": 0
     },
-    "samples": 3891
+    "samples": 3912
   },
   "baseline": {
     "at": 1792046129.4389791,
@@ -73,6 +73,45 @@
         "wall_seconds": 5.087660074234009
       },
       "samples": 2
+    },
+    "partial-models": {
+      "maximum_observed_held_seconds": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "maximum_swap_growth_bytes": 258086010,
+      "minimum_disk_free_bytes": 18161139712,
+      "minimum_free_percent": 86,
+      "peak_family_rss_bytes": 121077760,
+      "pressure_levels": [
+        1
+      ],
+      "readings_over_each_line": {
+        "critical_pressure": 0,
+        "family_rss": 0,
+        "free_disk": 0,
+        "free_memory": 0,
+        "swap_growth": 0
+      },
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(64664, 1792067634.950235)": 0.35915766400000004,
+          "(64670, 1792067635.040379)": 63.13261056
+        },
+        "failure": null,
+        "finished": 1792067735.734708,
+        "peak_family_rss_bytes": 121077760,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 21,
+        "started": 1792067635.0098162,
+        "status": "complete",
+        "wall_seconds": 100.72489190101624
+      },
+      "samples": 21
     },
     "partial-preservation": {
       "maximum_observed_held_seconds": {

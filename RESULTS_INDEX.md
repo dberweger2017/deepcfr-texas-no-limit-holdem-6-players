@@ -384,31 +384,34 @@ ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
 The following have embedded `ARCHIVE-MANIFEST.json`, complete local member
 size/SHA256 readback and whole hashing. Average members also match their
-existing full training audit pins. **Upload acceptance and actual file IDs are
-pending; a locally verified ZIP is not a confirmed cloud backup.**
+existing full training audit pins. **Raw evidence and first lifecycle ZIP have upload acceptance. Large average/model
+ZIP uploads remain pending; a locally verified ZIP is not a confirmed cloud backup.**
 
 | Locally verified ZIP | Bytes | Whole SHA256 | Manifest SHA256 |
 |---|---:|---|---|
 | hu100-v053-seed-2026101501-average.zip | 3,190,246,314 | `19b1510446d5f5b76603e91d01dab347aa92d2e21115ebe339ab2eb827ff31ed` | `e0e79eeda29f02f8e2bb3fa858e0edc7c2c36f680b0088b370d2910b64009b0e` |
 | hu100-v053-seed-2026101502-average.zip | 3,187,451,673 | `275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df` | `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b` |
-| hu100-v053-terminal-partial-evidence.zip | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
+| [hu100-v053-terminal-partial-evidence.zip](https://drive.google.com/file/d/1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm/view?usp=drivesdk) | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
+| hu100-v053-seed-2026101501-models.zip | 10,931,284,102 | `d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce` | `82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a` |
+| hu100-v053-seed-2026101502-models.zip | 10,931,431,016 | `4bf18e7d43fe85767acab9ad12876431a77ea6a47df4cf2c0d06cb0724182f29` | `2601251e90e707c5bf91f1d6f4e546d49779006a286378dd0d38e6697dea3f4c` |
 
 The475-member partial evidence ZIP retains all pilots/final raw traces, both
 training lineages/telemetry/audits, source/native build, prospective declarations,
 closed whole-campaign guard samples and failures. It excludes averages (separate
-ZIPs), stage1/final checkpoints/current exports (retained, model bundles pending
-storage), indexed inputs and its own live archival guard. Closed archival guard
+ZIPs), stage1/final checkpoints/current exports (retained, separately sealed model
+bundles), indexed inputs and its own live archival guard. Closed archival guard
 readings and final lifecycle receipts follow in a separate lifecycle ZIP.
-Model bundles require21,862,710,424bytes plus packaging margin; at archival
-admission another17,668,594,840bytes was needed above16GiB. The owner is freeing
-M4 space. This does not authorize deleting retained models or synced files.
+Model bundles total21,862,715,118bytes with3members each. The owner freed
+space; both were sealed/read back inside the original deadline with16.91GiB
+remaining. Historical storage-admission refusals remain in receipts. No models
+or synced files were deleted.
 
 Average members are `averages/2026101501/5000000000.average.gz` (3,190,242,513bytes,
 SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`)
 and `averages/2026101502/5000000000.average.gz` (3,187,447,872bytes,
 SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`).
 All remaining exact model paths/bytes/hashes are in the linked model index;
-pending bundles are not yet restore sources. Protected indexed dependencies:
+the model ZIPs pass local readback; cloud acceptance remains pending. Protected indexed dependencies:
 [#272 original average](#pr272--hu100-v2-frozen-5b-october-14-2026),
 [#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
 [v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
@@ -445,7 +448,7 @@ For a raw evidence member use the partial archive receipt, its downloaded ZIP
 path and the exact `research/...` member from its manifest. For closed resource
 traces use the lifecycle receipt and
 `research/guards/operations/partial-preservation/resources.jsonl`.
-The two full model bundles remain pending storage and are not restore sources.
+For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Their uploads are pending; do not treat them as accepted cloud backups yet.
 No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)

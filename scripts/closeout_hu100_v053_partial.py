@@ -206,18 +206,26 @@ def archive_models():
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage',choices=('archive','models','report','lifecycle'))
+    parser.add_argument('stage',choices=('archive','models','report','lifecycle','final-lifecycle'))
     args=parser.parse_args()
     if args.stage=='report':
         render(*inventory());return
+    owner=read(BASE/'partial-archive-owner.json')
+    if owner['pr']['number']!=286 or not 0<=time()-owner['at']<600:
+        raise ValueError('Fresh current owning-PR metadata required')
     with (Path.home()/'Local/.hu20-m4-research.lock').open('a+') as one, \
          (Path.home()/'Local/.hu100-m4-research.lock').open('a+') as two:
         for stream in (one,two):fcntl.flock(stream,fcntl.LOCK_EX|fcntl.LOCK_NB)
         if args.stage=='archive':archive()
         elif args.stage=='models':archive_models()
         else:
+            if args.stage=='final-lifecycle' and not (BASE/'model-archives-complete.json').exists():
+                raise ValueError('Full model archives must complete before final lifecycle')
             files=[]
-            for name in ('partial-preservation','partial-models'):
+            operations=('partial-preservation','partial-models') if args.stage=='lifecycle' else ('partial-models','partial-lifecycle')
+            for name in operations:
+                if (BASE/'guards/operations'/name).exists() and not (BASE/'guards/operations'/name/'receipt.json').exists():
+                    raise ValueError('Cannot archive a live guard stream')
                 files += [(p,'research/'+p.relative_to(BASE).as_posix())
                     for p in sorted((BASE/'guards/operations'/name).rglob('*')) if p.is_file()]
             files += [(p,'research/'+p.relative_to(BASE).as_posix()) for p in (
@@ -225,10 +233,34 @@ def main():
                 *[BASE/str(s)/'average-archive-receipt.json' for s in SEEDS])]
             files += [(p,'research/'+p.relative_to(BASE).as_posix()) for p in (
                 BASE/'model-archives-complete.json', *[BASE/str(s)/'model-archive-receipt.json' for s in SEEDS]) if p.exists()]
+            if args.stage=='final-lifecycle':
+                with ZipFile(FOLDER/'hu100-v053-terminal-partial-evidence.zip') as archive:
+                    archived=json.loads(archive.read('ARCHIVE-MANIFEST.json'))['members']
+                checked=0
+                for label,row in read(BASE/'partial-status.json')['final'].items():
+                    if row['status']!='replayed-and-reproduced':continue
+                    for kind in ('play','reproduction'):
+                        for name,pin in read(BASE/'final'/label/kind/'complete.json')['files'].items():
+                            member=f'research/final/{label}/{kind}/{name}'
+                            if any(archived[member][key]!=pin[key] for key in ('bytes','sha256')):
+                                raise ValueError('Archived trace differs from verified completion pin')
+                            checked+=1
+                put(BASE/'partial-archived-trace-pins.json',dict(status='verified',trace_members=checked,
+                    archive_source_hashes_match_existing_play_and_reproduction_pins=True,
+                    additional_trace_hash_pass=False,outcomes_read=False,global_barrier_complete=False))
+                for name in ('partial-final-lifecycle.json','partial-lifecycle-archive-receipt.json','partial-cache-removal.json'):
+                    files.append((BASE/name,'research/'+name))
+                files.append((BASE/'partial-archived-trace-pins.json','research/partial-archived-trace-pins.json'))
+                files += [(p,'planning/'+p.name) for p in (ROOT/'planning').glob('*')
+                          if p.is_file() and p.stat().st_size<1024**2]
+                report=ROOT/'docs/reports/hu100-v053-three-seeds.md'
+                files.append((report,'report/'+report.name))
+                files += [(p,'report/artifacts/'+p.name) for p in ASSETS.glob('*.json')]
             require_disk(sum(p.stat().st_size for p,_ in files)+1024**2)
-            put(BASE/'partial-lifecycle-archive-receipt.json',seal(files,
-                FOLDER/'hu100-v053-terminal-partial-lifecycle.zip',
-                dict(pr=286,status='terminal-partial',excludes_live_guard='partial-lifecycle',originals_retained=True)))
+            final=args.stage=='final-lifecycle'
+            put(BASE/('terminal-closeout-archive-receipt.json' if final else 'partial-lifecycle-archive-receipt.json'),seal(files,
+                FOLDER/('hu100-v053-terminal-closeout.zip' if final else 'hu100-v053-terminal-partial-lifecycle.zip'),
+                dict(pr=286,status='terminal-partial',excludes_live_guard='partial-final-lifecycle' if final else 'partial-lifecycle',originals_retained=True)))
 
 
 if __name__=='__main__':main()
