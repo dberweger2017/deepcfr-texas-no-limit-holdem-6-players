@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-10-14T15:57:15.548959+00:00",
+  "disk_free_bytes": 52865327104,
+  "disk_free_gib": 49.23467254638672,
+  "locks": "both nonblocking exclusive flocks available simultaneously",
+  "campaign_workers": [],
+  "admitted": true,
+  "source": "9c449929e4b41e8c60383e682bea1e0e1e4c01d5",
+  "prior_disk_block_preserved": true
+}

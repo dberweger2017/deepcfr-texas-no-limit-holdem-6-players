@@ -1,0 +1,134 @@
+{
+  "pr": 278,
+  "seed": 2026101421,
+  "source": "9c449929e4b41e8c60383e682bea1e0e1e4c01d5",
+  "science": "20B reached and every-row final export audits passed",
+  "archives": {
+    "full": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 20952808971,
+      "cloud_upload_accepted": false,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39",
+      "members": 52,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds": 3491.0235979557037,
+      "sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+      "status": "locally-verified",
+      "drive_id": "1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE",
+      "drive_url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
+      "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+      "remote_observed_bytes": 592464795,
+      "upload_acceptance": "blocked: Drive UI reports cannot sync and moved an earlier partial to Lost and Found; native uploading flag is not completion"
+    },
+    "final-average": {
+      "all_member_sizes_and_hashes_readback": true,
+      "bytes": 3162672661,
+      "cloud_upload_accepted": true,
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25",
+      "members": 1,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-final-average-20261014.zip",
+      "remote_archive_bytes_downloaded": false,
+      "seconds": 583.1734290122986,
+      "sha256": "27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f",
+      "status": "locally-verified",
+      "drive_id": "1OAKKAxH91_flAKK9eWa4peCy_jUImhDl",
+      "drive_url": "https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk",
+      "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+      "remote_observed_bytes": 3162672661,
+      "upload_acceptance": "accepted by native upload state plus independent matching ID/name/size/direct-parent"
+    },
+    "full-retry": {
+      "status": "uploading-verified",
+      "at": "2026-10-15T05:49:12.811155+00:00",
+      "source": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip",
+      "retry_path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-retry-20261015.zip",
+      "bytes": 20952808971,
+      "archive_sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+      "manifest_sha256": "6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39",
+      "source_mtime_ns": 1792013553901647327,
+      "method": "cp -c -p clone to ignored staging; strip copied sync identities there; atomic same-filesystem rename",
+      "removed_staging_sync_metadata": [],
+      "seconds": 0.014420270919799805,
+      "free_before": 27148726272,
+      "free_after": 27148976128,
+      "source_and_failed_partial_retained": true,
+      "no_reseal_or_rehash": true,
+      "owner_instruction": "Retry; verify uploading only, do not wait for completion; Vacuum Cleaner takes over",
+      "cloud_upload_accepted": false,
+      "setup_failures_preserved": [
+        "Initial read-only metadata helper used unavailable os.listxattr; corrected to native xattr CLI",
+        "cp rejected combined -c -X before copying; corrected to clone then strip sync metadata only in ignored staging"
+      ],
+      "verified_at": "2026-10-15T05:50:01.230371+00:00",
+      "drive_ui": {
+        "status": "Syncing",
+        "retry_status": "Uploading",
+        "displayed_size": "19.51 GB",
+        "displayed_percent": 10,
+        "displayed_eta": "37 minutes"
+      },
+      "native": {
+        "uploaded": 0,
+        "uploading": 1,
+        "accepted": false
+      },
+      "completion_not_awaited_per_owner": true,
+      "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+      "upload_acceptance": "Owner-authorized retry visibly uploading; completion not awaited; Vacuum Cleaner accepts later",
+      "progress_observed_utc": "2026-10-15T05:52:13.289815+00:00"
+    }
+  },
+  "required_models": {
+    "research/seed-2026101421/frozen/20000000000.average.gz": {
+      "bytes": 3162671080,
+      "host": "m4",
+      "mtime_ns": 1792006674802034313,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.average.gz",
+      "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+    },
+    "research/seed-2026101421/frozen/20000000000.current.gz": {
+      "bytes": 2301203484,
+      "host": "m4",
+      "mtime_ns": 1792006674802750068,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.current.gz",
+      "sha256": "bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df"
+    },
+    "research/seed-2026101421/frozen/20000000000.gz": {
+      "bytes": 4957752665,
+      "host": "m4",
+      "mtime_ns": 1792005604394503067,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+    },
+    "research/seed-2026101421/frozen/5000000000.gz": {
+      "bytes": 4351577456,
+      "host": "m4",
+      "mtime_ns": 1791997214979788082,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/5000000000.gz",
+      "sha256": "3288bc8db79034649e8e7a0fed86802a75b85d5d0bf320d556baa3013a4e1cd0"
+    },
+    "research/seed-2026101421/stage1/1000000000.gz": {
+      "bytes": 3444252731,
+      "host": "m4",
+      "mtime_ns": 1791994339204697933,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/1000000000.gz",
+      "sha256": "c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39"
+    },
+    "research/seed-2026101421/stage1/500000000.gz": {
+      "bytes": 2730179385,
+      "host": "m4",
+      "mtime_ns": 1791993910802633837,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/stage1/500000000.gz",
+      "sha256": "251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f"
+    }
+  },
+  "average_only_member": "averages/seed-2026101421/final.average.gz",
+  "restore_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101421 88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d '{\"research/seed-2026101421/frozen/20000000000.average.gz\":{\"bytes\":3162671080,\"sha256\":\"c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444\"},\"research/seed-2026101421/frozen/20000000000.current.gz\":{\"bytes\":2301203484,\"sha256\":\"bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df\"},\"research/seed-2026101421/frozen/20000000000.gz\":{\"bytes\":4957752665,\"sha256\":\"c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676\"},\"research/seed-2026101421/frozen/5000000000.gz\":{\"bytes\":4351577456,\"sha256\":\"3288bc8db79034649e8e7a0fed86802a75b85d5d0bf320d556baa3013a4e1cd0\"},\"research/seed-2026101421/stage1/1000000000.gz\":{\"bytes\":3444252731,\"sha256\":\"c24d93ac830f066da9ff3ac3ed2a690f83b5f26f37d478464c9bec9872c68b39\"},\"research/seed-2026101421/stage1/500000000.gz\":{\"bytes\":2730179385,\"sha256\":\"251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f\"}}'",
+  "restore_note": "Final-average cloud ZIP is accepted. Full cloud ZIP is partial and must not be used remotely; Drive UI reports sync error. The complete verified 20,952,808,971-byte local full ZIP remains at its canonical path; Lost and Found contains a separate 1,481,657,243-byte partial, not a restore source. No payload readback/hash repeated. Commands restore only verified local/accepted archives into fresh ignored paths and verify whole/member hashes. The retry ZIP has identical bytes/SHA256 by APFS clone of the verified canonical ZIP; it is uploading under a new retry name, not yet cloud-accepted. Local full restore can use the original verified path; retry cloud restore waits for native/independent acceptance.",
+  "input_tables": "Already indexed PR163 archive/table provenance; docs/reports/hu200-v055-confirmation-artifacts/inputs.json",
+  "remote_archive_bytes_downloaded": false,
+  "restore_average_shell_command": "python3 -c 'import hashlib,json,shutil,sys,zipfile\nfrom pathlib import Path\ndef sha(path):\n h=hashlib.sha256()\n with Path(path).open('\"'\"'rb'\"'\"') as f:\n  while chunk:=f.read(1<<20):h.update(chunk)\n return h.hexdigest()\narchive=Path(sys.argv[1]);out=Path(sys.argv[2]);expected=sys.argv[3];members=json.loads(sys.argv[4])\nassert sha(archive)==expected,'\"'\"'Archive SHA256 differs; preserve it and stop'\"'\"'\nwith zipfile.ZipFile(archive) as z:\n for member,pin in members.items():\n  target=out/member\n  target.parent.mkdir(parents=True,exist_ok=True)\n  with z.open(member) as source,target.open('\"'\"'xb'\"'\"') as dest:shutil.copyfileobj(source,dest,1<<20)\n  assert target.stat().st_size==pin['\"'\"'bytes'\"'\"'] and sha(target)==pin['\"'\"'sha256'\"'\"'],'\"'\"'Restored member differs'\"'\"'\nprint('\"'\"'Restored and SHA256 verified'\"'\"',len(members),'\"'\"'members'\"'\"')\n' /Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-final-average-20261014.zip /Users/dberweger/Local/hu200-v055-confirmation-restore/results/seed-2026101421-average 27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f '{\"averages/seed-2026101421/final.average.gz\":{\"bytes\":3162671080,\"sha256\":\"c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444\"}}'"
+}

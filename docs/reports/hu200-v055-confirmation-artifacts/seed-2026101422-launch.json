@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-10-14T20:22:19.852389+00:00",
+  "locks": "both exclusive nonblocking flocks free; held during admission",
+  "campaign_workers": [],
+  "remaining_seconds": 27296.31980586052,
+  "minimum_remaining_seconds": 19800.0,
+  "disk_free_bytes": 62987751424,
+  "disk_free_gib": 58.66191482543945,
+  "first_seed_audited_rows": 85373916,
+  "first_seed_finished": 1792008335.28643,
+  "original_deadline": 1792036636.171959,
+  "baseline_unchanged": true,
+  "controller_sha256": "e7b3ce914b3bc76cc2576107ffa8489f15cc976cc607796d0b6e9e52f6ff22f5",
+  "launched_pid": 9907,
+  "launched_create_time": 1792009339.852762
+}

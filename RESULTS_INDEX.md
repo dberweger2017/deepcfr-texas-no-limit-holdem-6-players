@@ -1,3 +1,110 @@
+## M4 headroom for HU100 seed qualification — October 15
+
+Owner-requested cleanup reclaims **17.826 GB** from five unchanged archived
+PR278 seed-2 checkpoints/current export after its current merged status,
+upload acceptance and dependency/modification-history checks. Verified M4
+**64.977 GB /60.514 GiB free** at 2026-10-15T06:33:23Z.
+Both final averages, all seed1 originals, shared inputs/tables, new HU100 root
+and server preparations remain. Seed1 full retry is still unaccepted, so its
+checkpoints/current export remain. Earlier PR278 local retention snapshots are
+superseded only for these five exact paths.
+[Exact archive/member/hash restoration and preservation](docs/artifacts/storage-vacuum-20261015-m4-admission.md);
+[accepted per-path receipt](https://drive.google.com/file/d/1OSxDRcAd6hfmwf5cX9lJzOvycoqWZskG/view?usp=drivesdk),
+`1OSxDRcAd6hfmwf5cX9lJzOvycoqWZskG`, 39,825 bytes,
+SHA256 `847837f8987c157acc4eef7ffb5866e39dfa27fd1a70ddb93da904a95befa11e`. No payload download/repeated hashes,
+synced deletion, force offload or research-process signaling.
+
+## PR278 — v0.5.5 confirmation seeds (science complete, upload handoff, October 15, 2026)
+
+[PR278](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278), branch
+`feature/hu200-v055-confirmation`. [Report](docs/reports/hu200-v055-confirmation.md).
+M4 source `9c449929e4b41e8c60383e682bea1e0e1e4c01d5`; ignored unsynced root
+`~/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation`.
+Fixed first-build clock October 14 15:57:16 UTC through October 15 03:57:16 UTC.
+Initial disk block is preserved; fresh owner-cleared admission passed.
+
+Seed **2026101421**: **20,000,000,322 actual nodes /85,373,916 unchanged keys**,
+every-row final current/average audit passes at 20:05:35 UTC. Final average
+`seed-2026101421/frozen/20000000000.average.gz`, **3,162,671,080 bytes**, SHA256
+`c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444`.
+[All model pins/audit](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-final.audit.json),
+[complete lineage](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json).
+Retain cap, 5B and final checkpoints for resume. Seed **2026101422** launches
+20:22:19 UTC after those audits with 7.58 hours left and 58.66 GiB free; its
+cap is 755,276,076 actual nodes /85,373,928 entries. Its verified frozen save is
+20,000,000,096 nodes /16,827,728 iterations with unchanged keys; training and
+exports and every-row audits are complete at October 15 **00:38:20 UTC**.
+Final average `seed-2026101422/frozen/20000000000.average.gz`, **3,162,064,602 bytes**,
+SHA256 `b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`.
+[Final model pins/audit](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-final.audit.json),
+[closed resources](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-resource-summary.json).
+Both seeds finish inside the original deadline with unchanged guards; M4 workers
+are exited and both research locks are free. Both server model/cache preparations
+and owner-started launchers now pass; no play. Seed 2 archives fit by sealing
+the full ZIP on M1 and the separate average ZIP on M4, in the same cloud folder.
+[Second cache/launcher receipts](docs/reports/hu200-v055-confirmation-artifacts/server-seed-2026101422/launcher-receipt.json).
+
+First average transfer to db-ocean is SHA256 verified, its new read-only cache
+passes all payload hashes, and `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`
+is prepared/syntax checked, not started. [Server receipts](docs/reports/hu200-v055-confirmation-artifacts/server-seed-2026101421/cache-receipt.json). Other server sessions/paths
+are protected. Canonical archive folder
+[PR278](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP),
+ID `1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP`, under project folder
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Per-seed full and separate final-average
+ZIPs are all locally sealed/readback verified. Seed 1's full ZIP is locally verified:
+**20,952,808,971 bytes**, SHA256 `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d`,
+manifest `6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39`, 52 members.
+Separate final-average ZIP: **3,162,672,661 bytes**, SHA256
+`27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f`,
+manifest `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25`, one member.
+[All archive IDs, member pins and usable local restoration command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json).
+**Final-average ZIP accepted**: [Drive `1OAKKAxH91_flAKK9eWa4peCy_jUImhDl`](https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk),
+native uploaded1/uploading0/no conflicts and independent ID/name/3,162,672,661-byte
+size/direct-parent match. **Full ZIP is sync-blocked:** Drive UI reports “Can’t sync file, moved it to
+‘Lost and Found’ folder”; native uploaded0/uploading1 is stale and remote size
+still partial. The intact verified local full ZIP remains canonical; the separate
+Lost and Found copy is an earlier **1,481,657,243-byte partial**. Both are retained.
+[Exact paths and read-only error receipt](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-sync-error.json).
+Never restore either partial copy. No remote bytes downloaded or verified. The
+closeout supplement was initially blocked; its later accepted upload is recorded below. Seed 2's average-only ZIP is locally member-readback verified:
+**3,162,066,289 bytes**, SHA256 `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e`,
+manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
+one member `averages/seed-2026101422/final.average.gz`. **Upload accepted:**
+[Drive `1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT`](https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view?usp=drivesdk),
+native uploaded1/uploading0/no conflicts plus independent ID/name/size/parent
+match. No remote archive bytes downloaded. Seed 2 full ZIP is now locally
+verified: **20,953,054,295 bytes**, SHA256
+`73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb`,
+manifest `6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1`,
+48 members, complete local readback. [Drive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view?usp=drivesdk)
+is **upload-accepted at 05:51 CEST**: native uploaded1/uploading0/no conflicts
+and independent ID/name/exact20,953,054,295-byte size/direct-parent match.
+Seed 1 full remains sync-blocked; its partial remote version is not a restoration source.
+The owner later authorized retry and handoff without waiting for completion.
+`hu200-v055-seed-2026101421-full-retry-20261015.zip` in the same canonical folder
+is an APFS clone of the complete verified original: **20,952,808,971 bytes**,
+whole SHA256 `88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d`
+and the same manifest/member hashes. **Visibly uploading**, native uploaded0/
+uploading1; no cloud acceptance yet. Original/failed partials retained.
+[Retry](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-upload-retry.json),
+[acceptance handoff to Vacuum Cleaner](docs/reports/hu200-v055-confirmation-artifacts/upload-handoff.json).
+The [closeout supplement](https://drive.google.com/file/d/1Pg4fSvilquKi53C0EIFfjE0SPf6qgLhi/view?usp=drivesdk) is **upload-accepted**: **873,329 bytes**,
+SHA256 `14f92de8e5423bd743af96ea4d14b47d81fa55d2f6bc041fda77585b7152f458`,
+manifest `b6b1dacebf5b9ddd48ce70658f0ae645dcbdd4614b089bf56994e255ab9c1edb`,
+159 members; full local readback, native uploaded/no-pending/no-conflicts and
+independent ID/name/size/direct-parent match. It retains all closed administrative,
+server, observer and archive failure/source/resource evidence, excluding private
+callback data. No remote archive bytes downloaded.
+[Receipt](docs/reports/hu200-v055-confirmation-artifacts/closeout-archive-receipt.json),
+[restore command](docs/reports/hu200-v055-confirmation-artifacts/closeout-archive-index.json).
+Retry upload is confirmed progressing at **10%**; Vacuum Cleaner takes over
+completion/acceptance and Drive ID indexing per owner. No new monitor or cleanup.
+Campaign interval and disabled webhook removed at the terminal block; [receipts](docs/reports/hu200-v055-confirmation-artifacts/schedule-removal.json).
+[Second seed model pins and full/average local restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+This campaign removed or evicted no research originals or synced files;
+other open roots are untouched. The later owner-authorized seed-2 ZIP cache
+release is recorded separately below. Preserved administrative failures; no scientific retry.
+
 ## Completed-work cleanup — October 15
 
 Owner-requested pass reclaims **19.342 GB**: M1 **10.733 GB** /M4 **8.609 GB**.

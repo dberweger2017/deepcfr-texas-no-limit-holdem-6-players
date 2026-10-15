@@ -1,0 +1,23 @@
+{
+  "observed_at": 1792030907.129896,
+  "owned_process": {
+    "pid": 61886,
+    "create_time": 1792027499.163661,
+    "started": 1792027499.1651788,
+    "args": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.archive_hu200_v055_confirmation",
+      "--seed",
+      "2026101422",
+      "--archive-kind",
+      "full"
+    ],
+    "purpose": "Only full seed2 ZIP on M1; separate audited average ZIP sealed on M4; same canonical folder"
+  },
+  "alive": false,
+  "zip_bytes": 20953054295,
+  "disk_free_bytes": 6249357312,
+  "failure": false,
+  "full_readback_receipt": true
+}

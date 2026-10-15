@@ -1,0 +1,22 @@
+{
+  "status": "prepared-only",
+  "path": "/home/davide/deepcfr-slumbot/run-v055-seed-2026101421.sh",
+  "sha256": "5498a99341a162695b255cf7f06fb64a72260c2942b2d4f329b8c8fc962696f9",
+  "bytes": 937,
+  "client_source": "ff6cc77aa9510854eef49114355f272d6c465570",
+  "training_seed": 2026101421,
+  "policy_seed": 20261014055201,
+  "account": "deepcfr-v055-s21",
+  "completed_hands": 10000,
+  "translation_max_states": 512,
+  "translation_max_events": 128,
+  "max_abandoned": 200,
+  "max_rejected": 50,
+  "timeout_seconds": 30,
+  "cache_read_only": true,
+  "model_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+  "cache_manifest_sha256": "e872c5e0081a79746cdf52d8336ab196198c32bb4997107c005487251f13383b",
+  "shell_syntax": "passed",
+  "no_play_no_login_no_credentials": true,
+  "prepared_at": 1792011156.4644663
+}

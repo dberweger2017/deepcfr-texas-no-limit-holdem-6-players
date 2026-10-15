@@ -1,0 +1,96 @@
+{
+  "owners": {
+    "163": {
+      "headRefName": "feature/hu20-equity-buckets",
+      "headRefOid": "6339eb6f4c817c647829d354625b948fe55d8db3",
+      "mergedAt": "2026-10-05T08:15:20Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/163"
+    },
+    "250": {
+      "headRefName": "feature/hu200-k50-first",
+      "headRefOid": "880709e7a9d3ec5ac56383618d0c2f57760f2b38",
+      "mergedAt": "2026-10-13T01:33:03Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/250"
+    },
+    "265": {
+      "headRefName": "feature/hu200-k50-frozen",
+      "headRefOid": "5a7aad13d4fe1caf0a507198278433edb9256ce6",
+      "mergedAt": "2026-10-13T23:29:22Z",
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/265"
+    },
+    "278": {
+      "headRefName": "feature/hu200-v055-confirmation",
+      "headRefOid": "dd32ba688a6de7765618caba3175b6b779318863",
+      "mergedAt": null,
+      "state": "OPEN",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/278"
+    }
+  },
+  "pr163_archive_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+  "pr163_archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+  "tables": {
+    "flop": {
+      "copy": {
+        "bytes": 12867944,
+        "mtime_ns": 1791184675000000000,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/flop-k50.bin",
+        "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+      },
+      "mode": "0o444",
+      "original": {
+        "bytes": 12867944,
+        "mtime_ns": 1791184675000000000,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/flop-k50.bin",
+        "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+      },
+      "retrieval_command": [
+        "cp",
+        "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/flop-k50.bin",
+        "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/flop-k50.bin"
+      ]
+    },
+    "river": {
+      "copy": {
+        "bytes": 1231562564,
+        "mtime_ns": 1791184091000000000,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/river-k50.bin",
+        "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+      },
+      "mode": "0o444",
+      "original": {
+        "bytes": 1231562564,
+        "mtime_ns": 1791184091000000000,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/river-k50.bin",
+        "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+      },
+      "retrieval_command": [
+        "cp",
+        "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/river-k50.bin",
+        "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/river-k50.bin"
+      ]
+    },
+    "turn": {
+      "copy": {
+        "bytes": 139600524,
+        "mtime_ns": 1791184254000000000,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/turn-k50.bin",
+        "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "mode": "0o444",
+      "original": {
+        "bytes": 139600524,
+        "mtime_ns": 1791184254000000000,
+        "path": "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/turn-k50.bin",
+        "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "retrieval_command": [
+        "cp",
+        "/Users/dberweger/Local/hu200-k50-first-20261013/results/hu200-k50-first/tables/turn-k50.bin",
+        "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/tables/turn-k50.bin"
+      ]
+    }
+  }
+}

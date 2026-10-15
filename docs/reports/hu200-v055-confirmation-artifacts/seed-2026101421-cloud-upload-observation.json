@@ -1,0 +1,52 @@
+{
+  "observed_utc": "2026-10-15T04:24:29.346439+00:00",
+  "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+  "files": [
+    {
+      "id": "1OAKKAxH91_flAKK9eWa4peCy_jUImhDl",
+      "title": "hu200-v055-seed-2026101421-final-average-20261014.zip",
+      "mime_type": "application/zip",
+      "size": "3162672661",
+      "url": "https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": "2026-10-14T21:42:37.753Z",
+      "parent_ids": [
+        "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE",
+      "title": "hu200-v055-seed-2026101421-full-20261014.zip",
+      "mime_type": "application/zip",
+      "size": "592464795",
+      "url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": "2026-10-14T20:39:42.723Z",
+      "parent_ids": [
+        "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    }
+  ],
+  "acceptance": {
+    "full": false,
+    "final-average": true
+  },
+  "status": "blocked: Google Drive sync error; earlier partial remote version",
+  "remote_archive_bytes_downloaded": false
+}

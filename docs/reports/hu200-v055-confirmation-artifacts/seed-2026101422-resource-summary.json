@@ -1,0 +1,24 @@
+{
+  "samples": 3058,
+  "sample_scope": "closed second-seed train/save/export/audit family",
+  "peak_family_rss_bytes": 9457319936,
+  "min_free_percent": 40,
+  "min_disk_free_bytes": 33053249536,
+  "max_swap_growth_bytes": 340650886,
+  "pressure_levels": [
+    1,
+    2
+  ],
+  "stop_readings": 0,
+  "max_observed_gap_seconds": 5.051055500051007,
+  "first_sample_at": 1792009340.426177,
+  "last_sample_at": 1792024703.00057,
+  "supervisor": {
+    "finished": 1792024703.0329468,
+    "peak_family_rss_bytes": 9457319936,
+    "reasons": [],
+    "returncode": 0,
+    "samples": 3058,
+    "started": 1792009340.419659
+  }
+}

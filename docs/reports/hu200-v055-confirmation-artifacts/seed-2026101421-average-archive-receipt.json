@@ -1,0 +1,13 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 3162672661,
+  "cloud_upload_accepted": false,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25",
+  "members": 1,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-final-average-20261014.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds": 583.1734290122986,
+  "sha256": "27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f",
+  "status": "locally-verified"
+}

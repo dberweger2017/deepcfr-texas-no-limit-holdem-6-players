@@ -1,0 +1,60 @@
+{
+  "observed_utc": "2026-10-14T15:30:37.575756+00:00",
+  "host": "dberwegerch-m4.local",
+  "hardware": [
+    "hw.memsize: 17179869184",
+    "hw.model: Mac16,1"
+  ],
+  "research_locks": [
+    {
+      "path": "/Users/dberweger/Local/.hu20-m4-research.lock",
+      "result": "free; held only during admission observation"
+    },
+    {
+      "path": "/Users/dberweger/Local/.hu100-m4-research.lock",
+      "result": "free; held only during admission observation"
+    }
+  ],
+  "process_check": {
+    "command": [
+      "ps",
+      "-axo",
+      "pid,ppid,lstart,command"
+    ],
+    "case_insensitive_patterns": [
+      "native-train",
+      "native_train",
+      "hu200",
+      "hu100",
+      "campaign",
+      "supervis",
+      "retention",
+      "cfr"
+    ],
+    "excluded_transport_commands": [
+      "python3 -",
+      "ssh m4",
+      "sshd:"
+    ],
+    "matching_processes": []
+  },
+  "disk": {
+    "path": "/Users/dberweger/Local",
+    "free_bytes": 38089621504,
+    "free_gib": 35.473724365234375,
+    "required_free_bytes": 48318382080,
+    "shortfall_bytes": 10228760576,
+    "df_k": "Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 399093864  37196896    92% 3049557 371968960    1%   /System/Volumes/Data\n"
+  },
+  "admitted": false,
+  "reason": "Free disk below owner-required 45 GiB; no detached build or scientific work started.",
+  "training_source_main": "db344c359523d72158f44330c1fc35dddf62322e",
+  "seeds": {
+    "2026101421": "not started",
+    "2026101422": "not started"
+  },
+  "clock_started": false,
+  "signals_sent": false,
+  "files_copied_or_deleted": false,
+  "locks_released_on_exit": true
+}

@@ -1,0 +1,13 @@
+{
+  "cache_root": "/home/davide/deepcfr-slumbot/cache-seed-2026101422",
+  "launched": 1792026025.7252352,
+  "model_transfer": {
+    "bytes": 3162064602,
+    "path": "/home/davide/deepcfr-slumbot/inputs/model-seed-2026101422/final.average.gz",
+    "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+    "source": "M4 seed2026101422 every-row-audited average",
+    "verified_at": 1792026025.718225
+  },
+  "pid": 1127866,
+  "start_ticks": 510813943
+}

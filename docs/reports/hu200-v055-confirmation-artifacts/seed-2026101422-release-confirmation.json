@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-10-15T00:52:13.276391+00:00",
+  "claim": {
+    "at": 1792009340.419374,
+    "build": false,
+    "controller": {
+      "bytes": 19030,
+      "mtime_ns": 1791993433972598302,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/planning/hu200-v055/campaign.py",
+      "sha256": "e7b3ce914b3bc76cc2576107ffa8489f15cc976cc607796d0b6e9e52f6ff22f5"
+    },
+    "create_time": 1792009339.852762,
+    "pid": 9907
+  },
+  "supervisor_alive": false,
+  "locks": {
+    ".hu20-m4-research.lock": "free",
+    ".hu100-m4-research.lock": "free"
+  },
+  "trainer_processes": []
+}

@@ -1,0 +1,11 @@
+{
+  "existing_sessions_and_paths_untouched": true,
+  "failure": null,
+  "finished": 1792026866.0347767,
+  "minimum_available_bytes": 2782691328,
+  "peak_worker_rss_bytes": 5181849600,
+  "returncode": 0,
+  "samples": 169,
+  "started": 1792026025.8402152,
+  "wall_seconds": 840.194561958313
+}

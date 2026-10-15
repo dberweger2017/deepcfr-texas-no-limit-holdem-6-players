@@ -1,0 +1,175 @@
+{
+  "exports": {
+    "actual_nodes": 20000000322,
+    "all_nodes_verified": 85373916,
+    "average_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+    "checkpoint_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+    "counts": {
+      "entries": 85373916,
+      "positive_mass": 66350746,
+      "zero_mass": 19023170
+    },
+    "current_sha256": "bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df",
+    "files": {
+      "average": {
+        "bytes": 3162671080,
+        "mtime_ns": 1792006674802034313,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.average.gz",
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+      },
+      "checkpoint": {
+        "bytes": 4957752665,
+        "mtime_ns": 1792005604394503067,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+        "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+      },
+      "current": {
+        "bytes": 2301203484,
+        "mtime_ns": 1792006674802750068,
+        "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.current.gz",
+        "sha256": "bbac06244ccb0815751417afe3c13c28ef56f7aa3b97621f9cab634e3a9c01df"
+      }
+    },
+    "keys": {
+      "entries": 85373916,
+      "iteration": 16745107,
+      "method": "SHA256 of concatenated sorted 32-character serialized keys",
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "seconds": 47.87675595283508,
+      "sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df"
+    },
+    "maximum_tv": 1.0000000000000002,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "seconds": 1653.4706099033356,
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.33050108084317104
+  },
+  "final": {
+    "keys": {
+      "entries": 85373916,
+      "iteration": 16745107,
+      "method": "SHA256 of concatenated sorted 32-character serialized keys",
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "seconds": 47.87675595283508,
+      "sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df"
+    },
+    "pin": {
+      "bytes": 4957752665,
+      "mtime_ns": 1792005604394503067,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+    },
+    "telemetry": {
+      "audit_status": "unaudited",
+      "binary_sha256": "4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4",
+      "checkpoint_bytes": 4957752665,
+      "checkpoint_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+      "completed_nodes": 20000000322,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          241046027,
+          882690483,
+          2793610469,
+          7448783869
+        ],
+        "entries": 85373916,
+        "positive_average_mass_keys": 66350746,
+        "traverser_visits": 3190168200,
+        "traverser_visits_by_street": [
+          73008169,
+          274200822,
+          913175022,
+          2496060949
+        ],
+        "visits_histogram": {
+          "0": 14210275,
+          "1": 12136416,
+          "10-99": 26185262,
+          "100+": 4355984,
+          "2-9": 28485979
+        },
+        "zero_average_mass_keys": 19023170
+      },
+      "elapsed_seconds_including_writes": 11113.648700792,
+      "entries_per_completed_node": 0.004268695731273999,
+      "frozen_table": {
+        "discarded_traverser_visits_since_previous_save": 286826312,
+        "discarded_updates_since_previous_save": 605495984,
+        "interval_start_iteration": 8053874,
+        "missing_opponent_by_street": [
+          321982,
+          2995339,
+          37535090,
+          279306557
+        ],
+        "missing_opponent_share_by_street": [
+          0.003812982505437238,
+          0.00971271601128445,
+          0.03913622819800218,
+          0.11143158351696608
+        ],
+        "missing_traverser_by_street": [
+          310923,
+          3650609,
+          43762917,
+          239101863
+        ],
+        "missing_traverser_share_by_street": [
+          0.008678451647643637,
+          0.026874857541005628,
+          0.09658561660769201,
+          0.19439974931457366
+        ],
+        "opponent_decisions_by_street": [
+          84443608,
+          308393553,
+          959088081,
+          2506529551
+        ],
+        "state": {
+          "discarded_traverser_visits": 566276762,
+          "discarded_updates": 1222206958,
+          "entries": 85373916,
+          "since_iteration": 496692,
+          "version": 1
+        },
+        "streets": [
+          "preflop",
+          "flop",
+          "turn",
+          "river"
+        ],
+        "traverser_decisions_by_street": [
+          35827013,
+          135837334,
+          453099732,
+          1229949441
+        ]
+      },
+      "iteration": 16745107,
+      "new_entries": 0,
+      "nodes_per_second_including_writes": 1731737.322741582,
+      "nodes_since_previous_save": 10000000160,
+      "overshoot_nodes": 322,
+      "path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.gz",
+      "process_rss_bytes_after_save": 1779007488,
+      "recent_nodes_per_second_including_writes": 1838466.7634434623,
+      "requested_nodes": 20000000000,
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1792005604.396429,
+      "write_seconds": 325.222197875,
+      "write_started": 1792005279.171887
+    }
+  },
+  "finished": 1792008335.28643,
+  "seed": 2026101421,
+  "status": "reached-20B-every-row-audited",
+  "within_clock": true
+}
