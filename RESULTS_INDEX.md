@@ -9,7 +9,10 @@ Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declarati
 is retained. Local seed2026101421 checkpoint hash, exact average reproduction
 and root-mass scan pass on M4 (13 minutes; root mass equals scheduled W exactly). Sequential remaining-input restoration began October 15 at 17:52 UTC under both
 locks/guards, with 72.95 GB free and a 56.53-GB maximum sequential requirement.
-Whole input hashes and the actual union admission remain pending. Zero final hands, no blend/cache or strength result.
+Seed2026101302 now passes whole archive/manifest/raw checkpoint SHA256 verification
+and exact released-average reproduction (October 15,20:37 UTC). The third seed
+is restoring; all-three proof and the actual union admission remain pending.
+Zero final hands, no blend/cache or strength result.
 No research-original removal, release, tag, default or merge.
 
 Designated [Research-Cloud folder](https://drive.google.com/drive/folders/1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH),
@@ -75,6 +78,17 @@ New raw checkpoints and reproduced averages go to `results/hu200-v055-blend/inpu
 Accepted inactive archive download caches may be normally released only after
 whole archive/checkpoint hash and exact average reproduction, with native/cloud
 checks and per-file receipts. No forced offload or synced deletion.
+
+**October 15,20:38 UTC cache receipt:** the verified PR265 archive's inactive
+local download cache releases 26,698,072,064 allocated bytes via one ordinary
+FileManager request. The same cloud file
+[`1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI`](https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view)
+and same-size placeholder remain; no synced path or research original is deleted.
+Its retained checkpoint/average paths, SHA256 pins, source archive/member,
+current native/cloud evidence, raw resource summary and complete cache receipt
+are [recorded here](docs/reports/hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json).
+Restoration is the existing [PR265 command](#pr265-exact-hu200-k50-frozen-continuation-october-1314),
+into a fresh ignored path, followed by the whole/archive-member SHA256 checks above.
 
 ## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
 

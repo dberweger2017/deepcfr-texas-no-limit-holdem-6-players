@@ -228,3 +228,22 @@ was updated at 22:27 Madrid; provisional release/review windows remain those
 above. The administrative controller was reattached while the same original M4
 worker and guard continued; no scientific job, deadline or baseline was reset.
 [Controller receipt](hu200-v055-blend-artifacts/continuation-controller-reattach-status.json).
+
+
+At **20:37 UTC /22:37 Madrid**, seed 2026101302 reproduces its released average
+SHA256 `9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6`
+exactly with the existing frozen exporter (`--zero-mass uniform`). Export takes
+718.29 seconds; full archive restoration, raw verification and reproduction take
+9,876.81 seconds. All **1,956** resource samples are clear: sampled family peak
+**57,212,928 bytes**, exporter kernel peak **4,587,520 bytes**, minimum sampled
+free disk **45,590,859,776 bytes**. Two of three checkpoint/export proofs now pass;
+all-three proof still precedes the merge.
+
+After fresh source-PR and independent cloud metadata checks, one ordinary
+FileManager cache-release request retires only the inactive **26,698,072,064-byte**
+local ZIP cache. Its cloud ID, same-size placeholder, inode and modification time
+remain; the restored raw checkpoint and exact average remain protected. No
+research original or synced path is deleted. Free disk rises to **72.28 GB**.
+The third seed's restore starts at **20:38 UTC /22:38 Madrid**, using the revised
+intake deadline and the original resource baseline.
+[Exact input, resource and cache-release receipt](hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json).
