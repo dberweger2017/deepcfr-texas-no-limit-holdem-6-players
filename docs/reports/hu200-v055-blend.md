@@ -394,3 +394,22 @@ Apple M4 and 17,179,869,184 physical-memory bytes.
 M1 administrative closeout supplements the closed guard and final receipts;
 no further M4 model work runs. No release, tag, default, Slumbot or merge change.
 The owner decides continuation and merge.
+
+
+M1 administrative closeout initially encounters `ModuleNotFoundError: psutil`
+when importing the native-upload observer through an unrelated research
+campaign. The same existing `native_status` function is then executed unchanged
+from its AST with its standard-library globals. No model work, guard baseline
+or M4 job is retried; the M4 remains released.
+[Preserved administrative failure](hu200-v055-blend-artifacts/continuation-admin-closeout-failures.json).
+
+
+The [M1 administrative closeout](https://drive.google.com/file/d/1ga1ryoykMblzH_muVnXhJ_ZpTi5ckcK7/view)
+is **263,319 bytes /55 members**, whole SHA256
+`a33d20b808b50d926b26ceeccca62949c321af8458e126c529c9d8a0d4f4e602`,
+manifest SHA256 `4f75323572a4e7737fc86faf3f7c6f5c25ac2a618225e27aa9d57174360784fd`.
+Every member size/hash verifies; native and independent cloud checks accept the
+upload. It contains the closed M4 archive guard, release, primary acceptance,
+report and source receipts, with no model/hand payload.
+[Readback](hu200-v055-blend-artifacts/continuation-admin-archive-receipt.json),
+[acceptance](hu200-v055-blend-artifacts/continuation-admin-upload-acceptance.json).

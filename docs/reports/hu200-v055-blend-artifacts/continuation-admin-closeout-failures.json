@@ -1,0 +1,15 @@
+{
+  "at": 1792106728.428718,
+  "failures": [
+    {
+      "cause": "Importing scripts.archive_m4_research transitively imported a research campaign requiring psutil, absent in the M1 administrative Python.",
+      "correction": "Execute its existing metadata-only native_status function unchanged from its AST, using only the standard-library globals it actually needs; no package install or M4 compute.",
+      "error": "ModuleNotFoundError: No module named psutil",
+      "model_or_scientific_job_affected": false,
+      "research_retry": false,
+      "stage": "M1 administrative native-upload observation",
+      "traceback": "scripts/archive_m4_research.py:9 -> scripts/archive_hu100_4b_seed_ladder.py:11 -> scripts/run_hu100_4b_seed_ladder.py:7 -> import psutil -> ModuleNotFoundError"
+    }
+  ],
+  "m4_remains_released": true
+}

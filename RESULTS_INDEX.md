@@ -22,11 +22,12 @@ ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
 `~/Local/Research-Cloud/PR-297-hu200-v055-blend/`.
 
-**Corrected raw-input continuation, primary archive accepted:**
+**Corrected raw-input continuation, archives accepted:**
 
 | ZIP /Drive ID | Bytes /members | Whole SHA256 | Manifest SHA256 |
 |---|---:|---|---|
 | [hu200-v055-blend-continuation-M4-20261016.zip](https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view) | 10,571,715 /188 | `1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6` | `6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689` |
+| [hu200-v055-blend-continuation-admin-M1-20261016.zip](https://drive.google.com/file/d/1ga1ryoykMblzH_muVnXhJ_ZpTi5ckcK7/view) | 263,319 /55 | `a33d20b808b50d926b26ceeccca62949c321af8458e126c529c9d8a0d4f4e602` | `4f75323572a4e7737fc86faf3f7c6f5c25ac2a618225e27aa9d57174360784fd` |
 
 All members verify against embedded `ARCHIVE-MANIFEST.json`, followed by whole
 archive SHA256. Separate current native/upload and independent exact Drive
@@ -43,7 +44,11 @@ then extract and verify each member against `ARCHIVE-MANIFEST.json`.
 raw resources/failures, union/probe/audit/gate and stop summary;
 `research/hu200-v055-blend-{inputs,tooling,tooling-post-review,python-tests,qualified-tools}/`
 preserves earlier proof/build/check histories. `control/`, `source/` and
-`bin/hu200_blend` preserve exact implementation. Indexed canonical input files
+`bin/hu200_blend` preserve exact implementation. The M1 administrative ZIP preserves the closed
+M4 archive guard, release and primary-upload receipts, plus report/source metadata;
+[admin readback](docs/reports/hu200-v055-blend-artifacts/continuation-admin-archive-receipt.json) and
+[admin upload acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-admin-upload-acceptance.json).
+Indexed canonical input files
 are excluded after SHA256 verification and retained locally; their retrieval
 links below remain dependencies. No full blended player is claimed.
 
