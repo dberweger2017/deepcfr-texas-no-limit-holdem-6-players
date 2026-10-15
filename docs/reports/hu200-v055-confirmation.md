@@ -5,7 +5,7 @@
 
 **Both seeds reached 20B and passed every-row current/average audits on the 16-GiB M4.**
 Seed **2026101422 started October 14 at 20:22:19 UTC /22:22:19 CEST**, after
-those audits, fresh exclusive nonblocking admission on both research locks,
+seed 1’s audits, fresh exclusive nonblocking admission on both research locks,
 no campaign workers, **58.662 GiB free** and **7.582 hours remaining**.
 It finished science at **October 15 00:38:20 UTC /02:38:20 CEST**, within
 the original clock. Server and archive preparation remain in progress.
@@ -160,10 +160,19 @@ limits 200/50, policy seed 20261014055201, account `deepcfr-v055-s21`, and a fre
 output path under `v055-runs-pr278`. The owner logs in and starts it.
 [Exact launcher](hu200-v055-confirmation-artifacts/server-seed-2026101421/run-v055-seed-2026101421.sh),
 [launcher receipt](hu200-v055-confirmation-artifacts/server-seed-2026101421/launcher-receipt.json).
-Seed 2's audited final average transfer is now detached on the M1, followed by
-remote SHA256 verification and its first offline cache build. The first cache
-build is closed; builds do not overlap. Its launcher awaits successful cache
-verification. No play or credentials.
+Seed 2's final average also passes remote bytes/SHA256 verification. Its new
+**5,115,678,680-byte** cache passes every payload hash through read-only reload.
+The cache guard exits zero after **840.19 s /169 five-second readings**,
+peak worker RSS **4.826 GiB**, minimum available memory **2.783 GB**, no stop.
+**Prepared only:** `~/deepcfr-slumbot/run-v055-seed-2026101422.sh`, shell syntax
+checked, never executed. Same completed-hands source and options as seed 1,
+account `deepcfr-v055-s22`, policy seed **20261014055301**, pinned own average
+and read-only cache, fresh own output path. Both server preparations are complete;
+existing sessions/paths remain untouched.
+[Cache receipt](hu200-v055-confirmation-artifacts/server-seed-2026101422/cache-receipt.json),
+[resource summary](hu200-v055-confirmation-artifacts/server-seed-2026101422/supervisor-receipt.json),
+[exact launcher](hu200-v055-confirmation-artifacts/server-seed-2026101422/run-v055-seed-2026101422.sh),
+[launcher receipt](hu200-v055-confirmation-artifacts/server-seed-2026101422/launcher-receipt.json).
 
 [Canonical PR278 Research-Cloud folder](https://drive.google.com/drive/folders/1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP):
 `~/Local/Research-Cloud/PR-278-hu200-v055-confirmation/`, confirmed under project
@@ -186,11 +195,28 @@ version. Do not use that full remote version for restoration.
 [Native observation](hu200-v055-confirmation-artifacts/seed-2026101421-native-upload-observation.json),
 [independent metadata](hu200-v055-confirmation-artifacts/seed-2026101421-cloud-upload-observation.json).
 No remote archive bytes were downloaded or verified. M4 originals remain.
-Seed 2 archives and the closed administrative/server supplement are pending.
-The M1 has about **22.28 GiB free**; seed-2 archive admission requires about
-25 GiB including headroom. The owner has been asked for 6 GiB more. The
-administrative wrapper checks actual selected bytes before starting an archive;
-M4 originals and resumable checkpoints remain intact.
+Seed 2 archives use the same canonical folder, split across the two Macs to fit
+available space: **full ZIP sealing on M1**, **separate average ZIP sealed on M4**.
+Before launch, M1 free **23,907,180,544 bytes** exceeds full-only admission
+**23,100,509,657 bytes**, including 2 GiB headroom. No cleanup is required.
+The M4 average ZIP is completely member-readback/whole-hash verified before
+an atomic same-filesystem rename into Research-Cloud:
+
+| Seed-2 ZIP | Bytes | Whole SHA256 | Manifest SHA256 | Status |
+|---|---:|---|---|---|
+| Final average | 3,162,066,289 | `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e` | `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089` | Locally verified; native upload pending |
+| Full | Pending | Pending | Pending | Sealing on M1; do not use yet |
+
+[Average readback](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-receipt.json),
+[native upload observation](hu200-v055-confirmation-artifacts/seed-2026101422-average-native-upload-observation.json),
+[model pins and average restoration command](hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+The original-baseline M4 archive guard exits zero, **4 readings /15.13 s**,
+peak family RSS **0.109 GiB**, no breach. Its first helper invocation failed
+before opening a ZIP because `PYTHONPATH` was missing; that source/log/failure
+is retained, and the corrected environment passes an import preflight. This is
+administrative work after completed science, with no repeated training/export.
+[Both archive attempts](hu200-v055-confirmation-artifacts/seed-2026101422-average-archive-guard.json).
+The small final administrative/server supplement awaits closed archive work.
 No synced deletion, eviction or other open-PR cleanup occurs here.
 
 ## Guards, supervision and preserved administrative failures

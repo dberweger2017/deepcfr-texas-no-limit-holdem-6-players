@@ -104,13 +104,15 @@ def seal(files,destination,metadata):
         all_member_sizes_and_hashes_readback=True,seconds=time.time()-tick,cloud_upload_accepted=False,remote_archive_bytes_downloaded=False)
 
 
-def main(seed):
+def main(seed, archive_kind='both'):
     selected,metadata=select(seed); files=selected['files']
     average=selected['science']['exports']['files']['average']['path'] if selected['science'] else None
     avg_files={'averages/seed-'+str(seed)+'/final.average.gz':next(row for row in files.values() if row['path']==average)} if average else {}
-    expected=sum(row['bytes'] for row in files.values())+sum(row['bytes'] for row in avg_files.values())
+    choices=[(label,members) for label,members in (('full',files),('final-average',avg_files))
+        if archive_kind in ('both',label)]
+    expected=sum(row['bytes'] for _,members in choices for row in members.values())
     if shutil.disk_usage(DEST).free<expected+2*1024**3:raise ValueError('Insufficient M1 archive space; preserve M4 originals')
-    for label,members in (('full',files),('final-average',avg_files)):
+    for label,members in choices:
         if not members: continue
         path=DEST/f'hu200-v055-seed-{seed}-{label}-20261014.zip'
         try: result=seal(members,path,metadata)
@@ -122,4 +124,6 @@ def main(seed):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--seed',type=int,choices=(2026101421,2026101422),required=True)
-    main(parser.parse_args().seed)
+    parser.add_argument('--archive-kind',choices=('both','full','final-average'),default='both',
+        help='Seal selected ZIPs when the same canonical folder is served by both Macs')
+    args=parser.parse_args();main(args.seed,args.archive_kind)

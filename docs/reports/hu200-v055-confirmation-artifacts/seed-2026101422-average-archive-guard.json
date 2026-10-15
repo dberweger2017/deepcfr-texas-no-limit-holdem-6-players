@@ -1,0 +1,34 @@
+{
+  "original_import_failure": {
+    "cpu_seconds_by_identity": {
+      "(26943, 1792027467.885951)": 0.066766666
+    },
+    "failure": "RuntimeError('Worker exit 1')",
+    "finished": 1792027473.024687,
+    "peak_family_rss_bytes": 19890176,
+    "reasons": [],
+    "returncode": 1,
+    "samples": 2,
+    "started": 1792027467.917166,
+    "status": "stopped",
+    "wall_seconds": 5.107521057128906
+  },
+  "corrected": {
+    "cpu_seconds_by_identity": {
+      "(26985, 1792027498.999047)": 0.09206487199999999,
+      "(26991, 1792027499.05236)": 4.097829504
+    },
+    "failure": null,
+    "finished": 1792027514.153445,
+    "peak_family_rss_bytes": 117424128,
+    "reasons": [],
+    "returncode": 0,
+    "samples": 4,
+    "started": 1792027499.0257258,
+    "status": "complete",
+    "wall_seconds": 15.127719163894653
+  },
+  "failure_preserved": true,
+  "no_zip_opened_before_import_correction": true,
+  "scientific_retry": false
+}

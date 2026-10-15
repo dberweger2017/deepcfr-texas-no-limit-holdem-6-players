@@ -23,8 +23,10 @@ SHA256 `b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`.
 [Final model pins/audit](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-final.audit.json),
 [closed resources](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-resource-summary.json).
 Both seeds finish inside the original deadline with unchanged guards; M4 workers
-are exited and both research locks are free. Seed 2 server transfer is active;
-its archive awaits sufficient M1 space (owner asked for 6 GiB more).
+are exited and both research locks are free. Both server model/cache preparations
+and owner-started launchers now pass; no play. Seed 2 archives fit by sealing
+the full ZIP on M1 and the separate average ZIP on M4, in the same cloud folder.
+[Second cache/launcher receipts](docs/reports/hu200-v055-confirmation-artifacts/server-seed-2026101422/launcher-receipt.json).
 
 First average transfer to db-ocean is SHA256 verified, its new read-only cache
 passes all payload hashes, and `~/deepcfr-slumbot/run-v055-seed-2026101421.sh`
@@ -44,7 +46,14 @@ manifest `678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25`, one
 native uploaded1/uploading0/no conflicts and independent ID/name/3,162,672,661-byte
 size/direct-parent match. **Full ZIP remains pending:** native uploaded0/uploading1,
 remote partial size. Never restore that partial full remote version. No remote bytes downloaded or verified. Seed 2 archives/closeout remain
-pending. No research originals/synced files removed or evicted; other open roots
+pending. Seed 2's average-only ZIP is locally member-readback verified:
+**3,162,066,289 bytes**, SHA256 `76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e`,
+manifest `14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089`,
+one member `averages/seed-2026101422/final.average.gz`. Native upload is pending;
+Drive ID/independent acceptance await completion. Seed 2 full ZIP is actively
+sealing on M1, with 2-GiB admission headroom; it is not yet verified.
+[Second seed model pins and average restore command](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+No research originals/synced files removed or evicted; other open roots
 are untouched. Preserved administrative failures; no scientific retry.
 
 ## M4 disk admission cleanup — October 14 evening
