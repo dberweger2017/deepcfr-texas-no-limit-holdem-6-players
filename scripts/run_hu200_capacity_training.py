@@ -16,7 +16,7 @@ from scripts.guard_hu200_capacity import supervise, motherboard_sensors
 from scripts.machine_qualification import watchdog as sensors
 from scripts.hu200_capacity_preflight import BINARY_SHA, QUALIFIED, verify_rows
 from src.blueprint.abstraction import HU200_EQUITY_SCHEMA
-from src.diagnostics.cfr_average import audit
+from scripts.audit_hu200_capacity_sorted import audit_sorted as audit
 from src.policies.files import file_hash
 
 SEEDS = (2026101302, 2026101421, 2026101422)
@@ -62,6 +62,8 @@ def verified_save(path, record):
 
 
 def audit_worker(folder):
+    if file_hash(QUALIFIED / 'trainer-first') != BINARY_SHA:
+        raise ValueError('Qualified executable changed; no export admitted')
     record = json.loads((folder / 'native-record.json').read_text())
     if (folder / 'normalize-parent.json').exists():
         parent = json.loads((folder / 'normalize-parent.json').read_text())
@@ -154,7 +156,8 @@ class Campaign:
                 readings.write(json.dumps(row) + '\n')
                 if (row['package_c'] >= 85 or row['available_bytes'] < 6 * 1024**3
                         or row['swap_used_bytes'] - self.admission['swap_baseline_bytes'] > 256 * 1024**2
-                        or row['free_disk_bytes'] < 50_000_000_000 or row['fan1_rpm'] < 0):
+                        or row['free_disk_bytes'] < 50_000_000_000 or row['fan1_rpm'] < 0
+                        or not -20 <= row['vrm_c'] <= 150):
                     raise RuntimeError('Resource breach during idle admission')
                 if row['package_c'] < 68 and -20 <= row['vrm_c'] < 83:
                     return
@@ -170,7 +173,7 @@ class Campaign:
         if result['status'] != 'passed':
             raise RuntimeError(f'{label} failed; no automatic retry')
 
-    def stage(self, label, nodes, parents=None, normalize=False):
+    def stage(self, label, nodes, parents=None, normalize=False, rolling=False):
         folders, jobs = {}, []
         for i, seed in enumerate(SEEDS):
             folder = self.base / 'results' / str(seed) / label
@@ -210,13 +213,24 @@ class Campaign:
             elif record['status'] != 'saved':
                 raise ValueError('Incomplete native target; retain and stop')
             put(folder / 'native-record.json', record)
-            # One export/audit exists at a time. SQLite and outputs need workspace.
-            if shutil.disk_usage(self.base).free < 50_000_000_000 + 80_000_000_000:
+            # Sorted full audits need only their two output files, not a SQLite ledger.
+            if shutil.disk_usage(self.base).free < 50_000_000_000 + 23_000_000_000:
                 raise RuntimeError('Preventive full-audit disk admission')
             self.guarded(label + '-audit-' + str(seed), [dict(name='audit', cpus=[6, 7], rss_gib=4,
                 stop_file=str(folder / 'audit.stop'), command=[sys.executable, '-m',
                     'scripts.run_hu200_capacity_training', 'audit', '--base', str(folder)])])
             records[seed] = record
+            if rolling:
+                checked = json.loads((folder / 'audit.json').read_text())
+                items = [dict(path=checked['files']['current']['path'], expected=checked['files']['current'],
+                              replacement=str(folder / 'audit.json'))]
+                if label not in ('5000000000', '20000000000'):
+                    value = checked['files']['average']
+                    items.append(dict(path=value['path'], expected=value, replacement=str(folder / 'audit.json')))
+                old = Path(parents[seed]['path']).parent
+                value = json.loads((old / 'audit.json').read_text())['files']['checkpoint']
+                items.append(dict(path=value['path'], expected=value, replacement=str(folder / 'audit.json')))
+                self.retire_files(label + '-' + str(seed), items)
         return records
 
     def retire_files(self, label, items):
@@ -264,9 +278,7 @@ class Campaign:
         previous = growing
         milestones = {}
         for nodes in (2_000_000_000, 5_000_000_000, 10_000_000_000, 20_000_000_000):
-            records = self.stage(str(nodes), nodes, previous)
-            self.trim_exports(str(nodes), records, nodes in (5_000_000_000, 20_000_000_000))
-            self.replace_recovery(previous, records)
+            records = self.stage(str(nodes), nodes, previous, rolling=True)
             if nodes == 2_000_000_000:
                 self.replace_recovery(normalized, records)
             milestones[str(nodes)] = records

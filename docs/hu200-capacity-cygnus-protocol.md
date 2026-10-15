@@ -73,8 +73,10 @@ Sample at least each second, fail closed on missing/unreadable CPU, Thermistor
 15 or fan1. Admit only below CPU70/VRM85 degrees C. CPU >=85 C terminates load
 immediately; VRM >=95 C continuously for30s requests every affected run's clean
 stop. Continue supervision through saving; allow up to3600s clean-save grace
-for these larger checkpoints, then terminate. A stop is a failed attempt, never
-an automatic restart. Keep all partials. No automatic scientific retry.
+for these larger checkpoints, then terminate. A guard stop is a failed attempt, never
+an automatic restart. The owner-requested October15 BIOS shutdown is recorded
+as an administrative interruption; October16 authorization permits continuation
+of unfinished verification from the completed checkpoint, preserving all partials. Keep all partials. No automatic scientific retry.
 
 Publish per-run/aggregate RSS caps from measured admission. Available RAM must
 remain >=6GiB; swap growth >256MiB from the one campaign baseline stops;
@@ -131,18 +133,34 @@ checkpoint until its successor audits. After20B audits, retain20B recovery and
 both5B/20B averages;5B recovery can then retire. This applies only to this new
 campaign, never another open PR. Keep all incomplete/failed attempts.
 
-Worst staged training budget: six checkpoints (old and new recovery per seed)
-120GB at20GB each, six retained averages69GB, one current export10GB, one
-full-audit SQLite workspace50GB, restored twins10GB, traces10GB, staging/growth
-20GB and floor50GB: **339GB**, below353.837GB initially available. Release5B
-recovery after a verified10B successor once its5B average has audited. Archive
-input transport copies are retired after their verified extraction; the Drive
-originals remain. Actual audit workspace growth is monitored within the budget.
-No cache construction during training. After training: three20B recovery54GB,
-six averages69GB, twins10GB, three20B large caches55.5GB and three twin caches
-15.5GB, traces10GB, staging/growth20GB, floor50GB: **284GB**. Retire inactive20B
-caches after20B direct/panel verification, then build5B caches for descriptive
-matches. All cache removals have exact regeneration receipts.
+The October16 restart has263.760GB free on NVMe; the original339GB plan is
+superseded. The added2TB drive is excluded from every path and budget. Existing
+#292 occupancy remains58.415GB; unrelated preservation data remains untouched.
+
+Full audits compare all three strictly sorted streams directly, reusing the
+existing validators, exact-number checks and normalization math. Strict key
+order proves uniqueness, and all three streams must reach validated EOF/CRC.
+This removes the table-sized SQLite workspace; unordered files fail rather
+than selecting a weaker check. Differential and corruption tests must pass
+before this auditor is used. Native trainer/export source and binary stay fixed.
+
+Retire each old seed recovery and disposable current export immediately after
+that seed's successor audits, before auditing the next seed. A conservative
+training peak is six20GB checkpoints120GB + three retained5B averages34.5GB +
+one new20B average11.5GB + one current10GB =176GB. Add restored twins10GB,
+training traces3GB, staging/other-host growth20GB and the50GB floor:
+**259GB**, within263.760GB at restart. Lower phases have fewer retained averages.
+Actual output sizes and remaining free space are admitted before every write;
+a budget miss stops the campaign. The cap is not lowered to fit disk.
+
+Evaluation initially admits **two seeds in parallel**, then the third, preserving
+the owner's seed parallelism within available disk. Only two large caches37GB
+and two twin caches10.4GB coexist; finish each20B direct/panel pair before
+retiring its rebuildable cache and creating the5B cache. Keep all final recovery
+checkpoints and both5B/20B averages. Worst resident model files129GB, twins10GB,
+caches47.4GB, traces7GB, staging/growth15GB and floor50GB total**258.4GB**.
+Use actual file/cache manifests to tighten or reject this admission after training.
+Every policy cache is built once, and compatible matches reuse its loaded registry.
 
 Seal/archive one seed at a time, up to41GB additional per seed; never duplicate
 all three simultaneously. Archive all retained recovery/evaluation models and
@@ -212,3 +230,26 @@ acceptance. Index actual URLs/IDs and retrieval commands in RESULTS_INDEX.md.
 Record cleanup decisions/removed paths/restoration links; no unsupported cleanup,
 release, tag, merge or default change. The report must distinguish measured
 results, unstarted work, incomplete targets and pending upload acceptance.
+
+## Owner interruption and restarted hardware
+
+The owner stopped bb128 for BIOS/fan work on October15 and explicitly resumed
+this task on October16. Preserve the old resource stream, including its truncated
+last JSONL row, and both partial export scratch trees and archive transfers.
+The completed500M checkpoint's every-row identity receipt remains evidence;
+exports/audit were not completed and no large training started.
+
+The preliminary5400s allowance carries forward recorded pre-stop work; only its
+unused active allowance is available for resumed export/audit. No training is
+rerun for this administrative stop. The72h gates/training/audit clock had not
+started, so it still begins at first admitted campaign gate, followed by the
+unchanged24h evaluation ceiling. All owner-stop downtime is excluded; publish
+new absolute deadlines and ETA when those clocks actually begin. A new boot's
+observed preexisting swap is recorded as its baseline, not charged as growth.
+
+The owner added five fans, changed the fan curve and enabled XMP3200. Record
+owner-reported settings separately from readback; verify unchanged executable,
+K50 tables and checkpoint bytes and rerun the declared fresh/resume identity
+gates under XMP before dependent large continuation. Keep <=8 busy threads,
+CPU85C/VRM95C limits and the owner's accepted uncompleted memtest86+ status.
+No writes, mounts, formatting or experiment use of the new hard drive.
