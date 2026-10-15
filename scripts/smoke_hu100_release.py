@@ -74,6 +74,10 @@ class Runtime:
                 self.process.wait(10)
             except subprocess.TimeoutExpired:
                 self.process.kill(); self.process.wait(5)
+            if self.starts:
+                import resource
+                maximum = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+                self.starts[-1]['max_cli_child_rss_bytes_so_far'] = maximum * (1 if sys.platform == 'darwin' else 1024)
             self.process = None
 
     def call(self, path, body=None, key=None, expected=200):
@@ -135,7 +139,7 @@ def exercise(runtime, counts, label):
                     # Opening 800 crosses v2's largest ordinary size bucket, so
                     # the real-model smoke also exercises its missing-history adapter.
                     off_menu = 800 if RELEASE == 'v0.5.3' else 550
-                    amount = off_menu if mode == 'free' and number % 4 == 0 and step == 0 else legal['maxRaiseTo'] if mode == 'free' and number == 1 else None
+                    amount = off_menu if mode == 'free' and number % 4 == 0 and step == 0 else legal['maxRaiseTo'] if mode == 'free' and (number == 1 or RELEASE == 'v0.5.3' and number == 2) else None
                     if amount is not None and 'raise' in legal['kinds'] and legal['minRaiseTo'] <= amount <= legal['maxRaiseTo']:
                         body.update(kind='raise', raiseTo=amount)
                         result['off_menu_550_raises'] += amount == 550
@@ -197,6 +201,8 @@ def audit(data, bundle, out):
                     changed.close()
             except PlayError as error:
                 assert error.status == 409
+            except ValueError as error:
+                assert RELEASE == 'v0.5.3' and 'translation identity' in str(error)
             else:
                 raise AssertionError('Changed inference admitted')
         counts = {m: sum(r['handsPlayed'] for r in human_rows if r['playMode'] == m) for m in ('free', 'restricted')}
@@ -267,6 +273,7 @@ def main():
                 put(args.out / 'browser-ready.json', {'port': runtime.port, 'pid': runtime.process.pid,
                                                        'started': time(), 'max_seconds': 600})
                 result['browser'] = browser_receipt(args.out / 'browser-done.json')
+        runtime.stop()
         put(args.out / 'summary.json', result)
         print(json.dumps(result))
     finally:

@@ -1,7 +1,7 @@
 # v0.5.3 release preparation
 
-**Not ready: M1 storage admission, restored input hashes, final translation
-science, final asset build and real-model runtime smoke remain pending.**
+**Not ready: real legacy trace checks, final translation science, final asset
+build and real-model runtime smoke remain pending.**
 PR298 targets current main after merged PR296. The owner declared PR272's
 original seed 2026100601 as the candidate. No release, tag, publication, merge
 or HU20 default change has been performed.
@@ -11,8 +11,12 @@ counts, fresh roots, paired Student-t safeguard, independent replay/reproduction
 barrier and M1-only resource/battery behavior. Root reservation found no collision
 in current main or any open PR. Input owner PR163/240/272/296 status was checked;
 the accepted PR272 average-only ZIP's independent Drive metadata matches its
-indexed ID, name, size and parent. No payload has been restored or hashed locally
-yet. Metadata confirmation alone does not verify remote archive bytes.
+indexed ID, name, size and parent. On October15 the M1 restored and verified
+the PR272 whole archive, embedded manifest and exact average; PR163 whole
+archive, member manifest and all three tables; and all seven published
+v0.5.2 asset sizes/SHA256s plus the source-bound publication identity. Those
+Drive archive bytes were downloaded and verified locally. Metadata alone
+would not establish that claim.
 
 The hash-pinned model's indexed size is 3,196,291,551 bytes; the task initially
 named the earlier parent's size. The exact model/checkpoint hashes, iteration,
