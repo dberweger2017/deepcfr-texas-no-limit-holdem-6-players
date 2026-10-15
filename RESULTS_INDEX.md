@@ -17,13 +17,13 @@ statistics agree exactly. Random alone raises off-menu (8,231 all-ins per arm);
 8,222 v2 attempts select no witness. All other scripted sizes are on-menu.
 [Report](docs/reports/hu100-v053-translation.md),
 [raw pins and verification](docs/releases/v0.5.3/verification/final-verification.json).
-Final assets, real M1 runtime smoke and archive acceptance remain pending.
+Final 12 assets and real M1 runtime/journal/refusal verification complete. The 603,730,754-byte evidence ZIP passes full local readback of 630 members, SHA256 `8704a092b928de163bc8955dbd5fa2d4b2b965f4f0455996a1f857c420418599`; native Drive upload acceptance and lifecycle/index closeout remain pending. All 37 completed plus one partial runtime hands independently replay/reproduce. [Current runtime and pending-upload evidence](docs/releases/v0.5.3/READINESS.md).
 
 Designated evidence folder
 [PR-298-hu100-v053-release-package](https://drive.google.com/drive/folders/1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-),
 ID `1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-`, parent
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Folder metadata is confirmed;
-**no new science archive or upload acceptance is claimed yet.**
+**the locally verified science archive is uploading; no upload acceptance is claimed yet.**
 
 Model restoration verified indexed PR272 archive/embedded manifest/member SHA256;
 K50 tables verified indexed PR163 archive/sidecar manifest/all three members.

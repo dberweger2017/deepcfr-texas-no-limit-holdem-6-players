@@ -1,0 +1,113 @@
+{
+  "archive_xattr_preflight": {
+    "all_originals_retained": true,
+    "at": 1792098167.029836,
+    "cause": "Python os.getxattr unavailable on this macOS interpreter",
+    "correction": "Use native /usr/bin/xattr -p with structured arguments",
+    "scientific_hand_reruns": false,
+    "verified_folder_id": "1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-",
+    "zip_created_by_failed_preflight": false
+  },
+  "audit_output_contract": {
+    "at": 1792097408.620497,
+    "fixture_originals_unchanged": true,
+    "model_loaded": false,
+    "poker_hands_played": 0,
+    "scope": "administrative audit-driver file output contract only",
+    "status": "passed",
+    "two_raw_and_two_enhanced_reports_written_without_collision": true
+  },
+  "audit_reporting_collision": {
+    "all_original_journals_retained": true,
+    "at": 1792097379.4561841,
+    "cause": "audit() already writes out/independent-audit.json; helper then used exclusive put() at same output path",
+    "fix": "Separate raw audit report directory from enhanced root summary; preflight every output path before fresh model load; persist before/after original manifests before final summary",
+    "initial_summary_retained": "results/v053-release-package/runtime-smoke-attempt-000/independent-audit-attempt-000.json",
+    "old_attempt_audit_status": "verified before summary collision",
+    "old_attempt_human_modes": {
+      "exact": 27,
+      "translated": 2,
+      "uniform": 2
+    },
+    "owner": {
+      "headRefOid": "c275ebe9123f15533ef97aa05fc189cd4b328bdb",
+      "state": "OPEN",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+    },
+    "scientific_hand_reruns": false
+  },
+  "browser_administrative_observations": [
+    {
+      "correction": "Use server-advertised literal 127.0.0.1",
+      "error": "Host not allowed",
+      "status": 403,
+      "url": "http://localhost:8768/"
+    },
+    {
+      "correction": "Use observed exact accessible button name after saved screenshot invalidated refs",
+      "error": "This element ref is stale. Navigation, dialogs, and new snapshots replace refs; take a fresh snapshot and use its refs.",
+      "no_action_executed": true
+    },
+    {
+      "correction": "Use supported role=button[name='Raise'] selector",
+      "error": "Preview automation click received an invalid locator (37 characters).",
+      "locator": "role=button[name='Raise', exact=true]",
+      "no_action_executed": true
+    },
+    {
+      "no_prior_session_mutated": true,
+      "observation": "Previous browser local session/token was refused, then current local token unlocked and unknown old session recovered to setup",
+      "statuses": [
+        403,
+        404
+      ]
+    }
+  ],
+  "corrected_real_journal_audit": "verified",
+  "failed_runs_and_sources_retained": true,
+  "http_recount_corrected": {
+    "browser_completed_hands": 4,
+    "driver_completed_hands": 20,
+    "http_rows": 142,
+    "http_status_counts": {
+      "200": 140,
+      "400": 2
+    },
+    "independent_full_journal_audit": "pending",
+    "initial_probe_failure": "runtime-http-recount-initial-failure.json",
+    "only_declared_unavailable_model_requests_refused": true,
+    "restart_550_idempotent_reply_equal": true,
+    "restart_pids": [
+      97551,
+      3574
+    ],
+    "same_pending_session": "GC7TpAsx5YAWAh0O9hK47MQd",
+    "status": "verified"
+  },
+  "http_recount_initial_assumption": {
+    "cause": "Probe omitted intentionally refused requests in the bounded smoke driver; inspecting declared expected statuses before correction",
+    "failure": "AssertionError at all HTTP status == 200 assumption",
+    "no_hand_rerun": true,
+    "stage": "administrative HTTP recount"
+  },
+  "native_pending_parser": {
+    "at": 1792098255.238902,
+    "cause": "Native provider omits conflict field and Drive ID while upload is pending",
+    "correction": "Report missing fields as unknown; require explicit zero conflicts and completed upload plus Drive ID before acceptance",
+    "failure": "AssertionError: hasUnresolvedConflicts in initial native acceptance probe",
+    "initial_native_state": {
+      "isUploaded": 0,
+      "isUploading": 1
+    },
+    "no_false_acceptance": true
+  },
+  "runtime_failure": {
+    "cause": "K50 spectator postflop classification omitted policy tables",
+    "correction": "Pass policy-owned cards to live spectator information_key and independent spectator audit",
+    "green": "188 passed in 8.77s",
+    "real_retry": "20 driver + 4 browser completed hands; all old and new journals independently replay/reproduce, including retained partial hand",
+    "red": "1 failed, 2 passed",
+    "stage": "first real runtime smoke"
+  },
+  "scientific_hand_reruns": 0
+}
