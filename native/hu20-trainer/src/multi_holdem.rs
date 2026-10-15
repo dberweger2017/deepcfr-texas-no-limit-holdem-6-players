@@ -160,6 +160,31 @@ fn card_class(observation: &Observation<'_>, tables: Option<&EquityTables>) -> V
     }
 }
 
+/// The policy boundary accepts only the acting seat's immutable observation.
+pub fn observation_decision(observation: &Observation<'_>, tables: &EquityTables) -> Decision {
+    observation_decision_with_tables(observation, Some(tables))
+}
+fn observation_decision_with_tables(
+    observation: &Observation<'_>,
+    tables: Option<&EquityTables>,
+) -> Decision {
+    let choices = menu(observation);
+    let card_class = card_class(observation, tables);
+    let bytes = payload(observation, &card_class, &choices);
+    let mut hash = blake2::Blake2bVar::new(16).unwrap();
+    hash.update(&bytes);
+    let mut key = [0; 16];
+    hash.finalize_variable(&mut key).unwrap();
+    let n = observation.config.players();
+    Decision {
+        key,
+        actor: observation.seat,
+        owner: (observation.seat + n - observation.button) % n,
+        street: observation.street as usize,
+        code: choices.iter().fold(0, |c, (label, _)| c | 1 << label),
+    }
+}
+
 pub struct CashGame {
     pub config: Config,
     pub tables: &'static EquityTables,
@@ -204,20 +229,7 @@ impl State for CashState {
     fn decision(&self) -> Option<Decision> {
         let actor = self.hand.actor()?;
         let observation = self.hand.observe(actor).unwrap();
-        let choices = menu(&observation);
-        let card_class = card_class(&observation, self.tables);
-        let bytes = payload(&observation, &card_class, &choices);
-        let mut hash = blake2::Blake2bVar::new(16).unwrap();
-        hash.update(&bytes);
-        let mut key = [0; 16];
-        hash.finalize_variable(&mut key).unwrap();
-        Some(Decision {
-            key,
-            actor,
-            owner: (actor + self.players() - self.hand.button()) % self.players(),
-            street: self.hand.street() as usize,
-            code: choices.iter().fold(0, |c, (label, _)| c | 1 << label),
-        })
+        Some(observation_decision_with_tables(&observation, self.tables))
     }
     fn payoff(&self, player: usize) -> f64 {
         self.hand

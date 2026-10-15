@@ -12,6 +12,7 @@ pub mod small_games;
 pub mod small_exact;
 pub mod multi_checkpoint;
 pub mod multi_holdem;
+pub mod multi_policy;
 #[cfg(test)]
 mod multi_tests;
 pub mod key;
