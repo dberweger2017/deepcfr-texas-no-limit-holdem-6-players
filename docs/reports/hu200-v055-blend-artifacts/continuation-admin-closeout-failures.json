@@ -9,7 +9,16 @@
       "research_retry": false,
       "stage": "M1 administrative native-upload observation",
       "traceback": "scripts/archive_m4_research.py:9 -> scripts/archive_hu100_4b_seed_ladder.py:11 -> scripts/run_hu100_4b_seed_ladder.py:7 -> import psutil -> ModuleNotFoundError"
+    },
+    {
+      "error": "git merge --no-commit origin/main exited 1 with a RESULTS_INDEX.md content conflict",
+      "incoming_main": "f59a527179376467df9974cd05a57d9a3976429c",
+      "merge_commit": "2a8c1382e88f8c0c84ab57a74deabe3ee9de36a2",
+      "research_retry": false,
+      "resolution": "Retained the complete incoming main index and the complete PR297 entry, removing its pre-existing empty duplicate PR296 heading.",
+      "stage": "Integrating current main before PR review"
     }
   ],
-  "m4_remains_released": true
+  "m4_remains_released": true,
+  "updated_at": 1792107010.8645608
 }

@@ -100,7 +100,8 @@ is claimed merely from cloud metadata. Full SHA256 verification is mandatory
 before use. The stopped-preflight release is historical: the owner then
 reauthorized M4 use for this corrected continuation.
 
-Active M4 working root: `~/Local/hu200-v055-frozen-blend/`; keep its
+Retained M4 working root (PR297 open; no job running):
+`~/Local/hu200-v055-frozen-blend/`; keep its
 `results/hu200-v055-blend/`, earlier preflight/input/tooling roots and runtime
 `~/Local/hu20-k50-5b-first-pass-20261012/.venv/` protected. Verified read-only
 checkpoint1421, frozen exporter and tables are APFS-cloned to

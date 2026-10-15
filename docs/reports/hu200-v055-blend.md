@@ -277,7 +277,10 @@ full blend, caches and final play remain unstarted pending that gate.
 
 ## Raw-input union and disk-capacity stop
 
-Scientific source is `24df6228`; later commits add only reports and receipts.
+Scientific source is `24df6228`. The final PR integrates current main
+`f59a5271` in `2a8c1382`; task-specific scientific source/tests remain byte-identical
+to the M4-qualified versions. The experiment evidence remains pinned to its
+original M4 source; no computation is rerun under the later integration.
 All model restoration, verification, test/build work and the streaming union run
 on the 16-GB Apple M4. M1 handles source/PR and administrative closeout only.
 No training runs. The original frozen exporter SHA256 is
@@ -413,3 +416,9 @@ upload. It contains the closed M4 archive guard, release, primary acceptance,
 report and source receipts, with no model/hand payload.
 [Readback](hu200-v055-blend-artifacts/continuation-admin-archive-receipt.json),
 [acceptance](hu200-v055-blend-artifacts/continuation-admin-upload-acceptance.json).
+
+
+Current-main integration initially conflicts only in `RESULTS_INDEX.md`; the
+resolution preserves the complete incoming index and this PR's complete entry.
+The empty duplicate PR296 heading is removed. That administrative conflict and
+its resolution join the failure receipt above. No M4 job is restarted.
