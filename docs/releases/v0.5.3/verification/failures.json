@@ -1,0 +1,15 @@
+{
+  "failures": [
+    {
+      "stage": "initial focused tests",
+      "result": "10 failed /19 passed",
+      "causes": [
+        "New test passed a postflop Hand as the initial witness replay root (nine cases); corrected to retain initial Hand.start",
+        "Updated unsupported-schema error text broke an existing regex (one case); preserved expected explicit HU100/HU200 wording"
+      ],
+      "correction_result": "29 passed in 0.97s",
+      "scientific_hands": 0
+    }
+  ],
+  "storage": "13 GiB free at initial admission; no download, cache or final science started"
+}
