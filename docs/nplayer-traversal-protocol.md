@@ -112,8 +112,9 @@ All nine gains are below the unchanged 0.025 limit, and independent OpenSpiel
 values and best responses agree to 1e-10. Fresh and split/resumed checkpoint
 and average-export bytes match. The complete guarded job, including build,
 reference checks and recovery, takes **182.97 seconds**, below its 600-second
-cap. This resolves the known-game threshold; independent traversal review and
-the remaining HU checks still gate dependent work. Full results belong in
+cap. This resolves the known-game threshold. The 40 Rust/359 Python tests and
+all required HU byte checks also pass; independent traversal review still
+gates dependent work. Full results are in
 the [traversal report](reports/nplayer-traversal.md).
 
 Cash adapter correctness tests use at most 20,000-node targets and complete

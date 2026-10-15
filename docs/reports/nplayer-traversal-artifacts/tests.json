@@ -7,5 +7,7 @@
   "cash-cli-tests": [
     "16 passed in 90.78s (0:01:30)"
   ],
-  "hu-build-tests": []
+  "hu-build-tests": [
+    "359 passed in 250.04s (0:04:10)"
+  ]
 }

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "pins": [
+    {
+      "commit": "1578d66fe7e47bed1d72ee34651893d76d625824",
+      "tree": "991c375b956c1c785055043a4a91e385c0e8ac7a",
+      "native_tree": "93fb63fc2f1244b1a190dd9c631957470e91f3e2"
+    },
+    {
+      "commit": "7900a8019ed6b868891c0b733adfa0da768f1a1e",
+      "tree": "31e667b7a83c19b5b983e0540b395cfc643f2317",
+      "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0"
+    },
+    {
+      "commit": "f4bc8d2b689060ce56f4fedd6fcb4b375aa19a78",
+      "tree": "31e667b7a83c19b5b983e0540b395cfc643f2317",
+      "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0"
+    },
+    {
+      "commit": "3c7d9c983c8addaae45410a7768483050db1112a",
+      "tree": "78df82609be6e41b94db7db947203c35a5a68f40",
+      "native_tree": "e3f8ad4e4190fefbdde4f7cdeb68f81e848a0fa0"
+    }
+  ],
+  "rebased_full_tree_equal": true,
+  "report_commit_native_tree_equal": true,
+  "parent_pr": 288,
+  "parent_merge": "973e892beb4ec35ca32b07ae7e9d965b44958029",
+  "retained_original_source_bundles": "bb128:/home/dberweger/nplayer-traversal-20261015/source-1578.bundle and source-7900.bundle"
+}

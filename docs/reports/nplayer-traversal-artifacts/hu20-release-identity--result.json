@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "files": {
+    "checkpoint.gz": {
+      "bytes": 214220678,
+      "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+    },
+    "average.gz": {
+      "bytes": 142677367,
+      "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+    }
+  }
+}
