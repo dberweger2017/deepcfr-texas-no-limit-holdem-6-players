@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "stage": "archive transport",
+      "event": "Local SHA256 assertion was attempted before the asynchronous first-part SCP process had completed.",
+      "result": "Assertion failed on the incomplete disposable buffer; no upload was attempted and no scientific payload or run was changed.",
+      "action": "Wait for the existing transport process to exit, then verify the completed buffer before upload. No duplicate transfer or scientific retry."
+    },
+    {
+      "stage": "archive upload bridge",
+      "event": "The 128 MiB upload input was rejected with HTTP 413 before action invocation because the bridge limit is 100 MiB.",
+      "action": "Keep the sealed ZIP and original parts unchanged; split verified transport buffers into at most 64 MiB upload pieces and index their concatenation order."
+    },
+    {
+      "stage": "native Drive metadata visibility",
+      "event": "An immediate native FileProvider observation after a successful upload/cloud metadata read found no local item yet.",
+      "action": "Preserve the successful upload ID and buffer; defer native acceptance observation until the provider lists it. Never repeat the upload merely because local metadata is delayed."
+    },
+    {
+      "stage": "report formatting",
+      "event": "The staged whitespace check rejected CSV CRLF line endings.",
+      "action": "Normalized only the generated table to LF; parsed CSV rows remained exactly equal. No research data or readout was rerun."
+    }
+  ]
+}

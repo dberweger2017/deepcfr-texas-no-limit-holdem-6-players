@@ -1,7 +1,7 @@
 # First three-player blueprint: Phase 2 protocol
 
-Status: harness/admission, all three sequential training seeds and regression
-closeout complete. Final evaluation is admitted by the pinned manifest below.
+Status: training, regression checks and all final evaluation/replay/reproduction
+complete; the learning rule passes. Cloud archive acceptance remains in progress.
 The owner authorized this campaign on October 15, 2026. No search, release or
 merge is authorized. PR289 and PR291 are already merged; the feature branch
 starts at main `623e2e8741dd8c267f062ded28b9bcc5dde36a0f`.
@@ -188,7 +188,10 @@ whose wall cap is the committed manifest's budget. Each contrast still loads
 from scratch for its second pass. Any failed contrast or thermal/resource stop
 ends the matrix; all-case readout also requires that outer guard to pass.
 Archives retain source/model/raw-trace originals on bb128. ZIP member SHA256/size
-and CRC readback precedes transport splitting; each 128-MiB byte part is hashed
-and their concatenated hash must equal the ZIP. Small M1 transport buffers avoid
-staging the entire campaign on the owner's nearly full laptop. Split archives
-must be concatenated in indexed order before extraction.
+and CRC readback precedes transport splitting; each original 128-MiB byte part
+is hashed and their concatenated hash equals the ZIP. After the upload bridge
+rejected a 128-MiB input before action invocation (100-MiB limit), verified
+transport buffers are subdivided into at most 64-MiB cloud pieces. This changes
+transport only, after all scientific work finished. A bounded 2-GiB M1 spool
+avoids staging the campaign on the laptop. Restoration concatenates the indexed
+cloud pieces in source-part/subpart order before verifying and extracting the ZIP.

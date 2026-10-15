@@ -1,6 +1,6 @@
 # Three-player Phase 2: first full-average blueprint
 
-**Training complete; final evaluation and closeout pending. No settled strength conclusion yet.**
+**The predeclared learning rule passes across all three seeds. Cloud archive closeout is pending.**
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292) follows merged
 PR289/PR291. The [protocol](../nplayer-blueprint-phase2-protocol.md) fixes the
 owner's all-street averages, three sequential fresh seeds and learning rule.
@@ -144,10 +144,93 @@ whole-evaluation cap is **215 minutes**, one job/four CPUs/80 GiB family RSS
 with the same thermal guards. This declaration precedes final hands. No
 comparison readout is available yet.
 
+## Final evaluation results
+
+The predeclared learning rule **PASSES**.
+All 42 fixed contrasts completed. Every one of the **2,064,384 final hands**
+independently replayed in the pinned engine and reproduced exactly in a fresh
+process (another 2,064,384 hands) before the complete readout was admitted.
+The outer evaluation guard passed with no stop. These are conditional
+three-player playing comparisons, not an equilibrium or exploitability claim.
+
+| Primary: 1B singleton versus two own-200M copies | BB/100 [95% interval] | Lower bound >0 |
+| --- | ---: | --- |
+| 2026101541 | +18.39 [+12.49, +24.29] | yes |
+| 2026101542 | +21.39 [+15.61, +27.17] | yes |
+| 2026101543 | +21.61 [+15.62, +27.60] | yes |
+
+All remaining intervals below are descriptive, nominal two-sided 95%
+Student-t intervals over 8,192 independent six-hand deal blocks. Paired-model
+results are per player, not the two-player team total.
+
+| Seed | Earlier model | One 1B vs two earlier | Two 1B vs one earlier, per 1B player |
+| --- | --- | ---: | ---: |
+| 2026101541 | 200M | +18.39 [+12.49, +24.29] | +11.04 [+7.99, +14.09] |
+| 2026101541 | 500M | +10.62 [+5.48, +15.76] | +5.01 [+2.45, +7.57] |
+| 2026101542 | 200M | +21.39 [+15.61, +27.17] | +7.85 [+4.90, +10.80] |
+| 2026101542 | 500M | +8.60 [+3.54, +13.67] | +4.63 [+2.10, +7.16] |
+| 2026101543 | 200M | +21.61 [+15.62, +27.60] | +12.24 [+9.28, +15.20] |
+| 2026101543 | 500M | +9.66 [+4.48, +14.85] | +4.85 [+2.24, +7.47] |
+
+| Seed | Script | One model vs two bots | Two models vs one bot, per model |
+| --- | --- | ---: | ---: |
+| 2026101541 | random | +124.88 [+115.55, +134.20] | +75.53 [+70.47, +80.58] |
+| 2026101541 | check-call | +156.94 [+144.71, +169.17] | +88.47 [+83.06, +93.88] |
+| 2026101541 | tight-aggressive | +38.81 [+35.33, +42.29] | +14.11 [+12.48, +15.73] |
+| 2026101541 | pot-pressure | +23.79 [+19.28, +28.30] | +11.30 [+9.19, +13.41] |
+| 2026101542 | random | +123.93 [+114.62, +133.25] | +75.20 [+70.10, +80.31] |
+| 2026101542 | check-call | +169.14 [+156.78, +181.51] | +85.03 [+79.69, +90.37] |
+| 2026101542 | tight-aggressive | +32.50 [+28.93, +36.08] | +14.71 [+13.15, +16.26] |
+| 2026101542 | pot-pressure | +23.73 [+19.31, +28.15] | +11.96 [+9.83, +14.09] |
+| 2026101543 | random | +124.98 [+115.47, +134.48] | +72.84 [+67.92, +77.77] |
+| 2026101543 | check-call | +162.42 [+150.06, +174.79] | +90.53 [+85.07, +95.99] |
+| 2026101543 | tight-aggressive | +35.83 [+32.25, +39.42] | +14.41 [+12.80, +16.03] |
+| 2026101543 | pot-pressure | +24.42 [+19.77, +29.07] | +13.43 [+11.31, +15.55] |
+
+| Singleton 1B seed | Paired 1B seed | Singleton BB/100 [95% interval] |
+| --- | --- | ---: |
+| 2026101541 | 2026101542 | -1.14 [-6.19, +3.90] |
+| 2026101541 | 2026101543 | -0.01 [-5.10, +5.09] |
+| 2026101542 | 2026101541 | -0.09 [-5.09, +4.92] |
+| 2026101542 | 2026101543 | -0.95 [-5.90, +3.99] |
+| 2026101543 | 2026101541 | -3.71 [-8.83, +1.40] |
+| 2026101543 | 2026101542 | +2.25 [-2.86, +7.35] |
+
+[Full verified readout](nplayer-blueprint-phase2-artifacts/evaluation-results.json)
+includes overall, every physical seat and BTN/SB/BB position intervals.
+[Flat evaluation table](nplayer-blueprint-phase2-artifacts/evaluation.csv)
+also retains both roles and model lookup missing shares by street.
+
+## Resources and archive closeout
+
+Across 18,320 retained readings through verified readout, maximum CPU package
+was **70°C**, VRM **78°C**, peak family RSS **9.585 GiB** and swap growth zero.
+Every resource row includes VRM and fan1; no scientific guard stopped.
+Evaluation fan1 was337–744RPM, training337–797RPM. The complete per-job
+[resource receipt](nplayer-blueprint-phase2-artifacts/resources-complete.json)
+retains peaks, minima, counts and source/input identities; raw readings remain
+in the archives. Main sealing/readback took234.33seconds, then the small
+archive-guard closeout took1.02seconds. bb128 compute was released at20:17Madrid.
+
+Main ZIP:15,887,630,020bytes, SHA256
+`ea57f0e4910c458c5597c194da25342aaf912f2f098452e8e0982b1121dddb3f`,
+embedded manifest SHA256
+`ae9903fa0a8fea8b59bddb55d0441528de7b87f66136071d4adc26fc4c44700c`.
+All member sizes/SHA256/CRC and concatenated original transport-part SHA256
+passed. Cloud acceptance is still partial. The upload bridge rejected a128MiB
+input before action invocation because its limit is100MiB; verified buffers
+are split into at most64MiB cloud pieces. The sealed ZIP and host originals
+remain unchanged. The bounded M1 transport spool is at most2GiB.
+[Operator events](nplayer-blueprint-phase2-artifacts/closeout-operator-events.json)
+also retain the premature buffer assertion and delayed native metadata observation.
+These transport issues changed no scientific run or result. No remote archive
+bytes have been downloaded or verified, and no scientific original was removed.
+
 ## Outstanding work
 
-Final evaluation, complete resource receipts, archives/readback and indexed
-cloud acceptance remain outstanding.
+The full evaluation and verified readout passed. Main archive and closeout
+archive sealing/readback passed; upload and indexed cloud acceptance remain
+outstanding. bb128 compute was released at approximately20:17Madrid onOctober15.
 All working evidence is retained under
 `/home/dberweger/nplayer-blueprint-phase2-20261015/`; its shared source/input
 parents are protected. No cleanup has occurred.

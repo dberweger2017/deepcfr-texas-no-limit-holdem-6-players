@@ -9,15 +9,33 @@ checkpoint/export/every-row-audit endpoints and whole-seed guards passing.
 Final tables contain 29,025,056 /29,370,052 /29,668,448 entries. Exact admissions,
 checkpoint/export SHA256s and per-street coverage are recorded in the
 [per-seed receipts](docs/reports/nplayer-blueprint-phase2-artifacts/).
-Final regression closeout and evaluation remain pending at this entry.
+Final regression closeout and all 42 final comparisons passed. Every one of
+2,064,384 final hands replayed and exactly reproduced before verified readout.
+The learning rule passes on all three seeds; [full results and intervals](docs/reports/nplayer-blueprint-phase2.md).
+bb128 compute was released at approximately20:17Madrid onOctober15.
 
 **Protected active evidence; cloud archival pending:**
 `bb128:/home/dberweger/nplayer-blueprint-phase2-20261015/` and this worktree's
 ignored `planning/nplayer-phase2/`. Preserve all commands, resource/VRM/fan traces,
 source bundles, checkpoints, exports, audits, raw duplicate traces, replay and
 reproduction receipts, failures and partials. The verified [Drive destination](https://drive.google.com/drive/folders/1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9)
-contains only a small admission/provenance record so far; scientific payloads
-are not yet archived and no originals have been removed. The owner explicitly
+has a partially uploaded scientific archive; full cloud acceptance remains
+pending. Main ZIP15,887,630,020bytes SHA256
+`ea57f0e4910c458c5597c194da25342aaf912f2f098452e8e0982b1121dddb3f`,
+embedded manifest SHA256
+`ae9903fa0a8fea8b59bddb55d0441528de7b87f66136071d4adc26fc4c44700c`;
+all local members and original transport parts passed readback. The original
+119×128MiB host parts are subdivided into at most64MiB cloud pieces due to the
+bridge's100MiB input limit; final ordered cloud IDs/acceptance will be indexed
+after all pieces finish. [Main seal receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-main.json).
+The separate [archive-guard closeout](https://drive.google.com/file/d/1utIneB1zdFo0BcLR3_no3tJN48jd_oOl/view)
+has independent cloud metadata confirmation but native acceptance remains pending:
+53,823bytes, SHA256`77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357`,
+manifest`22c99da238531cd7a2bfce19d4063f2eefe3dbeeb3cf6955958928596d90eb79`.
+No scientific originals have been removed. Ignored disposable transport copies
+are retired after verified receipts, with regeneration/removal records under
+`planning/nplayer-phase2/transport/`. No remote archive bytes were downloaded.
+The owner explicitly
 requested manifests, archive readback and cloud indexing as part of this
 campaign; receipts will be added at closeout.
 
