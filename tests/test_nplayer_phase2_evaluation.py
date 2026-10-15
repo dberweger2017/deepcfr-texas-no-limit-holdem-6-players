@@ -77,3 +77,14 @@ def test_whole_matrix_stops_at_first_failed_case(tmp_path,monkeypatch):
         runner.run_all(manifest,tmp_path,tmp_path,tmp_path,tmp_path/'out')
     assert called==[cases[0]['name']]
     assert not (tmp_path/'out/result.json').exists()
+
+
+def test_manifest_preparation_rejects_seed_folder_mixup(tmp_path):
+    from scripts.prepare_nplayer_phase2_evaluation import prepare
+    training=tmp_path/'training';seed=training/'2026101541';seed.mkdir(parents=True)
+    (seed/'result.json').write_text(json.dumps({'status':'passed','seed':2026101542}))
+    guard=tmp_path/'guards/seed-2026101541';guard.mkdir(parents=True)
+    (guard/'result.json').write_text(json.dumps({'status':'passed'}))
+    costs=tmp_path/'costs.json';costs.write_text(json.dumps({'status':'passed'}))
+    with pytest.raises(ValueError,match='seed identity mismatch'):
+        prepare(training,tmp_path/'unused',costs,tmp_path/'manifest.json')

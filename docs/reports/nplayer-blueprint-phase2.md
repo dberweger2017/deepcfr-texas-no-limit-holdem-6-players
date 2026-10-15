@@ -72,8 +72,32 @@ could not run because that interpreter lacks SciPy (and later pytest); the
 guarded bb128 run passed using its installed research environment. The existing
 M1 project environment subsequently ran 12 small controller/archive/statistics
 checks in 0.82 seconds; three native integration checks correctly skipped there.
-No dependencies were installed or native workload run on the laptop. Synthetic corruption and
+No dependencies were installed or native workload run on the laptop. An
+optional all-history seed scan was canceled when it became too costly for the
+laptop; the prior repository/host inventory and a direct check of PR286's
+2026101501/1502 lineages found no collision with the reserved cash seeds. Synthetic corruption and
 thermal tests are deliberately failing inputs, not undisclosed campaign reruns.
+
+## Training milestones (partial)
+
+Seed **2026101541**, source `8ad2729c`, has saved its 200M endpoint and passed
+its every-row full-average audit; it is continuing toward 500M. The checkpoint
+has **15,621,814 entries**, **608,659,055 bytes**, SHA256
+`9bd59d4fc5703555937affdb1165a01bbd94d622a92813df6d35b7abd0b72947`.
+Training plus checkpoint I/O costs 472.98 seconds; export 178.22 seconds; audit
+99.32 seconds. [Exact lineage](nplayer-blueprint-phase2-artifacts/seed-2026101541-admission.json),
+[milestone and per-street audit](nplayer-blueprint-phase2-artifacts/seed-2026101541-milestones.json).
+
+| Street | Entries | Mean regret visits/key | Cumulative missing decisions |
+| --- | ---: | ---: | ---: |
+| Preflop | 441,070 | 8.095 | 3.028% |
+| Flop | 1,295,519 | 5.299 | 5.911% |
+| Turn | 3,811,126 | 3.081 | 11.281% |
+| River | 10,074,099 | 1.719 | 20.829% |
+
+These training coverage counters do not measure playing strength or played-policy
+lookup misses. Opponent-only average entries can have zero regret-update visits.
+There is no final comparison readout yet.
 
 ## Outstanding work
 

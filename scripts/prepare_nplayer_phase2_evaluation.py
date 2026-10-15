@@ -18,6 +18,7 @@ def prepare(training, binary, costs_path, out):
         result=json.loads((folder/'result.json').read_text())
         guard=json.loads((training.parent/'guards'/f'seed-{seed}'/'result.json').read_text())
         if result['status']!='passed' or guard['status']!='passed': raise ValueError('training/guard failure')
+        if result['seed']!=seed: raise ValueError('training seed identity mismatch')
         if [m['target'] for m in result['milestones']] != [200_000_000,500_000_000,1_000_000_000]:
             raise ValueError('missing scheduled endpoint')
         for milestone in result['milestones']:
