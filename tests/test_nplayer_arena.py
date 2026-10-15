@@ -29,6 +29,16 @@ class StatisticsTests(unittest.TestCase):
         self.assertAlmostEqual(result['singleton']['standard_error_bb100'], 100 / 3**0.5)
         self.assertLess(result['singleton']['lower95_bb100'], 0)
 
+    def test_position_statistics_are_distinct_from_physical_seats(self):
+        rows=fixture()
+        for row in rows:
+            seat=row['identities'].index(0)
+            win=100*(1+(seat-row['block']%3)%3)
+            row['rewards']=[win if identity==0 else -win//2 for identity in row['identities']]
+        result=summarize(rows,big_blind=100)
+        self.assertEqual([r['mean_bb100'] for r in result['singleton_by_seat']],[200]*3)
+        self.assertEqual([r['mean_bb100'] for r in result['singleton_by_position']],[100,200,300])
+
     def test_missing_duplicate_or_bad_settlement_fails(self):
         rows = fixture()
         with self.assertRaises(ValueError): validate_blocks(rows[:-1])

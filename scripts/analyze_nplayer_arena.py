@@ -46,21 +46,31 @@ def summarize(rows, big_blind):
     groups = validate_blocks(rows)
     singleton, pair = [], []
     seats_a, seats_b = [[] for _ in range(3)], [[] for _ in range(3)]
+    positions_a, positions_b = [[] for _ in range(3)], [[] for _ in range(3)]
     for group in groups.values():
         a, b = [[] for _ in range(3)], [[] for _ in range(3)]
+        pa, pb = [[] for _ in range(3)], [[] for _ in range(3)]
         for row in group.values():
             for seat, identity in enumerate(row['identities']):
-                (a if identity == 0 else b)[seat].append(row['rewards'][seat] * 100 / big_blind)
+                value=row['rewards'][seat] * 100 / big_blind
+                (a if identity == 0 else b)[seat].append(value)
+                position=(seat-row['block']%3)%3
+                (pa if identity == 0 else pb)[position].append(value)
         singleton.append(statistics.mean(sum(a, [])))
         pair.append(statistics.mean(sum(b, [])))
         for seat in range(3):
             seats_a[seat].append(statistics.mean(a[seat]))
             seats_b[seat].append(statistics.mean(b[seat]))
+            positions_a[seat].append(statistics.mean(pa[seat]))
+            positions_b[seat].append(statistics.mean(pb[seat]))
     return {'blocks': len(groups), 'hands': len(groups) * 6,
             'interval': 'two-sided 95% Student-t over independent six-hand deal blocks',
             'singleton': interval(singleton), 'pair_per_player': interval(pair),
             'singleton_by_seat': [interval(v) for v in seats_a],
-            'pair_by_seat': [interval(v) for v in seats_b]}
+            'pair_by_seat': [interval(v) for v in seats_b],
+            'position_order':['button','small-blind','big-blind'],
+            'singleton_by_position':[interval(v) for v in positions_a],
+            'pair_by_position':[interval(v) for v in positions_b]}
 
 
 def sha(path):

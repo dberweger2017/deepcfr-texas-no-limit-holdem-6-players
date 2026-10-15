@@ -59,8 +59,8 @@ each identity occupies each seat twice. Action RNGs are domain-separated from
 deals and keyed by root/block/identity, resetting for each permutation. Policies
 receive only acting-seat observations, never the root, deck or opponent labels.
 
-Report overall and per-physical-seat BB/100 for the singleton and per-player
-pair. Compute one mean per independent six-hand block, then a two-sided 95%
+Report overall, per-physical-seat and button-relative position (BTN/SB/BB)
+BB/100 for the singleton and per-player pair. Compute one mean per independent six-hand block, then a two-sided 95%
 Student-t interval over those block means. Never count the six correlated
 hands as independent samples. Report role exposure and missing decisions by
 street. The conjunction of the three declared primary lower-bound checks is
