@@ -1,4 +1,6 @@
-# HU100 v0.5.3: terminal partial three-seed campaign
+# HU100 v0.5.3: three-seed campaign — original terminal partial
+
+**Completion follow-up:** the owner-authorized [#296 readout](hu100-v053-completion.md) completes the eight never-started comparisons, preserves the nine completed comparisons, and reports all three seeds after the all-17 replay/reproduction barrier. The historical stop and original evidence below remain unchanged. No release verdict is assigned.
 
 **Stopped 2026-10-15T12:00:39.357617+00:00. Both new training seeds and every-row audits completed; evaluation stopped at preventive disk admission after 9/17 comparisons. No qualification or poker outcome readout.** The owner decides merge and release.
 

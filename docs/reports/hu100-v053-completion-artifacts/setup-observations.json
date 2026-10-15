@@ -1,0 +1,23 @@
+{
+  "at": 1792073038.961441,
+  "failures": [
+    {
+      "stage": "initial inspection",
+      "detail": "Initial task checkout was an old feature branch; required current documents absent there. Read origin/main after fetch and created a new current-main feature worktree. No research file changed."
+    },
+    {
+      "stage": "M4 metadata probe",
+      "detail": "Unqualified tmux not in noninteractive PATH; used /opt/homebrew/bin in subsequent probes and launch."
+    },
+    {
+      "stage": "cache inspection",
+      "detail": "All previous policy caches already absent per PR286 terminal retirement. No deletion performed; quote includes separate measured rebuild costs for seed2 and release."
+    },
+    {
+      "stage": "source inspection",
+      "detail": "Original scientific checkout has a later reporting-only edit. Kept it untouched and created a clean detached exact-source worktree before launch."
+    }
+  ],
+  "no_scientific_retry": true,
+  "no_failed_hand_rerun": true
+}

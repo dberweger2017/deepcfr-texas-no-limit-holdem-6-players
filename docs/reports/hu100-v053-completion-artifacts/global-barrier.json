@@ -1,0 +1,26 @@
+{
+  "at": 1792076646.69937,
+  "canonical_plan_sha256": "f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20",
+  "comparisons": [
+    "direct-2026100601",
+    "panel-2026101501-random",
+    "panel-2026101501-check_call",
+    "panel-2026101501-tight_aggressive",
+    "panel-2026101501-loose_aggressive",
+    "panel-2026101501-pot_pressure",
+    "panel-2026101501-half_pot_pressure",
+    "panel-2026101501-matched_pot_pressure",
+    "direct-2026101501",
+    "panel-2026101502-random",
+    "panel-2026101502-check_call",
+    "panel-2026101502-tight_aggressive",
+    "panel-2026101502-loose_aggressive",
+    "panel-2026101502-pot_pressure",
+    "panel-2026101502-half_pot_pressure",
+    "panel-2026101502-matched_pot_pressure",
+    "direct-2026101502"
+  ],
+  "original_final_hands": 1703936,
+  "prior_nine_unchanged": true,
+  "status": "verified"
+}

@@ -1,0 +1,35 @@
+{
+  "at": 1792077291.089708,
+  "status": "passed",
+  "checks": [
+    "Frozen plan and adapter SHA256 unchanged",
+    "All17 input SHA256/root/count/translation/source receipts match plan",
+    "1703936 independently replayed and exactly reproduced final original hands",
+    "Nine prior comparisons unchanged by raw hash/size/mtime",
+    "CSV counts exactly match every native/selected support and visit-band cell",
+    "Both archive whole/manifest/member readbacks and native/cloud acceptance verified separately",
+    "All743 resource samples retained; no breach or stop",
+    "M4 worker exit and both free locks verified",
+    "Python syntax compilation"
+  ],
+  "final_ci": "Recorded on PR296 after final push",
+  "no_release_verdict": true,
+  "repository_validation_correction": {
+    "at": 1792077370.6823978,
+    "first_whitespace_check": "Failed: generated CSV used CRLF, reported as trailing whitespace on137 lines",
+    "correction": "Normalize CRLF to LF; every CSV cell value unchanged",
+    "scientific_inputs_raw_traces_and_archives_unchanged": true
+  },
+  "prose_only_check": "Not applicable: ci_scope --check-prose refused this source-changing PR; required full CI is used.",
+  "readout_preview": {
+    "desktop_width": 728,
+    "desktop_content_height": 665,
+    "mobile_width": 360,
+    "mobile_content_height": 673,
+    "light_and_dark": true,
+    "console_errors": [],
+    "labels_values_and_intervals_inspected": true
+  },
+  "staged_repository_artifact_check": "passed",
+  "final_whitespace_check": "passed after CSV LF normalization"
+}

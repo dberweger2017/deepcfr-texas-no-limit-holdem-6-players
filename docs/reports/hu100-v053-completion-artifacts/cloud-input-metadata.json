@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "id": "1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u",
+    "title": "hu100-v053-seed-2026101502-average.zip",
+    "mime_type": "application/zip",
+    "size": "3187451673",
+    "url": "https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": "2026-10-15T12:25:59.432Z",
+    "parent_ids": [
+      "1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "isError": false
+}

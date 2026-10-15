@@ -1,0 +1,14 @@
+{
+  "at": 1792073207.819297,
+  "status": "passed",
+  "checks": [
+    "Frozen plan SHA256 unchanged",
+    "Exactly original remaining eight labels, roots and counts",
+    "Quote derived solely from original fixed/per-block/input/cache measurements",
+    "1.25 margin and 1800s reserve; exact10102s wall cap",
+    "Final original-hand total1703936",
+    "Committed adapter SHA256 matches declaration",
+    "Python syntax compilation"
+  ],
+  "no_final_hands_or_pilots_in_validation": true
+}
