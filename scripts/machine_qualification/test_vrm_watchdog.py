@@ -48,10 +48,6 @@ class VrmTests(unittest.TestCase):
             with self.assertRaises(FileExistsError):
                 request_stop(stop, 'changed')
 
-
-if __name__ == '__main__':
-    unittest.main()
-
 @unittest.skipUnless(Path('/proc/meminfo').exists(), 'Linux supervision')
 class SupervisorTests(unittest.TestCase):
     def test_vrm_requests_clean_stop_and_records_failure(self):
@@ -83,3 +79,7 @@ class SupervisorTests(unittest.TestCase):
             for line in (args.output/'resources.jsonl').read_text().splitlines():
                 self.assertEqual(json.loads(line)['vrm_c'], 76)
                 self.assertEqual(json.loads(line)['fan1_rpm'], 341)
+
+
+if __name__ == '__main__':
+    unittest.main()

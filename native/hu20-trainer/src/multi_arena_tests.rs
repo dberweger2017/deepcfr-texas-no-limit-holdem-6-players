@@ -17,7 +17,10 @@ fn duplicate_rotates_every_identity_into_every_seat_twice() {
 
 #[test]
 fn streams_are_domain_separated_and_repeatable() {
-    assert_eq!(stream_seed(41, b"deck", 9, 0), stream_seed(41, b"deck", 9, 0));
+    assert_eq!(
+        stream_seed(41, b"deck", 9, 0),
+        stream_seed(41, b"deck", 9, 0)
+    );
     let mut seeds = std::collections::HashSet::new();
     for block in 0..10 {
         assert!(seeds.insert(stream_seed(41, b"deck", block, 0)));
@@ -45,8 +48,10 @@ fn all_scripts_settle_and_ignore_hidden_cards() {
             let other = Hand::from_deck(config, 0, &alternative).unwrap();
             let mut a = Bot::new(name, root).unwrap();
             let mut b = Bot::new(name, root).unwrap();
-            assert_eq!(a.choose(&hand.observe(actor).unwrap()).unwrap(),
-                       b.choose(&other.observe(actor).unwrap()).unwrap());
+            assert_eq!(
+                a.choose(&hand.observe(actor).unwrap()).unwrap(),
+                b.choose(&other.observe(actor).unwrap()).unwrap()
+            );
             let mut bots: Vec<_> = (0..3).map(|i| Bot::new(name, root + i).unwrap()).collect();
             let mut decisions = 0;
             while let Some(actor) = hand.actor() {
@@ -56,6 +61,49 @@ fn all_scripts_settle_and_ignore_hidden_cards() {
                 assert!(decisions < 200);
             }
             assert_eq!(hand.settlement().unwrap().rewards.iter().sum::<i64>(), 0);
+        }
+    }
+}
+
+#[test]
+fn scripts_ignore_other_holes_on_every_street() {
+    let config = Config::new(&[2000; 3], 50, 100).unwrap();
+    for street in 0..4 {
+        let deck: Vec<u8> = (0..52).collect();
+        let mut hand = Hand::from_deck(config, 0, &deck).unwrap();
+        let mut prefix = Vec::new();
+        while hand.street() as usize != street {
+            let action = Action {
+                kind: if hand.legal().unwrap().check {
+                    Kind::Check
+                } else {
+                    Kind::Call
+                },
+                raise_to: 0,
+            };
+            hand.apply_mut(action).unwrap();
+            prefix.push(action);
+        }
+        let actor = hand.actor().unwrap();
+        let victim = (actor + 1) % 3;
+        let slot = (victim + 2) % 3;
+        let mut hidden = deck.clone();
+        hidden.swap(slot, 40);
+        hidden.swap(slot + 3, 41);
+        let mut other = Hand::from_deck(config, 0, &hidden).unwrap();
+        for action in prefix {
+            other.apply_mut(action).unwrap();
+        }
+        assert_eq!(hand.observe(actor).unwrap(), other.observe(actor).unwrap());
+        for name in ["random", "check-call", "tight-aggressive", "pot-pressure"] {
+            for seed in 0..50 {
+                let mut a = Bot::new(name, seed).unwrap();
+                let mut b = Bot::new(name, seed).unwrap();
+                assert_eq!(
+                    a.choose(&hand.observe(actor).unwrap()).unwrap(),
+                    b.choose(&other.observe(actor).unwrap()).unwrap()
+                );
+            }
         }
     }
 }
