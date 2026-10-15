@@ -61,6 +61,7 @@ class Runtime:
                     self.call('/api/models')
                     result = {'pid': self.process.pid, 'load_seconds': monotonic() - started}
                     self.starts.append(result)
+                    put(self.out / "cli-starts.json", self.starts)
                     return result
                 except urllib.error.URLError:
                     pass
@@ -78,6 +79,7 @@ class Runtime:
                 import resource
                 maximum = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
                 self.starts[-1]['max_cli_child_rss_bytes_so_far'] = maximum * (1 if sys.platform == 'darwin' else 1024)
+                put(self.out / "cli-starts.json", self.starts)
             self.process = None
 
     def call(self, path, body=None, key=None, expected=200):

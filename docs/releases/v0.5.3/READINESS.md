@@ -33,3 +33,13 @@ Every asset’s bytes/SHA256, actual CLI RSS/load timings, complete journal repl
 wrong model/table/identity refusals, source CI and accepted archive IDs will be
 recorded before readiness is asserted. No release, tag, publication, HU20 default
 change or owner merge. The owner decides merge and separate release approval.
+
+The first real runtime attempt completed both CLI loads, the pending-decision
+restart and all 12 human hands. It then failed with HTTP 500 at the second
+spectator hand’s first postflop decision: spectator classification and its
+independent audit omitted the policy-owned K50 tables. The regression reproduces
+the error before the fix; all 188 relevant tests pass after both call sites
+receive the policy tables. Original journals, logs and initial package metadata
+remain retained. Only inactive reproducible package payloads were retired to
+make room for a clean-source rebuild. Runtime rerun and audit of every attempt
+remain required. [Failure and correction](verification/runtime-failure-000.json).
