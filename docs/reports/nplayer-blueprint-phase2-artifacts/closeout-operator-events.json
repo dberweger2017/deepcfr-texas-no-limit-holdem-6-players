@@ -25,6 +25,16 @@
       "stage": "native upload flag visibility",
       "event": "After successful API upload and cloud metadata, the latest piece appeared natively with the correct size, no conflicts, isUploaded=0 and isUploading=0. The original helper treated this transient state as a hard acceptance failure.",
       "action": "Preserved the first native observation, classified a clean pending flag as deferred acceptance, retained the buffer and re-observed without repeating the upload. Actual errors or identity mismatches still fail."
+    },
+    {
+      "stage": "owner BIOS pause",
+      "event": "Owner powered off bb128 for a BIOS change. SCP of original archive part0063 disconnected with exit255 at October15 22:32:41Madrid; 63 preceding parts were already verified and split.",
+      "action": "Disabled only this campaign schedule; retained failure/log and 94,264,320-byte partial. After explicit owner wake-up on October16, reconciled 63 source receipts/126 ready pins, preserved the partial under a distinct name and resumed transport only from source index63. No scientific retry or successful upload repeated."
+    },
+    {
+      "stage": "post-BIOS read-only host probe",
+      "event": "An initial SSH metadata probe had incorrect remote shell quoting and returned a syntax error before executing its Python expression.",
+      "action": "Corrected remote argument quoting with shlex.quote and read only hostname/archive size/mtime. No archive or scientific source was changed."
     }
   ]
 }
