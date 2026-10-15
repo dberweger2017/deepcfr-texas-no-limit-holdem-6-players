@@ -103,3 +103,41 @@ ID `19BFM2fOtr4K5jQ6axgTTyxUjPzM8_D2M`, **6,617,574 bytes**,
 SHA256 `e22e8d7d9d6e0e9592e2121e66d215c8f599300aff3a438a6287a365daa66831`; parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
 Independent Drive metadata readback confirms exact name/size/direct parent.
 Local records are under `~/Local/storage-vacuum-20261015-closeout/` on both Macs.
+
+## Uploaded-cache supplement during archive packing — 12:42 UTC
+
+PR286's newly sealed full-model ZIPs consumed most of the first headroom snapshot.
+A fresh dependency/no-open-handle/identity/native/cloud review identified five
+fully accepted unused ZIP caches. Normal per-file
+`FileManager.evictUbiquitousItem` releases **10.593 GB more**,
+bringing this owner's cleanup total to **28.828 GB**.
+At 2026-10-15T12:42:17.794153+00:00, M4 reports **28.742 GB free**
+(28,741,701,632 bytes) after the large archives were created.
+
+Exact native paths use `~/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/` plus the relative path below.
+Normal download from the same Drive file restores residency when needed.
+
+| Native relative path | Logical bytes | Unchanged Drive file |
+|---|---:|---|
+| `PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-average-M4-20261014.zip` | 3,196,298,276 | [1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX](https://drive.google.com/file/d/1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX/view?usp=drivesdk) |
+| `PR-286-hu100-v053-three-seeds/hu100-v053-terminal-partial-lifecycle.zip` | 14,603 | [1lBZqdODLY0lPXT6o3_x2M0rn5n9f1PXl](https://drive.google.com/file/d/1lBZqdODLY0lPXT6o3_x2M0rn5n9f1PXl/view?usp=drivesdk) |
+| `PR-286-hu100-v053-three-seeds/hu100-v053-terminal-partial-evidence.zip` | 1,018,868,376 | [1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm](https://drive.google.com/file/d/1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm/view?usp=drivesdk) |
+| `PR-286-hu100-v053-three-seeds/hu100-v053-seed-2026101501-average.zip` | 3,190,246,314 | [1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT](https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk) |
+| `PR-286-hu100-v053-three-seeds/hu100-v053-seed-2026101502-average.zip` | 3,187,451,673 | [1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u](https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk) |
+
+All same-size native placeholders and cloud IDs survive with dataless flags.
+Actual remaining bookkeeping blocks are excluded from reclaimed bytes. Current
+uploaded/no-pending/no-conflict/unpinned/inactive/exact-size and independent
+ID/name/size/direct-parent checks pass before and after. These are finished
+archive caches; the restored PR272 model and every PR286 work file/input remain.
+Both full-model ZIPs are uploading/unaccepted and stay resident. All 12 protected
+model/table/checkpoint paths again match size/mtime/inode. No forced offload,
+unpinning, synced deletion, source removal or repeated payload hash audit.
+The standing inactive-regenerable-cache permission applies to the exact reviewed
+open-PR cache paths; PR286's current open state is recorded truthfully.
+
+[Accepted supplement receipt](https://drive.google.com/file/d/1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm/view?usp=drivesdk), ID `1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm`,
+**24,884 bytes**, SHA256 `b61caabfd1c12e9a006e025adfd3fb8c2439b7ebfd3a4e321282ddcf850b372c`; independent Drive
+name/size/direct-parent readback passes. Full native/cloud metadata and exact
+per-file release journal remain under `storage-vacuum-20261015-closeout/uploaded/`
+on M4; both accepted private receipts are retained on both Macs.
