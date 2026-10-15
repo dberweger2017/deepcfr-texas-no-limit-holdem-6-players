@@ -1,0 +1,14 @@
+{
+  "engine": {
+    "url": "https://github.com/dberweger2017/pokers.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "requested_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    }
+  },
+  "players": 3,
+  "seed": 202610160000,
+  "requested_hands": 1000000,
+  "binary_sha256": "7ad653b50165354a471f588bd3957bb868c0d62425f36bd6af83ed61f7c2e77b"
+}
