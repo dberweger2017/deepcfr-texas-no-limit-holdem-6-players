@@ -105,7 +105,8 @@ def prefix(state):
 def exercise(runtime, counts, label):
     RELEASE = bundle_release(runtime.bundle)
     started = monotonic()
-    result = {'sessions': [], 'hands': 0, 'off_menu_550_raises': 0, 'all_in_raises': 0}
+    result = {'sessions': [], 'hands': 0, 'off_menu_550_raises': 0,
+              'off_menu_800_raises': 0, 'all_in_raises': 0}
     catalog = runtime.call('/api/models')
     assert catalog['default'] == RELEASE and len(catalog['models']) == 1
     assert catalog['models'][0]['inference'] == inference(RELEASE)
@@ -131,10 +132,14 @@ def exercise(runtime, counts, label):
                     state = runtime.call(prefix(state) + '/advance', request(state))
                 else:
                     legal = state['hand']['legal']; body = request(state)
-                    amount = 550 if mode == 'free' and number % 4 == 0 and step == 0 else legal['maxRaiseTo'] if mode == 'free' and number == 1 else None
+                    # Opening 800 crosses v2's largest ordinary size bucket, so
+                    # the real-model smoke also exercises its missing-history adapter.
+                    off_menu = 800 if RELEASE == 'v0.5.3' else 550
+                    amount = off_menu if mode == 'free' and number % 4 == 0 and step == 0 else legal['maxRaiseTo'] if mode == 'free' and number == 1 else None
                     if amount is not None and 'raise' in legal['kinds'] and legal['minRaiseTo'] <= amount <= legal['maxRaiseTo']:
                         body.update(kind='raise', raiseTo=amount)
                         result['off_menu_550_raises'] += amount == 550
+                        result['off_menu_800_raises'] += amount == 800
                         result['all_in_raises'] += amount == 10000
                     else:
                         body.update(kind='check' if 'check' in legal['kinds'] else 'call', raiseTo=None)

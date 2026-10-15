@@ -12,6 +12,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 
 from scripts import evaluate_hu100_direct as direct
 from src.arena.schedule import canonical
@@ -46,6 +47,8 @@ def check(release, model, cache, out):
         root=ROOTS[release],blocks=64,hands=done['hands'],decisions=done['decisions'],
         all_hands_independently_replayed=audit['hands_replayed']==done['hands'],translated=translated,
         trace_sha256=digests,outcomes_reported=False,excluded_fields=['decision_seconds','translation.lookup_seconds'])
+    result['runtime_module_paths']={name:str(Path(sys.modules[name].__file__).resolve()) for name in (
+        'scripts.evaluate_hu100_direct','src.blueprint.average','src.blueprint.action_translation','src.policies.hu100_bundle')}
     direct.put(out/'trace-hashes.json',result)
     return result
 
