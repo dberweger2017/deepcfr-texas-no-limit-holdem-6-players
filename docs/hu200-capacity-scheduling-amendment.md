@@ -1,10 +1,12 @@
-# PR301 scheduling amendment — proposed, awaiting owner decision
+# PR301 scheduling amendment — owner approved October16
 
 The October16 owner request seeks better use of bb128 without changing the
-experiment. This document is a reviewable proposal, not an admission or a change
-to the running campaign. The committed protocol still governs.
+experiment. The owner explicitly approved this amendment as written on
+October16, including the protocol wording correction, a two-audit first batch,
+measurement before admitting three, unchanged guards/deadlines and a revised
+ETA after that batch. Deployment requires the validated boundary handoff below.
 
-## Why approval is needed
+## Approval provenance
 
 [The protocol](hu200-capacity-cygnus-protocol.md) explicitly admits only one
 export/audit/cache builder or verifier at once (execution section), says exports
@@ -13,9 +15,9 @@ disposable files before auditing the next (disk section). Its controller also
 waits for all three seeds' audits before the next target. Owner request point4
 reserves changing these restrictions for the owner. The original task likewise
 required nonoverlapping exports/audits. These are scheduling restrictions, but
-they remain binding until this specific amendment is approved.
+the owner has now specifically approved replacing these restrictions below.
 
-## Proposed schedule
+## Approved schedule
 
 - Keep the qualified binary, seeds, cap, R=1, target nodes, exact resume and twin
   gates, every-save byte/hash/CRC and full-row checks, evaluation sizes/roots,
@@ -89,10 +91,10 @@ is proposed.
 
 ## Conditional ETA
 
-Pending approval and measured concurrency, the revised planning target is
+Pending measured concurrency, the revised planning target is
 **Monday, October19, Madrid time**, with **Tuesday, October20** upload contingency,
 instead of October20–21. This assumes roughly two-to-threefold audit concurrency
 where disk admission allows it; it is not a measured throughput claim. Keep the
 October19 02:29:18UTC training deadline and the original24h evaluation ceiling.
-Requote after the first parallel cohort and evaluation cost pilot. Until owner
-approval, the running schedule and October20–21 forecast remain unchanged.
+Requote after the first parallel cohort and evaluation cost pilot. The
+October19/20 target is provisional until the parallel measurements are available.

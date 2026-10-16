@@ -59,11 +59,16 @@ All gate saves are covered too. #163 full table hashes must match before use.
 
 ## Execution, heat and memory
 
-Run all three lineages concurrently, each two busy threads, separate physical
-core pairs, own output root/stop file/seed. Total busy threads <=8 at every phase,
-including helper work. Training contributes six; only one export/audit/cache
-builder or verifier is admitted at once, bounded to at most two additional
-threads. Affinity and OMP/MKL/OpenBLAS/Rayon limits are explicit. No 16-thread
+Run all three lineages concurrently on separate physical core pairs, with own
+output roots/stop files/seeds: six reserved CPUs, two-worker traversal per
+trainer, variable utilization. Total busy CPU reservations <=8 at every phase,
+including helpers. The owner approved the October16
+[scheduling amendment](hu200-capacity-scheduling-amendment.md): begin with two
+concurrent one-CPU audit/export workers, admitting three only after measured
+throughput, RAM and disk justification. With all three trainers reserved, at
+most two one-CPU helpers fit. Each streaming helper has512MiB family RSS cap,
+inside the existing2GiB helper allowance. Cache construction remains serialized.
+Affinity and OMP/MKL/OpenBLAS/Rayon limits are explicit. No 16-thread
 probe. Record the new heatsink's observed CPU/VRM/fan behavior and compare with
 the qualified pre-heatsink context without claiming a controlled causal test.
 
@@ -90,8 +95,10 @@ current disk occupancy and possible upload staging growth in admission.
 No campaign cleanup may depend on reclaiming their space.
 
 Campaign controller runs fresh prefixes and then the four fixed node targets through
-separate hash-pinned native resumes, so each save can be fully audited before
-continuation. This preserves RNG/table lineage, proven by the resume gates.
+separate hash-pinned native resumes. After all global prefix/memory gates pass,
+independent seed queues overlap training and audits; each seed's save must pass
+every audit before that seed continues. This preserves RNG/table lineage,
+proven by the resume gates. No seed enters5B before all three twins restore.
 Native continuation command per seed at each TARGET (2B/5B/10B/20B):
 
 ```text
@@ -119,7 +126,8 @@ to forbid new keys. Record the exact per-save CLI value and overshoot.
 
 Checkpoints are at first complete iteration crossing 2B/5B/10B/20B. No target
 filename is evidence of reached nodes. All saves and final exports receive full
-every-row current/average audits; exports/audits never overlap one another.
+every-row current/average audits; owner-approved concurrent workers and
+cross-seed training overlap follow the amendment and one global watchdog.
 Record per-save street/role missing training shares, zero visits and visits/key.
 
 Initial runtime allowance: at most72h for gates/training/export/audit, followed
@@ -161,7 +169,9 @@ than selecting a weaker check. Differential and corruption tests must pass
 before this auditor is used. Native trainer/export source and binary stay fixed.
 
 Retire each old seed recovery and disposable current export immediately after
-that seed's successor audits, before auditing the next seed. A conservative
+that seed's successor audits. Independent seed queues may overlap within the
+same259GB budget; reserve all prospective outputs globally before writers start,
+reducing concurrency when they do not fit. A conservative serialized
 training peak is six20GB checkpoints120GB + three retained5B averages34.5GB +
 one new20B average11.5GB + one current10GB =176GB. Add restored twins10GB,
 training traces3GB, staging/other-host growth20GB and the50GB floor:

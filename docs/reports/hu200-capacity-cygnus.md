@@ -148,3 +148,21 @@ Owner-reported real-trainer15min maxima69°C VRM/59°C CPU at125W PL1/PL2 are
 recorded separately. Conditional revised closeout target October19, upload
 contingency October20, requires approval and subsequent throughput admission;
 current October20–21 estimate and scientific runtime ceilings remain unchanged.
+
+The owner explicitly approves the scheduling amendment as written on October16.
+Protocol execution, save/continuation and disk wording now reflect independent
+seed queues and variable utilization of two-worker trainers. One global queue
+watchdog replaces the serial controller at a successful audit boundary, keeping
+the original clock and receipts. The unchanged audit/export code runs one-core
+workers, initially two. A third is admitted only after a completed parallel
+batch has row-normalized speedup>=1.4, conservative CPU utilization>=0.8, host
+NVMe busy<50%, and the original RAM/disk/output reservations fit. Native output
+bytes, all scientific checks and evaluation remain unchanged.
+[Validation](hu200-capacity-cygnus-artifacts/scheduling-validation.json):36 distinct
+checks pass, including real-process overlap and handoff, global stop propagation,
+clock preservation and serial/parallel export byte identity. Test-harness failures
+(missing pytest locally, then missing temporary parent/pinned test metadata in
+the older isolated checkout) are retained; no scientific attempt was repeated.
+The handoff is queued until the current audit exits0; no incomplete audit is
+interrupted. October19/20 remains provisional until the first two-audit batch
+completes and supplies the requested ETA re-quote.
