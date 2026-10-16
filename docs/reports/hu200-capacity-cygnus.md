@@ -116,3 +116,10 @@ resume from the retained remote offset. This is transport progress only: whole
 archive SHA and twin model restoration remain pending on bb128. The synced
 source still reports dataless, so the callback alone does not establish durable
 local hydration. Sources and partials remain intact.
+
+Seed1422 transport exits0; the owned bb128 archive has exactly3,162,066,289
+bytes at06:35UTC ([receipt](hu200-capacity-cygnus-artifacts/transport-complete-2026101422.json)).
+Whole-archive/member hashes and restoration remain pending under the serial
+controller gate. Seeds1302/1421 continue from retained offsets; no restart or
+scientific retry is launched. Two fresh500M prefix audits pass; the third
+and normalized twin parity remain pending. The October20/21 closeout ETA holds.
