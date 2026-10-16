@@ -1,0 +1,18 @@
+{
+  "at": 1792168598.586217,
+  "locks": [
+    {
+      "available_at_observation": true,
+      "path": "/Users/dberweger/Local/.hu20-m4-research.lock"
+    },
+    {
+      "available_at_observation": true,
+      "path": "/Users/dberweger/Local/.hu100-m4-research.lock"
+    }
+  ],
+  "own_research_and_archive_jobs_finished": true,
+  "owned_research_launches_still_active": [],
+  "research_originals_retained": true,
+  "scientific_source": "13ccb498482c228776128e70ad9e733fb0f5621a",
+  "scope": "Research/archival worker release; native Drive upload remains automatic and pending"
+}

@@ -177,14 +177,15 @@ script/model/street, with each identical repeated blend panel arm counted once.
 ## Resources, timing and failures
 
 Hardware is Apple M4 Mac16,1, 17,179,869,184 physical memory bytes (16 GiB),
-10 logical CPUs, macOS 26.6. Through readout, 6,243 guard observations measure
+10 logical CPUs, macOS 26.6. Through the closed main-archive job, 6,264 guard observations measure
 a **12,748,324,864-byte peak simultaneous process-family RSS (12.75 GB)**.
 The kernel's largest per-command process maximum is **12,734,185,472 bytes**;
 these separate command maxima are not summed. Minimum observed free memory
 is 67%; minimum free disk is 47,236,538,368 bytes. Maximum swap growth from
-the campaign baseline is 1,213,139,517 bytes. No observed resource threshold
-breach or resource stop occurs. Closed preservation-job resources will be
-added at archival closeout.
+the campaign baseline is 1,268,776,960 bytes. No observed resource threshold
+breach or resource stop occurs. The main archive worker returns 0. Own research/archive workers are finished,
+and both research locks are available at the release observation; the native
+Drive upload continues automatically. [Release observation](hu200-v055-blend-run-artifacts/m4-released.json).
 [Hardware](hu200-v055-blend-run-artifacts/machine.json),
 [sampled families](hu200-v055-blend-run-artifacts/resource-summary.json),
 [kernel maxima](hu200-v055-blend-run-artifacts/kernel-rss-summary.json).
@@ -237,8 +238,14 @@ commands and retirement receipts are retained.
 Scientific outputs are retained on M4 under
 `~/Local/hu200-v055-blend-run/results/hu200-v055-blend/`. The designated
 [Drive folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK)
-is `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. The final main bundle
-and administrative supplement are pending creation/readback/upload acceptance.
+is `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. The main bundle is locally verified: **17,132,277,962 bytes /1,219 members**,
+whole SHA256 `35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582`,
+manifest SHA256 `29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821`.
+Every member and the whole archive pass readback before atomic publication.
+Drive upload acceptance and the final unpacked copy remain pending. The later
+administrative supplement will also retain the closed archive guard, final
+resources, upload acceptance and unpacked-retention evidence.
+[Main archive receipt](hu200-v055-blend-run-artifacts/main-archive-receipt.json).
 The owner-requested unpacked copies will be retained under
 `bb128:/research/PR-306-HU200-v055-blend-run/` (real path
 `/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), with matching manifests,

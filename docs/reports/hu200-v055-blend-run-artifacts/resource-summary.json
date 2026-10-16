@@ -1,5 +1,5 @@
 {
-  "at": 1792167697.601894,
+  "at": 1792168512.502005,
   "machine": "Apple M4",
   "physical_memory_bytes": 17179869184,
   "measurement": "Five-second observed complete worker families with PID creation-time ownership checks; kernel maxima remain in per-command time logs.",
@@ -15,6 +15,34 @@
     "swap_raw": "vm.swapusage: total = 2048.00M  used = 535.25M  free = 1512.75M  (encrypted)\n"
   },
   "operations": [
+    {
+      "operation": "archive-continuation",
+      "samples": 18,
+      "first_at": 1792168238.601284,
+      "last_at": 1792168324.185493,
+      "peak_family_rss_bytes": 121225216,
+      "min_free_percent": 82,
+      "min_free_disk_bytes": 47878889472,
+      "max_swap_growth_bytes": 1268776960,
+      "max_sample_gap_seconds": 5.0614170000189915,
+      "breach_samples": 0,
+      "stops": [],
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(51995, 1792168238.54658)": 0.32394716,
+          "(52001, 1792168238.603046)": 66.507835392
+        },
+        "failure": null,
+        "finished": 1792168324.189662,
+        "peak_family_rss_bytes": 121225216,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 18,
+        "started": 1792168238.5722082,
+        "status": "complete",
+        "wall_seconds": 85.61745381355286
+      }
+    },
     {
       "operation": "cache-2026101302-final",
       "samples": 61,
@@ -759,6 +787,34 @@
       }
     },
     {
+      "operation": "retire-final-caches",
+      "samples": 3,
+      "first_at": 1792167729.128316,
+      "last_at": 1792167739.219143,
+      "peak_family_rss_bytes": 61898752,
+      "min_free_percent": 84,
+      "min_free_disk_bytes": 55561891840,
+      "max_swap_growth_bytes": 957549117,
+      "max_sample_gap_seconds": 5.059403999999631,
+      "breach_samples": 0,
+      "stops": [],
+      "receipt": {
+        "cpu_seconds_by_identity": {
+          "(51702, 1792167729.077204)": 0.08818054,
+          "(51708, 1792167729.130031)": 7.419561344
+        },
+        "failure": null,
+        "finished": 1792167739.2230039,
+        "peak_family_rss_bytes": 61898752,
+        "reasons": [],
+        "returncode": 0,
+        "samples": 3,
+        "started": 1792167729.101164,
+        "status": "complete",
+        "wall_seconds": 10.121839761734009
+      }
+    },
+    {
       "operation": "union",
       "samples": 68,
       "first_at": 1792148351.5931451,
@@ -822,7 +878,7 @@
   "peak_family_rss_bytes": 12748324864,
   "min_free_percent": 67,
   "min_free_disk_bytes": 47236538368,
-  "max_swap_growth_bytes": 1213139517,
-  "total_samples": 6243,
+  "max_swap_growth_bytes": 1268776960,
+  "total_samples": 6264,
   "all_observed_resources_clear": true
 }

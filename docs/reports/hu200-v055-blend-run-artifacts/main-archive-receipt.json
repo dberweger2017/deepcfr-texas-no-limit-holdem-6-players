@@ -1,0 +1,16 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 17132277962,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 17131522344,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821",
+  "members": 1219,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016.zip",
+  "published_after_full_local_readback": true,
+  "remote_archive_bytes_downloaded": false,
+  "same_filesystem_atomic_publication": true,
+  "seconds_including_source_hash_pack_readback_whole_hash": 63.723144708026666,
+  "sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+  "status": "locally-verified"
+}

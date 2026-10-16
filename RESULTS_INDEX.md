@@ -108,6 +108,24 @@ independent disk readback. The earlier copy above remains untouched.
 PR306's running-campaign exception in [the storage policy](docs/artifact-storage.md)
 permits its current native Drive archive method; final copies use `/research`.
 
+**Main evidence archive locally verified; upload pending:**
+`hu200-v055-blend-run-M4-20261016.zip`, **17,132,277,962 bytes /1,219 members**,
+whole SHA256 `35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821`.
+All member sizes/SHA256s and the whole archive read back locally before atomic
+publication to this PR's native Drive folder. Native upload is pending; no
+independent acceptance or main unpacked mirror is claimed yet.
+[Creation/readback receipt](docs/reports/hu200-v055-blend-run-artifacts/main-archive-receipt.json).
+Model members are `research/hu200-v055-blend/merge/average.gz`,
+`research/hu200-v055-blend/merge/checkpoint.gz`, and
+`research/hu200-v055-blend/merge/current.gz`, with the sizes/SHA256s above.
+The archive contains all raw comparison traces, independent replay/reproduction
+receipts, global fingerprints, source/configuration, failures and the readable
+report snapshot. Canonical inputs/tables are excluded only after hash checks
+and remain indexed dependencies. The closed live-archive guard and final upload
+receipts will be in the administrative supplement; no research original is removed.
+
 ## M1-prioritized cleanup — October 16 afternoon
 
 Owner-requested cleanup retired **40 M1 paths /16 unique inodes**, representing
