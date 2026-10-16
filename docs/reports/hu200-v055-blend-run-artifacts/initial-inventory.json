@@ -1,0 +1,85 @@
+{
+  "at": 1792134697.390795,
+  "host": "dberwegerch-m4.local",
+  "free_bytes": 82784665600,
+  "canonical_paths": [
+    {
+      "seed": 2026101302,
+      "kind": "checkpoint",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/checkpoint.gz",
+      "exists": false,
+      "expected_bytes": 4960844586,
+      "expected_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+    },
+    {
+      "seed": 2026101302,
+      "kind": "average",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/average.gz",
+      "exists": false,
+      "expected_bytes": 3164563975,
+      "expected_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+    },
+    {
+      "seed": 2026101421,
+      "kind": "checkpoint",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/protected-inputs/checkpoint-2026101421.gz",
+      "exists": true,
+      "expected_bytes": 4957752665,
+      "expected_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+      "bytes": 4957752665,
+      "allocated_bytes": 4957753344,
+      "mtime_ns": 1792005604394503067,
+      "inode": 68959346
+    },
+    {
+      "seed": 2026101421,
+      "kind": "average",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend-inputs/seed-2026101421.average.gz",
+      "exists": false,
+      "expected_bytes": 3162671080,
+      "expected_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+    },
+    {
+      "seed": 2026101422,
+      "kind": "checkpoint",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101422/checkpoint.gz",
+      "exists": false,
+      "expected_bytes": 4957316628,
+      "expected_sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c"
+    },
+    {
+      "seed": 2026101422,
+      "kind": "average",
+      "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101422/average.gz",
+      "exists": false,
+      "expected_bytes": 3162064602,
+      "expected_sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f"
+    }
+  ],
+  "source_archives": [
+    {
+      "seed": 2026101302,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+      "bytes": 26698069587,
+      "allocated_bytes": 0,
+      "inode": 68638792,
+      "mtime_ns": 1791929799329103469,
+      "drive_id": "1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI"
+    },
+    {
+      "seed": 2026101422,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101422-full-20261014.zip",
+      "bytes": 20953054295,
+      "allocated_bytes": 0,
+      "inode": 68780599,
+      "mtime_ns": 1792030408665999889,
+      "drive_id": "1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO"
+    }
+  ],
+  "missing_bytes": 19407460871,
+  "projected_free_after_restoration_bytes": 63377204729,
+  "prior_construction_required_free_bytes": 74474288086,
+  "provisional_shortfall_bytes": 11097083357,
+  "scope": "metadata inventory only; fresh hashes/reproductions and actual union gate pending",
+  "research_status": "pending-plumbing-no-research-result"
+}
