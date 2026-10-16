@@ -1,0 +1,206 @@
+{
+  "all_original_journals_retained_and_unchanged": true,
+  "attempts": {
+    "runtime-smoke": {
+      "audit_seconds": 0.1499929170240648,
+      "audited_byte_verified_snapshot": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/audit-data-attempt-001",
+      "counts": {
+        "free": 10,
+        "restricted": 5,
+        "spectator": 9
+      },
+      "fresh_shared_reader_load_seconds": 565.2413961670245,
+      "human_inference": {
+        "exact": 37,
+        "translated": 5,
+        "uniform": 3
+      },
+      "independent_modules": [
+        "play_audit.audit_state",
+        "spectator_audit.audit_states",
+        "service.verify_replay"
+      ],
+      "inference": {
+        "adapter": "hu100-public-menu-translation-equity-k50-menu-v2",
+        "translation": {
+          "max_events": 128,
+          "max_states": 512,
+          "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+        }
+      },
+      "journal_snapshot_counts": {
+        "private.sqlite": {
+          "completed_hands": 15,
+          "partial_hands": 0,
+          "sessions": 6
+        },
+        "spectator.sqlite": {
+          "completed_hands": 9,
+          "partial_hands": 0,
+          "sessions": 2
+        }
+      },
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "original_journals_unchanged": true,
+      "reader_load_seconds": 9.170034900307655e-07,
+      "reader_load_shared_with_other_attempt": true,
+      "rejections": [
+        "HU20 table",
+        "changed inference identity"
+      ],
+      "source_data": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke/data",
+      "spectator": {
+        "counts": {
+          "bot_0_decisions": 17,
+          "bot_1_decisions": 17,
+          "button_0_hands": 5,
+          "button_1_hands": 4,
+          "decisions": 34,
+          "hands": 9,
+          "trained": 34
+        },
+        "decisions": 34,
+        "hands": 9,
+        "sessions": 2,
+        "status": "verified"
+      },
+      "status": "verified"
+    },
+    "runtime-smoke-attempt-000": {
+      "audit_seconds": 0.07976962503744289,
+      "audited_byte_verified_snapshot": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke-attempt-000/audit-data-attempt-001",
+      "counts": {
+        "free": 8,
+        "restricted": 4,
+        "spectator": 1
+      },
+      "fresh_shared_reader_load_seconds": 565.2413961670245,
+      "human_inference": {
+        "exact": 27,
+        "translated": 2,
+        "uniform": 2
+      },
+      "independent_modules": [
+        "play_audit.audit_state",
+        "spectator_audit.audit_states",
+        "service.verify_replay"
+      ],
+      "inference": {
+        "adapter": "hu100-public-menu-translation-equity-k50-menu-v2",
+        "translation": {
+          "max_events": 128,
+          "max_states": 512,
+          "version": "hu100-public-menu-translation-equity-k50-menu-v2"
+        }
+      },
+      "journal_snapshot_counts": {
+        "private.sqlite": {
+          "completed_hands": 12,
+          "partial_hands": 0,
+          "sessions": 3
+        },
+        "spectator.sqlite": {
+          "completed_hands": 1,
+          "partial_hands": 1,
+          "sessions": 1
+        }
+      },
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "original_journals_unchanged": true,
+      "reader_load_seconds": 8.749775588512421e-07,
+      "reader_load_shared_with_other_attempt": true,
+      "rejections": [
+        "HU20 table",
+        "changed inference identity"
+      ],
+      "source_data": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/runtime-smoke-attempt-000/data",
+      "spectator": {
+        "counts": {
+          "bot_0_decisions": 2,
+          "bot_1_decisions": 1,
+          "button_0_hands": 1,
+          "decisions": 3,
+          "hands": 1,
+          "trained": 3
+        },
+        "decisions": 3,
+        "hands": 1,
+        "sessions": 1,
+        "status": "verified"
+      },
+      "status": "verified"
+    }
+  },
+  "fresh_reader_load_seconds": 565.2413961670245,
+  "max_reader_rss_bytes": 1790656512,
+  "sampling_reconstructed_independently_from_every_journal": true,
+  "scientific_hands_rerun": false,
+  "snapshot_manifests": {
+    "runtime-smoke": {
+      "v0.5.3/private.sqlite": {
+        "bytes": 634880,
+        "mtime_ns": 1792096422633747800,
+        "sha256": "bd558dd56108bb7cc8544b360c597e900899878adeafc190354ed497124c2ddc"
+      },
+      "v0.5.3/private.sqlite-shm": {
+        "bytes": 32768,
+        "mtime_ns": 1792096422239056775,
+        "sha256": "cf84c3652307dc750f7d6329f33b268f1bb310f252b77dbc53751b4034f9346d"
+      },
+      "v0.5.3/private.sqlite-wal": {
+        "bytes": 4251872,
+        "mtime_ns": 1792096584178569017,
+        "sha256": "6d90eb7ade439758fe6d08ec5b0faf5af3b550fff0d031bf35408de4f635ae99"
+      },
+      "v0.5.3/spectator.sqlite": {
+        "bytes": 1183744,
+        "mtime_ns": 1792096422910285598,
+        "sha256": "d47ebb8dfb1930eeb8b25ea1361309abb8d3311ad401a414a1c39e62daff16b9"
+      },
+      "v0.5.3/spectator.sqlite-shm": {
+        "bytes": 32768,
+        "mtime_ns": 1792096422241449413,
+        "sha256": "7f3de3d713a4068e3106cd4a88bf76567117d8f7b73ac8ba6357e5f26d433197"
+      },
+      "v0.5.3/spectator.sqlite-wal": {
+        "bytes": 4387832,
+        "mtime_ns": 1792096605173342121,
+        "sha256": "530d8f08bfb5b40ecff8664f5286231c5c19642289993adf81b828d1391f5d76"
+      }
+    },
+    "runtime-smoke-attempt-000": {
+      "v0.5.3/private.sqlite": {
+        "bytes": 360448,
+        "mtime_ns": 1792094025177246054,
+        "sha256": "5d81e4de8a1f6efdc89bb63a82e4687aa206140c6025d34c2f1efe635f98d1e8"
+      },
+      "v0.5.3/private.sqlite-shm": {
+        "bytes": 32768,
+        "mtime_ns": 1792094024866150150,
+        "sha256": "88ce790d05d89b6e72e1faffa6a03e7fc249e9ccd1cee9611599d079932c5e8d"
+      },
+      "v0.5.3/private.sqlite-wal": {
+        "bytes": 4243632,
+        "mtime_ns": 1792094025303602662,
+        "sha256": "11fdf0deb303a8db9c94144292d63003d846dc776274d092ec191ea2bea73b80"
+      },
+      "v0.5.3/spectator.sqlite": {
+        "bytes": 4096,
+        "mtime_ns": 1792093445316778220,
+        "sha256": "97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda"
+      },
+      "v0.5.3/spectator.sqlite-shm": {
+        "bytes": 32768,
+        "mtime_ns": 1792094024872516292,
+        "sha256": "125a4cbc366db103c58e7841db3e1cb944dc53e31eb8d3204cb70cc969fc597e"
+      },
+      "v0.5.3/spectator.sqlite-wal": {
+        "bytes": 486192,
+        "mtime_ns": 1792094025322767297,
+        "sha256": "4dd6ad865cb4b0d44c673866decdf02343ee8bd38569be9f7ce1c512fb082eea"
+      }
+    }
+  },
+  "status": "verified",
+  "total_seconds": 566.2255342919962
+}

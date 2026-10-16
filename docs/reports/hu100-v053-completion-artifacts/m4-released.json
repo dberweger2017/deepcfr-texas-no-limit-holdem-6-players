@@ -1,0 +1,77 @@
+{
+  "all_local_archival_cpu_finished": true,
+  "all_unique_evidence_and_models_retained": true,
+  "at": 1792077037.759685,
+  "both_locks_verified_free": [
+    "/Users/dberweger/Local/.hu20-m4-research.lock",
+    "/Users/dberweger/Local/.hu100-m4-research.lock"
+  ],
+  "cloud_metadata_and_report_closeout_may_continue": true,
+  "disk_free_bytes": 60677062656,
+  "final_lifecycle_samples": [
+    {
+      "access_denied_other_pids": [],
+      "at": 1792076990.286889,
+      "breaches": {
+        "critical_pressure": false,
+        "family_rss": false,
+        "free_disk": false,
+        "free_memory": false,
+        "swap_growth": false
+      },
+      "continuity_reset": true,
+      "disk_free_bytes": 60672786432,
+      "family_rss_bytes": 19480576,
+      "free_percent": 83,
+      "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%\n",
+      "held_seconds": {},
+      "monotonic": 361249.521295291,
+      "pressure_level": 1,
+      "processes": [
+        {
+          "cpu_seconds": 0.036678666,
+          "create_time": 1792076990.227331,
+          "pid": 72025,
+          "rss": 19480576
+        }
+      ],
+      "stop": [],
+      "swap_bytes": 871628800,
+      "swap_raw": "vm.swapusage: total = 2048.00M  used = 831.25M  free = 1216.75M  (encrypted)\n"
+    },
+    {
+      "access_denied_other_pids": [],
+      "at": 1792076995.3319008,
+      "breaches": {
+        "critical_pressure": false,
+        "family_rss": false,
+        "free_disk": false,
+        "free_memory": false,
+        "swap_growth": false
+      },
+      "continuity_reset": false,
+      "disk_free_bytes": 60674342912,
+      "family_rss_bytes": 19988480,
+      "free_percent": 83,
+      "free_raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%\n",
+      "held_seconds": {},
+      "monotonic": 361254.566311791,
+      "pressure_level": 1,
+      "processes": [
+        {
+          "cpu_seconds": 0.059055168,
+          "create_time": 1792076990.227331,
+          "pid": 72025,
+          "rss": 19988480
+        }
+      ],
+      "stop": [],
+      "swap_bytes": 871628800,
+      "swap_raw": "vm.swapusage: total = 2048.00M  used = 831.25M  free = 1216.75M  (encrypted)\n"
+    }
+  ],
+  "m4_released_for_other_cpu_work": true,
+  "no_further_local_research_or_archival_cpu_scheduled": true,
+  "owned_workers_remaining": [],
+  "utc": "2026-10-15T15:10:37.759687+00:00"
+}

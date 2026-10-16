@@ -1,0 +1,204 @@
+{
+  "at": 1792072959.029137,
+  "comparisons": {
+    "direct-2026100601": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 155749505,
+        "mtime_ns": 1792062209333258683,
+        "sha256": "cf051a7774d6b041ec3cb5d7a63e283d609b774c10784d2a9a402852ba960c8d"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 25472876,
+        "mtime_ns": 1792062209334946902,
+        "sha256": "f1538515c6296dd067a407efd7fcc68ffceb14b2c2ddef2aab6095c27072c6e4"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 155749495,
+        "mtime_ns": 1792062974758181335,
+        "sha256": "e68534af36697ea4285ca9302fd226d9763cb43116f73b57c40b27d5651f39ef"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 25472876,
+        "mtime_ns": 1792062974758402336,
+        "sha256": "06d642b3295e33a4933da1847ae46aa33c1f30b5cc26d5b5e5c943f8b116a196"
+      }
+    },
+    "direct-2026101501": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 155681097,
+        "mtime_ns": 1792064939771462856,
+        "sha256": "73613bf6d9b0b9a04ecbf8d78e8cdaee33bbe4c2259abfd24757516c7d957d86"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 25465600,
+        "mtime_ns": 1792064939772715390,
+        "sha256": "c44d1fd8f4579aaf7444e60370b2f8776b886bc12530553ccf9a92af21ec9707"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 155740963,
+        "mtime_ns": 1792065635422513299,
+        "sha256": "0855878a82a2593a65a2b7d0e87abf71e6d2c1f69f659d5e62e2f2b7a7e39cab"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 25465600,
+        "mtime_ns": 1792065635426168234,
+        "sha256": "848fc6892de7461bce6cdf9421f72bc7933e51049c9eaeb14f59b27af34a449c"
+      }
+    },
+    "panel-2026101501-check_call": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 30711631,
+        "mtime_ns": 1792063680830278430,
+        "sha256": "17416a93ccf414df68b50bc4ed1de5c1c005cac93154098a4b57ca477a360d29"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 7338965,
+        "mtime_ns": 1792063680833523576,
+        "sha256": "e738bf29ab565d6a257f86b38ed2cb5c56c5a894bf8534594fe5e50300534009"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 30713006,
+        "mtime_ns": 1792063895041261680,
+        "sha256": "5e1e7f0de9942fe80d7bc148630b708b1133fdd922a7ab5dc17cf1242428e0f5"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 7338965,
+        "mtime_ns": 1792063895042318395,
+        "sha256": "6de3029c0d60e595feeb8cc2810c8bbd69fc2b2baa49812fd1141cefdf85963d"
+      }
+    },
+    "panel-2026101501-half_pot_pressure": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 10706961,
+        "mtime_ns": 1792064391339075513,
+        "sha256": "4511b6a12d77659d6933eedafefc7b64ae1d6b999ac3c9d60908aa0e1e3eb66a"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 4745997,
+        "mtime_ns": 1792064391339213845,
+        "sha256": "e12d606af699e092b0458f3f2006fb5a846497bfd9e162c23588d9a5650af5b5"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 10713129,
+        "mtime_ns": 1792064489231353634,
+        "sha256": "1cda43a0cbe70ead798c4c5fadeba2450774c9b4b1d85033e97c432c0d8fbc9b"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 4745997,
+        "mtime_ns": 1792064489232284752,
+        "sha256": "e76664d83df8fb2ff8603efd5af8bdeb58125e7ee2f348e9ef3368af965af30c"
+      }
+    },
+    "panel-2026101501-loose_aggressive": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 15472979,
+        "mtime_ns": 1792064076829033352,
+        "sha256": "b5e0a54b64f90b3e0d6e2e95e73ed583fa40ec5f25a9fe77d5552245305ab215"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 5549367,
+        "mtime_ns": 1792064076829340271,
+        "sha256": "87b39264ad9575e48dbf12f93a480158c3a889e51d1e0203161383d9bacccde3"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 15481867,
+        "mtime_ns": 1792064201218810305,
+        "sha256": "e82717f7174bb9d355f31a84167f78cdf698420181163c0006ce47d784e9df3f"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 5549367,
+        "mtime_ns": 1792064201219345350,
+        "sha256": "ec6c2215c5a9a08e5bb6f43a65c84b50dbca979cebbbc56a50f3c083d9efd6f5"
+      }
+    },
+    "panel-2026101501-matched_pot_pressure": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 10201114,
+        "mtime_ns": 1792064531554199127,
+        "sha256": "22e52485e4a6765c1642ebef3ec283fd89de8a6a0062b3c4e2ee5cf9e9a797e5"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 4706510,
+        "mtime_ns": 1792064531554915581,
+        "sha256": "0066fce66e0f37856aea6543b675356fd5e7c7021983b2e9f3ef559405688e67"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 10205391,
+        "mtime_ns": 1792064624010762218,
+        "sha256": "90dcbc50832eb793f7d38410e2ffa1a22347dcfccb42583d32dd5d4b9e4963e2"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 4706510,
+        "mtime_ns": 1792064624011524088,
+        "sha256": "0763459d88ff6ed5a237e5de1e346fb560394b033284b6d353cdc07581b0a513"
+      }
+    },
+    "panel-2026101501-pot_pressure": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 10369099,
+        "mtime_ns": 1792064246225633793,
+        "sha256": "6b4765ec14fb19d60c4c312824a97d89bfd1ad86c53453d53596b46a6efc86c3"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 4722481,
+        "mtime_ns": 1792064246225889378,
+        "sha256": "f85f0dd4eaf32fffd71d688ec05898ac16e18fc746081bb479ddeb3d885ffa72"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 10372398,
+        "mtime_ns": 1792064346416051166,
+        "sha256": "402e2f8bafaf0e78ff0d6a087b92e18dd98466d6237bfb99d6b96f1600454797"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 4722481,
+        "mtime_ns": 1792064346416892463,
+        "sha256": "0c2fc41b3db1ced5c69007721c9064837fe5388bcf619a50d84b98eab61ac394"
+      }
+    },
+    "panel-2026101501-random": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 12867696,
+        "mtime_ns": 1792063461837975388,
+        "sha256": "ca9b7095f187633082c78748a42b442aa5357e87320198fa82993067a358fd8e"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 5193132,
+        "mtime_ns": 1792063461838115056,
+        "sha256": "006260a53207705eff10554b77225d71fbf07d25726f68c5d84c509780984f80"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 12867042,
+        "mtime_ns": 1792063571885685129,
+        "sha256": "a49ae787ebfbc378e255f058efee98949c8a69c5b7d5cee3d53602f3195474d5"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 5193132,
+        "mtime_ns": 1792063571886805844,
+        "sha256": "3cf2a02471d4633d2f1b1616b34a8f180d261c3891bcbd715ced353244958396"
+      }
+    },
+    "panel-2026101501-tight_aggressive": {
+      "play/decisions.jsonl.gz": {
+        "bytes": 8602777,
+        "mtime_ns": 1792063933904978112,
+        "sha256": "492a649ca05fb591de98f78b5f9f4fcbb54d87ee5472ed7003e9cc3057d0c618"
+      },
+      "play/hands.jsonl.gz": {
+        "bytes": 4419755,
+        "mtime_ns": 1792063933906073285,
+        "sha256": "6a5cb12e304ecab0d15c8aa2d4b900a423af597b12d7389ffb90b69867ded276"
+      },
+      "reproduction/decisions.jsonl.gz": {
+        "bytes": 8603719,
+        "mtime_ns": 1792064018693388484,
+        "sha256": "80b08f9015626a562f9a812dba0e30d9fcfd1b8a2426969800744996d2b08ea5"
+      },
+      "reproduction/hands.jsonl.gz": {
+        "bytes": 4419755,
+        "mtime_ns": 1792064018695095578,
+        "sha256": "f07201b840235d73e2162c392a40f4e9bc0782219ecd6e38096c426f1f409944"
+      }
+    }
+  },
+  "no_outcomes_read": true
+}

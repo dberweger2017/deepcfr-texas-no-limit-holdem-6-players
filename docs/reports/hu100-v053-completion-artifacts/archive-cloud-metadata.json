@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "id": "12l23aygPaBinIZNDtp_K0shR_wx6zqf3",
+    "title": "hu100-v053-completion-evidence.zip",
+    "mime_type": "application/zip",
+    "size": "635934911",
+    "url": "https://drive.google.com/file/d/12l23aygPaBinIZNDtp_K0shR_wx6zqf3/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/12l23aygPaBinIZNDtp_K0shR_wx6zqf3/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": "2026-10-15T15:06:07.356Z",
+    "parent_ids": [
+      "1ZNCG7X8600YA-qTk0wC1LtUSSyDj8VcE"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "isError": false
+}

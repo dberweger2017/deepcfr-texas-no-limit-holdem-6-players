@@ -1,4 +1,8 @@
 //! Observation-only instrumentation around the reviewed traversal's State API.
+#[cfg(test)]
+use super::memory::accounted_live;
+#[cfg(not(test))]
+use super::memory::live as accounted_live;
 use hu20_trainer::{
     cfr::{Key, KeyHasher},
     multi_cfr::{Decision, Game, State},
@@ -13,10 +17,10 @@ pub struct Survey {
 }
 impl Survey {
     fn record(&mut self, d: Decision) {
-        let before = super::memory::live();
+        let before = accounted_live();
         let meta = (d.owner as u8, d.street as u8, d.code);
         let old = self.keys.insert(d.key, meta);
-        self.allocated += super::memory::live() - before;
+        self.allocated += usize::try_from(accounted_live() - before).unwrap();
         self.decisions[d.street] += 1;
         if let Some(old) = old {
             assert_eq!(old, meta);

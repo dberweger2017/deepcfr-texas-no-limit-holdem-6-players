@@ -1,0 +1,46 @@
+{
+  "2026101501": {
+    "5000000000.average.gz": {
+      "bytes": 3190242513,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/5000000000.average.gz",
+      "sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000"
+    },
+    "5000000000.current.gz": {
+      "bytes": 2587233270,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/5000000000.current.gz",
+      "sha256": "d547a13568a887f0bba235e66935c1846f6f2a725ddd79c69cb112c58463fbea"
+    },
+    "stage1-requested-500000000.checkpoint.gz": {
+      "bytes": 3484422859,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/stage1-requested-500000000.checkpoint.gz",
+      "sha256": "14cc0c322ed7a5d4b22000d3a3fecafb2f7d1fac8872d3c2b3c5714b2e9a88fe"
+    },
+    "stage2-requested-5000000000.checkpoint.gz": {
+      "bytes": 4859625626,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/stage2-requested-5000000000.checkpoint.gz",
+      "sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b"
+    }
+  },
+  "2026101502": {
+    "5000000000.average.gz": {
+      "bytes": 3187447872,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.average.gz",
+      "sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+    },
+    "5000000000.current.gz": {
+      "bytes": 2587283689,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.current.gz",
+      "sha256": "00b4bbf8c364cfb8ed39787ca55e668f07ee0cbe7c61f453e06eeb9b0fa9baac"
+    },
+    "stage1-requested-500000000.checkpoint.gz": {
+      "bytes": 3485365726,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/stage1-requested-500000000.checkpoint.gz",
+      "sha256": "86407477b095d5098355555be7504deaffcce621343ae04b746b2c2bebacb6ef"
+    },
+    "stage2-requested-5000000000.checkpoint.gz": {
+      "bytes": 4858779254,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/stage2-requested-5000000000.checkpoint.gz",
+      "sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96"
+    }
+  }
+}

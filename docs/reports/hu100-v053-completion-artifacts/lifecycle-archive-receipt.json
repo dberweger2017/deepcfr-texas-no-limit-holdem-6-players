@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 38620,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 32065,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "660e38da0897955b1435e1f841d9719b89be03d7aedb3bf75690e4de53dd1fb2",
+  "members": 11,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-296-hu100-v053-complete-readout/hu100-v053-completion-lifecycle.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 0.0015428750193677843,
+  "sha256": "fedbbbe2ca7ea854bfe0afc58d4ab064bbbb46d83678fcec295c9369ca9def59",
+  "status": "locally-verified"
+}

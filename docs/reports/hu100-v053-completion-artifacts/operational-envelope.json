@@ -1,0 +1,118 @@
+{
+  "adapter_sha256": "eb1b367029ca9f46f7ee7c3c93e9663ae2c3fa9f35aaa422da079509e05d7a2c",
+  "all_17_barrier_before_readout": true,
+  "cache_state": "All prior caches absent after recorded PR286 terminal retirement; rebuild only seed2 and v052; retain v052",
+  "canonical_plan_sha256": "f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20",
+  "closeout": "At least 1800 seconds; archival/readback and report; owner merges; no release/tag/default change",
+  "deadline": 1792083009.3952472,
+  "deadline_utc": "2026-10-15T16:50:09.395247+00:00",
+  "locks": [
+    "~/Local/.hu20-m4-research.lock",
+    "~/Local/.hu100-m4-research.lock"
+  ],
+  "minimum_projected_after_cache_bytes": 21474836480,
+  "no_count_changes": true,
+  "no_failed_hand_reruns": true,
+  "no_new_pilots": true,
+  "no_scientific_changes": true,
+  "quote": {
+    "closeout_seconds": 1800,
+    "comparisons": [
+      {
+        "blocks": 16384,
+        "fixed_seconds": 37.4339299989515,
+        "label": "panel-2026101502-random",
+        "root": 20261015286110,
+        "scaled_block_seconds": 385.7561385035515
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 37.74767350003822,
+        "label": "panel-2026101502-check_call",
+        "root": 20261015286111,
+        "scaled_block_seconds": 821.278847977519
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 37.09210733301006,
+        "label": "panel-2026101502-tight_aggressive",
+        "root": 20261015286112,
+        "scaled_block_seconds": 229.26951450109482
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 36.442162497958634,
+        "label": "panel-2026101502-loose_aggressive",
+        "root": 20261015286113,
+        "scaled_block_seconds": 364.07411225140095
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 38.502092164882924,
+        "label": "panel-2026101502-pot_pressure",
+        "root": 20261015286114,
+        "scaled_block_seconds": 426.18119475245476
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 36.32013916707365,
+        "label": "panel-2026101502-half_pot_pressure",
+        "root": 20261015286115,
+        "scaled_block_seconds": 217.069919988513
+      },
+      {
+        "blocks": 16384,
+        "fixed_seconds": 36.08454437699402,
+        "label": "panel-2026101502-matched_pot_pressure",
+        "root": 20261015286116,
+        "scaled_block_seconds": 250.23265025019646
+      },
+      {
+        "blocks": 131072,
+        "fixed_seconds": 36.85579224902904,
+        "label": "direct-2026101502",
+        "root": 20261015286117,
+        "scaled_block_seconds": 2217.7931416258216
+      }
+    ],
+    "fixed_seconds": 296.47844128793804,
+    "one_off_cache_builds": [
+      {
+        "seconds": 302.7748427391052,
+        "source_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+      },
+      {
+        "seconds": 434.03309178352356,
+        "source_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+      }
+    ],
+    "one_off_input_restoration_and_verification_seconds": 696.0233526229858,
+    "planning_margin": 1.25,
+    "scaled_block_seconds": 4911.655519850552,
+    "wall_cap_seconds": 10102
+  },
+  "release_gate": false,
+  "remaining_only": [
+    "panel-2026101502-random",
+    "panel-2026101502-check_call",
+    "panel-2026101502-tight_aggressive",
+    "panel-2026101502-loose_aggressive",
+    "panel-2026101502-pot_pressure",
+    "panel-2026101502-half_pot_pressure",
+    "panel-2026101502-matched_pot_pressure",
+    "direct-2026101502"
+  ],
+  "resource_guards": {
+    "critical_pressure": 4,
+    "family_rss_bytes": 13958643712,
+    "minimum_disk_bytes": 17179869184,
+    "minimum_free_percent": 8,
+    "sample_seconds": 5,
+    "sustained_seconds": 60,
+    "swap_growth_bytes": 4000000000
+  },
+  "reuse_prior_nine_unchanged": true,
+  "schema": "hu100-v053-operational-completion-v1",
+  "scientific_source": "ed090caecde29569a5c7cd44e49f6dc434145e9c",
+  "started": 1792072907.3952472
+}

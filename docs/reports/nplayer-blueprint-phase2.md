@@ -246,3 +246,9 @@ cloud pieces uploaded and 126 accepted. The existing worker is paused at its
 2-GiB spool ceiling. [Failure receipt](nplayer-blueprint-phase2-artifacts/archive-transport-block.json).
 Final cloud acceptance and the PR-ready ETA remain suspended; all scientific
 results and protected originals are unchanged.
+
+Subsequent native observations accepted all 133 uploaded pieces without
+reupload. The [cleaning-agent handoff](../artifacts/pr292-archive-cleanup-handoff.md)
+records exact host/M1/Drive paths, all accepted IDs, model pins, shared
+dependencies and restoration commands. Archive completion is still pending;
+merge authorization does not authorize removing the unarchived originals.

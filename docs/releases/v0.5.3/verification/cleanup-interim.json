@@ -1,0 +1,302 @@
+{
+  "cloud_native_checks": "Full before/after metadata, current merged owners and handle/dependency review retained in science/archive-cache-*",
+  "current_v052_v053_dependencies": "Protected while primary preparation/science/runtime is active",
+  "forced_offload": false,
+  "native_archive_caches": {
+    "forced": false,
+    "rows": [
+      {
+        "allocated_after": 0,
+        "allocated_before": 3196301312,
+        "at": 1792085907.727459,
+        "cloud_id": "1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX",
+        "cloud_id_after": "1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX",
+        "cloud_parent": "1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq",
+        "ctime_ns": 1792084452516809565,
+        "device": 16777230,
+        "inode": 82879119,
+        "logical_bytes_after": 3196298276,
+        "mtime_ns": 1791990505267999887,
+        "no_open_handles": true,
+        "owner": {
+          "mergedAt": "2026-10-14T15:46:17Z",
+          "state": "MERGED",
+          "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/272"
+        },
+        "path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-average-M4-20261014.zip",
+        "pr": 272,
+        "reclaimed_bytes": 3196301312,
+        "restoration_link": "https://drive.google.com/file/d/1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX/view",
+        "result": "normal-native-cache-eviction",
+        "size": 3196298276,
+        "verified_before": 1792084460.897272
+      },
+      {
+        "allocated_after": 0,
+        "allocated_before": 1991950336,
+        "at": 1792085908.965259,
+        "cloud_id": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+        "cloud_id_after": "1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T",
+        "cloud_parent": "1gwungsUq-b9uey8InGy0yOD2GbaMRhp-",
+        "ctime_ns": 1792085025760597898,
+        "device": 16777230,
+        "inode": 78326633,
+        "logical_bytes_after": 1991949530,
+        "mtime_ns": 1791185455086999893,
+        "no_open_handles": true,
+        "owner": {
+          "mergedAt": "2026-10-05T08:15:20Z",
+          "state": "MERGED",
+          "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/163"
+        },
+        "path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+        "pr": 163,
+        "reclaimed_bytes": 1991950336,
+        "restoration_link": "https://drive.google.com/file/d/1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T/view",
+        "result": "normal-native-cache-eviction",
+        "size": 1991949530,
+        "verified_before": 1792085281.6514292
+      }
+    ],
+    "synced_files_deleted": false
+  },
+  "policy_caches": {
+    "v0.5.0": {
+      "at": 1792086128.988123,
+      "authorization": "October14 standing authorization for inactive regenerable caches, docs/artifact-storage.md",
+      "cache_manifest": {
+        "entries": 41010014,
+        "files": {
+          "counts": {
+            "bytes": 328080240,
+            "length": 41010014,
+            "sha256": "8b24ddc34be57caf78a5c09c4ba8e1ea3f35a33e6ac394fac75e312f23f99a5c"
+          },
+          "flags": {
+            "bytes": 41010142,
+            "length": 41010014,
+            "sha256": "e7c73144a3ad36724873cc30e88d95776a994048171d559159a4c82903ee1ec5"
+          },
+          "keys": {
+            "bytes": 656160352,
+            "length": 41010014,
+            "sha256": "98874d4f223f33d2c2a9deebd112eec96e39951ec0af364fbf50e41ba56b25a8"
+          },
+          "menu": {
+            "bytes": 82020156,
+            "length": 41010014,
+            "sha256": "a2d3c0619d5b03edabca7cfd975ecae900b62afd1450a5265ccb87f518ae3c27"
+          },
+          "offsets": {
+            "bytes": 328080240,
+            "length": 41010014,
+            "sha256": "51a66ec1e84ad819b2cdcaaac33c31f395a084603d0859c8ddd69b9f2aa05238"
+          },
+          "probabilities": {
+            "bytes": 999785536,
+            "length": 124973176,
+            "sha256": "c931cd683d90a819c639bc63a96b9ef4dffcbbd22088e0cf1410a8b6deaa439b"
+          }
+        },
+        "format": "compact-average-cache-v1",
+        "menus": [
+          [
+            "fold",
+            "call",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call"
+          ],
+          [
+            "check",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call",
+            "min"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "check",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "check",
+            "min"
+          ]
+        ],
+        "schema": "hu100-native-reopening-ordered-history-card-v1",
+        "source_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+      },
+      "dependency_review": "Only this completed compatibility check used this fresh cache; all comparison children exited and no handles remain. Primary v053/v052 caches and all model inputs are retained.",
+      "files": {
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/counts.npy": {
+          "bytes": 328080240,
+          "mtime_ns": 1792086108600383665
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/flags.npy": {
+          "bytes": 41010142,
+          "mtime_ns": 1792086108387514273
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/keys.npy": {
+          "bytes": 656160352,
+          "mtime_ns": 1792086106468545320
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/manifest.json": {
+          "bytes": 1596,
+          "mtime_ns": 1792086108784968738
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/menu.npy": {
+          "bytes": 82020156,
+          "mtime_ns": 1792086106878763955
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/offsets.npy": {
+          "bytes": 328080240,
+          "mtime_ns": 1792086107092430953
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/probabilities.npy": {
+          "bytes": 999785536,
+          "mtime_ns": 1792086107821075840
+        }
+      },
+      "model_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "rebuild": "AveragePolicy('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/compatibility-download-cache/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz', '47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9', expected_schema='hu100-native-reopening-ordered-history-card-v1', sorted_rows=True, cache=Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache'))",
+      "rebuild_source": "51b8bee3ce1a15045b3882d94ed60ceeff613ecf",
+      "removed_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+      "retained_model": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/compatibility-download-cache/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz"
+    },
+    "v0.5.1": {
+      "at": 1792086743.934956,
+      "authorization": "October14 standing authorization for inactive regenerable caches, docs/artifact-storage.md",
+      "cache_manifest": {
+        "entries": 54626283,
+        "files": {
+          "counts": {
+            "bytes": 437010392,
+            "length": 54626283,
+            "sha256": "591a354c6ea9e35c458d4e9dfa7c360ede048ff8e9a853eb6a47cbd5b0f47599"
+          },
+          "flags": {
+            "bytes": 54626411,
+            "length": 54626283,
+            "sha256": "4785de6cec75397590d4fe20aac729c32220c8e326349dd852b3df0e9d974c95"
+          },
+          "keys": {
+            "bytes": 874020656,
+            "length": 54626283,
+            "sha256": "1f5d9888f17ce331cb96cb964d073cbd3f343fe5c51fd98041b39c14d9f77c3a"
+          },
+          "menu": {
+            "bytes": 109252694,
+            "length": 54626283,
+            "sha256": "9677937bd28117c19621d74e82e106275001340a0fb26578e4c68ae3f4a2052d"
+          },
+          "offsets": {
+            "bytes": 437010392,
+            "length": 54626283,
+            "sha256": "67686d89de5c47a626b05ae31a02488d0a5ed59013df673ab9c0350cbef5ca98"
+          },
+          "probabilities": {
+            "bytes": 1326809264,
+            "length": 165851142,
+            "sha256": "05e2f78cac0db10c5274feae575b2dab01866de864fad52c00b769c610e0bc11"
+          }
+        },
+        "format": "compact-average-cache-v1",
+        "menus": [
+          [
+            "fold",
+            "call",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call"
+          ],
+          [
+            "check",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call",
+            "min"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "check",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "check",
+            "min"
+          ]
+        ],
+        "schema": "hu100-native-reopening-ordered-history-card-v1",
+        "source_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae"
+      },
+      "dependency_review": "Only this completed compatibility check used this fresh cache; all comparison children exited and no handles remain. Primary v053/v052 caches and all model inputs are retained.",
+      "files": {
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/counts.npy": {
+          "bytes": 437010392,
+          "mtime_ns": 1792086716706920817
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/flags.npy": {
+          "bytes": 54626411,
+          "mtime_ns": 1792086716438318437
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/keys.npy": {
+          "bytes": 874020656,
+          "mtime_ns": 1792086713600344739
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/manifest.json": {
+          "bytes": 1598,
+          "mtime_ns": 1792086716951944523
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/menu.npy": {
+          "bytes": 109252694,
+          "mtime_ns": 1792086714162813177
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/offsets.npy": {
+          "bytes": 437010392,
+          "mtime_ns": 1792086714487774366
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/probabilities.npy": {
+          "bytes": 1326809264,
+          "mtime_ns": 1792086715676096685
+        }
+      },
+      "model_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "rebuild": "AveragePolicy('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/compatibility-download-cache/v0.5.1/O2B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz', 'e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae', expected_schema='hu100-native-reopening-ordered-history-card-v1', sorted_rows=True, cache=Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache'))",
+      "rebuild_source": "629489280f37b25ed1c80f14fd86b2fb62591b94",
+      "removed_path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+      "retained_model": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/compatibility-download-cache/v0.5.1/O2B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz"
+    }
+  },
+  "status": "interim-completed-actions",
+  "synced_files_deleted": false,
+  "unique_inputs_and_evidence_retained": true
+}

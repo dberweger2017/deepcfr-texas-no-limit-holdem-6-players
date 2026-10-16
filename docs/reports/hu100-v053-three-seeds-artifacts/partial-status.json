@@ -1,0 +1,119 @@
+{
+  "comparisons_completed": 9,
+  "comparisons_planned": 17,
+  "failure": {
+    "at": 1792065637.2107341,
+    "failure": "ValueError('evaluation: worker exit 1')"
+  },
+  "final": {
+    "direct-2026100601": {
+      "block_work_seconds": 1082.6660744991386,
+      "blocks": 131072,
+      "fixed_seconds": 37.151053583889734,
+      "hands": 262144,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "direct-2026101501": {
+      "block_work_seconds": 974.2195749171078,
+      "blocks": 131072,
+      "fixed_seconds": 36.23497074999614,
+      "hands": 262144,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "direct-2026101502": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101501-check_call": {
+      "block_work_seconds": 285.35530033300165,
+      "blocks": 16384,
+      "fixed_seconds": 36.87424283399014,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-half_pot_pressure": {
+      "block_work_seconds": 104.85898491600528,
+      "blocks": 16384,
+      "fixed_seconds": 37.098379542003386,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-loose_aggressive": {
+      "block_work_seconds": 144.47724583302625,
+      "blocks": 16384,
+      "fixed_seconds": 37.16960420802934,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-matched_pot_pressure": {
+      "block_work_seconds": 96.74787983397255,
+      "blocks": 16384,
+      "fixed_seconds": 37.14063949888805,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-pot_pressure": {
+      "block_work_seconds": 107.14345620997483,
+      "blocks": 16384,
+      "fixed_seconds": 37.15660866606049,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-random": {
+      "block_work_seconds": 129.88024837407283,
+      "blocks": 16384,
+      "fixed_seconds": 36.608129250991624,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101501-tight_aggressive": {
+      "block_work_seconds": 85.77698187500937,
+      "blocks": 16384,
+      "fixed_seconds": 36.942144498985726,
+      "hands": 65536,
+      "selected_coverage_verified": true,
+      "status": "replayed-and-reproduced"
+    },
+    "panel-2026101502-check_call": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-half_pot_pressure": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-loose_aggressive": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-matched_pot_pressure": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-pot_pressure": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-random": {
+      "present": false,
+      "status": "not-completed"
+    },
+    "panel-2026101502-tight_aggressive": {
+      "present": false,
+      "status": "not-completed"
+    }
+  },
+  "global_final_barrier": false,
+  "original_final_hands_verified": 983040,
+  "outcomes_read": false,
+  "scientific_retry": false,
+  "status": "terminal-partial"
+}

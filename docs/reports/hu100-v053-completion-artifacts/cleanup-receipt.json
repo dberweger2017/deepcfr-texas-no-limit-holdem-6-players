@@ -1,0 +1,21 @@
+{
+  "all_models_checkpoints_unique_evidence_shared_git_and_worktrees_preserved": true,
+  "at": 1792076762.396694,
+  "forced_offloading": false,
+  "inactive_prior_candidate_caches_already_absent": true,
+  "model_restoration_archive_id": "1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u",
+  "model_restoration_member": "averages/2026101502/5000000000.average.gz",
+  "model_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+  "original_removal_receipts": [
+    "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/cache-removed-final-v2-2026100601.json",
+    "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/cache-removed-final-v2-2026101501.json",
+    "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/partial-cache-removal.json"
+  ],
+  "owner_merge_pending": true,
+  "owner_pr": 296,
+  "prior_model_retirement_history": "Merged PR295; docs/artifacts/storage-vacuum-20261015-pr286.md",
+  "removed_paths": [],
+  "restored_average_retained": "/Users/dberweger/Local/hu100-v053-complete-20261015/inputs/2026101502.average.gz",
+  "seed2_and_v052_caches_retained": "/Users/dberweger/Local/hu100-v053-complete-20261015/policy-cache",
+  "synced_deletions": false
+}

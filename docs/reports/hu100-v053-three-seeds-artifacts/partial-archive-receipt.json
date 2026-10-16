@@ -1,0 +1,14 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 1018868376,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 1018597906,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278",
+  "members": 475,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-286-hu100-v053-three-seeds/hu100-v053-terminal-partial-evidence.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 2.605598708963953,
+  "sha256": "234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0",
+  "status": "locally-verified"
+}

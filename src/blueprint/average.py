@@ -13,7 +13,7 @@ from time import perf_counter
 from src.blueprint.action_translation import TranslationOptions, version_for_schema, translate
 from src.blueprint.abstraction import choices, information_key
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, EQUITY_SCHEMAS, MENU_V2_SCHEMAS, STACK_BY_SCHEMA, menu_sizes
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, HU100_EQUITY_MENU_V2_SCHEMA, EQUITY_SCHEMAS, MENU_V2_SCHEMAS, STACK_BY_SCHEMA, menu_sizes
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema, _Player
 from src.blueprint import policy_cache
 from src.blueprint.compact_policy import CompactBuilder
@@ -174,11 +174,12 @@ class AveragePolicy(FrozenBlueprint):
     def configure_translation(self, options: TranslationOptions | None):
         """Explicit research option; model bytes and release defaults stay unchanged."""
         if options is not None and (not isinstance(options, TranslationOptions)
-                                    or self.abstraction not in (HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA)
+                                    or self.abstraction not in (HU100_SCHEMA, HU200_SCHEMA, HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA, HU100_EQUITY_MENU_V2_SCHEMA)
                                     or self.game != {HU100_SCHEMA: HU100_GAME, HU200_SCHEMA: HU200_GAME,
-                                                     HU100_EQUITY_SCHEMA: HU100_GAME, HU200_EQUITY_SCHEMA: HU200_GAME}.get(self.abstraction)):
+                                                     HU100_EQUITY_SCHEMA: HU100_GAME, HU200_EQUITY_SCHEMA: HU200_GAME,
+                                                     HU100_EQUITY_MENU_V2_SCHEMA: HU100_GAME}.get(self.abstraction)):
             raise ValueError("Action translation requires matching HU100/HU200 game and validated options")
-        if options is not None and self.abstraction in (HU100_EQUITY_SCHEMA, HU200_EQUITY_SCHEMA):
+        if options is not None and self.abstraction in EQUITY_SCHEMAS:
             from src.blueprint.equity_buckets import EQUITY_K50_SHA256
             cards = getattr(self, "equity_cards", None)
             if (cards is None or cards.sha256 != EQUITY_K50_SHA256

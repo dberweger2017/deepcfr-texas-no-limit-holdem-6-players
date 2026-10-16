@@ -1,0 +1,65 @@
+{
+  "absent_before_this_task": true,
+  "at": 1792072958.441033,
+  "input_pins": {
+    "2026100601": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3196291551,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97290578,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794658,
+      "name": "v2-2026100601",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/inputs/2026100601.average.gz",
+      "sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "source_checkpoint_sha256": "401fe31263c763c5b805b0cff2f6af332d2dc7a3e9b7d8b99f1120b0216f58d6",
+      "translation": null
+    },
+    "2026101501": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3190242513,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97291138,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1794239,
+      "name": "v2-2026101501",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101501/5000000000.average.gz",
+      "sha256": "83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000",
+      "source_checkpoint_sha256": "ea7107e6c1722e1cb85192e70fc8b10797021dc7838d58ffdeefe886a660086b",
+      "translation": null
+    },
+    "2026101502": {
+      "abstraction": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+      "bytes": 3187447872,
+      "card_buckets": "/Users/dberweger/Local/hu100-k50-v2/results/hu100-k50-v2/tables",
+      "entries": 97291445,
+      "format": "holdem-hu100-stored-cfr-average-research-v1",
+      "iteration": 1776372,
+      "name": "v2-2026101502",
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.average.gz",
+      "sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+      "source_checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+      "translation": null
+    }
+  },
+  "old_cache_path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/policy-cache",
+  "provenance": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/partial-cache-removal.json",
+  "rebuild": "AveragePolicy(pinned path, sha256, expected_schema, card_buckets, sorted_rows=True, cache=OUT/policy-cache)",
+  "release": {
+    "abstraction": "hu100-native-reopening-ordered-history-card-v1",
+    "bytes": 2121415396,
+    "entries": 70466972,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "iteration": 3716073,
+    "name": "v052",
+    "path": "/Users/dberweger/Local/hu100-k50-vs-v052-20261013/results/hu100-k50-vs-v052/release-v0.5.2/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+    "source_checkpoint_sha256": "65fd61d6999d7a06f36fc1c718aea20e7c23856aaa491df7d517e312c1c33368",
+    "translation": {
+      "max_events": 128,
+      "max_states": 512
+    }
+  },
+  "release_cache_also_absent": true,
+  "removed_paths": []
+}

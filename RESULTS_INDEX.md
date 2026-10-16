@@ -1,4 +1,4 @@
-## PR292 — Three-player full-average blueprint (active, October 15, 2026)
+## PR292 — Three-player full-average blueprint (owner-authorized merge; cloud closeout pending)
 
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292), branch
 `feature/nplayer-blueprint-phase2`; [protocol](docs/nplayer-blueprint-phase2-protocol.md),
@@ -42,11 +42,13 @@ campaign; receipts will be added at closeout.
 
 **October 16 transport block:** after the owner-authorized BIOS pause/resume,
 79/119 source parts are verified and split; 133/237 cloud pieces are uploaded,
-126 accepted. The OpenAI upload bridge failed during pre-Drive staging twice;
+133 accepted after subsequent native observations. The OpenAI upload bridge failed during pre-Drive staging twice;
 no further attempts are scheduled. The existing worker is paused, and all
 buffers/failures/originals are retained. The PR-ready ETA is suspended.
 [Block receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-transport-block.json)
-records this partial state. No scientific work was retried.
+records the original blocked state. The [accepted cloud-piece index](docs/reports/nplayer-blueprint-phase2-artifacts/archive-main-cloud-partial.json) preserves all 133 IDs, byte/hash pins and native/metadata observations; it is incomplete and cannot restore the full ZIP. No scientific work was retried.
+
+**Cleaning-agent handoff:** [exact paths, protected dependencies, retrieval and remaining work](docs/artifacts/pr292-archive-cleanup-handoff.md). This is a preservation and archive-completion handoff, not authorization to delete the unarchived scientific originals.
 
 The host repo is a shared clone of PR291's protected checkout, with `.venv` and
 K50 `tables` from #283. Preserve the complete PR291→PR289→PR288→#283 shared Git
@@ -55,6 +57,305 @@ The smoke qualification reads PR291's original `smoke/scoped-average.gz`,
 225,158,368 bytes, SHA256 `fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`;
 its full provenance and host retrieval command remain in the PR291 entry below.
 Do not remove that input while Phase 2 is active. No M4 access or cleanup.
+
+## PR298 — M1 v0.5.3 package prepared for owner review
+
+[PR298](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298),
+[readiness](docs/releases/v0.5.3/READINESS.md),
+[science](docs/reports/hu100-v053-translation.md).
+**The PR remains open. Retain the entire nonsynced M1 checkout
+`~/Local/hu100-v053-release-package/`, all canonical models/tables and its dependencies.**
+No release, draft release, tag, publication, owner merge or HU20 default change.
+Candidate: PR272 original seed 2026100601, declared without selection;
+verified average 3,196,291,551 bytes, SHA256
+`c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e`.
+The task’s initial size was the earlier parent’s; no candidate substitution.
+Scientific source `3bfabb9d1d46f95544826f602686292acc2b538a`, canonical plan SHA256
+`a2eec9a4ca9499f63df906ef61c8bcb4b205b410e2d65d99e9f994ea253cc5b4`.
+
+All 720,896 original final hands replay/reproduce before readout. Seven paired
+contrasts 0.00 [0.00,0.00] BB/100 pass the declared safeguard; fresh descriptive
+direct +37.10 [30.16,44.04] BB/100. No v2 witness selected in this scientific
+panel; random’s off-menu all-ins retain uniform fallback. All three real
+v0.5.0–v0.5.2 trace hashes and old manifests match. Actual M1 smoke, every retained
+failed/successful-attempt journal including the partial hand, and wrong
+model/table/identity refusals verify. [Runtime/audit receipts](docs/releases/v0.5.3/READINESS.md).
+
+Final 12 assets: `results/v053-release-package/assets/` in that checkout,
+clean package source `ffa9ff7d9b68cd96c9cec218088f5a62fc6dcca2`; later integration/docs retain tested bytes.
+[Every asset’s bytes/hash](docs/releases/v0.5.3/verification/asset-inventory.json).
+Three parts plus K50 tables; fresh stdlib-only whole-model reassembly verifies.
+
+Accepted science/evidence folder
+[PR-298-hu100-v053-release-package](https://drive.google.com/drive/folders/1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-),
+ID `1bK_JcDKPW16zIvwRGZyKli3Mp690ZQH-`, parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+Raw hands/decisions and full reproductions, sources, resource traces, partials,
+all failures and restoration/rebuild provenance are retained in:
+
+| Archive | Bytes | Whole SHA256 | Embedded manifest SHA256 |
+|---|---:|---|---|
+| [hu100-v053-package-evidence-M1-20261015.zip](https://drive.google.com/file/d/1V_ma54XVi0PTAFUDLe8nJJt1L5ADfGGd/view) | 603730754 | `8704a092b928de163bc8955dbd5fa2d4b2b965f4f0455996a1f857c420418599` | `c11cd598f329e905d4f63c3f7ab3100d01e74d10796645321edfe8060569184b` |
+| [hu100-v053-package-lifecycle-M1-20261015.zip](https://drive.google.com/file/d/1BQUpP4dlG-mrPPF1H3P59rMC3bzOBrIN/view) | 262131 | `2670a634a6a2d4e958bf61c4876f289b3a146584bc268149e2de3d1805e1fc23` | `8ce1793af80459502c9ac566f5c219e81148d1f2a9960b7bfce5ec1d667ab58c` |
+
+Each embedded member manifest is `ARCHIVE-MANIFEST.json`; every local member’s
+size/SHA256 read back. Native uploaded=1, uploading=0, no pause/conflicts/trash,
+exact document size and independent cloud ID/name/size/parent match establish
+separate upload acceptance. **Remote archive bytes were not downloaded.**
+The lifecycle ZIP closes the evidence archive guard and acceptance records;
+its own final guard observations/acceptance are preserved in the compact Git
+[closing receipt](docs/releases/v0.5.3/verification/archive-lifecycle-closing.json), avoiding a recursive archive. All local originals remain, including the exact ZIP backup made before native-client recovery.
+
+Restore an evidence ZIP from the linked Drive ID or the current native client:
+
+```sh
+mkdir -p results/pr298-restored
+cp "$HOME/Local/Research-Cloud/PR-298-hu100-v053-release-package/hu100-v053-package-evidence-M1-20261015.zip" "results/pr298-restored/hu100-v053-package-evidence-M1-20261015.zip"
+printf "%s  %s\n" "8704a092b928de163bc8955dbd5fa2d4b2b965f4f0455996a1f857c420418599" "results/pr298-restored/hu100-v053-package-evidence-M1-20261015.zip" | shasum -a 256 -c -
+python3 -m zipfile -e "results/pr298-restored/hu100-v053-package-evidence-M1-20261015.zip" "results/pr298-restored/hu100-v053-package-evidence-M1-20261015"
+cp "$HOME/Local/Research-Cloud/PR-298-hu100-v053-release-package/hu100-v053-package-lifecycle-M1-20261015.zip" "results/pr298-restored/hu100-v053-package-lifecycle-M1-20261015.zip"
+printf "%s  %s\n" "2670a634a6a2d4e958bf61c4876f289b3a146584bc268149e2de3d1805e1fc23" "results/pr298-restored/hu100-v053-package-lifecycle-M1-20261015.zip" | shasum -a 256 -c -
+python3 -m zipfile -e "results/pr298-restored/hu100-v053-package-lifecycle-M1-20261015.zip" "results/pr298-restored/hu100-v053-package-lifecycle-M1-20261015"
+```
+
+`research/science/` contains raw experiment files, declarations and receipts;
+`research/runtime-smoke*` contains failed/successful journals and independent
+byte-verified audit snapshots. `source/` captures changed tracked source at the
+archive’s recorded clean revision. Verify the embedded manifest/member hashes
+before using a restored member. The private local play token is excluded.
+
+Canonical inputs are separately indexed dependencies, excluded from these ZIPs:
+[full model/table/archive/member pins](docs/releases/v0.5.3/TRANSLATION_PROTOCOL.md).
+Model archive Drive `1p7LmF9xRGXroTLDqNiY4eRwPuMC2IRiX`, folder
+`1YeDWiUGZjIgiwNsA2BAoc6SLWVb7hsZq`; member
+`averages/5000000000.average.gz`, 3,196,291,551 bytes /C3 hash above.
+Tables archive Drive `1Gl1JYWN0F7KFJbwoKtcA0zB_rUsWWZ6T`, folder
+`1gwungsUq-b9uey8InGy0yOD2GbaMRhp-`; members under
+`hu20-equity-buckets-20261005/`, with all three full sizes/hashes in that protocol.
+The restore tools verify whole archive, manifest and member pins:
+
+```sh
+python -m scripts.retrieve_hu100_model --release v0.5.3 \
+  --archive "$HOME/Local/Research-Cloud/PR-272-hu100-v2-frozen-5b/hu100-v2-frozen-5b-average-M4-20261014.zip" \
+  --out models/pr298-v053-restored
+python -m scripts.retrieve_hu100_tables \
+  --archive "$HOME/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz" \
+  --manifest "$HOME/Local/Research-Cloud/PR-163-equity-buckets/ARCHIVE-MANIFEST.json" \
+  --out models/pr298-k50-restored
+```
+
+The three real compatibility models use the exact published
+[v0.5.0](docs/releases/v0.5.0/PUBLICATION.md),
+[v0.5.1](docs/releases/v0.5.1/PUBLICATION.md),
+[v0.5.2](docs/releases/v0.5.2/PUBLICATION.md) assets/pins. Retrieve each with
+`gh release download v0.5.2 --repo dberweger2017/CFR-NLHE-6max --dir models/pr298-v052-restored`
+(substitute v0.5.0/v0.5.1 and a fresh directory), then check its published
+bytes/hashes. The v0.5.2 whole model remains 2,121,415,396 bytes, SHA256
+`0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0`.
+No inference model was added to Git.
+
+[Interim cache/archive-cache cleanup](docs/releases/v0.5.3/verification/cleanup-interim.json),
+[primary cache retirement](docs/releases/v0.5.3/verification/cleanup-primary-receipt.json)
+and [package rebuild retirement](docs/releases/v0.5.3/verification/package-rebuild-retirement-receipt.json)
+name exact paths, input pins, unchanged inventories, no-live-handle checks and
+rebuild commands. The primary caches reclaimed 10,063,863,808 allocated bytes;
+accepted inactive native archive-cache eviction reclaimed 5,188,251,648 bytes,
+leaving same-ID/size uploaded placeholders and all extracted inputs. Completed
+legacy caches were also retired. The initial failed package’s large payloads
+were temporarily retired for a fresh corrected build, then byte-identically
+restored through verified hardlinks; no net package-space reclamation is claimed.
+All unique evidence, canonical models/tables, auxiliary source and other PRs’
+dependencies remain. No synced deletion or forced offload.
+
+## More M1/M4 storage — October 15
+
+This owner-requested pass retires **8.370 GB on M1 /7.675 GB on M4**;
+verified free **37.297 GB /80.231 GB**. **516 archived original paths** (474 unique
+inodes) from merged PR149/164/169/185 are recoverable from current accepted
+archives. M1 also removes unused install staging and old unopened browser-resource
+cache files. Earlier passes are excluded. Open PR292/297/298, current release/blend
+inputs, source/worktrees/Git, failed PR278 uploads, personal data and installed
+apps remain. **223 stable retained files** pass metadata checks.
+
+[Restoration and regeneration](docs/artifacts/storage-vacuum-20261015-more.md) ·
+[all exact archive/member/hash locators](docs/artifacts/storage-vacuum-20261015-more-locators.csv) ·
+[accepted private receipt](https://drive.google.com/file/d/1OyTa15dy7wUsLUyw2rByRMXfT1mcsU-g/view?usp=drivesdk)
+(4,525,074 bytes, SHA256 `d11197619fabaeb909971d2ce8fcd2ea1043717d6a2457bf6ab644afcc337274`).
+Existing manifests/provenance and unchanged source history are used with current
+native/cloud acceptance; no archive/member payload download or rehash. No synced
+deletion, force offload, scientific retry or unattended schedule.
+
+
+## M4 and M1 storage — October 15 evening
+
+Owner-requested cleanup reclaims **17.075 GB on M4 /25.208 GB on M1**;
+verified free **73.785 GB /38.578 GB**. M4 retires PR296's unchanged restored
+seed1502 average, two rebuildable policy caches and two accepted uploaded ZIP
+caches. M1 retires 1,353 unchanged merged PR149 retrieval paths (391 unique
+inodes, 8.918 GB), plus 16.290 GB of inactive rebuildable caches/installers.
+Open PR292/297/298 dependencies, HU100 release inputs, HU200 blend inputs,
+Slumbot originals/journals, tables, partial/failure evidence, worktrees/Git and
+failed PR278 seed1 uploads remain. **12,686 protected files** pass metadata checks.
+
+[Exact restoration and rebuilds](docs/artifacts/storage-vacuum-20261015-evening.md)
+record all archive/member/hash pins and retained paths. [Accepted private receipt](https://drive.google.com/file/d/1dS_sRfn8TrUQuR1Jf1zLmRwtKDtP4ab5/view?usp=drivesdk):
+1,672,016 bytes, SHA256 `b582c20ca41bffd4a0197b771f1910a2d5d45a471c3b4146c31eecdc03dda325`.
+Current native/cloud acceptance and recorded source modification history are
+checked; no archive payload is downloaded or rehashed. Ordinary per-file native
+eviction only; no synced deletion, forced offload or unattended schedule.
+
+
+## PR296 — frozen HU100 v0.5.3 completion and three-seed readout
+
+[PR296](https://github.com/dberweger2017/CFR-NLHE-6max/pull/296),
+[readout](docs/reports/hu100-v053-completion.md),
+[operational declaration](docs/hu100-v053-completion.md).
+The owner authorized only the eight never-started comparisons from merged#286.
+Canonical scientific plan SHA256 remains
+`f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`;
+scientific source `ed090caecde29569a5c7cd44e49f6dc434145e9c`, native binary
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+The operational adapter was committed before hands in `3662b2f2`; its exact SHA256,
+new10102-second cap,16:50:09UTC deadline, original pilot-derived costs,1.25margin
+and1800s closeout reserve are in the declaration/readback receipts.
+No new pilots, count changes, failed-hand reruns or scientific changes.
+
+**Final:** all17comparisons /1,703,936original final hands independently replay
+and exactly reproduce before readout. Prior nine comparisons /983,040hands
+are unchanged; eight newly completed comparisons /720,896hands use the exact
+roots20261015286110–20261015286117 and full16384panel/131072direct blocks.
+All three seeds meet#272’s historical rule; descriptive direct gains against
+translated v0.5.2 are +47.04[40.13,53.94], +40.95[34.02,47.87],
++45.42[38.49,52.36]BB/100. Full panels retain deficits, including half-pot.
+This is no release gate or overall package verdict; the owner decides merge.
+[Per-comparison inputs/roots/counts/raw pins](docs/reports/hu100-v053-completion-artifacts/final-verification-summary.json),
+[all exact/selected reached support](docs/reports/hu100-v053-completion-artifacts/summary.json),
+[coverage CSV](docs/reports/hu100-v053-completion-artifacts/coverage.csv).
+
+M4 unsynced working root `~/Local/hu100-v053-complete-20261015/` remains protected
+while this PR is open. `frozen-source/` is the clean exact scientific checkout;
+`final/` holds only the eight new comparisons, `readout-view/` references the
+unchanged nine in#286, and `inputs/2026101502.average.gz` is the restored average.
+Protect the original#286 root/shared Git, its original-seed input, released
+v0.5.2 input and canonical K50 table dependencies. No model/checkpoint/evidence
+or synced file was deleted. The two inactive candidate caches were already
+absent per#286’s final-phase retirement receipts; the release cache was also
+already retired at terminal closeout. Only the two required caches were rebuilt,
+and both are retained. [No-removal cleanup receipt and rebuild provenance](docs/reports/hu100-v053-completion-artifacts/cleanup-receipt.json),
+[cache state](docs/reports/hu100-v053-completion-artifacts/cache-retirement-state.json).
+
+New designated folder [PR-296-hu100-v053-complete-readout](https://drive.google.com/drive/folders/1ZNCG7X8600YA-qTk0wC1LtUSSyDj8VcE),
+ID `1ZNCG7X8600YA-qTk0wC1LtUSSyDj8VcE`, direct parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+Both ZIPs have embedded `ARCHIVE-MANIFEST.json`, complete local member size/SHA256
+readback and whole hashing. **Both uploads are accepted separately:** current
+native uploaded/no-pending/no-conflicts/exact-size state plus independent Drive
+ID/name/size/direct-parent metadata. Remote ZIP bytes were not downloaded or
+verified. [Catalog and individual local/native/cloud receipts](docs/reports/hu100-v053-completion-artifacts/archive-catalog.json).
+
+| Accepted archive | Bytes /members | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [hu100-v053-completion-evidence.zip](https://drive.google.com/file/d/12l23aygPaBinIZNDtp_K0shR_wx6zqf3/view?usp=drivesdk) | 635,934,911 /144 | `0603c5b0975aa3ca8e70d1665fdf59a56b7a9521ba1e453d73b8594fb5e79417` | `83c35dbffaa47e0db72dcce2467fe3d334217d84683da05ea88370989eae0dfa` |
+| [hu100-v053-completion-lifecycle.zip](https://drive.google.com/file/d/1KLpN8GNx_1y96R3upHQxUgXCqMlWEHNj/view?usp=drivesdk) | 38,620 /11 | `fedbbbe2ca7ea854bfe0afc58d4ab064bbbb46d83678fcec295c9369ca9def59` | `660e38da0897955b1435e1f841d9719b89be03d7aedb3bf75690e4de53dd1fb2` |
+
+Evidence archive ID `12l23aygPaBinIZNDtp_K0shR_wx6zqf3` retains the eight original/reproduction
+trace sets, every replay/selected-support/cost receipt, global barrier/summary,
+input restoration, prospective envelope/readback, failures/setup observations,
+cleanup receipt, adapter/closeout commands and the closed739-sample scientific
+guard. It references the accepted#286 raw archive for the nine reused comparisons,
+not a new copy or rerun. Lifecycle archive ID `1KLpN8GNx_1y96R3upHQxUgXCqMlWEHNj` retains the closed
+evidence-archive guard (two raw samples), evidence acceptance/catalog inputs and
+readout rendering source. Its own final two resource samples survive in the
+compact [M4 release receipt](docs/reports/hu100-v053-completion-artifacts/m4-released.json).
+All743five-second observations are accounted for; no breach or scientific failure.
+[Final resource summary](docs/reports/hu100-v053-completion-artifacts/final-resource-summary.json).
+
+The seed2026101502 inference input was restored and SHA256-verified from accepted
+Drive archive `1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u`, whole
+`275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df`,
+manifest `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b`,
+member `averages/2026101502/5000000000.average.gz`,3,187,447,872bytes,
+SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`.
+[Restoration receipt](docs/reports/hu100-v053-completion-artifacts/input-restoration.json)
+records the original archive path and exact member; [PR286](#pr286--hu100-v053-three-seed-campaign-terminal-partial)
+provides the accepted archive link and model restore command. The release model
+remains hash `0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0`;
+#163’s three K50 pins and all model hashes match the plan.
+
+For a raw member, download the accepted named ZIP to a fresh ignored path,
+then verify whole/manifest/member hashes and extract without overwriting inputs:
+
+```sh
+python - <<'PYRESTORE'
+import json
+from pathlib import Path
+from scripts.run_hu100_k50_v2 import restore
+catalog = json.loads(Path('docs/reports/hu100-v053-completion-artifacts/archive-catalog.json').read_text())
+receipt = dict(catalog['archives']['evidence'], path='results/pr296-downloads/hu100-v053-completion-evidence.zip')
+restore(receipt, 'research/final/direct-2026101502/play/hands.jsonl.gz',
+        Path('results/pr296-restored/final/direct-2026101502/play/hands.jsonl.gz'))
+PYRESTORE
+```
+
+Other exact raw members follow `research/final/<label>/play|reproduction/`;
+the manifest gives their sizes/hashes. Scientific raw resources are
+`research/guards/operations/completion/resources.jsonl`; closed evidence-archive
+resources are in the lifecycle ZIP at
+`research/guards/operations/archive-evidence/resources.jsonl`.
+Original#286 pilots/training/nine-comparison failures and raw evidence remain
+in its already accepted archives; no original archive was re-audited for cleanup.
+
+**M4 released15:10:38UTC /17:10:38CEST October15:** all owned scientific/archival
+workers exited, both locks verified free,56.51GiB free. This was posted and read
+back in the PR, alongside revised PR closeout ETA15:45UTC /17:45CEST; actual
+merge remains the owner’s decision. No further research/archival CPU, background
+schedule, release, tag or default change is authorized by this closeout.
+
+## Merged PR286 storage retirement — October 15, 13:45 UTC
+
+Owner-requested cleanup after current merged-status/upload/dependency review
+reclaims **50.124 GB** on M4: eight unchanged archived training/model originals
+**28.261 GB** and two accepted model ZIP caches **21.863 GB**. Verified
+**78.787 GB free**. This supersedes earlier local-original retention only for
+the eight exact paths; their final averages/checkpoints/current exports remain
+restorable through four accepted model/average Drive archives.
+[Exact archive/member/whole/manifest hashes and restoration](docs/artifacts/storage-vacuum-20261015-pr286.md);
+[accepted private receipt](https://drive.google.com/file/d/1HKyQUkGffO1_UH-PzllfayS0eM7_N7AL/view?usp=drivesdk),
+`1HKyQUkGffO1_UH-PzllfayS0eM7_N7AL`, 84,810 bytes, SHA256 `ea0a16e468b58b0a907e2eb7385eb80ac5ccf02d83ad6cb82dd652c3c779a06f`.
+All source/worktrees/shared Git, original-seed/released inputs, canonical tables,
+partial/failure/raw evidence and open PR292 dependencies remain; 109 protected
+files match metadata. Same-size online-only ZIP placeholders/cloud IDs survive.
+No payload download/repeated hashes, synced deletion/force/unpin, process signal,
+scientific readout/retry or unattended work.
+
+## M4 uploaded-cache supplement — October 15, 12:42 UTC
+
+Another **10.593 GB** released normally from five confirmed uploaded unused ZIP
+caches as PR286 packs its evidence. Total for this owner's closeout cleanup is
+**28.828 GB**; M4 has **28.742 GB free** after creating the large archives.
+Both full-model ZIPs and all PR286 originals/inputs remain; 12 protected paths
+match metadata again. Same-size native placeholders/cloud files survive.
+[Exact five paths, residency restoration and checks](docs/artifacts/storage-vacuum-20261015-closeout.md#uploaded-cache-supplement-during-archive-packing--1242-utc);
+[accepted supplement receipt](https://drive.google.com/file/d/1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm/view?usp=drivesdk),
+`1h9Mp1FyPc10U5WyOEjAXHWQHujnh6Nxm`, 24,884 bytes, SHA256 `b61caabfd1c12e9a006e025adfd3fb8c2439b7ebfd3a4e321282ddcf850b372c`.
+Normal native per-file eviction only; no forced offload/unpin/synced deletion,
+active original retirement, repeated payload hashes or unattended cleanup.
+
+## M4 evidence-closeout space — October 15 afternoon
+
+Owner-requested cleanup reclaims **18.235 GB**: six unchanged archived inactive
+HU200 model copies (17.343 GB), six unused Rust debug caches and pip downloads
+(0.891 GB). M4 has **40.041 GB /37.291 GiB free** at 12:33:12 UTC.
+All current PR286 model/input/table/evidence/policy-cache paths and PR292 work
+remain; server copies are intact. Earlier local-retention notes are superseded
+only for the six named copies. Seed1 full retry is missing/unaccepted; its
+checkpoints/current export and failed canonical/Lost and Found stay.
+[Exact model/archive/member hashes, source-history checks and rebuilds](docs/artifacts/storage-vacuum-20261015-closeout.md);
+[accepted receipt](https://drive.google.com/file/d/19BFM2fOtr4K5jQ6axgTTyxUjPzM8_D2M/view?usp=drivesdk),
+`19BFM2fOtr4K5jQ6axgTTyxUjPzM8_D2M`, 6,617,574 bytes,
+SHA256 `e22e8d7d9d6e0e9592e2121e66d215c8f599300aff3a438a6287a365daa66831`.
+[Owner-requested Vacuum Cleaner Bot comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286#issuecomment-6192153333) confirms
+headroom for archival closeout, with no change to the scientific stop/retry.
+No payload download/repeated hashes, synced deletion, force offload or process
+signaling. No unattended cleanup/monitoring is scheduled.
 
 ## PR291 — N-player size measurements and bounded smoke (owner-reviewed, October 15, 2026)
 
@@ -410,6 +711,144 @@ all scientific originals remain. Both cloud files/IDs/placeholders survive;
 deletion, force offload, unpinning, payload download or repeated hashes.
 [Owner-authorized PR278 comment](https://github.com/dberweger2017/CFR-NLHE-6max/pull/278#issuecomment-6172261185) delivered and independently
 read back. M1 inspected only; no other agent's reclamation credited.
+
+## PR286 — HU100 v0.5.3 three-seed campaign (terminal partial)
+
+**Completion follow-up:** [PR296](#pr296--frozen-hu100-v053-completion-and-three-seed-readout) finishes the frozen eight never-started comparisons and opens the all-17 readout. The original terminal-partial record below is historical; later model retirement is recorded in#295.
+
+[PR286](https://github.com/dberweger2017/CFR-NLHE-6max/pull/286),
+[report](docs/reports/hu100-v053-three-seeds.md), [protocol](docs/hu100-v053-three-seeds-protocol.md).
+Scientific checkout `ed090caecde29569a5c7cd44e49f6dc434145e9c` on M4;
+branch `feature/hu100-v053-three-seeds`. Native main tree
+`39bdd06f9362512699cf02ed6ab5e3d598ff3557`, binary SHA256
+`4f6abcbb954c3c744448c2a3542ab3164e0e1a015cb05ecebeda077525991cd4`.
+Both fresh seeds complete training and every-row audits, with unchanged sorted
+keys: 2026101501 reaches5,000,004,085 nodes /1,794,239 iterations /97,291,138entries;
+2026101502 reaches5,000,003,034 /1,776,372 /97,291,445.
+[Exact four-model pins per seed](docs/reports/hu100-v053-three-seeds-artifacts/model-index.json).
+
+**Terminal stop October15 12:00:39 UTC:** next-cache preventive admission would
+leave17,107,308,881bytes below the16GiB floor. Nine/17 comparisons and983,040
+original final hands replay/reproduce; all17 global barrier is absent. No
+outcomes/coverage readout, qualification claim, scientific retry or budget extension.
+The canonical prospective roots/counts/cost plan and PR readback remain unchanged,
+SHA256 `f61d0140cfdb0dc39610ed62ec369afb1ab724b4768f0db691f4cd23268d7a20`.
+Full16,384panel/131,072direct counts selected; unused counts are not rerun.
+Both model sets remain at the M4 unsynced root
+`~/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds`.
+Only the owned, unused regenerable release cache was removed with full
+manifest/input/rebuild provenance. No model, unique evidence, other PR root or
+synced file was removed. The campaign's T3 timer is disabled.
+
+Designated folder [PR-286-hu100-v053-three-seeds](https://drive.google.com/drive/folders/1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW),
+ID `1xZlQ09yZnQ9VekGtRlBE5sd1U1pCqVQW`, direct parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`.
+The following have embedded `ARCHIVE-MANIFEST.json`, complete local member
+size/SHA256 readback and whole hashing. Average members also match their
+existing full training audit pins. **All seven ZIPs have upload acceptance:**
+native uploaded/no-pending/no-conflicts/exact-size status plus independent
+Drive ID/name/size/direct-parent metadata. [Complete archive catalog and eight
+model member pins](docs/reports/hu100-v053-three-seeds-artifacts/archive-catalog.json).
+Local readback and cloud acceptance are separate recorded checks; remote ZIP
+bytes were not downloaded or verified.
+
+| Locally verified ZIP | Bytes | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [hu100-v053-seed-2026101501-average.zip](https://drive.google.com/file/d/1pSFspz05rmjRU57FUEfOxR6-ov8pZxtT/view?usp=drivesdk) | 3,190,246,314 | `19b1510446d5f5b76603e91d01dab347aa92d2e21115ebe339ab2eb827ff31ed` | `e0e79eeda29f02f8e2bb3fa858e0edc7c2c36f680b0088b370d2910b64009b0e` |
+| [hu100-v053-seed-2026101502-average.zip](https://drive.google.com/file/d/1thfF0zPFYQT5QxAa0pav_RWZpYE66p0u/view?usp=drivesdk) | 3,187,451,673 | `275f7ed7ca143f05ca64a27d93163a08e829c2e7ca2c9d71b1a2a9791fc6f0df` | `e3f56f9b972009dd96c83e5f4d66842514c2bbd7bd421e5b611c080baffd027b` |
+| [hu100-v053-terminal-partial-evidence.zip](https://drive.google.com/file/d/1CThwAwlt_kJxM7Pq_A_ia304as4C6bUm/view?usp=drivesdk) | 1,018,868,376 | `234909d4986b4339467e063029fdf5861c492d39d3d736dda48b1232a55890e0` | `e81816387ac453068acb509fad7992e221b999ba21e028db01cca7be68cda278` |
+| [hu100-v053-seed-2026101501-models.zip](https://drive.google.com/file/d/1DyUOyR9PGV7z5GjUO1H9qeUUsjACog4C/view?usp=drivesdk) | 10,931,284,102 | `d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce` | `82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a` |
+| [hu100-v053-seed-2026101502-models.zip](https://drive.google.com/file/d/1p5qbkxd2dbh_YyArMhM_JfYkMM92uJi2/view?usp=drivesdk) | 10,931,431,016 | `4bf18e7d43fe85767acab9ad12876431a77ea6a47df4cf2c0d06cb0724182f29` | `2601251e90e707c5bf91f1d6f4e546d49779006a286378dd0d38e6697dea3f4c` |
+
+The475-member partial evidence ZIP retains all pilots/final raw traces, both
+training lineages/telemetry/audits, source/native build, prospective declarations,
+closed whole-campaign guard samples and failures. It excludes averages (separate
+ZIPs), stage1/final checkpoints/current exports (retained, separately sealed model
+bundles), indexed inputs and its own live archival guard. Closed archival guard
+readings and final lifecycle receipts follow in a separate lifecycle ZIP.
+Model bundles total21,862,715,118bytes with3members each. The owner freed
+space; both were sealed/read back inside the original deadline with16.91GiB
+remaining. Historical storage-admission refusals remain in receipts. No models
+or synced files were deleted.
+
+Average members are `averages/2026101501/5000000000.average.gz` (3,190,242,513bytes,
+SHA256 `83771d644b423dc3e32fd313b0bb127b18920b6eb58d7ec6b6f90a7036087000`)
+and `averages/2026101502/5000000000.average.gz` (3,187,447,872bytes,
+SHA256 `a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19`).
+All remaining exact model paths/bytes/hashes are in the linked model index;
+both model ZIPs pass local readback and cloud upload acceptance. Protected indexed dependencies:
+[#272 original average](#pr272--hu100-v2-frozen-5b-october-14-2026),
+[#163 K50 tables](#pr163-full-deck-equity-buckets--october-5-closeout),
+[v0.5.2 released model](docs/releases/v0.5.2/PUBLICATION.md).
+
+The closed preservation guard's6raw readings are in the8-member lifecycle ZIP
+[hu100-v053-terminal-partial-lifecycle.zip](https://drive.google.com/file/d/1lBZqdODLY0lPXT6o3_x2M0rn5n9f1PXl/view?usp=drivesdk),
+14,603bytes, whole SHA256 `6df10db32c400dfcfac8e9878185b5436ddc12a4fbcb95c344aff1b67beb3ed0`,
+manifest SHA256 `2569c69dcc5c81dc784e6704f0f0e131e49049d47508bde3b8926fe48a930371`.
+Complete local readback passed. Its native uploaded/no-pending/no-conflict state
+and independent Drive ID/name/size/direct-parent metadata are accepted; receipts
+are in the report artifacts. Its own final two observations are retained in
+[the compact final lifecycle receipt](docs/reports/hu100-v053-three-seeds-artifacts/partial-final-lifecycle.json),
+with the original raw stream also retained locally. Both average uploads and the final closeout ZIP below now also have native and
+independent Drive acceptance. The full2026101501model ZIP is also accepted by
+native upload status and independent ID/name/size/direct-parent metadata;
+[cloud receipt](docs/reports/hu100-v053-three-seeds-artifacts/cloud-model-2026101501-metadata.json) and
+[native receipt](docs/reports/hu100-v053-three-seeds-artifacts/native-model-upload-observation-ci-green-1.json).
+The2026101502model ZIP is now also accepted; [native receipt](docs/reports/hu100-v053-three-seeds-artifacts/native-model-upload-observation-check-6674072.json)
+and [independent cloud receipt](docs/reports/hu100-v053-three-seeds-artifacts/cloud-model-2026101502-metadata.json).
+Remote archive bytes were not downloaded or verified.
+
+Final [hu100-v053-terminal-closeout.zip](https://drive.google.com/file/d/1YOJk7Vm3o5x0JTRhdEOOaLkYyEjJO1-S/view?usp=drivesdk),
+472,010bytes /84members, whole SHA256
+`350d0f056d20bf063a4eb2baf1f8a3991474dae8e7bccb7e7a74ef74bd73a02f`,
+manifest SHA256 `6a99e468e469ed8cdb7ed6e57a2a750a275ec5f55dd09fcc9c6481d2f97598d7`.
+It retains the closed model-archive guard, previous lifecycle guard,
+all model/archive receipts, final report snapshot, failures and36comparisons of
+archived raw trace hashes against existing play/reproduction completion pins,
+without another raw-hash pass or outcome readout. Native and independent cloud
+acceptance pass. Its final two guard observations are in
+[terminal-final-lifecycle.json](docs/reports/hu100-v053-three-seeds-artifacts/terminal-final-lifecycle.json),
+with raw originals retained. Across all operations3,914five-second samples
+survive in raw archives or the tiny compact final lifecycle receipt.
+[M4 released receipt](docs/reports/hu100-v053-three-seeds-artifacts/m4-released.json):
+all owned science/archive workers exited and both locks verified free;
+26.77GiB free at the release observation after owner-managed cleanup. Archival closeout is complete;
+final reporting-branch CI and owner review remain. The campaign timer stays disabled.
+
+After downloading an accepted named archive to a fresh ignored directory, this
+command verifies whole, embedded manifest and extracted member hashes. Change
+`seed` to2026101502 for the second average. Do not overwrite active inputs.
+
+```sh
+python - <<'PYRESTORE'
+import json
+from pathlib import Path
+from scripts.run_hu100_k50_v2 import restore
+seed = 2026101501
+receipt = json.loads(Path(f'docs/reports/hu100-v053-three-seeds-artifacts/{seed}-average-archive-receipt.json').read_text())
+receipt['path'] = f'results/pr286-downloads/hu100-v053-seed-{seed}-average.zip'
+restore(receipt, f'averages/{seed}/5000000000.average.gz',
+        Path(f'results/pr286-restored/{seed}/5000000000.average.gz'))
+PYRESTORE
+```
+
+For a checkpoint instead of an average, select its exact filename from
+`archive-catalog.json["models"][str(seed)]`, use that row’s `archive` and
+`member`, and load the corresponding archive receipt; the same `restore`
+function verifies the whole/manifest/member hashes before use.
+
+For a raw evidence member use the partial archive receipt, its downloaded ZIP
+path and the exact `research/...` member from its manifest. For closed resource
+traces use the lifecycle receipt and
+`research/guards/operations/partial-preservation/resources.jsonl`.
+For a model checkpoint/current export, use the corresponding `<seed>-model-archive-receipt.json`, downloaded `hu100-v053-seed-<seed>-models.zip` and member `research/<seed>/<filename>` from the linked model index. Both seeds’ model archives are accepted; exact Drive IDs and eight archive/member/size/hash mappings are in the catalog above.
+Closeout CI on5395cc9 failed the inherited N-player example allocation test
+(19,928vs20,072bytes), after37library tests passed. The executing test now
+uses thread-local allocation accounting; production counters remain global.
+Both targeted tests and both non-test example checks pass. [Failure receipt](docs/reports/hu100-v053-three-seeds-artifacts/ci-5395cc9-allocation-failure.json);
+raw job log retained at `planning/ci-5395cc9-full-0-job.log` and the linked CI job.
+The stopped M4 scientific source and outputs are unchanged.
+No release, default change or merge; owner decides.
 
 ## PR272 — HU100 v2 frozen 5B (October 14, 2026)
 

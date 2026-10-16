@@ -1,0 +1,34 @@
+{
+  "actual_nodes": 5000003034,
+  "all_nodes_verified": 97291445,
+  "average_sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19",
+  "checkpoint_sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96",
+  "counts": {
+    "entries": 97291445,
+    "positive_mass": 75031778,
+    "zero_mass": 22259667
+  },
+  "current_sha256": "00b4bbf8c364cfb8ed39787ca55e668f07ee0cbe7c61f453e06eeb9b0fa9baac",
+  "files": {
+    "average": {
+      "bytes": 3187447872,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.average.gz",
+      "sha256": "a476afa7334968087e5dfdb268d3897f9c2afba13905694c054bca2db4a59c19"
+    },
+    "checkpoint": {
+      "bytes": 4858779254,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/stage2-requested-5000000000.checkpoint.gz",
+      "sha256": "a2f403d966ef4f2bfc394fbf1d13bf2c7dafd886483acc858aeaeb4b0cd9fd96"
+    },
+    "current": {
+      "bytes": 2587283689,
+      "path": "/Users/dberweger/Local/hu100-v053-three-seeds-20261015/results/hu100-v053-seeds/2026101502/5000000000.current.gz",
+      "sha256": "00b4bbf8c364cfb8ed39787ca55e668f07ee0cbe7c61f453e06eeb9b0fa9baac"
+    }
+  },
+  "maximum_tv": 1.0000000000000002,
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "seconds": 1928.2095532417297,
+  "status": "verified",
+  "unweighted_mean_current_average_tv": 0.25875485785621816
+}

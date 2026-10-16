@@ -1,0 +1,294 @@
+{
+  "at": 1792091670.5505211,
+  "canonical_inputs_and_unique_evidence_retained": true,
+  "forced_offload": false,
+  "free_after": 32990330880,
+  "rows": {
+    "v0.5.2": {
+      "allocated_bytes": 4172546048,
+      "at": 1792091669.864158,
+      "files": {
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/counts.npy": {
+          "bytes": 563735904,
+          "mtime_ns": 1792087162263223289
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/flags.npy": {
+          "bytes": 70467100,
+          "mtime_ns": 1792087161870320138
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/keys.npy": {
+          "bytes": 1127471680,
+          "mtime_ns": 1792087158176408308
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/manifest.json": {
+          "bytes": 1599,
+          "mtime_ns": 1792087162586655346
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/menu.npy": {
+          "bytes": 140934072,
+          "mtime_ns": 1792087158923063746
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/offsets.npy": {
+          "bytes": 563735904,
+          "mtime_ns": 1792087159352675233
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1/probabilities.npy": {
+          "bytes": 1706189344,
+          "mtime_ns": 1792087160881601178
+        }
+      },
+      "logical_bytes": 4172535603,
+      "manifest": {
+        "entries": 70466972,
+        "files": {
+          "counts": {
+            "bytes": 563735904,
+            "length": 70466972,
+            "sha256": "f6e06af995462e3004524408836618b22a38f2991a34537822f12f7cce16acdd"
+          },
+          "flags": {
+            "bytes": 70467100,
+            "length": 70466972,
+            "sha256": "c427b95c8ab72fc50241a8e255c72ac14d79209420d8b731bfea0ae3f1076bbe"
+          },
+          "keys": {
+            "bytes": 1127471680,
+            "length": 70466972,
+            "sha256": "2334eb5c1485d4ad484646e553c2d9208a6e314f5a975b9b409b4805a73d0c9f"
+          },
+          "menu": {
+            "bytes": 140934072,
+            "length": 70466972,
+            "sha256": "5c838518bf32f0c9d211934f1c85b3a2efd9c1dc3f18c9205025907e1616a047"
+          },
+          "offsets": {
+            "bytes": 563735904,
+            "length": 70466972,
+            "sha256": "0c738099dd723df7b954f8ae65a38866d798e77555300c8306664e3bba0bfd6d"
+          },
+          "probabilities": {
+            "bytes": 1706189344,
+            "length": 213273652,
+            "sha256": "be9770bd7d1747c954b6dd14af346d3408bfd16e03682f9b732fe9e4383b0c2f"
+          }
+        },
+        "format": "compact-average-cache-v1",
+        "menus": [
+          [
+            "fold",
+            "call",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call"
+          ],
+          [
+            "check",
+            "min",
+            "pot"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "fold",
+            "call",
+            "min"
+          ],
+          [
+            "check",
+            "min",
+            "pot",
+            "jam"
+          ],
+          [
+            "check",
+            "min"
+          ]
+        ],
+        "schema": "hu100-native-reopening-ordered-history-card-v1",
+        "source_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0"
+      },
+      "model_retained": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v052/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "no_open_handles": true,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0-hu100-native-reopening-ordered-history-card-v1-compact-average-cache-v1",
+      "regeneration": "AveragePolicy(Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v052/O4B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz'), '0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0', expected_schema='hu100-native-reopening-ordered-history-card-v1', sorted_rows=True, card_buckets=None, cache=Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache'))",
+      "regeneration_source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "status": "retired"
+    },
+    "v0.5.3": {
+      "allocated_bytes": 5891317760,
+      "at": 1792091670.549655,
+      "files": {
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/counts.npy": {
+          "bytes": 778324752,
+          "mtime_ns": 1792087841396231118
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/flags.npy": {
+          "bytes": 97290706,
+          "mtime_ns": 1792087840585291643
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/keys.npy": {
+          "bytes": 1556649376,
+          "mtime_ns": 1792087834924898210
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/manifest.json": {
+          "bytes": 2189,
+          "mtime_ns": 1792087841845233495
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/menu.npy": {
+          "bytes": 194581284,
+          "mtime_ns": 1792087835940948215
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/offsets.npy": {
+          "bytes": 778324752,
+          "mtime_ns": 1792087836596981209
+        },
+        "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1/probabilities.npy": {
+          "bytes": 2486131104,
+          "mtime_ns": 1792087838731001370
+        }
+      },
+      "logical_bytes": 5891304163,
+      "manifest": {
+        "entries": 97290578,
+        "files": {
+          "counts": {
+            "bytes": 778324752,
+            "length": 97290578,
+            "sha256": "0cc76370af789bc676c11e874ab5dba57d1c36b4594c945b3b9052a4b86deeea"
+          },
+          "flags": {
+            "bytes": 97290706,
+            "length": 97290578,
+            "sha256": "5f50d25f485c42987ee1811ec5652982bbaddf8e9f7be8dad53798394dbfab2b"
+          },
+          "keys": {
+            "bytes": 1556649376,
+            "length": 97290578,
+            "sha256": "3d6fc8a1c309a2c76feb508fb6315ec271459a25bf62b94cb7b19916e3b2d768"
+          },
+          "menu": {
+            "bytes": 194581284,
+            "length": 97290578,
+            "sha256": "da68f71523c92c5a1414e99c120eae3dc35cf979455c054b1fd20af921cff067"
+          },
+          "offsets": {
+            "bytes": 778324752,
+            "length": 97290578,
+            "sha256": "f17b9b4a03fd6e5e2e7c6a82778b69d8986a9482448f3da8fd2b994526891e96"
+          },
+          "probabilities": {
+            "bytes": 2486131104,
+            "length": 310766372,
+            "sha256": "b8d9b182fd1f5224f1afa6bb48cbc4b3adeee8f089ee235fe97fb4f16be3764c"
+          }
+        },
+        "format": "compact-average-cache-v1",
+        "menus": [
+          [
+            "check",
+            "min",
+            "half"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "half"
+          ],
+          [
+            "fold",
+            "call"
+          ],
+          [
+            "fold",
+            "call",
+            "min"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "half",
+            "pot"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "half",
+            "pot",
+            "pot-1.5"
+          ],
+          [
+            "check",
+            "min",
+            "half",
+            "pot"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "half",
+            "pot",
+            "pot-1.5",
+            "pot-2"
+          ],
+          [
+            "check",
+            "min",
+            "half",
+            "pot",
+            "pot-1.5"
+          ],
+          [
+            "check",
+            "min"
+          ],
+          [
+            "check",
+            "min",
+            "half",
+            "pot",
+            "pot-1.5",
+            "pot-2"
+          ],
+          [
+            "check",
+            "min",
+            "pot",
+            "pot-1.5",
+            "pot-2"
+          ],
+          [
+            "fold",
+            "call",
+            "min",
+            "pot",
+            "pot-1.5",
+            "pot-2"
+          ]
+        ],
+        "schema": "hu100-native-reopening-ordered-history-equity-k50-menu-v2",
+        "source_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e"
+      },
+      "model_retained": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz",
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "no_open_handles": true,
+      "path": "/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache/c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e-hu100-native-reopening-ordered-history-equity-k50-menu-v2-compact-average-cache-v1",
+      "regeneration": "AveragePolicy(Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/v053/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz'), 'c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e', expected_schema='hu100-native-reopening-ordered-history-equity-k50-menu-v2', sorted_rows=True, card_buckets=Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/models/tables'), cache=Path('/Users/dberweger/Local/hu100-v053-release-package/results/v053-release-package/policy-cache'))",
+      "regeneration_source": "3bfabb9d1d46f95544826f602686292acc2b538a",
+      "status": "retired"
+    }
+  },
+  "synced_files_deleted": false
+}

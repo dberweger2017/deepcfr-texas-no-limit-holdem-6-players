@@ -126,7 +126,8 @@ class SpectatorService(PlayService):
             model = state['models'][seat]
             policy = self.policies[model['version']]
             menu, probabilities, trained, telemetry = distribution(policy, view)
-            info_key = information_key(view, menu, schema=policy.abstraction)
+            info_key = information_key(view, menu, schema=policy.abstraction,
+                equity_cards=getattr(policy, "equity_cards", None))
             status = ('missing' if not trained else
                       'zero-mass' if info_key in getattr(policy, 'zero_mass', ()) else 'trained')
             if telemetry and telemetry['mode'] == 'translated':

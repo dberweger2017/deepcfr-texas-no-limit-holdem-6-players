@@ -1,0 +1,11 @@
+{
+  "closeout_seconds": 1800,
+  "deadline": 1792096452.0033312,
+  "first_build_not_yet_started": true,
+  "seed_order": [
+    2026101501,
+    2026101502
+  ],
+  "source": "fb7d57aa669a623838136a317c1c4952121d34db",
+  "started": 1792046052.0033312
+}

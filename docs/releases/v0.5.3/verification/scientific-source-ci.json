@@ -1,0 +1,58 @@
+{
+  "all_pass": true,
+  "at": 1792090089.943708,
+  "headRefOid": "3bfabb9d1d46f95544826f602686292acc2b538a",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-15T18:12:24Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/CFR-NLHE-6max/actions/runs/38783541411/job/116589972162",
+      "name": "scope",
+      "startedAt": "2026-10-15T18:12:11Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-15T18:23:07Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/CFR-NLHE-6max/actions/runs/38783541411/job/116590098413",
+      "name": "full (0)",
+      "startedAt": "2026-10-15T18:12:27Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-15T18:24:47Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/CFR-NLHE-6max/actions/runs/38783541411/job/116590098481",
+      "name": "full (1)",
+      "startedAt": "2026-10-15T18:12:27Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-15T18:24:53Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/CFR-NLHE-6max/actions/runs/38783541411/job/116595973713",
+      "name": "test",
+      "startedAt": "2026-10-15T18:24:50Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-15T18:11:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.gitguardian.com",
+      "name": "GitGuardian Security Checks",
+      "startedAt": "2026-10-15T18:11:22Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+}

@@ -1,0 +1,33 @@
+{
+  "at": 1792072936.361155,
+  "owners": {
+    "163": {
+      "headRefOid": "6339eb6f4c817c647829d354625b948fe55d8db3",
+      "mergedAt": "2026-10-05T08:15:20Z",
+      "number": 163,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/163"
+    },
+    "260": {
+      "headRefOid": "5456f6846938cbb0e4fee5686e69d18b6af321a5",
+      "mergedAt": "2026-10-13T17:05:44Z",
+      "number": 260,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/260"
+    },
+    "272": {
+      "headRefOid": "91581361cc2377eea6e8f2845bbd4a73a1d550bc",
+      "mergedAt": "2026-10-14T15:46:17Z",
+      "number": 272,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/272"
+    },
+    "286": {
+      "headRefOid": "d328f75ab38192e3288f4d5780b43ed1338670ff",
+      "mergedAt": "2026-10-15T13:38:21Z",
+      "number": 286,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/286"
+    }
+  }
+}

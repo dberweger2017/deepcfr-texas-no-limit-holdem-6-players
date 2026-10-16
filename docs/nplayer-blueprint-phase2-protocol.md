@@ -2,8 +2,9 @@
 
 Status: training, regression checks and all final evaluation/replay/reproduction
 complete; the learning rule passes. Cloud archive acceptance remains in progress.
-The owner authorized this campaign on October 15, 2026. No search, release or
-merge is authorized. PR289 and PR291 are already merged; the feature branch
+The owner authorized this campaign on October 15, 2026, and authorized merge
+on October 16 after the cleaning-agent handoff and green CI. Search and release
+remain out of scope. PR289 and PR291 are already merged; the feature branch
 starts at main `623e2e8741dd8c267f062ded28b9bcc5dde36a0f`.
 
 ## Fixed training and decision

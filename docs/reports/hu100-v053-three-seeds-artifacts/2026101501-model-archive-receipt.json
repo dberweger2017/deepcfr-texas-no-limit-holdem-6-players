@@ -1,0 +1,15 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "bytes": 10931284102,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 10931281755,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "82e3d69d536a657e3e602f4379bef157a00abe6996613c22c26d21fd32bca67a",
+  "matches_existing_model_audit_pins": true,
+  "members": 3,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-286-hu100-v053-three-seeds/hu100-v053-seed-2026101501-models.zip",
+  "remote_archive_bytes_downloaded": false,
+  "seconds_including_source_hash_pack_readback_whole_hash": 49.98926175001543,
+  "sha256": "d992cabf4ab34253a7304f1c3e69abb02006471c9d221f27913b6de15e4093ce",
+  "status": "locally-verified"
+}
