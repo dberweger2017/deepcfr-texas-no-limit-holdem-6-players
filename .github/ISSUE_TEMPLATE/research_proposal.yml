@@ -1,0 +1,41 @@
+name: Research proposal
+description: Declare an experiment before its main run. Required for anything beyond laptop scale or any result that would support a claim.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this in **before** the main run. Results are kept whether they are positive, weak or inconclusive. See [CONTRIBUTING.md](https://github.com/dberweger2017/CFR-NLHE-6max/blob/main/CONTRIBUTING.md#research-proposals) and the ground rules in the roadmap.
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and decision
+      description: What you expect, and which roadmap decision the result informs.
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Design
+      description: Game (for example HU20 or HU100), training recipe, opponents, seeds and evaluation size. Link the source revision or branch.
+    validations:
+      required: true
+  - type: textarea
+    id: budget
+    attributes:
+      label: Budget and machines
+      description: Maximum cost, maximum runtime, peak memory and disk, and where it runs.
+    validations:
+      required: true
+  - type: textarea
+    id: rules
+    attributes:
+      label: Evaluation schedule, stopping conditions and decision rule
+      description: When results are read, what stops the run, and what counts as a pass, a fail or inconclusive.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Prior evidence
+      description: Pilot runs, related reports in docs/reports, or papers.

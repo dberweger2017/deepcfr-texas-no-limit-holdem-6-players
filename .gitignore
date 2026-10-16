@@ -16,6 +16,10 @@
 __pycache__
 util.py
 
+# The maintainer's agent instructions stay on their machines; contributors start
+# from CONTRIBUTING.md.
+/AGENTS.md
+
 # Research models and local planning belong in Research-Cloud, not Git checkpoints.
 /planning/
 *.pt

@@ -82,12 +82,16 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 
 A credible professional reference, predeclared multi-seed confirmation, legal information-safe play and reproducible evidence. Later milestones keep their own acceptance checks.
 
+## Contributing
+
+Help is welcome, from fixing a doc to running a research campaign. [CONTRIBUTING.md](CONTRIBUTING.md) explains setup, the kinds of contribution that need no large compute, and how research proposals work; the [roadmap's Help wanted list](ROADMAP.md#help-wanted) names open tasks.
+
 ## Developers and licenses
 
 [Repository map and commands](docs/development.md), [artifact storage](docs/artifact-storage.md),
 and [maintenance audit](docs/reports/necessary-cleaning.md).
 
 The play-only installation excludes neural research dependencies. For the full
-research and test environment, install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read [AGENTS.md](AGENTS.md), [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
+research and test environment, install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read the [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
 
 Repository code is [MIT](LICENSE.txt). The pinned `pokers` upstream has no verified license grant in its repository/package metadata; the owner licenses their changes to that fork under MIT, while the original authors' terms remain unresolved. [License audit](docs/releases/v0.4.0/LICENSE_AUDIT.md). Release assets contain inference only, no engine binary or private journal; reports and referenced papers retain their own rights.

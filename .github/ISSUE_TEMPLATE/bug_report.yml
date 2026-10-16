@@ -1,0 +1,32 @@
+name: Bug report
+description: Something crashes, gives a wrong result, or plays an illegal or suspicious action.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The exact commands, model release or file, seed and settings. For a hand at the table, attach its hand history.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Error output or logs
+      description: Paste the traceback or the relevant lines. Remove any access tokens first.
+      render: text
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, and the commit you are on (`git rev-parse --short HEAD`).
+    validations:
+      required: true

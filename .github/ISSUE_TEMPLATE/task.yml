@@ -1,0 +1,35 @@
+name: Improvement or task
+description: Propose a change to the code, tools, docs or web table, or claim a Help wanted item.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is missing, slow, confusing or wrong today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What you would change, and how you would show it works (tests, parity checks, a before/after measurement).
+    validations:
+      required: true
+  - type: dropdown
+    id: compute
+    attributes:
+      label: Compute needed
+      options:
+        - None, or a few minutes on a laptop
+        - Hours on a laptop or desktop
+        - More than that (open a research proposal instead)
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope checks
+      options:
+        - label: This changes game rules or what a player can observe (needs maintainer review; see docs/rules.md and docs/observations.md).
+        - label: I would like to work on this myself.

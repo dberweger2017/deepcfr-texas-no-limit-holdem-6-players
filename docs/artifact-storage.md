@@ -1,7 +1,7 @@
 # Git, Google Drive and the research cache
 
-This is the owner-approved October 16, 2026 storage policy. [AGENTS.md](../AGENTS.md)
-controls preservation; [RESULTS_INDEX.md](../RESULTS_INDEX.md) records actual files,
+This is the owner-approved October 16, 2026 storage policy. The owner's standing
+instructions control preservation on the project's machines; [RESULTS_INDEX.md](../RESULTS_INDEX.md) records actual files,
 receipts, failures and retrieval provenance. Historical Mac upload receipts remain
 dated evidence. **Already running PR301, PR306 and other open campaigns may finish
 with their current method; do not disrupt them.** New work follows this policy.
@@ -151,7 +151,7 @@ replay, tests or active research. Changed bytes or copies at new paths fail.
 Do not regenerate the retention list to admit new experiment output. A necessary
 fixture exception needs a specific reviewable reason and exact bytes; a release
 model exception additionally requires explicit owner approval and an exact-path
-ignore exception, as AGENTS.md requires.
+ignore exception.
 
 `.gitignore` prevents common accidental staging; CI also checks objects already
 staged or force-added. Git blob IDs identify retained repository bytes and must
