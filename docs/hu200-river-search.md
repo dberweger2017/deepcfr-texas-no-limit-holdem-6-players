@@ -174,14 +174,14 @@ No strength play, root consumption or outcome inspection is authorized by this
 engineering amendment. Commit the exact validation and cost declaration before
 running those stages; post their ETA in the PR.
 
-The first amended engineering run passes exact fixed24 parity and reduces
-native solves48 to35, but its p95 **10.766536 s** still misses10 seconds.
+The first amended engineering run passes exact fixed 24 parity and reduces
+native solves 48 to 35, but its p95 **10.766536 s** still misses10 seconds.
 This failed engineering measurement remains evidence, distinct from the
 original36.794921-second finding. No concurrency or strength follows that miss.
 Continue the authorized parser/I/O work by sharing the two validated holding
 tables and reading compact numeric payloads through a read-only mapping,
 instead of repeating holding conversion/set checks and per-array file reads
 at every node. No range, menu, iteration, lock or native executable changes.
-Require another full fixed24 bit-parity gate before the next same24 timed
+Require another full fixed 24 bit-parity gate before the next same 24 timed
 measurement, under the unchanged10-second/3GB thresholds. This is a mechanical
 transport continuation; no poker strength outcomes have been observed or tuned.

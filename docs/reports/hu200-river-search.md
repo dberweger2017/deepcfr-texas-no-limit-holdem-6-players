@@ -119,6 +119,48 @@ possible. No research outcome was rerun, tuned or extended. [Failure record](hu2
 
 ## Owner options
 
+### Owner-selected engineering continuation
+
+The owner selected lossless transport/adapter optimization, followed by exact
+parity on the same 24 spots and an amended **p95 at most 10 seconds** gate,
+retaining the 3 GB headroom requirement. The original 3-second result above is
+unchanged. No strength hands are permitted before an owner-approved count
+proposal, even if the amended cost gate passes.
+
+The first transport implementation passes complete fixed 24 output parity at
+source `51c46f7a`: final requests/ranges/menus/locks, every raw and normalized
+finite strategy/EV bit, unavailable masks and diagnostic weights agree with
+the retained original. Full played matrices/support and same-seed actions agree;
+fresh player replay invokes no solver. [Parity receipt](hu200-river-search-artifacts/optimization-parity.json).
+The external executable `9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914`
+changes export only; no solve, iteration or finalization logic changes.
+Strategies and diagnostics travel as the same promoted float64 values, retaining
+all nodes and the existing normalization. Source/dependency pins remain in the
+[external receipt](hu200-river-search-artifacts/optimization-external-source.json).
+
+Certified off-menu ancestor elimination reduces native solves 48 to 35 on this
+sample. An absent next action proves the old candidate cannot be reused;
+existing candidates and uncertified on-menu ancestors remain authoritative.
+Unconditionally removing the latter could change rare reusable policies, so
+their omission is not claimed as an equivalent optimization.
+
+The first amended timed run, source `817de444` with the same entire search
+source tree as the parity run, still **fails 10 seconds**: p50 **5.64 s**, p95
+**10.766536 s**, maximum **13.04 s**. All24 searches finish without fallback,
+timeout or missing actual EV. Peak family RSS is **3,356,459,008 bytes**;
+minimum host available memory is **5,000,101,888 bytes**. Memory passes.
+[Failed attempt receipt](hu200-river-search-artifacts/optimization-cost-attempt-01.json).
+
+The authorized parser/I/O continuation at `214695a3` shares the two validated
+holding tables and reads numeric views through a read-only mapping, retaining
+the same owned copies and normalization. Native executable and search settings
+are unchanged. 72 focused M4 checks pass and independent review finds no blocker.
+Its new full 24 parity gate and subsequent cost gate are **pending**. Neither
+concurrency nor strength is admitted by the 10.766536-second finding. Transport
+engineering has observed no poker strength outcomes and changes no strategy.
+
+### Original response choices and remaining scope
+
 1. **Recommended: a separate M4 engineering slot**, preserving 50 iterations,
    all ranges and menus. Investigate compact lossless matrix transport and
    avoiding discarded ancestor work. Require decoded-policy/EV/request parity
@@ -133,12 +175,13 @@ possible. No research outcome was rerun, tuned or extended. [Failure record](hu2
    cost result and omit strength claims. This requires an explicit scope
    decision; the current PR remains draft while planned strength is unrun.
 
-No option has been applied automatically. The M4 preservation stage and release
-complete without further science. The M4 reservation is released at 22:58
+The owner explicitly selected option 1 with the 10-second amendment above.
+The original M4 preservation stage completed and its reservation released at 22:58
 Madrid, October 16, after successful archival guard closure, verified cable
-copy and a fresh common-lock availability check. The verified local ZIP and
+copy and a fresh common-lock availability check; the engineering continuation
+uses a separate reservation. The verified local ZIP and
 pending Drive acceptance are distinguished in [RESULTS_INDEX](../../RESULTS_INDEX.md#pr317--hu200-river-search-completed-cost-gate-strength-pending).
 The large upload waits for existing Slumbot play under the shared-uplink policy;
 no upload acceptance is claimed. All originals remain protected. Final-review
-readiness remains unresolved until the owner chooses the cost-gate scope and
-any required research and storage closeout actually finish.
+readiness remains unresolved until the amended cost gate, owner-approved
+strength research and storage closeout actually finish.

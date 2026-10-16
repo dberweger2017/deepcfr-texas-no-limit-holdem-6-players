@@ -7,7 +7,10 @@ source `11fa4fa424ec577cf8492338fd61c60ed7f3c97c`.
 cache verification and cost evaluation run on the 16 GiB M4. The fixed 24-spot
 pilot completes with zero fallback/timeouts; p50 15.03 s, p95 36.79 s, max
 39.94 s, peak family RSS 4.41 GB. The latency gate fails; strength remains
-undeclared and unrun, with an owner scope decision pending. No Slumbot play.
+undeclared and unrun. The owner selected lossless adapter engineering with
+full same 24 parity, then an amended 10-second gate and a count proposal before
+any strength hands. First parity passes; first amended cost still fails at
+p95 10.766536 s. Further parser validation is pending. No Slumbot play.
 
 **Locally verified preservation; Drive acceptance pending:**
 `hu200-river-search-cost-gate-M4-20261016.zip`, **6,510,687,952 bytes**, SHA256
@@ -23,8 +26,10 @@ provenance. The immutable #306 blueprint and K50 tables are dependencies indexed
 below, not duplicated here; [input hashes](docs/reports/hu200-river-search-artifacts/inputs.json).
 
 The verified ZIP is copied over the private cable to
-`bb128:/research/PR-317-HU200-river-search/`; uncompressed preservation and
-receipt closeout are in progress. Drive upload waits for the existing Slumbot
+`bb128:/research/PR-317-HU200-river-search/`; all 833 payload members are
+uncompressed at identical member paths and pass independent disk size/SHA256
+readback. [Retention receipt](docs/reports/hu200-river-search-artifacts/cost-uncompressed-retention.json).
+Drive upload waits for the existing Slumbot
 play to finish under the shared-uplink policy. There is **no accepted Drive ID,
 MD5 or coverage claim yet**. Intended remote path is
 `gdrive:PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip`;
