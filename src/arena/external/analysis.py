@@ -1,4 +1,4 @@
-"""Analysis of a verified Slumbot journal: results, all-in equity, endings and decisions.
+"""Analysis of a verified Slumbot journal: results, all-in equity, AIVAT, endings and decisions.
 
 All-in adjustment: when both players are all-in before the river, the remaining board is pure
 luck. Counting the client's exact equity share of the pot instead of the actual runout removes
@@ -14,12 +14,12 @@ import math
 from pathlib import Path
 import statistics
 
+from src.arena.external.aivat import STACK, cross_fitted, hand_corrections, street_contributions
 from src.arena.external.journal import verify_journal
 from src.arena.external.session import ending
-from src.arena.external.slumbot import TOKEN, verify_record
+from src.arena.external.slumbot import SlumbotAdapter, verify_record
 from src.game.showdown import hand_value
 
-STACK = 20000
 DECK = [r + s for r in '23456789TJQKA' for s in 'cdhs']
 STREETS = ('preflop', 'flop', 'turn', 'river')
 
@@ -28,21 +28,9 @@ def allin_street(action: str) -> int | None:
     """The street on which both players were all-in, or None for folds and hands that weren't."""
     if action.endswith('f'):
         return None
-    paid, street_bet, actor, street = [100, 50], [100, 50], 1, 0
-    for token in TOKEN.findall(action):
-        if token == '/':
-            street_bet, actor, street = [0, 0], 0, street + 1
-            continue
-        if token == 'c':
-            paid[actor] += street_bet[1 - actor] - street_bet[actor]
-            street_bet[actor] = street_bet[1 - actor]
-        elif token != 'k':
-            paid[actor] += int(token[1:]) - street_bet[actor]
-            street_bet[actor] = int(token[1:])
-        if paid[0] == paid[1] == STACK:
-            return street
-        actor = 1 - actor
-    return None
+    closing, paid = street_contributions(action)
+    return next((street for street, c in enumerate(closing) if c == STACK),
+                len(closing) if paid == [STACK, STACK] else None)
 
 
 def allin_equity(hole, bot, known_board) -> float:
@@ -90,23 +78,54 @@ def response(selected: str, view) -> str:
     return 'all-in' if int(selected[1:]) == view.legal_actions.max_raise_to else 'raise'
 
 
-def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None, hands: int | None = None) -> dict:
+def aivat_summary(raw, terminals, hand_decisions, workers: int, actions: bool) -> dict:
+    """AIVAT results, unweighted and cross-fitted, plus the luck removed. Nominal intervals."""
+    with ProcessPoolExecutor(workers) as pool:
+        corrections = list(pool.map(hand_corrections, terminals, hand_decisions, chunksize=16))
+    plain = [r - sum(c) for r, c in zip(raw, corrections)]
+    weighted, weights = cross_fitted(raw, corrections)
+    by_seat = lambda values: {name: interval([v for v, t in zip(values, terminals) if t['client_pos'] == seat])
+                              for seat, name in ((0, 'big_blind'), (1, 'small_blind_button'))}
+    names = ('deal', 'flop', 'turn', 'river', 'preflop_actions', 'flop_actions', 'turn_actions', 'river_actions')
+    summary = {
+        'own_actions_corrected': actions,
+        'bb_per_100': interval(plain), 'by_seat': by_seat(plain),
+        'weighted_bb_per_100': interval(weighted), 'weighted_by_seat': by_seat(weighted),
+        # What each part removed; every one averages zero in expectation.
+        'card_luck_bb_per_100': interval([sum(c[:4]) for c in corrections]),
+        'weights_by_half': [dict(zip(names, w)) for w in weights],
+    }
+    # Variance relative to raw; its inverse is how many raw hands one AIVAT hand is worth.
+    raw_variance = statistics.variance(raw) if len(raw) > 1 else 0
+    for key, values in (('plain', plain), ('weighted', weighted)):
+        ratio = statistics.variance(values) / raw_variance if raw_variance else None
+        summary[f'{key}_variance_vs_raw'] = ratio
+        summary[f'{key}_hands_worth'] = 1 / ratio if ratio else None
+    if actions:
+        summary['action_luck_bb_per_100'] = interval([sum(c[4:]) for c in corrections])
+    return summary
+
+
+def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None, hands: int | None = None,
+            aivat: bool = False) -> dict:
     """One journal, or several runs of the same player pooled, each verified on its own.
 
     `hands` keeps only the first that many hands in play order, with the decisions before them.
+    `aivat` adds AIVAT (`src.arena.external.aivat`); own-action luck needs `model`. ~1 CPU s/hand.
     """
     if model is not None and missing_key_fallback is not None and missing_key_fallback != model.missing_key_fallback:
         raise ValueError('Model fallback differs from analysis option')
     journals = [Path(journal)] if isinstance(journal, (str, Path)) else [Path(j) for j in journal]
     checked, parts, identities = [], [], []
     decisions, terminals, failures = [], [], Counter()
+    hand_decisions = []  # per terminal, the indices of its decisions
     translated = Counter()
     lookup_times = []
     for path in journals:
         if hands is not None and len(terminals) == hands:
             break
         checked.append(verify_journal(path))
-        part = []
+        part, pending = [], []
         for line in path.open():
             if hands is not None and len(terminals) + len(part) == hands:
                 break
@@ -122,11 +141,16 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None,
                 if played not in ('uniform', 'check-call') or (expected is not None and played != expected):
                     raise ValueError('Journal fallback differs from analysis option')
             elif 'decision' in payload:
+                pending.append(len(decisions))
                 decisions.append(payload['decision'])
             elif 'terminal' in payload:
                 part.append(payload['terminal'])
+                # Decisions of an abandoned hand precede a later hand's and are left out.
+                hand_decisions.append([i for i in pending if decisions[i]['hand_id'] == payload['terminal']['hand_id']])
+                pending = []
             elif 'failure' in payload:
                 failures[payload['failure']] += 1
+                pending = []  # the failed hand's decisions, even if a later hand reuses its id
         terminals += part
         parts.append({'journal': str(path), 'hands': len(part), 'bb_per_100': interval([t['winnings'] for t in part])})
 
@@ -162,6 +186,7 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None,
     facing = defaultdict(Counter)
     known = Counter()
     coverage = Counter()
+    policies = []  # with a model, each decision's probability of every encoded action
     for record in decisions:
         view = verify_record(record)
         street = view.street.value if hasattr(view.street, 'value') else str(view.street)
@@ -171,7 +196,7 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None,
             facing[bet_bucket(view)][choice] += 1
         if model is not None:
             if getattr(model, 'translation', None) is not None:
-                menu, _, stored, reproduced = model.distribution_with_telemetry(view)
+                menu, probabilities, stored, reproduced = model.distribution_with_telemetry(view)
                 info = record.get('policy_telemetry')
                 stable = lambda value: json.loads(json.dumps({k: v for k, v in value.items() if k != 'lookup_seconds'}))
                 if info is None or stable(info) != stable(dict(reproduced, street=street)):
@@ -179,7 +204,12 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None,
                 translated[street, reproduced['mode']] += 1
                 lookup_times.append(info['lookup_seconds'])
             else:
-                menu, _, stored = model.distribution(view)
+                menu, probabilities, stored = model.distribution(view)
+            # The player samples a menu entry; entries that encode the same wager add up.
+            policy = Counter()
+            for item, probability in zip(menu, probabilities):
+                policy[SlumbotAdapter().encode_action(item.action, view)] += probability
+            policies.append(dict(policy))
             key = model.information_key(view, menu)
             lookup = 'missing' if not stored else 'zero_mass' if key in model.zero_mass else 'positive_mass'
             known[(street, stored)] += 1
@@ -206,6 +236,10 @@ def analyze(journal, *, model=None, workers: int = 4, missing_key_fallback=None,
         'responses_by_bet_size': {b: dict(facing[b]) for b in ('≤½ pot', '½–¾ pot', '~pot', '1.2–2× pot', '>2× pot', 'all-in') if b in facing},
         'biggest_losses': show(swings[:10]), 'biggest_wins': show(swings[-5:][::-1]),
     }
+    if aivat:
+        result['aivat'] = aivat_summary(raw, terminals, [
+            [(decisions[i], policies[i]) for i in indices] if model is not None else () for indices in hand_decisions],
+            workers, actions=model is not None)
     if len({json.dumps(i.get('action_translation'), sort_keys=True) for i in identities}) > 1:
         raise ValueError('Pooled journals have different translation options')
     if identities[0].get('action_translation') is not None:
