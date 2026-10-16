@@ -13,7 +13,7 @@
       "phase": "administrative tool orchestration"
     }
   ],
-  "at": 1792148832.8353941,
+  "at": 1792158518.1621,
   "no_failed_hand_retry": true,
   "no_outcomes_observed": true,
   "plumbing": [
@@ -41,6 +41,15 @@
       "research_failure": false,
       "scientific_parameters_changed": false,
       "state": "resolved-seed1302-average-exactly-reproduced"
+    },
+    {
+      "detail": "All fixed pilots replay/reproduce; frozen quote needs36965.42s, projecting02:02:39Madrid October17 beyond original23:10:28science deadline. Disk fits53,061,722,112 vs31,504,892,644 required. No final hand or strength readout; no extension applied. PR stays draft pending actual research.",
+      "evidence": "final-cost-admission.json",
+      "kind": "full-count-time-envelope",
+      "phase": "post-pilot cost admission",
+      "research_failure": false,
+      "scientific_parameters_changed": false,
+      "state": "pending-owner-prospective-budget-extension"
     }
   ],
   "research_failures": []

@@ -5,13 +5,15 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 15:32 Madrid): the blend is built and fully audited.**
+**Current status (October 16, 15:48 Madrid): blend audited; all cost pilots verified; finals pending time-budget admission.**
 All 156,208,331 rows pass the unchanged independent checkpoint/current/average
 audit on the 16 GiB M4. The average inference model is 6,282,968,150 bytes;
-its raw synthetic checkpoint is 6,042,193,732 bytes. The blend cache and first two cost pilots
-are complete; the last pilot and fixed final evaluation are pending. This PR stays draft until the
-planned research actually runs or a research failure is recorded. Plumbing
-interruptions remain pending work, with their evidence preserved.
+its raw synthetic checkpoint is 6,042,193,732 bytes. All three fixed cost-pilot
+groups independently replay and reproduce. The measured remaining science
+quote is 10 h 16 min, exceeding the original science deadline; disk admission
+fits. No final hand or strength readout has started. A prospective time-budget
+extension is requested, with no extension yet applied. This PR remains draft
+and pending; this plumbing hold is not a research failure.
 
 All construction, export, cache and evaluation work runs on the base Apple M4
 with 16 GiB physical memory, under both exclusive research locks and the existing
@@ -325,3 +327,32 @@ strength readout has started.
 [Verified group](hu200-v055-blend-run-artifacts/pilot1421-complete.json),
 [resources](hu200-v055-blend-run-artifacts/pilot1421-resource-receipt.json),
 [inactive-cache retirement](hu200-v055-blend-run-artifacts/pilot1421-cache-retirement.json).
+
+### October 16, 15:46–15:48 Madrid: pilots complete, full-count time quote
+
+Seed2026101422's pilot completes with all eight comparisons independently
+replayed and reproduced. Its guard returns 0 after 422.88 seconds, 85 samples
+and a 1,499,856,896-byte sampled family RSS peak, without breach. All three
+fixed groups are now verified; no final hand or strength result has been read.
+[Third verified group](hu200-v055-blend-run-artifacts/pilot1422-complete.json),
+[resources](hu200-v055-blend-run-artifacts/pilot1422-resource-receipt.json).
+
+The frozen full-count cost calculation quotes **36,965.42 seconds (10 h 16 min
+5 s)** of remaining science, with the required 1.5 multiplier, cache rebuilds,
+all play/replay/reproduction, repeated blend fingerprints and a separate
+30-minute global-check/admin reserve. At its 15:46:33 observation this projects
+science completion **02:02:39 Madrid October 17**, followed by the separate
+two-hour preservation reserve. Disk fits: **53,061,722,112 free bytes versus
+31,504,892,644 required**, including the unchanged floor and margin.
+
+The original science deadline is 23:10:28 Madrid; therefore the quote correctly
+records `cost-or-capacity-stop` and creates no final execution plan. This is
+a time-budget/plumbing hold, with no research failure or final-hand retry.
+The owner is asked prospectively to extend science to 02:30 and preservation
+to 04:30 Madrid October 17. No extension, guard reset, parameter change or
+final admission has been applied. The estimate moves with the wait for
+authorized admission; the PR remains draft and is not presented for review.
+[Exact cost admission](hu200-v055-blend-run-artifacts/final-cost-admission.json),
+[successful quote execution](hu200-v055-blend-run-artifacts/final-cost-quote-guard-complete.json),
+[post-pilot ETA in PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216906056),
+[fresh final-root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-finals.json).
