@@ -400,7 +400,7 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 
 Moved verbatim from the roadmap on October 16, 2026, when Current position was cut to the active lines of work. Storage and cleanup receipts are also indexed in [RESULTS_INDEX.md](../RESULTS_INDEX.md).
 
-- **bb128 research storage (October 16):** HDD archives/checkpoints at rest now upload directly to the shared Drive folder through immutable rclone copies; live work stays on NVMe. Root listing and ext4/fstab verified. [Workflow and acceptance](artifact-storage.md#bb128-archive-workflow), [activation observations](artifacts/bb128-storage-activation-20261016.md). Macs retain native Drive; no science or archival payload migration in this documentation change.
+- **Research cache policy (owner-approved October 16):** Drive is the long-term store; new uploads originate only from bb128's uncompressed HDD cache through `research_cache.py`, and Macs' synced Drive is read-only. The existing daily 04:00 job is the sole scheduled-cleanup exception, with seven-day idle protection and another seven days in trash. [Policy](artifact-storage.md), [byte-identical import and repository-only fixes awaiting owner review](artifacts/research-cache-import-20261016.md). Existing PR301/306 methods continue; no live deployment or cron change in this PR.
 
 - **M4 headroom for open PR306 (October 16):** owner-prioritized cleanup of 17 inactive merged HU100 copies recovered **13.923 GB**, leaving **93.812 GB free** at verification. HU200/open PR inputs remain protected. [Receipt and restoration](artifacts/m4-pr306-headroom-20261016.md).
 
