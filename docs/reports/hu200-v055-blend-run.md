@@ -214,3 +214,15 @@ Union guard: 68 clear readings, 72,941,568-byte family RSS peak.
 [actual capacity gate](hu200-v055-blend-run-artifacts/construction-capacity-gate.json),
 [scan resources](hu200-v055-blend-run-artifacts/union-resource-receipt.json),
 [unchanged required sample audit cost](hu200-v055-blend-run-artifacts/union-sample-audit-time.json).
+
+### October 16, 13:28 Madrid: first unpacked HDD bundle verified
+
+The already accepted seed1421 checkpoint-only input bundle is now retained
+unpacked at
+`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`.
+Its source whole ZIP and embedded manifest match the accepted archive pins;
+both copied members pass exact size/SHA256 and a separate disk readback.
+No ZIP container is present in that final bundle directory. This is storage
+administration of an existing input, not blend construction on bb128.
+The final blend bundle remains pending. [Unpacked receipt](hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json);
+[direct HDD retrieval](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run-active-plumbing-pending).

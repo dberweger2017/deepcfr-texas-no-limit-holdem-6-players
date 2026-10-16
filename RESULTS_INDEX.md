@@ -73,6 +73,25 @@ on M4 into its fresh ignored `results/retrieved/pr306-seed1421/` destination.
 Only this required raw-checkpoint dependency is fixed; the old full archive
 remains unaccepted, with all originals retained and no cleanup authorization.
 
+The owner-requested unpacked 2 TB copy of this accepted input bundle is now
+**verified and retained** at
+`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`.
+Its manifest and both copied members pass size/SHA256 checks plus independent
+disk readback. [Unpacked retention receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json).
+The nested source-archive creation receipt predates upload acceptance; the
+separate accepted Drive object above has the same whole SHA256. Retrieve
+without downloading a ZIP:
+
+```sh
+mkdir -p results/retrieved/pr306-seed1421-hdd
+rsync -a bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/inputs/seed-2026101421/checkpoint.gz results/retrieved/pr306-seed1421-hdd/
+shasum -a 256 results/retrieved/pr306-seed1421-hdd/checkpoint.gz
+```
+
+Require raw SHA256 `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`
+and 4,957,752,665 bytes before use; choose a fresh destination and retain active
+inputs. Final blend-bundle unpacked retention is still pending.
+
 ## Storage cleanup — October 16, 2026
 
 Owner-requested post-merge cleanup retires **49 paths /48 unique inodes** from
