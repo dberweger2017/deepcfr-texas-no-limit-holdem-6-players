@@ -49,16 +49,25 @@ def _parse_profile_rows(request, rows):
     profiles = {}
     expected_ranges = {player: frozenset(tuple(sorted(r["hand"])) for r in request["ranges"][player]
                        if r["weight"] > 0) for player in (0, 1)}
+    holding_tables = {}
     for row in rows:
         key = line_key(row["line"])
         node = nodes.get(key)
         if (node is None or key in profiles or row["board"] != request["board"]
                 or row["actions"] != node["actions"] or row["player"] != node["player"]):
             raise SolveFailure("invalid_response", "Profile node/action identity differs")
-        holdings = tuple(tuple(sorted(h)) for h in row["holdings"])
-        expected = expected_ranges[node["player"]]
-        if len(set(holdings)) != len(holdings) or set(holdings) != expected:
-            raise SolveFailure("invalid_response", "Profile holdings differ from supported range")
+        cached = holding_tables.get(node["player"])
+        if cached is not None and cached[0] is row["holdings"]:
+            holdings = cached[1]
+        else:
+            holdings = tuple(tuple(sorted(h)) for h in row["holdings"])
+            expected = expected_ranges[node["player"]]
+            if len(set(holdings)) != len(holdings) or set(holdings) != expected:
+                raise SolveFailure("invalid_response", "Profile holdings differ from supported range")
+            # Compact rows share the two immutable-in-use header tables. Keep
+            # the actual object alive; never cache by a recyclable integer id.
+            # Original JSON rows have distinct lists and retain every check.
+            holding_tables[node["player"]] = row["holdings"], holdings
         p = np.asarray(row["strategy"], dtype=np.float64)
         if (p.size != len(holdings) * len(node["actions"])
                 or not np.isfinite(p).all() or (p < 0).any()):
@@ -125,35 +134,39 @@ def profile_rows(path, *, compact=False):
         position = 0
         binary = path.with_name("profile.f64")
         size = binary.stat().st_size
-        with binary.open("rb") as data:
-            for line in metadata:
-                row = json.loads(line)
-                player = row["player"]
-                if type(player) is not int or player not in (0, 1):
-                    raise SolveFailure("invalid_response", "Invalid binary player")
-                row["holdings"] = holdings[player]
-                row["opponent_holdings"] = holdings[1 - player]
-                fields = row.pop("arrays")
-                if set(fields) != {"strategy", "action_values_chips", "own_weights", "opponent_weights"}:
-                    raise SolveFailure("invalid_response", "Incomplete binary array inventory")
-                for field in ("strategy", "action_values_chips", "own_weights", "opponent_weights"):
-                    location = fields[field]
-                    if location is None and field == "action_values_chips":
-                        row[field] = None
-                        continue
-                    count = location["count"]
-                    expected = (len(holdings[player]) * len(row["actions"]) if field in
-                                ("strategy", "action_values_chips") else
-                                len(holdings[player if field == "own_weights" else 1 - player]))
-                    if (type(count) is not int or count != expected
-                            or type(location["offset"]) is not int or location["offset"] != position
-                            or position + count * 8 > size):
-                        raise SolveFailure("invalid_response", "Binary profile bounds differ")
-                    row[field] = np.fromfile(data, dtype="<f8", count=count)
-                    if row[field].size != count:
-                        raise SolveFailure("invalid_response", "Truncated binary profile")
-                    position += count * 8
-                yield row
+        if size == 0 or size % 8:
+            raise SolveFailure("invalid_response", "Truncated binary profile")
+        # Views keep their read-only mapping alive. Parsed policy/value arrays
+        # are copied by the shared validator, so completed profiles own data.
+        data = np.memmap(binary, mode="r", dtype="<f8")
+        for line in metadata:
+            row = json.loads(line)
+            player = row["player"]
+            if type(player) is not int or player not in (0, 1):
+                raise SolveFailure("invalid_response", "Invalid binary player")
+            row["holdings"] = holdings[player]
+            row["opponent_holdings"] = holdings[1 - player]
+            fields = row.pop("arrays")
+            if set(fields) != {"strategy", "action_values_chips", "own_weights", "opponent_weights"}:
+                raise SolveFailure("invalid_response", "Incomplete binary array inventory")
+            for field in ("strategy", "action_values_chips", "own_weights", "opponent_weights"):
+                location = fields[field]
+                if location is None and field == "action_values_chips":
+                    row[field] = None
+                    continue
+                count = location["count"]
+                expected = (len(holdings[player]) * len(row["actions"]) if field in
+                            ("strategy", "action_values_chips") else
+                            len(holdings[player if field == "own_weights" else 1 - player]))
+                if (type(count) is not int or count != expected
+                        or type(location["offset"]) is not int or location["offset"] != position
+                        or position + count * 8 > size):
+                    raise SolveFailure("invalid_response", "Binary profile bounds differ")
+                row[field] = data[position // 8:position // 8 + count]
+                if row[field].size != count:
+                    raise SolveFailure("invalid_response", "Truncated binary profile")
+                position += count * 8
+            yield row
         if position != size:
             raise SolveFailure("invalid_response", "Unexpected trailing binary profile data")
 
