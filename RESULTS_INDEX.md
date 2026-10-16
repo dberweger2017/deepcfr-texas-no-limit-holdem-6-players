@@ -15,6 +15,15 @@ and independent cloud ID/name/size/parent agree. Existing manifests/input proofs
 and unchanged source metadata were used without research-payload re-downloads
 or repeated hash audits; 267 retained files verify unchanged.
 
+## PR304 — v0.5.5 Slumbot confirmation (two seeds pass, 2026101302 fails)
+
+Archive `~/Local/Research-Cloud/PR-304-HU200-v055-slumbot-confirmation/hu200-v055-slumbot-confirmation-20261015.zip`, **15,256,156 bytes**, SHA256 `51f4587dc3fec12a65537be51e27572c3f1eec147952c8ed383f1c7689c57137`; embedded `ARCHIVE-MANIFEST.json` SHA256 `4c3d53ca809f9b03715aa0a3adb0edbfca5b1da32d822efc589baf3f83f35e1a`. All 25 members were read back against the manifest before copying:
+- `v055-runs/seed-2026101302-*/` and `v055-runs-pr278/seed-202610142{1,2}-*/`: the six journals (part 1 and part 2 per seed) and five `summary.json` files. Seed 2026101422's part 1 ended without a summary.
+- `analysis/v055/`: the three pooled 10,000-hand analyses, also in [the report's folder](docs/reports/hu200-v055-slumbot-confirmation/).
+- `run-v055-seed-*.sh`: the six launchers; `translation-runs-pr271/*/summary.json`: the October 14 exploratory runs of the same frozen 20B model; `repo-v055-part2-HEAD.txt`: the part-2 commit `98658f7`.
+
+Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr304` and check the manifest; reproduce each row with `python -m scripts.analyze_slumbot_run PART1 PART2 --hands 10000 --out pooled.json` (models, caches and tables are pinned in [#278's index](docs/reports/hu200-v055-confirmation.md)). Journals name the Slumbot account only; no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Originals are kept on db-ocean in `~/deepcfr-slumbot/` and on the M1 in `~/Local/v055-slumbot-confirmation/`.
+
 ## PR292 — Three-player full-average blueprint (owner-authorized merge; cloud closeout pending)
 
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292), branch
