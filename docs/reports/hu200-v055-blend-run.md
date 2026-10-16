@@ -14,13 +14,12 @@ and with the descriptive family adjustment. The blend still loses against
 recorded as failed research evidence under the owner's instruction; it is kept
 without rerun, tuning, extra hands or an added pass/fail gate.
 
-**Main evidence is preserved.** Its archive has full local readback, native
-Drive upload acceptance and independent cloud confirmation. A fresh Drive
-download reproduces the whole archive hash; all 1,219 unpacked members pass
-size/SHA256 verification and independent disk readback on the 2 TB disk.
-The administrative supplement is being closed; the PR remains draft until it
-also has upload acceptance and unpacked retention. The owner decides merge
-and any future Slumbot use.
+**Preservation is complete.** Main, administrative and required seed 1421
+input archives have local readback, native Drive upload acceptance and
+independent cloud confirmation. Main and administrative Drive downloads
+reproduce their whole hashes; every unpacked member passes size/SHA256
+verification and independent disk readback on the 2 TB disk. The owner decides
+merge and any future Slumbot use.
 
 ## Frozen study and verification
 
@@ -250,7 +249,7 @@ Native upload is accepted with no pending upload or conflicts; independent
 Drive metadata confirms the exact ID, name, size and parent.
 [Accepted main archive](https://drive.google.com/file/d/1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV/view),
 [acceptance evidence](hu200-v055-blend-run-artifacts/main-archive-upload-acceptance.json).
-The administrative supplement will retain the closed archive guard, final
+The accepted administrative supplement retains the closed archive guard, final
 resources, upload acceptance and unpacked-retention evidence.
 [Main archive receipt](hu200-v055-blend-run-artifacts/main-archive-receipt.json).
 The owner-requested unpacked main bundle is verified and retained at
@@ -271,3 +270,17 @@ its original native Drive upload/readback method. The now-active `/research`
 alias is used for final unpacked retention; the earlier verified input copy
 at `/mnt/data2tb/research/` is also retained.
 [Canonical-location observation](hu200-v055-blend-run-artifacts/local-unpacked-location-update.json).
+
+The [accepted administrative supplement](https://drive.google.com/file/d/1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt/view)
+contains 1,537,961 bytes /125 members, whole SHA256
+`72c3baadf640c38d1a780c42c7b8293bf6f9f48bb0cf5af6cd0f5e26a6f3be8a`, manifest SHA256
+`2c824bc41bdab4027b2a83750309b85724f6a4156296e241483d17a5de98a5f0`.
+Its requested unpacked copy is verified at
+`bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-closeout-M1-20261016/`.
+[Administrative readback](hu200-v055-blend-run-artifacts/admin-archive-receipt.json),
+[upload acceptance](hu200-v055-blend-run-artifacts/admin-archive-upload-acceptance.json),
+[Drive-body readback](hu200-v055-blend-run-artifacts/admin-archive-drive-body-readback.json),
+[unpacked retention](hu200-v055-blend-run-artifacts/admin-archive-unpacked-retention.json).
+Archive snapshots retain their dated publication-time status. The supplement's
+own final acceptance and retention receipts live in Git to avoid a self-reference;
+the scientific outputs are unchanged. No research originals are removed.

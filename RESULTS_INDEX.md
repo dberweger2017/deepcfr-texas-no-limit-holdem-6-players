@@ -1,8 +1,8 @@
 ## PR306 — frozen HU200 three-seed blend run
 
-[PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), draft;
+[PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), completed fixed study;
 [report](docs/reports/hu200-v055-blend-run.md). Owner-authorized October 16
-continuation of merged #297's unplayed frozen campaign. All three original averages freshly reproduce exactly from their raw checkpoints on the 16 GiB M4. The single 156,208,331-key blend passes every-row audit. All fixed final counts run: 2,162,688 stored primary records replay/reproduce, and repeated blend fingerprints match before readout. No direct gain is established; all 21 paired scripted intervals include zero. The blend still loses 1.5× pot pressure, −29.39 [−55.24,−3.53] BB/100, retained as failed adverse research evidence without retry or tuning. Peak sampled family RSS is 12.75 GB. Main Drive acceptance and whole-archive/member-verified unpacked 2 TB retention are complete; the administrative supplement is closing and the PR stays draft until its preservation completes. Original clock/time-stop and prospectively authorized extension are preserved, with unchanged guard state. [Complete readout](docs/reports/hu200-v055-blend-run-artifacts/summary.json), [global barrier](docs/reports/hu200-v055-blend-run-artifacts/all-final-verified.json).
+continuation of merged #297's unplayed frozen campaign. All three original averages freshly reproduce exactly from their raw checkpoints on the 16 GiB M4. The single 156,208,331-key blend passes every-row audit. All fixed final counts run: 2,162,688 stored primary records replay/reproduce, and repeated blend fingerprints match before readout. No direct gain is established; all 21 paired scripted intervals include zero. The blend still loses 1.5× pot pressure, −29.39 [−55.24,−3.53] BB/100, retained as failed adverse research evidence without retry or tuning. Peak sampled family RSS is 12.75 GB. Main, input and administrative Drive acceptance and requested whole-archive/member-verified unpacked 2 TB retention are complete. Original clock/time-stop and prospectively authorized extension are preserved, with unchanged guard state. [Complete readout](docs/reports/hu200-v055-blend-run-artifacts/summary.json), [global barrier](docs/reports/hu200-v055-blend-run-artifacts/all-final-verified.json).
 
 **Audited M4 blend, accepted main archive and verified unpacked copy:**
 `~/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/`.
@@ -43,7 +43,7 @@ Designated [evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_D
 ID `1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK`, direct project parent
 `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
 `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. Main and input acceptance
-are recorded below; the administrative supplement is closing. All research
+and administrative acceptance are recorded below. All research
 originals remain. No merge, Slumbot, server, release, tag or default change follows.
 
 **Owner-requested unpacked 2 TB copy:** verified main and input bundles are
@@ -51,8 +51,7 @@ retained at `bb128:/research/PR-306-HU200-v055-blend-run/` (real path
 `/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), in
 separate unpacked bundle directories with their manifests and exact member
 size/SHA256 verification and independent disk readback. The actual 2 TB ext4
-mount is observed; main retrieval commands follow. The administrative copy
-is pending. [Plan](docs/reports/hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
+mount is observed; main and administrative retrieval commands follow. [Plan](docs/reports/hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
 
 
 **Seed1421 checkpoint-only input archive, upload accepted:**
@@ -136,7 +135,7 @@ Model members are `research/hu200-v055-blend/merge/average.gz`,
 The archive contains all raw comparison traces, independent replay/reproduction
 receipts, global fingerprints, source/configuration, failures and the readable
 report snapshot. Canonical inputs/tables are excluded only after hash checks
-and remain indexed dependencies. The administrative supplement retains the
+and remain indexed dependencies. The accepted administrative supplement retains the
 closed live-archive guard and final resource/upload/unpacked-retention evidence.
 No research original is removed.
 
@@ -165,6 +164,44 @@ member into a fresh ignored destination and require its pinned bytes/SHA256
 before use. For the raw checkpoint or auditor current export, substitute the
 exact corresponding member and pins above. The cached manifest at the unpacked
 root provides every other source/trace member's bytes and SHA256.
+
+
+**Administrative supplement, upload accepted and unpacked retention verified:**
+`hu200-v055-blend-run-closeout-M1-20261016.zip`, **1,537,961 bytes /125 members**,
+whole SHA256 `72c3baadf640c38d1a780c42c7b8293bf6f9f48bb0cf5af6cd0f5e26a6f3be8a`,
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`2c824bc41bdab4027b2a83750309b85724f6a4156296e241483d17a5de98a5f0`.
+[Drive object `1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt`](https://drive.google.com/file/d/1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt/view),
+parent PR306 folder above, Drive MD5 `82c59402fe7012d7e51bd1fa2d57810e`.
+All source members and whole archive pass local readback before atomic native
+publication; uploaded1/uploading0/no-conflicts and independent exact cloud
+ID/name/size/parent agree. The direct Drive download reproduces MD5 and whole
+SHA256; all unpacked member sizes/SHA256s and independent disk readback pass.
+[Creation/readback](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-receipt.json),
+[acceptance](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-upload-acceptance.json),
+[Drive-body readback](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-drive-body-readback.json),
+[unpacked retention](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-unpacked-retention.json).
+Scientific source is `13ccb498482c228776128e70ad9e733fb0f5621a`;
+administrative documentation snapshot is `3d8b90ed9dc936297ec006e1cee36311c0a59f2b`.
+The supplement includes the closed main-archive guard's raw resource trace,
+final guard-held state, all compact scientific/resource/upload/retention records,
+and the dated report/index/roadmap snapshot. Its own final acceptance and
+retention receipts live in Git, avoiding an archive self-reference. No research
+originals are removed; the open PR's dependencies remain protected.
+
+Cached ordinary files (no outer ZIP) and always-available Drive retrieval:
+
+```sh
+mkdir results/retrieved/pr306-closeout-hdd-NEW
+rsync -a bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-closeout-M1-20261016/ results/retrieved/pr306-closeout-hdd-NEW/
+mkdir results/retrieved/pr306-closeout-drive-NEW
+rclone copyto --immutable --drive-root-folder-id 1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK gdrive:hu200-v055-blend-run-closeout-M1-20261016.zip results/retrieved/pr306-closeout-drive-NEW/hu200-v055-blend-run-closeout-M1-20261016.zip
+shasum -a 256 results/retrieved/pr306-closeout-drive-NEW/hu200-v055-blend-run-closeout-M1-20261016.zip
+```
+
+Require the indexed archive bytes/SHA256 and embedded manifest SHA256 before
+extracting; validate extracted members against that manifest. With the cached
+copy, validate its `ARCHIVE-MANIFEST.json` hash and every needed member directly.
 
 ## M1-prioritized cleanup — October 16 afternoon
 
