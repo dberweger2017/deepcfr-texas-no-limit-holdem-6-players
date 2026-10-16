@@ -49,6 +49,20 @@ def test_turn_is_blueprint_and_hu20_adapter_stays_depth_restricted():
         compile_tree(river.events, river.events)
 
 
+def test_external_table_defaults_preserve_exact_public_betting():
+    hand = river_fixture()
+    external = (replace(hand.events[0], seat_numbers=(), table_seats=(), capacity=None),) + hand.events[1:]
+    native = compile_tree(hand.events, hand.events, stack_chips=20000)
+    adapted = compile_tree(external, external, stack_chips=20000)
+    assert adapted["nodes"] == native["nodes"]
+    assert external[0].capacity is None
+    corrupted = list(external)
+    i = next(i for i, e in enumerate(corrupted) if isinstance(e, ActionTaken))
+    corrupted[i] = replace(corrupted[i], paid=corrupted[i].paid + 1)
+    with pytest.raises((ValueError, RuntimeError)):
+        compile_tree(tuple(corrupted), tuple(corrupted), stack_chips=20000)
+
+
 def test_full_range_uses_each_public_factor_and_no_turn_solve():
     class Recorded(Blueprint):
         def __init__(self):

@@ -10,6 +10,7 @@ from itertools import combinations
 from math import fsum
 from random import Random
 from time import monotonic
+import traceback
 
 import numpy as np
 
@@ -238,6 +239,8 @@ error; exact insertion applies to the solved river betting tree.
                 result = super().distribution(view, query_kind=query_kind)
             except (OSError, ArithmeticError, RuntimeError, TypeError, StopIteration, MemoryError) as exc:
                 cause = "memory_refusal" if isinstance(exc, MemoryError) else "policy_error:" + type(exc).__name__
+                self.records.append(dict(status="preparation_error", cause=cause,
+                    reason=str(exc), traceback=traceback.format_exc()))
                 public = replay(view.history, 0, ())
                 pairs = tuple(tuple(sorted(h)) for h in combinations(
                     (c for c in DECK if c not in public.board), 2))
@@ -262,6 +265,7 @@ error; exact insertion applies to the solved river betting tree.
         telemetry["phase_seconds"] = dict(self.phase_seconds)
         telemetry["native_seconds"] = fsum(r.get("seconds", 0) for r in
             getattr(self.solver, "records", ())[native_before:])
+        telemetry["preparation_errors"] = [r for r in self.records if r["status"] == "preparation_error"]
         if not fallback and hasattr(pinned, "matrix"):
             native = pinned.matrix(view.history)
             if (native.action_values_chips is not None and np.isfinite(

@@ -1,12 +1,13 @@
 """Compile exact HU20 betting from public events and a synthetic deal."""
 
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from time import monotonic
 
 from src.arena.endgame_quality import _world
 from src.blueprint.abstraction import Choice, choices
 from src.blueprint.hu20_river import public_identity
 from src.game.observation import ActionTaken, BoardDealt, HandFinished, replay
+from src.game.hand import Table
 from src.game.types import ActionKind, Street
 
 SOLVER_COMMIT = "9d1509fe5077d019825f833eed04b16d342dfda1"
@@ -109,8 +110,15 @@ def compile_tree(root, observed_history, *, menu="native", max_nodes=300_000,
         for item, action in zip(options, node["actions"], strict=True):
             visit(hand.apply(item.action), line + [action])
 
-    # This synthetic world supplies legality only; no live private deal enters.
-    visit(_world(root, public.board, {}), [])
+    # External public journals may omit default physical-seat metadata. Expand
+    # only those Table defaults before the strict engine replay; betting events
+    # still have to match exactly. No private deal or original event is changed.
+    table = Table(start.player_ids, start.stacks, start.button, start.small_blind,
+                  start.big_blind, start.chip_unit, start.seat_numbers,
+                  start.table_seats, start.capacity, start.session_profile)
+    native_root = (replace(start, seat_numbers=table.seat_numbers,
+                           table_seats=table.table_seats, capacity=table.capacity),) + root[1:]
+    visit(_world(native_root, public.board, {}), [])
     return {"format": VERSION, "solver_commit": SOLVER_COMMIT,
             "spot": public_identity(root), "board": list(public.board),
             "initial_street": public.street.value, "pot": public.pot,

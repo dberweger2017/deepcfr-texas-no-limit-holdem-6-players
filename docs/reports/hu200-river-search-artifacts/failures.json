@@ -1,0 +1,43 @@
+{
+  "no_outcome_tuning": true,
+  "preserved_attempts": [
+    {
+      "classification": "plumbing",
+      "failure": "System rsync rejected progress-display option",
+      "resolution": "Removed display option; fresh guarded attempt",
+      "stage": "cache preparation"
+    },
+    {
+      "classification": "oracle plumbing",
+      "failure": "Inserted versus observed action labels/order differed",
+      "resolution": "Align exact Action identities; reuse verified native profiles",
+      "stage": "independent reference"
+    },
+    {
+      "classification": "oracle objective mismatch",
+      "failure": "Unconstrained reference BR was compared with native BR respecting hero locks",
+      "resolution": "Retain original discrepancy and unrestricted diagnostic; independently constrain the reference using request locks; unchanged .01-chip tolerance and native profiles",
+      "stage": "independent reference"
+    },
+    {
+      "classification": "telemetry plumbing",
+      "failure": "Tiny off-path conditional diagnostics contain unavailable values",
+      "resolution": "Preserve unavailable mask; validate finite queried/root EVs against reference; unavailable actual successful-decision EV blocks pilot qualification",
+      "stage": "conditional EV export"
+    },
+    {
+      "classification": "missing test dependency",
+      "failure": "Existing environments separately lacked torch or psutil",
+      "resolution": "Isolated task environment reads existing dependencies without changing shared environments; all 118 selected checks then pass",
+      "stage": "expanded regression collection"
+    },
+    {
+      "classification": "public adapter plumbing; no native solve reached",
+      "failure": "All 24 real-journal roots fail exact synthetic replay because external HandStarted omits default physical-seat metadata",
+      "resolution": "Expand only Table defaults before strict replay; all betting events still match exactly; 61 M4 focused regressions pass. Preserve failed timings and continue unchanged 24 spots and fixed solver work.",
+      "stage": "cost pilot attempt 1"
+    }
+  ],
+  "retention": "All original logs, requests, profiles, manifests and guard stop receipts retained for final research storage",
+  "scientific_strength_hands": 0
+}
