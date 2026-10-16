@@ -16,7 +16,8 @@ def put(path, value):
 
 def config(tmp_path):
     specs = [dict(name=name, path=str(tmp_path / name), sha256='a'*64,
-                  format=HU200_FORMAT, abstraction=HU200_EQUITY_SCHEMA) for name in ('large', 'twin')]
+                  format=HU200_FORMAT, abstraction=HU200_EQUITY_SCHEMA,
+                  card_buckets=str(tmp_path / 'tables')) for name in ('large', 'twin')]
     return dict(seed=2026101302, kind='5B', specs=specs, output=str(tmp_path / 'out'),
                 source='source', _file_sha256='config')
 
