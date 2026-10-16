@@ -1,8 +1,8 @@
 # A local heads-up poker research bot
 
-This bot plays heads-up (two-player) no-limit Texas hold'em. It learns by playing millions of hands against itself with counterfactual regret minimization (CFR), the family of methods behind Libratus and Pluribus, on a simplified game: similar hands share card buckets and bets come from a fixed menu of sizes. You can play against it, or watch two versions play each other, in a local web app. The repository name is historical: the project began as a six-player Deep CFR experiment, and six players remain a later roadmap goal (v0.8).
+This bot plays heads-up (HU, one-on-one) no-limit Texas hold'em. Each model learns from billions of simulated self-play decisions with counterfactual regret minimization (CFR), the family of methods behind Libratus and Pluribus, on a simplified game: similar hands share card buckets and bets come from a fixed menu of sizes. You can play against it, or watch two versions play each other, in a local web app. The repository name is historical: the project began as a six-player Deep CFR experiment, and six players remain a later roadmap goal (v0.8).
 
-Two release lines play two-player no-limit hold'em, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
+There are two release lines, HU20 and HU100, for 20 and 100 big-blind stacks, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
 
 **v0.5.3, heads-up 100 BB (newest).**
 - **The model:** a 5B-node average (seed 2026100601) trained on a larger betting menu (min, half pot, pot, 1.5× pot, 2× pot and all-in) with finer postflop card buckets, plus translation for off-menu bet sizes.
