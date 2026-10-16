@@ -5,16 +5,16 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 16:40 Madrid): blend audited; first full final group verified; two groups and global verification remain.**
-The first seed's complete fixed-count group takes40m24s, with every hand
-independently replayed and reproduced and a12.57GB sampled process-family RSS
-peak on the16GiB M4. Its inactive cache is retired with full source/rebuild
-provenance; the second seed cache is building. No final strength result is read
-before all groups and global hand/decision fingerprint checks verify. Actual
-runtime now suggests18:30–19:00 Madrid for verified results, followed by roughly
+**Current status (October 16, 17:30 Madrid): two full final groups verified; last group and global verification remain.**
+The first two seed groups complete at all fixed counts in 40m24s and 41m20s.
+Every hand in those groups independently replays and reproduces; measured
+process-family RSS reaches 12.75 GB on the 16 GiB M4, with no resource breach.
+The third seed cache is building. No final strength result is read before all
+three groups and the global hand/decision fingerprint barrier verify. Verified
+results remain provisionally expected at 18:30–19:00 Madrid, followed by roughly
 one to two hours of archival closeout, conditional on Drive throughput. The
-frozen conservative pilot quote and owner-authorized02:30science/04:30preservation
-budget remain unchanged evidence. The PR stays draft pending completion.
+owner-authorized 02:30 science /04:30 preservation budget remains unchanged;
+the PR stays draft pending actual completion and accepted evidence.
 
 All construction, export, cache and evaluation work runs on the base Apple M4
 with 16 GiB physical memory, under both exclusive research locks and the existing
@@ -412,3 +412,16 @@ remain unchanged.
 [Completed group](hu200-v055-blend-run-artifacts/final1302-complete.json),
 [full group resources](hu200-v055-blend-run-artifacts/final1302-resource-receipt.json),
 [cache retirement/rebuild proof](hu200-v055-blend-run-artifacts/final1302-cache-retirement.json).
+
+### October 16, 17:30 Madrid: second full final group verified
+
+Seed 2026101421 completes all eight final comparisons at their fixed counts.
+Every hand independently replays and reproduces before group completion. Its
+guard returns 0 after 2,479.95 seconds, 494 samples and a 12,748,324,864-byte
+family RSS peak, with no resource breach. Only its inactive derived cache
+retires after fresh owning-PR status, full source/cache hashes, unchanged file
+inventory and no-handle checks. Originals and traces remain. The third seed
+cache is building; no final strength result has been read.
+[Completed group](hu200-v055-blend-run-artifacts/final1421-complete.json),
+[resources](hu200-v055-blend-run-artifacts/final1421-resource-receipt.json),
+[cache retirement/rebuild proof](hu200-v055-blend-run-artifacts/final1421-cache-retirement.json).
