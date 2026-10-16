@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "harness/src/main.rs": "06268e0de9f2dba88a5db5bff9ee906de792f450774d0d80fb146f4eb5fc39ae",
+    "harness/Cargo.toml": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd",
+    "harness/Cargo.lock": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2",
+    "harness/target/release/hu20-exact-flop-tool": "9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914"
+  },
+  "upstream": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "arbitrary_precision": false,
+  "original_harness_preserved": true,
+  "change_scope": "Only optional profile transport; solve/finalize/locks unchanged"
+}

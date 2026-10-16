@@ -94,7 +94,21 @@ def freeze(archive, blend, out):
         outcomes_used=False, strength_hands=0))
 
 
-def run(plan_path, model, cache, tables, binary, out):
+def pin_earlier_blueprint(policy, view):
+    """Real journals used blueprint policies before this sampled decision."""
+    policy._start_live_hand(view.hand_id)
+    for i, event in enumerate(view.history):
+        if isinstance(event, ActionTaken) and event.street == Street.RIVER and event.seat == view.seat:
+            prior = view.history[:i]
+            public = replay(prior, 0, ())
+            pairs = tuple(tuple(sorted(h)) for h in combinations((c for c in DECK if c not in public.board), 2))
+            matrix = policy._base_matrix(prior, pairs)
+            policy._remember_play(replay(prior, view.seat, view.hole_cards), matrix, True,
+                                  cause="earlier-blueprint-river-action")
+
+
+def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
+        latency_target_seconds=3):
     plan = json.loads(plan_path.read_text())
     declaration = json.loads((Path(__file__).resolve().parents[1] /
         "docs/reports/hu200-river-search-artifacts/cost-declaration.json").read_text())
@@ -117,22 +131,13 @@ def run(plan_path, model, cache, tables, binary, out):
     rows = []
     for index, spot in enumerate(plan["sample"]):
         view = SlumbotAdapter().observation(spot["decision"]["public"], spot["decision"]["hand_id"])
-        solver = ExternalTurnSolver(binary, out / str(index) / "native")
+        solver = ExternalTurnSolver(binary, out / str(index) / "native",
+                                    compact_profiles=compact_profiles)
         policy = HU200RiverSearchPolicy(base, solver, CONFIG, ledger=out / str(index) / "ledger")
         player = HU200RiverSearchPlayer(policy, seed=20261016317000 + index)
         t0 = monotonic()
         with FamilyPeak() as memory:
-            policy._start_live_hand(view.hand_id)
-            # These spots came from blueprint play. Preserve every earlier hero river
-            # policy as blueprint, rather than retrospectively pretending it searched.
-            for i, event in enumerate(view.history):
-                if isinstance(event, ActionTaken) and event.street == Street.RIVER and event.seat == view.seat:
-                    prior = view.history[:i]
-                    public = replay(prior, 0, ())
-                    pairs = tuple(tuple(sorted(h)) for h in combinations((c for c in DECK if c not in public.board), 2))
-                    matrix = policy._base_matrix(prior, pairs)
-                    policy._remember_play(replay(prior, view.seat, view.hole_cards), matrix, True,
-                                          cause="earlier-blueprint-river-action")
+            pin_earlier_blueprint(policy, view)
             player.choose_action(view)
         row = dict(player.last_decision, sample_index=index, source=spot["source"],
                    pre_output_seconds=monotonic() - t0,
@@ -160,7 +165,8 @@ def run(plan_path, model, cache, tables, binary, out):
         host_memory_definition="psutil.virtual_memory().available; available includes reclaimable memory",
         successful_decisions_missing_ev=missing_ev,
         fallback_decisions=sum(r["fallback"] for r in rows),
-        latency_target_met=float(np.percentile(times, 95)) <= 3,
+        latency_target_seconds=latency_target_seconds,
+        latency_target_met=float(np.percentile(times, 95)) <= latency_target_seconds,
         memory_target_met=16 * 1024**3 - peak >= 3_000_000_000 and available >= 3_000_000_000,
         telemetry_target_met=missing_ev == 0,
         all_search_work_completed=not any(r["fallback"] for r in rows),
@@ -179,6 +185,9 @@ def main():
     parser.add_argument("--cache", type=Path)
     parser.add_argument("--tables", type=Path)
     parser.add_argument("--binary", type=Path)
+    parser.add_argument("--compact-profiles", action="store_true")
+    parser.add_argument("--latency-target-seconds", type=int, choices=(3, 10), default=3)
+    parser.add_argument("--parity", type=Path, help="Required exact-parity receipt for amended gate")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     if subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True).strip() != "Apple M4":
@@ -190,7 +199,20 @@ def main():
         if args.stage == "freeze":
             freeze(args.archive, args.blend, args.out)
         else:
-            run(args.plan, args.model, args.cache, args.tables, args.binary, args.out)
+            if args.latency_target_seconds == 10:
+                declaration = json.loads((Path(__file__).resolve().parents[1] /
+                    "docs/reports/hu200-river-search-artifacts/optimization-declaration.json").read_text())
+                parity = json.loads(args.parity.read_text()) if args.parity else {}
+                if (not args.compact_profiles or parity.get("status") != "exact-parity"
+                        or parity.get("decisions") != 24
+                        or parity.get("plan_sha256") != declaration["full_plan_sha256"]
+                        or file_hash(args.binary) != declaration["external_binary_sha256"]):
+                    raise ValueError("Amended cost gate lacks matching exact-parity admission")
+                inputs = json.loads((args.parity.parent / "inputs.json").read_text())
+                if inputs["binary_sha256"] != file_hash(args.binary):
+                    raise ValueError("Parity and cost executable identities differ")
+            run(args.plan, args.model, args.cache, args.tables, args.binary, args.out,
+                compact_profiles=args.compact_profiles, latency_target_seconds=args.latency_target_seconds)
 
 
 if __name__ == "__main__":

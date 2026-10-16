@@ -1,0 +1,9 @@
+{
+  "phase": "before fixed24 parity",
+  "failure": "Two new ancestor-skip unit assertions mislabeled 4000 and12000 as native-menu actions for an8000-pot fixture.",
+  "original_test_result": "70 passed,2 failed; original stopped guard and traceback retained",
+  "diagnosis": "Native menu was100,8000,16000; implementation correctly certified4000/12000 as off-menu. Independent reviewer identified the fixture error.",
+  "repair": "Use8000 and16000 for on-menu assertions, retain7333 off-menu; no search implementation change to repair the assertions.",
+  "strength_hands": 0,
+  "parity_outcomes_seen_before_repair": false
+}

@@ -123,6 +123,9 @@ class HU20TurnSearchPolicy:
     def _supported_holdings(self, solution, view):
         return solution.matrix(view.history).holdings
 
+    def _try_ancestor(self, history, bot_seat, previous):
+        return True
+
     def _key(self, history, bot_seat):
         locks=[value[2] for (seat,prior),value in self.played.items()
                if seat==bot_seat and len(prior)<len(history) and history[:len(prior)]==prior]
@@ -318,7 +321,7 @@ class HU20TurnSearchPolicy:
         root = round_root(history)
         previous = [(i, e) for i, e in enumerate(history) if i >= len(root)
                     and isinstance(e, ActionTaken)]
-        if previous:
+        if previous and self._try_ancestor(history, bot_seat, previous):
             prior = history[:previous[-1][0]]
             try:
                 solution = self._resolve(prior, bot_seat, deadline)

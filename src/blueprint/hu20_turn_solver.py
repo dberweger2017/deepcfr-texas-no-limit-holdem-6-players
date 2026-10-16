@@ -43,45 +43,44 @@ class PolicyMatrix:
         return tuple(float(x) for x in self.probabilities[index])
 
 
-def parse_profiles(request, path):
+def _parse_profile_rows(request, rows):
     nodes = {line_key(n["line"]): n for n in request["nodes"]
              if not n["terminal"] and n["street"] == request["initial_street"]}
     profiles = {}
-    with Path(path).open() as stream:
-        for line in stream:
-            row = json.loads(line)
-            key = line_key(row["line"])
-            node = nodes.get(key)
-            if (node is None or key in profiles or row["board"] != request["board"]
-                    or row["actions"] != node["actions"] or row["player"] != node["player"]):
-                raise SolveFailure("invalid_response", "Profile node/action identity differs")
-            holdings = tuple(tuple(sorted(h)) for h in row["holdings"])
-            expected = {tuple(sorted(r["hand"])) for r in request["ranges"][node["player"]]
-                        if r["weight"] > 0}
-            if len(set(holdings)) != len(holdings) or set(holdings) != expected:
-                raise SolveFailure("invalid_response", "Profile holdings differ from supported range")
-            p = np.asarray(row["strategy"], dtype=np.float64)
-            if (p.size != len(holdings) * len(node["actions"])
-                    or not np.isfinite(p).all() or (p < 0).any()):
-                raise SolveFailure("invalid_response", "Invalid strategy matrix")
-            p = p.reshape(len(node["actions"]), len(holdings)).T.copy()
-            if not np.allclose(p.sum(axis=1), 1, rtol=0, atol=2e-5):
-                raise SolveFailure("invalid_response", "Strategy is not normalized")
-            p /= p.sum(axis=1, keepdims=True)
-            p.setflags(write=False)
-            menu = tuple(Choice(name, Action(ActionKind(a["kind"]), a["raise_to"]))
-                         for name, a in zip(node["names"], node["native_actions"], strict=True))
-            values = None
-            if row.get("action_values_chips") is not None:
-                values = np.asarray(row["action_values_chips"], dtype=np.float64)
-                if values.size != p.size or np.isinf(values).any():
-                    raise SolveFailure("invalid_response", "Invalid conditional action values")
-                values = values.reshape(len(node["actions"]), len(holdings)).T.copy()
-                # Native JSON null denotes an unavailable conditional diagnostic.
-                # Tiny off-path reaches can underflow during EV normalization.
-                # Keep the mask; never use those rows as numerical EV estimates.
-                values.setflags(write=False)
-            profiles[key] = PolicyMatrix(menu, holdings, p, values)
+    expected_ranges = {player: frozenset(tuple(sorted(r["hand"])) for r in request["ranges"][player]
+                       if r["weight"] > 0) for player in (0, 1)}
+    for row in rows:
+        key = line_key(row["line"])
+        node = nodes.get(key)
+        if (node is None or key in profiles or row["board"] != request["board"]
+                or row["actions"] != node["actions"] or row["player"] != node["player"]):
+            raise SolveFailure("invalid_response", "Profile node/action identity differs")
+        holdings = tuple(tuple(sorted(h)) for h in row["holdings"])
+        expected = expected_ranges[node["player"]]
+        if len(set(holdings)) != len(holdings) or set(holdings) != expected:
+            raise SolveFailure("invalid_response", "Profile holdings differ from supported range")
+        p = np.asarray(row["strategy"], dtype=np.float64)
+        if (p.size != len(holdings) * len(node["actions"])
+                or not np.isfinite(p).all() or (p < 0).any()):
+            raise SolveFailure("invalid_response", "Invalid strategy matrix")
+        p = p.reshape(len(node["actions"]), len(holdings)).T.copy()
+        if not np.allclose(p.sum(axis=1), 1, rtol=0, atol=2e-5):
+            raise SolveFailure("invalid_response", "Strategy is not normalized")
+        p /= p.sum(axis=1, keepdims=True)
+        p.setflags(write=False)
+        menu = tuple(Choice(name, Action(ActionKind(a["kind"]), a["raise_to"]))
+                     for name, a in zip(node["names"], node["native_actions"], strict=True))
+        values = None
+        if row.get("action_values_chips") is not None:
+            values = np.asarray(row["action_values_chips"], dtype=np.float64)
+            if values.size != p.size or np.isinf(values).any():
+                raise SolveFailure("invalid_response", "Invalid conditional action values")
+            values = values.reshape(len(node["actions"]), len(holdings)).T.copy()
+            # Native JSON null denotes an unavailable conditional diagnostic.
+            # Tiny off-path reaches can underflow during EV normalization.
+            # Keep the mask; never use those rows as numerical EV estimates.
+            values.setflags(write=False)
+        profiles[key] = PolicyMatrix(menu, holdings, p, values)
     if set(profiles) != set(nodes):
         raise SolveFailure("invalid_response", "Incomplete current-round profile")
     for lock in request.get("locks",[]):
@@ -97,6 +96,70 @@ def parse_profiles(request, path):
         if not np.allclose(matrix.probabilities,expected,atol=2e-5,rtol=0):
             raise SolveFailure("invalid_response","Exported strategy violates a prior hero lock")
     return profiles
+
+PROFILE_FORMAT = "hu20-profile-f64-v1"
+
+
+def profile_rows(path, *, compact=False):
+    """Read original JSON or lossless promoted-f64 arrays in native order.
+
+    The external harness first promotes f32 to f64 through serde_json::Value
+    in its original export. Binary transport preserves those same values and
+    maps nonfinite optional diagnostics to the original JSON-null/NaN mask.
+    """
+    path = Path(path)
+    with path.open() as metadata:
+        if not compact:
+            for line in metadata:
+                yield json.loads(line)
+            return
+        first = next(metadata, None)
+        if first is None:
+            raise SolveFailure("invalid_response", "Missing compact profile header")
+        header = json.loads(first)
+        if header.get("format") != PROFILE_FORMAT or header.get("binary_file") != "profile.f64":
+            raise SolveFailure("invalid_response", "Unknown binary profile format")
+        holdings = header["holdings"]
+        if len(holdings) != 2:
+            raise SolveFailure("invalid_response", "Missing binary holding tables")
+        position = 0
+        binary = path.with_name("profile.f64")
+        size = binary.stat().st_size
+        with binary.open("rb") as data:
+            for line in metadata:
+                row = json.loads(line)
+                player = row["player"]
+                if type(player) is not int or player not in (0, 1):
+                    raise SolveFailure("invalid_response", "Invalid binary player")
+                row["holdings"] = holdings[player]
+                row["opponent_holdings"] = holdings[1 - player]
+                fields = row.pop("arrays")
+                if set(fields) != {"strategy", "action_values_chips", "own_weights", "opponent_weights"}:
+                    raise SolveFailure("invalid_response", "Incomplete binary array inventory")
+                for field in ("strategy", "action_values_chips", "own_weights", "opponent_weights"):
+                    location = fields[field]
+                    if location is None and field == "action_values_chips":
+                        row[field] = None
+                        continue
+                    count = location["count"]
+                    expected = (len(holdings[player]) * len(row["actions"]) if field in
+                                ("strategy", "action_values_chips") else
+                                len(holdings[player if field == "own_weights" else 1 - player]))
+                    if (type(count) is not int or count != expected
+                            or type(location["offset"]) is not int or location["offset"] != position
+                            or position + count * 8 > size):
+                        raise SolveFailure("invalid_response", "Binary profile bounds differ")
+                    row[field] = np.fromfile(data, dtype="<f8", count=count)
+                    if row[field].size != count:
+                        raise SolveFailure("invalid_response", "Truncated binary profile")
+                    position += count * 8
+                yield row
+        if position != size:
+            raise SolveFailure("invalid_response", "Unexpected trailing binary profile data")
+
+
+def parse_profiles(request, path, *, compact=False):
+    return _parse_profile_rows(request, profile_rows(path, compact=compact))
 
 
 def file_hash(path):
@@ -144,9 +207,11 @@ def host_telemetry(threads):
 class ExternalTurnSolver:
     def __init__(self, executable, evidence_dir, *, expected_sha256=None,
                  resource_check=lambda: None, allocation_budget=None, profile_retention=None,
-                 hang_attention_seconds=None):
+                 hang_attention_seconds=None, compact_profiles=False):
         if profile_retention not in (None,PROFILE_RETENTION_RULE):
             raise ValueError("Unknown profile retention rule")
+        if compact_profiles and profile_retention is not None:
+            raise ValueError("Compact profiles require complete evidence retention")
         self.executable = Path(executable).expanduser().resolve()
         self.evidence_dir = Path(evidence_dir).expanduser().resolve()
         self.expected_sha256 = expected_sha256 or (
@@ -158,6 +223,9 @@ class ExternalTurnSolver:
         if hang_attention_seconds is not None and hang_attention_seconds<=0:
             raise ValueError("Positive attention threshold required")
         self.hang_attention_seconds=hang_attention_seconds
+        self.compact_profiles = compact_profiles
+        self._host = None
+        self._verified_executable = None
 
     def solve(self, request, deadline, *, mode="play"):
         if mode not in ("play", "quality"):
@@ -167,6 +235,8 @@ class ExternalTurnSolver:
         out = self.evidence_dir / uuid4().hex
         out.mkdir()
         request = dict(request, mode=mode, dump_path=str(out / "profile.jsonl"))
+        if self.compact_profiles:
+            request["profile_format"] = PROFILE_FORMAT
         fixed_work=request.get("work_protocol")==FIXED_WORK_PROTOCOL
         if fixed_work and (deadline is not None or request["max_iterations"]!=50 or request["threads"]!=6):
             raise ValueError("Fixed-work request has a timer or different iteration/thread count")
@@ -178,9 +248,13 @@ class ExternalTurnSolver:
         try:
             if not self.executable.is_file():
                 raise SolveFailure("solver_unavailable", "External solver is missing")
-            identity = file_hash(self.executable)
+            token = self.executable.stat()
+            token = (token.st_dev, token.st_ino, token.st_size, token.st_mtime_ns, token.st_ctime_ns)
+            identity = (self._verified_executable[1] if self._verified_executable is not None
+                        and self._verified_executable[0] == token else file_hash(self.executable))
             if self.expected_sha256 and identity != self.expected_sha256:
                 raise SolveFailure("solver_identity", "Executable SHA-256 differs")
+            self._verified_executable = (token, identity)
             record["executable_sha256"] = identity
             if self.allocation_budget is not None:
                 requested = request["memory_budget_bytes"]
@@ -194,7 +268,9 @@ class ExternalTurnSolver:
                     raise SolveFailure("memory_refusal", "No native allocation headroom in owned family")
             if deadline is not None and monotonic() >= deadline:
                 raise SolveFailure("timeout", "No startup budget remains")
-            record["host_telemetry"]=host_telemetry(request["threads"])
+            if self._host is None:
+                self._host = host_telemetry(request["threads"])
+            record["host_telemetry"] = dict(self._host, threads_per_worker=request["threads"])
             with (out / "stdout.log").open("wb") as stdout, (out / "stderr.log").open("wb") as stderr:
                 env = dict(os.environ, RAYON_NUM_THREADS=str(request["threads"]))
                 if self.profile_retention:
@@ -237,7 +313,8 @@ class ExternalTurnSolver:
                 raise SolveFailure("invalid_response", "Solver source/compression identity differs")
             if max(e.get("solver_peak_rss_bytes", 0) for e in events) > request["memory_budget_bytes"]:
                 raise SolveFailure("memory_refusal", "Solver RSS exceeds request budget")
-            profiles = parse_profiles(request, out / "profile.jsonl")
+            profiles = (parse_profiles(request, out / "profile.jsonl", compact=True)
+                        if self.compact_profiles else parse_profiles(request, out / "profile.jsonl"))
             if deadline is not None and monotonic() >= deadline:
                 raise SolveFailure("timeout", "Profile parse exceeded decision deadline")
             record.update(status="completed", nodes=len(profiles), completion=completion[-1])

@@ -15,7 +15,7 @@ import traceback
 import numpy as np
 
 from src.arena.schedule import digest
-from src.blueprint.abstraction import Choice, HU200_EQUITY_SCHEMA
+from src.blueprint.abstraction import Choice, HU200_EQUITY_SCHEMA, choices
 from src.blueprint.hu20_turn_search import (
     HU20TurnSearchPolicy, TurnSearchConfig, observed_likelihood,
 )
@@ -86,6 +86,23 @@ error; exact insertion applies to the solved river betting tree.
     def _observe_live_turn(self, history, bot_seat):
         # There is no turn solver or turn-policy state in this adapter.
         pass
+
+    def _try_ancestor(self, history, bot_seat, previous):
+        index, event = previous[-1]
+        prior = history[:index]
+        # A solution requested before this event cannot have inserted it at
+        # this prefix. If it is absent from the full native menu, the old
+        # solution.matrix(history) must fail. Do not infer non-reuse merely
+        # from a likely disagreement with blueprint opponent probabilities.
+        # Existing candidates remain authoritative even in unusual probe use.
+        if ((bot_seat, prior) in self.live_solutions
+                or self._key(prior, bot_seat) in self.cache):
+            return True
+        public = replay(prior, event.seat, ())
+        if event.action not in [c.action for c in choices(public, raise_cap=None, free_fold=False)]:
+            self.stats["certified_off_menu_ancestor_skips"] += 1
+            return False
+        return True
 
     def _start_live_hand(self, hand_id):
         if hand_id != self.live_hand_id:

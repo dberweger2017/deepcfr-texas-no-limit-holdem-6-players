@@ -1,6 +1,7 @@
 """HU200 river information boundary, exact wagers and live policy locks."""
 
 from dataclasses import replace
+from itertools import combinations
 from time import monotonic
 from types import SimpleNamespace
 
@@ -100,6 +101,7 @@ def test_exact_pressure_relocks_earlier_hero_and_hidden_deals_share_solution():
     second = policy.distribution(hand.observe(hero), query_kind="play")
     inserted = solver.requests[-1]
     assert len(solver.requests) == 2
+
     assert any(a.get("amount") == amount for n in inserted["nodes"]
                if not n["terminal"] for a in n["actions"])
     assert len(inserted["locks"]) == 2
@@ -110,6 +112,37 @@ def test_exact_pressure_relocks_earlier_hero_and_hidden_deals_share_solution():
     alternate = _world(hand.events, hand.observe(hero).board, {hero: view.hole_cards})
     assert policy.distribution(alternate.observe(hero)) == second
     assert len(solver.requests) == 2
+
+
+@pytest.mark.parametrize("amount", (8000, 7333, 16000))
+def test_only_provably_off_menu_cold_ancestors_are_skipped(amount):
+    class Legacy(HU200RiverSearchPolicy):
+        def _try_ancestor(self, history, bot_seat, previous):
+            return True
+
+    hand = river_fixture()
+    first = hand.observe(hand.actor)
+    current = hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.RAISE, amount))
+    policies = []
+    for cls in (Legacy, HU200RiverSearchPolicy):
+        solver = FakeSolver()
+        policy = cls(Blueprint(), solver)
+        policy._start_live_hand(first.hand_id)
+        holdings = tuple(tuple(sorted(h)) for h in combinations(
+            (c for c in DECK if c not in first.board), 2))
+        matrix = policy._base_matrix(first.history, holdings)
+        policy._remember_play(first, matrix, True, cause="earlier-blueprint-river-action")
+        policy.distribution(current.observe(first.seat), query_kind="play")
+        policies.append(policy)
+    old, optimized = policies
+    assert old.solver.requests[-1] == optimized.solver.requests[-1]
+    np.testing.assert_array_equal(old.played[first.seat, current.events][0].probabilities,
+                                  optimized.played[first.seat, current.events][0].probabilities)
+    if amount == 7333:
+        assert len(optimized.solver.requests) == len(old.solver.requests) - 1
+        assert optimized.stats["certified_off_menu_ancestor_skips"] == 1
+    else:
+        assert len(optimized.solver.requests) == len(old.solver.requests)
 
 
 def test_zero_likelihood_river_observation_falls_back():
