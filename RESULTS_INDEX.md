@@ -28,7 +28,9 @@ M4 execution starts at source `13ccb498482c228776128e70ad9e733fb0f5621a`.
 [Input inventory](docs/reports/hu200-v055-blend-run-artifacts/initial-inventory.json),
 [root reservation](docs/reports/hu200-v055-blend-run-artifacts/root-reservation.json)
 and [source pins](docs/reports/hu200-v055-blend-run-artifacts/source-pins.json).
-Designated evidence destination is
+Designated [evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK),
+ID `1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK`, direct project parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
 `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`; final archive IDs, manifests,
 readback and independent/native upload acceptance are pending, not claimed.
 No cleanup, merge, Slumbot, server, release, tag or default change follows this

@@ -89,3 +89,11 @@ frozen 16-hour envelope: science ends 23:10:28 Madrid, preservation ends
 No old scientific outcome or failed hand exists to repeat. This campaign's
 [failures and pending plumbing](hu200-v055-blend-run-artifacts/failures.json)
 remain disclosed; no guard threshold, weight, rule or evaluation count changes.
+
+The [designated evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK)
+is created and independently verified under the Research-Cloud project parent;
+both Macs observe the same Drive ID. [Folder receipt](hu200-v055-blend-run-artifacts/drive-folder.json).
+No evidence upload acceptance is claimed before a final archive exists.
+At the first archive's observed 4–4.5 MB/s arrival rate, the provisional intake
+ETA is 13:00–15:00 Madrid, conditional on network throughput. Final-run ETA still
+awaits actual union admission and cost-only pilots.
