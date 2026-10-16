@@ -29,6 +29,7 @@ class PolicyMatrix:
     menu: tuple
     holdings: tuple
     probabilities: np.ndarray
+    action_values_chips: np.ndarray | None = None
 
     @cached_property
     def holding_indices(self):
@@ -70,7 +71,17 @@ def parse_profiles(request, path):
             p.setflags(write=False)
             menu = tuple(Choice(name, Action(ActionKind(a["kind"]), a["raise_to"]))
                          for name, a in zip(node["names"], node["native_actions"], strict=True))
-            profiles[key] = PolicyMatrix(menu, holdings, p)
+            values = None
+            if row.get("action_values_chips") is not None:
+                values = np.asarray(row["action_values_chips"], dtype=np.float64)
+                if values.size != p.size or np.isinf(values).any():
+                    raise SolveFailure("invalid_response", "Invalid conditional action values")
+                values = values.reshape(len(node["actions"]), len(holdings)).T.copy()
+                # Native JSON null denotes an unavailable conditional diagnostic.
+                # Tiny off-path reaches can underflow during EV normalization.
+                # Keep the mask; never use those rows as numerical EV estimates.
+                values.setflags(write=False)
+            profiles[key] = PolicyMatrix(menu, holdings, p, values)
     if set(profiles) != set(nodes):
         raise SolveFailure("invalid_response", "Incomplete current-round profile")
     for lock in request.get("locks",[]):

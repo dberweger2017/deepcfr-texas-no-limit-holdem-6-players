@@ -23,6 +23,22 @@ hero matrices at earlier river decisions, including fallback matrices, and
 reuse on-tree river solutions within a hand. Insert exact observed wagers
 when rebuilding the river tree, including 1.5 times pot.
 
+The external solver starts at the equal-contribution river round root. Lock
+every observed opponent river prefix to the blueprint likelihood model and
+every earlier hero prefix to the matrix actually used. Conditioning those
+fixed path factors gives the current-decision compatible product law. Check
+current joint reach and the queried holding's marginal support. Reuse a prior
+solution only if all earlier complete lock matrices agree by action/holding.
+Future opposing actions are still solved equilibrium responses.
+
+For an exact menu action use its blueprint probability. For an off-menu raise
+the inherited kernel is `max(.01, sum(p_raise * exp(-abs(log(actual/menu)))))`.
+This .01 kernel floor is distinct from the zero opponent-likelihood floor.
+At an observed off-menu river prefix insert its exact action with that
+likelihood and scale the old menu by one minus that likelihood. This is a
+declared augmented action model, not literal blueprint probability for an
+action absent from its menu. It remains a range-model limitation.
+
 The existing external solver supports fixed hero strategy locks but exposes no
 opponent counterfactual-value gadget for safe re-solving. The initial design is
 therefore ordinary joint-range river CFR with hero locks. It has no safety
@@ -61,6 +77,45 @@ ledger as well as full successful matrices; timing-dependent availability must
 be reported separately from deterministic completed solver work. The precise
 reproduction contract is a correctness gate, not assumed from fixed RNG seeds.
 
+Persist the complete current public policy matrix, support mask and fallback
+cause with a checksum keyed by blueprint/configuration, public history and
+prior hero locks. Fresh replay reads this ledger, refuses missing/changed
+entries and performs no solve. Native completed-work repetition is checked
+separately: seeds alone do not determine whether a wall-clock timeout occurs
+under a different machine load. No partial timed strategy is played.
+
+## Fixed cost pilot
+
+Use 24 distinct-hand river decisions: six free and six facing a wager from
+each of #304's indexed archive and the blend's verified exploratory prefix.
+Select the lowest public-decision SHA256 in each stratum, before timing,
+without terminal outcomes or revealed opposing cards. The full frozen sample
+stays in research storage; the compact declaration records its hash.
+
+Work is 50 iterations, six threads, uncompressed full native menu, all 1,081
+river-compatible holdings per player before history conditioning, zero global
+opponent floor, 2 GiB native allocation ceiling, 300,000 public-node limit and
+120-second search-work deadline. The long deadline measures the unweakened
+design against the 3-second target; it does not change that target. A new
+policy instance per spot measures cold decision work. Earlier actual hero
+river actions in these blueprint journals are locked to blueprint matrices.
+Include preparation, fallback, ledger, comparison-action and output costs.
+The deadline rejects incomplete/late search work; fallback policy construction,
+ledger writes and comparison/output work can extend total service time. They
+remain in the measured latency, so a fallback cannot make this design appear
+to meet the 3-second target. Per-spot timing receipts include the decision
+output write and exclude only their own small timing-receipt write.
+
+Per decision record sampled simultaneous family RSS (20 ms), tree size,
+fallback cause, same-uniform-draw action change and conditional action EVs.
+EV differences compare search and blueprint mixtures against the same solved
+continuation; they are not guarantees of realized gain. Native normalization
+can leave tiny off-path conditional EVs unavailable. Preserve that mask;
+never replace it with a numeric estimate. A missing EV on a successful actual
+decision blocks qualification. Native root EV and constrained best response
+must match the independent reference within the predeclared .01-chip limit;
+also report unrestricted best response separately from lock-constrained gains.
+
 Research failures are retained without rerun, retuning or sample extension.
 Fix and continue infrastructure failures with append-preserving evidence.
 Keep the PR draft until all authorized research has actually run, unless an
@@ -71,5 +126,17 @@ provenance in RESULTS_INDEX. Mac synced Drive folders remain read-only.
 
 ## Status
 
-Implementation and input preparation in progress. No strength test declared,
-no strength hands played, and no search setting qualified.
+Small-fixture correctness passes on M4: native/reference EV and constrained BR
+agree within .0004 chips at all three roots, including exact 1.5 times pot;
+completed native matrix repeats have zero difference. A complete searched river
+continuation replays with identical actions and settlement in fresh policy/player
+state without invoking the solver. Expanded regressions pass 118 checks, with
+one further post-review allocation-fallback check. Independent Python review
+findings are addressed. [Compact evidence](reports/hu200-river-search-artifacts/)
+retains the original plumbing failures, reference definitions and source pins.
+
+The fixed 24-spot cost pilot is ready. No strength test is declared, no strength
+hands have been played, and no search setting is qualified. Any fallback or
+unavailable successful-decision EV is disclosed alongside latency and memory;
+an incomplete search workload cannot qualify the design solely through cheap
+blueprint fallbacks.

@@ -50,14 +50,16 @@ def betting_line(root, history):
 
 
 def compile_tree(root, observed_history, *, menu="native", max_nodes=300_000,
-                 deadline=None, fixed_menus=None):
+                 deadline=None, fixed_menus=None, stack_chips=2000):
     public = replay(root, 0, ())
     start = root[0]
     if (public.street not in (Street.TURN, Street.RIVER) or len(public.players) != 2
-            or start.stacks != (2000, 2000) or start.small_blind != 50
+            or stack_chips not in (2000, 20000)
+            or (stack_chips == 20000 and public.street != Street.RIVER)
+            or start.stacks != (stack_chips, stack_chips) or start.small_blind != 50
             or start.big_blind != 100 or start.chip_unit != "0.01"
             or public.players[0].stack != public.players[1].stack):
-        raise ValueError("Search needs the equal-stack reset HU20 round root")
+        raise ValueError("Search needs its declared equal-stack round root")
     if menu not in ("native", "cap2"):
         raise ValueError("Unknown search menu")
     inserted = {}

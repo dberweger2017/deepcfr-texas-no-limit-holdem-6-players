@@ -1,0 +1,18 @@
+{
+  "scope": "Independent read-only review of Python design and integration before the cost pilot; no external native harness audit or scientific execution",
+  "rounds": 3,
+  "findings_addressed": [
+    "Align independent reference policies by Action identity, not labels/order",
+    "Match constrained best-response objectives using request hero locks; report unrestricted response separately",
+    "Lock observed opponent river prefixes to blueprint likelihood matrices and check current structural support",
+    "Persist full matrices, support and fallback availability for fresh player replay",
+    "Retain off-menu kernel floor as an explicit augmented likelihood model",
+    "Measure simultaneous family RSS and host available memory; reject missing actual-decision EV diagnostics",
+    "Use per-hand availability keys while keeping reusable scientific keys independent of labels",
+    "Include decision serialization/output in timing and describe the search deadline accurately",
+    "Count support/completion allocation failure as memory_refusal fallback"
+  ],
+  "last_review": "No remaining pilot-blocking scientific defect in reviewed Python paths apart from the subsequently fixed MemoryError catch",
+  "validation": "M4 expanded regressions and a separate post-review allocation-fallback test; retained native-profile/reference checks and fresh native-hand replay",
+  "limitations": ["Full-range cost and strength remain unmeasured", "Ordinary re-solving has no safety guarantee", "Seed-only availability across different host loads is not claimed; persisted availability is required for exact replay"]
+}

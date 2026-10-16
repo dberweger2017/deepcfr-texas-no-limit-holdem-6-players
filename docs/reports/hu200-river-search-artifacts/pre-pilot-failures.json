@@ -1,0 +1,12 @@
+{
+  "scientific_strength_hands": 0,
+  "preserved_attempts": [
+    {"stage": "cache preparation", "failure": "System rsync rejected progress-display option", "classification": "plumbing", "resolution": "Removed display option; fresh guarded attempt"},
+    {"stage": "independent reference", "failure": "Inserted versus observed action labels/order differed", "classification": "oracle plumbing", "resolution": "Align exact Action identities; reuse verified native profiles"},
+    {"stage": "independent reference", "failure": "Unconstrained reference BR was compared with native BR respecting hero locks", "classification": "oracle objective mismatch", "resolution": "Retain original discrepancy and unrestricted diagnostic; independently constrain the reference using request locks; unchanged .01-chip tolerance and native profiles"},
+    {"stage": "conditional EV export", "failure": "Tiny off-path conditional diagnostics contain unavailable values", "classification": "telemetry plumbing", "resolution": "Preserve unavailable mask; validate finite queried/root EVs against reference; unavailable actual successful-decision EV blocks pilot qualification"},
+    {"stage": "expanded regression collection", "failure": "Existing environments separately lacked torch or psutil", "classification": "missing test dependency", "resolution": "Isolated task environment reads existing dependencies without changing shared environments; all 118 selected checks then pass"}
+  ],
+  "retention": "All original logs, requests, profiles, manifests and guard stop receipts retained for final research storage",
+  "no_outcome_tuning": true
+}
