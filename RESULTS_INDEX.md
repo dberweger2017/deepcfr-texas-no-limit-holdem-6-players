@@ -1,33 +1,44 @@
-## Archive locations and acceptance — October 16, 2026
+## Research storage policy — owner-approved October 16, 2026
 
-The standard for **bb128 work** is now
-`/mnt/data2tb/research-cloud/PR-<n>-<slug>/` (HDD archives/checkpoints at rest),
-uploaded directly with `rclone copy --immutable --transfers 1` to
-`gdrive:PR-<n>-<slug>/`. The remote is rooted at
-[deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s);
-use the exact existing per-PR folder name. **M1/M4 work** retains
-`~/Local/Research-Cloud/PR-<n>-<slug>/` through native Drive desktop.
-Active training, audits, caches and restored inputs on bb128 stay on NVMe.
+**Google Drive holds all research files long-term.** The only new-upload route is
+bb128's fast HDD cache at `/research/PR-<n>-<name>/` (owner symlink to
+`/mnt/data2tb/research-cloud`; use that real path until the symlink exists).
+`gdrive:` is rooted at [deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s),
+so the same per-PR name maps to the Macs' Research-Cloud. Mac synced Drive folders
+are now **read-only**: fetch missing material and copy it out; never write/delete
+inside them. Prefer restoring through bb128 so the cache fills. The often-away
+M1 can continue fetching through Drive. Active work stays on NVMe.
 
-**Activation verified:** `rclone lsd gdrive:` listed existing PR folders;
-[observations](docs/artifacts/bb128-storage-activation-20261016.md) confirm
-the mount and matching known Drive IDs; the existing 50 MB smoke test also
-passed a read-only one-way check with zero differences/one match. This does not accept any
-research archive. bb128 archive entries must record archive bytes/local SHA256,
-embedded manifest SHA256/member readback, successful zero-difference
-`rclone check --one-way` output/exit status (Drive MD5 versus local files),
-and file IDs/names/sizes/MD5 from `rclone lsjson`, folder ID/URL and retrieval
-command, such as `rclone copy gdrive:PR-<n>-<slug>/ARCHIVE.zip results/retrieved/NEW_ROOT/`.
-Link the compact receipt for these details. Retain accepted HDD copies as local
-restore caches; removal requires dependency review and a cleanup receipt.
-Existing NVMe retention rules apply. No remote deletion or overwriting is allowed;
-no changes to the Macs' no-deletion-inside-synced-folders rule.
+Keep an **uncompressed** final cache copy with the ZIP's folder structure; upload
+from bb128 with `/research/.tools/research_cache.py upload 'PR-<n>-<name>' ZIP`.
+`receipt` verifies files already uploaded; `.drive-receipt.json` records Drive
+ID/MD5/size and local member size/CRC32 coverage. `status` lists cache folders.
+Every archive entry must record owning PR/source/run, Drive file ID/path,
+MD5, archive bytes/SHA256, manifest path/SHA256/readback, coverage, failures,
+required model/input member SHA256s, and both retrieval paths:
 
-Only one large upload at a time on the shared 3–4 MB/s uplink, without competition
-with Slumbot. Never include the owner's rclone config/OAuth token in any output
-or evidence. [Full host-specific workflow and safety rules](docs/artifact-storage.md)
-supersede historical Mac-only routing guidance below. If disk, sign-in or network
-access fails, retain originals, leave acceptance pending and report it in the PR.
+- Cached: `/research/PR-<n>-<name>/` while retained.
+- Always available: `rclone copy 'gdrive:PR-<n>-<name>/' '/research/PR-<n>-<name>/'`,
+  then verify the archive/manifest/member hashes and extract the needed files.
+
+The owner authorized the existing **04:00 daily cache-only eviction**: seven
+unused days, all files covered/unchanged, matching live Drive size/MD5 and local
+content reread without updating atime, no open PR/KEEP/open process. GitHub-list
+failure aborts all eviction/purge. Evicted data spends another seven days in
+`/research/.evicted/`, timed by its name stamp; restore it locally during that
+window, or from Drive afterward. Decisions are logged in
+`/research/.eviction-log.jsonl` with available Drive IDs and restore commands.
+This is the sole unattended-cleanup exception; NVMe/Mac original retention stays.
+
+[Full storage contract](docs/artifact-storage.md), [deployed README copy](docs/research-cache-deployed-readme.md),
+[tool import hashes and review findings](docs/artifacts/research-cache-import-20261016.md).
+Repository fixes are not deployed without owner review/approval. Existing PR301,
+PR306 and other already running campaigns keep their current method to completion.
+The planned private M4↔bb128 cable is not assumed working. Only one large upload
+at a time, without Slumbot competition. Credentials never enter evidence; no
+rclone operation may delete/change Drive. Old Mac/native acceptance records below
+are historical receipts, not authorization for new Mac uploads.
+
 ## M4 storage for open PR306 — October 16, 2026
 
 Owner-prioritized cleanup removed 17 unchanged inactive HU100 input/model copies
@@ -3578,7 +3589,7 @@ A separate APFS copy is hash-verified and staged through native Drive desktop at
 
 This is the existing research index. Its September inventory and October 2 receipts remain below; the current locations and upload states in this section supersede those earlier snapshots.
 
-Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Cloud` pointing to the same [research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). Whole archives and experiment folders from the Macs go through the desktop app; bb128 uses the direct rclone route described at the top of this index from October 16 onward. The connector's observed 536,870,912-byte ingestion ceiling does not apply to this route; no research payload was split for the native uploads.
+Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Cloud` pointing to the same [research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). Those historical Mac uploads went through the desktop app. The owner's October 16 cache policy at the top of this index supersedes that route for new work; Macs are now read-only. The connector's observed 536,870,912-byte ingestion ceiling does not apply to this route; no research payload was split for the native uploads.
 
 - **Organization verified:** 207 existing entries moved into [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr), and five cleanup records into [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX). IDs and existing links are preserved. The [relocation receipt](docs/artifacts/native-drive-relocations-20261004.json) records every original parent, destination and verified item ID.
 - **M4 upload queue:** nine closed scopes, **28,756 files / 96,459,366,205 logical bytes (89.83 GiB)**, hashed before relocation into the streamed folder. Includes closed training and flop/turn evidence. Local payloads remain under Drive management while uploading.
@@ -3788,7 +3799,7 @@ The September 30 catalog remains the original inventory: **8,117 files / 208 top
 
 1. Keep active checkpoints, recovery slots and other agents’ input dependencies in their working location. Coordinate before cleanup.
 2. Preserve every attempt, failed/partial output, source/config/model identity, manifest/hash and exact retrieval command. Add the PR/report and archive relative path to this index. Never replace scientific evidence with a success-only archive.
-3. Let Drive upload. On Macs, accept the desktop's Successfully uploaded/Synced status with independent cloud ID/name/size/parent confirmation. On bb128, require zero-difference `rclone check --one-way` with MD5 comparison and record `rclone lsjson` IDs plus archive/member hashes and restoration evidence under the host-specific workflow above. A placeholder or filename alone is insufficient. Retain HDD restore caches; remove local copies only under the applicable authorization, dependency and cleanup-receipt rules. Keep pending uploads and active dependencies.
+3. New uploads originate only from the bb128 cache through `research_cache.py upload`; record its MD5/member-coverage receipt and the archive/manifest SHA256s. Mac Drive is read-only. Existing campaigns may finish their current route. The owner-approved cache cron alone may evict covered idle folders through seven-day trash; NVMe/Mac originals retain the separate authorization/dependency/cleanup-receipt rules. Keep pending uploads and active dependencies.
 4. Before analysis, restore the needed immutable files into a working directory, verify their hashes and source/model identities, and keep restored heavy computation on the authorized host. Do not train or audit inside a streamed folder.
 
 ## Recent work outside the initial batch
