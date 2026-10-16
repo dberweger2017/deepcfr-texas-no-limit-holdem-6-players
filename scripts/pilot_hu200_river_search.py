@@ -96,6 +96,10 @@ def freeze(archive, blend, out):
 
 def run(plan_path, model, cache, tables, binary, out):
     plan = json.loads(plan_path.read_text())
+    declaration = json.loads((Path(__file__).resolve().parents[1] /
+        "docs/reports/hu200-river-search-artifacts/cost-declaration.json").read_text())
+    if file_hash(plan_path) != declaration["full_plan_sha256"]:
+        raise ValueError("Real-spot sample differs from its committed declaration")
     if (plan["config"] != asdict(CONFIG) or plan["model_sha256"] != MODEL_SHA256
             or len(plan["sample"]) != 24):
         raise ValueError("Cost sample or search work differs from declaration")
