@@ -1,0 +1,31 @@
+{
+  "status": "three-prefixes-saved",
+  "samples": 826,
+  "cpu_max_c": 55.0,
+  "vrm_max_c": 64.0,
+  "fan_minmax": {
+    "fan1": [
+      478,
+      735
+    ],
+    "fan2": [
+      872,
+      1091
+    ],
+    "fan3": [
+      877,
+      1111
+    ]
+  },
+  "peak_aggregate_rss_bytes": 22468595712,
+  "peak_per_seed_rss_bytes": {
+    "2026101302": 7487889408,
+    "2026101421": 7494729728,
+    "2026101422": 7486042112
+  },
+  "minimum_available_bytes": 109889511424,
+  "maximum_swap_bytes": 1048576,
+  "minimum_disk_free_bytes": 248592576512,
+  "first_utc": "2026-10-16T03:23:56.758176+00:00",
+  "last_utc": "2026-10-16T03:37:50.516617+00:00"
+}

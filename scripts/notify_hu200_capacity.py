@@ -39,7 +39,7 @@ def main():
             return True
         payload = dict(event=event, experiment='PR301', observed_utc=dt.datetime.now(dt.timezone.utc).isoformat())
         request = urllib.request.Request(url, data=json.dumps(payload).encode(),
-            headers={'Content-Type': 'application/json'}, method='POST')
+            headers={'Content-Type': 'application/json', 'User-Agent': 'T3Code-HU200Capacity-Observer/1.0'}, method='POST')
         try:
             with urllib.request.urlopen(request, timeout=10) as response:
                 if not 200 <= response.status < 300:
@@ -47,7 +47,8 @@ def main():
                 receipt = dict(payload=payload, http_status=response.status)
         except Exception as exc:
             # Never log the capability URL or response bodies.
-            print(json.dumps(dict(event=event, delivery='pending', error_type=type(exc).__name__)), flush=True)
+            print(json.dumps(dict(event=event, delivery='pending', error_type=type(exc).__name__,
+                http_status=getattr(exc, 'code', None))), flush=True)
             return False
         sent[event] = receipt
         temporary = ledger.with_suffix('.tmp')

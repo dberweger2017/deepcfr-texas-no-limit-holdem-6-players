@@ -269,3 +269,11 @@ K50 tables and checkpoint bytes and rerun the declared fresh/resume identity
 gates under XMP before dependent large continuation. Keep <=8 busy threads,
 CPU85C/VRM95C limits and the owner's accepted uncompleted memtest86+ status.
 No writes, mounts, formatting or experiment use of the new hard drive.
+
+Current campaign continuation uses only stage-completion webhook events into
+this existing thread: verified prefix/memory gates, restored twins, audited
+milestones and terminal status. The observer is metadata-only, affined6–7,
+bounded by the training deadline+1h; it cannot start or restart scientific work.
+No recurring timer or future research is scheduled. Private event endpoint files
+are excluded from all evidence archives/Git; nonsecret delivery/failure receipts
+are retained. Delete the task and private files after this experiment closes.

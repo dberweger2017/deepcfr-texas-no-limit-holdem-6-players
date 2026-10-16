@@ -71,3 +71,25 @@ The first evaluation fixture checks failed because a K50 table path was omitted
 from the test fixture; the actual evaluator correctly rejected it. The corrected
 fixture's three checks pass on bb128. Original failure log/guard remain, with
 [compact failure receipt](hu200-capacity-cygnus-artifacts/evaluation-tests-initial-failure.json).
+
+The500M stage has826 one-second samples: CPU55°C/VRM64°C maxima,
+fan1/2/3 ranges478–735/872–1091/877–1111RPM,22,468,595,712-byte
+aggregate RSS peak,109,889,511,424-byte minimum available RAM and unchanged
+1MiB swap baseline. [Full compact summary](hu200-capacity-cygnus-artifacts/prefix500m-resource-summary.json).
+[Four-check evaluation smoke receipt](hu200-capacity-cygnus-artifacts/evaluation-smoke.json)
+includes two toy K50 cache builds and direct/random play/replay/reproduction;
+these fixture hands are separate from reserved real-model pilots/finals.
+
+A webhook-only continuation task is bound to this thread for this already
+running bounded campaign. It does not schedule future experiments or recurring
+timers. The metadata observer runs on CPUs6–7 and expires one hour after the
+training deadline; terminal delivery ends it. Endpoint/private token files are
+excluded from Git and archives. Initial default-User-Agent requests failed
+HTTP403/1010; explicit service identification returnsHTTP202 on both bb128 and
+the coordinator. The failed observer log remains; only that metadata observer
+was replaced, without signaling scientific work. Verify delivery receipts before
+relying on wake-up. Remove the callback task and private files at closeout.
+Finder automation also failed cgWindowNotFound while inspecting input downloads;
+no UI settings were changed. Public NSFileCoordinator read coordination now
+requests full materialization of the existing indexed archive; other inputs are
+queued serially with coordinator disk headroom. Restoration remains pending.
