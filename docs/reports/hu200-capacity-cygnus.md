@@ -132,3 +132,19 @@ fan1/2/3 738/1107/1109RPM, aggregate workload RSS11.54GB, available120.98GB,
 swap unchanged1MiB and272.15GB free NVMe. Archives1302/1421 have reached
 1.94/2.07GB of5.92/3.16GB;1422 is complete by size. No campaign failure receipt.
 [Status receipt](hu200-capacity-cygnus-artifacts/status-20261016-0638.json).
+
+The October16 owner asks to shorten checkpoint scheduling within eight CPUs.
+[Proposed amendment](../hu200-capacity-scheduling-amendment.md) is awaiting the
+owner decision required by that request point4: the committed protocol explicitly
+forbids overlapping audits/exports. The running schedule has not changed.
+[Measured operations evidence](hu200-capacity-cygnus-artifacts/scheduling-observation-20261016.json):
+current export consumes0.99946 cores, with host NVMe busy only0.19% over30s;
+completed streaming audit RSS peaks below49MB. This supports a concurrency trial,
+not a measured threefold speedup. Full sorted-validator utilization is pending.
+Qualified source already uses two-worker seat traversal, with serial delta apply
+and checkpoint I/O; the earlier six-busy-thread wording overstated continuous
+utilization. No live training traversal was available for per-thread measurement.
+Owner-reported real-trainer15min maxima69°C VRM/59°C CPU at125W PL1/PL2 are
+recorded separately. Conditional revised closeout target October19, upload
+contingency October20, requires approval and subsequent throughput admission;
+current October20–21 estimate and scientific runtime ceilings remain unchanged.
