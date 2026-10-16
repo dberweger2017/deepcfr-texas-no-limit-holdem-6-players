@@ -5,15 +5,16 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 15:48 Madrid): blend audited; all cost pilots verified; finals pending time-budget admission.**
+**Current status (October 16, 15:52 Madrid): blend audited; all pilots verified; full fixed evaluation admitted under the owner's extension.**
 All 156,208,331 rows pass the unchanged independent checkpoint/current/average
 audit on the 16 GiB M4. The average inference model is 6,282,968,150 bytes;
 its raw synthetic checkpoint is 6,042,193,732 bytes. All three fixed cost-pilot
-groups independently replay and reproduce. The measured remaining science
-quote is 10 h 16 min, exceeding the original science deadline; disk admission
-fits. No final hand or strength readout has started. A prospective time-budget
-extension is requested, with no extension yet applied. This PR remains draft
-and pending; this plumbing hold is not a research failure.
+groups independently replay and reproduce. The owner explicitly authorizes a
+prospective time-budget extension to 02:30 science /04:30 preservation Madrid
+October 17. The same measured quote now admits, projecting science 02:08 and
+preservation 04:08; the first final seed cache is building. No final strength
+result has been read. The PR remains draft pending the actual evaluation and
+accepted archival evidence.
 
 All construction, export, cache and evaluation work runs on the base Apple M4
 with 16 GiB physical memory, under both exclusive research locks and the existing
@@ -356,3 +357,28 @@ authorized admission; the PR remains draft and is not presented for review.
 [successful quote execution](hu200-v055-blend-run-artifacts/final-cost-quote-guard-complete.json),
 [post-pilot ETA in PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216906056),
 [fresh final-root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-finals.json).
+
+### October 16, 15:52 Madrid: owner-authorized time extension, finals admitted
+
+The owner explicitly selects “Authorize extension to 04:30 overall” in response
+to the proposed 02:30 science /04:30 preservation deadlines, Madrid October 17.
+This prospective time-budget amendment is applied before any final hand. The
+original clock and time-stop quote remain unchanged evidence; baseline and
+held-state SHA256s are identical before/after the amendment. Guard thresholds,
+counts, weights, roots, translation and blend rule are unchanged. No pilot or
+scientific retry occurs and no strength readout is opened.
+
+Re-admission reuses the exact original pilot cost-file hashes, block-work
+projections, fingerprint cost, 1.5 multiplier and reserves. At 15:51:40 Madrid
+it admits **36,965.42 seconds**, projecting science completion **02:07:46 Madrid
+October 17**, plus the separate two-hour preservation reserve. Current free
+disk is **57,731,907,584 bytes** against **31,504,892,644 required**. The new
+plan and execution admission pin scientific source `13ccb498`, while the initial
+failed time quote is retained separately. ETA is posted before final execution;
+the first final seed cache is building.
+[Explicit authorization and guard preservation](hu200-v055-blend-run-artifacts/owner-budget-extension.json),
+[revised clock](hu200-v055-blend-run-artifacts/campaign-clock-owner-extended.json),
+[admitted same-cost quote](hu200-v055-blend-run-artifacts/final-cost-admission-owner-extended.json),
+[frozen full-count plan](hu200-v055-blend-run-artifacts/final-plan.json),
+[execution admission](hu200-v055-blend-run-artifacts/execution-admission.json),
+[ETA before final play](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216986834).

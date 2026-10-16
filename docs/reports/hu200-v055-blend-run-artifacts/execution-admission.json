@@ -1,0 +1,9 @@
+{
+  "at": 1792158723.994477,
+  "cost_admission_sha256": "3ec5f4075c40e4a98cefa6f37adf44b9c342608d5b0f2f2c733a6b59f068cd23",
+  "no_scientific_outcomes_read": true,
+  "owner_budget_extension_sha256": "c91ba9eaa7fdda9c9d053bf2f53aae6aa819c82941c8bf8f0d5bd65b95e0bc0f",
+  "plan_sha256": "c111c6505650068a524e04ee8951bf12892993229a5fc06b4e53ad309dafbaac",
+  "post_pilot_eta_posted_before_final_hands": true,
+  "source": "13ccb498482c228776128e70ad9e733fb0f5621a"
+}
