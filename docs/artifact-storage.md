@@ -1,146 +1,138 @@
-# Git, Google Drive and local research storage
+# Git, Google Drive and the research cache
 
-This is the common storage contract for new work. [AGENTS.md](../AGENTS.md)
-controls artifact preservation; [RESULTS_INDEX.md](../RESULTS_INDEX.md) remains
-the canonical archive/retrieval index. A historical report's “retained” or
-“upload pending” statement is a dated snapshot, not proof of current storage.
+This is the owner-approved October 16, 2026 storage policy. [AGENTS.md](../AGENTS.md)
+controls preservation; [RESULTS_INDEX.md](../RESULTS_INDEX.md) records actual files,
+receipts, failures and retrieval provenance. Historical Mac upload receipts remain
+dated evidence. **Already running PR301, PR306 and other open campaigns may finish
+with their current method; do not disrupt them.** New work follows this policy.
 
-## What belongs where
+## Locations and network
 
-**Git:** source, dependency pins, small configurations and deterministic test
-fixtures, protocols, readable reports, modest plots, compact result summaries,
-and archive/retrieval receipts. Keep enough context to understand the result
-without downloading the full experiment. A filename such as `manifest.json`
-does not make megabytes of raw data a compact receipt.
+Google Drive's [deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s)
+is the long-term store for **all research files**. Everything must eventually be
+represented there; bb128's 1.8 TB HDD is a disposable, faster cache in front of it.
 
-**Research-Cloud:** training checkpoints, inference exports, replay buffers,
-bucket tables, raw hand/decision traces, bulky solver inputs/outputs, complete
-logs, interrupted attempts, and generated research archives. The canonical Drive
-root is [deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
-Use the existing per-PR folder name and record its actual Drive folder ID/URL;
-do not create a second folder merely because its spelling differs from an example.
-
-| Host | Archive location and upload route |
+| Location | Purpose |
 |---|---|
-| M1/M4 | `~/Local/Research-Cloud/PR-<n>-<slug>/`, uploaded by native Drive desktop; both Macs see the same cloud folder. |
-| cygnus-x1 (`ssh bb128`) | `/mnt/data2tb/research-cloud/PR-<n>-<slug>/`, copied directly to `gdrive:PR-<n>-<slug>/` with rclone. No Mac staging is required. |
+| bb128 `/research/PR-<n>-<name>/` | Uncompressed research files at rest, in the same structure as ZIP members. `/research` is the owner's symlink to `/mnt/data2tb/research-cloud`; use the real path until the symlink exists. |
+| `gdrive:PR-<n>-<name>/` | The same existing per-PR Drive folder; `gdrive:` is already rooted at deepcfr-research-results. All new research uploads originate from the bb128 cache. |
+| M1/M4 `~/Local/Research-Cloud/` | **Read-only** synced Drive access for retrieval. Fetch missing material, copy it into an ignored working directory, and never write/delete inside the synced folder. A deletion there deletes from Drive. |
+| Authorized host's NVMe / Mac ignored `models/`, `results/`, `planning/` | Active training, audits, derived caches and restored working inputs. No heavy live work on the HDD or streamed folder. |
 
-**Ignored local working directories:** retrieve into `models/`, `results/` or
-`planning/` outside synced folders. Keep active inputs where their campaign
-expects them. Verify SHA256 before use. Released inference assets continue to
-use their pinned GitHub release downloads; being named a release does not grant
-permission to commit a model to Git.
+Use the exact existing per-PR name across cache and Drive. The HDD is about
+225 MB/s against Drive's roughly 4 MB/s. bb128 currently reaches the router by
+Wi-Fi. The M1 is often away and reaches bb128 through a roughly 1.2 MB/s Tailscale
+relay, so it can keep fetching from Drive when needed. Prefer restoring through
+bb128 so the cache fills. Only one large upload runs at a time on the shared
+uplink, without competition with Slumbot play.
 
-## bb128 archive workflow
+The owner/Claude are arranging a private bb128 ↔ M4 Ethernet cable:
+`192.168.77.1` / `192.168.77.2`, no internet route, about 110 MB/s expected.
+**Do not rely on it until confirmed working.** This PR does not configure it or
+claim a throughput test. A missing disk, symlink, authentication or network
+prerequisite must be described in the PR for the owner; retain originals and
+leave the blocked work pending rather than claiming completion.
 
-**Active October 16, 2026:** `rclone lsd gdrive:` successfully listed the existing
-PR folders. [Activation observations](artifacts/bb128-storage-activation-20261016.md)
-record rclone 1.60.1-DEV, matching existing Drive folder IDs, and the mounted
-ext4 disk/fstab entry. A read-only check of the existing 50 MB smoke test also
-found zero differences/one match; no new upload was created. The owner's `gdrive:` remote is already rooted at
-`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`; do not append another
-`deepcfr-research-results` directory. Its per-PR names are exactly those under
-the Macs' Research-Cloud. Access activation is separate from each archive's
-upload acceptance.
+## Save research through bb128
 
-The 1.8 TB Seagate HDD at `/mnt/data2tb` is persistent through fstab with
-`nofail`. Its approximately 150–200 MB/s throughput suits archives and
-checkpoints **at rest**. Active training, audits, inference/policy caches and
-restored working inputs stay on NVMe. Check the mount before writing: because
-`nofail` permits boot without it, an ordinary directory at that path is not
-proof the disk is mounted. A missing disk, sign-in or network problem leaves
-the closeout pending; retain originals and report the blocker in the PR.
-
-1. Check the owning PR's current status and archive/dependency authorization.
-   Build the ZIP into the existing HDD per-PR folder, with embedded
-   `ARCHIVE-MANIFEST.json`. Preserve failures, partial attempts and source/input
-   provenance. Record local archive bytes/SHA256 and manifest SHA256; read back
-   every member against its size/SHA256 as before. Exclude credentials from
-   the evidence set before building it.
-2. Upload one way using immutable copies. Run **one large upload at a time**
-   across agents, with one file transfer at a time, on the shared approximately
-   3–4 MB/s home uplink. Do not let uploads compete with Slumbot play. Coordinate
-   with existing transfers before starting; activation grants no new compute.
+1. Check the owning PR's current status and authorization. Preserve an
+   **uncompressed** final copy in `/research/PR-<n>-<name>/` with the same paths
+   as the ZIP. Include raw results, checkpoints/exports, failures, partials,
+   source/config/input provenance and manifests. Exclude all credentials.
+2. Build the ZIP with embedded `ARCHIVE-MANIFEST.json`, local member readback,
+   archive bytes/SHA256 and manifest SHA256. Keep the final files at rest in
+   the cache. For Mac work, copy the files/archive to bb128's cache rather
+   than staging a new upload in the Macs' synced Drive folder.
+3. Use the already deployed tool on bb128:
 
    ```sh
-   mountpoint -q /mnt/data2tb || exit 1
-   findmnt -T /mnt/data2tb -o TARGET,SOURCE,FSTYPE,OPTIONS
-   rclone lsd gdrive:
-   # Replace the placeholder with the exact existing per-PR folder name.
-   research_pr_folder='PR-<n>-<slug>'
-   rclone copy --immutable --transfers 1 \
-     "/mnt/data2tb/research-cloud/$research_pr_folder/" \
-     "gdrive:$research_pr_folder/"
+   /research/.tools/research_cache.py upload 'PR-<n>-<name>' '/research/PR-<n>-<name>/evidence.zip'
+   # If /research is not yet present, use /mnt/data2tb/research-cloud instead.
+   /research/.tools/research_cache.py receipt 'PR-<n>-<name>' /path/to/already-uploaded.zip
+   /research/.tools/research_cache.py status
    ```
 
-   Never use `rclone sync`, `move`, `delete`, `purge`, `dedupe`, any
-   `--delete-*` flag, or any operation that overwrites/removes existing Drive
-   files. An immutable-copy conflict is a blocker: preserve both records and
-   report it; use a distinct archive name for new evidence after review.
-3. Accept the upload only when the following read-only check exits successfully
-   with **zero differences** and compares Drive's MD5 with the local files.
-   Require every local archive to be checked. Preserve stdout/stderr and exit
-   status outside the folder being checked, avoiding self-referential logs.
-   Do not substitute a listing,
-   `--size-only`, or an unchecked/missing hash for this acceptance.
+   `upload` uses one-way `rclone copyto --immutable`. `receipt` records files
+   already on Drive. Both compare the Drive object's MD5/size with the ZIP,
+   and each uncompressed local file with its ZIP member's size/CRC32, then
+   write `.drive-receipt.json`. An uncovered or changed file blocks eviction;
+   an upload alone is not complete coverage of the uncompressed folder.
+4. Record in RESULTS_INDEX: owning PR/source/run identity; Drive file ID/path,
+   MD5, archive bytes/SHA256, embedded manifest path/SHA256 and local readback;
+   receipt/coverage status; required model/input member paths and SHA256s;
+   every failure/partial and **both retrieval paths**. A compact linked receipt
+   can carry details. Drive MD5 upload acceptance complements archive/member
+   SHA256 provenance; do not call it a remote SHA256/member audit.
 
-   ```sh
-   rclone check --one-way \
-     "/mnt/data2tb/research-cloud/$research_pr_folder/" \
-     "gdrive:$research_pr_folder/"
-   rclone lsjson "gdrive:$research_pr_folder/" --hash
-   ```
+`/research/.tools/research_cache.py` is the deployed implementation. The
+[repository tool](../scripts/research_cache.py) was imported byte-for-byte;
+[import hashes and review findings](artifacts/research-cache-import-20261016.md)
+distinguish subsequent repository fixes from deployed behavior. **Deletion
+logic fixes require owner review and deployment approval.** Do not replace the
+live tool, change its cron entry, or run live eviction as part of this PR.
+The audit found deployed gaps in process-error handling, PR pagination and
+purge protections; the linked report identifies the fixes still awaiting review.
+The [copied deployed README](research-cache-deployed-readme.md) records the live
+usage/policy; no deployed README or tool was modified by this import.
 
-   Record the exact file `ID`, name, size, MD5 and remote path from `lsjson`,
-   the Drive folder ID/URL, local archive bytes/SHA256, manifest SHA256,
-   member-readback result and check output in the receipt and RESULTS_INDEX
-   (or link the compact receipt there). MD5 upload comparison complements the
-   SHA256 archive/member provenance. It does not assert a remote SHA256 audit
-   or archive-byte download.
-4. Keep the HDD copy after upload as a local restore cache. Restore to a fresh
-   ignored NVMe working directory, then verify the indexed SHA256s before use:
+## Retrieve, trash and restore
 
-   ```sh
-   rclone copy "gdrive:$research_pr_folder/ARCHIVE.zip" results/retrieved/NEW_ROOT/
-   # While retained, the indexed HDD archive is another retrieval source.
-   sha256sum results/retrieved/NEW_ROOT/ARCHIVE.zip
-   ```
+While cached, use `/research/PR-<n>-<name>/` as the fast source and copy needed
+files into a fresh ignored working directory. Always retain this Drive fallback:
 
-   Extract only after the whole hash matches; verify the required manifest and
-   members too. Remove a local HDD cache copy only after its matching Drive
-   copy passed `rclone check`, dependency review finds no active user, and a
-   cleanup receipt records the exact path and restoration source. NVMe research
-   originals still follow the merged-owner/upload-acceptance/dependency rules
-   below. The HDD is a local cache, not a Drive-synced directory.
+```sh
+rclone copy 'gdrive:PR-<n>-<name>/' '/research/PR-<n>-<name>/'
+```
 
-`~/.config/rclone/rclone.conf` contains the owner's Google OAuth token. Never
-print, copy, archive, commit or transmit it; exclude it from every evidence set.
-Agents never create or change Google credentials or sharing. The Macs retain
-their existing synced-folder rules, including no deletion or forced offloading.
+After a miss/eviction, restore the archive through bb128, verify its indexed
+SHA256 and manifest, extract the named files into the same uncompressed cache
+structure, and verify required member SHA256s before research use. Restore or
+rebuild `.drive-receipt.json` with `receipt` before considering the cache covered.
+Never overwrite an active input. On a Mac that cannot efficiently reach bb128,
+fetch through its read-only synced Drive folder and copy the file out. Released
+models remain available through pinned release downloads; no research binaries
+enter Git without an exact-path, explicitly owner-approved release exception.
 
-## Required closeout record
+The owner explicitly authorized **one scheduled cleanup exception** on October 16:
+the already installed bb128 user cron runs `research_cache.py evict` daily at
+**04:00 in the host's cron timezone**. It applies only to this cache, not Mac
+working roots, NVMe originals, other agents' inputs, shared Git or general cleanup.
+A PR folder can be evicted only when all these conditions hold:
 
-Each campaign's entry in RESULTS_INDEX must name the owning PR and include:
+- No research file has been read or written for seven days. Receipt activity
+  and folder listings do not count; verification reads use Linux `O_NOATIME`.
+- Every local file has receipt coverage and unchanged size/mtime; each covered
+  Drive object still has the same size/MD5. Immediately before eviction, every
+  local file is reread and matches its recorded content checksum.
+- It is not an open PR's folder. If GitHub's open-PR list is unavailable, the
+  entire eviction/purge run stops without deleting anything.
+- There is no `KEEP` marker and no process has the folder open. Missing or
+  incomplete inspection must retain data; never infer safety from an error.
 
-- Source revision, run identity, and whether the record is final or partial.
-- Actual Drive archive ID/URL and folder ID/URL, archive name, byte count and SHA256.
-- Embedded member manifest path/hash and member size/SHA256 readback result.
-- For each required model/input: archive member path, byte count, SHA256 and a
-  usable retrieval command, or an exact link to its already indexed record.
-- Separate upload evidence for the route used: on Macs, current native
-  uploaded/no-pending/no-conflicts status plus independent cloud
-  ID/name/size/parent confirmation; on bb128, successful zero-difference
-  `rclone check --one-way` with MD5 comparison plus `rclone lsjson` file IDs,
-  names/sizes/hashes and folder mapping. State explicitly whether remote
-  archive bytes were downloaded and verified; bb128 needs no Mac-native receipt.
-- Failures, partial attempts and restore dependencies. Never present a successful
-  final bundle as if earlier failures did not occur.
+Eviction first moves the folder to `/research/.evicted/` with an eviction-time
+stamp in its name. Permanent deletion is allowed only after **another seven
+days measured from that stamp**, never from the directory's old mtime. Before
+that, restore locally by moving the held folder back to its original cache
+path after checking it will not overwrite anything. Afterward use the Drive
+command above. Decisions go to `/research/.eviction-log.jsonl`, including
+Drive IDs and restore commands where receipt information is available.
+Repository fixes additionally recheck all protections before permanent purge;
+they are **not deployed** until the owner approves the reviewed change.
 
-A cloud listing proves metadata, not member contents. A local ZIP readback proves
-local archive integrity, not upload completion. Both claims must stay distinct.
-For manual retrieval, download the indexed archive to a fresh ignored path,
-verify its whole SHA256, extract the named members and verify their SHA256s.
-Never treat a link alone as an accepted archive or overwrite an active input.
+## Boundaries and credentials
+
+Never read, print, copy, archive, commit or transmit
+`~/.config/rclone/rclone.conf` (the owner's Google OAuth token). Agents never
+create/change Google credentials or sharing. Never use `rclone sync`, `move`,
+`delete`, `purge`, `dedupe`, any `--delete-*` flag, or overwrite/remove existing
+files **against gdrive:**. Local cache trash/purge is separate from Drive;
+no tool operation is allowed to delete or change Drive objects.
+
+Source, small configurations/fixtures, readable reports and compact receipts
+belong in Git. Training checkpoints, inference exports, replay buffers, bucket
+tables, raw traces, bulky outputs, complete logs and generated research bundles
+belong in Drive, with at-rest cache copies. A filename such as `manifest.json`
+does not make bulky payload data a compact Git receipt.
 
 ## Repository guard
 
@@ -165,37 +157,23 @@ ignore exception, as AGENTS.md requires.
 staged or force-added. Git blob IDs identify retained repository bytes and must
 never be substituted for the archive/member SHA256s required for restoration.
 
-## Removal and retirement
+## Originals outside the cache
 
-Before copying, archiving, moving or removing research evidence, read the owning
-PR's **current** status. Protect every open PR root and its dependencies unless
-the owner authorizes that specific action. Historical “merged” notes do not
-replace the live check. Never delete inside the Macs' synced folders or force
-offloading. bb128's ordinary HDD cache has the separate removal conditions above;
-no remote Drive deletion is authorized.
+The scheduled exception does not relax NVMe/Mac original-retention rules.
+Before copying, archiving, moving or cleaning research, check the owning PR's
+current status. Protect open PR roots/dependencies unless the owner specifically
+authorizes that action. Retire merged originals only after current matching
+upload acceptance and dependency review. Trust confirmed Drive uploads and
+existing manifests/provenance for cleanup; do not redownload archives or repeat
+payload/member hash audits merely to remove originals. Match selected paths,
+sizes and modification history; retain changed or uncertain files. Record exact
+removed paths and restoration sources in a cleanup receipt and RESULTS_INDEX.
+Never delete inside a Mac synced folder or force offloading.
 
-For merged evidence, removal needs current Google Drive upload acceptance plus a
-dependency review of active runs, source references, tests and other worktrees.
-The owner clarified on October 7 that confirmed Drive uploads are trusted for
-cleanup: use existing manifests and provenance without downloading archives or
-repeating archive/member hash audits. Check selected originals against recorded
-paths, sizes and modification history; retain changed or uncertain files. This
-cleanup preference does not change new-archive creation receipts or SHA256 checks
-when retrieving models for research use. Write a receipt naming each removed
-path, exact restoration archive/member/hash, and update RESULTS_INDEX. Owner
-standing authorization applies only after these checks. Unknown provenance means
-retain and record the gap, not delete.
-
-On October 14 the owner gave standing permission to remove inactive rebuildable
-caches and other regenerable output without separate approval when there is no
-data loss and no current active PR is affected. Derived policy caches and build
-output can therefore be removed even if excluded from research archives, after
-checking generating inputs, active dependencies and rebuild provenance. Record
-exact paths, source/input pins and regeneration commands. This exception does
-not cover unique scientific evidence or replace original-model archive rules.
-
-Retiring code is separate from deleting evidence. First establish its callers,
-fixtures, owning campaign and reproducible source revision. Keep mathematical,
-rules, information-boundary and recovery regressions when replacing an approach.
-No automatic archive upload, worktree cleanup, history rewrite or background
-maintenance is scheduled by these instructions.
+The October 14 standing authorization for inactive rebuildable caches/output
+still requires no data loss, no active dependency, and recorded source/input
+pins plus regeneration commands. Unique scientific evidence is not a cache
+merely because it could be recomputed. Code retirement remains a separate
+caller/fixture/source and regression review. The only unattended cleanup
+exception is the owner's existing bb128 cache job; this policy schedules no
+other work and authorizes no new scheduler or live deployment.
