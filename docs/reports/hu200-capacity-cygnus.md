@@ -176,3 +176,9 @@ boundary. The unchanged deadline is1792376957.996109; no third audit is yet
 admitted. The first parallel-batch measurement will emit an event into this
 same bounded campaign for the requested ETA update. All raw scheduler validation
 logs are also retained under the owned bb128 planning directory.
+
+Seed1421 archive transfer is complete; owned bb128 archive size3,162,672,661B
+matches the index ([receipt](hu200-capacity-cygnus-artifacts/transport-complete-2026101421.json)).
+Both1421/1422 transports are complete by size;1302 progresses to4.337GB/5.921GB.
+Whole hashes/member restoration remain pending. Scheduler65291 is healthy and
+waiting for the current successful audit boundary; no campaign failure receipt.
