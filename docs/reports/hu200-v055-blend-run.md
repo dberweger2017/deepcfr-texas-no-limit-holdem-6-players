@@ -238,3 +238,14 @@ full every-row audit follows. The model is not yet claimed audited or ready
 for play, and no hand has been generated.
 [Complete native merge and pinned output](hu200-v055-blend-run-artifacts/native-merge.json),
 [execution timing](hu200-v055-blend-run-artifacts/native-merge-execution.json).
+
+### October 16, 14:03 Madrid: complete inference exports, audit running
+
+The frozen exporter completes in 1,724.08 seconds. The average inference
+export is **6,282,968,150 bytes**; the paired current export required by the
+existing auditor is 2,960,585,129 bytes. Kernel exporter RSS peak is 4,702,208
+bytes. The unchanged independent every-row checkpoint/average/current audit
+is now running over the full 156,208,331-key model. No audited-model-ready
+claim, pilot or final hand exists yet. Expected audited-model availability
+is14:50–15:00 Madrid, conditional on audit success.
+[Full export execution](hu200-v055-blend-run-artifacts/full-export-execution.json).
