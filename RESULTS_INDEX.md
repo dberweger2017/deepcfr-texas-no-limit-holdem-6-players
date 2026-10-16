@@ -1,3 +1,20 @@
+## Storage cleanup — October 16, 2026
+
+Owner-requested post-merge cleanup retires **49 paths /48 unique inodes** from
+merged PR297/298. Measured free-space increases: **M1 6.527 GB /M4 19.408 GB**;
+free immediately after: **17.459 GB /83.394 GB**. Canonical publication models,
+assets and tables, PR292 archival dependencies and active PR301 roots/transfers, failed PR278 seed1421 full
+archive dependencies, shared Git and synced files remain.
+
+[Scope, exact restoration sources and verification](docs/artifacts/storage-vacuum-20261016.md).
+[Complete per-path receipt](https://drive.google.com/file/d/1Z_XSRBqoRzIDgxz3NMFr1lOJWH-TfRhs/view?usp=drivesdk):
+`storage-vacuum-20261016-receipt.json.gz`, **78,255 bytes**, SHA256
+`0c37861cdb05e6fa775eb8f764a0783f8b261e66e24485913a1f812c6db8569c`,
+parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Current native upload acceptance
+and independent cloud ID/name/size/parent agree. Existing manifests/input proofs
+and unchanged source metadata were used without research-payload re-downloads
+or repeated hash audits; 267 retained files verify unchanged.
+
 ## PR292 — Three-player full-average blueprint (owner-authorized merge; cloud closeout pending)
 
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292), branch
@@ -168,14 +185,18 @@ is claimed merely from cloud metadata. Full SHA256 verification is mandatory
 before use. The stopped-preflight release is historical: the owner then
 reauthorized M4 use for this corrected continuation.
 
-Retained M4 working root (PR297 open; no job running):
+PR297 merged October 16. The checkout and unique small evidence remain;
+five independently archived restored inputs were retired in the
+[October 16 cleanup](docs/artifacts/storage-vacuum-20261016.md). Remaining M4 working root:
 `~/Local/hu200-v055-frozen-blend/`; keep its
 `results/hu200-v055-blend/`, earlier preflight/input/tooling roots and runtime
 `~/Local/hu20-k50-5b-first-pass-20261012/.venv/` protected. Verified read-only
 checkpoint1421, frozen exporter and tables are APFS-cloned to
 `results/hu200-v055-blend/protected-inputs/`;
 [exact copy/hash receipt](docs/reports/hu200-v055-blend-artifacts/continuation-copy-receipt.json).
-New raw checkpoints and reproduced averages go to `results/hu200-v055-blend/inputs/<seed>/`.
+The removed seed1302/1422 raw checkpoints and reproduced averages formerly
+lived at `results/hu200-v055-blend/inputs/<seed>/`; their exact restoration
+archive/member/hash pins are in the cleanup receipt.
 Accepted inactive archive download caches may be normally released only after
 whole archive/checkpoint hash and exact average reproduction, with native/cloud
 checks and per-file receipts. No forced offload or synced deletion.
@@ -207,9 +228,11 @@ into a fresh ignored path, with whole archive and extracted-member SHA256 verifi
 [PR298](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298),
 [readiness](docs/releases/v0.5.3/READINESS.md),
 [science](docs/reports/hu100-v053-translation.md).
-**The PR remains open. Retain the entire nonsynced M1 checkout
-`~/Local/hu100-v053-release-package/`, all canonical models/tables and its dependencies.**
-No release, draft release, tag, publication, owner merge or HU20 default change.
+**PR298 merged October 15.** The nonsynced M1 checkout
+`~/Local/hu100-v053-release-package/`, canonical models/tables and publication
+assets remain. The [October 16 cleanup](docs/artifacts/storage-vacuum-20261016.md)
+retired 44 archived-evidence/redundant-copy paths with exact restoration receipts.
+That cleanup performs no release, tag, publication or default change.
 Candidate: PR272 original seed 2026100601, declared without selection;
 verified average 3,196,291,551 bytes, SHA256
 `c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e`.
@@ -247,7 +270,8 @@ exact document size and independent cloud ID/name/size/parent match establish
 separate upload acceptance. **Remote archive bytes were not downloaded.**
 The lifecycle ZIP closes the evidence archive guard and acceptance records;
 its own final guard observations/acceptance are preserved in the compact Git
-[closing receipt](docs/releases/v0.5.3/verification/archive-lifecycle-closing.json), avoiding a recursive archive. All local originals remain, including the exact ZIP backup made before native-client recovery.
+[closing receipt](docs/releases/v0.5.3/verification/archive-lifecycle-closing.json), avoiding a recursive archive. The exact ZIP backup made before native-client recovery remains. The later
+October 16 cleanup retires only the explicitly receipted originals/copies.
 
 Restore an evidence ZIP from the linked Drive ID or the current native client:
 
