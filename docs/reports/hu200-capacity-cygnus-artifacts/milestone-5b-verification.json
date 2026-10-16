@@ -1,0 +1,398 @@
+{
+  "status": "independently-verified-from-owned-receipts",
+  "observed_utc": "2026-10-16T16:39:49.431304+00:00",
+  "milestone": "all_three_5000000000_saves_audited",
+  "source": "94b84b3255f16daa529eae8250ca9a391249b2ac",
+  "original_deadline": 1792376957.996109,
+  "seeds": [
+    {
+      "seed": 2026101302,
+      "completed_nodes": 5000000521,
+      "entries": 199420131,
+      "frozen": false,
+      "checkpoint": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa",
+      "checkpoint_bytes": 8843959155,
+      "mean_visits_per_key": 4.851278976443958,
+      "zero_visit_share": 0.3461405157737059,
+      "zero_average_mass_share": 0.3806127376378065,
+      "coverage_interval_start_iteration": 1410305,
+      "missing_traverser_share_by_street": [
+        0.0018761766475083668,
+        0.005343705537419416,
+        0.025550766030968754,
+        0.07711435998495454
+      ],
+      "missing_opponent_share_by_street": [
+        7.895221530188385e-05,
+        0.0009829175292966265,
+        0.007735509306656524,
+        0.03834841459418055
+      ],
+      "train_native_seconds": 3952.97059797,
+      "write_seconds": 1273.913929772,
+      "scheduler_durations_seconds": {
+        "train": 4257.411093070994,
+        "audit": 12619.268990061995,
+        "retire": 20.293470100004924
+      }
+    },
+    {
+      "seed": 2026101421,
+      "completed_nodes": 5000001828,
+      "entries": 200364896,
+      "frozen": false,
+      "checkpoint": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a",
+      "checkpoint_bytes": 8877181907,
+      "mean_visits_per_key": 4.827722357113893,
+      "zero_visit_share": 0.3465715271800905,
+      "zero_average_mass_share": 0.3815723289173369,
+      "coverage_interval_start_iteration": 1399156,
+      "missing_traverser_share_by_street": [
+        0.002113326423692715,
+        0.005715225963145917,
+        0.02658255868691096,
+        0.07828133738923641
+      ],
+      "missing_opponent_share_by_street": [
+        8.852917706444559e-05,
+        0.0010481847080475155,
+        0.008095841691648639,
+        0.039097272928352786
+      ],
+      "train_native_seconds": 3898.340891321,
+      "write_seconds": 1255.710102292,
+      "scheduler_durations_seconds": {
+        "train": 4207.763046333996,
+        "audit": 11135.340774900003,
+        "retire": 19.90781090100063
+      }
+    },
+    {
+      "seed": 2026101422,
+      "completed_nodes": 5000001240,
+      "entries": 197914660,
+      "frozen": false,
+      "checkpoint": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+      "checkpoint_bytes": 8777061168,
+      "mean_visits_per_key": 4.886323418386491,
+      "zero_visit_share": 0.3457840818866071,
+      "zero_average_mass_share": 0.3807429677013315,
+      "coverage_interval_start_iteration": 1378288,
+      "missing_traverser_share_by_street": [
+        0.0016317349964216337,
+        0.005184444660506665,
+        0.024910577469440972,
+        0.07517034281954578
+      ],
+      "missing_opponent_share_by_street": [
+        8.268949026306931e-05,
+        0.0009702703486320393,
+        0.007586558478869109,
+        0.037225625374263376
+      ],
+      "train_native_seconds": 3790.906136553,
+      "write_seconds": 1187.370845226,
+      "scheduler_durations_seconds": {
+        "train": 4060.025262148003,
+        "audit": 12177.220929418,
+        "retire": 21.517863985995064
+      }
+    }
+  ],
+  "resources": {
+    "samples": 19822,
+    "peak_cpu_c": 75.0,
+    "peak_vrm_c": 88.0,
+    "peak_rss_bytes": 56525570048,
+    "minimum_available_bytes": 75831721984,
+    "minimum_free_disk_bytes": 219358986240,
+    "peak_swap_used_bytes": 1835008,
+    "maximum_active_audits": 3,
+    "maximum_cpu_reservations": 7,
+    "stop_samples": 0,
+    "peak_helper_rss_bytes": 141840384
+  },
+  "three_concurrent_5b_audits": {
+    "samples": 6362,
+    "peak_cpu_c": 75.0,
+    "peak_vrm_c": 88.0
+  },
+  "audit_observed_intervals_monotonic": {
+    "audit-2026101422-5000000000": [
+      52299.094367504,
+      64474.76379919
+    ],
+    "audit-2026101302-5000000000": [
+      52989.697403204,
+      65607.202568284
+    ],
+    "audit-2026101421-5000000000": [
+      53280.466546329,
+      64414.042831191
+    ]
+  },
+  "latest_resource": {
+    "utc": "2026-10-16T16:39:48.506204+00:00",
+    "package_c": 59.0,
+    "vrm_c": 68.5,
+    "available_bytes": 90597621760,
+    "free_disk_bytes": 251751677952,
+    "family_rss_bytes": 41720561664,
+    "swap_used_bytes": 1835008,
+    "active_jobs": {
+      "train-2026101421-10000000000": {
+        "kind": "train",
+        "cpus": [
+          2,
+          3
+        ]
+      },
+      "train-2026101422-10000000000": {
+        "kind": "train",
+        "cpus": [
+          4,
+          5
+        ]
+      },
+      "train-2026101302-10000000000": {
+        "kind": "train",
+        "cpus": [
+          0,
+          1
+        ]
+      }
+    },
+    "clean_stop_requested": false,
+    "fan_rpm": {
+      "fan3": 1234,
+      "fan7": 0,
+      "fan4": 0,
+      "fan10": 0,
+      "fan8": 0,
+      "fan1": 807,
+      "fan5": 0,
+      "fan9": 0,
+      "fan2": 1210,
+      "fan6": 0
+    },
+    "device_temperatures_c": {
+      "iwlwifi_1/temp1_input": 33.0,
+      "nct6687/Thermistor 0": 16.0,
+      "nct6687/Thermistor 15": 68.5,
+      "nct6687/Thermistor 1": 13.5,
+      "nct6687/PCH CHIP": 34.0,
+      "nct6687/PECI 0.0": 58.0,
+      "nct6687/Thermistor 16": 38.5,
+      "nct6687/Diode 0 (curr)": 33.5,
+      "acpitz/temp1_input": 27.8,
+      "coretemp/Core 4": 49.0,
+      "coretemp/Core 1": 43.0,
+      "coretemp/Core 5": 48.0,
+      "coretemp/Core 2": 49.0,
+      "coretemp/Core 6": 46.0,
+      "coretemp/Package id 0": 59.0,
+      "coretemp/Core 3": 47.0,
+      "coretemp/Core 7": 42.0,
+      "coretemp/Core 0": 59.0,
+      "pch_cometlake/temp1_input": 35.0,
+      "nvme/Composite": 36.85
+    }
+  },
+  "raw_trace_snapshot": {
+    "path": "/home/dberweger/hu200-capacity-20261015/guards/scheduler/resources.jsonl",
+    "bytes_through": 82782115,
+    "mutable": true
+  },
+  "receipt_checks": "Full audit status/count/hash/header consistency, unchanged retained checkpoint size/mtime, receipt-backed retired exports, exit0 training/audit/retirement, pinned clean source, original clock hash and10B parent SHA; no new model rehash or scientific attempt",
+  "three_audit_utilization": {
+    "three_audit_common_counter_seconds": 11130.247019442999,
+    "conservative_cpu_fraction_by_audit": {
+      "audit-2026101302-5000000000": 0.8773776523504874,
+      "audit-2026101421-5000000000": 0.9993417019918598,
+      "audit-2026101422-5000000000": 0.9077157031960928
+    },
+    "host_nvme_busy_fraction_during_common_intervals": 0.002454572657037687,
+    "common_interval_begin_utc": "2026-10-16T13:13:19.394534+00:00",
+    "common_interval_end_utc": "2026-10-16T16:18:49.641563+00:00",
+    "all_5b_audits_observed_utc": [
+      "2026-10-16T12:56:57.993961+00:00",
+      "2026-10-16T16:38:46.102161+00:00"
+    ],
+    "three_audit_overlap": {
+      "samples": 6362,
+      "seconds_observed": 11133.576284862,
+      "peak_cpu_c": 75.0,
+      "peak_vrm_c": 88.0
+    },
+    "nonzero_fan_rpm_ranges_during_5b_audits": {
+      "fan3": [
+        1074,
+        1872
+      ],
+      "fan1": [
+        731,
+        1171
+      ],
+      "fan2": [
+        1080,
+        1889
+      ]
+    },
+    "temperature_threshold_samples_during_5b_audits": {
+      "cpu_ge85_samples": 0,
+      "vrm_ge95_samples": 0,
+      "vrm_ge83_samples": 4275
+    },
+    "maximum_resource_sample_gap_seconds": 2.587028232999728,
+    "raw_trace_cuts": {
+      "utilization.jsonl": 16593454,
+      "resources.jsonl": 82942204
+    },
+    "limitations": "CPU deltas use matched process identities only. Host NVMe activity is cache-state-specific. Interval endpoints are sampled, not exact launch/exit times.83C is launch hold,95C sustained30s is VRM stop; existing jobs are not stopped merely at83C."
+  },
+  "retained_evaluation_averages": [
+    {
+      "seed": 2026101302,
+      "bytes": 5517075440,
+      "mtime_ns": 1792162653793418415,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.average.gz",
+      "sha256": "19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5",
+      "entries": 199420131,
+      "source_checkpoint_sha256": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa",
+      "retained_size_mtime_verified": true
+    },
+    {
+      "seed": 2026101421,
+      "bytes": 5534707321,
+      "mtime_ns": 1792162094643890677,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.average.gz",
+      "sha256": "835362e1e29ffa300015ad2852691b9d128481f79bed4b6e83c86f65d56f1cf8",
+      "entries": 200364896,
+      "source_checkpoint_sha256": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a",
+      "retained_size_mtime_verified": true
+    },
+    {
+      "seed": 2026101422,
+      "bytes": 5474296298,
+      "mtime_ns": 1792161662895245001,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.average.gz",
+      "sha256": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4",
+      "entries": 197914660,
+      "source_checkpoint_sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+      "retained_size_mtime_verified": true
+    }
+  ],
+  "source_receipts": {
+    "save-5b/milestone-5000000000.json": {
+      "owned_source": "milestone-5000000000.json",
+      "bytes": 8395,
+      "sha256": "99d4e85a8465bb02043f89c67425875874e9241451107e609774aea846a147da"
+    },
+    "save-5b/2026101302/audit.json": {
+      "owned_source": "results/2026101302/5000000000/audit.json",
+      "bytes": 4347,
+      "sha256": "f0f828a5f2bbb4b7a87fa92977396c87d35045233a6948881c59dddfaeefe0a3"
+    },
+    "save-5b/2026101302/saved-bytes.json": {
+      "owned_source": "results/2026101302/5000000000/saved-bytes.json",
+      "bytes": 2464,
+      "sha256": "9f25ddc2d755e95bd3095954754a8700d22c1ec174293e8e345451592b28fa63"
+    },
+    "save-5b/2026101302/scheduler-retired.json": {
+      "owned_source": "results/2026101302/5000000000/scheduler-retired.json",
+      "bytes": 580,
+      "sha256": "bcdfb61845c50da2e7c3f0bdd5de40fe5191e1a4dc7c0ae308e799656637298e"
+    },
+    "save-5b/scheduler/train-2026101302-5000000000.result.json": {
+      "owned_source": "guards/scheduler/train-2026101302-5000000000.result.json",
+      "bytes": 175,
+      "sha256": "b7993c4feb97c3481613613c68ae3634761667c845d51fd4684dbc728a34f980"
+    },
+    "save-5b/scheduler/audit-2026101302-5000000000.result.json": {
+      "owned_source": "guards/scheduler/audit-2026101302-5000000000.result.json",
+      "bytes": 169,
+      "sha256": "d1a158eb96ec5f3e6e49884db47e36b715e1ff2ec0662326893e1a4974644aad"
+    },
+    "save-5b/scheduler/retire-2026101302-5000000000.result.json": {
+      "owned_source": "guards/scheduler/retire-2026101302-5000000000.result.json",
+      "bytes": 169,
+      "sha256": "15efa025f7357a7cd2eb24c2b766d4c45b2530f1835ccf83d7128d0a0efb5d6f"
+    },
+    "save-5b/scheduler/train-2026101302-10000000000.plan.json": {
+      "owned_source": "guards/scheduler/train-2026101302-10000000000.plan.json",
+      "bytes": 1322,
+      "sha256": "fa1f22e1f1352462c67f621342b3785773b568a1ff031a7094ae6a7c243bd265"
+    },
+    "save-5b/2026101421/audit.json": {
+      "owned_source": "results/2026101421/5000000000/audit.json",
+      "bytes": 4348,
+      "sha256": "587cc8bfb3f4983914bfd9439f83d646debc050bb9a6414e136fea2eebe92780"
+    },
+    "save-5b/2026101421/saved-bytes.json": {
+      "owned_source": "results/2026101421/5000000000/saved-bytes.json",
+      "bytes": 2464,
+      "sha256": "e1aac90cb5eb8cf9e9c95e267bfebb33ca7be00df436cf068440eb703e34e67d"
+    },
+    "save-5b/2026101421/scheduler-retired.json": {
+      "owned_source": "results/2026101421/5000000000/scheduler-retired.json",
+      "bytes": 580,
+      "sha256": "3872902a0f9cc9e891d0d40adcfa34db9f026b8701ea0d44854a3e292ae9c47e"
+    },
+    "save-5b/scheduler/train-2026101421-5000000000.result.json": {
+      "owned_source": "guards/scheduler/train-2026101421-5000000000.result.json",
+      "bytes": 175,
+      "sha256": "a63d1458a3464c8700665f8edea3d767b463cbca1a79a89a49791440f519b9ef"
+    },
+    "save-5b/scheduler/audit-2026101421-5000000000.result.json": {
+      "owned_source": "guards/scheduler/audit-2026101421-5000000000.result.json",
+      "bytes": 169,
+      "sha256": "b71bb0c806ddafd8a9c427979cf2324cecde966af6edfc1de69703a1990333d6"
+    },
+    "save-5b/scheduler/retire-2026101421-5000000000.result.json": {
+      "owned_source": "guards/scheduler/retire-2026101421-5000000000.result.json",
+      "bytes": 168,
+      "sha256": "170dc0bf990a2fe5d6308d1faaabdb1301c822267eb8ab22aed38027ab88e1bc"
+    },
+    "save-5b/scheduler/train-2026101421-10000000000.plan.json": {
+      "owned_source": "guards/scheduler/train-2026101421-10000000000.plan.json",
+      "bytes": 1322,
+      "sha256": "99ca6e7212c0fe4c2b237c6b32a0eb547fa16a12e5f65c34e7bceef2ba4598ff"
+    },
+    "save-5b/2026101422/audit.json": {
+      "owned_source": "results/2026101422/5000000000/audit.json",
+      "bytes": 4348,
+      "sha256": "45bc363540f9de24f29df9aff9ab9c4043c6c8ff9e9b003b9b7effce8b259925"
+    },
+    "save-5b/2026101422/saved-bytes.json": {
+      "owned_source": "results/2026101422/5000000000/saved-bytes.json",
+      "bytes": 2464,
+      "sha256": "44474141156438f0b8eab9a2299fbc4b257a17c98941fb2a3168eeb135ac563a"
+    },
+    "save-5b/2026101422/scheduler-retired.json": {
+      "owned_source": "results/2026101422/5000000000/scheduler-retired.json",
+      "bytes": 580,
+      "sha256": "cff49236872392bbd76be1283baf824a9da517321797ede057b21155ec96fa02"
+    },
+    "save-5b/scheduler/train-2026101422-5000000000.result.json": {
+      "owned_source": "guards/scheduler/train-2026101422-5000000000.result.json",
+      "bytes": 175,
+      "sha256": "880a735808bf2dbc4978843dfa2a23eec7864eba127dc3d11b769ff2a3756de5"
+    },
+    "save-5b/scheduler/audit-2026101422-5000000000.result.json": {
+      "owned_source": "guards/scheduler/audit-2026101422-5000000000.result.json",
+      "bytes": 166,
+      "sha256": "6502e618306cc0fac749c7c2c0ca544c876871bd7424635359f506a61cdc0a6e"
+    },
+    "save-5b/scheduler/retire-2026101422-5000000000.result.json": {
+      "owned_source": "guards/scheduler/retire-2026101422-5000000000.result.json",
+      "bytes": 169,
+      "sha256": "3e0334be499dc2e6f8dccdee8929aa011b2abebc5cf6c669930ff7382ccee122"
+    },
+    "save-5b/scheduler/train-2026101422-10000000000.plan.json": {
+      "owned_source": "guards/scheduler/train-2026101422-10000000000.plan.json",
+      "bytes": 1321,
+      "sha256": "94d5220b738bd54543be734a6e1a2731e34381ed19b655fb79b5948f7f0b6c57"
+    }
+  },
+  "swap_growth_bytes_over_original_baseline": 786432
+}

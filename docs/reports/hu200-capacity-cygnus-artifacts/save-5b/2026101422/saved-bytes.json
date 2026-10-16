@@ -1,0 +1,83 @@
+{
+  "entries": 197914660,
+  "file": {
+    "bytes": 8777061168,
+    "mtime_ns": 1792155355392636380,
+    "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.gz",
+    "sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33"
+  },
+  "full_gzip_eof_crc_read": true,
+  "header": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 301153954,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101422
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 3748218,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 5000001240,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        60374258,
+        216952478,
+        678971568,
+        1851030986
+      ],
+      "traverser_visits_by_street": [
+        19079375,
+        69974261,
+        231444004,
+        646577398
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "serialized_rows_sha256": "7b001355f563898c92f0a3c5f7301ec714f19d185d9b92325fbebf1ac571c341",
+  "sorted_keys_sha256": "13cba313313b3511016af041aedbabeb51eb49f57ff63a3c925e8d387a0d5b0d"
+}

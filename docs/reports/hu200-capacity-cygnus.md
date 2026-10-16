@@ -1,10 +1,62 @@
 # HU200 capacity experiment on cygnus-x1
 
-Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three2B saves are fully audited; the three large lineages are training toward5B. All verified twins are restored. No final hands have started.**
+Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three5B saves are fully audited, all5B averages are retained, and the three large lineages are training toward10B. All verified twins are restored. No final hands have started.**
 
-Three2B audits now demonstrate2h03m of triple overlap, peak CPU/VRM65/74°C and no guard stop. Individual audits take2h03m–2h17m; the updated full-cap projection is5.089h. Re-quoted complete report/archive target remains **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation cost, upload throughput and final unpacked retention-copy timing remain to be measured.
+Three5B audits demonstrate3h05m of triple overlap, CPU/VRM peaks75/88°C and no stop. Individual audits take3h06m–3h30m; the full-cap projection is5.294h. Swap growth is0.75MiB, within the256MiB guard. Complete report/archive target remains **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation, upload and final unpacked retention-copy timing remain to be measured.
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## All three5B saves audited — October16,16:40UTC
+
+All three5B saves pass full byte/SHA/EOF/CRC/order and every-row current/average
+audits. Trainer/audit/retirement exit codes are0. All three required descriptive
+5B averages remain, totaling16,526,079,059B; their sizes/mtimes still match the
+audited receipts. Exact model SHA256s and parent checkpoint hashes are pinned in
+[verification and source receipts](hu200-capacity-cygnus-artifacts/milestone-5b-verification.json).
+Each10B continuation binds its own audited5B checkpoint SHA. All three runs are
+training toward10B, under the clean pinned scheduler and original clock.
+
+| Seed | Completed nodes | Entries | Mean visits/key | Zero visits | Zero average mass |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2026101302 | 5,000,000,521 | 199,420,131 | 4.8513 | 34.614% | 38.061% |
+| 2026101421 | 5,000,001,828 | 200,364,896 | 4.8277 | 34.657% | 38.157% |
+| 2026101422 | 5,000,001,240 | 197,914,660 | 4.8863 | 34.578% | 38.074% |
+
+Tables remain unfrozen. Over each2B→5B interval, traverser river missing share is
+7.517–7.828%, opponent river3.723–3.910%. These are interval support observations,
+with no playing-strength conclusion. [Every street/role and exact counters](hu200-capacity-cygnus-artifacts/coverage-5b.csv).
+
+Actual triple overlap lasts3h05m; each audit job takes3h06m–3h30m. Conservative
+worker CPU fractions0.877–0.999 and host NVMe busy0.245% indicate the measured
+pipeline remains CPU-bound in this cache state. No matched serial ordinary-audit
+control or threefold speedup is claimed. During triple overlap CPU/VRM peak
+**75/88°C**. There are no CPU>=85°C or VRM>=95°C samples during5B audits.
+There are4,275 samples at VRM>=83°C:83°C is the existing admission hold for new
+jobs, while running jobs keep the95°C/30s stop. Neither threshold is changed.
+Current16:39:48UTC readings are59/68.5°C. Fan1 during5B audits731–1171RPM,
+fan2 1080–1889, fan3 1074–1872.
+
+Since scheduler handoff, aggregate RSS peaks56.526GB, available memory stays
+>=75.832GB, free NVMe>=219.359GB, and at most seven CPU reservations occur.
+Swap reaches1.75MiB, **0.75MiB growth** over the original1MiB baseline, below
+the256MiB growth guard. No clean stop or scientific failure is recorded. Nominal
+1s resource sampling has a maximum observed2.587s gap including probe overhead;
+fixed byte cuts and measurement limitations are in the verification receipt.
+
+Approved per-seed retirement removes32,401,881,132B of unchanged disposable5B
+current exports and old2B recoveries after the5B audits. Exact paths/bytes/mtime/
+SHA are recorded; the5B recoveries and all5B averages remain. Protected roots,
+failures/partials and synced sources are unchanged.
+
+The slowest5B row rate projects a full301M audit to5.294h.
+Six remaining full-cap audit projections total31.76worker-hours, ideally
+10.59–15.88wall hours at two-to-three workers before admission gaps. Keep the
+9–12h native/save allowance and conservative Saturday17 evening–Sunday18 morning
+training/audit forecast. Complete report/archives target remains **Monday19
+evening Madrid**, **Tuesday20 upload contingency**. Evaluation cost, upload and
+final unpacked retention-copy timing remain unmeasured; all original scientific
+deadlines and guards stay fixed. [Updated ETA assumptions](hu200-capacity-cygnus-artifacts/eta-after-5b.json).
+No final evaluation hands have started.
 
 ## All three2B saves audited — October16,12:05UTC
 
