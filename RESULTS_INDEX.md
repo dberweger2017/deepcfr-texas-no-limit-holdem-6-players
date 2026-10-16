@@ -5,9 +5,13 @@
 continuation of merged #297's unplayed frozen campaign. All three original averages now freshly reproduce exactly
 from their raw checkpoints on the 16 GiB M4. The actual gate admits
 construction: 77.940 GB free versus 74.475 GB required, with the 16-GiB floor
-and 2-GiB margin included. The full156,208,331-key blend is now
-built and every row audits; its6.283-GB inference export is ready. Cache
-construction is running before fixed pilots/finals; no playing result exists. The initial space
+and 2-GiB margin included. The full 156,208,331-key blend is now
+built and every row audits; its 6.283-GB inference export is ready. The blend
+cache and all three fixed cost-pilot groups independently replay/reproduce.
+Finals await prospective time-budget authorization: the frozen quote needs
+10 h 16 min beyond its observation and exceeds the original science deadline;
+disk fits. No final hand or strength readout exists.
+[Exact pending cost admission](docs/reports/hu200-v055-blend-run-artifacts/final-cost-admission.json). The initial space
 shortfall and resolved intake-configuration failure/original STOP remain
 preserved. This remains active work.
 
