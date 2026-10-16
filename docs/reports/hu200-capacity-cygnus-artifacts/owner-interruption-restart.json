@@ -1,0 +1,23 @@
+{
+  "status": "owner-interrupted-preflight",
+  "recorded_active_seconds": 1285,
+  "original_preflight_seconds": 5400,
+  "remaining_active_seconds": 4115,
+  "first_utc": "2026-10-15T20:09:57.454302+00:00",
+  "last_complete_utc": "2026-10-15T20:31:02.732113+00:00",
+  "truncated_final_row": {
+    "line": 1255,
+    "bytes": 1338
+  },
+  "owner_resume_observed_utc": "2026-10-15T23:25:11+00:00",
+  "excluded_pause_seconds": 10429.085848808289,
+  "training_clock_started": false,
+  "new_boot_id": "758ebba7-7adb-4e01-b909-d1789fb4b606",
+  "owner_changes": [
+    "five additional fans",
+    "modified fan curve",
+    "XMP3200 enabled",
+    "new2TB drive excluded"
+  ],
+  "pr292_untouched": true
+}

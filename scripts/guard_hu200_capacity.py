@@ -77,6 +77,8 @@ def supervise(plan, output):
     def sample():
         row = base.sample(package)
         row.update(vrm_c=base.read_int(vrm) / 1000, fan1_rpm=base.read_int(fan))
+        row['fan_rpm'] = {p.stem.removesuffix('_input'): base.read_int(p) for p in fan.parent.glob('fan*_input')}
+        row['fan_rpm']['fan1'] = row['fan1_rpm']
         if not -20 <= row['vrm_c'] <= 150 or row['fan1_rpm'] < 0:
             raise ValueError('Invalid motherboard reading')
         row['free_disk_bytes'] = shutil.disk_usage(output).free

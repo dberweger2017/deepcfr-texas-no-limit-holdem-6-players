@@ -4122,7 +4122,7 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (preflight, October 15, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (resumed preflight, October 16, 2026)
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
@@ -4160,3 +4160,12 @@ remain authoritative. No original removed or altered. Memory calibration output
 and full thermal/resource stream await completion and archival; no result yet.
 [Administrative failures](docs/reports/hu200-capacity-cygnus-artifacts/admin-failures.json)
 include connector413 and the corrected source-transfer prerequisite race.
+
+PR301 post-BIOS continuation: [500M every-row identity](docs/reports/hu200-capacity-cygnus-artifacts/memory-row-identity.json),
+[full69,084,815-row current/average audit with file hashes](docs/reports/hu200-capacity-cygnus-artifacts/memory-postbios-audit.json),
+[thermal/resource summary and raw trace hashes](docs/reports/hu200-capacity-cygnus-artifacts/memory-resource-summary.json),
+[owner-interruption clock](docs/reports/hu200-capacity-cygnus-artifacts/owner-interruption-restart.json),
+[21 post-BIOS test receipt](docs/reports/hu200-capacity-cygnus-artifacts/postbios-tests.json).
+Raw evidence/partials remain under the owned bb128 root; not yet archived or uploaded.
+4,734.229/5,400 active preliminary seconds used;72h training clock unstarted.
+New2TB disk excluded; open#292 and unrelated preservation data protected.

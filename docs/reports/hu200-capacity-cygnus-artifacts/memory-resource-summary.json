@@ -1,0 +1,40 @@
+{
+  "memory": {
+    "samples": 1254,
+    "truncated_rows": [
+      {
+        "line": 1255,
+        "bytes": 1338
+      }
+    ],
+    "trace_sha256": "24d832d204ccdedb0489bd4ead27319ee25d468ca3a8aec919015665ffbd5a5f",
+    "cpu_max_c": 65.0,
+    "vrm_max_c": 60.0,
+    "fan1_min_rpm": 335,
+    "fan1_max_rpm": 645,
+    "peak_family_rss_bytes": 7572365312,
+    "minimum_available_bytes": 124547362816,
+    "maximum_swap_bytes": 0,
+    "minimum_disk_free_bytes": 348691501056,
+    "first_utc": "2026-10-15T20:09:57.454302+00:00",
+    "last_utc": "2026-10-15T20:31:02.732113+00:00"
+  },
+  "memory-postbios": {
+    "samples": 3421,
+    "truncated_rows": [],
+    "trace_sha256": "45c4f0d68bee77294d9913ced0c6f1aab4d5e9fa8dfe3e19d57777b3e8c2be20",
+    "cpu_max_c": 54.0,
+    "vrm_max_c": 58.0,
+    "fan1_min_rpm": 479,
+    "fan1_max_rpm": 722,
+    "peak_family_rss_bytes": 48353280,
+    "minimum_available_bytes": 132560236544,
+    "maximum_swap_bytes": 1048576,
+    "minimum_disk_free_bytes": 259926683648,
+    "first_utc": "2026-10-16T00:12:57.991354+00:00",
+    "last_utc": "2026-10-16T01:10:27.214021+00:00"
+  },
+  "active_seconds": 4734.229094582999,
+  "original_allowance_seconds": 5400,
+  "status": "passed-with-owner-administrative-interruption"
+}

@@ -89,17 +89,33 @@ are protected**. Do not signal, copy, move, archive or remove them. Count their
 current disk occupancy and possible upload staging growth in admission.
 No campaign cleanup may depend on reclaiming their space.
 
-Large continuation command per seed, after parity and capacity admission:
+Campaign controller runs fresh prefixes and then the four fixed node targets through
+separate hash-pinned native resumes, so each save can be fully audited before
+continuation. This preserves RNG/table lineage, proven by the resume gates.
+Native continuation command per seed at each TARGET (2B/5B/10B/20B):
 
 ```text
 QUALIFIED_LINUX_BINARY train --stack-bb 200 --menu v1 --seed SEED
  --roots-per-seat 1 --average-rule opponent-sampled --card-buckets TABLES
- --max-entries SELECTED_EQUAL_CAP --freeze-at-cap --recovery
- --resume VERIFIED_LARGE_CAP_500M --resume-sha256 VERIFIED_SHA256
- --nodes 20000000000 --milestones 2000000000,5000000000,10000000000
- --out SEED_DIRECTORY/{nodes}.gz --telemetry SEED_DIRECTORY/telemetry.jsonl
- --stop-file SEED_DIRECTORY/stop.request --max-seconds REMAINING_FIXED_BUDGET
+ --max-entries 301153954 --freeze-at-cap --recovery
+ --resume VERIFIED_PREVIOUS_LARGE_CHECKPOINT --resume-sha256 VERIFIED_SHA256
+ --nodes TARGET --out SEED_DIRECTORY/TARGET/checkpoint.gz
+ --telemetry SEED_DIRECTORY/TARGET/telemetry.jsonl
+ --stop-file SEED_DIRECTORY/TARGET/stop.request --max-seconds REMAINING_FIXED_BUDGET
 ```
+
+Input archive transfers may run during the small identity gates and2B stage.
+Before5B, all three twin archives must be fully hash-verified and restored, and
+verified transport replicas retired with receipts. A guarded input wait counts
+against the unchanged72h campaign ceiling. Incomplete input transport cannot
+admit5B or later stages. Source/executable/table hashes, memory arithmetic,
+current disk and swap baseline are published in the admission receipt.
+
+The native loader requires an entry limit at least the saved row count. Once
+frozen, complete-iteration overshoot can put that count slightly above the
+requested301,153,954. Subsequent resumes pass max(selected cap, saved frozen
+entries) only to admit those existing rows; the persisted frozen state continues
+to forbid new keys. Record the exact per-save CLI value and overshoot.
 
 Checkpoints are at first complete iteration crossing 2B/5B/10B/20B. No target
 filename is evidence of reached nodes. All saves and final exports receive full

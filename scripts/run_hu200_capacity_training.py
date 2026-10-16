@@ -179,9 +179,16 @@ class Campaign:
             folder = self.base / 'results' / str(seed) / label
             folder.mkdir(parents=True, exist_ok=False)
             folders[seed] = folder
+            load_cap = 85_373_862 if normalize else self.cap
+            if parents and not normalize:
+                header = json.loads((Path(parents[seed]['path']).parent / 'saved-bytes.json').read_text())['header']
+                if header.get('frozen_table') is not None:
+                    # Complete-iteration overshoot must be admitted by the loader;
+                    # the persisted frozen state still forbids every new key.
+                    load_cap = max(load_cap, header['frozen_table']['entries'])
             command = [str(self.binary), 'train', '--stack-bb', '200', '--menu', 'v1', '--seed', str(seed),
                 '--roots-per-seat', '1', '--average-rule', 'opponent-sampled',
-                '--card-buckets', str(QUALIFIED / 'tables'), '--max-entries', str(85_373_862 if normalize else self.cap),
+                '--card-buckets', str(QUALIFIED / 'tables'), '--max-entries', str(load_cap),
                 '--nodes', str(nodes[seed] if isinstance(nodes, dict) else nodes), '--recovery',
                 '--max-seconds', str(max(1, self.remaining() - 3600)), '--out', str(folder / 'checkpoint.gz'),
                 '--telemetry', str(folder / 'telemetry.jsonl'), '--stop-file', str(folder / 'stop.request')]
@@ -260,6 +267,26 @@ class Campaign:
             items.append(dict(path=value['path'], expected=value, replacement=str(new)))
         self.retire_files('recovery-' + Path(older[SEEDS[0]]['path']).parent.name + '-to-' + Path(newer[SEEDS[0]]['path']).parent.name, items)
 
+    def check_prefix_memory(self):
+        """Charge every regret-free action for eventual regret allocation."""
+        measured = []
+        samples = [json.loads(line) for line in
+            (self.base / 'guards/prefix500m-train/resources.jsonl').read_text().splitlines()]
+        for seed in SEEDS:
+            counts = json.loads((self.base / 'results' / str(seed) / 'twin500m/twin-identity.json').read_text())['counts']
+            peak = max(row['job_rss_bytes'][str(seed)] for row in samples)
+            fixed = self.admission['fixed_card_table_bytes_per_run']
+            aging = 8 * counts['regret_free_slots']
+            mature_bytes_per_entry = (peak - fixed + aging) / counts['entries']
+            measured.append(dict(seed=seed, peak_rss_bytes=peak, entries=counts['entries'],
+                action_slots=counts['action_slots'], regret_free_slots=counts['regret_free_slots'],
+                mature_bytes_per_entry=mature_bytes_per_entry))
+        put(self.base / 'prefix-memory-admission.json', dict(measurements=measured,
+            budget_bytes_per_entry=130, status='passed' if all(
+                m['mature_bytes_per_entry'] <= 130 for m in measured) else 'failed'))
+        if any(m['mature_bytes_per_entry'] > 130 for m in measured):
+            raise RuntimeError('Measured mature prefix exceeds declared memory budget; stop')
+
     def run(self):
         fresh = self.stage('gate-fresh20m', 20_000_000)
         prefix = self.stage('gate-prefix10m', 10_000_000)
@@ -273,11 +300,16 @@ class Campaign:
         growing = self.stage('prefix500m', 500_000_000)
         normalized = self.stage('twin500m', {s: growing[s]['completed_nodes'] + 1 for s in SEEDS}, growing, True)
         put(self.base / 'twin-gates.json', dict(status='all-three-exact', large=growing, normalized=normalized))
+        self.check_prefix_memory()
         self.trim_exports('prefix500m', growing, False)
         self.trim_exports('twin500m', normalized, False)
         previous = growing
         milestones = {}
         for nodes in (2_000_000_000, 5_000_000_000, 10_000_000_000, 20_000_000_000):
+            if nodes == 5_000_000_000 and not (self.base / 'twins-restored.json').exists():
+                self.guarded('restore-twins', [dict(name='restore', cpus=[6, 7], rss_gib=2,
+                    stop_file=str(self.base / 'results/restore.stop'), command=[sys.executable, '-m',
+                    'scripts.run_hu200_capacity_training', 'restore-wait', '--base', str(self.base)])])
             records = self.stage(str(nodes), nodes, previous, rolling=True)
             if nodes == 2_000_000_000:
                 self.replace_recovery(normalized, records)
@@ -290,10 +322,18 @@ class Campaign:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('phase', choices=('train', 'audit', 'clean'))
+    parser.add_argument('phase', choices=('train', 'audit', 'clean', 'restore-wait'))
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--admission', type=Path)
     args = parser.parse_args()
+    if args.phase == 'restore-wait':
+        from scripts.restore_hu200_capacity_twins import restore
+        inputs = json.loads(Path('docs/reports/hu200-capacity-cygnus-artifacts/drive-inputs.json').read_text())
+        while True:
+            if all((args.base / 'inputs/archives' / i['name']).exists() and (args.base / 'inputs/archives' / i['name']).stat().st_size == i['bytes'] for i in inputs['archives']):
+                restore(args.base)
+                return
+            time.sleep(10)
     if args.phase == 'clean':
         plan = json.loads(args.base.read_text())
         for item in plan['items']:
