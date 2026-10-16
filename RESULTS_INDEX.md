@@ -12,8 +12,16 @@ offloaded. Current PR312/313 storage/contributor changes were checked first;
 the live cache tool and cron were not changed.
 
 [Exact paths, preservation, administrative failures and restoration](docs/artifacts/storage-cleanup-afternoon-20261016.md).
-Full receipt upload acceptance is pending in this draft; cleanup itself and
-retained-file checks are complete. New receipt upload uses only bb128's cache.
+[Full receipt ZIP](https://drive.google.com/file/d/1vEmYHa3c63-YWoWFCuuE81JlmWEsUJSm/view),
+**84,338 bytes**, SHA256
+`c369b620fafaf3c7f9ef6d1f7fa8c19d83f4cbdd13041c6c3db53e4c6193e0cb`,
+MD5 `d6cf7038f54b2a640458037c06916171`, embedded manifest SHA256
+`acd9f514549dac787c84fb9dcb2e1ce710222454062c8c957f8c13cb1397ed07`.
+All 18 members passed readback. The bb128-only immutable upload accepted Drive
+MD5/size and all 19 local files are covered by `.drive-receipt.json`.
+Uncompressed cache: `/research/PR-315-storage-cleanup-afternoon-20261016/`.
+Always restore with `rclone copy gdrive:PR-315-storage-cleanup-afternoon-20261016/ FRESH_DIRECTORY`,
+then verify the ZIP/manifest and read `evidence/complete-receipt.json`.
 
 ## Research storage policy — owner-approved October 16, 2026
 

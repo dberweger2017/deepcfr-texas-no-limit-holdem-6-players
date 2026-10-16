@@ -96,8 +96,29 @@ Prefix: `/Users/dberweger/Local/`.
 
 ## Receipt and administrative failures
 
-Full receipt upload acceptance will be added here before this draft is ready for review. The local receipt remains in this cleanup worktree’s ignored `planning/cleanup-afternoon/`.
+[Full receipt ZIP on Drive](https://drive.google.com/file/d/1vEmYHa3c63-YWoWFCuuE81JlmWEsUJSm/view),
+`storage-cleanup-afternoon-20261016-receipt.zip`, **84,338 bytes**.
+SHA256 `c369b620fafaf3c7f9ef6d1f7fa8c19d83f4cbdd13041c6c3db53e4c6193e0cb`;
+Drive/local MD5 `d6cf7038f54b2a640458037c06916171`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`acd9f514549dac787c84fb9dcb2e1ce710222454062c8c957f8c13cb1397ed07`.
+All 18 ZIP members passed local readback. The uncompressed evidence and ZIP
+remain cached at `/research/PR-315-storage-cleanup-afternoon-20261016/` on bb128.
+The live tool's immutable upload compared Drive MD5/size and wrote
+`.drive-receipt.json`, covering **all 19 local files** (18 members plus ZIP),
+with no uncovered files. Its returned Drive ID is the link above.
+
+Always-available restoration on bb128:
+
+```sh
+rclone copy gdrive:PR-315-storage-cleanup-afternoon-20261016/ FRESH_DIRECTORY
+```
+
+Verify the ZIP/manifest hashes, then extract `evidence/complete-receipt.json`
+for all metadata pins, cloud confirmations and protected snapshots, and the
+per-host `evidence/*-removal.jsonl` journals. The original local receipt also
+remains in this cleanup worktree's ignored `planning/cleanup-afternoon/`.
 
 The M1 helper’s final receipt event used a duplicate `at` keyword after all 38 removals and retained-file checks completed. Its fsynced journal proved every removal; absence and retained metadata were checked again and the receipt recovered, without repeating deletion. The helper was corrected before M4 removal. A later extra-pass invocation ran before its asynchronous plan existed and failed in preflight before mutation; it was rerun only after the plan completed. Both administrative failures are retained in the full receipt.
 
-Validation: exact-path metadata/provenance and complete hardlink groups, fresh merged-owner checks, current cloud/release metadata, no-handle/dependency review, per-path journals, retained-file snapshots and post-removal absence/free-space checks. This documentation-only PR requires the staged artifact and whitespace checks; it changes no game or storage-tool code.
+Validation: exact-path metadata/provenance and complete hardlink groups, fresh merged-owner checks, current cloud/release metadata, no-handle/dependency review, per-path journals, retained-file snapshots, post-removal absence/free-space checks and receipt upload acceptance. Staged artifact and whitespace checks passed. This documentation-only PR changes no game or storage-tool code.
