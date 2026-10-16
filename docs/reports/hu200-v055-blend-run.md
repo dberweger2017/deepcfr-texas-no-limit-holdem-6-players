@@ -286,3 +286,17 @@ is atomically supplied. This is an automatic metadata handoff, requiring no new
 owner confirmation. Exact source pins, seven-file inventory, no handles/links
 and unchanged size/mtime are checked before retiring only the inactive derived
 seed cache. No model, evaluator, count, root, weight or rule changes.
+
+### October 16, 15:03 Madrid: blend cache complete, pilot roots reserved
+
+The bounded streaming builder writes the unchanged six-array cache in562.70 s:
+9,331,096,671 bytes including its manifest. The guard returns0; all exported
+float64 probabilities are passed through unchanged. The first seed
+cache is building; at most the blend plus one seed cache will reside.
+Fresh reservation against current main `21946a33` and every other open head
+(PR314 `515e0595`, PR301 `ce007523`) finds no conflicts for the fixed pilot/final
+roots. Byte-identical inherited #297 declarations are retained. No hand has
+run yet.
+[Blend cache/rebuild provenance](hu200-v055-blend-run-artifacts/blend-cache-complete.json),
+[cache resources](hu200-v055-blend-run-artifacts/blend-cache-resource-receipt.json),
+[fresh root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-pilots.json).
