@@ -149,7 +149,9 @@ def cost_quote(config):
                  + repeated[name]['load_or_validation_seconds'] + replayed[name]['fixed_setup_seconds'])
         scaled = (primary[name]['play_seconds'] + repeated[name]['play_seconds']
                   + replayed[name]['block_work_seconds']) * final_count / case['blocks']
+        trace_bytes = sum(p['bytes'] for run in (primary[name], repeated[name]) for p in run['files'].values())
         quotes[name] = dict(fixed_seconds=fixed, scalable_seconds=scaled,
+            projected_trace_bytes_with_1_25_margin=int(1.25 * trace_bytes * final_count / case['blocks']),
             projected_seconds_with_1_5_margin=1.5 * (fixed + scaled),
             pilot_blocks=case['blocks'], final_blocks=final_count,
             paired_sd_bb_per_100=replayed[name]['paired_sd_bb_per_100'])
@@ -159,6 +161,8 @@ def cost_quote(config):
     projected += quotes['direct-20B']['projected_seconds_with_1_5_margin']
     return dict(seed=config['seed'], cases=quotes, projected_all_nine_cases_seconds=projected,
                 five_B_direct_cost_proxy='20B direct; no assumed speed credit',
+                projected_trace_bytes_with_1_25_margin=sum(q['projected_trace_bytes_with_1_25_margin'] for q in quotes.values())
+                    + quotes['direct-20B']['projected_trace_bytes_with_1_25_margin'],
                 includes_play_replay_reproduction=True, excludes_cold_cache_construction=True,
                 outcomes_inspected=False, pooled_with_final=False)
 

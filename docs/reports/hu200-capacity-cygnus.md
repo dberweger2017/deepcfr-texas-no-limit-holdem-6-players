@@ -1,6 +1,6 @@
 # HU200 capacity experiment on cygnus-x1
 
-Post-BIOS preflight is complete; **no large training or final hands have started**.
+Post-BIOS preflight and all three exact-resume gates pass. **Three fresh500M prefixes are saved; full prefix audits and twin parity gates remain in progress. No final hands have started.**
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
 
@@ -31,8 +31,9 @@ No capacity or outcome result is inferred from the zero-step measurement.
 
 The preliminary operation used4,734.229 active seconds of its original5,400:
 1,285 before shutdown and3,449.229 after restart. The measured owner-stop interval
-of10,429.086seconds is excluded. The72h gates/training/audit clock has not started;
-24h evaluation follows. Absolute deadlines and measured ETA are posted at admission.
+of10,429.086seconds is excluded. The72h gates/training/audit clock started October16 at02:29:18UTC;
+its fixed deadline is October19 at02:29:18UTC. The unchanged24h evaluation
+ceiling follows; archive closeout is separate. [Clock](hu200-capacity-cygnus-artifacts/training-clock.json).
 Archive closeout is separately bandwidth-dependent.
 
 [Resource summary](hu200-capacity-cygnus-artifacts/memory-resource-summary.json):
@@ -52,3 +53,21 @@ synced-archive/SSH copies timed out; partial bytes remain, and explicit transpor
 resumption continues with longer connection tolerance. All hashing, extraction,
 training and evaluation run on bb128. This is an input-transfer failure, not a
 model or training failure. No strength result or restored-input verification is claimed.
+
+Campaign source3f6eb6cb and [resource admission](hu200-capacity-cygnus-artifacts/admission.json)
+are pinned before launch. The first three20M saves completed in59.62s wall time,
+including writes, with CPU/VRM peaks52/43°C and6.25GB aggregate sampled RSS.
+All gate saves receive full serial audits. [All three exact compressed fresh/resume identities](hu200-capacity-cygnus-artifacts/resume-gates.json)
+pass. The three fresh500M train/save processes finish in833.77s wall time;
+this is a measured prefix cost, not a forecast for frozen large-table throughput.
+The301,153,954-entry cap remains conditional on exact twin prefix parity and the
+three measured mature-memory forecasts; no dependent2B continuation precedes those checks.
+
+Evaluation helper preparation preserves the existing policy/harness behavior.
+Compatible play/reproduction cases reuse registries; independent replay uses
+separate policy instances. A global byte-verified barrier requires all six
+seed/model groups before any mean. No final evaluations or pilots have run.
+The first evaluation fixture checks failed because a K50 table path was omitted
+from the test fixture; the actual evaluator correctly rejected it. The corrected
+fixture's three checks pass on bb128. Original failure log/guard remain, with
+[compact failure receipt](hu200-capacity-cygnus-artifacts/evaluation-tests-initial-failure.json).

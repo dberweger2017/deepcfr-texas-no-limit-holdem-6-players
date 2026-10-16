@@ -4126,7 +4126,7 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
-[report](docs/reports/hu200-capacity-cygnus.md). No large training/final hands yet.
+[report](docs/reports/hu200-capacity-cygnus.md). Three fresh500M prefixes saved; audits/twin gates pending. No final hands yet.
 Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
 Open PR292 root/archives/upload processes/shared inputs remain protected.
 
@@ -4169,3 +4169,10 @@ PR301 post-BIOS continuation: [500M every-row identity](docs/reports/hu200-capac
 Raw evidence/partials remain under the owned bb128 root; not yet archived or uploaded.
 4,734.229/5,400 active preliminary seconds used;72h training clock unstarted.
 New2TB disk excluded; open#292 and unrelated preservation data protected.
+
+PR301 admitted source3f6eb6cb; [resource admission](docs/reports/hu200-capacity-cygnus-artifacts/admission.json),
+[active72h clock](docs/reports/hu200-capacity-cygnus-artifacts/training-clock.json),
+[three exact fresh/resumed20M identities](docs/reports/hu200-capacity-cygnus-artifacts/resume-gates.json).
+Training/audit deadline October19,02:29:18UTC; evaluation allowance unchanged24h.
+All500M prefixes saved and full audits in progress; no twin-prefix parity or strength claim yet.
+Initial evaluation-fixture failure retained; three corrected barrier checks pass.
