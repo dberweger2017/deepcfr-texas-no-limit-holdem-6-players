@@ -1,8 +1,7 @@
-# v0.5.3 candidate model card: heads-up 100 BB
+# v0.5.3 model card: heads-up 100 BB
 
-**Unpublished owner-review bundle. Translation passes the declared safeguard.**
-The owner declared PR272's original seed as the candidate, without seed selection.
-No further training or export is part of this task.
+**Translation passes the declared safeguard.** The model is PR272's original
+training seed, declared before evaluation without seed selection.
 
 Linear CFR with opponent-sampled averaging; seed 2026100601; 5,000,006,023
 cumulative nodes, iteration 1,794,658; frozen 97,290,578-entry table.
@@ -32,11 +31,11 @@ duplicate blocks per seed, with v2 translation off:
 
 | Training seed | Frozen v2 minus v0.5.2 BB/100 [95%] |
 |---|---:|
-| 2026100601 (declared candidate) | +47.04 [40.13,53.94] |
+| 2026100601 (this release) | +47.04 [40.13,53.94] |
 | 2026101501 | +40.95 [34.02,47.87] |
 | 2026101502 | +45.42 [38.49,52.36] |
 
-The candidate's absolute scripted returns in the original panel were random
+The model's absolute scripted returns in the original panel were random
 +106.91 [71.01,142.81], check_call +268.70 [252.02,285.37], tight_aggressive
 +37.29 [27.87,46.71], loose_aggressive +34.87 [15.09,54.65], pot_pressure
 +27.24 [15.27,39.21], half_pot_pressure +16.18 [2.60,29.75] and

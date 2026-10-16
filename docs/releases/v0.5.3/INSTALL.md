@@ -1,39 +1,44 @@
-# Install and run v0.5.3 (unpublished review bundle)
+# Install and run v0.5.3
 
-Verify the complete asset set and source binding before loading. The owner
-separately authorizes publication; this bundle carries no publication approval.
-Use Python 3.11 with requirements-play.txt at source PACKAGE_SOURCE_COMMIT.
-
-Download all declared assets into one directory. The model consists of three
-ordered parts below 2 GiB each; flop, turn and river K50 tables are separate assets.
-The verifier uses only Python's standard library and checks the pinned whole model.
+v0.5.3 needs Python 3.11, about 2 GB of free memory and 8 GB of disk: 4.6 GB of downloads, plus the 3.2 GB whole model, which the first start reassembles from its parts. Every start checks the whole bundle and all 97.3 million stored entries, which took about ten minutes on an M1 MacBook Pro.
 
 ```sh
-python3.11 -I -S models/v053/verify_hu100_bundle.py models/v053 \
-  --expect-source PACKAGE_SOURCE_COMMIT \
-  --assemble models/v053-model/O5B-HU100-K50-menu-v2-frozen-average-seed-2026100601.jsonl.gz
+git clone https://github.com/dberweger2017/CFR-NLHE-6max.git
+cd CFR-NLHE-6max
+git checkout PACKAGE_SOURCE_COMMIT    # the v0.5.3 tag
+python3.11 -m venv .venv
+.venv/bin/python -m pip install -r requirements-play.txt
 ```
 
-Keep the assembled model outside the immutable asset directory. The runtime
-verifies all assets before loading and uses translation 512/128 as part of the
-session identity. The downloaded payload is about 4.58 GB; the assembled model adds 3.20 GB.
-Uncached JSON-average loads take minutes. Actual M1 load time, peak RSS and
-verification receipts are in [PR298’s readiness record](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298).
+Download all twelve release assets into one directory, then verify them against this release's source commit. The verifier needs only the Python 3.11 standard library; it checks each model part, the whole model's fixed hash and the three card tables.
+
+```sh
+mkdir -p models/v053
+gh release download v0.5.3 --repo dberweger2017/CFR-NLHE-6max --dir models/v053
+python3.11 models/v053/verify_hu100_bundle.py models/v053 \
+  --expect-source PACKAGE_SOURCE_COMMIT --require-publication
+```
+
+Without `gh`, download each asset from the release page into `models/v053/`.
+
+Start the local table:
 
 ```sh
 .venv/bin/python -m src.play_api.server --hu100-release models/v053 \
   --data-dir results/hu100-play --source-version v0.5.3
 ```
 
-Open the printed local URL and use the token from the private data directory.
-Choose human free/restricted sizing or self-play spectator. Other depths are
-rejected. Sessions retain their exact model and inference identity across restart.
-Independent journal verification:
+The first start writes the reassembled model to `models/v053-model/`, next to the asset directory, and verifies it against the fixed hash; later starts reuse it after checking it again. Keep the asset directory itself unchanged.
+
+Open the printed local URL and enter the token stored in `results/hu100-play/access.token`. Choose human play (restricted or free sizing) or the self-play spectator. Restricted sizing offers this release's menu; free sizing accepts any legal whole-chip wager. Translation is part of this release and can't be turned off. Other stack depths are rejected.
+
+Sessions are stored per release, so one data directory can hold v0.5.0–v0.5.3 sessions, and a session never changes model. Restarting with the same bundle and data directory resumes them. To replay a finished session independently:
 
 ```sh
 .venv/bin/python -m src.play_api.server --hu100-release models/v053 \
   --data-dir results/hu100-play --verify-session SESSION_ID
 ```
 
-There is no publication approval or release tag for this preparation. Older
-v0.5.0–v0.5.2 bundles retain their manifests; HU20's default remains v0.4.2.
+`--hu100-release` also loads v0.5.0–v0.5.2 bundles. The HU20 releases run as before, with `--models-dir`; v0.4.2 is their default.
+
+`SHA256SUMS` only detects corruption. Trust comes from the verifier's fixed model and provenance pins, and from the publication manifest bound to the tagged source.
