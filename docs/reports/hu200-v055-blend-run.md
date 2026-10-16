@@ -1,427 +1,248 @@
-# Frozen HU200 three-seed blend run
-
-Owner-authorized continuation of merged #297 on October 16, 2026. Its disk
-admission stop was plumbing: no full blend, cache, pilot or final hand existed.
-This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
-and preserves [the original report](hu200-v055-blend.md).
-
-**Current status (October 16, 17:30 Madrid): two full final groups verified; last group and global verification remain.**
-The first two seed groups complete at all fixed counts in 40m24s and 41m20s.
-Every hand in those groups independently replays and reproduces; measured
-process-family RSS reaches 12.75 GB on the 16 GiB M4, with no resource breach.
-The third seed cache is building. No final strength result is read before all
-three groups and the global hand/decision fingerprint barrier verify. Verified
-results remain provisionally expected at 18:30–19:00 Madrid, followed by roughly
-one to two hours of archival closeout, conditional on Drive throughput. The
-owner-authorized 02:30 science /04:30 preservation budget remains unchanged;
-the PR stays draft pending actual completion and accepted evidence.
-
-All construction, export, cache and evaluation work runs on the base Apple M4
-with 16 GiB physical memory, under both exclusive research locks and the existing
-five-second resource guards. M1 handles Git, PR and archive administration.
-
-The raw `fsum(Node.average_s / W_s)` rule, synthetic identity, original-average
-reproduction prerequisites, roots, translation 512/128, final counts and global
-replay/reproduction barrier are unchanged. No outcome-dependent tuning, pass/fail
-gate, Slumbot, server, release, tag or default change is authorized. The owner
-decides merge.
-
-Initial ETA: inventory and admission within 30 minutes if inputs remain local;
-missing cloud inputs can add several hours. A full-run ETA is conditional on
-actual admission and the cost-only pilots and will be posted before final play.
-The frozen 16-hour active campaign envelope includes a two-hour preservation
-reserve; an interruption for plumbing does not constitute a research result.
-
-Completed evidence includes all fresh input proofs, actual admission, union
-coverage/root diagnostics and full model audit. Pending: caches and cost pilots,
-the three fixed direct comparisons and 95% intervals, the seven-opponent panel
-for all four models, independent replay/reproduction of every final hand before
-readout, final resource/failure summaries, accepted Research-Cloud evidence and
-its owner-requested unpacked 2 TB copy. The measured full-run ETA follows pilots.
-
-## Initial inventory and plumbing
-
-[Current inventory](hu200-v055-blend-run-artifacts/initial-inventory.json) confirms
-#303 retired the two seed1302/1422 raw checkpoints and all three reproduced
-averages: 19,407,460,871 bytes. The protected seed1421 checkpoint, frozen exporter
-and pinned tables remain. The source PRs #163, #265, #278 and #297 are currently
-merged. Both missing-checkpoint archives remain online-only and their current
-independent Drive IDs, names, sizes and parent folders match the index.
-
-Initial M4 free disk was about 83.38 GB. Restoration consumes about 19.41 GB,
-leaving roughly 64 GB against the prior 74.474 GB construction requirement.
-The owner was alerted to the provisional 10.5 GB shortfall and acknowledged the
-plumbing handoff. The later inventory was captured after the first reproduction
-had begun writing its output; its lower free-space snapshot includes that partial
-output. Actual restored sizes and the fresh union gate will determine admission.
-No full blend, cache or poker hand exists. PR remains draft and pending.
-
-The retained seed1421 checkpoint passed its fresh SHA256 check; a fresh frozen
-exporter reproduction is running under both M4 locks and the unchanged guards.
-Read-only APFS clones isolate its checkpoint/exporter/tables in this campaign's
-own ignored root without allocating duplicate payloads.
-
-[Root reservation](hu200-v055-blend-run-artifacts/root-reservation.json) checks
-main and every other current open head. Only byte-identical inherited #297
-declarations match; no conflicting reservation exists. #297's unplayed roots
-remain this continuation's fixed roots.
-
-Administrative failures: the first M1 repository artifact check used system
-Python 3.9, which lacks `zip(strict=True)`; Python 3.11 passed before the initial
-commit. M4's branch fetch populated `FETCH_HEAD` without a remote tracking ref;
-worktree creation was corrected to use that fetched commit. Neither failure
-started research. All scientific failures, if any, will be recorded separately.
-
-## First fresh input proof and improved storage
-
-Seed2026101421 freshly reproduces full average SHA256
-`c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444`
-from raw checkpoint `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`.
-The frozen exporter handles 85,373,916 entries in 713.16 seconds; export plus
-hashing is 714.38 seconds. All 169 small-blind root keys exist; mass is exactly
-140,199,312,593,278.0, equal to W. Full proof takes 769.18 seconds, 154 clear
-samples, 75,415,552-byte sampled family peak, zero swap growth and minimum
-80% free memory. [Exact reproduction](hu200-v055-blend-run-artifacts/local-average-reproduced.json),
-[root/resource summary](hu200-v055-blend-run-artifacts/local-proof-summary.json).
-
-During that proof M4 free disk rises to about 93.816 GB. After the remaining
-16.245 GB of checkpoint/average pairs, the provisional 77.571 GB free projection
-would exceed the unchanged prior construction admission by 3.097 GB. This is
-provisional: the actual restored sizes and fresh union gate still decide.
-Seed1302 archive restoration starts 07:23:30 UTC /09:23:30 Madrid under the
-same resource baseline and campaign clock. No full blend, cache or hand exists.
-
-The [new campaign clock](hu200-v055-blend-run-artifacts/campaign-clock.json)
-starts this owner-authorized intake at 07:10:28 UTC /09:10:28 Madrid, with the
-frozen 16-hour envelope: science ends 23:10:28 Madrid, preservation ends
-01:10:28 Madrid October 17. The original #297 clocks/evidence remain unchanged.
-No old scientific outcome or failed hand exists to repeat. This campaign's
-[failures and pending plumbing](hu200-v055-blend-run-artifacts/failures.json)
-remain disclosed; no guard threshold, weight, rule or evaluation count changes.
-
-The [designated evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK)
-is created and independently verified under the Research-Cloud project parent;
-both Macs observe the same Drive ID. [Folder receipt](hu200-v055-blend-run-artifacts/drive-folder.json).
-Final scientific-output archive acceptance awaits the full run; input preservation is recorded separately below.
-At the first archive's observed 4–4.5 MB/s arrival rate, the provisional intake
-ETA is 13:00–15:00 Madrid, conditional on network throughput. Final-run ETA still
-awaits actual union admission and cost-only pilots.
-
-## Seed1421 raw-checkpoint cloud dependency
-
-The old #278 full cloud object is still only 592,464,795 bytes; its expected
-complete ZIP is 20,952,808,971 bytes. The retry object is absent from the current
-folder listing. This known upload problem is plumbing, not a model discrepancy.
-The M4's retained raw checkpoint already passes its fresh SHA256 and exact
-average reproduction above.
-
-M1 archive administration verifies its retained complete local ZIP's whole
-SHA256 and embedded manifest, then streams the unchanged checkpoint directly
-into a checkpoint-only ZIP without extracting another raw file. All members
-and the new whole ZIP pass local readback in 32.50 seconds. All source originals
-remain. No blend construction, export, cache or evaluation runs on M1.
-[Archive receipt](hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
-The 4,957,760,250-byte archive is published atomically to this PR's shared
-evidence folder. Native uploaded1/uploading0/no-conflicts and independent Drive
-ID/name/size/direct-parent metadata now accept it. Remote archive bytes were
-not downloaded. [Acceptance](hu200-v055-blend-run-artifacts/seed1421-checkpoint-upload-acceptance.json),
-[exact retrieval command](hu200-v055-blend-run-artifacts/seed1421-checkpoint-restoration.json).
-Its raw checkpoint remains byte-identical to the M4-verified input. The old
-full cloud object remains explicitly unaccepted.
-
-The [complete checkpoint-only archive](https://drive.google.com/file/d/1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi/view?usp=drivesdk)
-fixes this run's required seed1421 raw restoration dependency. It does not
-repair the old full cloud object or authorize removal of that retained local
-full archive, which contains other evidence. Input-provenance metadata is
-added to the new campaign's intake configuration; every raw/average hash,
-iteration weight, model rule and evaluation count remains unchanged.
-
-### October 16, 11:07–11:10 Madrid: intake configuration repair
-
-The first full 26.698-GB archive downloaded and passed its whole SHA256.
-Restoration then raised `KeyError: manifest_sha256` in the continuation
-control configuration before any checkpoint extraction or export. The missing
-field is now populated from the existing indexed manifest pin for each pending
-source; all required fields are checked before another archive read. The first
-repair launch was refused by the original generic STOP sentinel before its
-worker started. Both failures and the exact original sentinel are retained;
-the baseline and held-state bytes, thresholds and fixed campaign clock remain
-unchanged. A distinct guarded intake continuation is running. This is a
-plumbing repair with no model mismatch, research failure or hand retry.
-[Configuration failure and repair](hu200-v055-blend-run-artifacts/intake-configuration-recovery.json),
-[guard-state preservation](hu200-v055-blend-run-artifacts/intake-guard-sentinel-preservation.json).
-
-### October 16, 11:23 Madrid: second exact average and final restore
-
-Seed2026101302 now verifies its full source ZIP, indexed manifest and raw
-checkpoint, then exactly reproduces all 85,373,907 original average rows:
-`9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6`.
-The unchanged exporter takes 715.87 seconds; its kernel RSS peak is 4,603,904
-bytes. The complete cached-archive continuation takes 739.26 seconds, with
-148 clear guard samples and a 58,048,512-byte family RSS peak. The initial
-download/configuration stop remains separate in the failure record.
-
-After fresh merged-owner, native upload, independent cloud metadata and open-handle
-checks, one normal FileManager request releases the inactive 26.698-GB ZIP
-cache. Cloud ID, placeholder size, inode and modification time remain the same;
-raw checkpoint and exact average stay protected. The final seed2026101422
-archive restoration is now running. Both completed average proofs precede any
-full blend or hand.
-[Exact reproduction](hu200-v055-blend-run-artifacts/seed1302-input-verified.json),
-[resource receipt](hu200-v055-blend-run-artifacts/seed1302-reproduction-resource-receipt.json),
-[normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json).
-
-### Owner addition: retain unpacked evidence on the 2 TB disk
-
-The owner additionally requests a local unpacked copy of the final uploaded
-research evidence. The verified ext4 disk on `bb128` is mounted at
-`/mnt/data2tb`; this run will retain its bundle contents under
-`/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, one directory per bundle,
-with the same member paths and embedded manifest. Every copied member will
-be checked against its recorded size/SHA256, with the resulting receipt and
-retrieval commands indexed. The directory does not contain final evidence yet.
-This storage addition leaves M4-only construction/evaluation and the frozen
-research protocol unchanged. Drive archive/readback/upload acceptance remains
-required. [Retention plan and mount observation](hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
-
-### October 16, 12:59 Madrid: all original averages reproduce
-
-Seed2026101422 verifies its full ZIP, indexed manifest and raw checkpoint,
-then exactly reproduces all 85,373,928 original average rows:
-`b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`.
-The frozen exporter takes 719.01 seconds, with 4,620,288-byte kernel RSS peak;
-full archive restoration/raw verification/reproduction takes 5,613.14 seconds.
-All three fresh original-average proofs now pass, before any full blend.
-
-The final inactive 20.953-GB source ZIP cache is released with one normal
-request after fresh merged-owner, native/cloud and open-handle checks. Its
-same-size placeholder, cloud ID, inode and modification time remain; all
-three raw inputs and reproduced averages stay protected. The fresh union
-scan and construction-admission calculation are running.
-[Third exact proof](hu200-v055-blend-run-artifacts/seed1422-input-verified.json),
-[resource receipt](hu200-v055-blend-run-artifacts/seed1422-reproduction-resource-receipt.json),
-[normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1422-archive-cache-released.json).
-
-### October 16, 13:05 Madrid: construction admitted and started
-
-The fresh bounded union scan takes 324.31 seconds and again finds
-156,208,331 union keys /482,975,338 action slots. Keys present in exactly
-one, two and three seeds are 88,880,705 /34,741,832 /32,585,794. The fixed
-unplayed 38,103-key compression probe passes the unchanged every-row auditor.
-Actual free space is 77,940,490,240 bytes against 74,474,620,158 required:
-3,465,870,082 bytes above the complete peak reservation, which already
-includes the 16-GiB floor and 2-GiB margin. Construction is admitted and the
-full fixed-rule merge starts at 13:05:43 Madrid. No pilot or final hand exists.
-
-The gate reserves 22,654,759,739 audit-workspace bytes, 9,331,111,441 blend-cache
-bytes and one seed cache at a time. Compression projections retain the fixed
-1.5 multiplier; the small difference from #297's byte total follows the new
-run's path/header bytes. Canonical raw/table APFS clones are verified against
-their accepted indexed dependencies when sealing, matching the gate's exclusion of separately indexed source inputs; all originals remain.
-Union guard: 68 clear readings, 72,941,568-byte family RSS peak.
-[Full fresh scan and root diagnostics](hu200-v055-blend-run-artifacts/union-scan.json),
-[actual capacity gate](hu200-v055-blend-run-artifacts/construction-capacity-gate.json),
-[scan resources](hu200-v055-blend-run-artifacts/union-resource-receipt.json),
-[unchanged required sample audit cost](hu200-v055-blend-run-artifacts/union-sample-audit-time.json).
-
-### October 16, 13:28 Madrid: first unpacked HDD bundle verified
-
-The already accepted seed1421 checkpoint-only input bundle is now retained
-unpacked at
-`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`.
-Its source whole ZIP and embedded manifest match the accepted archive pins;
-both copied members pass exact size/SHA256 and a separate disk readback.
-No ZIP container is present in that final bundle directory. This is storage
-administration of an existing input, not blend construction on bb128.
-The final blend bundle remains pending. [Unpacked receipt](hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json);
-[direct HDD retrieval](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run).
-
-### October 16, 13:34 Madrid: complete raw blend checkpoint
-
-The full fixed-rule native merge writes all 156,208,331 rows in
-1,732.83 seconds (28 min 52.83 s). The raw synthetic checkpoint is
-**6,042,193,732 bytes**, SHA256
-`59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123`.
-The frozen exporter is now writing the current and average inference exports;
-full every-row audit follows. The model is not yet claimed audited or ready
-for play, and no hand has been generated.
-[Complete native merge and pinned output](hu200-v055-blend-run-artifacts/native-merge.json),
-[execution timing](hu200-v055-blend-run-artifacts/native-merge-execution.json).
-
-### October 16, 14:03 Madrid: complete inference exports, audit running
-
-The frozen exporter completes in 1,724.08 seconds. The average inference
-export is **6,282,968,150 bytes**; the paired current export required by the
-existing auditor is 2,960,585,129 bytes. Kernel exporter RSS peak is 4,702,208
-bytes. The unchanged independent every-row checkpoint/average/current audit
-is now running over the full 156,208,331-key model. No audited-model-ready
-claim, pilot or final hand exists yet. Expected audited-model availability
-is14:50–15:00 Madrid, conditional on audit success.
-[Full export execution](hu200-v055-blend-run-artifacts/full-export-execution.json).
-
-### October 16, 14:53 Madrid: audited blend ready
-
-The full unchanged auditor verifies all **156,208,331 nodes** in2,952.32 s
-(49 min12.32 s), including exact accumulator normalization, current regrets,
-key uniqueness and complete current/average coverage. It verifies124,272,760
-positive-mass rows and31,935,571 zero-mass uniform rows. It does not reconstruct
-historical training increments; regrets/visits are deliberately zero in this
-synthetic blend, with no training or resume claim.
-
-| File | Bytes | SHA256 |
-|---|---:|---|
-| average | 6,282,968,150 | `ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485` |
-| checkpoint | 6,042,193,732 | `59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123` |
-| current | 2,960,585,129 | `948b7dff67a52a1c2b475cc4da2d7153f00735448d5efc5360611d4a967ed860` |
-
-The complete construction/export/audit controller returns0 after6,420.16 s.
-Its1,278 five-second samples have a69,206,016-byte family RSS peak and no
-resource stop; all originals are preserved. The inference model and checkpoint
-sizes were reported to the owner immediately on readiness. Blend caching is
-now running, before unchanged disjoint-root pilots and any final hand.
-[Model manifest](hu200-v055-blend-run-artifacts/blend-model-manifest.json),
-[every-row audit](hu200-v055-blend-run-artifacts/blend-every-row-audit.json),
-[construction resources](hu200-v055-blend-run-artifacts/blend-construction-resource-receipt.json).
-
-Cache retirement additionally checks current GitHub PR status retrieved by M1
-after each completed comparison group, and retains the cache until that receipt
-is atomically supplied. This is an automatic metadata handoff, requiring no new
-owner confirmation. Exact source pins, seven-file inventory, no handles/links
-and unchanged size/mtime are checked before retiring only the inactive derived
-seed cache. No model, evaluator, count, root, weight or rule changes.
-
-### October 16, 15:03 Madrid: blend cache complete, pilot roots reserved
-
-The bounded streaming builder writes the unchanged six-array cache in562.70 s:
-9,331,096,671 bytes including its manifest. The guard returns0; all exported
-float64 probabilities are passed through unchanged. The first seed
-cache is building; at most the blend plus one seed cache will reside.
-Fresh reservation against current main `21946a33` and every other open head
-(PR314 `515e0595`, PR301 `ce007523`) finds no conflicts for the fixed pilot/final
-roots. Byte-identical inherited #297 declarations are retained. No hand has
-run yet.
-[Blend cache/rebuild provenance](hu200-v055-blend-run-artifacts/blend-cache-complete.json),
-[cache resources](hu200-v055-blend-run-artifacts/blend-cache-resource-receipt.json),
-[fresh root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-pilots.json).
-
-### October 16, 15:18 Madrid: first cost pilot verified
-
-The seed2026101302 cost-only group finishes in 463.33 seconds: 128 direct
-blocks and 32 paired blocks against each of the seven scripted opponents.
-Every pilot hand independently replays and reproduces before completion.
-The guard returns 0, with 93 samples, a 1,530,511,360-byte sampled family RSS
-peak and no breach. No strength readout is opened. Fresh M1 PR-status metadata
-and source/cache pins authorize retirement of only this inactive derived seed
-cache; its source model and rebuild provenance remain. The second seed cache
-is building. Final cost admission and the measured ETA follow all three pilots.
-[Verified group](hu200-v055-blend-run-artifacts/pilot1302-complete.json),
-[guard completion](hu200-v055-blend-run-artifacts/pilot1302-guard-complete.json),
-[cache retirement and rebuild evidence](hu200-v055-blend-run-artifacts/pilot1302-cache-retirement.json).
-
-### October 16, 15:32 Madrid: second cost pilot verified
-
-The seed2026101421 group completes the same fixed pilot counts, with all eight
-comparisons independently replayed and reproduced. Its guard returns 0 after
-432.99 seconds and 87 samples, with a 1,398,063,104-byte sampled family RSS peak
-and no resource breach. The third seed cache is building. No final hand or
-strength readout has started.
-[Verified group](hu200-v055-blend-run-artifacts/pilot1421-complete.json),
-[resources](hu200-v055-blend-run-artifacts/pilot1421-resource-receipt.json),
-[inactive-cache retirement](hu200-v055-blend-run-artifacts/pilot1421-cache-retirement.json).
-
-### October 16, 15:46–15:48 Madrid: pilots complete, full-count time quote
-
-Seed2026101422's pilot completes with all eight comparisons independently
-replayed and reproduced. Its guard returns 0 after 422.88 seconds, 85 samples
-and a 1,499,856,896-byte sampled family RSS peak, without breach. All three
-fixed groups are now verified; no final hand or strength result has been read.
-[Third verified group](hu200-v055-blend-run-artifacts/pilot1422-complete.json),
-[resources](hu200-v055-blend-run-artifacts/pilot1422-resource-receipt.json).
-
-The frozen full-count cost calculation quotes **36,965.42 seconds (10 h 16 min
-5 s)** of remaining science, with the required 1.5 multiplier, cache rebuilds,
-all play/replay/reproduction, repeated blend fingerprints and a separate
-30-minute global-check/admin reserve. At its 15:46:33 observation this projects
-science completion **02:02:39 Madrid October 17**, followed by the separate
-two-hour preservation reserve. Disk fits: **53,061,722,112 free bytes versus
-31,504,892,644 required**, including the unchanged floor and margin.
-
-The original science deadline is 23:10:28 Madrid; therefore the quote correctly
-records `cost-or-capacity-stop` and creates no final execution plan. This is
-a time-budget/plumbing hold, with no research failure or final-hand retry.
-The owner is asked prospectively to extend science to 02:30 and preservation
-to 04:30 Madrid October 17. No extension, guard reset, parameter change or
-final admission has been applied. The estimate moves with the wait for
-authorized admission; the PR remains draft and is not presented for review.
-[Exact cost admission](hu200-v055-blend-run-artifacts/final-cost-admission.json),
-[successful quote execution](hu200-v055-blend-run-artifacts/final-cost-quote-guard-complete.json),
-[post-pilot ETA in PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216906056),
-[fresh final-root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-finals.json).
-
-### October 16, 15:52 Madrid: owner-authorized time extension, finals admitted
-
-The owner explicitly selects “Authorize extension to 04:30 overall” in response
-to the proposed 02:30 science /04:30 preservation deadlines, Madrid October 17.
-This prospective time-budget amendment is applied before any final hand. The
-original clock and time-stop quote remain unchanged evidence; baseline and
-held-state SHA256s are identical before/after the amendment. Guard thresholds,
-counts, weights, roots, translation and blend rule are unchanged. No pilot or
-scientific retry occurs and no strength readout is opened.
-
-Re-admission reuses the exact original pilot cost-file hashes, block-work
-projections, fingerprint cost, 1.5 multiplier and reserves. At 15:51:40 Madrid
-it admits **36,965.42 seconds**, projecting science completion **02:07:46 Madrid
-October 17**, plus the separate two-hour preservation reserve. Current free
-disk is **57,731,907,584 bytes** against **31,504,892,644 required**. The new
-plan and execution admission pin scientific source `13ccb498`, while the initial
-failed time quote is retained separately. ETA is posted before final execution;
-the first final seed cache is building.
-[Explicit authorization and guard preservation](hu200-v055-blend-run-artifacts/owner-budget-extension.json),
-[revised clock](hu200-v055-blend-run-artifacts/campaign-clock-owner-extended.json),
-[admitted same-cost quote](hu200-v055-blend-run-artifacts/final-cost-admission-owner-extended.json),
-[frozen full-count plan](hu200-v055-blend-run-artifacts/final-plan.json),
-[execution admission](hu200-v055-blend-run-artifacts/execution-admission.json),
-[ETA before final play](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216986834).
-
-### October 16, 15:58 Madrid: fixed final execution starts
-
-The first final seed cache finishes with guard 0 after 301.70 seconds,
-61 samples and a 160,727,040-byte family RSS peak. Its source average and the
-plan/admission hash match. The seed2026101302 final group starts at
-15:58:00 Madrid: 131,072 duplicate direct blocks, then 16,384 paired blocks for
-each of the seven scripted opponents. Later groups use the other two seeds
-at the same fixed counts. No final outcome is read before all groups and the
-global hand/decision fingerprint barrier verify.
-
-### October 16, 16:40 Madrid: first full final group verified
-
-Seed2026101302 completes all eight fixed final comparisons with full independent
-replay and reproduction. Its guard returns0 after2,424.17seconds,483 samples,
-peak family RSS12,571,754,496bytes and no breach. The inactive seed cache is
-retired after fresh M1 owning-PR status, exact source/cache hashes, unchanged
-file inventory/metadata and no-handle checks. The second seed cache is building.
-No strength result has been read, and global verification still waits for all
-three complete groups.
-
-The observed full group is substantially faster than the frozen conservative
-pilot projection. An informational runtime update now estimates18:30–19:00Madrid
-for verified science, followed by roughly1–2hours for archival preservation and
-the unpacked2TB copy, conditional on Drive throughput. The original cost formula,
-quote, planning multiplier, authorized deadlines and every scientific parameter
-remain unchanged.
-[Completed group](hu200-v055-blend-run-artifacts/final1302-complete.json),
-[full group resources](hu200-v055-blend-run-artifacts/final1302-resource-receipt.json),
-[cache retirement/rebuild proof](hu200-v055-blend-run-artifacts/final1302-cache-retirement.json).
-
-### October 16, 17:30 Madrid: second full final group verified
-
-Seed 2026101421 completes all eight final comparisons at their fixed counts.
-Every hand independently replays and reproduces before group completion. Its
-guard returns 0 after 2,479.95 seconds, 494 samples and a 12,748,324,864-byte
-family RSS peak, with no resource breach. Only its inactive derived cache
-retires after fresh owning-PR status, full source/cache hashes, unchanged file
-inventory and no-handle checks. Originals and traces remain. The third seed
-cache is building; no final strength result has been read.
-[Completed group](hu200-v055-blend-run-artifacts/final1421-complete.json),
-[resources](hu200-v055-blend-run-artifacts/final1421-resource-receipt.json),
-[cache retirement/rebuild proof](hu200-v055-blend-run-artifacts/final1421-cache-retirement.json).
+# Frozen HU200 three-seed blend: fixed M4 readout
+
+The full owner-authorized continuation of #297 completes on the base Apple M4
+with 16 GiB physical RAM. All three original averages freshly reproduce their
+pinned SHA256s before the single raw blend is built and every row audited.
+All fixed final counts run; every stored hand independently replays and
+reproduces, and all repeated blend fingerprints match before readout.
+
+**No direct gain is established:** the blend-minus-seed estimates are
++3.61, +0.37 and +1.85 BB/100, with all three nominal 95% intervals crossing zero.
+All 21 paired scripted difference intervals also include zero, both nominally
+and with the descriptive family adjustment. The blend still loses against
+1.5× pot pressure: **−29.39 [−55.24, −3.53] BB/100**. That adverse finding is
+recorded as failed research evidence under the owner's instruction; it is kept
+without rerun, tuning, extra hands or an added pass/fail gate.
+
+**Preservation is in progress.** The PR remains draft while the main and
+administrative archives await full readback/upload acceptance and the requested
+unpacked 2 TB copies. The already accepted seed 1421 input bundle has its
+verified unpacked copy. The owner decides merge and any future Slumbot use.
+
+## Frozen study and verification
+
+[Protocol](../hu200-v055-blend-protocol.md), [original #297 report](hu200-v055-blend.md).
+Per union key/action, the accumulator is `fsum(raw Node.average_s / W_s)` over
+present seeds, with absent keys contributing zero. Regrets and visits are zero;
+the existing frozen exporter supplies uniform zero-mass play. W is the pinned
+per-seat scheduled `T*(T+1)/2`, with no root-mass reweighting.
+
+All construction, export, cache, play, replay, reproduction and statistical
+readout run on M4. M1 performs Git, report and archival administration; bb128
+is used only for the owner-requested storage copy. M4 scientific source remains
+`13ccb498482c228776128e70ad9e733fb0f5621a`; no later main changes enter execution.
+Both exclusive research locks and the unchanged five-second guards apply:
+13 GiB family RSS, 8% free memory, critical pressure and 4 GB swap growth
+sustained for 60 observed seconds, and immediate 16 GiB disk floor. Admission
+also retains the explicit 2 GiB margin.
+
+Final direct counts are **131,072 duplicate blocks per seed**. Each of seven
+scripts has **16,384 paired blocks**, with all four models on common deals and
+logical-role streams. Translation is **512 states /128 events on all models**.
+Disjoint cost pilots use 128 direct and 32 scripted blocks per seed. Fixed roots
+are reserved against main and every other open head before pilots/finals.
+[Final plan](hu200-v055-blend-run-artifacts/final-plan.json),
+[fresh root reservation](hu200-v055-blend-run-artifacts/root-reservation-authorized-finals.json).
+
+The global barrier verifies **2,162,688 stored primary records**, representing
+**1,703,936 unique primary hands**. Every stored hand independently replays and
+completely reproduces; the repeated blend hand and deterministic decision
+fingerprints match across all three pairs for each script. Repeated blend arms
+add no independent samples. Verification returns 0 before any readout.
+[Global barrier](hu200-v055-blend-run-artifacts/all-final-verified.json),
+[verified M4 readout](hu200-v055-blend-run-artifacts/summary.json).
+
+Intervals are paired Student-t nominal 95% intervals over duplicate blocks.
+The 21-contrast Bonferroni scripted adjustment is descriptive. These intervals
+refer to the selected fixed models, not the training-seed population. No
+Slumbot, server, release, tag or default change is made.
+
+## Direct results
+
+| Opposing seed | Blend minus seed, BB/100 [nominal 95% CI] |
+|---|---:|
+| 2026101302 | +3.61 [-1.15, +8.37] |
+| 2026101421 | +0.37 [-4.30, +5.05] |
+| 2026101422 | +1.85 [-2.83, +6.52] |
+
+## Scripted panel
+
+Each cell is BB/100 versus the script, with its nominal 95% interval.
+
+| Script | Blend | Seed 1302 | Seed 1421 | Seed 1422 |
+|---|---:|---:|---:|---:|
+| random | +186.17 [+111.34, +261.01] | +170.52 [+95.63, +245.41] | +173.04 [+97.88, +248.20] | +184.44 [+109.68, +259.19] |
+| check_call | +160.50 [+148.05, +172.96] | +162.98 [+150.38, +175.58] | +165.85 [+153.44, +178.26] | +162.82 [+150.33, +175.31] |
+| tight_aggressive | +68.10 [+56.60, +79.60] | +68.12 [+56.95, +79.29] | +72.35 [+60.22, +84.49] | +65.65 [+54.66, +76.64] |
+| loose_aggressive | +120.78 [+97.44, +144.12] | +111.76 [+88.71, +134.81] | +113.15 [+89.93, +136.37] | +112.52 [+89.52, +135.53] |
+| pot_pressure | -29.39 [-55.24, -3.53] | -42.96 [-69.24, -16.68] | -39.38 [-64.96, -13.80] | -37.72 [-63.81, -11.64] |
+| half_pot_pressure | +62.89 [+47.24, +78.53] | +68.01 [+52.68, +83.34] | +62.15 [+46.90, +77.41] | +62.18 [+47.01, +77.35] |
+| matched_pot_pressure | +64.95 [+49.60, +80.30] | +66.35 [+51.16, +81.54] | +65.10 [+50.10, +80.10] | +66.42 [+50.23, +82.60] |
+
+## Paired scripted differences
+
+Blend minus seed. The 21-contrast Bonferroni intervals are descriptive; there is no pass/fail gate.
+
+| Script | Seed | Nominal 95% CI with mean | Descriptive 21-contrast interval |
+|---|---|---:|---:|
+| random | 2026101302 | +15.65 [-3.12, +34.42] | [-13.44, +44.75] |
+| random | 2026101421 | +13.13 [-6.15, +32.41] | [-16.76, +43.02] |
+| random | 2026101422 | +1.73 [-18.47, +21.94] | [-29.59, +33.06] |
+| check_call | 2026101302 | -2.48 [-9.96, +5.01] | [-14.08, +9.12] |
+| check_call | 2026101421 | -5.35 [-13.25, +2.56] | [-17.59, +6.90] |
+| check_call | 2026101422 | -2.32 [-10.17, +5.53] | [-14.49, +9.85] |
+| tight_aggressive | 2026101302 | -0.02 [-8.32, +8.27] | [-12.89, +12.84] |
+| tight_aggressive | 2026101421 | -4.26 [-12.55, +4.04] | [-17.12, +8.60] |
+| tight_aggressive | 2026101422 | +2.45 [-4.94, +9.84] | [-9.00, +13.90] |
+| loose_aggressive | 2026101302 | +9.02 [-7.14, +25.17] | [-16.02, +34.06] |
+| loose_aggressive | 2026101421 | +7.63 [-8.92, +24.18] | [-18.03, +33.29] |
+| loose_aggressive | 2026101422 | +8.26 [-9.17, +25.69] | [-18.76, +35.28] |
+| pot_pressure | 2026101302 | +13.57 [-6.58, +33.72] | [-17.67, +44.81] |
+| pot_pressure | 2026101421 | +9.99 [-11.25, +31.24] | [-22.94, +42.93] |
+| pot_pressure | 2026101422 | +8.34 [-12.18, +28.85] | [-23.47, +40.14] |
+| half_pot_pressure | 2026101302 | -5.12 [-17.23, +6.99] | [-23.89, +13.65] |
+| half_pot_pressure | 2026101421 | +0.74 [-11.72, +13.19] | [-18.58, +20.05] |
+| half_pot_pressure | 2026101422 | +0.71 [-11.65, +13.06] | [-18.45, +19.86] |
+| matched_pot_pressure | 2026101302 | -1.40 [-13.03, +10.24] | [-19.43, +16.64] |
+| matched_pot_pressure | 2026101421 | -0.15 [-10.96, +10.66] | [-16.91, +16.61] |
+| matched_pot_pressure | 2026101422 | -1.46 [-13.95, +11.02] | [-20.82, +17.89] |
+
+## Union, zero mass and root diagnostics
+
+The union contains **156,208,331 keys /482,975,338 action slots**. Keys present
+in exactly one, two and three seeds number **88,880,705 /34,741,832 /32,585,794**.
+Each single seed contains about 85.374 million keys. All seven nonempty
+membership-mask counts, per-menu counts and root-class masses are retained in
+the [full union scan](hu200-v055-blend-run-artifacts/union-scan.json).
+
+The unchanged every-row auditor verifies all 156,208,331 rows, including
+**124,272,760 positive-mass** and **31,935,571 zero-mass uniform** rows.
+The raw synthetic checkpoint is 6,042,193,732 bytes; its average inference
+export is 6,282,968,150 bytes. Synthetic identity is
+`hu200-v055-sequence-blend-2026101529701`, with format-required iteration
+marker 1 and no training or resume claim. The 2,960,585,129-byte current export
+is retained for the auditor, not selected as another candidate.
+[Full model hashes](hu200-v055-blend-run-artifacts/blend-model-manifest.json),
+[every-row audit](hu200-v055-blend-run-artifacts/blend-every-row-audit.json).
+
+| Seed | T | Scheduled W | Root mass | Mass − W | Missing /classes |
+|---|---:|---:|---:|---:|---:|
+| 2026101302 | 16,670,844 | 138,958,528,171,590 | 138958528171589.98 | -0.015625 | 0 /169 |
+| 2026101421 | 16,745,107 | 140,199,312,593,278 | 140199312593278.0 | +0.000000 | 0 /169 |
+| 2026101422 | 16,827,728 | 141,586,223,234,856 | 141586223234856.06 | +0.062500 | 0 /169 |
+
+Root masses are diagnostic floating-point totals over all 169 small-blind
+preflop classes; the displayed differences never change the pinned W values.
+The three original average hashes reproduce exactly from their pinned raw
+checkpoints before blending: [1302](hu200-v055-blend-run-artifacts/seed1302-input-verified.json),
+[1421](hu200-v055-blend-run-artifacts/local-average-reproduced.json),
+[1422](hu200-v055-blend-run-artifacts/seed1422-input-verified.json).
+
+## Played coverage
+
+Exact absence is measured before translation; unresolved absence means no
+selected key after translation. Zero-mass known rows are separate and retain
+uniform play. The [136-row coverage table](hu200-v055-blend-run-artifacts/played-coverage.csv)
+contains counts and both shares for every direct model/street and every
+script/model/street, with each identical repeated blend panel arm counted once.
+[Raw panel coverage summary](hu200-v055-blend-run-artifacts/panel-played-coverage.json).
+
+| Direct opponent | Model | Street | Decisions | Exact absent % | Unresolved % |
+|---|---|---|---:|---:|---:|
+| 2026101302 | 2026101302 | flop | 213,536 | 0.000 | 0.000 |
+| 2026101302 | 2026101302 | preflop | 283,553 | 0.000 | 0.000 |
+| 2026101302 | 2026101302 | river | 100,141 | 0.060 | 0.060 |
+| 2026101302 | 2026101302 | turn | 141,393 | 0.016 | 0.016 |
+| 2026101302 | blend | flop | 214,943 | 0.000 | 0.000 |
+| 2026101302 | blend | preflop | 284,300 | 0.000 | 0.000 |
+| 2026101302 | blend | river | 100,226 | 0.016 | 0.016 |
+| 2026101302 | blend | turn | 141,373 | 0.001 | 0.001 |
+| 2026101421 | 2026101421 | flop | 216,041 | 0.000 | 0.000 |
+| 2026101421 | 2026101421 | preflop | 283,363 | 0.000 | 0.000 |
+| 2026101421 | 2026101421 | river | 102,247 | 0.054 | 0.054 |
+| 2026101421 | 2026101421 | turn | 143,612 | 0.018 | 0.018 |
+| 2026101421 | blend | flop | 215,258 | 0.000 | 0.000 |
+| 2026101421 | blend | preflop | 283,479 | 0.000 | 0.000 |
+| 2026101421 | blend | river | 102,190 | 0.010 | 0.010 |
+| 2026101421 | blend | turn | 143,606 | 0.003 | 0.003 |
+| 2026101422 | 2026101422 | flop | 214,872 | 0.000 | 0.000 |
+| 2026101422 | 2026101422 | preflop | 283,307 | 0.000 | 0.000 |
+| 2026101422 | 2026101422 | river | 101,908 | 0.049 | 0.049 |
+| 2026101422 | 2026101422 | turn | 143,417 | 0.017 | 0.017 |
+| 2026101422 | blend | flop | 214,240 | 0.000 | 0.000 |
+| 2026101422 | blend | preflop | 282,928 | 0.000 | 0.000 |
+| 2026101422 | blend | river | 102,212 | 0.010 | 0.010 |
+| 2026101422 | blend | turn | 143,129 | 0.001 | 0.001 |
+
+## Resources, timing and failures
+
+Hardware is Apple M4 Mac16,1, 17,179,869,184 physical memory bytes (16 GiB),
+10 logical CPUs, macOS 26.6. Through readout, 6,243 guard observations measure
+a **12,748,324,864-byte peak simultaneous process-family RSS (12.75 GB)**.
+The kernel's largest per-command process maximum is **12,734,185,472 bytes**;
+these separate command maxima are not summed. Minimum observed free memory
+is 67%; minimum free disk is 47,236,538,368 bytes. Maximum swap growth from
+the campaign baseline is 1,213,139,517 bytes. No observed resource threshold
+breach or resource stop occurs. Closed preservation-job resources will be
+added at archival closeout.
+[Hardware](hu200-v055-blend-run-artifacts/machine.json),
+[sampled families](hu200-v055-blend-run-artifacts/resource-summary.json),
+[kernel maxima](hu200-v055-blend-run-artifacts/kernel-rss-summary.json).
+
+| Work | Observed wall time |
+|---|---:|
+| Full raw merge | 28m53s |
+| Frozen current/average export | 28m44s |
+| Full every-row audit | 49m12s |
+| Final group 1302, including replay/reproduction | 40m24s |
+| Final group 1421, including replay/reproduction | 41m20s |
+| Final group 1422, including replay/reproduction | 41m10s |
+| Global verification | 75.47s |
+| Readout and full panel coverage | 70.44s |
+
+The frozen cost-only formula quotes 10h16m remaining science with its required
+1.5 multiplier and reserves. It fits disk but exceeds the initial science
+deadline. Before any final hand or strength readout, the owner explicitly
+authorizes a prospective extension to **02:30 science /04:30 preservation,
+Madrid October 17**, preserving the two-hour closeout reserve. Original clock
+and time-stop quote remain evidence; guard baseline/held-state hashes are
+unchanged by the extension. Actual finals complete substantially faster than
+the conservative pilot projection; no formula, count or scientific rule is
+changed. [Authorization](hu200-v055-blend-run-artifacts/owner-budget-extension.json),
+[original quote](hu200-v055-blend-run-artifacts/final-cost-admission.json),
+[admitted same-cost quote](hu200-v055-blend-run-artifacts/final-cost-admission-owner-extended.json).
+
+All unfavorable findings remain in the tables. The losing 1.5× pot-pressure
+result is recorded as failed research evidence; direct gains remain unestablished.
+No original-average mismatch, row-audit failure, hand-replay/reproduction
+mismatch or global-fingerprint failure occurs.
+
+Plumbing history is retained: #303's missing 19.408 GB of inputs and provisional
+disk shortage; the old partial seed 1421 full-cloud ZIP, resolved for this run
+by a new accepted checkpoint-only archive; the missing manifest control field
+after a correct whole-ZIP hash; the refused recovery launch and preserved STOP;
+and the prospective time-budget hold. Original baseline/held state, failures
+and source versions remain. Administrative Python-version, fetch-ref and tool
+syntax errors are also retained. [Complete failure ledger](hu200-v055-blend-run-artifacts/failures.json),
+[dated execution history](hu200-v055-blend-run-artifacts/execution-history.md).
+
+Only inactive derived caches retire, after full comparison verification, fresh
+owning-PR status, canonical-source pins, exact inventory/hashes and no handles.
+The final blend cache additionally retires after global verification and readout.
+Every research original and active dependency remains. Exact cache rebuild
+commands and retirement receipts are retained.
+
+## Evidence and preservation
+
+Scientific outputs are retained on M4 under
+`~/Local/hu200-v055-blend-run/results/hu200-v055-blend/`. The designated
+[Drive folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK)
+is `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. The final main bundle
+and administrative supplement are pending creation/readback/upload acceptance.
+The owner-requested unpacked copies will be retained under
+`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, with matching manifests,
+every-member size/SHA256 verification and independent copied-file readback.
+No final mirror or upload acceptance is claimed prematurely.
+
+The separately accepted seed 1421 checkpoint-only input bundle already has its
+verified unpacked copy. [Current archive/retrieval index](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run).

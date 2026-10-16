@@ -13,9 +13,11 @@
       "phase": "administrative tool orchestration"
     }
   ],
-  "at": 1792158778.996335,
+  "all_strength_readout_after_global_verification": true,
+  "at": 1792167888.3052878,
+  "integrity_failures": [],
   "no_failed_hand_retry": true,
-  "no_outcomes_observed": true,
+  "no_outcomes_observed": false,
   "plumbing": [
     {
       "detail": "#303 removed 19,407,460,871 bytes of required inputs. About 83.38 GB free before restoration projects about 64 GB afterward versus the unchanged prior 74.474 GB construction need. Owner alerted and acknowledged; actual restored admission remains required.",
@@ -53,5 +55,20 @@
       "state": "resolved-owner-authorized-prospective-extension-admitted"
     }
   ],
-  "research_failures": []
+  "research_failures": [
+    {
+      "all_fixed_counts_completed_and_verified": true,
+      "bb_per_100": -29.38690185546875,
+      "blocks": 16384,
+      "classification": "Failed adverse research finding per owner instruction; no overall pass/fail gate is introduced",
+      "evidence": "summary.json / panel.pot_pressure.models.blend",
+      "finding": "Blend remains losing against the1.5x pot-pressure script",
+      "kind": "adverse-fixed-result",
+      "no_research_retry_tuning_or_extension_after_readout": true,
+      "nominal_ci95": [
+        -55.24379814491455,
+        -3.530005566022947
+      ]
+    }
+  ]
 }

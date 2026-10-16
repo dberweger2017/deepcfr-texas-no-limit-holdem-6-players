@@ -1,0 +1,1288 @@
+{
+  "coverage": {
+    "seed-2026101302/panel-check_call": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 30917,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30917,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 30917,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30917,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 30917,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30917,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101302/panel-half_pot_pressure": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 9173,
+        "exact_missing_share": 0.015916276027471928,
+        "missing-key": 146,
+        "positive-mass-known-key": 9026,
+        "translated": 141,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.0005450779461462989,
+        "zero-mass": 1
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 22355,
+        "exact_missing_share": 0.0073808991277119216,
+        "missing-key": 165,
+        "positive-mass-known-key": 22190,
+        "translated": 161,
+        "unresolved": 4,
+        "unresolved_missing_share": 0.00017893088794453143
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 3033,
+        "exact_missing_share": 0.08110781404549951,
+        "missing-key": 246,
+        "positive-mass-known-key": 2786,
+        "translated": 239,
+        "unresolved": 7,
+        "unresolved_missing_share": 0.0023079459281239697,
+        "zero-mass": 1
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 5002,
+        "exact_missing_share": 0.03718512594962015,
+        "missing-key": 186,
+        "positive-mass-known-key": 4816,
+        "translated": 183,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0005997600959616154
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 9120,
+        "exact_missing_share": 0.015789473684210527,
+        "missing-key": 144,
+        "positive-mass-known-key": 8976,
+        "translated": 139,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.0005482456140350877
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22327,
+        "exact_missing_share": 0.007524521879338917,
+        "missing-key": 168,
+        "positive-mass-known-key": 22159,
+        "translated": 163,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.00022394410355175347
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2993,
+        "exact_missing_share": 0.07617774807885065,
+        "missing-key": 228,
+        "positive-mass-known-key": 2765,
+        "translated": 225,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0010023387905111927
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5067,
+        "exact_missing_share": 0.0380895993684626,
+        "missing-key": 193,
+        "positive-mass-known-key": 4874,
+        "translated": 190,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0005920663114268798
+      }
+    },
+    "seed-2026101302/panel-loose_aggressive": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 14949,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14949,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 27478,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27478,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 7300,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 7300,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 9894,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 9894,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 14865,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14865,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 27479,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27479,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 7300,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 7300,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 9997,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 9997,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101302/panel-matched_pot_pressure": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 8282,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8282,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 22051,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22051,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 2412,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2412,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 4282,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4282,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8253,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8253,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22075,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22075,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2401,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2401,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4341,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4341,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101302/panel-pot_pressure": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 8490,
+        "exact_missing_share": 0.3414605418138987,
+        "missing-key": 2899,
+        "positive-mass-known-key": 5591,
+        "translated": 2672,
+        "unresolved": 227,
+        "unresolved_missing_share": 0.02673733804475854
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 22178,
+        "exact_missing_share": 0.07178284786725583,
+        "missing-key": 1592,
+        "positive-mass-known-key": 20586,
+        "translated": 1260,
+        "unresolved": 332,
+        "unresolved_missing_share": 0.014969789881864912
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 2437,
+        "exact_missing_share": 0.6758309396799344,
+        "missing-key": 1647,
+        "positive-mass-known-key": 789,
+        "translated": 1234,
+        "unresolved": 413,
+        "unresolved_missing_share": 0.16947066064833813,
+        "zero-mass": 1
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 4371,
+        "exact_missing_share": 0.5229924502402197,
+        "missing-key": 2286,
+        "positive-mass-known-key": 2084,
+        "translated": 1962,
+        "unresolved": 324,
+        "unresolved_missing_share": 0.07412491420727522,
+        "zero-mass": 1
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8397,
+        "exact_missing_share": 0.33916875074431346,
+        "missing-key": 2848,
+        "positive-mass-known-key": 5549,
+        "translated": 2627,
+        "unresolved": 221,
+        "unresolved_missing_share": 0.02631892342503275
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22131,
+        "exact_missing_share": 0.06890786679318603,
+        "missing-key": 1525,
+        "positive-mass-known-key": 20604,
+        "translated": 1241,
+        "unresolved": 284,
+        "unresolved_missing_share": 0.012832678143780217,
+        "zero-mass": 2
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2406,
+        "exact_missing_share": 0.6691604322527016,
+        "missing-key": 1610,
+        "positive-mass-known-key": 796,
+        "translated": 1216,
+        "unresolved": 394,
+        "unresolved_missing_share": 0.16375727348295926
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4380,
+        "exact_missing_share": 0.5205479452054794,
+        "missing-key": 2280,
+        "positive-mass-known-key": 2100,
+        "translated": 1953,
+        "unresolved": 327,
+        "unresolved_missing_share": 0.07465753424657534
+      }
+    },
+    "seed-2026101302/panel-random": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 13561,
+        "exact_missing_share": 0.1891453432637711,
+        "missing-key": 2565,
+        "positive-mass-known-key": 10996,
+        "translated": 0,
+        "unresolved": 2565,
+        "unresolved_missing_share": 0.1891453432637711
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 33192,
+        "exact_missing_share": 0.17031212340322968,
+        "missing-key": 5653,
+        "positive-mass-known-key": 27539,
+        "translated": 0,
+        "unresolved": 5653,
+        "unresolved_missing_share": 0.17031212340322968
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 2090,
+        "exact_missing_share": 0.16028708133971292,
+        "missing-key": 335,
+        "positive-mass-known-key": 1755,
+        "translated": 0,
+        "unresolved": 335,
+        "unresolved_missing_share": 0.16028708133971292
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 5238,
+        "exact_missing_share": 0.18041237113402062,
+        "missing-key": 945,
+        "positive-mass-known-key": 4293,
+        "translated": 0,
+        "unresolved": 945,
+        "unresolved_missing_share": 0.18041237113402062
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 13642,
+        "exact_missing_share": 0.1888286175047647,
+        "missing-key": 2576,
+        "positive-mass-known-key": 11066,
+        "translated": 0,
+        "unresolved": 2576,
+        "unresolved_missing_share": 0.1888286175047647
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 33174,
+        "exact_missing_share": 0.17004280460601676,
+        "missing-key": 5641,
+        "positive-mass-known-key": 27533,
+        "translated": 0,
+        "unresolved": 5641,
+        "unresolved_missing_share": 0.17004280460601676
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2105,
+        "exact_missing_share": 0.15914489311163896,
+        "missing-key": 335,
+        "positive-mass-known-key": 1770,
+        "translated": 0,
+        "unresolved": 335,
+        "unresolved_missing_share": 0.15914489311163896
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5265,
+        "exact_missing_share": 0.1772079772079772,
+        "missing-key": 933,
+        "positive-mass-known-key": 4332,
+        "translated": 0,
+        "unresolved": 933,
+        "unresolved_missing_share": 0.1772079772079772
+      }
+    },
+    "seed-2026101302/panel-tight_aggressive": {
+      "frozen-seed-2026101302/flop": {
+        "decisions": 6363,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6363,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/preflop": {
+        "decisions": 18980,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18980,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/river": {
+        "decisions": 1289,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1289,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101302/turn": {
+        "decisions": 2565,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2565,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 6292,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6292,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 18938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18938,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 1310,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1310,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 2655,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2655,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101421/panel-check_call": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 30891,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30891,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 30891,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30891,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 30891,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30891,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101421/panel-half_pot_pressure": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 9120,
+        "exact_missing_share": 0.014364035087719298,
+        "missing-key": 131,
+        "positive-mass-known-key": 8989,
+        "translated": 128,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0003289473684210526
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 22341,
+        "exact_missing_share": 0.007833131909941364,
+        "missing-key": 175,
+        "positive-mass-known-key": 22165,
+        "translated": 170,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.00022380376885546753,
+        "zero-mass": 1
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 3014,
+        "exact_missing_share": 0.08261446582614466,
+        "missing-key": 249,
+        "positive-mass-known-key": 2764,
+        "translated": 245,
+        "unresolved": 4,
+        "unresolved_missing_share": 0.0013271400132714001,
+        "zero-mass": 1
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 5121,
+        "exact_missing_share": 0.041202890060535055,
+        "missing-key": 211,
+        "positive-mass-known-key": 4907,
+        "translated": 206,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.0009763718023823472,
+        "zero-mass": 3
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 9120,
+        "exact_missing_share": 0.015789473684210527,
+        "missing-key": 144,
+        "positive-mass-known-key": 8976,
+        "translated": 139,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.0005482456140350877
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22327,
+        "exact_missing_share": 0.007524521879338917,
+        "missing-key": 168,
+        "positive-mass-known-key": 22159,
+        "translated": 163,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.00022394410355175347
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2993,
+        "exact_missing_share": 0.07617774807885065,
+        "missing-key": 228,
+        "positive-mass-known-key": 2765,
+        "translated": 225,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0010023387905111927
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5067,
+        "exact_missing_share": 0.0380895993684626,
+        "missing-key": 193,
+        "positive-mass-known-key": 4874,
+        "translated": 190,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0005920663114268798
+      }
+    },
+    "seed-2026101421/panel-loose_aggressive": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 14862,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14862,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 27464,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27464,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 7363,
+        "exact_missing_share": 0.00013581420616596497,
+        "missing-key": 1,
+        "positive-mass-known-key": 7362,
+        "translated": 0,
+        "unresolved": 1,
+        "unresolved_missing_share": 0.00013581420616596497
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 10017,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 10017,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 14865,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14865,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 27479,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27479,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 7300,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 7300,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 9997,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 9997,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101421/panel-matched_pot_pressure": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 8169,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8169,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 22002,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22002,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 2352,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2352,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 4316,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4316,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8253,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8253,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22075,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22075,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2401,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2401,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4341,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4341,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101421/panel-pot_pressure": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 8262,
+        "exact_missing_share": 0.3373275236020334,
+        "missing-key": 2787,
+        "positive-mass-known-key": 5475,
+        "translated": 2579,
+        "unresolved": 208,
+        "unresolved_missing_share": 0.025175502299685307
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 22059,
+        "exact_missing_share": 0.06369282379074301,
+        "missing-key": 1405,
+        "positive-mass-known-key": 20654,
+        "translated": 1153,
+        "unresolved": 252,
+        "unresolved_missing_share": 0.01142390860873113
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 2334,
+        "exact_missing_share": 0.6658097686375322,
+        "missing-key": 1554,
+        "positive-mass-known-key": 780,
+        "translated": 1171,
+        "unresolved": 383,
+        "unresolved_missing_share": 0.16409597257926306
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 4347,
+        "exact_missing_share": 0.5127674258109041,
+        "missing-key": 2229,
+        "positive-mass-known-key": 2118,
+        "translated": 1915,
+        "unresolved": 314,
+        "unresolved_missing_share": 0.07223372440763745
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8397,
+        "exact_missing_share": 0.33916875074431346,
+        "missing-key": 2848,
+        "positive-mass-known-key": 5549,
+        "translated": 2627,
+        "unresolved": 221,
+        "unresolved_missing_share": 0.02631892342503275
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22131,
+        "exact_missing_share": 0.06890786679318603,
+        "missing-key": 1525,
+        "positive-mass-known-key": 20604,
+        "translated": 1241,
+        "unresolved": 284,
+        "unresolved_missing_share": 0.012832678143780217,
+        "zero-mass": 2
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2406,
+        "exact_missing_share": 0.6691604322527016,
+        "missing-key": 1610,
+        "positive-mass-known-key": 796,
+        "translated": 1216,
+        "unresolved": 394,
+        "unresolved_missing_share": 0.16375727348295926
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4380,
+        "exact_missing_share": 0.5205479452054794,
+        "missing-key": 2280,
+        "positive-mass-known-key": 2100,
+        "translated": 1953,
+        "unresolved": 327,
+        "unresolved_missing_share": 0.07465753424657534
+      }
+    },
+    "seed-2026101421/panel-random": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 13650,
+        "exact_missing_share": 0.187985347985348,
+        "missing-key": 2566,
+        "positive-mass-known-key": 11084,
+        "translated": 0,
+        "unresolved": 2566,
+        "unresolved_missing_share": 0.187985347985348
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 33197,
+        "exact_missing_share": 0.17019610205741484,
+        "missing-key": 5650,
+        "positive-mass-known-key": 27547,
+        "translated": 0,
+        "unresolved": 5650,
+        "unresolved_missing_share": 0.17019610205741484
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 2075,
+        "exact_missing_share": 0.1580722891566265,
+        "missing-key": 328,
+        "positive-mass-known-key": 1747,
+        "translated": 0,
+        "unresolved": 328,
+        "unresolved_missing_share": 0.1580722891566265
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 5298,
+        "exact_missing_share": 0.17591543978859947,
+        "missing-key": 932,
+        "positive-mass-known-key": 4366,
+        "translated": 0,
+        "unresolved": 932,
+        "unresolved_missing_share": 0.17591543978859947
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 13642,
+        "exact_missing_share": 0.1888286175047647,
+        "missing-key": 2576,
+        "positive-mass-known-key": 11066,
+        "translated": 0,
+        "unresolved": 2576,
+        "unresolved_missing_share": 0.1888286175047647
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 33174,
+        "exact_missing_share": 0.17004280460601676,
+        "missing-key": 5641,
+        "positive-mass-known-key": 27533,
+        "translated": 0,
+        "unresolved": 5641,
+        "unresolved_missing_share": 0.17004280460601676
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2105,
+        "exact_missing_share": 0.15914489311163896,
+        "missing-key": 335,
+        "positive-mass-known-key": 1770,
+        "translated": 0,
+        "unresolved": 335,
+        "unresolved_missing_share": 0.15914489311163896
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5265,
+        "exact_missing_share": 0.1772079772079772,
+        "missing-key": 933,
+        "positive-mass-known-key": 4332,
+        "translated": 0,
+        "unresolved": 933,
+        "unresolved_missing_share": 0.1772079772079772
+      }
+    },
+    "seed-2026101421/panel-tight_aggressive": {
+      "frozen-seed-2026101421/flop": {
+        "decisions": 6139,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6139,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/preflop": {
+        "decisions": 18908,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18908,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/river": {
+        "decisions": 1207,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1207,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101421/turn": {
+        "decisions": 2554,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2554,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 6292,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6292,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 18938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18938,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 1310,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1310,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 2655,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2655,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101422/panel-check_call": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 30938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30938,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 30938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30938,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 30938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30938,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 32768,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 32768,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 30918,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 30918,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101422/panel-half_pot_pressure": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 9222,
+        "exact_missing_share": 0.012144870960746042,
+        "missing-key": 112,
+        "positive-mass-known-key": 9110,
+        "translated": 106,
+        "unresolved": 6,
+        "unresolved_missing_share": 0.0006506180871828237
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 22293,
+        "exact_missing_share": 0.006369712465796438,
+        "missing-key": 142,
+        "positive-mass-known-key": 22144,
+        "translated": 140,
+        "unresolved": 2,
+        "unresolved_missing_share": 8.971426008163998e-05,
+        "zero-mass": 7
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 3081,
+        "exact_missing_share": 0.07335280753002273,
+        "missing-key": 226,
+        "positive-mass-known-key": 2855,
+        "translated": 224,
+        "unresolved": 2,
+        "unresolved_missing_share": 0.0006491398896462187
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 5180,
+        "exact_missing_share": 0.03030888030888031,
+        "missing-key": 157,
+        "positive-mass-known-key": 5023,
+        "translated": 153,
+        "unresolved": 4,
+        "unresolved_missing_share": 0.0007722007722007722
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 9120,
+        "exact_missing_share": 0.015789473684210527,
+        "missing-key": 144,
+        "positive-mass-known-key": 8976,
+        "translated": 139,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.0005482456140350877
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22327,
+        "exact_missing_share": 0.007524521879338917,
+        "missing-key": 168,
+        "positive-mass-known-key": 22159,
+        "translated": 163,
+        "unresolved": 5,
+        "unresolved_missing_share": 0.00022394410355175347
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2993,
+        "exact_missing_share": 0.07617774807885065,
+        "missing-key": 228,
+        "positive-mass-known-key": 2765,
+        "translated": 225,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0010023387905111927
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5067,
+        "exact_missing_share": 0.0380895993684626,
+        "missing-key": 193,
+        "positive-mass-known-key": 4874,
+        "translated": 190,
+        "unresolved": 3,
+        "unresolved_missing_share": 0.0005920663114268798
+      }
+    },
+    "seed-2026101422/panel-loose_aggressive": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 14815,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14815,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 27439,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27439,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 7333,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 7333,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 9973,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 9973,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 14865,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 14865,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 27479,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 27479,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 7300,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 7300,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 9997,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 9997,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101422/panel-matched_pot_pressure": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 8406,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8406,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 22111,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22111,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 2397,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2397,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 4427,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4427,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8253,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 8253,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22075,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 22075,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2401,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2401,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4341,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 4341,
+        "unresolved_missing_share": 0.0
+      }
+    },
+    "seed-2026101422/panel-pot_pressure": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 8363,
+        "exact_missing_share": 0.34234126509625734,
+        "missing-key": 2863,
+        "positive-mass-known-key": 5500,
+        "translated": 2629,
+        "unresolved": 234,
+        "unresolved_missing_share": 0.027980389812268323
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 22125,
+        "exact_missing_share": 0.0688361581920904,
+        "missing-key": 1523,
+        "positive-mass-known-key": 20599,
+        "translated": 1213,
+        "unresolved": 310,
+        "unresolved_missing_share": 0.01401129943502825,
+        "zero-mass": 3
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 2457,
+        "exact_missing_share": 0.6674806674806675,
+        "missing-key": 1640,
+        "positive-mass-known-key": 817,
+        "translated": 1208,
+        "unresolved": 432,
+        "unresolved_missing_share": 0.17582417582417584
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 4445,
+        "exact_missing_share": 0.5172103487064117,
+        "missing-key": 2299,
+        "positive-mass-known-key": 2146,
+        "translated": 1946,
+        "unresolved": 353,
+        "unresolved_missing_share": 0.07941507311586052
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 8397,
+        "exact_missing_share": 0.33916875074431346,
+        "missing-key": 2848,
+        "positive-mass-known-key": 5549,
+        "translated": 2627,
+        "unresolved": 221,
+        "unresolved_missing_share": 0.02631892342503275
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 22131,
+        "exact_missing_share": 0.06890786679318603,
+        "missing-key": 1525,
+        "positive-mass-known-key": 20604,
+        "translated": 1241,
+        "unresolved": 284,
+        "unresolved_missing_share": 0.012832678143780217,
+        "zero-mass": 2
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2406,
+        "exact_missing_share": 0.6691604322527016,
+        "missing-key": 1610,
+        "positive-mass-known-key": 796,
+        "translated": 1216,
+        "unresolved": 394,
+        "unresolved_missing_share": 0.16375727348295926
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 4380,
+        "exact_missing_share": 0.5205479452054794,
+        "missing-key": 2280,
+        "positive-mass-known-key": 2100,
+        "translated": 1953,
+        "unresolved": 327,
+        "unresolved_missing_share": 0.07465753424657534
+      }
+    },
+    "seed-2026101422/panel-random": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 13658,
+        "exact_missing_share": 0.18816810660418803,
+        "missing-key": 2570,
+        "positive-mass-known-key": 11088,
+        "translated": 0,
+        "unresolved": 2570,
+        "unresolved_missing_share": 0.18816810660418803
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 33162,
+        "exact_missing_share": 0.1694409263614981,
+        "missing-key": 5619,
+        "positive-mass-known-key": 27543,
+        "translated": 0,
+        "unresolved": 5619,
+        "unresolved_missing_share": 0.1694409263614981
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 2123,
+        "exact_missing_share": 0.16344795101271786,
+        "missing-key": 347,
+        "positive-mass-known-key": 1776,
+        "translated": 0,
+        "unresolved": 347,
+        "unresolved_missing_share": 0.16344795101271786
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 5283,
+        "exact_missing_share": 0.1764149157675563,
+        "missing-key": 932,
+        "positive-mass-known-key": 4351,
+        "translated": 0,
+        "unresolved": 932,
+        "unresolved_missing_share": 0.1764149157675563
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 13642,
+        "exact_missing_share": 0.1888286175047647,
+        "missing-key": 2576,
+        "positive-mass-known-key": 11066,
+        "translated": 0,
+        "unresolved": 2576,
+        "unresolved_missing_share": 0.1888286175047647
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 33174,
+        "exact_missing_share": 0.17004280460601676,
+        "missing-key": 5641,
+        "positive-mass-known-key": 27533,
+        "translated": 0,
+        "unresolved": 5641,
+        "unresolved_missing_share": 0.17004280460601676
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 2105,
+        "exact_missing_share": 0.15914489311163896,
+        "missing-key": 335,
+        "positive-mass-known-key": 1770,
+        "translated": 0,
+        "unresolved": 335,
+        "unresolved_missing_share": 0.15914489311163896
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 5265,
+        "exact_missing_share": 0.1772079772079772,
+        "missing-key": 933,
+        "positive-mass-known-key": 4332,
+        "translated": 0,
+        "unresolved": 933,
+        "unresolved_missing_share": 0.1772079772079772
+      }
+    },
+    "seed-2026101422/panel-tight_aggressive": {
+      "frozen-seed-2026101422/flop": {
+        "decisions": 6237,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6237,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/preflop": {
+        "decisions": 18945,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18945,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/river": {
+        "decisions": 1356,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1356,
+        "unresolved_missing_share": 0.0
+      },
+      "frozen-seed-2026101422/turn": {
+        "decisions": 2742,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2742,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/flop": {
+        "decisions": 6292,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 6292,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/preflop": {
+        "decisions": 18938,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 18938,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/river": {
+        "decisions": 1310,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 1310,
+        "unresolved_missing_share": 0.0
+      },
+      "hu200-v055-sequence-blend-2026101529701/turn": {
+        "decisions": 2655,
+        "exact_missing_share": 0.0,
+        "positive-mass-known-key": 2655,
+        "unresolved_missing_share": 0.0
+      }
+    }
+  },
+  "global_barrier_sha256": "1502aee56a553d9f5a5f90a065fca72cdd0aa9016c7ee3a20fdb8c305c35a675",
+  "plan_sha256": "c111c6505650068a524e04ee8951bf12892993229a5fc06b4e53ad309dafbaac",
+  "status": "verified"
+}

@@ -2,19 +2,7 @@
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), draft;
 [report](docs/reports/hu200-v055-blend-run.md). Owner-authorized October 16
-continuation of merged #297's unplayed frozen campaign. All three original averages now freshly reproduce exactly
-from their raw checkpoints on the 16 GiB M4. The actual gate admits
-construction: 77.940 GB free versus 74.475 GB required, with the 16-GiB floor
-and 2-GiB margin included. The full 156,208,331-key blend is now
-built and every row audits; its 6.283-GB inference export is ready. The blend
-cache and all three fixed cost-pilot groups independently replay/reproduce.
-The owner prospectively authorizes02:30 science/04:30 preservation Madrid
-October17; the same10 h16 min quote now admits. Two full final groups are verified and the third seed cache is
-building; no final strength readout exists. Original clock/time-stop and guard
-state preservation remain evidence.
-[Exact pending cost admission](docs/reports/hu200-v055-blend-run-artifacts/final-cost-admission.json). The initial space
-shortfall and resolved intake-configuration failure/original STOP remain
-preserved. This remains active work.
+continuation of merged #297's unplayed frozen campaign. All three original averages freshly reproduce exactly from their raw checkpoints on the 16 GiB M4. The single 156,208,331-key blend passes every-row audit. All fixed final counts run: 2,162,688 stored primary records replay/reproduce, and repeated blend fingerprints match before readout. No direct gain is established; all 21 paired scripted intervals include zero. The blend still loses 1.5× pot pressure, −29.39 [−55.24,−3.53] BB/100, retained as failed adverse research evidence without retry or tuning. Peak sampled family RSS is 12.75 GB. Main/admin archive readback, upload acceptance and unpacked 2 TB copies remain pending; the PR stays draft. Original clock/time-stop and prospectively authorized extension are preserved, with unchanged guard state. [Complete readout](docs/reports/hu200-v055-blend-run-artifacts/summary.json), [global barrier](docs/reports/hu200-v055-blend-run-artifacts/all-final-verified.json).
 
 **Audited local M4 blend, archive pending:**
 `~/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/`.

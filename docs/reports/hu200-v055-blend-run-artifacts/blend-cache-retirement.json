@@ -1,0 +1,71 @@
+{
+  "at": 1792167735.070869,
+  "cache_builder_complete": "cache-blend/complete.json",
+  "canonical_source": {
+    "bytes": 6282968150,
+    "model_identity": "hu200-v055-sequence-blend-2026101529701",
+    "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/average.gz",
+    "sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485"
+  },
+  "current_owner_status": {
+    "checked_at": 1792167727.4245188,
+    "number": 306,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+  },
+  "files": [
+    {
+      "allocated_bytes": 1258508288,
+      "bytes": 1249666776,
+      "mtime_ns": 1792155780038037863,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/counts.npy",
+      "sha256": "293f8e6536c1f1937a4bdeb97b514d4588c6aee804d8565f118ad01966468f93"
+    },
+    {
+      "allocated_bytes": 318820352,
+      "bytes": 312416790,
+      "mtime_ns": 1792155780035402670,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/menu.npy",
+      "sha256": "2e9f51908c18f687ece4b595598f026b33aca0d75085efefe996f9d40149ebdf"
+    },
+    {
+      "allocated_bytes": 1258508288,
+      "bytes": 1249666776,
+      "mtime_ns": 1792155780035722543,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/offsets.npy",
+      "sha256": "42fd284540cf7f0508d2e001399d186238e02f1d14c48a774481d6ecd0e817d4"
+    },
+    {
+      "allocated_bytes": 167796736,
+      "bytes": 156208459,
+      "mtime_ns": 1792155780038003863,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/flags.npy",
+      "sha256": "b2991312d5cff3ce8426bee48fae21b412669ff39b37cf52effcacd3ccca6acf"
+    },
+    {
+      "allocated_bytes": 2500239360,
+      "bytes": 2499333424,
+      "mtime_ns": 1792155780035385962,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/keys.npy",
+      "sha256": "b7c4f50e2b0076b4fa236840685793d74ce61135c38fd25c2b610d93a28aedd3"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 1614,
+      "mtime_ns": 1792155785610768097,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/manifest.json",
+      "sha256": "f268dffb117722029d4d7c3ee4bbb07e049a1b62f670c434939b466dee6f2328"
+    },
+    {
+      "allocated_bytes": 3876401152,
+      "bytes": 3863802832,
+      "mtime_ns": 1792155780037338825,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/probabilities.npy",
+      "sha256": "818085833cbfe1c36f23539a9997b13ea874945935dc9aeb8a6918837d66b438"
+    }
+  ],
+  "partial": false,
+  "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+  "rebuild": "Existing scripts.build_streaming_average_cache with the union/input action-slot counts and canonical source hash; stage cache-*/complete.json records exact full command",
+  "unique_research_evidence_removed": false
+}
