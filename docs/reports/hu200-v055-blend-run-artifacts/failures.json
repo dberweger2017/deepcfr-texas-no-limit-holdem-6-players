@@ -13,7 +13,7 @@
       "phase": "administrative tool orchestration"
     }
   ],
-  "at": 1792141821.632253,
+  "at": 1792148832.8353941,
   "no_failed_hand_retry": true,
   "no_outcomes_observed": true,
   "plumbing": [
@@ -21,7 +21,8 @@
       "detail": "#303 removed 19,407,460,871 bytes of required inputs. About 83.38 GB free before restoration projects about 64 GB afterward versus the unchanged prior 74.474 GB construction need. Owner alerted and acknowledged; actual restored admission remains required.",
       "kind": "disk-capacity",
       "phase": "inventory",
-      "state": "extra-headroom-observed-awaiting-actual-restored-gate"
+      "resolution": "All required inputs restored and exactly reproduced; fresh gate admits77,940,490,240 free bytes against74,474,620,158 required, including floor/margin. construction-capacity-gate.json",
+      "state": "resolved-actual-construction-gate-admitted"
     },
     {
       "acceptance": "seed1421-checkpoint-upload-acceptance.json",

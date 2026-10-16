@@ -192,3 +192,25 @@ scan and construction-admission calculation are running.
 [Third exact proof](hu200-v055-blend-run-artifacts/seed1422-input-verified.json),
 [resource receipt](hu200-v055-blend-run-artifacts/seed1422-reproduction-resource-receipt.json),
 [normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1422-archive-cache-released.json).
+
+### October 16, 13:05 Madrid: construction admitted and started
+
+The fresh bounded union scan takes 324.31 seconds and again finds
+156,208,331 union keys /482,975,338 action slots. Keys present in exactly
+one, two and three seeds are 88,880,705 /34,741,832 /32,585,794. The fixed
+unplayed 38,103-key compression probe passes the unchanged every-row auditor.
+Actual free space is 77,940,490,240 bytes against 74,474,620,158 required:
+3,465,870,082 bytes above the complete peak reservation, which already
+includes the 16-GiB floor and 2-GiB margin. Construction is admitted and the
+full fixed-rule merge starts at 13:05:43 Madrid. No pilot or final hand exists.
+
+The gate reserves 22,654,759,739 audit-workspace bytes, 9,331,111,441 blend-cache
+bytes and one seed cache at a time. Compression projections retain the fixed
+1.5 multiplier; the small difference from #297's byte total follows the new
+run's path/header bytes. Canonical raw/table APFS clones are verified against
+their accepted indexed dependencies when sealing, matching the gate's exclusion of separately indexed source inputs; all originals remain.
+Union guard: 68 clear readings, 72,941,568-byte family RSS peak.
+[Full fresh scan and root diagnostics](hu200-v055-blend-run-artifacts/union-scan.json),
+[actual capacity gate](hu200-v055-blend-run-artifacts/construction-capacity-gate.json),
+[scan resources](hu200-v055-blend-run-artifacts/union-resource-receipt.json),
+[unchanged required sample audit cost](hu200-v055-blend-run-artifacts/union-sample-audit-time.json).

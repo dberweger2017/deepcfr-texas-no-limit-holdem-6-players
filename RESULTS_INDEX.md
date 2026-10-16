@@ -2,14 +2,13 @@
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), draft;
 [report](docs/reports/hu200-v055-blend-run.md). Owner-authorized October 16
-continuation of merged #297's unplayed frozen campaign. No full blend, cache,
-pilot or final hand exists yet. Input restoration and fresh exact-average
-reproduction run on the 16 GiB M4; construction awaits actual disk admission.
-The owner was alerted to the initial 10.5 GB shortfall after restoring
-#303's 19.408 GB of removed inputs; additional space now provisionally covers
-it, pending the actual union gate. Seeds1421 and1302 freshly reproduce exactly;
-seed1422 restoration is running. The resolved intake-configuration failure
-and its original guard STOP are preserved. This remains pending work.
+continuation of merged #297's unplayed frozen campaign. All three original averages now freshly reproduce exactly
+from their raw checkpoints on the 16 GiB M4. The actual gate admits
+construction: 77.940 GB free versus 74.475 GB required, with the 16-GiB floor
+and 2-GiB margin included. The full fixed blend is building over156,208,331
+union keys; no cache, pilot or final hand exists yet. The initial space
+shortfall and resolved intake-configuration failure/original STOP remain
+preserved. This remains active work.
 
 **Protected active dependencies:** M4 `~/Local/hu200-v055-blend-run/`, especially
 `results/hu200-v055-blend/`, `results/hu200-v055-blend-inputs/`,
@@ -22,8 +21,10 @@ cache while restoration is active: PR265 full ZIP
 `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`. Only this campaign may normally release
 those accepted inactive caches after whole-archive/member hash verification and
 exact average reproduction, with fresh native/cloud checks and receipts.
-PR265's first cache is now normally released after that complete proof;
-[receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json).
+Both caches are now normally released after that complete proof, with
+[first](docs/reports/hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json)
+and [second](docs/reports/hu200-v055-blend-run-artifacts/seed1422-archive-cache-released.json)
+receipts. Every extracted raw input and reproduced average remains protected.
 The [PR297 raw-input dependency record](#pr297-frozen-hu200-v055-blend-raw-input-continuation)
 and [#303 restoration paths](docs/artifacts/storage-vacuum-20261016.md) retain
 all source archive/member/hash pins and retrieval commands.
