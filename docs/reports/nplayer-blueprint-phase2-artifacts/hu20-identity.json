@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "files": {
+    "checkpoint.gz": {
+      "bytes": 214220678,
+      "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+    },
+    "average.gz": {
+      "bytes": 142677367,
+      "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+    }
+  },
+  "operations": [
+    {
+      "command": [
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "train",
+        "--seed",
+        "2026100601",
+        "--average-rule",
+        "opponent-sampled",
+        "--nodes",
+        "1000000000",
+        "--stop-file",
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/stops/hu20-release-identity",
+        "--out",
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/hu20-release-identity/checkpoint.gz"
+      ],
+      "returncode": 0,
+      "seconds": 715.518099975001
+    },
+    {
+      "command": [
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/repo/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/hu20-release-identity/checkpoint.gz",
+        "--average",
+        "/home/dberweger/nplayer-blueprint-phase2-20261015/hu20-release-identity/average.gz",
+        "--zero-mass",
+        "uniform"
+      ],
+      "returncode": 0,
+      "seconds": 64.06419562200608
+    }
+  ]
+}

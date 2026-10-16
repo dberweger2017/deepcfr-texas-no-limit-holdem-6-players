@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "stage": "archive transport",
+      "event": "Local SHA256 assertion was attempted before the asynchronous first-part SCP process had completed.",
+      "result": "Assertion failed on the incomplete disposable buffer; no upload was attempted and no scientific payload or run was changed.",
+      "action": "Wait for the existing transport process to exit, then verify the completed buffer before upload. No duplicate transfer or scientific retry."
+    },
+    {
+      "stage": "archive upload bridge",
+      "event": "The 128 MiB upload input was rejected with HTTP 413 before action invocation because the bridge limit is 100 MiB.",
+      "action": "Keep the sealed ZIP and original parts unchanged; split verified transport buffers into at most 64 MiB upload pieces and index their concatenation order."
+    },
+    {
+      "stage": "native Drive metadata visibility",
+      "event": "An immediate native FileProvider observation after a successful upload/cloud metadata read found no local item yet.",
+      "action": "Preserve the successful upload ID and buffer; defer native acceptance observation until the provider lists it. Never repeat the upload merely because local metadata is delayed."
+    },
+    {
+      "stage": "report formatting",
+      "event": "The staged whitespace check rejected CSV CRLF line endings.",
+      "action": "Normalized only the generated table to LF; parsed CSV rows remained exactly equal. No research data or readout was rerun."
+    },
+    {
+      "stage": "native upload flag visibility",
+      "event": "After successful API upload and cloud metadata, the latest piece appeared natively with the correct size, no conflicts, isUploaded=0 and isUploading=0. The original helper treated this transient state as a hard acceptance failure.",
+      "action": "Preserved the first native observation, classified a clean pending flag as deferred acceptance, retained the buffer and re-observed without repeating the upload. Actual errors or identity mismatches still fail."
+    },
+    {
+      "stage": "owner BIOS pause",
+      "event": "Owner powered off bb128 for a BIOS change. SCP of original archive part0063 disconnected with exit255 at October15 22:32:41Madrid; 63 preceding parts were already verified and split.",
+      "action": "Disabled only this campaign schedule; retained failure/log and 94,264,320-byte partial. After explicit owner wake-up on October16, reconciled 63 source receipts/126 ready pins, preserved the partial under a distinct name and resumed transport only from source index63. No scientific retry or successful upload repeated."
+    },
+    {
+      "stage": "post-BIOS read-only host probe",
+      "event": "An initial SSH metadata probe had incorrect remote shell quoting and returned a syntax error before executing its Python expression.",
+      "action": "Corrected remote argument quoting with shlex.quote and read only hostname/archive size/mtime. No archive or scientific source was changed."
+    },
+    {
+      "stage": "OpenAI upload bridge after BIOS resume",
+      "event": "For piece main-evidence.zip.part0066-1, blob staging failed with HTTP403 Azure AuthenticationFailed before Drive upload action. Exact-name/parent cloud reconciliation returned no file. One bounded continuation reused all existing successful IDs, then failed sending the OpenAI files request before receiving a new upload ID.",
+      "action": "No further retries; disabled only the PR292 schedule and SIGSTOPped the existing transport worker at its bounded spool ceiling. Retained both failure receipts, reconciliation, all buffers, successful upload IDs and host originals. Science is complete and unchanged; cloud closeout remains blocked."
+    }
+  ]
+}

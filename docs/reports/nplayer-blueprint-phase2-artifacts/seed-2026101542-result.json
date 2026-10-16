@@ -1,0 +1,223 @@
+{
+  "status": "passed",
+  "seed": 2026101542,
+  "elapsed_seconds": 3714.535924808006,
+  "milestones": [
+    {
+      "target": 200000000,
+      "checkpoint": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/200m.gz",
+      "checkpoint_sha256": "642ea0ccfcd5140c3d80ff75905e28214ff8f73f9da8be2f146ceb33fb8d3036",
+      "average": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/200m-average.gz",
+      "average_sha256": "8ec620448d3c97bb0bc6d97689a65c1fc98b3fa6440d427c44430357bf338be0",
+      "entries": 15811662,
+      "nodes": 200000194,
+      "iteration": 356960,
+      "audit": {
+        "by_street": [
+          {
+            "entries": 445289,
+            "visits": 3573256,
+            "zero_visit_entries": 169106,
+            "decisions": 14608155,
+            "missing_decisions": 445304,
+            "missing_decision_share": 0.030483247199937294,
+            "visits_per_key": 8.024577296991392,
+            "segment_decisions": 14608155,
+            "segment_missing_decisions": 445304,
+            "segment_missing_share": 0.030483247199937294
+          },
+          {
+            "entries": 1316995,
+            "visits": 6837559,
+            "zero_visit_entries": 636352,
+            "decisions": 21856838,
+            "missing_decisions": 1317028,
+            "missing_decision_share": 0.06025702345417027,
+            "visits_per_key": 5.191788123721047,
+            "segment_decisions": 21856838,
+            "segment_missing_decisions": 1317028,
+            "segment_missing_share": 0.06025702345417027
+          },
+          {
+            "entries": 3870983,
+            "visits": 11738440,
+            "zero_visit_entries": 1882892,
+            "decisions": 33782914,
+            "missing_decisions": 3871020,
+            "missing_decision_share": 0.1145851420632335,
+            "visits_per_key": 3.0324183805508835,
+            "segment_decisions": 33782914,
+            "segment_missing_decisions": 3871020,
+            "segment_missing_share": 0.1145851420632335
+          },
+          {
+            "entries": 10178395,
+            "visits": 17328994,
+            "zero_visit_entries": 5014499,
+            "decisions": 48399090,
+            "missing_decisions": 10178473,
+            "missing_decision_share": 0.21030298296930788,
+            "visits_per_key": 1.7025271666112387,
+            "segment_decisions": 48399090,
+            "segment_missing_decisions": 10178473,
+            "segment_missing_share": 0.21030298296930788
+          }
+        ],
+        "status": "passed",
+        "checkpoint_sha256": "642ea0ccfcd5140c3d80ff75905e28214ff8f73f9da8be2f146ceb33fb8d3036",
+        "policy_sha256": "8ec620448d3c97bb0bc6d97689a65c1fc98b3fa6440d427c44430357bf338be0",
+        "strategy": "average",
+        "last_average_street": 3,
+        "rows": 15811662,
+        "average_rows": 15811662,
+        "current_rows": 0,
+        "zero_mass_rows": 4659590,
+        "elapsed_seconds": 102.36102399500669
+      }
+    },
+    {
+      "target": 500000000,
+      "checkpoint": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/500m.gz",
+      "checkpoint_sha256": "24a4c24d4ade446d2abcc6a781ef6ae540e6dfe67fd700dd3f35e2cebe6ee390",
+      "average": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/500m-average.gz",
+      "average_sha256": "5d7229e5265415be69ffa32214a321c1cf9f16eb10acba736cafe46fd856b049",
+      "entries": 22599817,
+      "nodes": 500000356,
+      "iteration": 846975,
+      "audit": {
+        "by_street": [
+          {
+            "entries": 524003,
+            "visits": 7429979,
+            "zero_visit_entries": 186815,
+            "decisions": 31046149,
+            "missing_decisions": 524018,
+            "missing_decision_share": 0.016878679542509444,
+            "visits_per_key": 14.179268057625624,
+            "segment_decisions": 16437994,
+            "segment_missing_decisions": 78714,
+            "segment_missing_share": 0.0047885404995281055
+          },
+          {
+            "entries": 1672958,
+            "visits": 15395666,
+            "zero_visit_entries": 783640,
+            "decisions": 49728055,
+            "missing_decisions": 1672991,
+            "missing_decision_share": 0.03364279982396255,
+            "visits_per_key": 9.202661393770795,
+            "segment_decisions": 27871217,
+            "segment_missing_decisions": 355963,
+            "segment_missing_share": 0.012771706380815736
+          },
+          {
+            "entries": 5278317,
+            "visits": 28941430,
+            "zero_visit_entries": 2463022,
+            "decisions": 84887388,
+            "missing_decisions": 5278358,
+            "missing_decision_share": 0.062180709341651555,
+            "visits_per_key": 5.483079170879657,
+            "segment_decisions": 51104474,
+            "segment_missing_decisions": 1407338,
+            "segment_missing_share": 0.02753844996036942
+          },
+          {
+            "entries": 15124539,
+            "visits": 46088418,
+            "zero_visit_entries": 6911640,
+            "decisions": 130139269,
+            "missing_decisions": 15124620,
+            "missing_decision_share": 0.11621872564844359,
+            "visits_per_key": 3.047261010732294,
+            "segment_decisions": 81740179,
+            "segment_missing_decisions": 4946147,
+            "segment_missing_share": 0.06051059663081971
+          }
+        ],
+        "status": "passed",
+        "checkpoint_sha256": "24a4c24d4ade446d2abcc6a781ef6ae540e6dfe67fd700dd3f35e2cebe6ee390",
+        "policy_sha256": "5d7229e5265415be69ffa32214a321c1cf9f16eb10acba736cafe46fd856b049",
+        "strategy": "average",
+        "last_average_street": 3,
+        "rows": 22599817,
+        "average_rows": 22599817,
+        "current_rows": 0,
+        "zero_mass_rows": 6656452,
+        "elapsed_seconds": 147.95967362199735
+      }
+    },
+    {
+      "target": 1000000000,
+      "checkpoint": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/1000m.gz",
+      "checkpoint_sha256": "b98b9ba1df66250f410e810df42b7ec9e74f11d025098fab06a71a2bc51ea735",
+      "average": "/home/dberweger/nplayer-blueprint-phase2-20261015/training/2026101542/1000m-average.gz",
+      "average_sha256": "34ab3e9262ebf37ddf13f9f4e127c8eb7e2bb35e1f84d807af06815de6ba0077",
+      "entries": 29370052,
+      "nodes": 1000000341,
+      "iteration": 1620028,
+      "audit": {
+        "by_street": [
+          {
+            "entries": 588105,
+            "visits": 13031683,
+            "zero_visit_entries": 200637,
+            "decisions": 55520605,
+            "missing_decisions": 588120,
+            "missing_decision_share": 0.010592824051539064,
+            "visits_per_key": 22.158769267392728,
+            "segment_decisions": 24474456,
+            "segment_missing_decisions": 64102,
+            "segment_missing_share": 0.0026191389095635057
+          },
+          {
+            "entries": 1993801,
+            "visits": 28752496,
+            "zero_visit_entries": 913713,
+            "decisions": 93845434,
+            "missing_decisions": 1993834,
+            "missing_decision_share": 0.021245935097918563,
+            "visits_per_key": 14.420945721263054,
+            "segment_decisions": 44117379,
+            "segment_missing_decisions": 320843,
+            "segment_missing_share": 0.007272485520955358
+          },
+          {
+            "entries": 6625651,
+            "visits": 57242345,
+            "zero_visit_entries": 2996709,
+            "decisions": 170706736,
+            "missing_decisions": 6625693,
+            "missing_decision_share": 0.03881330728507398,
+            "visits_per_key": 8.639505008639906,
+            "segment_decisions": 85819348,
+            "segment_missing_decisions": 1347335,
+            "segment_missing_share": 0.015699664835486748
+          },
+          {
+            "entries": 20162495,
+            "visits": 95452092,
+            "zero_visit_entries": 8749602,
+            "decisions": 271391211,
+            "missing_decisions": 20162582,
+            "missing_decision_share": 0.07429342286254068,
+            "visits_per_key": 4.734140888813611,
+            "segment_decisions": 141251942,
+            "segment_missing_decisions": 5037962,
+            "segment_missing_share": 0.035666497243627276
+          }
+        ],
+        "status": "passed",
+        "checkpoint_sha256": "b98b9ba1df66250f410e810df42b7ec9e74f11d025098fab06a71a2bc51ea735",
+        "policy_sha256": "34ab3e9262ebf37ddf13f9f4e127c8eb7e2bb35e1f84d807af06815de6ba0077",
+        "strategy": "average",
+        "last_average_street": 3,
+        "rows": 29370052,
+        "average_rows": 29370052,
+        "current_rows": 0,
+        "zero_mass_rows": 8702978,
+        "elapsed_seconds": 192.49686563800788
+      }
+    }
+  ]
+}

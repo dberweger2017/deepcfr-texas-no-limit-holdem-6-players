@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-16T08:04:48.660894+02:00",
+  "owner_requested": "Cleaning-agent handoff, then merge after green CI",
+  "conflict_resolution": "RESULTS_INDEX top insertion: retained both PR292 and all current main entries; no game/traversal conflict",
+  "accepted_cloud_pieces_reconciled": 133,
+  "expected_cloud_pieces": 237,
+  "archive_content_rehash_repeated": false,
+  "repository_artifact_check": "passed staged index",
+  "whitespace_check": "passed staged index and diff against origin/main",
+  "focused_archive_test": {
+    "pytest_invocation": "unavailable: this M1 Python interpreter has no pytest",
+    "fallback": "Imported and executed the same tests.test_nplayer_phase2_archive.test_transport_parts_reassemble_the_verified_archive with a fresh TemporaryDirectory",
+    "result": "passed; tiny fixture only"
+  },
+  "full_ci": "pending on final integration head",
+  "scientific_runs_repeated": false,
+  "transport_resumed": false,
+  "originals_removed": false
+}

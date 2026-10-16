@@ -36,6 +36,11 @@ for name, nodes, parent in [('fresh20m', 20000000, None),
                '--nodes', str(nodes), '--max-entries', '85373862',
                '--card-buckets', str(tables), '--out', str(output / f'{name}.gz'),
                '--telemetry', str(output / f'{name}.telemetry.jsonl')]
+    stop = os.environ.get('NPLAYER_STOP_FILE')
+    if stop:
+        if Path(stop).exists():
+            raise SystemExit('Supervisor requested stop; refusing next regression segment')
+        command += ['--stop-file', stop]
     if parent:
         checkpoint = output / f'{parent}.gz'
         command += ['--resume', str(checkpoint), '--resume-sha256', digest(checkpoint)]

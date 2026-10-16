@@ -1,0 +1,21 @@
+{
+  "status": "sealed",
+  "archive": "/home/dberweger/nplayer-blueprint-phase2-20261015/archives/closeout/evidence.zip",
+  "bytes": 53823,
+  "sha256": "77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357",
+  "manifest_member": "MANIFEST.json",
+  "manifest_sha256": "22c99da238531cd7a2bfce19d4063f2eefe3dbeeb3cf6955958928596d90eb79",
+  "members": 11,
+  "member_readback": "all sizes/SHA256 and ZIP CRC pass",
+  "part_readback": "concatenated SHA256 matches archive",
+  "parts": [
+    {
+      "member": "evidence.zip.part0000",
+      "bytes": 53823,
+      "sha256": "77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357"
+    }
+  ],
+  "originals_retained": true,
+  "cloud_upload": "pending",
+  "remote_bytes_downloaded": false
+}

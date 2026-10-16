@@ -1,3 +1,63 @@
+## PR292 — Three-player full-average blueprint (owner-authorized merge; cloud closeout pending)
+
+[PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292), branch
+`feature/nplayer-blueprint-phase2`; [protocol](docs/nplayer-blueprint-phase2-protocol.md),
+[report](docs/reports/nplayer-blueprint-phase2.md). Fresh sequential cash seeds
+2026101541–1543, all-street averages, scheduled 200M/500M/1B endpoints. Harness
+qualification passes; all three seeds reached 1B nodes with all nine scheduled
+checkpoint/export/every-row-audit endpoints and whole-seed guards passing.
+Final tables contain 29,025,056 /29,370,052 /29,668,448 entries. Exact admissions,
+checkpoint/export SHA256s and per-street coverage are recorded in the
+[per-seed receipts](docs/reports/nplayer-blueprint-phase2-artifacts/).
+Final regression closeout and all 42 final comparisons passed. Every one of
+2,064,384 final hands replayed and exactly reproduced before verified readout.
+The learning rule passes on all three seeds; [full results and intervals](docs/reports/nplayer-blueprint-phase2.md).
+bb128 compute was released at approximately20:17Madrid onOctober15.
+
+**Protected active evidence; cloud archival pending:**
+`bb128:/home/dberweger/nplayer-blueprint-phase2-20261015/` and this worktree's
+ignored `planning/nplayer-phase2/`. Preserve all commands, resource/VRM/fan traces,
+source bundles, checkpoints, exports, audits, raw duplicate traces, replay and
+reproduction receipts, failures and partials. The verified [Drive destination](https://drive.google.com/drive/folders/1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9)
+has a partially uploaded scientific archive; full cloud acceptance remains
+pending. Main ZIP15,887,630,020bytes SHA256
+`ea57f0e4910c458c5597c194da25342aaf912f2f098452e8e0982b1121dddb3f`,
+embedded manifest SHA256
+`ae9903fa0a8fea8b59bddb55d0441528de7b87f66136071d4adc26fc4c44700c`;
+all local members and original transport parts passed readback. The original
+119×128MiB host parts are subdivided into at most64MiB cloud pieces due to the
+bridge's100MiB input limit; final ordered cloud IDs/acceptance will be indexed
+after all pieces finish. [Main seal receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-main.json).
+The separate [archive-guard closeout](https://drive.google.com/file/d/1utIneB1zdFo0BcLR3_no3tJN48jd_oOl/view)
+has native upload/no-pending/no-conflict and independent cloud metadata acceptance:
+53,823bytes, SHA256`77691215a001e50f9edf1adcdaf341a229c3b0167d3b48c1a5fa35f3ecf99357`,
+manifest`22c99da238531cd7a2bfce19d4063f2eefe3dbeeb3cf6955958928596d90eb79`.
+[Acceptance receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-closeout-cloud.json).
+No scientific originals have been removed. Ignored disposable transport copies
+are retired after verified receipts, with regeneration/removal records under
+`planning/nplayer-phase2/transport/`. No remote archive bytes were downloaded.
+The owner explicitly
+requested manifests, archive readback and cloud indexing as part of this
+campaign; receipts will be added at closeout.
+
+**October 16 transport block:** after the owner-authorized BIOS pause/resume,
+79/119 source parts are verified and split; 133/237 cloud pieces are uploaded,
+133 accepted after subsequent native observations. The OpenAI upload bridge failed during pre-Drive staging twice;
+no further attempts are scheduled. The existing worker is paused, and all
+buffers/failures/originals are retained. The PR-ready ETA is suspended.
+[Block receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-transport-block.json)
+records the original blocked state. The [accepted cloud-piece index](docs/reports/nplayer-blueprint-phase2-artifacts/archive-main-cloud-partial.json) preserves all 133 IDs, byte/hash pins and native/metadata observations; it is incomplete and cannot restore the full ZIP. No scientific work was retried.
+
+**Cleaning-agent handoff:** [exact paths, protected dependencies, retrieval and remaining work](docs/artifacts/pr292-archive-cleanup-handoff.md). This is a preservation and archive-completion handoff, not authorization to delete the unarchived scientific originals.
+
+The host repo is a shared clone of PR291's protected checkout, with `.venv` and
+K50 `tables` from #283. Preserve the complete PR291→PR289→PR288→#283 shared Git
+chain and the [indexed K50 input provenance](docs/reports/cygnus-x1-artifacts/input-restoration.json).
+The smoke qualification reads PR291's original `smoke/scoped-average.gz`,
+225,158,368 bytes, SHA256 `fcbe8bd5733572fe9f9046840d6e277a0b11ce0ac96936546df0815be218485e`;
+its full provenance and host retrieval command remain in the PR291 entry below.
+Do not remove that input while Phase 2 is active. No M4 access or cleanup.
+
 ## PR297 — frozen HU200 v0.5.5 blend, raw-input continuation
 
 [PR297](https://github.com/dberweger2017/CFR-NLHE-6max/pull/297),
