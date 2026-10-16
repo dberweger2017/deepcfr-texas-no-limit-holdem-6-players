@@ -4136,6 +4136,13 @@ folder ID `159JoTfd8HUyblui5QgSMc6w1JNz-z7px`, under the existing research proje
 Future archive receipts must supply whole/member hashes, local readback,
 Drive piece/archive IDs and separate upload/metadata acceptance.
 
+Owner October16 additionally requires an **unpacked retained copy** of the final
+uploaded evidence under `/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/`
+on bb128, matching archive member hierarchy/manifests. This copy is pending;
+[retention plan](docs/reports/hu200-capacity-cygnus-artifacts/local-retention-plan.json)
+records the observed2TB mount and required member size/SHA256 receipt. Scientific
+training/evaluation/cache/scratch remain on NVMe under the unchanged budgets.
+
 The three fixed twins are restored from their already indexed #265/#278
 accepted Drive archives through read-only synced archive I/O and SSH; no model
 work runs on the coordinator. [Exact archive IDs, hashes, members and model pins](docs/reports/hu200-capacity-cygnus-artifacts/drive-inputs.json).
@@ -4168,7 +4175,8 @@ PR301 post-BIOS continuation: [500M every-row identity](docs/reports/hu200-capac
 [21 post-BIOS test receipt](docs/reports/hu200-capacity-cygnus-artifacts/postbios-tests.json).
 Raw evidence/partials remain under the owned bb128 root; not yet archived or uploaded.
 4,734.229/5,400 active preliminary seconds used. At that preliminary receipt the72h clock was unstarted; its subsequently started fixed clock is indexed below.
-New2TB disk excluded; open#292 and unrelated preservation data protected.
+New2TB disk excluded from scientific work; owner-authorized final unpacked
+retention copy pending as declared above. Open#292 and unrelated preservation data protected.
 
 PR301 admitted source3f6eb6cb; [resource admission](docs/reports/hu200-capacity-cygnus-artifacts/admission.json),
 [active72h clock](docs/reports/hu200-capacity-cygnus-artifacts/training-clock.json),

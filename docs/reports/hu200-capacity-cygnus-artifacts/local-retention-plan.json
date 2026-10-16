@@ -1,0 +1,19 @@
+{
+  "status": "declared-not-yet-copied",
+  "owner_instruction_date": "2026-10-16",
+  "scope": "PR301 final evidence retention only; no general storage procedure change or future campaign authorization",
+  "host": "cygnus-x1 (ssh bb128)",
+  "mount": {
+    "path": "/mnt/data2tb",
+    "source": "/dev/sda1",
+    "filesystem": "ext4",
+    "disk_bytes": 2000398934016,
+    "available_bytes_at_read_only_check": 1967614066688
+  },
+  "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus",
+  "layout": "Unpacked archive member hierarchy, with one distinct subtree per final archive where needed to prevent member collisions; include manifests and preserve native checkpoint/export formats.",
+  "verification": "At closeout recheck PR status, mount/device identity, available space, guards and source immutability; copy only owned final archive members into a new destination and verify every member size/SHA256 against its sealed archive manifest. Index actual destination, manifest hashes, readback and copy receipt.",
+  "retention": "Retain this unpacked copy in addition to accepted Drive archives; no overwrite, deletion, movement of active inputs or other PR work.",
+  "scientific_limits": "HDD remains excluded from training, evaluation, cache, scratch and scientific capacity admission. Preserve all original CPU/thermal/RSS/swap/NVMe disk guards and scientific deadlines. Perform final retention copy within those resource limits; record its actual bytes and time separately.",
+  "completion_requirement": "Final closeout requires the unpacked retained copy and verified receipt. No completed local copy is claimed yet."
+}

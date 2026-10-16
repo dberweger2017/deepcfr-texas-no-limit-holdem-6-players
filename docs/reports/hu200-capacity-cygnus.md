@@ -8,7 +8,8 @@ Measured first parallel batch: **1.79x throughput**, two audits in74m31s, peak C
 
 The owner stopped bb128 for BIOS work and resumed October16 after adding five
 fans, modifying the curve and enabling XMP3200. XMP is owner-reported; memtest86+
-remains incomplete as accepted. The new2TB disk is excluded. #292 remains open;
+remains incomplete as accepted. The new2TB disk remains excluded from scientific work; the October16 owner
+amendment below adds only a final unpacked retention copy. #292 remains open;
 its58,415,280,128-byte root, archives, uploads and shared dependencies remain untouched.
 Unrelated preservation files remain untouched. Restart NVMe free263.760GB;
 post-audit free259.927GB. [Interrupted-clock receipt](hu200-capacity-cygnus-artifacts/owner-interruption-restart.json).
@@ -252,3 +253,14 @@ The real queue integration fixture is explicitly bb128-only: it relies on
 qualified physical CPU0–7 and a50GB free-disk floor. Generic CI cannot execute
 that hardware fixture on its smaller runner. This changes only test collection,
 not live source94b84b32 or its already passed36-check validation.
+
+Owner storage amendment, October16: final uploaded evidence will also be retained
+unpacked under `/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/` on bb128,
+with the archive member hierarchy and manifests. Read-only inventory confirms
+`/mnt/data2tb` is the2TB `/dev/sda1` ext4 mount, owner-writable, with1.968TB
+available. No destination files have been created or copied. At closeout,
+recheck device/space/PR status, verify member sizes/SHA256 against sealed
+manifests, and record the retained copy in the index. This owner-authorized
+retention exception changes neither scientific storage nor compute limits;
+ETA remains the current October19 evening target/October20 upload contingency,
+subject to final copy timing. [Plan](hu200-capacity-cygnus-artifacts/local-retention-plan.json).

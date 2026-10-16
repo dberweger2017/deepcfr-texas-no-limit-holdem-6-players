@@ -158,7 +158,9 @@ both5B/20B averages;5B recovery can then retire. This applies only to this new
 campaign, never another open PR. Keep all incomplete/failed attempts.
 
 The October16 restart has263.760GB free on NVMe; the original339GB plan is
-superseded. The added2TB drive is excluded from every path and budget. Existing
+superseded. The added2TB drive is excluded from training/evaluation/cache/scratch paths and
+scientific budgets. The owner subsequently authorized only the final unpacked
+retention copy described below. Existing
 #292 occupancy remains58.415GB; unrelated preservation data remains untouched.
 
 Full audits compare all three strictly sorted streams directly, reusing the
@@ -247,6 +249,19 @@ do not present millions of hands as millions of training-seed observations.
 No pass/fail strength gate or model selection. Owner decides later deployment.
 
 ## Evidence and closeout
+
+Owner amendment, October16: retain an additional **unpacked** copy of every
+final uploaded evidence bundle at
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/` on bb128. Preserve the
+archive member hierarchy and manifests, using distinct bundle subdirectories
+where necessary; native checkpoint/export formats remain unchanged. This is a
+final retention destination only, additional to Drive. Recheck PR status,
+mounted device identity, space and guards before copying; never write through
+an absent mount or overwrite existing evidence. Verify every retained member's
+size/SHA256 against the sealed archive manifest and index the actual paths and
+verification receipt. Keep the copy at closeout. All scientific budgets,
+deadlines, guards and protected dependencies remain unchanged.
+[Declared retention plan](reports/hu200-capacity-cygnus-artifacts/local-retention-plan.json).
 
 New PR holds protocol, report, compact resource/thermal summaries, every failure,
 input/retrieval pins and archive receipts. Full raw evidence/checkpoints/exports
