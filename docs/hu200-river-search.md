@@ -140,9 +140,10 @@ maximum 39.94 seconds, peak family RSS 4.41 GB and minimum host available
 memory 5.58 GB. All 24 searches complete with no fallback, timeout or missing
 actual-decision EV. Memory passes; the 3-second latency target fails.
 [Readout and owner options](reports/hu200-river-search.md). No strength test is
-declared, no strength hands have been played, and no search setting is qualified.
-The PR remains draft pending the owner's response to the cost gate. This
-status update does not change the prospective sample or work declaration above.
+declared and no strength hands have been played. The original gate does not
+qualify a search setting. The owner amendment and completed continuation below
+record the later 10-second qualification. The PR remains draft pending approved
+strength counts and completion. The prospective sample and work above stay fixed.
 
 ## Owner amendment after the original cost failure
 
@@ -185,3 +186,18 @@ at every node. No range, menu, iteration, lock or native executable changes.
 Require another full fixed 24 bit-parity gate before the next same 24 timed
 measurement, under the unchanged10-second/3GB thresholds. This is a mechanical
 transport continuation; no poker strength outcomes have been observed or tuned.
+
+## Completed unchanged-source continuation
+
+The owner approved resumption after an interrupted validation with no surviving
+result. Exact pre-disconnect source `214695a3` passes all 24 full-output parity
+checks and the amended cost gate: p95 **9.648689 seconds**, peak search-family
+RSS **2,912,206,848 bytes**, minimum host available **5,323,390,976 bytes**, no
+fallbacks or missing actual EV. The original 3-second and first amended
+10-second failures remain recorded. No search setting or scientific gate changes.
+The clock excludes only the owner-approved downtime; historical receipts remain
+unchanged. [Report](reports/hu200-river-search.md).
+
+The [strength-count proposal](hu200-river-search-strength-proposal.md) is not an
+approved final plan. No strength hands or fresh roots are consumed. Storage
+admission and owner-approved counts still precede a committed final declaration.

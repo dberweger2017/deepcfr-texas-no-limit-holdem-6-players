@@ -1,0 +1,17 @@
+{
+  "any_research_inputs_modified": false,
+  "any_search_executed_by_audit": false,
+  "approved_parser_sha256": "6e3df768ab3dbb391a1fea97fc03b7511a62ccd540d355b5ac679e71da95a4d3",
+  "approved_source": "214695a3",
+  "audit_sha256": "981cb7c0630e3432d0f7dd2eb25a91b092f4c65776210a8f65007cd9eaa8a9b5",
+  "cache_action_slots": 482975338,
+  "cache_entries": 156208331,
+  "cache_load_against_model_sha256": true,
+  "errors": [],
+  "no_strength_hands": true,
+  "optimized_native_manifests": 70,
+  "resumption": "Owner-approved restoration of exact pre-disconnect source; repeat only interrupted attempt with no surviving result. Earlier completed failures retained.",
+  "status": "dependency-and-retained-evidence-integrity-pass",
+  "verified_bytes": 27098539771,
+  "verified_file_count": 919
+}

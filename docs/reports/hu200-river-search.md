@@ -1,9 +1,9 @@
-# HU200 river search: correctness passes, latency gate fails
+# HU200 river search: amended cost gate passes; strength pending
 
-[PR #317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), October 16, 2026.
+[PR #317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), October 17, 2026.
 **Draft; strength study not declared or run.** This is the completed cost-gate
-readout, not a final strength result or a release recommendation. The owner
-chooses the response to the failed latency gate and decides merge.
+readout, not a final strength result or a release recommendation. The original latency failure remains below; the owner-amended 10-second gate
+now passes. The owner must approve strength counts before play and decides merge.
 
 ## Finding
 
@@ -155,8 +155,43 @@ The authorized parser/I/O continuation at `214695a3` shares the two validated
 holding tables and reads numeric views through a read-only mapping, retaining
 the same owned copies and normalization. Native executable and search settings
 are unchanged. 72 focused M4 checks pass and independent review finds no blocker.
-Its new full 24 parity gate and subsequent cost gate are **pending**. Neither
-concurrency nor strength is admitted by the 10.766536-second finding. Transport
+Its full 24 parity gate now passes: all scientific requests, raw and normalized
+finite bits, unavailable masks, diagnostic weights, played policies/actions/EVs
+and fresh replay match the original. Native solves remain 35. A restart
+interrupted the first pending validation without a surviving result; the
+owner-approved continuation restores exactly the same source. A guarded
+read-only continuity audit verifies 919 files /27,098,539,771 bytes with zero
+hash mismatches and loads the cache against the pinned model SHA. The original
+and first amended completed failures remain unchanged.
+[Continuity](hu200-river-search-artifacts/restart-continuity.json),
+[full parity](hu200-river-search-artifacts/optimization-parity-02.json).
+
+The fixed amended cost gate then **passes** at the same source:
+
+| Same fixed 24 spots | Result |
+|---|---:|
+| Complete p50 |4.727273 s|
+| Complete p95 |**9.648689 s ≤10 s**|
+| Maximum |11.106579 s|
+| Search-family peak RSS |2,912,206,848 bytes|
+| Minimum host available memory |5,323,390,976 bytes|
+| Complete /fallback /missing actual EV |24 /0 /0|
+
+The combined parity-and-cost guard completes without breaches, with a sampled
+combined-stage family peak of 3,640,115,200 bytes. All 72 focused post-restart
+checks pass. The external executable, search work, ranges, menus and locks are
+unchanged. The fixed-sample percentile is an engineering gate result, not a
+population latency guarantee. The original 3-second target still fails.
+[Cost](hu200-river-search-artifacts/optimization-cost-attempt-02.json),
+[inputs](hu200-river-search-artifacts/optimization-cost-inputs-02.json),
+[combined guard](hu200-river-search-artifacts/optimization-parity-cost-guard-02.json),
+[post-restart checks](hu200-river-search-artifacts/optimization-post-restart-test-guard.json).
+
+No concurrent pilot or strength hands run. The unchanged disk floor blocks
+another full-profile concurrency pilot at current capacity. The
+[strength-count proposal](../hu200-river-search-strength-proposal.md) quotes
+both runtime and evidence volume, labels historical variance/frequency proxies,
+and identifies storage plumbing that must be resolved before play. Transport
 engineering has observed no poker strength outcomes and changes no strategy.
 
 ### Original response choices and remaining scope
@@ -183,5 +218,5 @@ uses a separate reservation. The verified local ZIP and
 pending Drive acceptance are distinguished in [RESULTS_INDEX](../../RESULTS_INDEX.md#pr317--hu200-river-search-completed-cost-gate-strength-pending).
 The large upload waits for existing Slumbot play under the shared-uplink policy;
 no upload acceptance is claimed. All originals remain protected. Final-review
-readiness remains unresolved until the amended cost gate, owner-approved
-strength research and storage closeout actually finish.
+readiness remains unresolved until owner-approved strength research and
+storage closeout actually finish. The amended cost gate is complete.

@@ -6,11 +6,14 @@ source `11fa4fa424ec577cf8492338fd61c60ed7f3c97c`.
 [prospective protocol](docs/hu200-river-search.md). All correctness, search,
 cache verification and cost evaluation run on the 16 GiB M4. The fixed 24-spot
 pilot completes with zero fallback/timeouts; p50 15.03 s, p95 36.79 s, max
-39.94 s, peak family RSS 4.41 GB. The latency gate fails; strength remains
+39.94 s, peak family RSS 4.41 GB. The original 3-second gate fails; strength remains
 undeclared and unrun. The owner selected lossless adapter engineering with
 full same 24 parity, then an amended 10-second gate and a count proposal before
 any strength hands. First parity passes; first amended cost still fails at
-p95 10.766536 s. Further parser validation is pending. No Slumbot play.
+p95 10.766536 s. Exact-source parser continuation now passes all24 parity and
+the amended cost gate: p95 9.648689 s, peak search-family RSS2.91 GB, minimum
+host available5.32 GB, zero fallback/missing actual EV. Original failures remain.
+No concurrency or strength hands run. [Count/runtime/storage proposal](docs/hu200-river-search-strength-proposal.md). No Slumbot play.
 
 **Locally verified preservation; Drive acceptance pending:**
 `hu200-river-search-cost-gate-M4-20261016.zip`, **6,510,687,952 bytes**, SHA256

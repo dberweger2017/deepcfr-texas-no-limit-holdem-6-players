@@ -1,0 +1,29 @@
+{
+  "binary_sha256": "9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914",
+  "blueprint": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "action_translation": {
+      "max_events": 128,
+      "max_states": 512,
+      "version": "hu200-public-menu-translation-equity-k50-v1"
+    },
+    "card_tables": {
+      "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+      "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+      "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    "entries": 156208331,
+    "iteration": 1,
+    "kind": "holdem-hu200-stored-cfr-average-research-v1",
+    "num_players": 2,
+    "source_checkpoint_sha256": "59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123",
+    "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "training_seed": 2026101529701,
+    "weights_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+    "zero_mass_entries": 31935571
+  },
+  "load_and_validation_seconds": 8.2925099160002,
+  "model_bytes": 6282968150,
+  "model_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "plan_sha256": "943c8a5fd7fa9fed1172629c3d74e3de3732fa833d957af558a54f2fdca4c1e5"
+}
