@@ -1,0 +1,67 @@
+{
+  "local_archive": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 17132277962,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 17131522344,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821",
+    "members": 1219,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016.zip",
+    "published_after_full_local_readback": true,
+    "remote_archive_bytes_downloaded": false,
+    "same_filesystem_atomic_publication": true,
+    "seconds_including_source_hash_pack_readback_whole_hash": 63.723144708026666,
+    "sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+    "status": "locally-verified"
+  },
+  "native_observation": {
+    "at": 1792170032.432666,
+    "native": {
+      "at": 1792170032.499449,
+      "bytes": 17132277962,
+      "cloud_file_id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+      "cloud_folder_id": "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+      "conflicts": {
+        "exists": true,
+        "nil": false,
+        "unresolved_count": 0
+      },
+      "is_uploaded": 1,
+      "is_uploading": 0,
+      "name": "hu200-v055-blend-run-M4-20261016.zip",
+      "native_accepted": true,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016.zip",
+      "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536871039;\n            contentModificationDate = \"2026-10-16 16:31:38 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-16 16:30:55 +0000\";\n            displayName = \"hu200-v055-blend-run-M4-20261016.zip\";\n            documentSize = 17132277962;\n            filename = \"hu200-v055-blend-run-M4-20261016.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 1;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 1;\n            isRecursivelyDownloaded = 1;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 85313;\n            lastUsedDate = \"2026-10-16 16:32:00 +0000\";\n            parentItemIdentifier = 85271;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 454d586f ... 70616157 4d305051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpfetT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+      "remote_archive_bytes_downloaded": false
+    },
+    "observer_source_sha256": "d34e31fb5089cad36b7566344e49f8290b90718156ccc881b4103b376b363378",
+    "remote_archive_bytes_downloaded": false,
+    "repository_observer_executed_unchanged": true
+  },
+  "independent_cloud": {
+    "id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+    "title": "hu200-v055-blend-run-M4-20261016.zip",
+    "mime_type": "application/zip",
+    "size": "17132277962",
+    "url": "https://drive.google.com/file/d/1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "status": "upload-accepted",
+  "at": 1792170178.946,
+  "all_local_members_and_whole_archive_verified": true,
+  "remote_archive_bytes_downloaded": false,
+  "originals_retained": true
+}

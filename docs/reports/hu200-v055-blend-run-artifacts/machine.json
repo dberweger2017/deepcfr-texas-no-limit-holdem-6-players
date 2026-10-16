@@ -1,0 +1,10 @@
+{
+  "at": 1792136007.95713,
+  "hostname": "dberwegerch-m4.local",
+  "brand": "Apple M4",
+  "model": "Mac16,1",
+  "physical_memory_bytes": 17179869184,
+  "logical_cpus": 10,
+  "machine": "arm64",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6\nBuildVersion:\t\t25G5065a"
+}

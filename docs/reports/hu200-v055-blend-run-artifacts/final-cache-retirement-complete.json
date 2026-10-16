@@ -1,0 +1,13 @@
+{
+  "at": 1792167735.714991,
+  "other_pr_paths_removed": [],
+  "research_originals_removed": [],
+  "retired": [
+    {
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1",
+      "receipt": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/final-cache-retirement-ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485.json",
+      "removed": true
+    }
+  ],
+  "status": "complete"
+}

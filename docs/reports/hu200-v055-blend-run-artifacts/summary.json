@@ -1,0 +1,1028 @@
+{
+  "direct": {
+    "2026101302": {
+      "contrast": {
+        "bb_per_100": 3.609466552734375,
+        "blocks": 131072,
+        "ci95": [
+          -1.151134579505242,
+          8.370067684973993
+        ],
+        "family_comparisons": 1,
+        "sd": 879.3558501872744
+      },
+      "missing_key_shares": {
+        "frozen-seed-2026101302/flop": {
+          "decisions": 213536,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 213536,
+          "unresolved_missing_share": 0.0
+        },
+        "frozen-seed-2026101302/preflop": {
+          "decisions": 283553,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 283553,
+          "unresolved_missing_share": 0.0
+        },
+        "frozen-seed-2026101302/river": {
+          "decisions": 100141,
+          "exact_missing_share": 0.0005991551911804356,
+          "missing-key": 60,
+          "positive-mass-known-key": 100081,
+          "translated": 0,
+          "unresolved": 60,
+          "unresolved_missing_share": 0.0005991551911804356
+        },
+        "frozen-seed-2026101302/turn": {
+          "decisions": 141393,
+          "exact_missing_share": 0.00015559468997758023,
+          "missing-key": 22,
+          "positive-mass-known-key": 141371,
+          "translated": 0,
+          "unresolved": 22,
+          "unresolved_missing_share": 0.00015559468997758023
+        },
+        "hu200-v055-sequence-blend-2026101529701/flop": {
+          "decisions": 214943,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 214942,
+          "unresolved_missing_share": 0.0,
+          "zero-mass": 1
+        },
+        "hu200-v055-sequence-blend-2026101529701/preflop": {
+          "decisions": 284300,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 284300,
+          "unresolved_missing_share": 0.0
+        },
+        "hu200-v055-sequence-blend-2026101529701/river": {
+          "decisions": 100226,
+          "exact_missing_share": 0.00015963921537325644,
+          "missing-key": 16,
+          "positive-mass-known-key": 100210,
+          "translated": 0,
+          "unresolved": 16,
+          "unresolved_missing_share": 0.00015963921537325644
+        },
+        "hu200-v055-sequence-blend-2026101529701/turn": {
+          "decisions": 141373,
+          "exact_missing_share": 1.4146972901473407e-05,
+          "missing-key": 2,
+          "positive-mass-known-key": 141370,
+          "translated": 0,
+          "unresolved": 2,
+          "unresolved_missing_share": 1.4146972901473407e-05,
+          "zero-mass": 1
+        }
+      }
+    },
+    "2026101421": {
+      "contrast": {
+        "bb_per_100": 0.37136077880859375,
+        "blocks": 131072,
+        "ci95": [
+          -4.304779099897692,
+          5.047500657514879
+        ],
+        "family_comparisons": 1,
+        "sd": 863.7545646887465
+      },
+      "missing_key_shares": {
+        "frozen-seed-2026101421/flop": {
+          "decisions": 216041,
+          "exact_missing_share": 4.6287510241111644e-06,
+          "missing-key": 1,
+          "positive-mass-known-key": 216040,
+          "translated": 0,
+          "unresolved": 1,
+          "unresolved_missing_share": 4.6287510241111644e-06
+        },
+        "frozen-seed-2026101421/preflop": {
+          "decisions": 283363,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 283363,
+          "unresolved_missing_share": 0.0
+        },
+        "frozen-seed-2026101421/river": {
+          "decisions": 102247,
+          "exact_missing_share": 0.0005379130928046789,
+          "missing-key": 55,
+          "positive-mass-known-key": 102192,
+          "translated": 0,
+          "unresolved": 55,
+          "unresolved_missing_share": 0.0005379130928046789
+        },
+        "frozen-seed-2026101421/turn": {
+          "decisions": 143612,
+          "exact_missing_share": 0.0001810433668495669,
+          "missing-key": 26,
+          "positive-mass-known-key": 143586,
+          "translated": 0,
+          "unresolved": 26,
+          "unresolved_missing_share": 0.0001810433668495669
+        },
+        "hu200-v055-sequence-blend-2026101529701/flop": {
+          "decisions": 215258,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 215257,
+          "unresolved_missing_share": 0.0,
+          "zero-mass": 1
+        },
+        "hu200-v055-sequence-blend-2026101529701/preflop": {
+          "decisions": 283479,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 283479,
+          "unresolved_missing_share": 0.0
+        },
+        "hu200-v055-sequence-blend-2026101529701/river": {
+          "decisions": 102190,
+          "exact_missing_share": 9.785693316371466e-05,
+          "missing-key": 10,
+          "positive-mass-known-key": 102179,
+          "translated": 0,
+          "unresolved": 10,
+          "unresolved_missing_share": 9.785693316371466e-05,
+          "zero-mass": 1
+        },
+        "hu200-v055-sequence-blend-2026101529701/turn": {
+          "decisions": 143606,
+          "exact_missing_share": 2.7853989387630044e-05,
+          "missing-key": 4,
+          "positive-mass-known-key": 143602,
+          "translated": 0,
+          "unresolved": 4,
+          "unresolved_missing_share": 2.7853989387630044e-05
+        }
+      }
+    },
+    "2026101422": {
+      "contrast": {
+        "bb_per_100": 1.8453598022460938,
+        "blocks": 131072,
+        "ci95": [
+          -2.8313597075164143,
+          6.522079312008602
+        ],
+        "family_comparisons": 1,
+        "sd": 863.8616314112215
+      },
+      "missing_key_shares": {
+        "frozen-seed-2026101422/flop": {
+          "decisions": 214872,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 214872,
+          "unresolved_missing_share": 0.0
+        },
+        "frozen-seed-2026101422/preflop": {
+          "decisions": 283307,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 283307,
+          "unresolved_missing_share": 0.0
+        },
+        "frozen-seed-2026101422/river": {
+          "decisions": 101908,
+          "exact_missing_share": 0.0004906386152215724,
+          "missing-key": 50,
+          "positive-mass-known-key": 101858,
+          "translated": 0,
+          "unresolved": 50,
+          "unresolved_missing_share": 0.0004906386152215724
+        },
+        "frozen-seed-2026101422/turn": {
+          "decisions": 143417,
+          "exact_missing_share": 0.0001743168522560087,
+          "missing-key": 25,
+          "positive-mass-known-key": 143392,
+          "translated": 0,
+          "unresolved": 25,
+          "unresolved_missing_share": 0.0001743168522560087
+        },
+        "hu200-v055-sequence-blend-2026101529701/flop": {
+          "decisions": 214240,
+          "exact_missing_share": 4.667662434652726e-06,
+          "missing-key": 1,
+          "positive-mass-known-key": 214239,
+          "translated": 0,
+          "unresolved": 1,
+          "unresolved_missing_share": 4.667662434652726e-06
+        },
+        "hu200-v055-sequence-blend-2026101529701/preflop": {
+          "decisions": 282928,
+          "exact_missing_share": 0.0,
+          "positive-mass-known-key": 282928,
+          "unresolved_missing_share": 0.0
+        },
+        "hu200-v055-sequence-blend-2026101529701/river": {
+          "decisions": 102212,
+          "exact_missing_share": 9.78358705435761e-05,
+          "missing-key": 10,
+          "positive-mass-known-key": 102201,
+          "translated": 0,
+          "unresolved": 10,
+          "unresolved_missing_share": 9.78358705435761e-05,
+          "zero-mass": 1
+        },
+        "hu200-v055-sequence-blend-2026101529701/turn": {
+          "decisions": 143129,
+          "exact_missing_share": 6.9867043017138385e-06,
+          "missing-key": 1,
+          "positive-mass-known-key": 143127,
+          "translated": 0,
+          "unresolved": 1,
+          "unresolved_missing_share": 6.9867043017138385e-06,
+          "zero-mass": 1
+        }
+      }
+    }
+  },
+  "interval_scope": "Selected fixed models and independent duplicate blocks; not training-seed population uncertainty",
+  "no_pass_fail_or_slumbot_decision": true,
+  "panel": {
+    "check_call": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": -2.47955322265625,
+            "blocks": 16384,
+            "ci95": [
+              -14.082921006924906,
+              9.123814561612406
+            ],
+            "family_comparisons": 21,
+            "sd": 488.79621687528373
+          },
+          "nominal": {
+            "bb_per_100": -2.47955322265625,
+            "blocks": 16384,
+            "ci95": [
+              -9.964660754456325,
+              5.005554309143825
+            ],
+            "family_comparisons": 1,
+            "sd": 488.79621687528373
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": -5.34515380859375,
+            "blocks": 16384,
+            "ci95": [
+              -17.594989861739627,
+              6.904682244552125
+            ],
+            "family_comparisons": 21,
+            "sd": 516.0289349991982
+          },
+          "nominal": {
+            "bb_per_100": -5.34515380859375,
+            "blocks": 16384,
+            "ci95": [
+              -13.247285483591542,
+              2.5569778664040417
+            ],
+            "family_comparisons": 1,
+            "sd": 516.0289349991982
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": -2.3193359375,
+            "blocks": 16384,
+            "ci95": [
+              -14.486157162933628,
+              9.847485287933628
+            ],
+            "family_comparisons": 21,
+            "sd": 512.5319042677141
+          },
+          "nominal": {
+            "bb_per_100": -2.3193359375,
+            "blocks": 16384,
+            "ci95": [
+              -10.167916357059482,
+              5.529244482059482
+            ],
+            "family_comparisons": 1,
+            "sd": 512.5319042677141
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 162.98065185546875,
+          "blocks": 16384,
+          "ci95": [
+            150.38228006893019,
+            175.57902364200731
+          ],
+          "family_comparisons": 1,
+          "sd": 822.7051437653067
+        },
+        "2026101421": {
+          "bb_per_100": 165.84625244140625,
+          "blocks": 16384,
+          "ci95": [
+            153.4352517231545,
+            178.257253159658
+          ],
+          "family_comparisons": 1,
+          "sd": 810.4693450220849
+        },
+        "2026101422": {
+          "bb_per_100": 162.8204345703125,
+          "blocks": 16384,
+          "ci95": [
+            150.33273069771823,
+            175.30813844290677
+          ],
+          "family_comparisons": 1,
+          "sd": 815.4782525769526
+        },
+        "blend": {
+          "bb_per_100": 160.5010986328125,
+          "blocks": 16384,
+          "ci95": [
+            148.04597461305724,
+            172.95622265256776
+          ],
+          "family_comparisons": 1,
+          "sd": 813.3507068140611
+        }
+      }
+    },
+    "half_pot_pressure": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": -5.11932373046875,
+            "blocks": 16384,
+            "ci95": [
+              -23.889242216180833,
+              13.650594755243333
+            ],
+            "family_comparisons": 21,
+            "sd": 790.6898512095889
+          },
+          "nominal": {
+            "bb_per_100": -5.11932373046875,
+            "blocks": 16384,
+            "ci95": [
+              -17.22743413778979,
+              6.988786676852289
+            ],
+            "family_comparisons": 1,
+            "sd": 790.6898512095889
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": 0.7354736328125,
+            "blocks": 16384,
+            "ci95": [
+              -18.577825244053646,
+              20.048772509678646
+            ],
+            "family_comparisons": 21,
+            "sd": 813.5799538468947
+          },
+          "nominal": {
+            "bb_per_100": 0.7354736328125,
+            "blocks": 16384,
+            "ci95": [
+              -11.723160926985543,
+              13.194108192610543
+            ],
+            "family_comparisons": 1,
+            "sd": 813.5799538468947
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": 0.70648193359375,
+            "blocks": 16384,
+            "ci95": [
+              -18.4505279444817,
+              19.8634918116692
+            ],
+            "family_comparisons": 21,
+            "sd": 806.9962211954409
+          },
+          "nominal": {
+            "bb_per_100": 0.70648193359375,
+            "blocks": 16384,
+            "ci95": [
+              -11.651333624020138,
+              13.064297491207638
+            ],
+            "family_comparisons": 1,
+            "sd": 806.9962211954409
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 68.0084228515625,
+          "blocks": 16384,
+          "ci95": [
+            52.679129023312576,
+            83.33771667981242
+          ],
+          "family_comparisons": 1,
+          "sd": 1001.0411739290336
+        },
+        "2026101421": {
+          "bb_per_100": 62.15362548828125,
+          "blocks": 16384,
+          "ci95": [
+            46.89725075708097,
+            77.41000021948153
+          ],
+          "family_comparisons": 1,
+          "sd": 996.2793747665763
+        },
+        "2026101422": {
+          "bb_per_100": 62.1826171875,
+          "blocks": 16384,
+          "ci95": [
+            47.013426834035755,
+            77.35180754096424
+          ],
+          "family_comparisons": 1,
+          "sd": 990.5860171458677
+        },
+        "blend": {
+          "bb_per_100": 62.88909912109375,
+          "blocks": 16384,
+          "ci95": [
+            47.243931148891505,
+            78.534267093296
+          ],
+          "family_comparisons": 1,
+          "sd": 1021.668544466686
+        }
+      }
+    },
+    "loose_aggressive": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": 9.01947021484375,
+            "blocks": 16384,
+            "ci95": [
+              -16.024481154529965,
+              34.063421584217465
+            ],
+            "family_comparisons": 21,
+            "sd": 1054.985837952564
+          },
+          "nominal": {
+            "bb_per_100": 9.01947021484375,
+            "blocks": 16384,
+            "ci95": [
+              -7.135897132477574,
+              25.174837562165074
+            ],
+            "family_comparisons": 1,
+            "sd": 1054.985837952564
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": 7.62939453125,
+            "blocks": 16384,
+            "ci95": [
+              -18.032699860855306,
+              33.2914889233553
+            ],
+            "family_comparisons": 21,
+            "sd": 1081.025344466241
+          },
+          "nominal": {
+            "bb_per_100": 7.62939453125,
+            "blocks": 16384,
+            "ci95": [
+              -8.92472489229619,
+              24.18351395479619
+            ],
+            "family_comparisons": 1,
+            "sd": 1081.025344466241
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": 8.258056640625,
+            "blocks": 16384,
+            "ci95": [
+              -18.76063421560789,
+              35.276747496857894
+            ],
+            "family_comparisons": 21,
+            "sd": 1138.1724789723928
+          },
+          "nominal": {
+            "bb_per_100": 8.258056640625,
+            "blocks": 16384,
+            "ci95": [
+              -9.171176853253552,
+              25.687290134503552
+            ],
+            "family_comparisons": 1,
+            "sd": 1138.1724789723928
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 111.75994873046875,
+          "blocks": 16384,
+          "ci95": [
+            88.70810098816105,
+            134.81179647277645
+          ],
+          "family_comparisons": 1,
+          "sd": 1505.343232619575
+        },
+        "2026101421": {
+          "bb_per_100": 113.1500244140625,
+          "blocks": 16384,
+          "ci95": [
+            89.92790300938925,
+            136.37214581873576
+          ],
+          "family_comparisons": 1,
+          "sd": 1516.4625280530988
+        },
+        "2026101422": {
+          "bb_per_100": 112.5213623046875,
+          "blocks": 16384,
+          "ci95": [
+            89.51660565242926,
+            135.52611895694574
+          ],
+          "family_comparisons": 1,
+          "sd": 1502.2680668231028
+        },
+        "blend": {
+          "bb_per_100": 120.7794189453125,
+          "blocks": 16384,
+          "ci95": [
+            97.43751385127717,
+            144.12132403934783
+          ],
+          "family_comparisons": 1,
+          "sd": 1524.284702144093
+        }
+      }
+    },
+    "matched_pot_pressure": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": -1.397705078125,
+            "blocks": 16384,
+            "ci95": [
+              -19.4325954967024,
+              16.6371853404524
+            ],
+            "family_comparisons": 21,
+            "sd": 759.7265183917083
+          },
+          "nominal": {
+            "bb_per_100": -1.397705078125,
+            "blocks": 16384,
+            "ci95": [
+              -13.03166313384573,
+              10.23625297759573
+            ],
+            "family_comparisons": 1,
+            "sd": 759.7265183917083
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": -0.14801025390625,
+            "blocks": 16384,
+            "ci95": [
+              -16.90648476296827,
+              16.61046425515577
+            ],
+            "family_comparisons": 21,
+            "sd": 705.9570198004105
+          },
+          "nominal": {
+            "bb_per_100": -0.14801025390625,
+            "blocks": 16384,
+            "ci95": [
+              -10.958577160121568,
+              10.662556652309068
+            ],
+            "family_comparisons": 1,
+            "sd": 705.9570198004105
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": -1.46484375,
+            "blocks": 16384,
+            "ci95": [
+              -20.817682487233377,
+              17.887994987233377
+            ],
+            "family_comparisons": 21,
+            "sd": 815.2455852844746
+          },
+          "nominal": {
+            "bb_per_100": -1.46484375,
+            "blocks": 16384,
+            "ci95": [
+              -13.94898470691857,
+              11.01929720691857
+            ],
+            "family_comparisons": 1,
+            "sd": 815.2455852844746
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 66.3482666015625,
+          "blocks": 16384,
+          "ci95": [
+            51.15722174475799,
+            81.53931145836701
+          ],
+          "family_comparisons": 1,
+          "sd": 992.0131707985071
+        },
+        "2026101421": {
+          "bb_per_100": 65.09857177734375,
+          "blocks": 16384,
+          "ci95": [
+            50.09654357137854,
+            80.10059998330895
+          ],
+          "family_comparisons": 1,
+          "sd": 979.6699114045479
+        },
+        "2026101422": {
+          "bb_per_100": 66.4154052734375,
+          "blocks": 16384,
+          "ci95": [
+            50.2281084862002,
+            82.6027020606748
+          ],
+          "family_comparisons": 1,
+          "sd": 1057.0709101270884
+        },
+        "blend": {
+          "bb_per_100": 64.9505615234375,
+          "blocks": 16384,
+          "ci95": [
+            49.59972633378695,
+            80.30139671308805
+          ],
+          "family_comparisons": 1,
+          "sd": 1002.4478786309015
+        }
+      }
+    },
+    "pot_pressure": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": 13.56964111328125,
+            "blocks": 16384,
+            "ci95": [
+              -17.66614711742952,
+              44.80542934399202
+            ],
+            "family_comparisons": 21,
+            "sd": 1315.8192864479004
+          },
+          "nominal": {
+            "bb_per_100": 13.56964111328125,
+            "blocks": 16384,
+            "ci95": [
+              -6.579960114078418,
+              33.71924234064092
+            ],
+            "family_comparisons": 1,
+            "sd": 1315.8192864479004
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": 9.99298095703125,
+            "blocks": 16384,
+            "ci95": [
+              -22.941627420999893,
+              42.92758933506239
+            ],
+            "family_comparisons": 21,
+            "sd": 1387.382721874596
+          },
+          "nominal": {
+            "bb_per_100": 9.99298095703125,
+            "blocks": 16384,
+            "ci95": [
+              -11.252496201893823,
+              31.238458115956323
+            ],
+            "family_comparisons": 1,
+            "sd": 1387.382721874596
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": 8.33740234375,
+            "blocks": 16384,
+            "ci95": [
+              -23.467171649392746,
+              40.141976336892746
+            ],
+            "family_comparisons": 21,
+            "sd": 1339.7795998722668
+          },
+          "nominal": {
+            "bb_per_100": 8.33740234375,
+            "blocks": 16384,
+            "ci95": [
+              -12.17911154840792,
+              28.85391623590792
+            ],
+            "family_comparisons": 1,
+            "sd": 1339.7795998722668
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": -42.95654296875,
+          "blocks": 16384,
+          "ci95": [
+            -69.23555139657208,
+            -16.67753454092792
+          ],
+          "family_comparisons": 1,
+          "sd": 1716.0848856454636
+        },
+        "2026101421": {
+          "bb_per_100": -39.3798828125,
+          "blocks": 16384,
+          "ci95": [
+            -64.96281104179445,
+            -13.796954583205551
+          ],
+          "family_comparisons": 1,
+          "sd": 1670.6291101289992
+        },
+        "2026101422": {
+          "bb_per_100": -37.72430419921875,
+          "blocks": 16384,
+          "ci95": [
+            -63.81315941387555,
+            -11.635448984561947
+          ],
+          "family_comparisons": 1,
+          "sd": 1703.667405892903
+        },
+        "blend": {
+          "bb_per_100": -29.38690185546875,
+          "blocks": 16384,
+          "ci95": [
+            -55.24379814491455,
+            -3.530005566022947
+          ],
+          "family_comparisons": 1,
+          "sd": 1688.5199087284466
+        }
+      }
+    },
+    "random": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": 15.65093994140625,
+            "blocks": 16384,
+            "ci95": [
+              -13.444092193004582,
+              44.74597207581708
+            ],
+            "family_comparisons": 21,
+            "sd": 1225.6391335320577
+          },
+          "nominal": {
+            "bb_per_100": 15.65093994140625,
+            "blocks": 16384,
+            "ci95": [
+              -3.117701044230671,
+              34.41958092704317
+            ],
+            "family_comparisons": 1,
+            "sd": 1225.6391335320577
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": 13.13018798828125,
+            "blocks": 16384,
+            "ci95": [
+              -16.759374550216492,
+              43.01975052677899
+            ],
+            "family_comparisons": 21,
+            "sd": 1259.109024595633
+          },
+          "nominal": {
+            "bb_per_100": 13.13018798828125,
+            "blocks": 16384,
+            "ci95": [
+              -6.150989152586217,
+              32.41136512914872
+            ],
+            "family_comparisons": 1,
+            "sd": 1259.109024595633
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": 1.73492431640625,
+            "blocks": 16384,
+            "ci95": [
+              -29.585967192692955,
+              33.055815825505455
+            ],
+            "family_comparisons": 21,
+            "sd": 1319.4042939468738
+          },
+          "nominal": {
+            "bb_per_100": 1.73492431640625,
+            "blocks": 16384,
+            "ci95": [
+              -18.4695753854213,
+              21.9394240182338
+            ],
+            "family_comparisons": 1,
+            "sd": 1319.4042939468738
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 170.52001953125,
+          "blocks": 16384,
+          "ci95": [
+            95.6326950016742,
+            245.4073440608258
+          ],
+          "family_comparisons": 1,
+          "sd": 4890.329332805902
+        },
+        "2026101421": {
+          "bb_per_100": 173.040771484375,
+          "blocks": 16384,
+          "ci95": [
+            97.88053130270248,
+            248.20101166604752
+          ],
+          "family_comparisons": 1,
+          "sd": 4908.151406530853
+        },
+        "2026101422": {
+          "bb_per_100": 184.43603515625,
+          "blocks": 16384,
+          "ci95": [
+            109.68232950581786,
+            259.18974080668215
+          ],
+          "family_comparisons": 1,
+          "sd": 4881.603686266949
+        },
+        "blend": {
+          "bb_per_100": 186.17095947265625,
+          "blocks": 16384,
+          "ci95": [
+            111.33532882506135,
+            261.00659012025113
+          ],
+          "family_comparisons": 1,
+          "sd": 4886.953593200223
+        }
+      }
+    },
+    "tight_aggressive": {
+      "contrasts": {
+        "2026101302": {
+          "bonferroni_21": {
+            "bb_per_100": -0.0244140625,
+            "blocks": 16384,
+            "ci95": [
+              -12.8862387333541,
+              12.8374106083541
+            ],
+            "family_comparisons": 21,
+            "sd": 541.809184894584
+          },
+          "nominal": {
+            "bb_per_100": -0.0244140625,
+            "blocks": 16384,
+            "ci95": [
+              -8.321327726395378,
+              8.272499601395378
+            ],
+            "family_comparisons": 1,
+            "sd": 541.809184894584
+          }
+        },
+        "2026101421": {
+          "bonferroni_21": {
+            "bb_per_100": -4.2572021484375,
+            "blocks": 16384,
+            "ci95": [
+              -17.11610887813874,
+              8.601704581263737
+            ],
+            "family_comparisons": 21,
+            "sd": 541.6862655298701
+          },
+          "nominal": {
+            "bb_per_100": -4.2572021484375,
+            "blocks": 16384,
+            "ci95": [
+              -12.552233505083231,
+              4.037829208208231
+            ],
+            "family_comparisons": 1,
+            "sd": 541.6862655298701
+          }
+        },
+        "2026101422": {
+          "bonferroni_21": {
+            "bb_per_100": 2.4505615234375,
+            "blocks": 16384,
+            "ci95": [
+              -9.002513723709292,
+              13.903636770584292
+            ],
+            "family_comparisons": 21,
+            "sd": 482.46508741911396
+          },
+          "nominal": {
+            "bb_per_100": 2.4505615234375,
+            "blocks": 16384,
+            "ci95": [
+              -4.937595207310714,
+              9.838718254185714
+            ],
+            "family_comparisons": 1,
+            "sd": 482.46508741911396
+          }
+        }
+      },
+      "models": {
+        "2026101302": {
+          "bb_per_100": 68.121337890625,
+          "blocks": 16384,
+          "ci95": [
+            56.95127365315146,
+            79.29140212809854
+          ],
+          "family_comparisons": 1,
+          "sd": 729.433093423834
+        },
+        "2026101421": {
+          "bb_per_100": 72.3541259765625,
+          "blocks": 16384,
+          "ci95": [
+            60.220395863102226,
+            84.48785609002277
+          ],
+          "family_comparisons": 1,
+          "sd": 792.3628820090947
+        },
+        "2026101422": {
+          "bb_per_100": 65.6463623046875,
+          "blocks": 16384,
+          "ci95": [
+            54.65734955591848,
+            76.63537505345653
+          ],
+          "family_comparisons": 1,
+          "sd": 717.6099790113248
+        },
+        "blend": {
+          "bb_per_100": 68.096923828125,
+          "blocks": 16384,
+          "ci95": [
+            56.59709220261253,
+            79.59675545363747
+          ],
+          "family_comparisons": 1,
+          "sd": 750.9677275005615
+        }
+      }
+    }
+  },
+  "plan_sha256": "c111c6505650068a524e04ee8951bf12892993229a5fc06b4e53ad309dafbaac",
+  "status": "verified"
+}

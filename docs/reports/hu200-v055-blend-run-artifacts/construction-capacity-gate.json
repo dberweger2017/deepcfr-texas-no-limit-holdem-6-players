@@ -1,0 +1,36 @@
+{
+  "all_seed_averages_reproduced": true,
+  "archive_workspace": "one ZIP alongside retained originals; same-filesystem atomic publication required",
+  "at": 1792148686.9480598,
+  "audit_payload_multiplier": 1.5,
+  "audit_workspace_bytes": 22654759739,
+  "blend_cache_bytes": 9331111441,
+  "checkpoint_and_cache_workspace": "one streamed output; no sort or full-table RAM copy",
+  "compression_multiplier": 1.5,
+  "configuration_sha256": "83c72410433ef57904fbf97829a84ecb3dae7a74132e48fb87dad3f0b909a47f",
+  "disk_floor_bytes": 17179869184,
+  "free_bytes": 77940490240,
+  "future_peak_additional_bytes": {
+    "archive": 55147267326,
+    "audit": 45664990650,
+    "merge_and_exports": 23010230911,
+    "play": 41752004712
+  },
+  "margin_bytes": 2147483648,
+  "projected_outputs": {
+    "average": 9470660552,
+    "checkpoint": 9093035122,
+    "current": 4446535237
+  },
+  "required_free_bytes": 74474620158,
+  "scan_report": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/union/scan.json",
+  "scan_sha256": "e7591df86e5eeb09c41c67645308437f6e65032365d8d1e88bee17b455336308",
+  "scope": "first union/export/cache/audit/archive capacity gate",
+  "seed_cache_bytes": [
+    5115564345,
+    5115586684,
+    5115695064
+  ],
+  "status": "admitted",
+  "trace_reserve_bytes": 4294967296
+}

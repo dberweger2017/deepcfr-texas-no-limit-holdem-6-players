@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-10-16T07:29:19.107Z",
+  "folder": {
+    "id": "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+    "title": "PR-306-HU200-v055-blend-run",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": "https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+    "display_url": "https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder_created_through_native_M1_Drive_client": true,
+  "independent_cloud_metadata_confirmed": true,
+  "archive_upload_acceptance_pending": true
+}

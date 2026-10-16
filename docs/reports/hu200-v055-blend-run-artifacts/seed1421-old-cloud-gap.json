@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-16T08:02:00.916Z",
+  "old_cloud_object": {
+    "id": "1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE",
+    "title": "hu200-v055-seed-2026101421-full-20261014.zip",
+    "mime_type": "application/zip",
+    "size": "592464795",
+    "url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1lrqDfoeeqR0oFpe6njHHDDgvFnXez0gE/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "expected_complete_archive_bytes": 20952808971,
+  "expected_complete_archive_sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+  "accepted_for_full_archive_restoration": false,
+  "retained_local_M1_complete_archive_whole_and_manifest_verified": true,
+  "new_checkpoint_only_archive_local_receipt": "seed1421-checkpoint-archive-receipt.json",
+  "no_originals_removed": true
+}

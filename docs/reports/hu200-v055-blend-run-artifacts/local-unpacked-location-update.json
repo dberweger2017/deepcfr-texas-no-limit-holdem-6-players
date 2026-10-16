@@ -1,0 +1,12 @@
+{
+  "at": 1792168174.093663,
+  "earlier_verified_input_copy_retained": "bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/",
+  "final_main_and_admin_mirrors": "pending",
+  "final_root": "bb128:/research/PR-306-HU200-v055-blend-run/",
+  "observed_alias": "/research",
+  "observed_realpath": "/mnt/data2tb/research-cloud",
+  "policy": "docs/artifact-storage.md explicitly permits already-running PR306 to finish its current method",
+  "pr": 306,
+  "real_final_root": "bb128:/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/",
+  "scope": "Storage administration only; canonical unpacked destination follows now-active owner alias. Scientific parameters and M4 execution unchanged."
+}

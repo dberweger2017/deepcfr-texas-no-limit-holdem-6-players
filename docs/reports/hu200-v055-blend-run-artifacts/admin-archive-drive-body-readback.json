@@ -1,0 +1,32 @@
+{
+  "at": 1792172620.085034,
+  "every_copied_member_independently_read_back": true,
+  "every_copied_member_size_and_sha256_verified": true,
+  "manifest_sha256": "2c824bc41bdab4027b2a83750309b85724f6a4156296e241483d17a5de98a5f0",
+  "remote_archive_bytes_downloaded": true,
+  "scope": "Storage verification on bb128 only; no scientific work",
+  "status": "verified-drive-body-and-unpacked-members",
+  "transport": {
+    "bytes": 1537961,
+    "command": [
+      "rclone",
+      "copyto",
+      "--immutable",
+      "--drive-root-folder-id",
+      "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+      "gdrive:hu200-v055-blend-run-closeout-M1-20261016.zip",
+      "hu200-v055-blend-run-closeout-M1-20261016.zip"
+    ],
+    "drive_id": "1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt",
+    "drive_md5": "82c59402fe7012d7e51bd1fa2d57810e",
+    "finished": 1792172567.01268,
+    "local_md5": "82c59402fe7012d7e51bd1fa2d57810e",
+    "remote_archive_bytes_downloaded": true,
+    "returncode": 0,
+    "started": 1792172563.3045046
+  },
+  "unpacked_retention_receipt": "admin-archive-unpacked-retention.json",
+  "whole_archive_bytes": 1537961,
+  "whole_archive_sha256": "72c3baadf640c38d1a780c42c7b8293bf6f9f48bb0cf5af6cd0f5e26a6f3be8a",
+  "whole_archive_sha256_reproduced_before_unpacking": true
+}

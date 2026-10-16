@@ -1,0 +1,31 @@
+{
+  "archive_cache_now_inactive": true,
+  "archive_stat": {
+    "device": 16777234,
+    "inode": 68638792,
+    "mtime_ns": 1791929799329103469,
+    "size": 26698069587
+  },
+  "at": 1792142522.33638,
+  "average_path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101302/average.gz",
+  "exact_average_reproduced": true,
+  "input": {
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+    "archive_bytes": 26698069587,
+    "archive_sha256": "5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f",
+    "average_bytes": 3164563975,
+    "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "checkpoint_bytes": 4960844586,
+    "checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "drive_id": "1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI",
+    "entries": 85373907,
+    "iterations": 16670844,
+    "manifest_sha256": "26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce",
+    "member": "research/frozen/20000000000.gz",
+    "seed": 2026101302
+  },
+  "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101302/checkpoint.gz",
+  "remote_input_archive_bytes_downloaded_and_whole_verified": true,
+  "required_archive_member_verified": true,
+  "seconds": 734.1801197528839
+}
