@@ -28,6 +28,18 @@ with Slumbot. Never include the owner's rclone config/OAuth token in any output
 or evidence. [Full host-specific workflow and safety rules](docs/artifact-storage.md)
 supersede historical Mac-only routing guidance below. If disk, sign-in or network
 access fails, retain originals, leave acceptance pending and report it in the PR.
+## M4 storage for open PR306 — October 16, 2026
+
+Owner-prioritized cleanup removed 17 unchanged inactive HU100 input/model copies
+from merged PR246/251/254/260: **13.923 GB actual free-space increase**, leaving
+**93.812 GB free** at verification while PR306 restoration/export continued.
+All HU200 and open PR inputs remain. [Scope and restoration](docs/artifacts/m4-pr306-headroom-20261016.md),
+[exact per-path receipt](docs/artifacts/m4-pr306-headroom-20261016.json).
+[Accepted administrative receipt](https://drive.google.com/file/d/1lJcCPEuCXFCUniCgmDlXIhOOsBWeu943/view?usp=drivesdk),
+27,151 bytes, SHA256 `9d14366dbe4283a83287fa5f7a0fa6acee8db98d303116e3df6e4a77a2bfe80d`,
+parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Existing archive/member proofs,
+current native and independent cloud confirmation were reused without payload
+re-downloads/hash audits; eight protected input pins remained unchanged.
 
 ## Storage cleanup — October 16, 2026
 
