@@ -65,6 +65,11 @@
       "path": "planning/scheduler-deployment-final.log",
       "bytes": 99,
       "sha256": "ad185056f08af08136acf43e0fc4f6c285d79e458cd73be3eb624f162702ce38"
+    },
+    {
+      "path": "planning/scheduler-hardware-collection.log",
+      "bytes": 1575,
+      "sha256": "23862caac28704ff08cd2bfe6f5f693bb4da952656efb25a2267eedc40fdbf8c"
     }
   ],
   "source_files": [
@@ -77,5 +82,7 @@
       "sha256": "c5136c15de9b8564aaf4f6c5c20282763f4bba437e427881449deb0b1bd829cd"
     }
   ],
-  "deployment_checks": "Pinned clean source36 tests pass. Final15 scheduling tests pass after limiting handoff process scans to the completion window and ensuring initialization failures notify the existing campaign observer. Live original admission/clock equal committed pins; binary hash unchanged."
+  "deployment_checks": "Pinned clean source36 tests pass. Final15 scheduling tests pass after limiting handoff process scans to the completion window and ensuring initialization failures notify the existing campaign observer. Live original admission/clock equal committed pins; binary hash unchanged.",
+  "validated_live_source": "94b84b3255f16daa529eae8250ca9a391249b2ac",
+  "later_collection_only_change": "The feature branch explicitly limits the real CPU/disk integration fixture to cygnus-x1. This leaves the tested/live scheduler and its source hashes unchanged. Updated test syntax and collection verified; no scientific workload repeated."
 }
