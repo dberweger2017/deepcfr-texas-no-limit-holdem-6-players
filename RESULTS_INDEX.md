@@ -54,6 +54,11 @@ Drive fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' '/research/PR
 after upload acceptance is recorded. M4 originals remain protected under
 `~/Local/hu200-river-search/`, including its ignored research and preservation
 directories, and the clean pilot worktree `~/Local/hu200-river-search-pilot/`.
+The optimization worktree `~/Local/hu200-river-search-optimized/` and all
+`results/hu200-river-search/optimization-*` roots are also protected. Raw
+optimization parity, failed amended cost, builds, tests and current validation
+remain on M4; their incremental bb128/Drive preservation is pending. The ZIP
+above covers the original `11fa4fa4` cost study, not this later optimization.
 Keep #306's model/tables, both runtime environments and all shared Git intact.
 No cleanup or additional scientific run is authorized by this receipt.
 
