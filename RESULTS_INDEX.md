@@ -1,3 +1,34 @@
+## Archive locations and acceptance — October 16, 2026
+
+The standard for **bb128 work** is now
+`/mnt/data2tb/research-cloud/PR-<n>-<slug>/` (HDD archives/checkpoints at rest),
+uploaded directly with `rclone copy --immutable --transfers 1` to
+`gdrive:PR-<n>-<slug>/`. The remote is rooted at
+[deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s);
+use the exact existing per-PR folder name. **M1/M4 work** retains
+`~/Local/Research-Cloud/PR-<n>-<slug>/` through native Drive desktop.
+Active training, audits, caches and restored inputs on bb128 stay on NVMe.
+
+**Activation verified:** `rclone lsd gdrive:` listed existing PR folders;
+[observations](docs/artifacts/bb128-storage-activation-20261016.md) confirm
+the mount and matching known Drive IDs; the existing 50 MB smoke test also
+passed a read-only one-way check with zero differences/one match. This does not accept any
+research archive. bb128 archive entries must record archive bytes/local SHA256,
+embedded manifest SHA256/member readback, successful zero-difference
+`rclone check --one-way` output/exit status (Drive MD5 versus local files),
+and file IDs/names/sizes/MD5 from `rclone lsjson`, folder ID/URL and retrieval
+command, such as `rclone copy gdrive:PR-<n>-<slug>/ARCHIVE.zip results/retrieved/NEW_ROOT/`.
+Link the compact receipt for these details. Retain accepted HDD copies as local
+restore caches; removal requires dependency review and a cleanup receipt.
+Existing NVMe retention rules apply. No remote deletion or overwriting is allowed;
+no changes to the Macs' no-deletion-inside-synced-folders rule.
+
+Only one large upload at a time on the shared 3–4 MB/s uplink, without competition
+with Slumbot. Never include the owner's rclone config/OAuth token in any output
+or evidence. [Full host-specific workflow and safety rules](docs/artifact-storage.md)
+supersede historical Mac-only routing guidance below. If disk, sign-in or network
+access fails, retain originals, leave acceptance pending and report it in the PR.
+
 ## Storage cleanup — October 16, 2026
 
 Owner-requested post-merge cleanup retires **49 paths /48 unique inodes** from
@@ -14,6 +45,15 @@ parent `188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. Current native upload acceptance
 and independent cloud ID/name/size/parent agree. Existing manifests/input proofs
 and unchanged source metadata were used without research-payload re-downloads
 or repeated hash audits; 267 retained files verify unchanged.
+
+## PR304 — v0.5.5 Slumbot confirmation (two seeds pass, 2026101302 fails)
+
+Archive `~/Local/Research-Cloud/PR-304-HU200-v055-slumbot-confirmation/hu200-v055-slumbot-confirmation-20261015.zip`, **15,256,156 bytes**, SHA256 `51f4587dc3fec12a65537be51e27572c3f1eec147952c8ed383f1c7689c57137`; embedded `ARCHIVE-MANIFEST.json` SHA256 `4c3d53ca809f9b03715aa0a3adb0edbfca5b1da32d822efc589baf3f83f35e1a`. All 25 members were read back against the manifest before copying:
+- `v055-runs/seed-2026101302-*/` and `v055-runs-pr278/seed-202610142{1,2}-*/`: the six journals (part 1 and part 2 per seed) and five `summary.json` files. Seed 2026101422's part 1 ended without a summary.
+- `analysis/v055/`: the three pooled 10,000-hand analyses, also in [the report's folder](docs/reports/hu200-v055-slumbot-confirmation/).
+- `run-v055-seed-*.sh`: the six launchers; `translation-runs-pr271/*/summary.json`: the October 14 exploratory runs of the same frozen 20B model; `repo-v055-part2-HEAD.txt`: the part-2 commit `98658f7`.
+
+Restore with `python3 -m zipfile -e ARCHIVE results/retrieved/pr304` and check the manifest; reproduce each row with `python -m scripts.analyze_slumbot_run PART1 PART2 --hands 10000 --out pooled.json` (models, caches and tables are pinned in [#278's index](docs/reports/hu200-v055-confirmation.md)). Journals name the Slumbot account only; no tokens or credentials. Copied into the synced folder with its local hash verified; Drive upload acceptance was not separately checked. Originals are kept on db-ocean in `~/deepcfr-slumbot/` and on the M1 in `~/Local/v055-slumbot-confirmation/`.
 
 ## PR292 — Three-player full-average blueprint (owner-authorized merge; cloud closeout pending)
 
@@ -3526,7 +3566,7 @@ A separate APFS copy is hash-verified and staged through native Drive desktop at
 
 This is the existing research index. Its September inventory and October 2 receipts remain below; the current locations and upload states in this section supersede those earlier snapshots.
 
-Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Cloud` pointing to the same [research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). Whole archives and experiment folders go through the desktop app. The connector's observed 536,870,912-byte ingestion ceiling does not apply to this route; no research payload was split for the native uploads.
+Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Cloud` pointing to the same [research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). Whole archives and experiment folders from the Macs go through the desktop app; bb128 uses the direct rclone route described at the top of this index from October 16 onward. The connector's observed 536,870,912-byte ingestion ceiling does not apply to this route; no research payload was split for the native uploads.
 
 - **Organization verified:** 207 existing entries moved into [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr), and five cleanup records into [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX). IDs and existing links are preserved. The [relocation receipt](docs/artifacts/native-drive-relocations-20261004.json) records every original parent, destination and verified item ID.
 - **M4 upload queue:** nine closed scopes, **28,756 files / 96,459,366,205 logical bytes (89.83 GiB)**, hashed before relocation into the streamed folder. Includes closed training and flop/turn evidence. Local payloads remain under Drive management while uploading.
@@ -3736,7 +3776,7 @@ The September 30 catalog remains the original inventory: **8,117 files / 208 top
 
 1. Keep active checkpoints, recovery slots and other agents’ input dependencies in their working location. Coordinate before cleanup.
 2. Preserve every attempt, failed/partial output, source/config/model identity, manifest/hash and exact retrieval command. Add the PR/report and archive relative path to this index. Never replace scientific evidence with a success-only archive.
-3. Let Drive upload. Under the owner's October 2 decision, accept the desktop's Successfully uploaded/Synced status, check exact cloud names/sizes and preserve archive member hashes and restoration evidence. A placeholder or filename alone is insufficient. Remove only owner-authorized inactive local copies; keep pending uploads and active dependencies.
+3. Let Drive upload. On Macs, accept the desktop's Successfully uploaded/Synced status with independent cloud ID/name/size/parent confirmation. On bb128, require zero-difference `rclone check --one-way` with MD5 comparison and record `rclone lsjson` IDs plus archive/member hashes and restoration evidence under the host-specific workflow above. A placeholder or filename alone is insufficient. Retain HDD restore caches; remove local copies only under the applicable authorization, dependency and cleanup-receipt rules. Keep pending uploads and active dependencies.
 4. Before analysis, restore the needed immutable files into a working directory, verify their hashes and source/model identities, and keep restored heavy computation on the authorized host. Do not train or audit inside a streamed folder.
 
 ## Recent work outside the initial batch
