@@ -48,7 +48,8 @@ No cleanup, merge, Slumbot, server, release, tag or default change follows this
 in-progress record.
 
 **Owner-requested unpacked 2 TB copy:** final bundle contents will also be
-retained at `bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, in
+retained at `bb128:/research/PR-306-HU200-v055-blend-run/` (real path
+`/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), in
 separate unpacked bundle directories with their manifests and exact member
 size/SHA256 verification. The mount is observed; final copy/acceptance and
 retrieval commands remain pending. [Plan](docs/reports/hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
@@ -97,6 +98,15 @@ shasum -a 256 results/retrieved/pr306-seed1421-hdd/checkpoint.gz
 Require raw SHA256 `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`
 and 4,957,752,665 bytes before use; choose a fresh destination and retain active
 inputs. Final blend-bundle unpacked retention is still pending.
+
+The input bundle additionally has its verified copy under the now-active owner
+alias, `bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`
+(real `/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/...`).
+[Canonical unpacked receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-canonical-unpacked-retention.json)
+verifies the same whole ZIP, manifest and both copied members, including
+independent disk readback. The earlier copy above remains untouched.
+PR306's running-campaign exception in [the storage policy](docs/artifact-storage.md)
+permits its current native Drive archive method; final copies use `/research`.
 
 ## M1-prioritized cleanup — October 16 afternoon
 

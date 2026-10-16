@@ -240,9 +240,16 @@ Scientific outputs are retained on M4 under
 is `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. The final main bundle
 and administrative supplement are pending creation/readback/upload acceptance.
 The owner-requested unpacked copies will be retained under
-`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, with matching manifests,
+`bb128:/research/PR-306-HU200-v055-blend-run/` (real path
+`/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), with matching manifests,
 every-member size/SHA256 verification and independent copied-file readback.
 No final mirror or upload acceptance is claimed prematurely.
 
 The separately accepted seed 1421 checkpoint-only input bundle already has its
 verified unpacked copy. [Current archive/retrieval index](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run).
+
+The storage policy explicitly grandfathers this already-running PR306 under
+its original native Drive upload/readback method. The now-active `/research`
+alias is used for final unpacked retention; the earlier verified input copy
+at `/mnt/data2tb/research/` is also retained.
+[Canonical-location observation](hu200-v055-blend-run-artifacts/local-unpacked-location-update.json).
