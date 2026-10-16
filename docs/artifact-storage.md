@@ -1,7 +1,8 @@
 # Git, Google Drive and local research storage
 
-This is the common storage contract for new work. [AGENTS.md](../AGENTS.md)
-controls artifact preservation; [RESULTS_INDEX.md](../RESULTS_INDEX.md) remains
+This is the common storage contract for new work. The maintainer's standing
+instructions control artifact preservation on the project's machines;
+[RESULTS_INDEX.md](../RESULTS_INDEX.md) remains
 the canonical archive/retrieval index. A historical report's “retained” or
 “upload pending” statement is a dated snapshot, not proof of current storage.
 
@@ -159,7 +160,7 @@ replay, tests or active research. Changed bytes or copies at new paths fail.
 Do not regenerate the retention list to admit new experiment output. A necessary
 fixture exception needs a specific reviewable reason and exact bytes; a release
 model exception additionally requires explicit owner approval and an exact-path
-ignore exception, as AGENTS.md requires.
+ignore exception.
 
 `.gitignore` prevents common accidental staging; CI also checks objects already
 staged or force-added. Git blob IDs identify retained repository bytes and must
