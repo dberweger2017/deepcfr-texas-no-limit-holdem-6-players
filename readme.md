@@ -1,6 +1,8 @@
 # A local heads-up poker research bot
 
-Two release lines play two-player no-limit hold'em, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
+This bot plays heads-up (HU, one-on-one) no-limit Texas hold'em. Each model learns from billions of simulated self-play decisions with counterfactual regret minimization (CFR), the family of methods behind Libratus and Pluribus, on a simplified game: similar hands share card buckets and bets come from a fixed menu of sizes. You can play against it, or watch two versions play each other, in a local web app. The repository name is historical: the project began as a six-player Deep CFR experiment, and six players remain a later roadmap goal (v0.8).
+
+There are two release lines, HU20 and HU100, for 20 and 100 big-blind stacks, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
 
 **v0.5.3, heads-up 100 BB (newest).**
 - **The model:** a 5B-node average (seed 2026100601) trained on a larger betting menu (min, half pot, pot, 1.5× pot, 2× pot and all-in) with finer postflop card buckets, plus translation for off-menu bet sizes.
@@ -28,8 +30,8 @@ In the local web app, choose **Bot-vs-bot spectator**, select two pinned models,
 Use Python 3.11, Git and the GitHub CLI. From a fresh checkout:
 
 ```sh
-git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
-cd deepcfr-texas-no-limit-holdem-6-players
+git clone https://github.com/dberweger2017/CFR-NLHE-6max.git
+cd CFR-NLHE-6max
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-play.txt
@@ -64,12 +66,12 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | Release | Game and focus |
 | --- | --- |
 | **v0.4.0** | Heads-up 20 BB research preview and local table |
-| **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) |
-| **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2) |
+| **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.4.1) |
+| **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.4.2) |
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
-| **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) |
-| **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) |
-| **v0.5.2** | Heads-up 100 BB 4B-node average with translation; beats v0.5.1 head to head by +17.9 BB/100, repeated on two other seeds; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.2) |
+| **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.0) |
+| **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.1) |
+| **v0.5.2** | Heads-up 100 BB 4B-node average with translation; beats v0.5.1 head to head by +17.9 BB/100, repeated on two other seeds; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.2) |
 | **v0.5.3** | Heads-up 100 BB 5B-node average on the larger menu with translation; beats v0.5.2 head to head by +37.1 BB/100, all three seeds beat v0.5.2; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.3) |
 | **v0.5.5** | Heads-up 200 BB, trained at that depth and benchmarked against Slumbot; results and uncertainty published |
 | **v0.6 / v0.7** | Three players / four and five players |
