@@ -1,0 +1,31 @@
+{
+  "archive_cache_now_inactive": true,
+  "archive_stat": {
+    "device": 16777234,
+    "inode": 68780599,
+    "mtime_ns": 1792030408665999889,
+    "size": 20953054295
+  },
+  "at": 1792148259.716439,
+  "average_path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101422/average.gz",
+  "exact_average_reproduced": true,
+  "input": {
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101422-full-20261014.zip",
+    "archive_bytes": 20953054295,
+    "archive_sha256": "73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb",
+    "average_bytes": 3162064602,
+    "average_sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+    "checkpoint_bytes": 4957316628,
+    "checkpoint_sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c",
+    "drive_id": "1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO",
+    "entries": 85373928,
+    "iterations": 16827728,
+    "manifest_sha256": "6c8cafeca8e855e7d8251bf0110f09ff1b3cc3e0e722254479c06a9a3ac553b1",
+    "member": "research/seed-2026101422/frozen/20000000000.gz",
+    "seed": 2026101422
+  },
+  "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101422/checkpoint.gz",
+  "remote_input_archive_bytes_downloaded_and_whole_verified": true,
+  "required_archive_member_verified": true,
+  "seconds": 5613.140710115433
+}

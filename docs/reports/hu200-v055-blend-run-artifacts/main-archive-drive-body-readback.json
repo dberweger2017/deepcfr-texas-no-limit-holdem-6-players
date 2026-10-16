@@ -1,0 +1,53 @@
+{
+  "at": 1792172501.077918,
+  "every_copied_member_independently_read_back": true,
+  "every_copied_member_size_and_sha256_verified": true,
+  "manifest_sha256": "29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821",
+  "remote_archive_bytes_downloaded": true,
+  "scope": "Storage verification on bb128 only; no scientific evaluation or readout",
+  "source_drive_id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+  "source_drive_md5": "af29d81c92248ded58d023a49eb6c39a",
+  "status": "verified-drive-body-and-unpacked-members",
+  "transport": {
+    "download-complete.json": {
+      "command": [
+        "rclone",
+        "copyto",
+        "--immutable",
+        "--drive-root-folder-id",
+        "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+        "--log-file",
+        "download.log",
+        "--log-level",
+        "INFO",
+        "--stats",
+        "30s",
+        "--stats-one-line",
+        "gdrive:hu200-v055-blend-run-M4-20261016.zip",
+        "hu200-v055-blend-run-M4-20261016.zip"
+      ],
+      "finished": 1792171863.6761506,
+      "returncode": 0,
+      "scope": "Download of accepted Drive archive for owner-requested unpacked HDD copy only",
+      "started": 1792170345.6518068
+    },
+    "transport-admission.json": {
+      "at": 1792170284.6111472,
+      "free_bytes": 1952739553280,
+      "mount": [
+        "/mnt/data2tb",
+        "/dev/sda1",
+        "ext4"
+      ],
+      "required_bytes": 36412039572,
+      "scope": "Storage-only download and unpacked retention, no research evaluation",
+      "source_archive_sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+      "source_drive_id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+      "source_drive_md5": "af29d81c92248ded58d023a49eb6c39a"
+    }
+  },
+  "unpacked_retention_receipt": "main-archive-unpacked-retention.json",
+  "whole_archive_bytes": 17132277962,
+  "whole_archive_sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+  "whole_archive_sha256_reproduced_before_unpacking": true
+}

@@ -1,0 +1,16 @@
+{
+  "bytes": 3162671080,
+  "command": [
+    "results/hu200-v055-blend/protected-inputs/hu20-trainer",
+    "export",
+    "results/hu200-v055-blend/protected-inputs/checkpoint-2026101421.gz",
+    "--average",
+    "results/hu200-v055-blend-inputs/seed-2026101421.average.gz",
+    "--zero-mass",
+    "uniform"
+  ],
+  "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend-inputs/seed-2026101421.average.gz",
+  "seconds": 714.3803100585938,
+  "seed": 2026101421,
+  "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+}

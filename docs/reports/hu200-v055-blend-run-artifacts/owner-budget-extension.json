@@ -1,0 +1,29 @@
+{
+  "at": 1792158700.5124228,
+  "authorization": "Owner selected: Authorize extension to 04:30 overall; in response to explicit request for02:30 science /04:30 preservation Madrid October17.",
+  "authorization_scope": "Prospective time budget only; no final hand or strength result has been read.",
+  "closeout_reserve_seconds": 7200,
+  "guard_state_sha256_before": {
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/guards/baseline.json": "8912fe081d36e98ea0cd832df1f28933fb97bfb5a9d24811de900e505a97d2b6",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/guards/guard-held.json": "e53e8d13f8c55cd6d07096ead64a84ce24c1b92323f54f9e00991a3c2d4dd608"
+  },
+  "no_pilot_or_research_retry": true,
+  "no_scientific_parameters_changed": true,
+  "original_clock": {
+    "closeout_reserve_seconds": 7200,
+    "deadline": 1792192228.166579,
+    "intake_deadline": 1792156228.166579,
+    "science_end": 1792185028.166579,
+    "started": 1792134628.166579
+  },
+  "original_clock_sha256": "c5b6be619082ab8f9ade99881e68db33fbc96ae161a31cb7688770ae865b8b1b",
+  "original_quote_sha256": "4679db813ad8ef550ca6666003bee166231dfd204439613bbe4199b752d5bc89",
+  "pr": 306,
+  "revised_clock": {
+    "closeout_reserve_seconds": 7200,
+    "deadline": 1792204200.0,
+    "intake_deadline": 1792156228.166579,
+    "science_end": 1792197000.0,
+    "started": 1792134628.166579
+  }
+}

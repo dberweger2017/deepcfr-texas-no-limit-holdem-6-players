@@ -95,7 +95,9 @@ Open tasks for contributors, grouped by the compute they need. Comment on or ope
 
 One short entry per active line of work; details live in the linked reports. Storage and cleanup receipts belong in [docs/artifacts](docs/artifacts/) and [RESULTS_INDEX.md](RESULTS_INDEX.md), not here.
 
-- **Open PRs:** [#306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306) runs #297's frozen HU200 three-seed blend, the v0.5.5 candidate; [#301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301) tests whether a larger HU200 table gives a stronger 20B player.
+- **Frozen HU200 blend ([#306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306)) complete:** all fixed evaluations and 2,162,688 stored-hand replay/reproduction checks finish on the 16 GiB M4, at 12.75 GB peak family RSS. No direct gain is established; the blend still loses to 1.5× pot pressure, −29.39 [−55.24,−3.53] BB/100, retained as failed adverse evidence without retry or tuning. Drive evidence and unpacked 2 TB copies are verified. [Full results, coverage, failures and retrieval](docs/reports/hu200-v055-blend-run.md). Owner decides merge and any Slumbot use.
+
+- **Open PRs:** [#301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301) tests whether a larger HU200 table gives a stronger 20B player.
 
 - **v0.5.5 acceptance, version 2 (October 16):** the owner approved [a new protocol](docs/hu200-v055-acceptance-protocol-v2.md) for the three-seed blend (#306) before any of its Slumbot hands: 30,000 fresh hands across three accounts, pooled lower bound above −50 to qualify, "beats Slumbot" only above 0. Pass chances are stated in advance; the first protocol's failure stands. Exploratory blend hands are allowed after this merge and never count.
 

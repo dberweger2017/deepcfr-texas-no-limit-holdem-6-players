@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/protected-inputs/hu20-trainer",
+    "export",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/checkpoint.gz",
+    "--current",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/current.gz",
+    "--average",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/average.gz",
+    "--zero-mass",
+    "uniform"
+  ],
+  "completed": 1792152200.9155352,
+  "returncode": 0,
+  "seconds": 1724.0761919021606,
+  "started": 1792150476.839344
+}

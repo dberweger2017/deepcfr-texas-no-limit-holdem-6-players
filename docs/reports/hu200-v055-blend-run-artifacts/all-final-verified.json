@@ -1,0 +1,946 @@
+{
+  "all_final_hands_independently_replayed_and_reproduced": true,
+  "at": 1792167523.107788,
+  "files": {
+    "final/seed-2026101302/direct/costs.json": {
+      "bytes": 1352,
+      "sha256": "4b78f70e8b3489280d07332ec3600b3f84be03198dc9876f88d02cedc3ca7105"
+    },
+    "final/seed-2026101302/direct/play/complete.json": {
+      "bytes": 537,
+      "sha256": "f10a6332db704babe23162d219fc8d717d627c7879d59cd20cca21963266811b"
+    },
+    "final/seed-2026101302/direct/play/decisions.jsonl.gz": {
+      "bytes": 159081071,
+      "sha256": "79b161d77d0d23da240f7d70a103f76a18720ef4b573dc0c6d1a2c991dc53818"
+    },
+    "final/seed-2026101302/direct/play/hands.jsonl.gz": {
+      "bytes": 26963131,
+      "sha256": "a92dc4d558b42eac6f27b4ca27817d0db9f697f4c1926756b4e277c6734764be"
+    },
+    "final/seed-2026101302/direct/play/inputs.json": {
+      "bytes": 4108,
+      "sha256": "eb54a8838609eb0e926a5e4ef6dbe680b9b0f95f208ef18a6ed62ba8ca5f0496"
+    },
+    "final/seed-2026101302/direct/replay.json": {
+      "bytes": 2300,
+      "sha256": "5d1f3b18f3b944f8f853a655063835f49d72ee0a1822ca70b3c938549e39c75a"
+    },
+    "final/seed-2026101302/direct/reproduction/complete.json": {
+      "bytes": 536,
+      "sha256": "53bebb8de7b61dac26a2375474de1e71ab891a76296fcf5027b6a9360b7ca310"
+    },
+    "final/seed-2026101302/direct/reproduction/decisions.jsonl.gz": {
+      "bytes": 159127974,
+      "sha256": "1877055dde5173d51b2fc7259339555104c613670a83861a2678c75968e1d6c3"
+    },
+    "final/seed-2026101302/direct/reproduction/hands.jsonl.gz": {
+      "bytes": 26963131,
+      "sha256": "be217d1b06920ef4d70e912a7c826bcdaa5ae3d867b3ac2f5b12e88cf977e7fb"
+    },
+    "final/seed-2026101302/panel-check_call/costs.json": {
+      "bytes": 1347,
+      "sha256": "fceaa3ce28de05b588c80b9d39be4f406a26e81cdcb6fc27f081082b94e73c8c"
+    },
+    "final/seed-2026101302/panel-check_call/play/complete.json": {
+      "bytes": 535,
+      "sha256": "63e8f0e49b2ea0e91406b08848eafab6d542b85b186067224444ee4597da4b3e"
+    },
+    "final/seed-2026101302/panel-check_call/play/decisions.jsonl.gz": {
+      "bytes": 25135157,
+      "sha256": "d31aa507e29cff85e5f2772e130681a9ce3bf77289e5fca283726acb54790e6d"
+    },
+    "final/seed-2026101302/panel-check_call/play/hands.jsonl.gz": {
+      "bytes": 6764983,
+      "sha256": "bf8b54b698c0793086e03ea8396a36e0ec586623db201fb1241c34ff5503d660"
+    },
+    "final/seed-2026101302/panel-check_call/play/inputs.json": {
+      "bytes": 4151,
+      "sha256": "b9fdc4924f8bea584020f9e640ddf1fe81c8a93779b5de2be57abbeca92be6ba"
+    },
+    "final/seed-2026101302/panel-check_call/replay.json": {
+      "bytes": 1973,
+      "sha256": "d89d07d3a8c7f7bc39e55e8d05bd323568bac561476fbf0e4d0fe5a62a95de7a"
+    },
+    "final/seed-2026101302/panel-check_call/reproduction/complete.json": {
+      "bytes": 535,
+      "sha256": "78ccdefad290b1b80babdcd971258c125b4c8348c4f53057b6a9bea84810b85c"
+    },
+    "final/seed-2026101302/panel-check_call/reproduction/decisions.jsonl.gz": {
+      "bytes": 25057828,
+      "sha256": "5cc7ec240b58ac45a771c46e1e95a1ce0bea299c16f0d49d67ecb45dfc3a33e1"
+    },
+    "final/seed-2026101302/panel-check_call/reproduction/hands.jsonl.gz": {
+      "bytes": 6764983,
+      "sha256": "95feed512619e3cc379782e1d9dd1bc6dbb61cca36d9f21b1501ed1aaebf3af3"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/costs.json": {
+      "bytes": 1345,
+      "sha256": "4fa345444ff08826e479e87d1e26f66776076c86b4e40634a63f684aa17ad70d"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/play/complete.json": {
+      "bytes": 535,
+      "sha256": "7dd0a4dedaaff5772c5af6e41c9961a1a77831e4c4dd015cf199ed8ac77bca78"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8988738,
+      "sha256": "d7d0ac99471237ef3c52d166b13c8f8ac9aa89fdc679522b8765c516783bd084"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4617918,
+      "sha256": "f1e31e58bae6dcd1ceaa750bb7e6346ea46efda4e205e8302c775b6addbf5fbe"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/play/inputs.json": {
+      "bytes": 4324,
+      "sha256": "258b6836c157b736250738b53d43e0201ad0c31761d838e07e0b17e5155a3d73"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/replay.json": {
+      "bytes": 10898,
+      "sha256": "69b4bd6472a80c6debedf67d078e4398ba69808f60f171cb3dc5619dfa447131"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "29f311f99a0224f88e398f2202d470289c9c354ce13d6e002cfff5686b3d74fc"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8985482,
+      "sha256": "50417a2eb1d90d8b69308447023cabc9e99a8c7142272085f797cb9bb21d61bd"
+    },
+    "final/seed-2026101302/panel-half_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4617918,
+      "sha256": "a86d6fdb6a14d8eabe3955f89afa279b18c086de06b35dcba7915e4025774820"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/costs.json": {
+      "bytes": 1342,
+      "sha256": "c796c38143c202c2b89c049bc1b365cbb549926223c01ecbd939249fcbbc44c7"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/play/complete.json": {
+      "bytes": 533,
+      "sha256": "51f6000ec627101e4f5c3a74a53d33e7e56b2a6441ab6b35a9689f7576f7daa6"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 13049361,
+      "sha256": "bd0e7d7bac8f17c938c559c9afa7e99422af5c54daa9ce515ae5d4afbcae8d4c"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/play/hands.jsonl.gz": {
+      "bytes": 5360387,
+      "sha256": "e73e5df9ef67ef3e99f411e766c8f436d1350a0627e25cfb860788861756986e"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/play/inputs.json": {
+      "bytes": 4323,
+      "sha256": "069fa78161e84ba924aaaa5307faeea1334ca4f91543e146ac851fb29a2c4aa7"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/replay.json": {
+      "bytes": 2904,
+      "sha256": "bdaf33227a536858a83d25b257641cb4243f54b95fde6cf7e8fbf59363b1240f"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/reproduction/complete.json": {
+      "bytes": 531,
+      "sha256": "b99d27f1d4ce572c1d26a34aa19aa9a22cfbd795e52a18e40061b923fbba2bda"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 13042533,
+      "sha256": "16fbe0df1328b6fbcdee1524b4133866643c12bac9bbca98c4ad1df2d34ce21b"
+    },
+    "final/seed-2026101302/panel-loose_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 5360387,
+      "sha256": "c83f6d51c70b50c76bb675def68f7e2a41bf1aaae05cb125c759c85c7f569776"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/costs.json": {
+      "bytes": 1346,
+      "sha256": "171f712fc1ebf6499ae2fe66facf6c92d531dfbbd71681d8282e5e91aa2c0083"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/play/complete.json": {
+      "bytes": 535,
+      "sha256": "5861afad33c9efb06c67d80615a28aafc6144c0155a04d507dc44ec8e822d00f"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8415867,
+      "sha256": "d36f3fa660626e805333e7a6b0e24a7176626c12cc82b9e5195704b6787b4381"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4560417,
+      "sha256": "b1ed23b5774a32a3c2d97b11d6762b85a79bc8fe387bd599b8dd29b59a86c3f0"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/play/inputs.json": {
+      "bytes": 4333,
+      "sha256": "085160799cedfdc5924ad65ca6c6c828dc4e935d85ecb4a37682a00e7511c090"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/replay.json": {
+      "bytes": 2914,
+      "sha256": "225f7976a2e9cbca1c6f8fb2f4a4e6352ccb547aba1b6277a48f3d1e91add823"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/reproduction/complete.json": {
+      "bytes": 533,
+      "sha256": "bf7ab8eff8b7adf419272f3b9d170c53d207b8eff913481f951c7768f2e9a9f6"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8419423,
+      "sha256": "7d0edd3f639a9cb9f7ef2684453d049ec11bea7994779c54a620c109c93c214e"
+    },
+    "final/seed-2026101302/panel-matched_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4560417,
+      "sha256": "2c7657c0b3bb92590cc0db0aadbbb5139eab41b1adfeec55096c98cf941971ea"
+    },
+    "final/seed-2026101302/panel-pot_pressure/costs.json": {
+      "bytes": 1342,
+      "sha256": "fbdeb20a53efa333237db7e4097f4af7eac3b83ee2178886f3dbdbcbb09c590a"
+    },
+    "final/seed-2026101302/panel-pot_pressure/play/complete.json": {
+      "bytes": 534,
+      "sha256": "3a5813cf35bf092bb3ac0d6f0de818b592e7f302631ae24049d014a570509b76"
+    },
+    "final/seed-2026101302/panel-pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8729258,
+      "sha256": "c279d57e676d4eb4432182bc7c7cf7e55ed1b933a234aa6ed995307ac6527258"
+    },
+    "final/seed-2026101302/panel-pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4619443,
+      "sha256": "0d69f2a0ac1b2b4cf330b0163ff3dcae7d51b25df64fe5c42d0c1704ec3da32d"
+    },
+    "final/seed-2026101302/panel-pot_pressure/play/inputs.json": {
+      "bytes": 4309,
+      "sha256": "5f737eed1fb9ad162bcb63489ae9b9f1e8651774d5c150013fc3f5c9a17ec9ca"
+    },
+    "final/seed-2026101302/panel-pot_pressure/replay.json": {
+      "bytes": 10793,
+      "sha256": "baaa9616853d591cd6c82ffb2246e63e08609c1624ca40546ee3196689e87b9c"
+    },
+    "final/seed-2026101302/panel-pot_pressure/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "aca28660d633f931ee444dc8512d1afc1881a2121582011096eb22d0db4d2adb"
+    },
+    "final/seed-2026101302/panel-pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8716996,
+      "sha256": "d8188e7dfdb3de87b5ef5ddb9ae878e03f0df07821c9abc22b4d9c15799b2f36"
+    },
+    "final/seed-2026101302/panel-pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4619443,
+      "sha256": "fe667a6aff4a1b62c6223b7dc7bf9634aced7bb43d89ba70ee987f5baf66c20b"
+    },
+    "final/seed-2026101302/panel-random/costs.json": {
+      "bytes": 1344,
+      "sha256": "363772aa8d910ce7024e9493e14ce8b9fce32b3892de6a187066794801f098a9"
+    },
+    "final/seed-2026101302/panel-random/play/complete.json": {
+      "bytes": 533,
+      "sha256": "094bb1896c5c8493a76769c7ab6b0e9e61aa2b04e6b085e7052abed297d4580f"
+    },
+    "final/seed-2026101302/panel-random/play/decisions.jsonl.gz": {
+      "bytes": 10998759,
+      "sha256": "50a8dc08a10f9e27b9abdc68dc0275e8ceb69b5b28f5c231bc72baf5c737236a"
+    },
+    "final/seed-2026101302/panel-random/play/hands.jsonl.gz": {
+      "bytes": 5137650,
+      "sha256": "db8f33aae44c119f9da7ae59076c4e326f64fc53d43002408aa55f7a910006a6"
+    },
+    "final/seed-2026101302/panel-random/play/inputs.json": {
+      "bytes": 4139,
+      "sha256": "58f9e90dca5f3e46e5da2e2e2a22d2bf6628cf88c0a96d812736b70944f8e2b7"
+    },
+    "final/seed-2026101302/panel-random/replay.json": {
+      "bytes": 10843,
+      "sha256": "a762f6e8cb591ebd718ab5da7ca657914d176d2326e0a24b15814d6e3d1bdf40"
+    },
+    "final/seed-2026101302/panel-random/reproduction/complete.json": {
+      "bytes": 534,
+      "sha256": "5cdf9fde38be65cc3c4b439adbb7489ec057a765499c5023b4cc0b96c3532235"
+    },
+    "final/seed-2026101302/panel-random/reproduction/decisions.jsonl.gz": {
+      "bytes": 10979881,
+      "sha256": "65e11d14e83db8a17039b9959cfea477b5218a909010974f3aa3277718872af4"
+    },
+    "final/seed-2026101302/panel-random/reproduction/hands.jsonl.gz": {
+      "bytes": 5137650,
+      "sha256": "0bab6dd61a3e0fab907e2ceefeffe19fcee0139f82d570c6ee9c934d910ef051"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/costs.json": {
+      "bytes": 1344,
+      "sha256": "8a61a16b1c2924ce77615933957f10e78e9f63447b54b9d4a4cdf6b38e1adbf5"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/play/complete.json": {
+      "bytes": 532,
+      "sha256": "72bcbe1e1617b79b3cd6744982328c3203033a4ea9ee85b4aacca9b286ca7bf6"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 6720694,
+      "sha256": "85cddfa8bb8eac04772e1fe6a00dded685502a813003d03b6896337a326738ce"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/play/hands.jsonl.gz": {
+      "bytes": 4233937,
+      "sha256": "76fd2f9ed0cabc6b2e8ecaf187de9c8fe523a84298846e89245ab8bc5d79181c"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/play/inputs.json": {
+      "bytes": 4324,
+      "sha256": "b8ede660ecc7c09b60279fbcd3160123711e95e8276421cad67845575cc43799"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/replay.json": {
+      "bytes": 2891,
+      "sha256": "a071383a9b08984a8e1977cd1583168de09977c986ede5233fc1cc0632c13e1d"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/reproduction/complete.json": {
+      "bytes": 534,
+      "sha256": "62ca9e4320e65c1f7811681a8c091912898b22c1228ace45e9c43b1d6397ed35"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 6708687,
+      "sha256": "61b561a41baebd6b03a75ce537628ec739df7603078248f16e7cdac60c6e5228"
+    },
+    "final/seed-2026101302/panel-tight_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 4233937,
+      "sha256": "06b4948416398ff6f316cf3a08b1d2183bc8ede3197ec2bec2f41cf759daf373"
+    },
+    "final/seed-2026101421/direct/costs.json": {
+      "bytes": 1356,
+      "sha256": "aa4646db696274433b25e075aa414837ab1a2e8ae94679f4325952ae91499277"
+    },
+    "final/seed-2026101421/direct/play/complete.json": {
+      "bytes": 540,
+      "sha256": "a89afa35d5303bc29e05af0ed0c56ea11c2275751d6db231e2668b838140bf15"
+    },
+    "final/seed-2026101421/direct/play/decisions.jsonl.gz": {
+      "bytes": 160209667,
+      "sha256": "e7a1ee3f7d74bc30bd145bd5ed0722dc912a584e2da44fc59794b79e918d9a43"
+    },
+    "final/seed-2026101421/direct/play/hands.jsonl.gz": {
+      "bytes": 27058232,
+      "sha256": "cab3bfc58e8b02abb3ee625d6d3992a281a9f1cf77f774d7f038c166fdebf374"
+    },
+    "final/seed-2026101421/direct/play/inputs.json": {
+      "bytes": 4118,
+      "sha256": "9b2a4edc55d6fc8e4886baa341bb469bf667830ab789b0ee54a4bb3c55a1e6bd"
+    },
+    "final/seed-2026101421/direct/replay.json": {
+      "bytes": 2327,
+      "sha256": "50e7bf0a4ad5a0420784267e17c0e9a3d39e14ea2759c6f81fc57b746bc95afc"
+    },
+    "final/seed-2026101421/direct/reproduction/complete.json": {
+      "bytes": 536,
+      "sha256": "fb49c45682b778054ecea3529588aa7117146110e97dadb4efdb5bcf034096c8"
+    },
+    "final/seed-2026101421/direct/reproduction/decisions.jsonl.gz": {
+      "bytes": 160056126,
+      "sha256": "8eef1202d1ca7f78082c55a8a70d14ecfb3e0a63c25e068ea8810cf2b3b9981f"
+    },
+    "final/seed-2026101421/direct/reproduction/hands.jsonl.gz": {
+      "bytes": 27058232,
+      "sha256": "fa4434658f2f2aa157fa10e38fbabccad0085646d795c3f188d688794ad26d27"
+    },
+    "final/seed-2026101421/panel-check_call/costs.json": {
+      "bytes": 1347,
+      "sha256": "ce7f38d1d5543e42c33de83cf6645d1aebca2ebe1ff6940631cebcacb238bee9"
+    },
+    "final/seed-2026101421/panel-check_call/play/complete.json": {
+      "bytes": 535,
+      "sha256": "7b2597541ca249faeaa9ed48d79ee91c77b4f9c11588073733185dec735843d8"
+    },
+    "final/seed-2026101421/panel-check_call/play/decisions.jsonl.gz": {
+      "bytes": 25233383,
+      "sha256": "8c6467e39317a92d4f9fcc359510bf2460f98594c89ffae082447a1076daa8eb"
+    },
+    "final/seed-2026101421/panel-check_call/play/hands.jsonl.gz": {
+      "bytes": 6782516,
+      "sha256": "50fc6e3583575c4d1faa49c799e0fd53522cf48aa589882ba846f9306948c846"
+    },
+    "final/seed-2026101421/panel-check_call/play/inputs.json": {
+      "bytes": 4161,
+      "sha256": "97516799b64a99e27cf074f63b73dde2ed3cc16fbe06abe095a88f4817554b7b"
+    },
+    "final/seed-2026101421/panel-check_call/replay.json": {
+      "bytes": 1973,
+      "sha256": "dae5ba88c3452254da3a9862690ae2d34ca7f0d082ace050d3981255c4db4474"
+    },
+    "final/seed-2026101421/panel-check_call/reproduction/complete.json": {
+      "bytes": 535,
+      "sha256": "32212e77ec3c681b1d9ce06e70b3a62fd19e9adc5e4808c3c04b0aa4525d9bb0"
+    },
+    "final/seed-2026101421/panel-check_call/reproduction/decisions.jsonl.gz": {
+      "bytes": 25166003,
+      "sha256": "84ac06c0314614dfe1daddacc7778a72d7b382a57005445143c4fecc0fe1e72c"
+    },
+    "final/seed-2026101421/panel-check_call/reproduction/hands.jsonl.gz": {
+      "bytes": 6782516,
+      "sha256": "29d98f524f892686652118d2f7637cf2ad630885a9598772d3c2c4e36f7fa4b5"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/costs.json": {
+      "bytes": 1344,
+      "sha256": "0aaec1a1642e95c304afd41e4976387da85471b6eff9af6bcab1ce67d5ae00b0"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/play/complete.json": {
+      "bytes": 533,
+      "sha256": "245c2cea84e46d07cb29fa5d6536312c6e982c9a85852a7035cacd0cb7f372ad"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 9013439,
+      "sha256": "965f8918bfdc4e2758e1faa6c36babaccd2bee511fc38b4508776eb90c963c6a"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4628819,
+      "sha256": "89af1ade16f8489cc451b0e3208cb0a35541280ba9dc9891153e58dd9ac1d9a6"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/play/inputs.json": {
+      "bytes": 4334,
+      "sha256": "50e0a75aaddd9002d76a9328e31b6aa7df99665fe16c9c2fc4075117c5bdf438"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/replay.json": {
+      "bytes": 10955,
+      "sha256": "580e438f06761ed4757d159e91ac73e8b8148904dabe8d9f810d4f710bcde296"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/reproduction/complete.json": {
+      "bytes": 533,
+      "sha256": "cb59834f522c0cc02f01ec99dd9325c8c4cf38344f966e14fbb3a419b8cdcedf"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 9004875,
+      "sha256": "48fd0b76e178057d28156791b2a5343256c83621f1c68e5e90c3c94a34081043"
+    },
+    "final/seed-2026101421/panel-half_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4628819,
+      "sha256": "31d282799fa97de7c055a19ea3a5d021c33cfc63a99fb16b2e5b9b2424f7f8a5"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/costs.json": {
+      "bytes": 1343,
+      "sha256": "f80716652115fb10b26b1ed45d7339247e378a23e269bcda3bf2019965766cef"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/play/complete.json": {
+      "bytes": 534,
+      "sha256": "e64ac939037f4db812c8477487bf56b557cc55b9f2787797568bda98c937d107"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 13077954,
+      "sha256": "2a25d402b98ad38eae01dbee5fe82545cac2cb9d29c20727e932ad4cf120f188"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/play/hands.jsonl.gz": {
+      "bytes": 5377030,
+      "sha256": "b8a3ff9986d7ce8e9d34621f3fb9e3d5b44ba683eab06902979c70f13abc98e3"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/play/inputs.json": {
+      "bytes": 4333,
+      "sha256": "4ee2e469b1ee84702ae3d9e458fd6ea9dde213c1809117acf1d4edc2e5c2e469"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/replay.json": {
+      "bytes": 2949,
+      "sha256": "6c495c92318cd026d9459ae7acb59e947f5792ab57195d97ce6028d7dfde6b00"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/reproduction/complete.json": {
+      "bytes": 531,
+      "sha256": "9ea3c74ed37f9651dadd7164a67161feb2470f3128b6fb995bb16e3575d7797a"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 13065341,
+      "sha256": "3956342701c2df02f6d971fa7e677fe11d5b3c6bf1d2bf4b3c9d522654a882d0"
+    },
+    "final/seed-2026101421/panel-loose_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 5377030,
+      "sha256": "574811dd296a65fb753b9eb99a7a0b0e5cb868ac0ce199b2e32cb234d5796311"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/costs.json": {
+      "bytes": 1339,
+      "sha256": "b2686610517e81adf0e81df83d375d53611a7fada9baf99b1485929da5bc108c"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/play/complete.json": {
+      "bytes": 531,
+      "sha256": "b77c44e25ba3bce2d25b26f1cb3b5833b6bc098c27d76d4f7d3ccc97d30657fa"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8403843,
+      "sha256": "511b2a2e9fa0c6a67f9457e53f4b89d0c8e886ca7183d4e16b0e498049cfd7aa"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4563049,
+      "sha256": "291800c98ccb6f4bd58e7c66e7961f1ed9737b2aa78581c6ed65360be19d1408"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/play/inputs.json": {
+      "bytes": 4343,
+      "sha256": "17a02ec990a7fff365e9f8897ca1dad5abb0877471dc1db09d23a84740ad3a94"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/replay.json": {
+      "bytes": 2891,
+      "sha256": "5682393521a75682b8c8f2db4016e5e6da0b481bc3bae084eea967643cf2d171"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "748d213ac1481b9befa5f1f9ef85efa07dfc31d3b13a7852d3fb4805e1ea1ab1"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8398651,
+      "sha256": "6add595f470c7e0ad17905aaa0470ec88e782d594bc07d7e0df540abfe914cd5"
+    },
+    "final/seed-2026101421/panel-matched_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4563049,
+      "sha256": "56835a84afbfa8fba742f981688faf5ed601d70e5db68011e6b7895cab8b5865"
+    },
+    "final/seed-2026101421/panel-pot_pressure/costs.json": {
+      "bytes": 1340,
+      "sha256": "52ae28583248c6c7a6d0d0b50e2585ce7f2a5a8d7cec5eb9ade43489ad54c601"
+    },
+    "final/seed-2026101421/panel-pot_pressure/play/complete.json": {
+      "bytes": 532,
+      "sha256": "081d2fc3a4f0b45215f978acf315fd4a23a30f816d648e0341c1a51a7b8206a0"
+    },
+    "final/seed-2026101421/panel-pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8703567,
+      "sha256": "27d30af301c5b176d9ab1ac1e1f6939fca601fcae5e7bb27b4da4329bedc245f"
+    },
+    "final/seed-2026101421/panel-pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4620439,
+      "sha256": "6a21d63e24cdc708cdd3613aaa9ef55e6a7cc3a1a4680fed4f011f7a9cd4de73"
+    },
+    "final/seed-2026101421/panel-pot_pressure/play/inputs.json": {
+      "bytes": 4319,
+      "sha256": "cda1da6187e95f8efe91f2f359ee8283b8ea848191c136bf6409490c44c61e5e"
+    },
+    "final/seed-2026101421/panel-pot_pressure/replay.json": {
+      "bytes": 10772,
+      "sha256": "c661c350d60ac93b8ffc3478f6be721111f1ad2215e030607c2e16340679b540"
+    },
+    "final/seed-2026101421/panel-pot_pressure/reproduction/complete.json": {
+      "bytes": 531,
+      "sha256": "1420a2d28636f278207952f283141daef18c560a73717c03fcf2fe805c7df2f0"
+    },
+    "final/seed-2026101421/panel-pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8693758,
+      "sha256": "8f02ef6116e76f02b0be7a7534cd06f0df078e4ff26dd5cad715373521f5fd6f"
+    },
+    "final/seed-2026101421/panel-pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4620439,
+      "sha256": "096f9803404a030881a11ca598b6af27cafd1fddffb0b59d9153936b41ac5393"
+    },
+    "final/seed-2026101421/panel-random/costs.json": {
+      "bytes": 1341,
+      "sha256": "534b7f87d0bbbbb63bf9480bda635d5f905c4001fc6b161d53da77f5197ae53e"
+    },
+    "final/seed-2026101421/panel-random/play/complete.json": {
+      "bytes": 532,
+      "sha256": "0e51a9ab8b19ee3592f02012138c37644e240222d8c72526a821929243e0a337"
+    },
+    "final/seed-2026101421/panel-random/play/decisions.jsonl.gz": {
+      "bytes": 11030036,
+      "sha256": "49a60e436fdfb61342dea9623e9ac55917e65c3c3666412dfff718daf6448bdb"
+    },
+    "final/seed-2026101421/panel-random/play/hands.jsonl.gz": {
+      "bytes": 5149369,
+      "sha256": "fbe622b6c496df40e5d91b757ad53737a46134fe6ff0a2091bc37149d1686de0"
+    },
+    "final/seed-2026101421/panel-random/play/inputs.json": {
+      "bytes": 4149,
+      "sha256": "5bda0cc48c9fe5ac569c8879293bcce069167c096f555babf896741550085b14"
+    },
+    "final/seed-2026101421/panel-random/replay.json": {
+      "bytes": 10850,
+      "sha256": "19a00707881310828207558d56695d7f7e680d4aa7232c267fa542354cc904e3"
+    },
+    "final/seed-2026101421/panel-random/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "0ead43bf585290f3e191c7bc51eeac1781c541baed5c5a5f0cb4c8e10f8108b9"
+    },
+    "final/seed-2026101421/panel-random/reproduction/decisions.jsonl.gz": {
+      "bytes": 11024034,
+      "sha256": "f81e05763dd80287c54db7d08d6ec27f32df5dde42a592d44bba2d9feb7a73ea"
+    },
+    "final/seed-2026101421/panel-random/reproduction/hands.jsonl.gz": {
+      "bytes": 5149369,
+      "sha256": "965a35d1880956759b6b330e45ddcd4c5b8420cb34498434c8d0ba83caa454aa"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/costs.json": {
+      "bytes": 1343,
+      "sha256": "9fe1377962d438d49a9a572ac169a5b84227e431ae7e3f8f266330620bb471f3"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/play/complete.json": {
+      "bytes": 533,
+      "sha256": "052ed4225ac4f2e91dba226a19aa5c0552c7cca491a48e061edfa94a5cc8302c"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 6685803,
+      "sha256": "a657b0964a0458ca82e467f421be9a802516ae9ca46d0fc5674f5881d3e987c4"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/play/hands.jsonl.gz": {
+      "bytes": 4230330,
+      "sha256": "bea5fad9f0d451c1ae0ca0430a1626fc83b22754d0ca50463c41534c5b2ff723"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/play/inputs.json": {
+      "bytes": 4334,
+      "sha256": "06b6b1bd2aef953d7e650ebbdef673c7f2730c353801b2901d8fa3d08d05d917"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/replay.json": {
+      "bytes": 2868,
+      "sha256": "556056a22f3a9f4b669bcd7289c9ea6ada9caf28932c38cd03bb1746f4d5a530"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/reproduction/complete.json": {
+      "bytes": 534,
+      "sha256": "3cefdf8ba704f94163046cb60570945263112cc26d595287b5f865bde853ce29"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 6672621,
+      "sha256": "5c438d8fc63f89915f5efa01bf0f8ab62c6e5af887d2c055f9dfdc3bc1656a1f"
+    },
+    "final/seed-2026101421/panel-tight_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 4230330,
+      "sha256": "1e0e89f70ad4516ac9fab5ecac2ab77f5a44d89676c0f7cb9579d51c501378da"
+    },
+    "final/seed-2026101422/direct/costs.json": {
+      "bytes": 1352,
+      "sha256": "ba34c751705cbb5225aba04568973ff7c485932d13f21838e0e557ac71d5ea68"
+    },
+    "final/seed-2026101422/direct/play/complete.json": {
+      "bytes": 538,
+      "sha256": "ec12f7870b7881e85cfd0dcb3035b436d98ffb2204e5ab3f7fb2af1af00e0806"
+    },
+    "final/seed-2026101422/direct/play/decisions.jsonl.gz": {
+      "bytes": 159595142,
+      "sha256": "e42371ea1c9e86508d2bb37bf9f39dd85087928a51a66dbff2a75d66878425c1"
+    },
+    "final/seed-2026101422/direct/play/hands.jsonl.gz": {
+      "bytes": 27007691,
+      "sha256": "ee83a36cc332898c98e926f09f75e516c7444c55295bec1bc9ceb1cac3d05f04"
+    },
+    "final/seed-2026101422/direct/play/inputs.json": {
+      "bytes": 4108,
+      "sha256": "4140921895a3c6135d6fdfd4a508710935b7ec0957a089fb36b924808d60fd60"
+    },
+    "final/seed-2026101422/direct/replay.json": {
+      "bytes": 2326,
+      "sha256": "a948173e6c8ce3488710e8e1acca0319e4a829b2df85028290ec794426165cd8"
+    },
+    "final/seed-2026101422/direct/reproduction/complete.json": {
+      "bytes": 536,
+      "sha256": "da904ce8a513700678c15232ae7a53eab0c5d6810e810cea22b1459b7dfb5561"
+    },
+    "final/seed-2026101422/direct/reproduction/decisions.jsonl.gz": {
+      "bytes": 159648768,
+      "sha256": "5247fd47e8f49a621335d05ca6a6067ccb2f2f6a9938f8538e6f1e8bd17c5122"
+    },
+    "final/seed-2026101422/direct/reproduction/hands.jsonl.gz": {
+      "bytes": 27007691,
+      "sha256": "3d0a31ef809d67540d4768081cf6de9fb911cce4d7151502da02e586f2e8a776"
+    },
+    "final/seed-2026101422/panel-check_call/costs.json": {
+      "bytes": 1346,
+      "sha256": "9d07006d1768b02a858c15e16c968adaf5da308c4415e0712d0be644cfde9cb9"
+    },
+    "final/seed-2026101422/panel-check_call/play/complete.json": {
+      "bytes": 535,
+      "sha256": "7f45814a8d0506c971f2d78af9bb4fdb74a98e321f8b7e0db52a5bb5bd869850"
+    },
+    "final/seed-2026101422/panel-check_call/play/decisions.jsonl.gz": {
+      "bytes": 25245456,
+      "sha256": "6d3a5bd9616fdb19e59fde6cb05fb590d60ecfbd0121352269075a0b66e76e1b"
+    },
+    "final/seed-2026101422/panel-check_call/play/hands.jsonl.gz": {
+      "bytes": 6773510,
+      "sha256": "3af7acaa65f9174d15abb5dc1f2fbd30feb75e3b235e936e8c5ddfb09c7adcde"
+    },
+    "final/seed-2026101422/panel-check_call/play/inputs.json": {
+      "bytes": 4151,
+      "sha256": "e14dfeeab1c0a818967ba15f6e42c702c0a5e7ddd5b5f970c7ab8088977dc1cb"
+    },
+    "final/seed-2026101422/panel-check_call/replay.json": {
+      "bytes": 1972,
+      "sha256": "8be37c01f7f3031b8995f16ea628aa589e307c97aa269366c8b2861644eb37f1"
+    },
+    "final/seed-2026101422/panel-check_call/reproduction/complete.json": {
+      "bytes": 535,
+      "sha256": "3479971aca9986cc3ad61aa874f5e6b1e90ebc4d2507485015d8155e3e523965"
+    },
+    "final/seed-2026101422/panel-check_call/reproduction/decisions.jsonl.gz": {
+      "bytes": 25150512,
+      "sha256": "7474aab975e382659a19692697f033c223e6e58e0fafc2ad8de27f3c2e91810a"
+    },
+    "final/seed-2026101422/panel-check_call/reproduction/hands.jsonl.gz": {
+      "bytes": 6773510,
+      "sha256": "fa1a0310eebdde10e259d6ab7db4271c18615813009fa67997f866a625fd9ff1"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/costs.json": {
+      "bytes": 1345,
+      "sha256": "9cf59dd92912fdcd0b52ecf2a85b96c03ebbc2d818d3b902c424eef46331677a"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/play/complete.json": {
+      "bytes": 533,
+      "sha256": "53269c2700b4ea658f7852eb48964c0afbd7ffa73f9683014fed2ef402d37b2a"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 9032439,
+      "sha256": "1a2387811fc6f6c7ac803ed654766cf521a56b58d70d71f993b0656737929782"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4627859,
+      "sha256": "0490545bf9bc1ed8bcb2bffc3debae10ff14df26657297750b7f53ce9d7e9bf5"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/play/inputs.json": {
+      "bytes": 4324,
+      "sha256": "83397148c1a6bd3a8ca656ea61360e14f0d02fb67d14eeb8f3f861044a75af01"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/replay.json": {
+      "bytes": 10833,
+      "sha256": "51f57193332cc909e0d14734ff92419f35f444d23c85180500fca1c7060b576f"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/reproduction/complete.json": {
+      "bytes": 533,
+      "sha256": "e972d4cbb04b99af1a2f0e7bfa4c8c71b803d19df00e6dd794287d4e8652ef84"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 9013816,
+      "sha256": "079c10195eb91e454d8e8b09b810c717e34bafdb99c2dd786961147ef2c084cb"
+    },
+    "final/seed-2026101422/panel-half_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4627859,
+      "sha256": "1533eaa4c9d879dc0b6e626b6c981251da6006de3d5a4049bca32ffafda4f93f"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/costs.json": {
+      "bytes": 1344,
+      "sha256": "cfd72ae62fea92c22d0d8fcb7a68db1db2751ba00c60e923067bea39333a73fc"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/play/complete.json": {
+      "bytes": 535,
+      "sha256": "87be35a3aa2f3c43e323c3a682d095b06276d16a027f2dd374ffec0b69d70c7f"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 13056463,
+      "sha256": "b3d3b9a2ecdaab95895e325d41b42d2bdd0b8fa8381aa9b8a60c719fb28f675f"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/play/hands.jsonl.gz": {
+      "bytes": 5363491,
+      "sha256": "0483669c5612a15e2ba2d08ea23d317889ae7fc135b98632c764d34a95f83f43"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/play/inputs.json": {
+      "bytes": 4323,
+      "sha256": "d34e0a9b06092b8c6ac313b57744a9a4ed731984ac4cb25addeb32586c8d7b36"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/replay.json": {
+      "bytes": 2919,
+      "sha256": "ee963e14157ee436c642ff49112d4c5b6dd5b7e6944cc9ed030d43f8fd67c0b4"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/reproduction/complete.json": {
+      "bytes": 534,
+      "sha256": "aeb04b8b51730cca9fbbe6f97e8e259dd76a7e62166662da93c8c831fdb0c0d4"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 13041866,
+      "sha256": "5973edee9c3daa81de009a9163296e4d749e5c8bd5ef4730410b8675ee324cc4"
+    },
+    "final/seed-2026101422/panel-loose_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 5363491,
+      "sha256": "87b05dcb7ff596352fe532a562a18ce1bed3d64cb4946ebbf863dd9795a41c3e"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/costs.json": {
+      "bytes": 1342,
+      "sha256": "79d87e2cb37538661cb9bc08b16290d648d1d332154dd645e08909eaba65685d"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/play/complete.json": {
+      "bytes": 534,
+      "sha256": "f1fba783842db19ac627506304e94e7c05da4c1b47259fcccd7c545b66c7a8c7"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8460369,
+      "sha256": "9f1dc1e36962d20c6c1baa51de08222b58a2e7e65dfa4b228f23c30e7d9d5d87"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4569027,
+      "sha256": "e6e7d0ae8546c05af1f75393b2d64ddaf1b6c5c82b17cb69668ed323ab09cb69"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/play/inputs.json": {
+      "bytes": 4333,
+      "sha256": "c95a0f9fae173c7e254307005b0a610503cef2a131eed20bf2c4cc417689357c"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/replay.json": {
+      "bytes": 2911,
+      "sha256": "116d7773f6d2731d7bd98264393d9b5d9d5d2eb53aab0386812290eb745ebbef"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/reproduction/complete.json": {
+      "bytes": 531,
+      "sha256": "90f267706e803f09ffdb8835812dd43865f542baff962d92f5109e5d373409a4"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8452689,
+      "sha256": "b693dd9e5f272c6eaf4b7f88a0b4832e919d5119331d0381324e4809f1e0d9a8"
+    },
+    "final/seed-2026101422/panel-matched_pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4569027,
+      "sha256": "e8764e747801a55176d40cd6ece466c83bfdc4eaf89247399ec7e01ada20bcab"
+    },
+    "final/seed-2026101422/panel-pot_pressure/costs.json": {
+      "bytes": 1342,
+      "sha256": "480e75b3b6748c8d39d64a2de450785a6dd62cbdfb464300d4939847c78832fc"
+    },
+    "final/seed-2026101422/panel-pot_pressure/play/complete.json": {
+      "bytes": 533,
+      "sha256": "05caf83f1372c96f4282588e752ec3f4bde78b95f99a5d196d95a2da325f92c1"
+    },
+    "final/seed-2026101422/panel-pot_pressure/play/decisions.jsonl.gz": {
+      "bytes": 8731444,
+      "sha256": "2181a564feecefc7d15aa060c95c01f76a27944275e5b14345df67e7adc6bb7c"
+    },
+    "final/seed-2026101422/panel-pot_pressure/play/hands.jsonl.gz": {
+      "bytes": 4622177,
+      "sha256": "cc5b6d75a5cdc91fe781d4c0b780e7d50fed9521943efe9820b961818d524cc0"
+    },
+    "final/seed-2026101422/panel-pot_pressure/play/inputs.json": {
+      "bytes": 4309,
+      "sha256": "365e4954267c2fb4c1d481654fa00357cdc0bf5aa84e478a383728492fb38974"
+    },
+    "final/seed-2026101422/panel-pot_pressure/replay.json": {
+      "bytes": 10806,
+      "sha256": "67428cc30b76b2c6a7a826f1c0932bf9cee6d2fc6aa283ddb15bdb81fa4c7ee6"
+    },
+    "final/seed-2026101422/panel-pot_pressure/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "c6275ccd3b7380052f867c430cbc67c8baec99ac339461645510d758ab2bf9fa"
+    },
+    "final/seed-2026101422/panel-pot_pressure/reproduction/decisions.jsonl.gz": {
+      "bytes": 8727522,
+      "sha256": "c4d3c0e1319cb59965aa7b647d1e182619577ef331986890d1fc16399ff0bb00"
+    },
+    "final/seed-2026101422/panel-pot_pressure/reproduction/hands.jsonl.gz": {
+      "bytes": 4622177,
+      "sha256": "8a67509019cd7864f29e93cbfd6c3561bb95a0646aeef438b9eef1c8aa5d84b2"
+    },
+    "final/seed-2026101422/panel-random/costs.json": {
+      "bytes": 1344,
+      "sha256": "e15f2b8eafbfa76aa0c498907a24a790a7e5259cf15e4a5d4487743332d94e64"
+    },
+    "final/seed-2026101422/panel-random/play/complete.json": {
+      "bytes": 533,
+      "sha256": "caf086996d606f3070dbac8237ef0279bff743ec9ba6f3a2c52803b3a2dbd6b7"
+    },
+    "final/seed-2026101422/panel-random/play/decisions.jsonl.gz": {
+      "bytes": 11030891,
+      "sha256": "5c28c590fe5cea98a3ed3f372115c56301e1a365c9d93116a48347ef2bdf1d34"
+    },
+    "final/seed-2026101422/panel-random/play/hands.jsonl.gz": {
+      "bytes": 5144525,
+      "sha256": "4bb6c0bd9b32ea7cec1f6a16f514448bba385f871f6b6dc19eea5d23974b7c99"
+    },
+    "final/seed-2026101422/panel-random/play/inputs.json": {
+      "bytes": 4139,
+      "sha256": "72d9de5b9cf95d95b77a7f40d9902eacc3ff85ca4b5e25a0d1efbde0c4206183"
+    },
+    "final/seed-2026101422/panel-random/replay.json": {
+      "bytes": 10830,
+      "sha256": "3d72687435d64b148bf8b5b750e8154f85c782747e952f85c28a01bbe530c257"
+    },
+    "final/seed-2026101422/panel-random/reproduction/complete.json": {
+      "bytes": 533,
+      "sha256": "cd2dc3a902483144909696dadbf12a20652b34a950dea9d628f52595cfb30107"
+    },
+    "final/seed-2026101422/panel-random/reproduction/decisions.jsonl.gz": {
+      "bytes": 11019716,
+      "sha256": "0713a8f1af98523a4b44f3a097c5dd5cc3ef2dfad133c38b01273e0fcae5e4e3"
+    },
+    "final/seed-2026101422/panel-random/reproduction/hands.jsonl.gz": {
+      "bytes": 5144525,
+      "sha256": "10a59739f9c3ce1b1914651753b5347f3de73156d25517d70e410ecdb6387ce6"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/costs.json": {
+      "bytes": 1341,
+      "sha256": "3d1b0403b446ab4d8e044e02f63ea289b6ac69828162517a204ca56d20fb9d8e"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/play/complete.json": {
+      "bytes": 534,
+      "sha256": "d8bd2637046ac1bc5ada27299472ee69559f15cbf97d9a3136f79e16954260f6"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/play/decisions.jsonl.gz": {
+      "bytes": 6733380,
+      "sha256": "245b91c6f9e11ef272877a6a7612aa4bca22dddd9cb569c6d5d796551b3fa2f9"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/play/hands.jsonl.gz": {
+      "bytes": 4236487,
+      "sha256": "6836b1e5740875db7fbab461cd8c80f74b1cc2d37f89b00782b71cb3c23a800e"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/play/inputs.json": {
+      "bytes": 4324,
+      "sha256": "22a863063fa903e0db0d31d386d8eef345c9b8d2bada277451eadb9c4d0b405d"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/replay.json": {
+      "bytes": 2904,
+      "sha256": "95b70489b137fcd4a938a5c62602c129dca482604b9ce470a39c92bef1492547"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/reproduction/complete.json": {
+      "bytes": 532,
+      "sha256": "e64fe6e0675a123d6c958e0ab28e10c6c53a9faae07b1ccd3ccee936689e9f2f"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/reproduction/decisions.jsonl.gz": {
+      "bytes": 6725962,
+      "sha256": "a334f94ac437aa74bdee508111b99dfe32aabb295da4c63b734be6000d85e6e7"
+    },
+    "final/seed-2026101422/panel-tight_aggressive/reproduction/hands.jsonl.gz": {
+      "bytes": 4236487,
+      "sha256": "01539edf0d21ca47ec33a4328fd2625fc87987bb2e8e4f6cc7f7e3b62be39bb7"
+    }
+  },
+  "plan_sha256": "c111c6505650068a524e04ee8951bf12892993229a5fc06b4e53ad309dafbaac",
+  "recorded_primary_hands": 2162688,
+  "shared_blend_arm_fingerprints": {
+    "check_call": {
+      "decisions": {
+        "records": 277925,
+        "sha256": "87915edbc5bde1110cb445f30eed9419c5b82c5c3149f88bd1e8d5cf9815f8e1"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "e0830cc0504da3e4ab6f70c7ef2cd1159c40d985598b492cd7655276cc917fe4"
+      }
+    },
+    "half_pot_pressure": {
+      "decisions": {
+        "records": 91039,
+        "sha256": "9c5254d3eb21289e70ce373a70d2d013fb1810b8da8452dc0cdb5c0a6ae1a43a"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "11f53ccb8fad3bdce621e158a4d396a89b10904c646a0832df0454f15e61c050"
+      }
+    },
+    "loose_aggressive": {
+      "decisions": {
+        "records": 127905,
+        "sha256": "17bc962c86ba1d4ca1c3a3c87fe091950b8ec91adb7e4d39b6bf3579fa74ef58"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "efdc06c05f9f5a87cdac8649e9e5283915edd16b677edc7b37b329168343c652"
+      }
+    },
+    "matched_pot_pressure": {
+      "decisions": {
+        "records": 86530,
+        "sha256": "a8e589177d520b693eee2de9335bb4c4c921e0c58791d86c700e78c03cb01f3b"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "27c1a7eb22356cd49600da5cc04f2349c2ce788f3affaa0ae87b0525d8b694b9"
+      }
+    },
+    "pot_pressure": {
+      "decisions": {
+        "records": 87162,
+        "sha256": "53f189fdc7e7d0dab03d5d8c0f8786169da46387b5ae8577e683fc3c5b269566"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "3f57774fb7b3fdd41bf9b5c0576ab17d93372795891f31d8ea3f7761ac5987ee"
+      }
+    },
+    "random": {
+      "decisions": {
+        "records": 111380,
+        "sha256": "0ba01febe28dda331bbe786b459a34d643c880b2a5e1dd3e6ecc002cf194bc9d"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "fe025cdc31532584975ad895ed2f8b73ad8998562e31073f6d6d647e97408192"
+      }
+    },
+    "tight_aggressive": {
+      "decisions": {
+        "records": 74531,
+        "sha256": "1a0772af6fd6e24a9c3a3bdb9506cc346661cd2561dddcb2d4bce413e17f528b"
+      },
+      "hands": {
+        "records": 32768,
+        "sha256": "7485e4b22ec1f6afe8a5364bf5f984175b862cf0b5d4a5a7df18d0c308ae1a2f"
+      }
+    }
+  },
+  "status": "verified",
+  "unique_primary_hands": 1703936
+}

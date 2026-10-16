@@ -1,3 +1,208 @@
+## PR306 — frozen HU200 three-seed blend run
+
+[PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), completed fixed study;
+[report](docs/reports/hu200-v055-blend-run.md). Owner-authorized October 16
+continuation of merged #297's unplayed frozen campaign. All three original averages freshly reproduce exactly from their raw checkpoints on the 16 GiB M4. The single 156,208,331-key blend passes every-row audit. All fixed final counts run: 2,162,688 stored primary records replay/reproduce, and repeated blend fingerprints match before readout. No direct gain is established; all 21 paired scripted intervals include zero. The blend still loses 1.5× pot pressure, −29.39 [−55.24,−3.53] BB/100, retained as failed adverse research evidence without retry or tuning. Peak sampled family RSS is 12.75 GB. Main, input and administrative Drive acceptance and requested whole-archive/member-verified unpacked 2 TB retention are complete. Original clock/time-stop and prospectively authorized extension are preserved, with unchanged guard state. [Complete readout](docs/reports/hu200-v055-blend-run-artifacts/summary.json), [global barrier](docs/reports/hu200-v055-blend-run-artifacts/all-final-verified.json).
+
+**Audited M4 blend, accepted main archive and verified unpacked copy:**
+`~/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/`.
+- `average.gz`: 6,282,968,150 bytes, SHA256 `ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485`.
+- `checkpoint.gz`: 6,042,193,732 bytes, SHA256 `59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123`.
+- `current.gz`: 2,960,585,129 bytes, SHA256 `948b7dff67a52a1c2b475cc4da2d7153f00735448d5efc5360611d4a967ed860`.
+
+[Full model pins](docs/reports/hu200-v055-blend-run-artifacts/blend-model-manifest.json)
+and [independent every-row audit](docs/reports/hu200-v055-blend-run-artifacts/blend-every-row-audit.json).
+Synthetic identity `hu200-v055-sequence-blend-2026101529701`; no training/resume
+claim, release or default change. Main archive/member retrieval commands and
+unpacked-HDD model locations are recorded below.
+
+**Protected active dependencies:** M4 `~/Local/hu200-v055-blend-run/`, especially
+`results/hu200-v055-blend/`, `results/hu200-v055-blend-inputs/`,
+`results/hu200-v055-blend-qualified-tools/` and `planning/`; runtime
+`~/Local/hu20-k50-5b-first-pass-20261012/.venv/`; shared Git and #297's retained
+protected checkpoint/exporter/tables. M1 administrative worktree has the same
+`~/Local/hu200-v055-blend-run/` spelling. Protect each source archive download
+cache while restoration is active: PR265 full ZIP
+`1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI` and PR278 seed1422 full ZIP
+`1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`. Only this campaign may normally release
+those accepted inactive caches after whole-archive/member hash verification and
+exact average reproduction, with fresh native/cloud checks and receipts.
+Both caches are now normally released after that complete proof, with
+[first](docs/reports/hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json)
+and [second](docs/reports/hu200-v055-blend-run-artifacts/seed1422-archive-cache-released.json)
+receipts. Every extracted raw input and reproduced average remains protected.
+The [PR297 raw-input dependency record](#pr297-frozen-hu200-v055-blend-raw-input-continuation)
+and [#303 restoration paths](docs/artifacts/storage-vacuum-20261016.md) retain
+all source archive/member/hash pins and retrieval commands.
+
+M4 execution starts at source `13ccb498482c228776128e70ad9e733fb0f5621a`.
+[Input inventory](docs/reports/hu200-v055-blend-run-artifacts/initial-inventory.json),
+[root reservation](docs/reports/hu200-v055-blend-run-artifacts/root-reservation.json)
+and [source pins](docs/reports/hu200-v055-blend-run-artifacts/source-pins.json).
+Designated [evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK),
+ID `1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK`, direct project parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
+`~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. Main and input acceptance
+and administrative acceptance are recorded below. All research
+originals remain. No merge, Slumbot, server, release, tag or default change follows.
+
+**Owner-requested unpacked 2 TB copy:** verified main and input bundles are
+retained at `bb128:/research/PR-306-HU200-v055-blend-run/` (real path
+`/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), in
+separate unpacked bundle directories with their manifests and exact member
+size/SHA256 verification and independent disk readback. The actual 2 TB ext4
+mount is observed; main and administrative retrieval commands follow. [Plan](docs/reports/hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
+
+
+**Seed1421 checkpoint-only input archive, upload accepted:**
+`~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip`,
+4,957,760,250 bytes /2 members, whole SHA256
+`51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c`,
+`ARCHIVE-MANIFEST.json` SHA256
+`698e44d7cb27a58416cf51f40ea775bd9b86b9936781ea6021617d0709e9415c`.
+All members read back locally. Required raw member
+`inputs/seed-2026101421/checkpoint.gz`,4,957,752,665 bytes,
+`c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`.
+M1 performs archive administration only, streaming this unchanged member from
+its whole-hash/manifest-verified retained #278 local ZIP. No model construction,
+export, cache or play runs on M1. The old #278 full cloud object remains partial;
+this distinct checkpoint-only archive supplies a complete restoration dependency
+with its own accepted upload. [Local receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
+[Drive archive](https://drive.google.com/file/d/1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi/view?usp=drivesdk),
+ID `1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi`, parent this PR306 folder above.
+Current native uploaded1/uploading0/no-conflicts and independent exact
+ID/name/size/direct-parent readback accept the upload. Remote archive bytes
+were not downloaded. [Acceptance](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-upload-acceptance.json),
+[whole/manifest/member-verified retrieval command](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-restoration.json).
+Download the named ZIP with the signed-in native client, then run that command
+on M4 into its fresh ignored `results/retrieved/pr306-seed1421/` destination.
+Only this required raw-checkpoint dependency is fixed; the old full archive
+remains unaccepted, with all originals retained and no cleanup authorization.
+
+The owner-requested unpacked 2 TB copy of this accepted input bundle is now
+**verified and retained** at
+`bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`.
+Its manifest and both copied members pass size/SHA256 checks plus independent
+disk readback. [Unpacked retention receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json).
+The nested source-archive creation receipt predates upload acceptance; the
+separate accepted Drive object above has the same whole SHA256. Retrieve
+without downloading a ZIP:
+
+```sh
+mkdir -p results/retrieved/pr306-seed1421-hdd
+rsync -a bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/inputs/seed-2026101421/checkpoint.gz results/retrieved/pr306-seed1421-hdd/
+shasum -a 256 results/retrieved/pr306-seed1421-hdd/checkpoint.gz
+```
+
+Require raw SHA256 `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`
+and 4,957,752,665 bytes before use; choose a fresh destination and retain active
+inputs. The final blend bundle is also retained as verified ordinary files below.
+
+The input bundle additionally has its verified copy under the now-active owner
+alias, `bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016/`
+(real `/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/...`).
+[Canonical unpacked receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-canonical-unpacked-retention.json)
+verifies the same whole ZIP, manifest and both copied members, including
+independent disk readback. The earlier copy above remains untouched.
+PR306's running-campaign exception in [the storage policy](docs/artifact-storage.md)
+permits its current native Drive archive method; final copies use `/research`.
+
+**Main evidence archive, upload accepted and unpacked retention verified:**
+`hu200-v055-blend-run-M4-20261016.zip`, **17,132,277,962 bytes /1,219 members**,
+whole SHA256 `35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821`.
+All member sizes/SHA256s and the whole archive pass local readback before atomic
+publication. Native uploaded1/uploading0/no-conflicts and independent exact
+ID/name/size/parent confirmation accept
+[Drive object `1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV`](https://drive.google.com/file/d/1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV/view),
+in the PR folder above, Drive MD5 `af29d81c92248ded58d023a49eb6c39a`.
+A fresh direct Drive download to bb128 reproduces the whole archive SHA256;
+the manifest and all 1,219 unpacked members pass copied size/SHA256 checks
+and independent disk readback. The final copy has no outer ZIP container:
+`bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016/`.
+[Creation/readback](docs/reports/hu200-v055-blend-run-artifacts/main-archive-receipt.json),
+[native and independent acceptance](docs/reports/hu200-v055-blend-run-artifacts/main-archive-upload-acceptance.json),
+[Drive-body readback](docs/reports/hu200-v055-blend-run-artifacts/main-archive-drive-body-readback.json),
+[unpacked retention](docs/reports/hu200-v055-blend-run-artifacts/main-archive-unpacked-retention.json).
+Creation-time nested `cloud_upload_accepted:false` receipts precede the separate
+successful upload acceptance; acceptance-time `remote_archive_bytes_downloaded:false`
+precedes the later successful bb128 Drive-body download and readback.
+
+Model members are `research/hu200-v055-blend/merge/average.gz`,
+`research/hu200-v055-blend/merge/checkpoint.gz`, and
+`research/hu200-v055-blend/merge/current.gz`, with the sizes/SHA256s above.
+The archive contains all raw comparison traces, independent replay/reproduction
+receipts, global fingerprints, source/configuration, failures and the readable
+report snapshot. Canonical inputs/tables are excluded only after hash checks
+and remain indexed dependencies. The accepted administrative supplement retains the
+closed live-archive guard and final resource/upload/unpacked-retention evidence.
+No research original is removed.
+
+Retrieve the average directly from the unpacked cache, into a fresh ignored
+directory on M4 before any further authorized research:
+
+```sh
+mkdir results/retrieved/pr306-blend-hdd-NEW
+rsync -a bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016/research/hu200-v055-blend/merge/average.gz results/retrieved/pr306-blend-hdd-NEW/
+shasum -a 256 results/retrieved/pr306-blend-hdd-NEW/average.gz
+```
+
+Require **6,282,968,150 bytes** and SHA256
+`ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485`.
+The always-available Drive path, including after cache eviction, is:
+
+```sh
+mkdir results/retrieved/pr306-blend-drive-NEW
+rclone copyto --immutable --drive-root-folder-id 1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK gdrive:hu200-v055-blend-run-M4-20261016.zip results/retrieved/pr306-blend-drive-NEW/hu200-v055-blend-run-M4-20261016.zip
+shasum -a 256 results/retrieved/pr306-blend-drive-NEW/hu200-v055-blend-run-M4-20261016.zip
+```
+
+Require the whole-archive size/SHA256 above before opening the ZIP. Read
+`ARCHIVE-MANIFEST.json` and require its pinned SHA256; extract only the needed
+member into a fresh ignored destination and require its pinned bytes/SHA256
+before use. For the raw checkpoint or auditor current export, substitute the
+exact corresponding member and pins above. The cached manifest at the unpacked
+root provides every other source/trace member's bytes and SHA256.
+
+
+**Administrative supplement, upload accepted and unpacked retention verified:**
+`hu200-v055-blend-run-closeout-M1-20261016.zip`, **1,537,961 bytes /125 members**,
+whole SHA256 `72c3baadf640c38d1a780c42c7b8293bf6f9f48bb0cf5af6cd0f5e26a6f3be8a`,
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`2c824bc41bdab4027b2a83750309b85724f6a4156296e241483d17a5de98a5f0`.
+[Drive object `1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt`](https://drive.google.com/file/d/1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt/view),
+parent PR306 folder above, Drive MD5 `82c59402fe7012d7e51bd1fa2d57810e`.
+All source members and whole archive pass local readback before atomic native
+publication; uploaded1/uploading0/no-conflicts and independent exact cloud
+ID/name/size/parent agree. The direct Drive download reproduces MD5 and whole
+SHA256; all unpacked member sizes/SHA256s and independent disk readback pass.
+[Creation/readback](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-receipt.json),
+[acceptance](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-upload-acceptance.json),
+[Drive-body readback](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-drive-body-readback.json),
+[unpacked retention](docs/reports/hu200-v055-blend-run-artifacts/admin-archive-unpacked-retention.json).
+Scientific source is `13ccb498482c228776128e70ad9e733fb0f5621a`;
+administrative documentation snapshot is `3d8b90ed9dc936297ec006e1cee36311c0a59f2b`.
+The supplement includes the closed main-archive guard's raw resource trace,
+final guard-held state, all compact scientific/resource/upload/retention records,
+and the dated report/index/roadmap snapshot. Its own final acceptance and
+retention receipts live in Git, avoiding an archive self-reference. No research
+originals are removed; the open PR's dependencies remain protected.
+
+Cached ordinary files (no outer ZIP) and always-available Drive retrieval:
+
+```sh
+mkdir results/retrieved/pr306-closeout-hdd-NEW
+rsync -a bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-closeout-M1-20261016/ results/retrieved/pr306-closeout-hdd-NEW/
+mkdir results/retrieved/pr306-closeout-drive-NEW
+rclone copyto --immutable --drive-root-folder-id 1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK gdrive:hu200-v055-blend-run-closeout-M1-20261016.zip results/retrieved/pr306-closeout-drive-NEW/hu200-v055-blend-run-closeout-M1-20261016.zip
+shasum -a 256 results/retrieved/pr306-closeout-drive-NEW/hu200-v055-blend-run-closeout-M1-20261016.zip
+```
+
+Require the indexed archive bytes/SHA256 and embedded manifest SHA256 before
+extracting; validate extracted members against that manifest. With the cached
+copy, validate its `ARCHIVE-MANIFEST.json` hash and every needed member directly.
+
 ## M1-prioritized cleanup — October 16 afternoon
 
 Owner-requested cleanup retired **40 M1 paths /16 unique inodes**, representing

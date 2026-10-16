@@ -1,0 +1,79 @@
+{
+  "administrative_failures": [
+    {
+      "detail": "System Python 3.9 rejected zip(strict=True) in repository-artifact guard. No commit occurred; rerun under Python 3.11 passed.",
+      "phase": "M1 precommit"
+    },
+    {
+      "detail": "Explicit fetch populated FETCH_HEAD without origin branch tracking ref. Worktree add corrected to use that fetched commit; no research launched by failed command.",
+      "phase": "M4 worktree creation"
+    },
+    {
+      "detail": "One functions.exec snippet had an unmatched JavaScript parenthesis and was rejected before any shell code ran. Corrected call succeeded.",
+      "phase": "administrative tool orchestration"
+    },
+    {
+      "detail": "Remote rg was unavailable during a metadata-only process inspection; the listing was repeated with grep and /proc metadata. The active unpacked-retention worker was unaffected; no scientific work or file-copy retry occurred.",
+      "phase": "bb128 preservation progress inspection"
+    }
+  ],
+  "all_strength_readout_after_global_verification": true,
+  "at": 1792167888.3052878,
+  "integrity_failures": [],
+  "no_failed_hand_retry": true,
+  "no_outcomes_observed": false,
+  "plumbing": [
+    {
+      "detail": "#303 removed 19,407,460,871 bytes of required inputs. About 83.38 GB free before restoration projects about 64 GB afterward versus the unchanged prior 74.474 GB construction need. Owner alerted and acknowledged; actual restored admission remains required.",
+      "kind": "disk-capacity",
+      "phase": "inventory",
+      "resolution": "All required inputs restored and exactly reproduced; fresh gate admits77,940,490,240 free bytes against74,474,620,158 required, including floor/margin. construction-capacity-gate.json",
+      "state": "resolved-actual-construction-gate-admitted"
+    },
+    {
+      "acceptance": "seed1421-checkpoint-upload-acceptance.json",
+      "detail": "Independent cloud metadata and the M4 native placeholder show 592,464,795 bytes rather than the full 20,952,808,971. The retained M1 full ZIP whole SHA and manifest verify; the unchanged raw checkpoint-only archive now has complete local readback plus native and independent upload acceptance under PR306. M4 raw/average proof passes; no scientific setting or model bytes changed.",
+      "kind": "seed1421-full-cloud-ZIP-partial",
+      "observed_at": 1792137144.4180942,
+      "phase": "input archive provenance",
+      "state": "resolved-for-required-raw-input-by-accepted-checkpoint-only-archive"
+    },
+    {
+      "detail": "The full downloaded ZIP hash passed, then restoration raised KeyError: manifest_sha256 before extraction. Added the existing indexed manifest hashes for both pending sources and validated required fields before reading. The first recovery launch was refused by the original generic STOP sentinel before a worker started. Preserved that plumbing STOP and both failed attempts, retaining identical guard baseline/held state, clock, thresholds and all model pins; a distinct guarded intake continuation is running.",
+      "evidence": "intake-configuration-recovery.json",
+      "guard_evidence": "intake-guard-sentinel-preservation.json",
+      "kind": "intake-control-configuration",
+      "phase": "seed1302 restoration",
+      "research_failure": false,
+      "scientific_parameters_changed": false,
+      "state": "resolved-seed1302-average-exactly-reproduced"
+    },
+    {
+      "detail": "All fixed pilots replay/reproduce; frozen quote needs36965.42s, projecting02:02:39Madrid October17 beyond original23:10:28science deadline. Disk fits53,061,722,112 vs31,504,892,644 required. No final hand or strength readout; no extension applied. PR stays draft pending actual research.",
+      "evidence": "final-cost-admission.json",
+      "kind": "full-count-time-envelope",
+      "phase": "post-pilot cost admission",
+      "research_failure": false,
+      "resolution": "Owner explicitly authorizes02:30science/04:30preservationMadridOctober17; unchanged original cost measurements now admit, no guard state reset. owner-budget-extension.json / final-cost-admission-owner-extended.json",
+      "scientific_parameters_changed": false,
+      "state": "resolved-owner-authorized-prospective-extension-admitted"
+    }
+  ],
+  "preservation_administration_updated_at": 1792172321.91552,
+  "research_failures": [
+    {
+      "all_fixed_counts_completed_and_verified": true,
+      "bb_per_100": -29.38690185546875,
+      "blocks": 16384,
+      "classification": "Failed adverse research finding per owner instruction; no overall pass/fail gate is introduced",
+      "evidence": "summary.json / panel.pot_pressure.models.blend",
+      "finding": "Blend remains losing against the1.5x pot-pressure script",
+      "kind": "adverse-fixed-result",
+      "no_research_retry_tuning_or_extension_after_readout": true,
+      "nominal_ci95": [
+        -55.24379814491455,
+        -3.530005566022947
+      ]
+    }
+  ]
+}

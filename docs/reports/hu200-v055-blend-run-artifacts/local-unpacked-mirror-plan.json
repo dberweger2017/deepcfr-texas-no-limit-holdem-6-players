@@ -1,0 +1,17 @@
+{
+  "acceptance": "Fresh mounted-device and owner-status check, whole source archive SHA256, exact embedded manifest SHA256, and every copied member size/SHA256 verified; compact receipt and retrieval commands indexed.",
+  "all_blend_construction_export_cache_and_evaluation_on": "Apple M4 / 16 GiB",
+  "at": 1792145657.4593,
+  "destination": "/mnt/data2tb/research/PR-306-HU200-v055-blend-run",
+  "drive_upload_acceptance_still_required": true,
+  "filesystem": "ext4",
+  "host_alias": "bb128",
+  "layout": "One unpacked directory per uploaded bundle, preserving member-relative paths and embedded manifest; no ZIP container in the final mirror directories.",
+  "mount": "/mnt/data2tb",
+  "observed_capacity_bytes": 1967845998592,
+  "observed_free_bytes": 1967614066688,
+  "observed_mount_source": "/dev/sda1",
+  "owner_instruction": "Retain an uncompressed local copy of the final uploaded research evidence on the 2 TB disk under /research/(PR name), with the archive folder structure.",
+  "research_originals_removed": [],
+  "state": "planned-final-evidence-not-yet-created"
+}

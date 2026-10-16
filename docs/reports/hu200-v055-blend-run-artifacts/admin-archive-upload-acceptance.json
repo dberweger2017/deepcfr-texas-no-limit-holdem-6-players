@@ -1,0 +1,82 @@
+{
+  "at": 1792172537.80197,
+  "independent_cloud": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "display_url": "https://drive.google.com/file/d/1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt/view?usp=drivesdk",
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt",
+    "mime_type": "application/zip",
+    "modified_time": null,
+    "parent_ids": [
+      "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "1537961",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu200-v055-blend-run-closeout-M1-20261016.zip",
+    "url": "https://drive.google.com/file/d/1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt/view?usp=drivesdk"
+  },
+  "local_archive": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 1537961,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 1465663,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "2c824bc41bdab4027b2a83750309b85724f6a4156296e241483d17a5de98a5f0",
+    "members": 125,
+    "metadata": {
+      "documentation_source": "3d8b90ed9dc936297ec006e1cee36311c0a59f2b",
+      "main_archive_sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+      "main_drive_id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+      "main_unpacked_destination": "/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016",
+      "originals_retained": true,
+      "owner": {
+        "checked_at": 1792172502.605738,
+        "number": 306,
+        "state": "OPEN",
+        "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+      },
+      "pr": 306,
+      "scientific_source": "13ccb498482c228776128e70ad9e733fb0f5621a",
+      "scope": "M1 report, resource, upload and unpacked-retention administration only; no construction, export, cache or evaluation on M1",
+      "unchanged_repository_seal_functions_sha256": "f55111991e326d16d046ef9217499d5f2c7589802125772eae4b9b8d51fa04ad"
+    },
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-closeout-M1-20261016.zip",
+    "published_after_full_local_readback": true,
+    "remote_archive_bytes_downloaded": false,
+    "same_filesystem_atomic_publication": true,
+    "seconds_including_source_hash_pack_readback_whole_hash": 0.03731637500459328,
+    "sha256": "72c3baadf640c38d1a780c42c7b8293bf6f9f48bb0cf5af6cd0f5e26a6f3be8a",
+    "status": "locally-verified"
+  },
+  "native_observation": {
+    "at": 1792172520.590971,
+    "native": {
+      "at": 1792172520.590935,
+      "bytes": 1537961,
+      "cloud_file_id": "1C47m9ixAVbnAsUA-BrnRRYLc7bWiduxt",
+      "cloud_folder_id": "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+      "conflicts": {
+        "exists": true,
+        "nil": false,
+        "unresolved_count": 0
+      },
+      "is_uploaded": 1,
+      "is_uploading": 0,
+      "name": "hu200-v055-blend-run-closeout-M1-20261016.zip",
+      "native_accepted": true,
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-closeout-M1-20261016.zip",
+      "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536871039;\n            contentModificationDate = \"2026-10-16 17:41:42 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-16 17:41:42 +0000\";\n            displayName = \"hu200-v055-blend-run-closeout-M1-20261016.zip\";\n            documentSize = 1537961;\n            filename = \"hu200-v055-blend-run-closeout-M1-20261016.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 1;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 1;\n            isRecursivelyDownloaded = 1;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 113969;\n            lastUsedDate = \"2026-10-16 17:41:43 +0000\";\n            parentItemIdentifier = 113925;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 45613074 ... 68766547 6c425051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpfetT----\n\nContent Policy: 2\n\nInherited Content Policy: 2\n\nEffective Content Policy: 2\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+      "remote_archive_bytes_downloaded": false
+    },
+    "observer_source_sha256": "d34e31fb5089cad36b7566344e49f8290b90718156ccc881b4103b376b363378",
+    "remote_archive_bytes_downloaded": false,
+    "repository_observer_executed_unchanged": true
+  },
+  "remote_archive_bytes_downloaded": false,
+  "status": "upload-accepted"
+}

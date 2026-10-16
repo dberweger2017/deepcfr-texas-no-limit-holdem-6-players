@@ -1,0 +1,37 @@
+{
+  "at": 1792134935.330432,
+  "administrative_source": "7cca6485e6de816cd2130848b2be537b93240961",
+  "m4_execution_source": "13ccb498482c228776128e70ad9e733fb0f5621a",
+  "frozen_native_binary_source": "24df622856e4a301ed9bd328184164521abfb1b5",
+  "files": {
+    "native/hu20-trainer/examples/hu200_blend.rs": {
+      "sha256": "a18e60bf845b1220d5423a87a8073080d8f6be8febd71287274cd469078bd7e3",
+      "unchanged_from_297_qualified_source": true
+    },
+    "native/hu20-trainer/src/cfr.rs": {
+      "sha256": "6c429e81b49f6ec2b450ae213837c7dba3b1776a6f93ba080bd06135b69460b6",
+      "unchanged_from_297_qualified_source": true
+    },
+    "native/hu20-trainer/src/export.rs": {
+      "sha256": "cdf025d0a90b3cbc78b82ea2b42642d15199c77e229090eac6f14da00bff6567",
+      "unchanged_from_297_qualified_source": true
+    },
+    "scripts/evaluate_hu200_blend.py": {
+      "sha256": "436865cad34b6a10ee90884a68b1b3c6c96ec4c03996a07cc977b40e786ef218",
+      "unchanged_from_297_qualified_source": true
+    },
+    "scripts/plan_hu200_blend_resources.py": {
+      "sha256": "b54abc20b9b19e621b4b38693aede319467c389b2d8139ada796fa4c177f0c63",
+      "unchanged_from_297_qualified_source": true
+    },
+    "scripts/guard_m4_research.py": {
+      "sha256": "23979a9fac3bba24463d508346e2013b459093c0cbe74d7e2266ce9738e0611c",
+      "unchanged_from_297_qualified_source": true
+    },
+    "scripts/build_streaming_average_cache.py": {
+      "sha256": "1a585a39367fdc0a840bbf65bbcfa06435e629ae88518beb9eed8da31c573593",
+      "unchanged_from_297_qualified_source": true
+    }
+  },
+  "shared_dependency_changes": "Current main adds HU100 menu-v2 translation and optional block-boundary pause/resume; this run uses unchanged HU200 menu-v1 translation and no pause/resume option. No scientific code changes are authored by PR306."
+}

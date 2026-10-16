@@ -1,0 +1,458 @@
+{
+  "at": 1792168512.554283,
+  "commands": [
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447365120
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101302-final/build.time",
+      "source_log_sha256": "646ec66277703c92c925d2c33a5380a2e85325bd5f0e30b8767c44ef2a9ad424"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447250432
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101302-pilot/build.time",
+      "source_log_sha256": "27f46432acf4b8c385348a25d084dcc7d396c1ef095b2993bf562155d8c62b0e"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447430656
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101421-final/build.time",
+      "source_log_sha256": "e48a9b1720c9324fd2994de6b4a5553bbbae57da33c9a2a02d41a11e06c88b73"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447430656
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101421-pilot/build.time",
+      "source_log_sha256": "215b0ecd89806c2eb91547ebcab31c80a09bdede12ff6910329d51e1459d01b6"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447332352
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101422-final/build.time",
+      "source_log_sha256": "297d489f0022ad6ca00543701e12f970b3453ec9a61b82fc559f31534fbeb4e5"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        447676416
+      ],
+      "path": "results/hu200-v055-blend/cache-2026101422-pilot/build.time",
+      "source_log_sha256": "347223873a9213824f63a3e8a7be87a51bcf93ef4ac0b5760e2abf07d9176097"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        673710080
+      ],
+      "path": "results/hu200-v055-blend/cache-blend/build.time",
+      "source_log_sha256": "92c876129dbf2d3ab89af19bb35177c11ce3fc165017ca9c88fedb21441f7a3d"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        12559466496
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/direct.process.log",
+      "source_log_sha256": "2c321559e3d34ea35140877381d791a84a3a66767a6403e128f6b8fae0713a3b"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        6108790784
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-check_call.process.log",
+      "source_log_sha256": "dc0a10869d2e4cca72b093e8849428368ad50432a50da78bdf29ce543eacc43b"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3731456000
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "f786e9f1ed8749b367be800cb2b5a65d3afced5917ca197a6d3e2b9e49efccd3"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        4936761344
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-loose_aggressive.process.log",
+      "source_log_sha256": "29d5fca5bbc3f553ac60551c9104e542806fa6f04193169840fb228a9493386e"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3376185344
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "b0544daae23cd97faaf79fcb39fdade42436be7134aba56cdf1b9bf3b3b8765b"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3654844416
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-pot_pressure.process.log",
+      "source_log_sha256": "94227caff3b010f83d0113f7d81e47419355fbb402888f7e62e7651a2b6ea869"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3710697472
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-random.process.log",
+      "source_log_sha256": "46655a1f05e78c485ebe48011cc772e9d7c1c7513aee4840dec6e29c4892c6dc"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        2577252352
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101302/panel-tight_aggressive.process.log",
+      "source_log_sha256": "bc6b773cb9c8d3e2a8cde66fe1c915ab1b45f4c64013fe7fabe980e23fcad993"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        12734185472
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/direct.process.log",
+      "source_log_sha256": "0c2f73ad4b37d3a6e24e11882f5793ab1295f08ed59f1dc63d6f7c7e05ee9a3f"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        6111215616
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-check_call.process.log",
+      "source_log_sha256": "ff7bec6d10b0c0de3bfe21da556b29af07a5ea68c44456bb61cc5614804bd65b"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3681452032
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "7506befb5c392f0e43c3bd84eda10653f860d52cdafab1b792b3625d3d249623"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        5150900224
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-loose_aggressive.process.log",
+      "source_log_sha256": "1c0b196b44c10d91179bc41ecfedd8bbf629648454dd8cb5e3f05b3dd7bf7a85"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3359752192
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "f771e7caecffa74b70f038465ca4243fb6ecc2075bf5d495c4fe5d06c0b551d7"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3752968192
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-pot_pressure.process.log",
+      "source_log_sha256": "94e96a9fc06fae0329fe76697ced2615be77597dfa22ce8881730979fbf6b8b9"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3696705536
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-random.process.log",
+      "source_log_sha256": "3ef2a8e95c72cd9c4347f71e101aecd04184891a230be92647f00aed2b0315c2"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        2839330816
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101421/panel-tight_aggressive.process.log",
+      "source_log_sha256": "58d950de0d0489c0c052d899d1f01b5b379cbb5956d9fa64713e4b94f941071c"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        12488523776
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/direct.process.log",
+      "source_log_sha256": "d19de9d627c6493e9b56ad708ae6675dde62827eed1c624d77bb2271b0fd94de"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        6071582720
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-check_call.process.log",
+      "source_log_sha256": "8afc84717458f6fb1e0bb553d1b8f4878eb69e31a061d12e1127bcc4d3d678f8"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3929489408
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "83c03ad34718b6a9c02cd6d7e93dba51a01752d2685e833c56fc99d704203942"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        4936171520
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-loose_aggressive.process.log",
+      "source_log_sha256": "fc01877dbc55886d3b79a72fdeed95c94618d509b67ef22f9f44c24107be3ca2"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3694510080
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "f3222394549429b2fc3948d1572c0dee8cf9913481819570fec45f572af910a5"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3504029696
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-pot_pressure.process.log",
+      "source_log_sha256": "e8388e5d3b6996ce32b41a6e165feeff7c87fdd9f1bdfeae4aaab6091dd1efec"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        3631398912
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-random.process.log",
+      "source_log_sha256": "c7cf5fbe82e31fd42dcb7a942ad3fe67cac303017ffaae65b3710f3e331f8bdd"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        2644017152
+      ],
+      "path": "results/hu200-v055-blend/final/seed-2026101422/panel-tight_aggressive.process.log",
+      "source_log_sha256": "f83af049300ec01953d894f909914525a33a4abaaaf1265741daadf93b34da3a"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        4702208
+      ],
+      "path": "results/hu200-v055-blend/merge/export.time",
+      "source_log_sha256": "c2c234cb6b0039f535ebbfdfb180f62fbc94d6197e9e74c67ed61047e68c67c0"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        5046272
+      ],
+      "path": "results/hu200-v055-blend/merge/merge.time",
+      "source_log_sha256": "258bcf263f21f06facf994fa10c291d8443d9251b3b5df605d3c12d19728bd71"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1578598400
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/direct.process.log",
+      "source_log_sha256": "5247cce7faa1e24398aad889dbee6908c52ef45128304b844bfd1c7daf98556f"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1468497920
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-check_call.process.log",
+      "source_log_sha256": "878a7318456fb82130a762ad1d3f692e09cd2e258791cfb72fffe94adb2d3395"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1378762752
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "91b406fd0dc3af246d4e189492ad44467ca977a96fc575363982ce2a40f6f558"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1345568768
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-loose_aggressive.process.log",
+      "source_log_sha256": "e680f3e56d8a984069af47034012daac7656d045923366b3d11e41e33dc79d29"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1384906752
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "d19845752a024ca74f25e17d5f18fb426141722994b6501d9a5c7a50d5346bc7"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1230356480
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-pot_pressure.process.log",
+      "source_log_sha256": "f31660006a86341032d65151244e691970db038755fe084d94cecd4d22ecfc0a"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1188593664
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-random.process.log",
+      "source_log_sha256": "affa2a570575793c28f09e038bf87d8098d2f368d0630cdbadfe831f9d636b8e"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1345257472
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101302/panel-tight_aggressive.process.log",
+      "source_log_sha256": "8ff4c7a12ede1be22cd755895339c1a39b45f3ed0a589ad9a3ca8519fb3842f6"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1484423168
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/direct.process.log",
+      "source_log_sha256": "807509356c20435716d270f6269266e397e500831978c049fdfa64579c2e2b5f"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1477410816
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-check_call.process.log",
+      "source_log_sha256": "9ac4bffbd8aa46312324e1847575d7be163ed577fcf91eb65b929d40590d44a6"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1146224640
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "b6b3789967e1a8b43a07248c138e15f039cdff66cdbd8151f9befb0627cff698"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1345978368
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-loose_aggressive.process.log",
+      "source_log_sha256": "281098fbda24c5a57fb478affbed033857f9cf3fd15ba364bac7bf41c0e78718"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1387954176
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "31aeb2a82cbb2c5f549db707fa27e522dbb9537fbf67e83db4894c5fd5d6fb72"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1381859328
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-pot_pressure.process.log",
+      "source_log_sha256": "e507981f8e8083b425804d10fad5a08dcd9931cf31c54429ea6cabbe779ac092"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1400897536
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-random.process.log",
+      "source_log_sha256": "869c75e4da3bd6a89aa2c51db4ea5c600783f771c6d452f87a6964d41226563b"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1367818240
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101421/panel-tight_aggressive.process.log",
+      "source_log_sha256": "5c25b6713eb7f39e8a2acec3758ffba610c685d820ad08fb71f3525a5a076e45"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1628848128
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/direct.process.log",
+      "source_log_sha256": "89bf1cd64e7dc5c46da45884ec62d4570f2784ee48b02f4dc479025a1d4a6db4"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1485586432
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-check_call.process.log",
+      "source_log_sha256": "3a5f523b4e4cd427195dd8e73982497cd118df92ee781b7892a3902652688e9e"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1380417536
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-half_pot_pressure.process.log",
+      "source_log_sha256": "932e49b57333802e732fd597016f1ce0c7bb9a2a704723bd9b14edb2aeb00815"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1406173184
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-loose_aggressive.process.log",
+      "source_log_sha256": "fb791ba95e7bb0e8a549bdd2787f6442401eac3b3dc50be8682135e0f11279a1"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1388249088
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-matched_pot_pressure.process.log",
+      "source_log_sha256": "eec71909dad38467525045dfdfe3743f6bb35c1c0214099cac364cc78c3a7eb1"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1387888640
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-pot_pressure.process.log",
+      "source_log_sha256": "27596ef9772534e0386d82d7beabb760b8ab5464dea5a0eac9b1af9cf5d5cb28"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1401257984
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-random.process.log",
+      "source_log_sha256": "585615a48f1a4f9af266222328559db4c2a0b6ee9edb5e3f5daf3e5211906599"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        1370079232
+      ],
+      "path": "results/hu200-v055-blend/pilot/seed-2026101422/panel-tight_aggressive.process.log",
+      "source_log_sha256": "b7d54925e1fe8fb18d6f8918480d624ae4aeb130ea79116fd3b908deb6606395"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        98926592
+      ],
+      "path": "results/hu200-v055-blend/quote/quote.time",
+      "source_log_sha256": "de4d11d2acb66d6baa6fa0fc0c5e8e648bb58bd1301301d133bfa23e191165ee"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        98811904
+      ],
+      "path": "results/hu200-v055-blend/readout/panel-coverage.time",
+      "source_log_sha256": "3b67af1633a14af5a32861b73c9665f1a403c51021890e86618e0074cd7ce838"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        220053504
+      ],
+      "path": "results/hu200-v055-blend/readout/readout.time",
+      "source_log_sha256": "a7b16e68b0e78755cf09b6f3dcce365059d699fdae28fda60d86d5a73f462235"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        96059392
+      ],
+      "path": "results/hu200-v055-blend/union/capacity-gate.time",
+      "source_log_sha256": "8cfe4a0b0de9f32ec77bc60fc9c9250a88f07dd97f96a84abf933569fd2c1885"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        4685824
+      ],
+      "path": "results/hu200-v055-blend/union/sample-export.time",
+      "source_log_sha256": "205e79d2e26a9246e181f4472ed440f83c197f7d60ae5116727b6645ae8100ef"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        5013504
+      ],
+      "path": "results/hu200-v055-blend/union/scan.time",
+      "source_log_sha256": "0ef64227ac45e92e9a2a7ddab17e8929f0aeae5784b73a9a804a71f825ff704e"
+    },
+    {
+      "kernel_maximum_resident_set_size_bytes": [
+        99106816
+      ],
+      "path": "results/hu200-v055-blend/verify/verify.time",
+      "source_log_sha256": "5b58ee5fde2b28962991da228cb9dd317659232ec937cec4d3bfda9c0e5a5450"
+    }
+  ],
+  "largest_command_kernel_rss_bytes": 12734185472,
+  "machine": "Apple M4",
+  "measurement": "Kernel per-command process maxima. These are separate from five-second complete-process-family RSS samples; maxima across separate commands are not simultaneous sums.",
+  "no_game_outcomes_read": true,
+  "units": "bytes as emitted by macOS /usr/bin/time -l"
+}

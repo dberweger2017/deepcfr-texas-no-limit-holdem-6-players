@@ -1,0 +1,45 @@
+{
+  "at": 1792172473.7673643,
+  "destination": "/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016",
+  "every_copied_member_independently_read_back": true,
+  "every_copied_member_size_and_sha256_verified": true,
+  "host_alias": "bb128",
+  "logical_member_bytes": 17131522344,
+  "manifest_path": "/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821",
+  "members": 1219,
+  "mount_observation": [
+    "/mnt/data2tb",
+    "/dev/sda1",
+    "ext4"
+  ],
+  "owner": {
+    "checked_at": 1792172118.433998,
+    "number": 306,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+  },
+  "pr": 306,
+  "research_originals_removed": [],
+  "scope": "Storage administration only; no construction, export, cache or evaluation on bb128",
+  "seconds": 274.01682329177856,
+  "source_archive_receipt": {
+    "all_member_sizes_and_hashes_readback": true,
+    "bytes": 17132277962,
+    "cloud_upload_accepted": false,
+    "logical_member_bytes": 17131522344,
+    "manifest_path": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821",
+    "members": 1219,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016.zip",
+    "published_after_full_local_readback": true,
+    "remote_archive_bytes_downloaded": false,
+    "same_filesystem_atomic_publication": true,
+    "seconds_including_source_hash_pack_readback_whole_hash": 63.723144708026666,
+    "sha256": "35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582",
+    "status": "locally-verified"
+  },
+  "source_transport_path": "/mnt/data2tb/research-cloud/.incoming-transports/PR-306-HU200-v055-blend-run/main-20261016/hu200-v055-blend-run-M4-20261016.zip",
+  "status": "verified-unpacked-retained",
+  "zip_container_retained_in_final_directory": false
+}
