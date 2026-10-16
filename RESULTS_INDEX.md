@@ -40,6 +40,14 @@ The owner explicitly
 requested manifests, archive readback and cloud indexing as part of this
 campaign; receipts will be added at closeout.
 
+**October 16 transport block:** after the owner-authorized BIOS pause/resume,
+79/119 source parts are verified and split; 133/237 cloud pieces are uploaded,
+126 accepted. The OpenAI upload bridge failed during pre-Drive staging twice;
+no further attempts are scheduled. The existing worker is paused, and all
+buffers/failures/originals are retained. The PR-ready ETA is suspended.
+[Block receipt](docs/reports/nplayer-blueprint-phase2-artifacts/archive-transport-block.json)
+records this partial state. No scientific work was retried.
+
 The host repo is a shared clone of PR291's protected checkout, with `.venv` and
 K50 `tables` from #283. Preserve the complete PR291→PR289→PR288→#283 shared Git
 chain and the [indexed K50 input provenance](docs/reports/cygnus-x1-artifacts/input-restoration.json).

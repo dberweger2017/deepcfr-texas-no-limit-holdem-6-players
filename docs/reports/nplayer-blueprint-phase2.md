@@ -234,3 +234,15 @@ outstanding. bb128 compute was released at approximately20:17Madrid onOctober15.
 All working evidence is retained under
 `/home/dberweger/nplayer-blueprint-phase2-20261015/`; its shared source/input
 parents are protected. No cleanup has occurred.
+
+On October 16, archive transport resumed after the owner's BIOS downtime,
+starting at source part 63 after receipt reconciliation. The original failed
+SCP and partial buffer remain retained. The upload bridge subsequently failed
+before the Drive action with an Azure authentication error and then an OpenAI
+files-request error. One bounded continuation followed an empty exact-name and
+parent cloud reconciliation; successful upload IDs were reused. No further
+attempts are scheduled. At the block, 79/119 source parts were split, 133/237
+cloud pieces uploaded and 126 accepted. The existing worker is paused at its
+2-GiB spool ceiling. [Failure receipt](nplayer-blueprint-phase2-artifacts/archive-transport-block.json).
+Final cloud acceptance and the PR-ready ETA remain suspended; all scientific
+results and protected originals are unchanged.

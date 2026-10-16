@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-16T02:12:35.441103+02:00",
+  "piece": "main-evidence.zip.part0066-1",
+  "stage": "OpenAI bridge staging before Drive upload action",
+  "error": "failed to send OpenAI file request to https://chatgpt.com/backend-api/files",
+  "prior_failure": "bridge-staging-403-20261016.json",
+  "prior_reconciliation": "bridge-staging-403-reconciliation.json",
+  "upload_id": null,
+  "action": "No further retries; pause existing worker and disable only PR292 schedule; preserve all scientific originals, split buffers and historical interrupted transfer",
+  "worker_pid": 36169,
+  "worker_identity": "/Users/dberweger/.local/bin/python3.11 /Users/dberweger/.t3/worktrees/deepcfr-texas-no-limit-holdem-6-players/feature-nplayer-game-parity/planning/nplayer-phase2/transport_resume_owner20261016.py",
+  "worker_sigstop": true,
+  "counts": {
+    "ready": 158,
+    "upload": 133,
+    "accepted": 126
+  },
+  "source_parts_ready": 79,
+  "source_parts_total": 119,
+  "cloud_pieces_total": 237,
+  "source_archive_sha256": "ea57f0e4910c458c5597c194da25342aaf912f2f098452e8e0982b1121dddb3f",
+  "schedule_enabled": false
+}

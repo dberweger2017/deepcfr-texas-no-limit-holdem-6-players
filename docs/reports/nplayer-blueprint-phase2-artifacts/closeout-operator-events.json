@@ -35,6 +35,11 @@
       "stage": "post-BIOS read-only host probe",
       "event": "An initial SSH metadata probe had incorrect remote shell quoting and returned a syntax error before executing its Python expression.",
       "action": "Corrected remote argument quoting with shlex.quote and read only hostname/archive size/mtime. No archive or scientific source was changed."
+    },
+    {
+      "stage": "OpenAI upload bridge after BIOS resume",
+      "event": "For piece main-evidence.zip.part0066-1, blob staging failed with HTTP403 Azure AuthenticationFailed before Drive upload action. Exact-name/parent cloud reconciliation returned no file. One bounded continuation reused all existing successful IDs, then failed sending the OpenAI files request before receiving a new upload ID.",
+      "action": "No further retries; disabled only the PR292 schedule and SIGSTOPped the existing transport worker at its bounded spool ceiling. Retained both failure receipts, reconciliation, all buffers, successful upload IDs and host originals. Science is complete and unchanged; cloud closeout remains blocked."
     }
   ]
 }
