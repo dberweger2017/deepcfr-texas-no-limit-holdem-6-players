@@ -1,0 +1,110 @@
+{
+  "abandoned_hands": 2,
+  "baseline_difference_bb_per_100": {
+    "half_width_95": 29.36541505481331,
+    "mean": -13.932572720731832,
+    "n": 9729
+  },
+  "bb_per_100": {
+    "half_width_95": 34.13990095774494,
+    "mean": -24.812416486792063,
+    "n": 9729
+  },
+  "bb_per_100_by_seat": {
+    "big_blind": {
+      "half_width_95": 46.90632513948795,
+      "mean": -41.510791366906474,
+      "n": 4865
+    },
+    "small_blind_button": {
+      "half_width_95": 49.61875151142957,
+      "mean": -8.110608552631579,
+      "n": 4864
+    }
+  },
+  "decisions": 27067,
+  "endings": {
+    "client_fold": 4176,
+    "showdown": 1908,
+    "slumbot_fold": 3645
+  },
+  "hands": 9729,
+  "journal": {
+    "decisions": 27067,
+    "hands": 9729,
+    "tail_sha256": "18bd4d500ced89511a5aa284628dfcb1d1a03f2b90dbc7306361be6d3b788d49"
+  },
+  "journal_sha256": "a5c675ae5c4896a1c421f399032a8fe7a447143e2cf714bd43f77868ca4f054e",
+  "latency_seconds": {
+    "max": 28.153248582035303,
+    "median": 0.37883383221924305,
+    "p90": 0.47530078049749136
+  },
+  "net_chips": -241400,
+  "rejected_hands": 0,
+  "rejections": [],
+  "requests": 36799,
+  "run": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "account": "deepcfr-f20b-tr",
+    "account_session": true,
+    "action_translation": {
+      "max_events": 128,
+      "max_states": 512,
+      "version": "hu200-public-menu-translation-equity-k50-v1"
+    },
+    "contract": {
+      "ante": 0,
+      "bet_convention": "street-raise-to",
+      "big_blind": 100,
+      "players": 2,
+      "rake": 0,
+      "reset_each_hand": true,
+      "small_blind": 50,
+      "stack": 20000
+    },
+    "description": {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "action_translation": {
+        "max_events": 128,
+        "max_states": 512,
+        "version": "hu200-public-menu-translation-equity-k50-v1"
+      },
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "entries": 85373907,
+      "iteration": 16670844,
+      "kind": "holdem-hu200-stored-cfr-average-research-v1",
+      "num_players": 2,
+      "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+      "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+      "training_seed": 2026101302,
+      "weights_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "zero_mass_entries": 19013067
+    },
+    "hands_counted": "completed",
+    "hands_requested": 9729,
+    "max_abandoned": 169,
+    "max_rejected": 50,
+    "max_requests": 596880,
+    "min_interval_seconds": 0.0,
+    "model_bytes": 3164563975,
+    "model_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "player": "hu200-average",
+    "policy_seed": 20261014055102,
+    "service": "https://slumbot.com",
+    "timeout_seconds": 30.0
+  },
+  "seconds": 15031.467555443756,
+  "slumbot_session": {
+    "sessions": 1,
+    "slumbot_hands": 9729,
+    "slumbot_net_chips": -241400,
+    "unverified_chips": 0,
+    "verified_net_chips": -241400
+  },
+  "stopped": null
+}
