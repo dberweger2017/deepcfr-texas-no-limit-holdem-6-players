@@ -1,0 +1,17 @@
+{
+  "archive_bytes": 4957760250,
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip",
+  "archive_sha256": "51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c",
+  "cloud_upload_accepted": true,
+  "drive_id": "1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi",
+  "drive_url": "https://drive.google.com/file/d/1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi/view?usp=drivesdk",
+  "folder_id": "1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK",
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "698e44d7cb27a58416cf51f40ea775bd9b86b9936781ea6021617d0709e9415c",
+  "member": "inputs/seed-2026101421/checkpoint.gz",
+  "member_bytes": 4957752665,
+  "member_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+  "remote_archive_bytes_downloaded": false,
+  "restoration_command": "python3 - <<'PYRESTORE'\nimport hashlib,json,shutil,zipfile\nfrom pathlib import Path\narchive=Path.home()/'Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip'\nout=Path('results/retrieved/pr306-seed1421')\ndef sha(path):\n h=hashlib.sha256()\n with path.open('rb') as stream:\n  while chunk:=stream.read(4<<20):h.update(chunk)\n return h.hexdigest()\nassert sha(archive)=='51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c'\nout.mkdir(parents=True,exist_ok=False)\nwith zipfile.ZipFile(archive) as z:\n manifest=z.read('ARCHIVE-MANIFEST.json')\n assert hashlib.sha256(manifest).hexdigest()=='698e44d7cb27a58416cf51f40ea775bd9b86b9936781ea6021617d0709e9415c'\n target=out/'checkpoint.gz'\n with z.open('inputs/seed-2026101421/checkpoint.gz') as source,target.open('xb') as dest:shutil.copyfileobj(source,dest,4<<20)\n assert target.stat().st_size==4957752665 and sha(target)=='c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676'\nprint('Restored and SHA256 verified',target)\nPYRESTORE",
+  "restoration_note": "Download through the signed-in native Drive client on M4, then run in a fresh ignored destination; never overwrite active inputs."
+}

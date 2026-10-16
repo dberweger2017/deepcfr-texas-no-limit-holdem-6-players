@@ -93,7 +93,7 @@ remain disclosed; no guard threshold, weight, rule or evaluation count changes.
 The [designated evidence folder](https://drive.google.com/drive/folders/1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK)
 is created and independently verified under the Research-Cloud project parent;
 both Macs observe the same Drive ID. [Folder receipt](hu200-v055-blend-run-artifacts/drive-folder.json).
-No evidence upload acceptance is claimed before a final archive exists.
+Final scientific-output archive acceptance awaits the full run; input preservation is recorded separately below.
 At the first archive's observed 4–4.5 MB/s arrival rate, the provisional intake
 ETA is 13:00–15:00 Madrid, conditional on network throughput. Final-run ETA still
 awaits actual union admission and cost-only pilots.
@@ -113,6 +113,16 @@ and the new whole ZIP pass local readback in 32.50 seconds. All source originals
 remain. No blend construction, export, cache or evaluation runs on M1.
 [Archive receipt](hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
 The 4,957,760,250-byte archive is published atomically to this PR's shared
-evidence folder and is uploading; independent/native acceptance is pending.
+evidence folder. Native uploaded1/uploading0/no-conflicts and independent Drive
+ID/name/size/direct-parent metadata now accept it. Remote archive bytes were
+not downloaded. [Acceptance](hu200-v055-blend-run-artifacts/seed1421-checkpoint-upload-acceptance.json),
+[exact retrieval command](hu200-v055-blend-run-artifacts/seed1421-checkpoint-restoration.json).
 Its raw checkpoint remains byte-identical to the M4-verified input. The old
 full cloud object remains explicitly unaccepted.
+
+The [complete checkpoint-only archive](https://drive.google.com/file/d/1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi/view?usp=drivesdk)
+fixes this run's required seed1421 raw restoration dependency. It does not
+repair the old full cloud object or authorize removal of that retained local
+full archive, which contains other evidence. Input-provenance metadata is
+added to the new campaign's intake configuration; every raw/average hash,
+iteration weight, model rule and evaluation count remains unchanged.

@@ -37,7 +37,7 @@ No cleanup, merge, Slumbot, server, release, tag or default change follows this
 in-progress record.
 
 
-**Seed1421 checkpoint-only input archive, locally verified /upload pending:**
+**Seed1421 checkpoint-only input archive, upload accepted:**
 `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip`,
 4,957,760,250 bytes /2 members, whole SHA256
 `51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c`,
@@ -50,8 +50,17 @@ M1 performs archive administration only, streaming this unchanged member from
 its whole-hash/manifest-verified retained #278 local ZIP. No model construction,
 export, cache or play runs on M1. The old #278 full cloud object remains partial;
 this distinct checkpoint-only archive supplies a complete restoration dependency
-once its own upload is accepted. [Local receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
-No independent/native upload acceptance or remote-byte download is claimed yet.
+with its own accepted upload. [Local receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
+[Drive archive](https://drive.google.com/file/d/1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi/view?usp=drivesdk),
+ID `1Kfp_fSXHg7LRTHffUn8Hv_Snb9pzcJFi`, parent this PR306 folder above.
+Current native uploaded1/uploading0/no-conflicts and independent exact
+ID/name/size/direct-parent readback accept the upload. Remote archive bytes
+were not downloaded. [Acceptance](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-upload-acceptance.json),
+[whole/manifest/member-verified retrieval command](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-restoration.json).
+Download the named ZIP with the signed-in native client, then run that command
+on M4 into its fresh ignored `results/retrieved/pr306-seed1421/` destination.
+Only this required raw-checkpoint dependency is fixed; the old full archive
+remains unaccepted, with all originals retained and no cleanup authorization.
 
 ## Storage cleanup — October 16, 2026
 
