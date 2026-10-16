@@ -143,3 +143,33 @@ actual-decision EV. Memory passes; the 3-second latency target fails.
 declared, no strength hands have been played, and no search setting is qualified.
 The PR remains draft pending the owner's response to the cost gate. This
 status update does not change the prospective sample or work declaration above.
+
+## Owner amendment after the original cost failure
+
+On October 16 the owner selected transport/adapter engineering in this same PR.
+Keep the original 3-second target and failed result unchanged. Optimize matrix
+transport, startup, parsing and evidence I/O, and eliminate ancestor work only
+while preserving search outputs: the same ranges, full menu, 50 iterations,
+six threads and complete prior-policy locks. Preserve reusable earlier policies.
+An uncertified change in resolver reuse is not a transport optimization.
+
+Before another timed gate, prove output parity with the current implementation
+on the identical 24 frozen spots. Compare final scientific request identities,
+all public-node holding/action strategies after the same normalization, EVs and
+their unavailable masks, prior locks, chosen actions and fresh replay. Timing,
+paths, process identifiers and transport metadata are not strategy outputs.
+Preserve the baseline evidence and every failure; do not overwrite old runs.
+
+Then rerun the same sample with the amended **p95 at most 10 seconds** and
+unchanged **at least 3 GB free** memory gate. The owner justifies 10 seconds as
+a threefold margin within Slumbot's 30-second request timeout; this study still
+does not authorize any Slumbot play. The 120-second measurement watchdog and
+fixed work are unchanged. Report both old and amended gates distinctly.
+
+If the amended gate passes, quote the strength study from measured cost and
+independent-block variance, considering at most three concurrent searches only
+after measured family/headroom admission. **Propose counts to the owner before
+any strength hands**, regardless of whether the estimate is below 24 hours.
+No strength play, root consumption or outcome inspection is authorized by this
+engineering amendment. Commit the exact validation and cost declaration before
+running those stages; post their ETA in the PR.
