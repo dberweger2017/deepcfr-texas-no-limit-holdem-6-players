@@ -1,0 +1,144 @@
+{
+  "status": "all-three-common5B-recoveries-running",
+  "observed_utc": "2026-10-16T19:45:26.592703+00:00",
+  "launch": {
+    "status": "launch-authorized",
+    "source": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+    "owner_approved": true,
+    "prelaunch_pr_description_readback_verified": true,
+    "admission_sha256": "dd86775df655730ac8033d5056a8cb353a1ee77c583fb6c5a7afa35585baaebe",
+    "original_clock_sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+    "effective_deadline_epoch": 1792380557.996109,
+    "at_utc": "2026-10-16T19:43:44.074524+00:00",
+    "status_after_popen": "started",
+    "pid": 4325,
+    "command": [
+      "taskset",
+      "-c",
+      "6,7",
+      "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+      "-m",
+      "scripts.recover_hu200_capacity",
+      "run",
+      "--base",
+      "/home/dberweger/hu200-capacity-20261015"
+    ],
+    "starttime_ticks": "494917"
+  },
+  "observer": {
+    "pid": 4367,
+    "source": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+    "command": [
+      "taskset",
+      "-c",
+      "6,7",
+      "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+      "-m",
+      "scripts.notify_hu200_capacity",
+      "--base",
+      "/home/dberweger/hu200-capacity-20261015"
+    ],
+    "started_utc": "2026-10-16T19:44:04.723235+00:00",
+    "deadline_epoch": 1792384157.996109,
+    "purpose": "Metadata-only existing current-campaign webhook; original sent-event ledger reused; exits after terminal training delivery.",
+    "starttime_ticks": "496981"
+  },
+  "jobs": [
+    {
+      "seed": 2026101302,
+      "pid": 4337,
+      "cpus": [
+        0,
+        1
+      ],
+      "changed_flags": [
+        "--max-seconds",
+        "--out",
+        "--stop-file",
+        "--telemetry"
+      ],
+      "all_other_recipe_flags_identical": true,
+      "parent_sha256": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa",
+      "output": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.gz"
+    },
+    {
+      "seed": 2026101421,
+      "pid": 4338,
+      "cpus": [
+        2,
+        3
+      ],
+      "changed_flags": [
+        "--max-seconds",
+        "--out",
+        "--stop-file",
+        "--telemetry"
+      ],
+      "all_other_recipe_flags_identical": true,
+      "parent_sha256": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a",
+      "output": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/10000000000/checkpoint.gz"
+    },
+    {
+      "seed": 2026101422,
+      "pid": 4339,
+      "cpus": [
+        4,
+        5
+      ],
+      "changed_flags": [
+        "--max-seconds",
+        "--out",
+        "--stop-file",
+        "--telemetry"
+      ],
+      "all_other_recipe_flags_identical": true,
+      "parent_sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+      "output": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/10000000000/checkpoint.gz"
+    }
+  ],
+  "original_clock_unchanged": true,
+  "deadline_epoch": 1792380557.996109,
+  "evaluation_started": false,
+  "latest_resource": {
+    "utc": "2026-10-16T19:45:25.223549+00:00",
+    "package_c": 63.0,
+    "vrm_c": 61.0,
+    "available_bytes": 115021037568,
+    "family_rss_bytes": 17622970368,
+    "free_disk_bytes": 220644573184,
+    "swap_used_bytes": 0,
+    "active_jobs": {
+      "train-2026101302-10000000000": {
+        "kind": "train",
+        "cpus": [
+          0,
+          1
+        ]
+      },
+      "train-2026101421-10000000000": {
+        "kind": "train",
+        "cpus": [
+          2,
+          3
+        ]
+      },
+      "train-2026101422-10000000000": {
+        "kind": "train",
+        "cpus": [
+          4,
+          5
+        ]
+      }
+    },
+    "clean_stop_requested": false
+  },
+  "raw_trace_mutable": true,
+  "original_attempts_untouched": true,
+  "webhook_task": {
+    "enabled": true,
+    "type": "webhook",
+    "bound_thread": "feca1fa3-b5be-4857-94be-e2061da40655",
+    "last_run_status": "succeeded",
+    "new_task_created": false
+  }
+}

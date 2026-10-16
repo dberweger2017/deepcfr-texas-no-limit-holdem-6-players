@@ -1,11 +1,28 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Owner-approved common5B recovery is admitted and ready to launch.** All original5B recovery/average and twin bytes survived.53 guarded validation checks pass; fresh binary/K50/parent hashes, source/gate pins and RAM/disk admission pass. Exactly+3600s is recorded once in a separate ledger; the original clock stays unchanged. Effective main deadline October19 03:29:18UTC /05:29:18Madrid; evaluation stays24h. No recovery trainer has started at this admission snapshot.
+**All three owner-approved common5B recovery runs are active toward10B.** All original5B recovery/average and twin bytes survived.53 guarded validation checks pass; fresh binary/K50/parent hashes, source/gate pins and RAM/disk admission pass. Exactly+3600s is recorded once in a separate ledger; the original clock stays unchanged. Effective main deadline October19 03:29:18UTC /05:29:18Madrid; evaluation stays24h. Recovery supervisor4325 and trainers4337/4338/4339 started October16 at19:43UTC; the owned metadata observer4367 is active.
 
 Clean sourcec48e64ceccde0b99287b7f40e3c9076bb60fea8a uses fresh results-recovery-20261016 paths, retains interrupted evidence and requires exact rebuilt10B references. Training/audits target Saturday17 evening–Sunday18 evening Madrid; report/archives Monday19 evening, Tuesday20 upload contingency, subject to evaluation/transfer cost admission. No final hands.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Recovery running — October16,19:45UTC
+
+[Startup verification](hu200-capacity-cygnus-artifacts/recovery-startup-verification.json)
+confirms all three actual native commands, process identities and CPU affinities.
+Recipe flags and5B resume hashes match the interrupted10B attempts; only
+max-seconds/output/telemetry/stop-file values change. Each trainer reserves two
+CPUs (0–1,2–3,4–5),38GiB RSS and20GB prospective output. Clean sourcec48e64ce
+is immutable while supervisor4325 and observer4367 run. The original clock hash
+is unchanged; the effective deadline is the approved fixed+3600s value.
+
+At19:45:25UTC CPU/VRM63/61°C, available115.021GB, family RSS17.623GB while
+parents load, NVMe free220.645GB, swap0, no stop requested. Existing webhook-only
+task remains enabled/bound to this thread, with the old sent-event ledger reused;
+no recurring timer or new task is created. New10B and terminal events use the
+same owned root receipt names, now referencing fresh recovery output paths.
+No final hands or output archive acceptance yet.
 
 ## Approved recovery admission — October16,19:41UTC
 
