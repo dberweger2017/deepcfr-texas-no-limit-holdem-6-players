@@ -1,25 +1,17 @@
 # A local heads-up poker research bot
 
-Two release lines play two-player no-limit hold'em, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
+This bot plays heads-up (HU, one-on-one) no-limit Texas hold'em. Each model learns from billions of simulated self-play decisions with counterfactual regret minimization (CFR), the family of methods behind Libratus and Pluribus, on a simplified game: similar hands share card buckets and bets come from a fixed menu of sizes. You can play against it, or watch two versions play each other, in a local web app. The repository name is historical: the project began as a six-player Deep CFR experiment, and six players remain a later roadmap goal (v0.8).
 
-**v0.5.2, heads-up 100 BB (newest).**
-- **The model:** a 4B-node average (seed 2026100601), the same training run as v0.5.0 and v0.5.1 continued to 4B nodes, with public-history translation for off-menu bet sizes.
-- **Head to head:** it beats v0.5.1 by **+17.90 [14.98, 20.83] BB/100**. Two independent seeds repeat the gain over their own 2B models: +18.7 and +19.4 (#236).
-- **Scripted opponents** (translation on), BB/100:
+There are two release lines, HU20 and HU100, for 20 and 100 big-blind stacks, with no rake or ante and fresh stacks each hand. Both play tabular, linearly weighted, opponent-sampled CFR averages.
 
-  | Opponent | BB/100 [95%] |
-  |---|---|
-  | check/call | +140 |
-  | random | +138 |
-  | loose-aggressive | +82 |
-  | tight-aggressive | +49 |
-  | pot-size pressure | −49 [−82, −17] |
+**v0.5.3, heads-up 100 BB (newest).**
+- **The model:** a 5B-node average (seed 2026100601) trained on a larger betting menu (min, half pot, pot, 1.5× pot, 2× pot and all-in) with finer postflop card buckets, plus translation for off-menu bet sizes.
+- **Head to head:** it beats v0.5.2 by **+37.10 [30.16, 44.04] BB/100**, with translation on for both. All three training seeds beat v0.5.2: +47.0, +41.0 and +45.4 (#296).
+- **Scripted opponents**, BB/100: check/call +269, random +107, tight-aggressive +37, loose-aggressive +35, pot-size pressure +27, matched-pot pressure +20, half-pot pressure +16. Pot-size pressure, which beat v0.5.2, is now beaten.
+- **Limits:** no external benchmark has been played; against matched-pot pressure it scores less than v0.5.2 did (−26.6 [−40.8, −12.3] on the same deals).
+- The download is 4.6 GB in twelve assets; the model reassembles itself on first start. [Model card](docs/releases/v0.5.3/MODEL_CARD.md) · [install and run](docs/releases/v0.5.3/INSTALL.md)
 
-  No opponent shows a severe regression from v0.5.1 on the same deals; loose-aggressive improves by +35.
-- **Limits:** no external benchmark has been played, and pot-size pressure still beats it.
-- [Model card](docs/releases/v0.5.2/MODEL_CARD.md) · [install and run](docs/releases/v0.5.2/INSTALL.md)
-
-**v0.5.1 and v0.5.0, heads-up 100 BB.** The 2B- and 1B-node averages from the same run, still available. [v0.5.1 model card](docs/releases/v0.5.1/MODEL_CARD.md) · [v0.5.0 model card](docs/releases/v0.5.0/MODEL_CARD.md)
+**v0.5.2, v0.5.1 and v0.5.0, heads-up 100 BB.** The 4B-, 2B- and 1B-node averages on the original menu, still available. [v0.5.2 model card](docs/releases/v0.5.2/MODEL_CARD.md) · [v0.5.1](docs/releases/v0.5.1/MODEL_CARD.md) · [v0.5.0](docs/releases/v0.5.0/MODEL_CARD.md)
 
 **v0.4.2, heads-up 20 BB.**
 - **The model:** a 10B-node average, fixed seed 2026100601. It is the default on the 20 BB table; v0.4.0 and v0.4.1 remain selectable.
@@ -38,8 +30,8 @@ In the local web app, choose **Bot-vs-bot spectator**, select two pinned models,
 Use Python 3.11, Git and the GitHub CLI. From a fresh checkout:
 
 ```sh
-git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
-cd deepcfr-texas-no-limit-holdem-6-players
+git clone https://github.com/dberweger2017/CFR-NLHE-6max.git
+cd CFR-NLHE-6max
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-play.txt
@@ -74,12 +66,13 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | Release | Game and focus |
 | --- | --- |
 | **v0.4.0** | Heads-up 20 BB research preview and local table |
-| **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) |
-| **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2) |
+| **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.4.1) |
+| **v0.4.2** | Heads-up 20 BB 10B-node average; [stable release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.4.2) |
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
-| **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) |
-| **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.1) |
-| **v0.5.2** | Heads-up 100 BB 4B-node average with translation; beats v0.5.1 head to head by +17.9 BB/100, repeated on two other seeds; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.2) |
+| **v0.5.0** | Heads-up 100 BB 1B-node average with translation; internal and scripted evaluation only, as no suitable free public 100 BB opponent has been found; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.0) |
+| **v0.5.1** | Heads-up 100 BB 2B-node average with translation; beats v0.5.0 head to head by +29.5 BB/100; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.1) |
+| **v0.5.2** | Heads-up 100 BB 4B-node average with translation; beats v0.5.1 head to head by +17.9 BB/100, repeated on two other seeds; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.2) |
+| **v0.5.3** | Heads-up 100 BB 5B-node average on the larger menu with translation; beats v0.5.2 head to head by +37.1 BB/100, all three seeds beat v0.5.2; [release and verified assets](https://github.com/dberweger2017/CFR-NLHE-6max/releases/tag/v0.5.3) |
 | **v0.5.5** | Heads-up 200 BB, trained at that depth and benchmarked against Slumbot; results and uncertainty published |
 | **v0.6 / v0.7** | Three players / four and five players |
 | **v0.8** | Six players, 100 BB; confirmed profit against the scripted pool |
@@ -89,12 +82,16 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 
 A credible professional reference, predeclared multi-seed confirmation, legal information-safe play and reproducible evidence. Later milestones keep their own acceptance checks.
 
+## Contributing
+
+Help is welcome, from fixing a doc to running a research campaign. [CONTRIBUTING.md](CONTRIBUTING.md) explains setup, the kinds of contribution that need no large compute, and how research proposals work; the [roadmap's Help wanted list](ROADMAP.md#help-wanted) names open tasks.
+
 ## Developers and licenses
 
 [Repository map and commands](docs/development.md), [artifact storage](docs/artifact-storage.md),
 and [maintenance audit](docs/reports/necessary-cleaning.md).
 
 The play-only installation excludes neural research dependencies. For the full
-research and test environment, install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read [AGENTS.md](AGENTS.md), [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
+research and test environment, install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read the [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
 
 Repository code is [MIT](LICENSE.txt). The pinned `pokers` upstream has no verified license grant in its repository/package metadata; the owner licenses their changes to that fork under MIT, while the original authors' terms remain unresolved. [License audit](docs/releases/v0.4.0/LICENSE_AUDIT.md). Release assets contain inference only, no engine binary or private journal; reports and referenced papers retain their own rights.
