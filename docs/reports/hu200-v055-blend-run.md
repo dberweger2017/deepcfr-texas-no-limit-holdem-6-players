@@ -5,9 +5,13 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-Status: input restoration in progress; construction awaits disk admission. This PR remains
-draft until the planned research actually runs or a research failure is recorded.
-Plumbing interruptions remain pending work, with their evidence preserved.
+**Current status (October 16, 14:53 Madrid): the blend is built and fully audited.**
+All156,208,331 rows pass the unchanged independent checkpoint/current/average
+audit on the 16 GiB M4. The average inference model is6,282,968,150 bytes;
+its raw synthetic checkpoint is6,042,193,732 bytes. Caching is running; fixed
+pilots and final evaluation remain pending. This PR stays draft until the
+planned research actually runs or a research failure is recorded. Plumbing
+interruptions remain pending work, with their evidence preserved.
 
 All construction, export, cache and evaluation work runs on the base Apple M4
 with 16 GiB physical memory, under both exclusive research locks and the existing
@@ -25,10 +29,12 @@ actual admission and the cost-only pilots and will be posted before final play.
 The frozen 16-hour active campaign envelope includes a two-hour preservation
 reserve; an interruption for plumbing does not constitute a research result.
 
-Pending evidence: inventory/restoration hashes, current admission, union coverage,
-root masses, resource peaks, three direct comparisons and 95% intervals, the
-seven-opponent panel for all four models, independent verification of every final
-hand, failure history, and accepted Research-Cloud archives/retrieval records.
+Completed evidence includes all fresh input proofs, actual admission, union
+coverage/root diagnostics and full model audit. Pending: caches and cost pilots,
+the three fixed direct comparisons and 95% intervals, the seven-opponent panel
+for all four models, independent replay/reproduction of every final hand before
+readout, final resource/failure summaries, accepted Research-Cloud evidence and
+its owner-requested unpacked 2 TB copy. The measured full-run ETA follows pilots.
 
 ## Initial inventory and plumbing
 
@@ -225,7 +231,7 @@ both copied members pass exact size/SHA256 and a separate disk readback.
 No ZIP container is present in that final bundle directory. This is storage
 administration of an existing input, not blend construction on bb128.
 The final blend bundle remains pending. [Unpacked receipt](hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json);
-[direct HDD retrieval](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run-active-plumbing-pending).
+[direct HDD retrieval](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run).
 
 ### October 16, 13:34 Madrid: complete raw blend checkpoint
 
@@ -249,3 +255,34 @@ is now running over the full 156,208,331-key model. No audited-model-ready
 claim, pilot or final hand exists yet. Expected audited-model availability
 is14:50–15:00 Madrid, conditional on audit success.
 [Full export execution](hu200-v055-blend-run-artifacts/full-export-execution.json).
+
+### October 16, 14:53 Madrid: audited blend ready
+
+The full unchanged auditor verifies all **156,208,331 nodes** in2,952.32 s
+(49 min12.32 s), including exact accumulator normalization, current regrets,
+key uniqueness and complete current/average coverage. It verifies124,272,760
+positive-mass rows and31,935,571 zero-mass uniform rows. It does not reconstruct
+historical training increments; regrets/visits are deliberately zero in this
+synthetic blend, with no training or resume claim.
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| average | 6,282,968,150 | `ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485` |
+| checkpoint | 6,042,193,732 | `59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123` |
+| current | 2,960,585,129 | `948b7dff67a52a1c2b475cc4da2d7153f00735448d5efc5360611d4a967ed860` |
+
+The complete construction/export/audit controller returns0 after6,420.16 s.
+Its1,278 five-second samples have a69,206,016-byte family RSS peak and no
+resource stop; all originals are preserved. The inference model and checkpoint
+sizes were reported to the owner immediately on readiness. Blend caching is
+now running, before unchanged disjoint-root pilots and any final hand.
+[Model manifest](hu200-v055-blend-run-artifacts/blend-model-manifest.json),
+[every-row audit](hu200-v055-blend-run-artifacts/blend-every-row-audit.json),
+[construction resources](hu200-v055-blend-run-artifacts/blend-construction-resource-receipt.json).
+
+Cache retirement additionally checks current GitHub PR status retrieved by M1
+after each completed comparison group, and retains the cache until that receipt
+is atomically supplied. This is an automatic metadata handoff, requiring no new
+owner confirmation. Exact source pins, seven-file inventory, no handles/links
+and unchanged size/mtime are checked before retiring only the inactive derived
+seed cache. No model, evaluator, count, root, weight or rule changes.

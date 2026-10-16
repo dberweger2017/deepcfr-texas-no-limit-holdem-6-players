@@ -1,14 +1,27 @@
-## PR306 — frozen HU200 three-seed blend run (active, plumbing pending)
+## PR306 — frozen HU200 three-seed blend run
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), draft;
 [report](docs/reports/hu200-v055-blend-run.md). Owner-authorized October 16
 continuation of merged #297's unplayed frozen campaign. All three original averages now freshly reproduce exactly
 from their raw checkpoints on the 16 GiB M4. The actual gate admits
 construction: 77.940 GB free versus 74.475 GB required, with the 16-GiB floor
-and 2-GiB margin included. The full fixed blend is building over156,208,331
-union keys; no cache, pilot or final hand exists yet. The initial space
+and 2-GiB margin included. The full156,208,331-key blend is now
+built and every row audits; its6.283-GB inference export is ready. Cache
+construction is running before fixed pilots/finals; no playing result exists. The initial space
 shortfall and resolved intake-configuration failure/original STOP remain
 preserved. This remains active work.
+
+**Audited local M4 blend, archive pending:**
+`~/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/`.
+- `average.gz`: 6,282,968,150 bytes, SHA256 `ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485`.
+- `checkpoint.gz`: 6,042,193,732 bytes, SHA256 `59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123`.
+- `current.gz`: 2,960,585,129 bytes, SHA256 `948b7dff67a52a1c2b475cc4da2d7153f00735448d5efc5360611d4a967ed860`.
+
+[Full model pins](docs/reports/hu200-v055-blend-run-artifacts/blend-model-manifest.json)
+and [independent every-row audit](docs/reports/hu200-v055-blend-run-artifacts/blend-every-row-audit.json).
+Synthetic identity `hu200-v055-sequence-blend-2026101529701`; no training/resume
+claim, release or default change. Final archive/member retrieval commands and
+unpacked-HDD model locations follow the completed fixed evaluation/closeout.
 
 **Protected active dependencies:** M4 `~/Local/hu200-v055-blend-run/`, especially
 `results/hu200-v055-blend/`, `results/hu200-v055-blend-inputs/`,
