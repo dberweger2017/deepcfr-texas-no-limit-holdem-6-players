@@ -9,8 +9,8 @@ and 2-GiB margin included. The full 156,208,331-key blend is now
 built and every row audits; its 6.283-GB inference export is ready. The blend
 cache and all three fixed cost-pilot groups independently replay/reproduce.
 The owner prospectively authorizes02:30 science/04:30 preservation Madrid
-October17; the same10 h16 min quote now admits. The first final seed cache is
-building; no final strength readout exists. Original clock/time-stop and guard
+October17; the same10 h16 min quote now admits. The first full final group is
+running; no final strength readout exists. Original clock/time-stop and guard
 state preservation remain evidence.
 [Exact pending cost admission](docs/reports/hu200-v055-blend-run-artifacts/final-cost-admission.json). The initial space
 shortfall and resolved intake-configuration failure/original STOP remain

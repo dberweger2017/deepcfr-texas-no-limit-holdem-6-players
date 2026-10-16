@@ -12,7 +12,7 @@ its raw synthetic checkpoint is 6,042,193,732 bytes. All three fixed cost-pilot
 groups independently replay and reproduce. The owner explicitly authorizes a
 prospective time-budget extension to 02:30 science /04:30 preservation Madrid
 October 17. The same measured quote now admits, projecting science 02:08 and
-preservation 04:08; the first final seed cache is building. No final strength
+preservation 04:08; the first full final group is running. No final strength
 result has been read. The PR remains draft pending the actual evaluation and
 accepted archival evidence.
 
@@ -382,3 +382,13 @@ the first final seed cache is building.
 [frozen full-count plan](hu200-v055-blend-run-artifacts/final-plan.json),
 [execution admission](hu200-v055-blend-run-artifacts/execution-admission.json),
 [ETA before final play](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306#issuecomment-6216986834).
+
+### October 16, 15:58 Madrid: fixed final execution starts
+
+The first final seed cache finishes with guard 0 after 301.70 seconds,
+61 samples and a 160,727,040-byte family RSS peak. Its source average and the
+plan/admission hash match. The seed2026101302 final group starts at
+15:58:00 Madrid: 131,072 duplicate direct blocks, then 16,384 paired blocks for
+each of the seven scripted opponents. Later groups use the other two seeds
+at the same fixed counts. No final outcome is read before all groups and the
+global hand/decision fingerprint barrier verify.
