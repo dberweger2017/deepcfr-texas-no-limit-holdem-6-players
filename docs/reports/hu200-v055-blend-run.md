@@ -174,3 +174,21 @@ retrieval commands indexed. The directory does not contain final evidence yet.
 This storage addition leaves M4-only construction/evaluation and the frozen
 research protocol unchanged. Drive archive/readback/upload acceptance remains
 required. [Retention plan and mount observation](hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
+
+### October 16, 12:59 Madrid: all original averages reproduce
+
+Seed2026101422 verifies its full ZIP, indexed manifest and raw checkpoint,
+then exactly reproduces all 85,373,928 original average rows:
+`b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f`.
+The frozen exporter takes 719.01 seconds, with 4,620,288-byte kernel RSS peak;
+full archive restoration/raw verification/reproduction takes 5,613.14 seconds.
+All three fresh original-average proofs now pass, before any full blend.
+
+The final inactive 20.953-GB source ZIP cache is released with one normal
+request after fresh merged-owner, native/cloud and open-handle checks. Its
+same-size placeholder, cloud ID, inode and modification time remain; all
+three raw inputs and reproduced averages stay protected. The fresh union
+scan and construction-admission calculation are running.
+[Third exact proof](hu200-v055-blend-run-artifacts/seed1422-input-verified.json),
+[resource receipt](hu200-v055-blend-run-artifacts/seed1422-reproduction-resource-receipt.json),
+[normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1422-archive-cache-released.json).
