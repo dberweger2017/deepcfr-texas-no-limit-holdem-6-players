@@ -4176,3 +4176,9 @@ PR301 admitted source3f6eb6cb; [resource admission](docs/reports/hu200-capacity-
 Training/audit deadline October19,02:29:18UTC; evaluation allowance unchanged24h.
 All500M prefixes saved and full audits in progress; no twin-prefix parity or strength claim yet.
 Initial evaluation-fixture failure retained; three corrected barrier checks pass.
+
+PR301 continued-task [delivery verification](docs/reports/hu200-capacity-cygnus-artifacts/continuation-delivery.json)
+and [bounded metadata observer](docs/reports/hu200-capacity-cygnus-artifacts/event-observer-launch-v2.json).
+Private endpoint files are excluded from all archives/Git; task removed at closeout.
+First two input archives fully materialized and copying; third read admitted.
+No restoration/hash acceptance or final-hand result is yet claimed.

@@ -93,3 +93,15 @@ Finder automation also failed cgWindowNotFound while inspecting input downloads;
 no UI settings were changed. Public NSFileCoordinator read coordination now
 requests full materialization of the existing indexed archive; other inputs are
 queued serially with coordinator disk headroom. Restoration remains pending.
+
+[Replacement metadata observer](hu200-capacity-cygnus-artifacts/event-observer-launch-v2.json)
+starts06:11UTC; [HTTP202 plus successful app delivery](hu200-capacity-cygnus-artifacts/continuation-delivery.json)
+is verified. The first two full archive materializations finish; their old
+partial-read clients are stopped after identity checks, their receivers confirmed
+closed, and copies resume from retained byte offsets using newly opened fully
+local source files. The original conservative2x-size coordinator admission
+refused seed1302 before its read began. That refusal remains logged; a coordinated
+read without an upload snapshot needs8,921,067,848 bytes including3GB margin,
+versus16,324,145,152 bytes free, and is admitted separately. Only read coordination
+changes; source archives, model bytes, scientific budgets and guards stay fixed.
+Full input archive/model hashing and restoration on bb128 are still pending.
