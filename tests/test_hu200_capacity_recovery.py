@@ -46,7 +46,8 @@ def test_recovery_dag_adopts_5b_and_never_repeats_identity_gates(tmp_path):
     queue.base, queue.tasks, queue.done = tmp_path, {}, set()
     queue.build()
     assert len(queue.tasks) == 18
-    assert all('2000000000' not in name and 'prefix' not in name for name in queue.tasks)
+    assert all(task['label'] in {'10000000000', '20000000000'}
+               and 'prefix' not in name for name, task in queue.tasks.items())
     for seed in r.SEEDS:
         first = queue.tasks[f'train-{seed}-10000000000']
         second = queue.tasks[f'train-{seed}-20000000000']
@@ -184,3 +185,17 @@ def test_adoption_checks_all_three_original_parent_and_readback_pins(monkeypatch
     changed.write_bytes(b'broken')
     with pytest.raises(ValueError, match='changed'):
         r.adopt(base)
+
+
+def test_initial_recovery_admission_rechecks_full_three_table_ram_and_disk():
+    admission = dict(memory_required_including_2GiB_helper_and_6GiB_available_floor=130192069748,
+                     swap_baseline_bytes=1048576)
+    row = dict(package_c=50, vrm_c=60, available_bytes=132_000_000_000,
+               swap_used_bytes=0, free_disk_bytes=220_000_000_000)
+    r.require_admission(row, admission, 95_000_000_000)
+    for field, value in [('available_bytes', 129_000_000_000), ('package_c', 68),
+                         ('vrm_c', 83), ('swap_used_bytes', 300*1024**2),
+                         ('free_disk_bytes', 100_000_000_000)]:
+        changed = dict(row, **{field:value})
+        with pytest.raises(ValueError):
+            r.require_admission(changed, admission, 95_000_000_000)

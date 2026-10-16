@@ -132,6 +132,15 @@ def no_attempt(base):
             raise ValueError('Recovery already attempted or campaign terminal; no retry')
 
 
+def require_admission(row, admission, owned):
+    if (row['package_c'] >= 68 or row['vrm_c'] >= 83
+            or row['available_bytes'] < admission['memory_required_including_2GiB_helper_and_6GiB_available_floor']
+            or row['swap_used_bytes']-admission['swap_baseline_bytes'] > 256*1024**2):
+        raise ValueError('Recovery RAM/temperature/swap admission failed')
+    if not q.fits(owned, row['free_disk_bytes'], 0, 60_000_000_000):
+        raise ValueError('Three trainer reservations exceed original259GB plan')
+
+
 def prepare(base):
     no_attempt(base)
     if (base/ADMISSION).exists():
@@ -167,13 +176,8 @@ def prepare(base):
     row = q.sensors.sample(package)
     row.update(vrm_c=q.sensors.read_int(vrm)/1000, fan1_rpm=q.sensors.read_int(fan),
                free_disk_bytes=shutil.disk_usage(base).free)
-    if (row['package_c'] >= 68 or row['vrm_c'] >= 83
-            or row['available_bytes'] < admission['memory_required_including_2GiB_helper_and_6GiB_available_floor']
-            or row['swap_used_bytes']-admission['swap_baseline_bytes'] > 256*1024**2):
-        raise ValueError('Recovery RAM/temperature/swap admission failed')
     owned = q.owned_bytes(base)
-    if not q.fits(owned, row['free_disk_bytes'], 0, 60_000_000_000):
-        raise ValueError('Three trainer reservations exceed original259GB plan')
+    require_admission(row, admission, owned)
     boot = Path('/proc/sys/kernel/random/boot_id').read_text().strip()
     put(base/ADMISSION, dict(status='admitted', source=source, boot_id=boot,
         admitted_utc=dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -249,6 +253,11 @@ class RecoveryQueue(q.Queue):
         self.clock, self.admission = q.read(base/'training-clock.json'), q.read(base/'admission.json')
         if file_hash(QUALIFIED/'trainer-first') != BINARY_SHA:
             raise ValueError('Qualified binary changed')
+        vrm, _ = q.motherboard_sensors()
+        row = q.sensors.sample(q.sensors.package_sensor())
+        row.update(vrm_c=q.sensors.read_int(vrm)/1000,
+                   free_disk_bytes=shutil.disk_usage(base).free)
+        require_admission(row, self.admission, q.owned_bytes(base))
         self.root = base/'guards'/GUARD
         self.root.mkdir(exist_ok=False)
         (base/OUTPUT).mkdir(exist_ok=False)
