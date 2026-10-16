@@ -4122,11 +4122,11 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (resumed preflight, October 16, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (training/audits active, October 16, 2026)
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
-[report](docs/reports/hu200-capacity-cygnus.md). Three fresh500M prefixes saved; audits/twin gates pending. No final hands yet.
+[report](docs/reports/hu200-capacity-cygnus.md). All fresh500M full audits pass; normalized twin audits are running two at once. No final hands yet.
 Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
 Open PR292 root/archives/upload processes/shared inputs remain protected.
 
@@ -4167,18 +4167,21 @@ PR301 post-BIOS continuation: [500M every-row identity](docs/reports/hu200-capac
 [owner-interruption clock](docs/reports/hu200-capacity-cygnus-artifacts/owner-interruption-restart.json),
 [21 post-BIOS test receipt](docs/reports/hu200-capacity-cygnus-artifacts/postbios-tests.json).
 Raw evidence/partials remain under the owned bb128 root; not yet archived or uploaded.
-4,734.229/5,400 active preliminary seconds used;72h training clock unstarted.
+4,734.229/5,400 active preliminary seconds used. At that preliminary receipt the72h clock was unstarted; its subsequently started fixed clock is indexed below.
 New2TB disk excluded; open#292 and unrelated preservation data protected.
 
 PR301 admitted source3f6eb6cb; [resource admission](docs/reports/hu200-capacity-cygnus-artifacts/admission.json),
 [active72h clock](docs/reports/hu200-capacity-cygnus-artifacts/training-clock.json),
 [three exact fresh/resumed20M identities](docs/reports/hu200-capacity-cygnus-artifacts/resume-gates.json).
 Training/audit deadline October19,02:29:18UTC; evaluation allowance unchanged24h.
-All500M prefixes saved and full audits in progress; no twin-prefix parity or strength claim yet.
+All fresh500M full audits pass; normalized1302 full audit passes, with1421/1422 underway. Global twin-prefix/mature-memory gates remain pending; no strength claim.
 Initial evaluation-fixture failure retained; three corrected barrier checks pass.
 
 PR301 continued-task [delivery verification](docs/reports/hu200-capacity-cygnus-artifacts/continuation-delivery.json)
 and [bounded metadata observer](docs/reports/hu200-capacity-cygnus-artifacts/event-observer-launch-v2.json).
 Private endpoint files are excluded from all archives/Git; task removed at closeout.
-First two input archives fully materialized and copying; third read admitted.
+All three input transports are complete by expected byte size; whole SHA/member restoration remains pending on bb128. No model verification is inferred from transport completion.
 No restoration/hash acceptance or final-hand result is yet claimed.
+
+PR301 input transport receipts: [1302](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101302.json), [1421](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101421.json), [1422](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101422.json). All files remain at the indexed owned `inputs/archives/` paths; no source/archive cleanup has occurred.
+[Approved scheduling amendment](docs/hu200-capacity-scheduling-amendment.md), [36-check validation](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-validation.json), [successful07:52UTC handoff](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-handoff.json) and [two-audit08:19UTC snapshot](docs/reports/hu200-capacity-cygnus-artifacts/parallel-audits-live-20261016.json). Live source94b84b3255f16daa529eae8250ca9a391249b2ac at owned `repo-scheduling`; original clock SHA/deadline unchanged. Retain that source, old source dependencies, raw traces, fixtures/failures and logs through campaign archival. No third audit admission or measured ETA re-quote before first-batch completion.
