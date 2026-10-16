@@ -1,0 +1,86 @@
+{
+  "observed_utc": "2026-10-16T06:38:13.689713+00:00",
+  "owned_base": "/home/dberweger/hu200-capacity-20261015",
+  "prefix_audits": {
+    "prefix500m-audit-2026101302": {
+      "status": "passed",
+      "exit_codes": [
+        0
+      ],
+      "stop_reason": null,
+      "hard_stop_reason": null,
+      "elapsed_seconds": 3567.5225344680002
+    },
+    "prefix500m-audit-2026101421": {
+      "status": "passed",
+      "exit_codes": [
+        0
+      ],
+      "stop_reason": null,
+      "hard_stop_reason": null,
+      "elapsed_seconds": 3545.220180573
+    },
+    "prefix500m-audit-2026101422": {
+      "status": "passed",
+      "exit_codes": [
+        0
+      ],
+      "stop_reason": null,
+      "hard_stop_reason": null,
+      "elapsed_seconds": 3661.7599667549985
+    }
+  },
+  "current_guard": {
+    "twin500m-train": {
+      "utc": "2026-10-16T06:38:13.567923+00:00",
+      "package_c": 56.0,
+      "vrm_c": 62.0,
+      "fan1_rpm": 738,
+      "fan_rpm": {
+        "fan3": 1109,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 738,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 1107,
+        "fan6": 0
+      },
+      "family_rss_bytes": 11538526208,
+      "available_bytes": 120982802432,
+      "swap_used_bytes": 1048576,
+      "free_disk_bytes": 272152817664,
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    }
+  },
+  "archives": {
+    "hu200-k50-frozen-averages-M4-20261013.zip": 1937768448,
+    "hu200-v055-seed-2026101421-final-average-20261014.zip": 2068430848,
+    "hu200-v055-seed-2026101422-final-average-20261014.zip": 3162066289
+  },
+  "terminal_receipts": {
+    "training-failed.json": null,
+    "training-complete.json": null,
+    "twin-gates.json": null,
+    "prefix-memory-admission.json": null,
+    "twins-restored.json": null
+  },
+  "free_disk_bytes": 272152813568,
+  "historical_incomplete_guard": {
+    "utc": "2026-10-15T20:31:02.732113+00:00",
+    "package_c": 54.0,
+    "vrm_c": 60.0,
+    "fan1_rpm": 344,
+    "fan_rpm": null,
+    "family_rss_bytes": 48091136,
+    "available_bytes": 132467539968,
+    "swap_used_bytes": 0,
+    "free_disk_bytes": 348691501056,
+    "clean_stop_requested": false,
+    "vrm_hot_seconds": 0
+  },
+  "status_note": "Historical preliminary memory trace ended before owner reboot; not an active guard. Active twin500m-train normalizes without training steps before exact row/hash gate."
+}

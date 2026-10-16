@@ -123,3 +123,12 @@ Whole-archive/member hashes and restoration remain pending under the serial
 controller gate. Seeds1302/1421 continue from retained offsets; no restart or
 scientific retry is launched. Two fresh500M prefix audits pass; the third
 and normalized twin parity remain pending. The October20/21 closeout ETA holds.
+
+At06:38UTC /08:38Madrid all three fresh500M full audits pass (59–61min
+each). The controller runs parallel no-step old-cap normalization before the
+remaining exact twin/hash gates and measured mature-memory admission. No2B
+continuation or final evaluation hands yet. Active sample: CPU56°C, VRM62°C,
+fan1/2/3 738/1107/1109RPM, aggregate workload RSS11.54GB, available120.98GB,
+swap unchanged1MiB and272.15GB free NVMe. Archives1302/1421 have reached
+1.94/2.07GB of5.92/3.16GB;1422 is complete by size. No campaign failure receipt.
+[Status receipt](hu200-capacity-cygnus-artifacts/status-20261016-0638.json).
