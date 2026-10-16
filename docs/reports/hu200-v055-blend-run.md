@@ -161,3 +161,16 @@ full blend or hand.
 [Exact reproduction](hu200-v055-blend-run-artifacts/seed1302-input-verified.json),
 [resource receipt](hu200-v055-blend-run-artifacts/seed1302-reproduction-resource-receipt.json),
 [normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json).
+
+### Owner addition: retain unpacked evidence on the 2 TB disk
+
+The owner additionally requests a local unpacked copy of the final uploaded
+research evidence. The verified ext4 disk on `bb128` is mounted at
+`/mnt/data2tb`; this run will retain its bundle contents under
+`/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, one directory per bundle,
+with the same member paths and embedded manifest. Every copied member will
+be checked against its recorded size/SHA256, with the resulting receipt and
+retrieval commands indexed. The directory does not contain final evidence yet.
+This storage addition leaves M4-only construction/evaluation and the frozen
+research protocol unchanged. Drive archive/readback/upload acceptance remains
+required. [Retention plan and mount observation](hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).

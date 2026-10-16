@@ -5,21 +5,25 @@
 continuation of merged #297's unplayed frozen campaign. No full blend, cache,
 pilot or final hand exists yet. Input restoration and fresh exact-average
 reproduction run on the 16 GiB M4; construction awaits actual disk admission.
-The provisional storage shortfall after restoring #303's 19.408 GB of removed
-inputs is about 10.5 GB. Owner has acknowledged this plumbing handoff; this is
-pending work, not a research failure or a completed PR.
+The owner was alerted to the initial 10.5 GB shortfall after restoring
+#303's 19.408 GB of removed inputs; additional space now provisionally covers
+it, pending the actual union gate. Seeds1421 and1302 freshly reproduce exactly;
+seed1422 restoration is running. The resolved intake-configuration failure
+and its original guard STOP are preserved. This remains pending work.
 
 **Protected active dependencies:** M4 `~/Local/hu200-v055-blend-run/`, especially
 `results/hu200-v055-blend/`, `results/hu200-v055-blend-inputs/`,
 `results/hu200-v055-blend-qualified-tools/` and `planning/`; runtime
 `~/Local/hu20-k50-5b-first-pass-20261012/.venv/`; shared Git and #297's retained
 protected checkpoint/exporter/tables. M1 administrative worktree has the same
-`~/Local/hu200-v055-blend-run/` spelling. Protect both source archive download
-caches while restoration is active: PR265 full ZIP
+`~/Local/hu200-v055-blend-run/` spelling. Protect each source archive download
+cache while restoration is active: PR265 full ZIP
 `1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI` and PR278 seed1422 full ZIP
 `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`. Only this campaign may normally release
 those accepted inactive caches after whole-archive/member hash verification and
 exact average reproduction, with fresh native/cloud checks and receipts.
+PR265's first cache is now normally released after that complete proof;
+[receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json).
 The [PR297 raw-input dependency record](#pr297-frozen-hu200-v055-blend-raw-input-continuation)
 and [#303 restoration paths](docs/artifacts/storage-vacuum-20261016.md) retain
 all source archive/member/hash pins and retrieval commands.
@@ -35,6 +39,12 @@ ID `1FZiDigTX-_Do4pPihTF4pdZTDaxNRxPK`, direct project parent
 readback and independent/native upload acceptance are pending, not claimed.
 No cleanup, merge, Slumbot, server, release, tag or default change follows this
 in-progress record.
+
+**Owner-requested unpacked 2 TB copy:** final bundle contents will also be
+retained at `bb128:/mnt/data2tb/research/PR-306-HU200-v055-blend-run/`, in
+separate unpacked bundle directories with their manifests and exact member
+size/SHA256 verification. The mount is observed; final copy/acceptance and
+retrieval commands remain pending. [Plan](docs/reports/hu200-v055-blend-run-artifacts/local-unpacked-mirror-plan.json).
 
 
 **Seed1421 checkpoint-only input archive, upload accepted:**
