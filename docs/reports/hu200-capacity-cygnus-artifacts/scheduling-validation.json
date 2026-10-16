@@ -50,16 +50,32 @@
       "path": "planning/scheduler-integration-tests.log",
       "bytes": 99,
       "sha256": "de00d4be5663462eac7bb05dd0af19cf6106144360fea99b8e207897d91916d9"
+    },
+    {
+      "path": "planning/scheduler-pinned-tests.log",
+      "bytes": 99,
+      "sha256": "61ec7b7cd3912e2c96e948664da826b21f0e1db4a2507f70153199c9c1671a68"
+    },
+    {
+      "path": "planning/scheduler-boundary-final.log",
+      "bytes": 99,
+      "sha256": "de00d4be5663462eac7bb05dd0af19cf6106144360fea99b8e207897d91916d9"
+    },
+    {
+      "path": "planning/scheduler-deployment-final.log",
+      "bytes": 99,
+      "sha256": "ad185056f08af08136acf43e0fc4f6c285d79e458cd73be3eb624f162702ce38"
     }
   ],
   "source_files": [
     {
       "path": "scripts/schedule_hu200_capacity.py",
-      "sha256": "2868bc60ebdba9a9b0ab129459829fc63eefb6fb2adf004192e0d6578cc75717"
+      "sha256": "64368265aa247db428483b07cea77cc4d4f3844ba874df6d92908550259c3e7d"
     },
     {
       "path": "tests/test_hu200_capacity_schedule.py",
       "sha256": "c5136c15de9b8564aaf4f6c5c20282763f4bba437e427881449deb0b1bd829cd"
     }
-  ]
+  ],
+  "deployment_checks": "Pinned clean source36 tests pass. Final15 scheduling tests pass after limiting handoff process scans to the completion window and ensuring initialization failures notify the existing campaign observer. Live original admission/clock equal committed pins; binary hash unchanged."
 }

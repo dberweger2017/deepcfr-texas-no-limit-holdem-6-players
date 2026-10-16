@@ -597,6 +597,14 @@ def handoff(base, pid):
     while time.time()<deadline:
         if (base/'training-failed.json').exists():
             raise RuntimeError('Existing scientific failure; no takeover')
+        if (base/'prefix-memory-admission.json').exists():
+            raise RuntimeError('Prefix-finalization boundary passed; leave old controller running')
+        fresh=[p for p in (base/'results').glob('*/twin500m/audit.json') if time.time()-p.stat().st_mtime<3]
+        if not fresh:
+            # Process-tree polling is needed only during the short successful
+            # completion window, not throughout an hour-long streaming audit.
+            time.sleep(.1)
+            continue
         tree=process_tree()
         if pid not in tree or tree[pid]['start']!=original['start']:
             raise RuntimeError('Old controller exited or changed identity')
@@ -612,7 +620,6 @@ def handoff(base, pid):
                 successful.append(child)
         # A zombie has no argv; identify the boundary by the most recent verified
         # audit receipt and confirm that no live descendant can be interrupted.
-        fresh=[p for p in (base/'results').glob('*/twin500m/audit.json') if time.time()-p.stat().st_mtime<3]
         if successful and fresh and not any(tree[c]['state']!='Z' for c in children):
             os.kill(pid,signal.SIGSTOP)
             stopped=process_tree()
@@ -669,9 +676,16 @@ def main():
     if subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],text=True).strip():
         raise ValueError('Clean source required before administrative handoff')
     handoff(args.base,args.old_pid)
-    with Path('/tmp/cfr-cygnus-exclusive.lock').open('a') as lock:
-        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        Queue(args.base).run()
+    try:
+        with Path('/tmp/cfr-cygnus-exclusive.lock').open('a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            Queue(args.base).run()
+    except BaseException as exc:
+        if not (args.base/'training-failed.json').exists():
+            put(args.base/'training-failed.json',dict(status='failed',error=repr(exc),
+                automatic_retry=False,source='scheduler initialization after successful handoff',
+                utc=dt.datetime.now(dt.timezone.utc).isoformat()))
+        raise
 
 
 if __name__=='__main__':
