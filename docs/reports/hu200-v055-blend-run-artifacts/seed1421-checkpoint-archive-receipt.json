@@ -1,0 +1,46 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "at": 1792136952.0144289,
+  "bytes": 4957760250,
+  "cloud_upload_accepted": false,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "698e44d7cb27a58416cf51f40ea775bd9b86b9936781ea6021617d0709e9415c",
+  "member_pins": {
+    "control/archive-seed1421-checkpoint.py": {
+      "bytes": 5450,
+      "sha256": "75f144ab95c29f08960b2161773887cbde346d69e81350b12238f23a8e52fee3"
+    },
+    "inputs/seed-2026101421/checkpoint.gz": {
+      "bytes": 4957752665,
+      "sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+    }
+  },
+  "members": 2,
+  "metadata": {
+    "creation_machine": "M1",
+    "originals_retained": true,
+    "pr": 306,
+    "reason": "Original full cloud object has only592464795 bytes; this separately verified checkpoint-only archive supplies a complete cloud restoration dependency.",
+    "remote_archive_bytes_downloaded": false,
+    "scope": "Archive administration of unchanged already-trained seed1421 raw checkpoint; no blend construction, model export, caching or play on M1",
+    "source_archive": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101421-full-20261014.zip",
+    "source_archive_bytes": 20952808971,
+    "source_archive_manifest_sha256": "6fe3742f89c50288381045d87f5309c04538ea9eb91e8806b5fc974764383b39",
+    "source_archive_sha256": "88554b5a0698bfe1eb9b7a596340df71500ba7d1caf6bf1d41114704676b932d",
+    "source_member": "research/seed-2026101421/frozen/20000000000.gz",
+    "source_pr": {
+      "mergedAt": "2026-10-15T06:27:46Z",
+      "number": 278,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/278"
+    },
+    "source_raw_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+  },
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip",
+  "published_after_full_local_readback": true,
+  "remote_archive_bytes_downloaded": false,
+  "same_filesystem_atomic_publication": true,
+  "seconds": 32.49585199356079,
+  "sha256": "51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c",
+  "status": "locally-verified"
+}

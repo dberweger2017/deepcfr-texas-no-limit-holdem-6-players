@@ -36,6 +36,23 @@ readback and independent/native upload acceptance are pending, not claimed.
 No cleanup, merge, Slumbot, server, release, tag or default change follows this
 in-progress record.
 
+
+**Seed1421 checkpoint-only input archive, locally verified /upload pending:**
+`~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/hu200-v055-seed-2026101421-checkpoint-20261016.zip`,
+4,957,760,250 bytes /2 members, whole SHA256
+`51a893947508b4d6f9860dc79e5f32be45caf95cfb3e95856186d18672fbc08c`,
+`ARCHIVE-MANIFEST.json` SHA256
+`698e44d7cb27a58416cf51f40ea775bd9b86b9936781ea6021617d0709e9415c`.
+All members read back locally. Required raw member
+`inputs/seed-2026101421/checkpoint.gz`,4,957,752,665 bytes,
+`c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`.
+M1 performs archive administration only, streaming this unchanged member from
+its whole-hash/manifest-verified retained #278 local ZIP. No model construction,
+export, cache or play runs on M1. The old #278 full cloud object remains partial;
+this distinct checkpoint-only archive supplies a complete restoration dependency
+once its own upload is accepted. [Local receipt](docs/reports/hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
+No independent/native upload acceptance or remote-byte download is claimed yet.
+
 ## Storage cleanup — October 16, 2026
 
 Owner-requested post-merge cleanup retires **49 paths /48 unique inodes** from

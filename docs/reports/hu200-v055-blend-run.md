@@ -97,3 +97,22 @@ No evidence upload acceptance is claimed before a final archive exists.
 At the first archive's observed 4–4.5 MB/s arrival rate, the provisional intake
 ETA is 13:00–15:00 Madrid, conditional on network throughput. Final-run ETA still
 awaits actual union admission and cost-only pilots.
+
+## Seed1421 raw-checkpoint cloud dependency
+
+The old #278 full cloud object is still only 592,464,795 bytes; its expected
+complete ZIP is 20,952,808,971 bytes. The retry object is absent from the current
+folder listing. This known upload problem is plumbing, not a model discrepancy.
+The M4's retained raw checkpoint already passes its fresh SHA256 and exact
+average reproduction above.
+
+M1 archive administration verifies its retained complete local ZIP's whole
+SHA256 and embedded manifest, then streams the unchanged checkpoint directly
+into a checkpoint-only ZIP without extracting another raw file. All members
+and the new whole ZIP pass local readback in 32.50 seconds. All source originals
+remain. No blend construction, export, cache or evaluation runs on M1.
+[Archive receipt](hu200-v055-blend-run-artifacts/seed1421-checkpoint-archive-receipt.json).
+The 4,957,760,250-byte archive is published atomically to this PR's shared
+evidence folder and is uploading; independent/native acceptance is pending.
+Its raw checkpoint remains byte-identical to the M4-verified input. The old
+full cloud object remains explicitly unaccepted.
