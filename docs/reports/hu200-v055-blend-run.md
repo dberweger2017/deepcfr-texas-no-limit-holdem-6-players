@@ -14,10 +14,13 @@ and with the descriptive family adjustment. The blend still loses against
 recorded as failed research evidence under the owner's instruction; it is kept
 without rerun, tuning, extra hands or an added pass/fail gate.
 
-**Preservation is in progress.** The PR remains draft while the main and
-administrative archives await full readback/upload acceptance and the requested
-unpacked 2 TB copies. The already accepted seed 1421 input bundle has its
-verified unpacked copy. The owner decides merge and any future Slumbot use.
+**Main evidence is preserved.** Its archive has full local readback, native
+Drive upload acceptance and independent cloud confirmation. A fresh Drive
+download reproduces the whole archive hash; all 1,219 unpacked members pass
+size/SHA256 verification and independent disk readback on the 2 TB disk.
+The administrative supplement is being closed; the PR remains draft until it
+also has upload acceptance and unpacked retention. The owner decides merge
+and any future Slumbot use.
 
 ## Frozen study and verification
 
@@ -184,8 +187,9 @@ these separate command maxima are not summed. Minimum observed free memory
 is 67%; minimum free disk is 47,236,538,368 bytes. Maximum swap growth from
 the campaign baseline is 1,268,776,960 bytes. No observed resource threshold
 breach or resource stop occurs. The main archive worker returns 0. Own research/archive workers are finished,
-and both research locks are available at the release observation; the native
-Drive upload continues automatically. [Release observation](hu200-v055-blend-run-artifacts/m4-released.json).
+and both research locks are available at the release observation. Native Drive
+upload subsequently completes; the temporary preservation keep-awake process
+is stopped by its recorded PID and creation time after upload acceptance. [Release observation](hu200-v055-blend-run-artifacts/m4-released.json).
 [Hardware](hu200-v055-blend-run-artifacts/machine.json),
 [sampled families](hu200-v055-blend-run-artifacts/resource-summary.json),
 [kernel maxima](hu200-v055-blend-run-artifacts/kernel-rss-summary.json).
@@ -242,15 +246,22 @@ is `~/Local/Research-Cloud/PR-306-HU200-v055-blend-run/`. The main bundle is loc
 whole SHA256 `35075f721cb60de6f2ab1d56c9172c0d6bdfe08cfe94bfd34bb619c54ac54582`,
 manifest SHA256 `29a8212f30615a29b11f0d6ba006ab64bf5e26e7fbbd8c305175d1f0c35a0821`.
 Every member and the whole archive pass readback before atomic publication.
-Drive upload acceptance and the final unpacked copy remain pending. The later
-administrative supplement will also retain the closed archive guard, final
+Native upload is accepted with no pending upload or conflicts; independent
+Drive metadata confirms the exact ID, name, size and parent.
+[Accepted main archive](https://drive.google.com/file/d/1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV/view),
+[acceptance evidence](hu200-v055-blend-run-artifacts/main-archive-upload-acceptance.json).
+The administrative supplement will retain the closed archive guard, final
 resources, upload acceptance and unpacked-retention evidence.
 [Main archive receipt](hu200-v055-blend-run-artifacts/main-archive-receipt.json).
-The owner-requested unpacked copies will be retained under
-`bb128:/research/PR-306-HU200-v055-blend-run/` (real path
-`/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/`), with matching manifests,
-every-member size/SHA256 verification and independent copied-file readback.
-No final mirror or upload acceptance is claimed prematurely.
+The owner-requested unpacked main bundle is verified and retained at
+`bb128:/research/PR-306-HU200-v055-blend-run/hu200-v055-blend-run-M4-20261016/`
+(real `/mnt/data2tb/research-cloud/PR-306-HU200-v055-blend-run/...`).
+The manifest and every member have exact size/SHA256 verification and an
+independent copied-file disk readback. The final directory contains ordinary
+files in the archive's structure; it contains no outer ZIP. Native `.gz`
+model and trace formats remain unchanged.
+[Unpacked retention](hu200-v055-blend-run-artifacts/main-archive-unpacked-retention.json),
+[Drive-body readback](hu200-v055-blend-run-artifacts/main-archive-drive-body-readback.json).
 
 The separately accepted seed 1421 checkpoint-only input bundle already has its
 verified unpacked copy. [Current archive/retrieval index](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run).

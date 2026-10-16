@@ -11,6 +11,10 @@
     {
       "detail": "One functions.exec snippet had an unmatched JavaScript parenthesis and was rejected before any shell code ran. Corrected call succeeded.",
       "phase": "administrative tool orchestration"
+    },
+    {
+      "detail": "Remote rg was unavailable during a metadata-only process inspection; the listing was repeated with grep and /proc metadata. The active unpacked-retention worker was unaffected; no scientific work or file-copy retry occurred.",
+      "phase": "bb128 preservation progress inspection"
     }
   ],
   "all_strength_readout_after_global_verification": true,
@@ -55,6 +59,7 @@
       "state": "resolved-owner-authorized-prospective-extension-admitted"
     }
   ],
+  "preservation_administration_updated_at": 1792172321.91552,
   "research_failures": [
     {
       "all_fixed_counts_completed_and_verified": true,

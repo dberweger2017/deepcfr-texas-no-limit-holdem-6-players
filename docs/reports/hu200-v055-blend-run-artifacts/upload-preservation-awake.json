@@ -1,0 +1,10 @@
+{
+  "at": 1792169245.3656619,
+  "create_time": 1792169245.36449,
+  "expires_at": 1792204200.0,
+  "maximum_seconds": 34955,
+  "no_scientific_parameters_changed": true,
+  "pid": 52590,
+  "purpose": "Keep M4 awake only for the already-published native Drive archive upload; no research or evaluation work",
+  "stop_when": "Native upload acceptance, or existing authorized preservation deadline"
+}

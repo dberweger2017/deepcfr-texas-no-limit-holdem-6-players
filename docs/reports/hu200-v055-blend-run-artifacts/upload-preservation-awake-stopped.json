@@ -1,0 +1,18 @@
+{
+  "at": 1792170180.85233,
+  "drive_id": "1Jn57qQY7gliu3F32_B1-WM_xAIO9__hV",
+  "main_native_and_independent_upload_accepted": true,
+  "no_other_processes_touched": true,
+  "no_research_work_started": true,
+  "own_preservation_process": {
+    "at": 1792169245.3656619,
+    "create_time": 1792169245.36449,
+    "expires_at": 1792204200.0,
+    "maximum_seconds": 34955,
+    "no_scientific_parameters_changed": true,
+    "pid": 52590,
+    "purpose": "Keep M4 awake only for the already-published native Drive archive upload; no research or evaluation work",
+    "stop_when": "Native upload acceptance, or existing authorized preservation deadline"
+  },
+  "terminated_own_caffeinate": true
+}
