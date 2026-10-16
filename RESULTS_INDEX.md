@@ -60,10 +60,50 @@ directories, and the clean pilot worktree `~/Local/hu200-river-search-pilot/`.
 The optimization worktree `~/Local/hu200-river-search-optimized/` and all
 `results/hu200-river-search/optimization-*` roots are also protected. Raw
 optimization parity, failed amended cost, builds, tests and current validation
-remain on M4; their incremental bb128/Drive preservation is pending. The ZIP
+remain on M4. Incremental preservation is recorded below. The ZIP
 above covers the original `11fa4fa4` cost study, not this later optimization.
 Keep #306's model/tables, both runtime environments and all shared Git intact.
 No cleanup or additional scientific run is authorized by this receipt.
+
+**Incremental engineering preservation, October 17:** source `214695a3`,
+including both completed optimization cost attempts, full same-24 parity,
+external compact exporter/binary, build/test failures and guards, the restart
+continuity audit and prospective count arithmetic. **1,507 payload files /
+19,478,922,634 bytes** are sealed and copied uncompressed to
+`bb128:/research/PR-317-HU200-river-search/optimization-20261017/`.
+Every payload member passes independent bb128 disk size/SHA256 readback.
+Manifest `optimization-20261017/ARCHIVE-MANIFEST.json`, SHA256
+`fba42a1a74289a5db54a992f00651491ff5f5d61d46bd0cc145826dbbe6be1a4`.
+ZIP **`hu200-river-search-optimization-M4-20261017.zip`**, **2,359,632,223 bytes**,
+SHA256 `d4688e3feabc1998f812911204242995fa62a6e1e2c3af4b1a30729a69349021`,
+passes every member's size/SHA256 readback on bb128.
+[Archive and uncompressed receipt](docs/reports/hu200-river-search-artifacts/optimization-archive-local-receipt.json).
+
+Closed archival/readout/continuity guards, the full audit, M4 release receipt,
+all 24 timing/EV rows and the prospective count proposal are additionally retained
+in **`hu200-river-search-optimization-administration-20261017.zip`**, **110,492 bytes**,
+SHA256 `8e7419281681b3c2bad14e4a886d0e139849b6dfee850282856551879ac7f16b`.
+Its embedded `optimization-administration-20261017/ARCHIVE-MANIFEST.json` has
+SHA256 `37f8e6a30672db5cea16e5ef11847af11ca01470b1e4673db4b353657e6ba0f8`.
+All 43 payload members /485,341 bytes pass ZIP and independent uncompressed
+bb128 disk readback at the same member paths.
+[Local receipt](docs/reports/hu200-river-search-artifacts/optimization-administration-local-receipt.json),
+[uncompressed receipt](docs/reports/hu200-river-search-artifacts/optimization-administration-retention.json).
+
+Both new ZIPs remain under the same bb128 PR root. Restore either with
+`rsync bb128-lan:/research/PR-317-HU200-river-search/ZIP_NAME RESTORE_ROOT/`,
+verify its whole SHA256, extract into a fresh ignored directory, and verify
+member sizes/SHA256s from its embedded manifest. Drive acceptance remains
+pending under the shared-uplink rule: intended
+`gdrive:PR-317-HU200-river-search/ZIP_NAME` destinations have no accepted IDs/MD5
+receipts yet and are not claimed as available restore sources. After acceptance,
+Drive fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' RESTORE_ROOT/`.
+Restore through the private cable with
+`rsync -a bb128-lan:/research/PR-317-HU200-river-search/optimization-20261017/ RESTORE_ROOT/`
+and verify the relative payload paths/sizes/SHA256s from that manifest.
+The original cost-gate ZIP supplies the original external upstream dependency;
+#306 supplies model/K50 inputs. Original M4 roots and the hard-linked incremental
+preservation staging root remain protected; no original has been removed.
 
 The preservation guard completed successfully; a nonblocking common-lock check
 confirmed availability at **20:58:47 UTC /22:58 Madrid, October 16**. The M4

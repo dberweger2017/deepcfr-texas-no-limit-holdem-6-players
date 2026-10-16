@@ -1,0 +1,47 @@
+{
+  "all_search_work_completed": true,
+  "changed_actions": 11,
+  "conditional_model_ev_delta_chips": {
+    "mean": 59.023366001875544,
+    "median": 2.436534348467646,
+    "scope": "hypothetical solved-opponent continuation; not realized strength"
+  },
+  "decisions": 24,
+  "fallback_decisions": 0,
+  "host_memory_definition": "psutil.virtual_memory().available; available includes reclaimable memory",
+  "latency_target_met": true,
+  "latency_target_seconds": 10,
+  "memory_target_met": true,
+  "minimum_host_available_bytes": 5323390976,
+  "native_solves": 35,
+  "no_automatic_budget_weakening": true,
+  "no_strength_hands": true,
+  "peak_family_rss_bytes": 2912206848,
+  "phase_total_seconds": {
+    "adapter_transport_seconds": 14.703911001999842,
+    "complete_seconds": 126.97201870599838,
+    "native_process_seconds": 78.621639918,
+    "native_seconds": 93.32555091999984,
+    "phase_opponent_locks_seconds": 1.5465600830002586,
+    "phase_ranges_seconds": 8.069647038002586,
+    "phase_tree_seconds": 16.39528070900451
+  },
+  "physical_memory_bytes": 17179869184,
+  "physical_minus_family_bytes": 14267662336,
+  "research_status": "amended cost passes; counts and storage admission pending; no strength hands",
+  "search_budget_unchanged": true,
+  "seconds": {
+    "max": 11.106578750000153,
+    "p50": 4.7272730624999895,
+    "p95": 9.648688773199952
+  },
+  "source": "214695a3e2fed08bac871d3b3f500c54255143f5",
+  "status": "complete",
+  "strength_hands": 0,
+  "successful_decisions_missing_ev": 0,
+  "telemetry_target_met": true,
+  "tree_nodes": {
+    "max": 9651,
+    "min": 2121
+  }
+}

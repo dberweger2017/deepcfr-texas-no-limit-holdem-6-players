@@ -73,8 +73,8 @@ The single-worker memory result must not be presented as a concurrent result,
 and runtime must not be divided by three without measurement. Do not delete
 open-PR originals, change the disk floor, or run scientific work on bb128.
 
-**Recommendation:** retain the powered design as the provisional scientific
-choice and resolve evidence-volume plumbing before strength. A concrete next
+**Recommendation:** resolve evidence-volume plumbing before strength, then use
+a declared variance pilot to replace the historical proxies. A concrete next
 scope would preserve complete played-policy/support/fallback ledgers and
 telemetry for every decision; preserve every native request and checksum;
 retain full native bodies for an outcome-independent, predeclared diagnostic
@@ -87,10 +87,23 @@ This proposal does not perform those changes or remove any file.
 
 After storage is admitted, measure up to three concurrent unchanged searches
 under the existing memory/disk guards and update the time estimate. The owner
-then approves final counts and runtime before the committed strength plan and
-any strength hands. If historical variance is insufficient for that decision,
-first propose a separate fixed variance pilot whose roots and outcomes cannot
-enter the final test; do not play an undeclared pilot now.
+then approves final counts and runtime before the committed final strength plan.
+
+For that calibration, propose **128 direct duplicate blocks plus 32 paired
+blocks per each of the seven scripts**, subject to owner approval before any
+pilot hands, with a proposed cap of **two M4 hours including verification**.
+Commit disjoint fresh roots and a protocol first. Use it only to
+measure cost, river-decision frequency and independent-block variance; keep
+mean effects and winning/losing hands out of engineering decisions. Its hands
+never enter the final test. Freeze the solver before this pilot and make no
+strategy/work changes after its outcomes. Use a predeclared variance-only
+sizing rule, report variance uncertainty, and propose final counts to the owner
+before the main study. No calibration hands are authorized by this document.
+
+The 120-hour/13.28-TB calculation explains why a historical-proxy main study
+cannot simply start now. It is not a recommendation to commit five days before
+measuring search-specific cost/frequency/variance. The smaller main study also
+does not establish the desired sensitivity.
 
 The PR stays draft until the authorized research and storage closeout finish,
 unless the owner explicitly changes its scope. A final-review date cannot yet

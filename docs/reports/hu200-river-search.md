@@ -187,6 +187,16 @@ population latency guarantee. The original 3-second target still fails.
 [combined guard](hu200-river-search-artifacts/optimization-parity-cost-guard-02.json),
 [post-restart checks](hu200-river-search-artifacts/optimization-post-restart-test-guard.json).
 
+Complete service time totals **126.97 seconds** across the 24 spots: native
+process work totals **78.62 seconds**, and adapter transport outside that timer
+adds **14.70 seconds**, versus the original 223.62 seconds. Ancestor elimination
+and transport both contribute; this is not an isolated causal parser benchmark.
+Same-draw action changes remain **11/24** and model EV deltas remain identical
+(mean +59.02 chips, median +2.44), as required by parity. These conditional
+solved-continuation estimates are not realized strength gains.
+[Detailed M4 readout](hu200-river-search-artifacts/optimization-cost-readout-02.json),
+[all 24 decision rows](hu200-river-search-artifacts/optimization-cost-decisions-02.csv).
+
 No concurrent pilot or strength hands run. The unchanged disk floor blocks
 another full-profile concurrency pilot at current capacity. The
 [strength-count proposal](../hu200-river-search-strength-proposal.md) quotes
@@ -220,3 +230,20 @@ The large upload waits for existing Slumbot play under the shared-uplink policy;
 no upload acceptance is claimed. All originals remain protected. Final-review
 readiness remains unresolved until owner-approved strength research and
 storage closeout actually finish. The amended cost gate is complete.
+
+## Incremental preservation and next decision
+
+The completed engineering evidence is preserved uncompressed on bb128 and in
+a 2,359,632,223-byte ZIP; all 1,507 payload files /19,478,922,634 bytes pass
+independent disk and ZIP-member SHA256 readback. A supplemental 43-member ZIP
+retains closed guard/readout/continuity administration. Both archives and all
+originals remain. Drive upload still waits for existing Slumbot play; no cloud
+acceptance or final research completion is claimed.
+[Receipts and both restoration routes](../../RESULTS_INDEX.md#pr317--hu200-river-search-completed-cost-gate-strength-pending).
+
+The next owner decision is evidence I/O resource plumbing, followed by a fixed,
+separately declared variance/cost calibration before choosing the final strength
+counts. The proposal suggests 128 direct duplicate blocks and 32 paired blocks
+per each of seven scripts for that calibration; no such hands are authorized or
+played here. The much larger historical-proxy count/time/storage estimates are
+planning evidence, not a commitment to a five-day campaign.
