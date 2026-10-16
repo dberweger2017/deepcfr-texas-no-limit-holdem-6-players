@@ -226,3 +226,15 @@ No ZIP container is present in that final bundle directory. This is storage
 administration of an existing input, not blend construction on bb128.
 The final blend bundle remains pending. [Unpacked receipt](hu200-v055-blend-run-artifacts/seed1421-unpacked-retention.json);
 [direct HDD retrieval](../../RESULTS_INDEX.md#pr306--frozen-hu200-three-seed-blend-run-active-plumbing-pending).
+
+### October 16, 13:34 Madrid: complete raw blend checkpoint
+
+The full fixed-rule native merge writes all 156,208,331 rows in
+1,732.83 seconds (28 min 52.83 s). The raw synthetic checkpoint is
+**6,042,193,732 bytes**, SHA256
+`59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123`.
+The frozen exporter is now writing the current and average inference exports;
+full every-row audit follows. The model is not yet claimed audited or ready
+for play, and no hand has been generated.
+[Complete native merge and pinned output](hu200-v055-blend-run-artifacts/native-merge.json),
+[execution timing](hu200-v055-blend-run-artifacts/native-merge-execution.json).

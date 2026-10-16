@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend-qualified-tools/hu200_blend",
+    "merge",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge-config.json",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/merge.json",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/merge/checkpoint.gz",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/capacity-gate.json"
+  ],
+  "completed": 1792150476.837478,
+  "returncode": 0,
+  "seconds": 1732.828360080719,
+  "started": 1792148744.0091178
+}
