@@ -1,10 +1,63 @@
 # HU200 capacity experiment on cygnus-x1
 
-Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three verified twins are restored; the three large lineages are training toward2B. No final hands have started.**
+Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three2B saves are fully audited; the three large lineages are training toward5B. All verified twins are restored. No final hands have started.**
 
-Measured first parallel batch: **1.79x throughput**, two audits in74m31s, peak CPU/VRM61/61°C and95.4MB helper RSS. Admission permits up to three audits within the unchanged global guards and disk reservations. Re-quoted complete report/archive target: **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation cost and upload throughput remain to be measured.
+Three2B audits now demonstrate2h03m of triple overlap, peak CPU/VRM65/74°C and no guard stop. Individual audits take2h03m–2h17m; the updated full-cap projection is5.089h. Re-quoted complete report/archive target remains **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation cost, upload throughput and final unpacked retention-copy timing remain to be measured.
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## All three2B saves audited — October16,12:05UTC
+
+All three2B checkpoints pass independent byte/SHA, complete gzip EOF/CRC,
+strict ordering and every-row current-regret/average-total validation. All
+trainer/audit/retirement jobs exit0, with no stop. Native pre-audit telemetry's
+"unaudited" field stays immutable; separate audit receipts establish verification.
+The original clock hash and clean live source94b84b32 match their pins.
+Each5B continuation names its own audited2B checkpoint SHA as parent.
+
+| Seed | Completed nodes | Entries | Mean visits/key | Zero visits | Zero average mass |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2026101302 | 2,000,000,044 | 135,824,554 | 2.8920 | 39.066% | 37.167% |
+| 2026101421 | 2,000,000,115 | 135,429,210 | 2.9002 | 39.017% | 37.186% |
+| 2026101422 | 2,000,000,080 | 135,893,163 | 2.8914 | 39.042% | 37.270% |
+
+All three tables are still growing. Missing-key shares are measured over each
+500M→2B save interval, separately by role/street; they are not lifetime shares.
+Traverser river missing share is14.411–14.595%, opponent river8.634–8.718%.
+[Exact numerators/denominators and all streets](hu200-capacity-cygnus-artifacts/coverage-2b.csv),
+[full save/header/audit receipts and resource verification](hu200-capacity-cygnus-artifacts/milestone-2b-verification.json).
+These are training support measurements, with no playing-strength inference.
+
+Three actual audits overlap for2h03m, independently measuring0.884–0.999
+cores/worker and host NVMe busy0.125% during common intervals. Individual full
+jobs take2h03m–2h17m, including validation/export. Their combined sampled window
+is09:44:49–12:02:45UTC. Triple-overlap peaks CPU65°C/VRM74°C; since scheduler
+handoff, peak aggregate RSS40.846GB, helper RSS141.84MB, minimum available
+91.532GB/free260.592GB, swap unchanged1MiB. No clean-stop sample; at most seven
+reserved CPUs. Fan1 ranges658–920RPM, fan2 898–1388, fan3 907–1401 during2B
+audits. Maximum observed resource sample gap2.587s is disclosed; nominal guard
+sampling is1s plus probe overhead. Raw traces remain active under the owned root;
+receipts record fixed byte cuts rather than claiming sealed full-trace hashes.
+This is an actual triple-overlap measurement, without a matched serial ordinary
+audit control or a claimed threefold speedup.
+
+After successor audits, the approved scheduler retires 37,540,138,760B of
+unchanged owned disposable2B current/average exports and old500M recoveries.
+Every exact path/bytes/mtime/SHA is recorded in the per-seed retirement receipts;
+the verified2B recoveries remain, and their size/mtime still match. Required5B/20B
+averages will be retained. No other root, failed output or synced source is touched.
+
+The slower measured2B row rate projects a full301M audit to5.089h.
+Nine remaining audits, each conservatively projected at full cap, imply
+45.80worker-hours, or15.27–22.90wall hours at two-to-three workers before scheduling gaps.
+Keep9–12h allowance for remaining native training/saves and the conservative
+Saturday17 evening–Sunday18 morning training/audit forecast. Re-quoted complete
+report/archives target remains Monday19 evening Madrid, Tuesday20 upload
+contingency. Evaluation still needs its cost pilot; upload and final unpacked
+retention-copy timing are unmeasured. Original deadlines/budgets stay unchanged.
+[Updated arithmetic/assumptions](hu200-capacity-cygnus-artifacts/eta-after-2b.json).
+
+## Earlier preflight and operations record
 
 The owner stopped bb128 for BIOS work and resumed October16 after adding five
 fans, modifying the curve and enabling XMP3200. XMP is owner-reported; memtest86+
@@ -37,7 +90,7 @@ The preliminary operation used4,734.229 active seconds of its original5,400:
 of10,429.086seconds is excluded. The72h gates/training/audit clock started October16 at02:29:18UTC;
 its fixed deadline is October19 at02:29:18UTC. The unchanged24h evaluation
 ceiling follows; archive closeout is separate. [Clock](hu200-capacity-cygnus-artifacts/training-clock.json).
-The provisional report plus archive-closeout ETA, updated October16 after the
+The earlier provisional report plus archive-closeout ETA, updated October16 after the
 BIOS interruption, is Tuesday, October20 (Europe/Madrid). Variable upload
 throughput may move closeout to Wednesday, October21. This forecast changes
 neither scientific runtime ceiling; evaluation cost admission remains pending.
@@ -53,7 +106,7 @@ audits and per-seed retirement of redundant recoveries after an audited successo
 All actual writes require fresh admission. Evaluation uses two seeds concurrently,
 then the third, within the declared258.4GB plan. No other PR reclamation is assumed.
 
-Restoration is pending. Connected Drive raw and streamed-reference requests both
+At that earlier preflight snapshot, restoration was pending. Connected Drive raw and streamed-reference requests both
 reject the3.16GB archive with HTTP413 before invocation (256MiB limit). Read-only
 synced-archive/SSH copies timed out; partial bytes remain, and explicit transport
 resumption continues with longer connection tolerance. All hashing, extraction,

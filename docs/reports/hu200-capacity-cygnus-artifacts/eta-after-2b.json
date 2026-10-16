@@ -1,0 +1,34 @@
+{
+  "status": "requoted-after-all-three-2b-audits",
+  "observed_utc": "2026-10-16T12:04:57.498486+00:00",
+  "basis": "Three real ordinary save audits, each covering135.43\u2013135.89M entries, with measured triple overlap; no matched serial ordinary-audit control.",
+  "audit_hours_measured": [
+    2.204435825394165,
+    2.288619623933054,
+    2.051348313125555
+  ],
+  "full_cap_audit_hours_per_worker_conservative": 5.089203791039113,
+  "remaining_maximum_full_cap_audits": 9,
+  "remaining_audit_worker_hours_upper_projection": 45.80283411935201,
+  "remaining_audit_wall_hours_at_two_to_three_workers_idealized": [
+    15.267611373117338,
+    22.901417059676007
+  ],
+  "remaining_training_and_save_allowance_hours": [
+    9,
+    12
+  ],
+  "training_audit_forecast_madrid": "Saturday October17 evening through Sunday October18 morning (unchanged conservative range)",
+  "fixed_evaluation_max_hours": 24,
+  "complete_report_archive_target_madrid": "Monday October19 evening",
+  "upload_contingency_madrid": "Tuesday October20",
+  "original_training_deadline_epoch": 1792376957.996109,
+  "limits_unchanged": true,
+  "assumptions": [
+    "Linear row extrapolation from slowest measured2B ordinary audit; future wider rows and larger working sets may change cost.",
+    "Three remaining saves per seed; all nine projected at full capacity for an upper planning estimate, not an actual maximum runtime guarantee.",
+    "Independent seed queues overlap training/audits only where unchanged CPU/RSS/disk reservations fit; no guaranteed threefold speedup.",
+    "Native500M\u21922B stages took2051\u20132108seconds including787\u2013815seconds writing, plus148\u2013149seconds loader/scheduler overhead; later growth costs are unmeasured.",
+    "Evaluation cost admission, upload bandwidth and final unpacked retention copy timing remain unmeasured. Dates are forecasts; scientific deadlines are fixed."
+  ]
+}
