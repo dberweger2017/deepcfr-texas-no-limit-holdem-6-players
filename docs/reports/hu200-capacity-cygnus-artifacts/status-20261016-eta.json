@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-10-16T06:29:11.153851+00:00",
+  "owned_base": "/home/dberweger/hu200-capacity-20261015",
+  "archive_bytes": {
+    "hu200-k50-frozen-averages-M4-20261013.zip": 1623195648,
+    "hu200-v055-seed-2026101421-final-average-20261014.zip": 1741275136,
+    "hu200-v055-seed-2026101422-final-average-20261014.zip": 2699874304
+  },
+  "terminal_receipts": {
+    "training-failed.json": null,
+    "training-complete.json": null,
+    "twins-restored.json": null,
+    "twin-gates.json": null
+  },
+  "prefix_audits": {
+    "prefix500m-audit-2026101302": {
+      "status": "passed",
+      "exit_codes": [
+        0
+      ],
+      "stop_reason": null,
+      "hard_stop_reason": null,
+      "elapsed_seconds": 3567.5225344680002
+    },
+    "prefix500m-audit-2026101421": {
+      "status": "passed",
+      "exit_codes": [
+        0
+      ],
+      "stop_reason": null,
+      "hard_stop_reason": null,
+      "elapsed_seconds": 3545.220180573
+    }
+  },
+  "free_disk_bytes": 233684434944
+}

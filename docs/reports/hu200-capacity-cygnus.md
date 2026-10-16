@@ -34,7 +34,10 @@ The preliminary operation used4,734.229 active seconds of its original5,400:
 of10,429.086seconds is excluded. The72h gates/training/audit clock started October16 at02:29:18UTC;
 its fixed deadline is October19 at02:29:18UTC. The unchanged24h evaluation
 ceiling follows; archive closeout is separate. [Clock](hu200-capacity-cygnus-artifacts/training-clock.json).
-Archive closeout is separately bandwidth-dependent.
+The provisional report plus archive-closeout ETA, updated October16 after the
+BIOS interruption, is Tuesday, October20 (Europe/Madrid). Variable upload
+throughput may move closeout to Wednesday, October21. This forecast changes
+neither scientific runtime ceiling; evaluation cost admission remains pending.
 
 [Resource summary](hu200-capacity-cygnus-artifacts/memory-resource-summary.json):
 pre-change CPU/VRM peaks65/60°C, fan1 335–645RPM; resumed export/audit54/58°C,
@@ -105,3 +108,11 @@ read without an upload snapshot needs8,921,067,848 bytes including3GB margin,
 versus16,324,145,152 bytes free, and is admitted separately. Only read coordination
 changes; source archives, model bytes, scientific budgets and guards stay fixed.
 Full input archive/model hashing and restoration on bb128 are still pending.
+
+Seed1302 coordinated archive-read readiness was reported October16 at06:15UTC.
+Its old owned transport client56817 was stopped after exact command identity
+verification; the matching remote receiver was confirmed absent before one
+resume from the retained remote offset. This is transport progress only: whole
+archive SHA and twin model restoration remain pending on bb128. The synced
+source still reports dataless, so the callback alone does not establish durable
+local hydration. Sources and partials remain intact.
