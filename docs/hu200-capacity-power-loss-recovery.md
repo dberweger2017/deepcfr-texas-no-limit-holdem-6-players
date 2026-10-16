@@ -1,9 +1,9 @@
-# PR301 accidental power-off recovery — proposal, October 16
+# PR301 accidental power-off recovery — owner approved October 16
 
-Status: **owner review pending; no scientific restart performed**. This proposal
-continues PR301 only. The owner requested a common-save restart and a one-hour
-extension for this interruption. Approval would authorize only the recovery
-below, with the original scientific question, endpoints and evaluation intact.
+Status: **owner approved: “aproved, you can continue.”** Recovery deployment
+validation is in progress; no scientific restart has yet been performed. This
+authorizes only the common5B rollback and one-hour extension below, preserving
+the original scientific question, endpoints and evaluation.
 
 ## Damage assessment
 
@@ -29,7 +29,7 @@ boot began about18:21:15UTC; the old scheduler and event observer are gone.
 [Post-boot byte readback](reports/hu200-capacity-cygnus-artifacts/power-off-byte-readback.json),
 [interruption receipt](reports/hu200-capacity-cygnus-artifacts/power-off-assessment.json).
 
-## Proposed execution after approval
+## Approved execution
 
 1. Preserve the old attempt in place. Recheck the source/binary/K50 table hashes,
    parent hashes, boot identity, sensors, available RAM/swap, NVMe free space and
@@ -78,12 +78,12 @@ boot began about18:21:15UTC; the old scheduler and event observer are gone.
    unrelated work remain untouched. Delete the existing event task only at full
    closeout; no future campaign or new recurring schedule.
 
-## Proposed time amendment
+## Approved time amendment
 
 Keep the original clock file immutable and add a separate approved interruption
 ledger. Apply **exactly+3,600s once** to the main gates/training/audit deadline:
 
-| Limit | Original | Proposed |
+| Limit | Original | Approved |
 | --- | --- | --- |
 | Main total ceiling |72h |73h |
 | Main deadline UTC |October19 02:29:18 |October19 03:29:18 |
@@ -128,4 +128,5 @@ Provisional training/audit completion becomes Saturday17 evening–Sunday18 even
 Madrid. Full report/archive target remains Monday19 evening, Tuesday20 upload
 contingency, conditional on prompt approval, actual evaluation cost and upload/
 retention-copy throughput. Requote at recovery launch and after rebuilt10B.
-No training, export, audit retry or evaluation has been launched by this proposal.
+No scientific work was launched before owner approval. Deployment and launch
+receipts are recorded separately in PR301.

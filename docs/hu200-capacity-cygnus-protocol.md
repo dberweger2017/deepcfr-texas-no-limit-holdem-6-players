@@ -5,6 +5,13 @@ Base: current main `f949b930`. This is an experiment, without a milestone gate.
 The owner decides merge and any later external play. No trainer changes, release,
 tag, default change, Slumbot, credentials or compute on M4/M1/db-ocean.
 
+The owner approved the [accidental power-off recovery](hu200-capacity-power-loss-recovery.md)
+on October16: one common5B rollback for all three seeds, fresh output paths,
+exact rebuilt10B identity checks, and **exactly+3600s once** to the main deadline.
+The original clock stays immutable; a separate ledger sets effective deadline
+October19 03:29:18UTC /05:29:18Madrid. Evaluation stays24h. All other guards,
+science, resource budgets and no-further-auto-retry restrictions remain intact.
+
 ## Question and fixed comparison
 
 Does increasing the retained table from approximately 85.37M to a planned

@@ -30,7 +30,11 @@ def main():
     if target.scheme != 'https' or target.hostname != 'relay.t3.codes' or not target.path.startswith('/v1/hooks/'):
         raise ValueError('Unrecognized app event endpoint')
     clock = read(BASE / 'training-clock.json')
-    deadline = clock['deadline_epoch'] + 3600
+    if (BASE / 'training-deadline-amendment-20261016.json').exists():
+        from scripts.recover_hu200_capacity import effective_deadline
+        deadline = effective_deadline(BASE) + 3600
+    else:
+        deadline = clock['deadline_epoch'] + 3600
     ledger = BASE / 'callback-sent-events.json'
     sent = read(ledger) or {}
 

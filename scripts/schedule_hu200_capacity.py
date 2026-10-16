@@ -550,10 +550,7 @@ class Queue:
                         raise RuntimeError('Preventive output reservation does not fit the original budget')
                     self.publish()
                     time.sleep(1)
-            milestones = {str(n):read(self.base/f'milestone-{n}.json') for n in TARGETS}
-            put(self.base/'training-complete.json', dict(status='all-three-20B-audited', milestones=milestones,
-                terminal=milestones[str(TARGETS[-1])], admission=self.admission,
-                finished_utc=dt.datetime.now(dt.timezone.utc).isoformat(), scheduling_source=read(self.base/'scheduling-handoff.json')['new_source']))
+            self.complete()
             put(self.root/'result.json', dict(status='passed', elapsed_seconds=time.monotonic()-started))
         except BaseException as exc:
             stop_files(list(self.active.values()), str(exc))
@@ -567,6 +564,13 @@ class Queue:
             self.terminate()
             for sig, handler in previous.items():
                 signal.signal(sig,handler)
+
+    def complete(self):
+        milestones = {str(n):read(self.base/f'milestone-{n}.json') for n in TARGETS}
+        put(self.base/'training-complete.json', dict(status='all-three-20B-audited', milestones=milestones,
+            terminal=milestones[str(TARGETS[-1])], admission=self.admission,
+            finished_utc=dt.datetime.now(dt.timezone.utc).isoformat(),
+            scheduling_source=read(self.base/'scheduling-handoff.json')['new_source']))
 
     def terminate(self):
         owned=[]
