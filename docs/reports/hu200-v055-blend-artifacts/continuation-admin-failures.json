@@ -1,0 +1,32 @@
+{
+  "status": "continuation setup/planning failures retained; scientific work not retried",
+  "failures": [
+    {
+      "action": "connected raw fetch of indexed PR265 full ZIP",
+      "error": "HTTP 413: connected fetch limit 256 MiB; archive is 26,698,069,587 bytes",
+      "resolution": "No retry through that route. Native M4 Drive restoration admitted after storage review."
+    },
+    {
+      "action": "initial simultaneous source-archive capacity projection",
+      "error": "Conservative intake calculation exceeded available free disk, even with identified inactive caches",
+      "resolution": "No failing intake was launched. Owner freed storage; sequential normal cache-release workflow reduces maximum intake requirement to 56,525,196,918 bytes."
+    },
+    {
+      "action": "first post-admission PR ETA timestamp",
+      "error": "PR body briefly wrote 22:32 Madrid instead of the recorded 19:52 Madrid start",
+      "resolution": "Immediately corrected from campaign-clock epoch 1792086757.646911; fixed wall deadline unchanged."
+    },
+    {
+      "action": "read-only source inspection",
+      "error": "Two source/test paths and one streaming-module path did not exist at guessed locations; inspection commands returned exit 1/2",
+      "resolution": "Used rg --files and existing src/diagnostics/cfr_average.py, src/blueprint/streaming.py and tests/test_hu200_blend_resources.py. No model work affected."
+    },
+    {
+      "action": "M1 intake status controller",
+      "error": "One SSH status call exceeded exec_command initial 10-second response window and returned live session 47141; controller incorrectly treated missing exit_code as failure",
+      "resolution": "Polled session 47141 to successful completion, confirmed the same guarded M4 worker PID 78176/create_time 1792086757.605079 remained running. Controller now drains live tool sessions before interpreting exit_code. No archive read, model worker or hand was restarted."
+    }
+  ],
+  "scientific_hand_retries": 0,
+  "training_runs": 0
+}

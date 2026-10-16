@@ -1,0 +1,42 @@
+{
+  "all_member_sizes_and_hashes_readback": true,
+  "archive": {
+    "created_time": "2026-10-15T23:16:51.897Z",
+    "current_user_can_share": true,
+    "display_url": "https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view?usp=drivesdk",
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3",
+    "mime_type": "application/zip",
+    "modified_time": "2026-10-15T23:16:51.908Z",
+    "parent_ids": [
+      "1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH"
+    ],
+    "permissions": [
+      {
+        "allowFileDiscovery": null,
+        "displayName": "Davide Berweger",
+        "domain": null,
+        "emailAddress": "dberweger2017@gmail.com",
+        "role": "owner",
+        "type": "user"
+      }
+    ],
+    "shared": false,
+    "size": "10571715",
+    "source_visibility_status": "permission_metadata_available",
+    "title": "hu200-v055-blend-continuation-M4-20261016.zip",
+    "url": "https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view?usp=drivesdk"
+  },
+  "at": 1792106451.67654,
+  "independent_cloud_receipt": "continuation-primary-cloud-upload.json",
+  "local_readback_receipt": "continuation-archive-receipt.json",
+  "manifest_sha256": "6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689",
+  "members": 188,
+  "native_receipt": "continuation-primary-native-upload.json",
+  "original_receipt_upload_pending_state_is_historical": true,
+  "remote_archive_bytes_downloaded": false,
+  "sha256": "1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6",
+  "status": "accepted"
+}

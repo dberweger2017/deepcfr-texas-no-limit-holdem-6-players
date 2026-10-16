@@ -1,0 +1,9 @@
+{
+  "source": "24df622856e4a301ed9bd328184164521abfb1b5",
+  "native_tree": "9956672f5180925d116f68f8d8aae58d79b07cc5",
+  "binary": "/Users/dberweger/Local/hu200-v055-frozen-blend/native/hu20-trainer/target/release/examples/hu200_blend",
+  "binary_bytes": 791200,
+  "binary_sha256": "d220a7e299868b9a3ffe6169379379304d08dff7244b0f5a7f439a1b06ddd504",
+  "rustc": "rustc 1.89.0 (29483883e 2025-08-04)\nbinary: rustc\ncommit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2\ncommit-date: 2025-08-04\nhost: aarch64-apple-darwin\nrelease: 1.89.0\nLLVM version: 20.1.7\n",
+  "cargo_lock_sha256": "6e8a903b4164b36f53a234b77d650bb71e5a165919b699615902c0b4924e90a2"
+}

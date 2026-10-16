@@ -1,0 +1,39 @@
+{
+  "at": 1792084434.286262,
+  "pr": 297,
+  "roots": [
+    20261015297010,
+    20261015297011,
+    20261015297012,
+    20261015297020,
+    20261015297101,
+    20261015297102,
+    20261015297103,
+    20261015297200
+  ],
+  "source_refs": {
+    "main": "cdc44a7522a8360f1686c0e67400404c3a3e691c",
+    "pr298": "33aceeda6001e6118fae5aa06ac36e13795ec7e9",
+    "pr292": "71aa93612ac9c5de1a51862d94ce430db5c41e1b"
+  },
+  "open_prs": [
+    {
+      "headRefOid": "33aceeda6001e6118fae5aa06ac36e13795ec7e9",
+      "number": 298,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/298"
+    },
+    {
+      "headRefOid": "93c1003303bc0a3a89745f49ab0160a0939f5e2d",
+      "number": 297,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/297"
+    },
+    {
+      "headRefOid": "71aa93612ac9c5de1a51862d94ce430db5c41e1b",
+      "number": 292,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/292"
+    }
+  ],
+  "matches": {},
+  "fresh": true,
+  "scope": "exact numeric scan of tracked main and every other current open head"
+}

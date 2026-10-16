@@ -1,0 +1,15 @@
+{
+  "cache_build_peak": null,
+  "max_sampling_gap_seconds": 5.067789077758789,
+  "maximum_swap_growth_bytes": 0,
+  "merge_peak": null,
+  "minimum_free_disk_bytes": 59262562304,
+  "minimum_free_memory_percent": 84,
+  "pressure_levels": [
+    1
+  ],
+  "resource_breach_samples": 0,
+  "sampled_family_peak_bytes": 49512448,
+  "samples": 46,
+  "stopped_by": "intentional SIGTERM to honor normalized-export semantic stop; no resource breach"
+}

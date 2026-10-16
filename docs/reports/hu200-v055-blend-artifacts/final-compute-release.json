@@ -1,0 +1,7 @@
+{
+  "at": 1792081766.935411,
+  "owned_compute_and_archive_workers_exited": true,
+  "both_locks_available": true,
+  "remaining_work": "M1 report/index and read-only Drive acceptance administration only",
+  "provider_hydration_may_continue": true
+}
