@@ -126,3 +126,18 @@ repair the old full cloud object or authorize removal of that retained local
 full archive, which contains other evidence. Input-provenance metadata is
 added to the new campaign's intake configuration; every raw/average hash,
 iteration weight, model rule and evaluation count remains unchanged.
+
+### October 16, 11:07–11:10 Madrid: intake configuration repair
+
+The first full 26.698-GB archive downloaded and passed its whole SHA256.
+Restoration then raised `KeyError: manifest_sha256` in the continuation
+control configuration before any checkpoint extraction or export. The missing
+field is now populated from the existing indexed manifest pin for each pending
+source; all required fields are checked before another archive read. The first
+repair launch was refused by the original generic STOP sentinel before its
+worker started. Both failures and the exact original sentinel are retained;
+the baseline and held-state bytes, thresholds and fixed campaign clock remain
+unchanged. A distinct guarded intake continuation is running. This is a
+plumbing repair with no model mismatch, research failure or hand retry.
+[Configuration failure and repair](hu200-v055-blend-run-artifacts/intake-configuration-recovery.json),
+[guard-state preservation](hu200-v055-blend-run-artifacts/intake-guard-sentinel-preservation.json).

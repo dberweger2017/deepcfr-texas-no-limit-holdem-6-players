@@ -1,0 +1,81 @@
+{
+  "at": 1792141722.592906,
+  "kind": "plumbing/configuration",
+  "research_failure": false,
+  "failure": "Missing indexed manifest_sha256 field caused KeyError before checkpoint extraction",
+  "fix": "Added both indexed manifest hashes, validated required fields before read, preserved initial attempt, resumed under distinct guard and unchanged clock",
+  "scientific_parameters_changed": false,
+  "research_originals_removed": [],
+  "evidence": {
+    "intake-plumbing/seed1302-missing-manifest-field/input-2026101302-complete.json": {
+      "at": 1792141618.421695,
+      "returncode": 1
+    },
+    "intake-plumbing/seed1302-missing-manifest-field/input-2026101302-failure.json": {
+      "at": 1792141616.9771369,
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu200-v055-blend-run/planning/restore-one-raw-input.py\", line 45, in <module>\n    try:work(index)\n        ^^^^^^^^^^^\n  File \"/Users/dberweger/Local/hu200-v055-blend-run/planning/restore-one-raw-input.py\", line 28, in work\n    raw=z.read('ARCHIVE-MANIFEST.json');assert hashlib.sha256(raw).hexdigest()==item['manifest_sha256']\n                                                                                ~~~~^^^^^^^^^^^^^^^^^^^\nKeyError: 'manifest_sha256'\n"
+    },
+    "intake-plumbing/seed1302-missing-manifest-field/preservation-receipt.json": {
+      "at": 1792141704.545296,
+      "clock_unchanged": true,
+      "moves": [
+        {
+          "old": "results/hu200-v055-blend/inputs/2026101302",
+          "preserved_as": "results/hu200-v055-blend/intake-plumbing/seed1302-missing-manifest-field/2026101302"
+        },
+        {
+          "old": "results/hu200-v055-blend/input-2026101302-complete.json",
+          "preserved_as": "results/hu200-v055-blend/intake-plumbing/seed1302-missing-manifest-field/input-2026101302-complete.json"
+        },
+        {
+          "old": "results/hu200-v055-blend/input-2026101302-failure.json",
+          "preserved_as": "results/hu200-v055-blend/intake-plumbing/seed1302-missing-manifest-field/input-2026101302-failure.json"
+        }
+      ],
+      "owners": {
+        "265": {
+          "mergedAt": "2026-10-13T23:29:22Z",
+          "number": 265,
+          "state": "MERGED",
+          "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/265"
+        },
+        "278": {
+          "mergedAt": "2026-10-15T06:27:46Z",
+          "number": 278,
+          "state": "MERGED",
+          "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/278"
+        },
+        "306": {
+          "mergedAt": null,
+          "number": 306,
+          "state": "OPEN",
+          "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+        },
+        "checked_at": 1792141671.3679218
+      },
+      "reason": "control configuration KeyError before checkpoint extraction, no scientific mismatch or play",
+      "research_originals_removed": []
+    },
+    "guards/operations/restore-2026101302/receipt.json": {
+      "cpu_seconds_by_identity": {
+        "(13727, 1792135410.840734)": 51.187386368000006,
+        "(13733, 1792135410.905211)": 41.536458752
+      },
+      "failure": "RuntimeError('Worker exit 1')",
+      "finished": 1792141618.4112089,
+      "peak_family_rss_bytes": 53641216,
+      "reasons": [],
+      "returncode": 1,
+      "samples": 1228,
+      "started": 1792135410.868046,
+      "status": "stopped",
+      "wall_seconds": 6207.543162822723
+    }
+  },
+  "control_sha256": {
+    "planning/raw-intake-config-before-manifest-fix.json": "6e4ced8f1055657d5d90e8e9984b729547b954f962af3e525f0c59bdfae203c5",
+    "planning/raw-intake-config.json": "d2e4273bfeaec17588ff029e94f52aeab234d611a469a3ad1f59b58fe3ba1ce2",
+    "planning/restore-one-raw-input-before-manifest-fix.py": "0581857061e8bde4a649f0dfd1c3ca9c9a116bd6a63d1bff43de22b412aaee2d",
+    "planning/restore-one-raw-input.py": "311500ea99770af29472fb56691e8f44a9d124bd7bdf2a610a666348a5246107"
+  }
+}

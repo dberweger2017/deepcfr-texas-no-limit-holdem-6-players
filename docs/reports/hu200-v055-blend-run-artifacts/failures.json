@@ -13,7 +13,7 @@
       "phase": "administrative tool orchestration"
     }
   ],
-  "at": 1792135216.131221,
+  "at": 1792141821.632253,
   "no_failed_hand_retry": true,
   "no_outcomes_observed": true,
   "plumbing": [
@@ -30,6 +30,16 @@
       "observed_at": 1792137144.4180942,
       "phase": "input archive provenance",
       "state": "resolved-for-required-raw-input-by-accepted-checkpoint-only-archive"
+    },
+    {
+      "detail": "The full downloaded ZIP hash passed, then restoration raised KeyError: manifest_sha256 before extraction. Added the existing indexed manifest hashes for both pending sources and validated required fields before reading. The first recovery launch was refused by the original generic STOP sentinel before a worker started. Preserved that plumbing STOP and both failed attempts, retaining identical guard baseline/held state, clock, thresholds and all model pins; a distinct guarded intake continuation is running.",
+      "evidence": "intake-configuration-recovery.json",
+      "guard_evidence": "intake-guard-sentinel-preservation.json",
+      "kind": "intake-control-configuration",
+      "phase": "seed1302 restoration",
+      "research_failure": false,
+      "scientific_parameters_changed": false,
+      "state": "fixed-resumed-before-extraction"
     }
   ],
   "research_failures": []

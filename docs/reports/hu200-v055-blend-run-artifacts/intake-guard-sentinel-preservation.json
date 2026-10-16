@@ -1,0 +1,14 @@
+{
+  "at": 1792141786.375338,
+  "plumbing_only": true,
+  "original_stop_preserved_as": "results/hu200-v055-blend/intake-plumbing/seed1302-missing-manifest-field/original-guard-STOP.json",
+  "baseline_and_held_sha256_before_and_after": {
+    "baseline.json": "8912fe081d36e98ea0cd832df1f28933fb97bfb5a9d24811de900e505a97d2b6",
+    "guard-held.json": "3a47ba4d0d1273f7a97eea05d1cd1f486ea49d8bd180f26f2e12ef8916fc206d"
+  },
+  "no_guard_threshold_baseline_or_clock_change": true,
+  "scientific_failure": false,
+  "dependent_science_not_started": true,
+  "initial_guard_reasons": [],
+  "refused_recovery_log": "results/hu200-v055-blend/restore0configurationrecovery-detached.log"
+}
