@@ -1,0 +1,10 @@
+{
+  "at": 1792081702.4741251,
+  "caches_removed": [],
+  "forced_offloading": false,
+  "model_restore_incomplete": true,
+  "originals_retained": true,
+  "reason": "semantic stop; all inputs, setup evidence and incomplete retrieval state retained",
+  "removed_paths": [],
+  "synced_deletions": false
+}

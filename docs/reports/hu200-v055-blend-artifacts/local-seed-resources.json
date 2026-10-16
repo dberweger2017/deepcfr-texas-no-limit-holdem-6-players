@@ -1,0 +1,20 @@
+{
+  "cpu_seconds_by_identity": {
+    "(74863, 1792082248.13649)": 1.9896168959999998,
+    "(74872, 1792082248.202597)": 51.656471296,
+    "(74877, 1792082250.202503)": 720.784544512
+  },
+  "failure": null,
+  "finished": 1792083027.291533,
+  "peak_family_rss_bytes": 72056832,
+  "reasons": [],
+  "returncode": 0,
+  "samples": 156,
+  "started": 1792082248.171686,
+  "status": "complete",
+  "wall_seconds": 779.1198470592499,
+  "minimum_free_disk_bytes": 56814055424,
+  "minimum_free_percent": 75,
+  "max_swap_growth_bytes": 0,
+  "resource_breach_samples": 0
+}

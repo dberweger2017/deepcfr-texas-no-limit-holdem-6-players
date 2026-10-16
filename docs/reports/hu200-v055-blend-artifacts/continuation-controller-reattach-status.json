@@ -1,0 +1,14 @@
+{
+  "action": "Reattach the administrative intake controller after a missing heartbeat",
+  "at": 1792096262.813293,
+  "exact_released_average_reproduction": "still running at reattachment",
+  "guard_deadline_or_baseline_changed": false,
+  "observed_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+  "original_m4_restore_parent_pid": 78176,
+  "previous_controller_cell": "176",
+  "reason": "The M4 worker and five-second guard continued normally; the prior administrative controller produced no fresh heartbeat. Only the controller was replaced.",
+  "replacement_controller_cell": "197",
+  "research_worker_restarted": false,
+  "scientific_retry": false,
+  "whole_source_archive_sha256_verified": true
+}

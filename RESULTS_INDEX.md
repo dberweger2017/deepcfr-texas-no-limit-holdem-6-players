@@ -58,6 +58,150 @@ The smoke qualification reads PR291's original `smoke/scoped-average.gz`,
 its full provenance and host retrieval command remain in the PR291 entry below.
 Do not remove that input while Phase 2 is active. No M4 access or cleanup.
 
+## PR297 — frozen HU200 v0.5.5 blend, raw-input continuation
+
+[PR297](https://github.com/dberweger2017/CFR-NLHE-6max/pull/297),
+[report](docs/reports/hu200-v055-blend.md),
+[corrected protocol and predeclared seed weights](docs/hu200-v055-blend-protocol.md).
+Based on main `98658f7b`; initial stop source `7790a5eb`, continuation declaration
+`33215e6b`, qualified scientific source `24df6228`. **Final capacity stop /no playing result.**
+All three raw checkpoint SHA256s verify and all released average SHA256s
+reproduce exactly. The union contains **156,208,331 keys**: 88,880,705 in one
+seed,34,741,832 in two,32,585,794 in all three. The declared disk gate needs
+**74,474,288,086 bytes free** with floor/margin; **63,332,925,440** are available,
+a **11,141,362,646-byte shortfall**. Only the fixed unplayed compression probe
+exists; no full blend, cache build, pilot or final hand runs. The original
+normalized-export stop is preserved separately. The M4 releases October16 at
+**01:19:22 Madrid /October15,23:19:22UTC**, both locks free,63.30GB available.
+All canonical inputs/unique evidence remain; only two verified inactive ZIP
+cache copies are normally released, preserving cloud files/placeholders.
+No research-original removal, release, tag, default, Slumbot or merge change.
+
+Designated [Research-Cloud folder](https://drive.google.com/drive/folders/1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH),
+ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`, shared local spelling
+`~/Local/Research-Cloud/PR-297-hu200-v055-blend/`.
+
+**Corrected raw-input continuation, archives accepted:**
+
+| ZIP /Drive ID | Bytes /members | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [hu200-v055-blend-continuation-M4-20261016.zip](https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view) | 10,571,715 /188 | `1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6` | `6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689` |
+| [hu200-v055-blend-continuation-admin-M1-20261016.zip](https://drive.google.com/file/d/1ga1ryoykMblzH_muVnXhJ_ZpTi5ckcK7/view) | 263,319 /55 | `a33d20b808b50d926b26ceeccca62949c321af8458e126c529c9d8a0d4f4e602` | `4f75323572a4e7737fc86faf3f7c6f5c25ac2a618225e27aa9d57174360784fd` |
+| [hu200-v055-blend-continuation-admin-final-M1-20261016.zip](https://drive.google.com/file/d/116HIFdiynffhQUhNedsTPL3gnUw5BD6U/view) | 298,943 /62 | `8908a84839687f06c2cb8222694decc14db2da979c2aa8150a7049553a1f9b61` | `237836ae89b886bd4482a87cba87454c6a2bd6276a46701ef859e54e905699d0` |
+
+All members verify against embedded `ARCHIVE-MANIFEST.json`, followed by whole
+archive SHA256. Separate current native/upload and independent exact Drive
+ID/name/size/direct-parent checks accept the upload; remote output-archive bytes
+are not downloaded. [Readback](docs/reports/hu200-v055-blend-artifacts/continuation-archive-receipt.json),
+[acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-primary-upload-acceptance.json),
+[union manifest](docs/reports/hu200-v055-blend-artifacts/continuation-union-scan.json),
+[gate/resource summary](docs/reports/hu200-v055-blend-artifacts/continuation-capacity-stop.json),
+[M4 release](docs/reports/hu200-v055-blend-artifacts/continuation-m4-release.json).
+
+Retrieve the ZIP into a fresh ignored directory, verify its whole SHA256,
+then extract and verify each member against `ARCHIVE-MANIFEST.json`.
+`research/hu200-v055-blend/` contains input proofs, source-cache receipts,
+raw resources/failures, union/probe/audit/gate and stop summary;
+`research/hu200-v055-blend-{inputs,tooling,tooling-post-review,python-tests,qualified-tools}/`
+preserves earlier proof/build/check histories. `control/`, `source/` and
+`bin/hu200_blend` preserve exact implementation. The M1 administrative ZIP preserves the closed
+M4 archive guard, release and primary-upload receipts, plus report/source metadata;
+[admin readback](docs/reports/hu200-v055-blend-artifacts/continuation-admin-archive-receipt.json) and
+[admin upload acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-admin-upload-acceptance.json).
+The final M1 supplement also preserves the administrative import failure,
+its unchanged-function correction, main-integration/conflict resolution and
+acceptance of the two earlier ZIPs.
+[Final supplement readback](docs/reports/hu200-v055-blend-artifacts/continuation-admin-final-archive-receipt.json) and
+[final supplement acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-admin-final-upload-acceptance.json).
+Its own final native/cloud observations remain as compact Git receipts, avoiding
+recursive archival. No model/hand payload is processed on M1.
+Indexed canonical input files
+are excluded after SHA256 verification and retained locally; their retrieval
+links below remain dependencies. No full blended player is claimed.
+
+**Historical normalized-export stop archives, both accepted:**
+
+| ZIP /Drive ID | Bytes /members | Whole SHA256 | Manifest SHA256 |
+|---|---:|---|---|
+| [preflight-M4-20261015.zip](https://drive.google.com/file/d/1sNQv6L7WMcSMB73AEvy-robzwQwMieIg/view) | 157,264 /35 | `59667b090aa52987ab8658ee9c6b42577a3f78588f0665704fe1aa6591b407ec` | `c46abb7d35977c6dfdc55e980c7e30cda3e5fe72543e302a87eb96adb2668e2a` |
+| [closeout-M1-admin-20261015.zip](https://drive.google.com/file/d/1DdiCXX_odWKJXkjzH1q3VTeG8a2DAkpI/view) | 29,834 /15 | `7669f8d3ce21b56e6a94e6edeb3c4e0bfa3a98e7762992162ff7072895361dda` | `94d5b7d7a039581dccb7960a5c6fc4a0adb65b81a6cf1ee7d951e2fb286cd016` |
+
+Each embeds `ARCHIVE-MANIFEST.json`; every member size/SHA256, manifest bytes
+and whole archive hash pass local readback. Separate current native
+uploaded1/uploading0/no-conflicts and independent exact ID/name/size/direct-parent
+metadata confirm both uploads. Remote output archive bytes were not downloaded.
+[Primary readback](docs/reports/hu200-v055-blend-artifacts/archive-receipt.json),
+[native/cloud acceptance](docs/reports/hu200-v055-blend-artifacts/native-upload-observation.json),
+[independent primary metadata](docs/reports/hu200-v055-blend-artifacts/cloud-upload-observation.json),
+[closeout readback](docs/reports/hu200-v055-blend-artifacts/closeout-receipt.json),
+[closeout native](docs/reports/hu200-v055-blend-artifacts/closeout-native-upload.json),
+[closeout independent metadata](docs/reports/hu200-v055-blend-artifacts/closeout-cloud-upload.json).
+
+The primary stores `research/guards/operations/input-verification/` raw resources,
+intent, worker/stop/receipt and the first failed archive guard; `source/` holds
+exact exporter/averager/guard and administrative helpers. Its incomplete restore
+read is not a verified archive/input hash. The closeout stores the successful
+sealing guard at `closed-seal-guard/`, final release, no-removal receipt and
+expanded setup-failure summary under `receipts/`. All originals remain.
+[Failures](docs/reports/hu200-v055-blend-artifacts/admin-failures.json).
+Restoration: download a named ZIP into a fresh ignored path; verify the whole
+SHA256 above, then verify each extracted member against `ARCHIVE-MANIFEST.json`.
+Neither ZIP contains a model or a completed union/evaluation.
+
+**Corrected raw-input dependencies:** accepted PR265 full ZIP
+`1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI`, whole
+`5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f`,
+member `research/frozen/20000000000.gz`,4,960,844,586 bytes,
+`c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f`;
+[PR265 restoration index](#pr265-exact-hu200-k50-frozen-continuation-october-1314).
+PR278's seed2026101421 local checkpoint and seed2026101422 full archive use the
+[existing per-seed model/index/restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json)
+and [second-seed model/index/restore commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+Second full archive `1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`,20,953,054,295 bytes,
+whole `73e76b94333ae9236ab4b280a04b33d5c619abfa333cda1b7486160949347fbb`,
+member `research/seed-2026101422/frozen/20000000000.gz`,4,957,316,628 bytes,
+`e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c`.
+Use the same PR163 table pins/restoration record; originals/tables/shared Git
+and open-PR dependencies stay protected. No current remote raw-input hash check
+is claimed merely from cloud metadata. Full SHA256 verification is mandatory
+before use. The stopped-preflight release is historical: the owner then
+reauthorized M4 use for this corrected continuation.
+
+Retained M4 working root (PR297 open; no job running):
+`~/Local/hu200-v055-frozen-blend/`; keep its
+`results/hu200-v055-blend/`, earlier preflight/input/tooling roots and runtime
+`~/Local/hu20-k50-5b-first-pass-20261012/.venv/` protected. Verified read-only
+checkpoint1421, frozen exporter and tables are APFS-cloned to
+`results/hu200-v055-blend/protected-inputs/`;
+[exact copy/hash receipt](docs/reports/hu200-v055-blend-artifacts/continuation-copy-receipt.json).
+New raw checkpoints and reproduced averages go to `results/hu200-v055-blend/inputs/<seed>/`.
+Accepted inactive archive download caches may be normally released only after
+whole archive/checkpoint hash and exact average reproduction, with native/cloud
+checks and per-file receipts. No forced offload or synced deletion.
+
+**October 15,20:38 UTC cache receipt:** the verified PR265 archive's inactive
+local download cache releases 26,698,072,064 allocated bytes via one ordinary
+FileManager request. The same cloud file
+[`1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI`](https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view)
+and same-size placeholder remain; no synced path or research original is deleted.
+Its retained checkpoint/average paths, SHA256 pins, source archive/member,
+current native/cloud evidence, raw resource summary and complete cache receipt
+are [recorded here](docs/reports/hu200-v055-blend-artifacts/continuation-seed-2026101302-verified.json).
+Restoration is the existing [PR265 command](#pr265-exact-hu200-k50-frozen-continuation-october-1314),
+into a fresh ignored path, followed by the whole/archive-member SHA256 checks above.
+
+
+**October 15,23:06 UTC cache receipt:** the verified seed2026101422 archive's
+inactive local download cache releases 20,953,055,232 allocated bytes through
+one ordinary FileManager request. The same
+[`1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO`](https://drive.google.com/file/d/1xAg4LpkRM_XLre2TsQcDkn0voN48dAwO/view)
+and same-size placeholder remain; no synced path or research original is deleted.
+[Exact retained checkpoint/average paths, input/archive/member SHA256s,
+current native/cloud checks and cache receipt](docs/reports/hu200-v055-blend-artifacts/continuation-seed-2026101422-verified.json).
+Restoration uses the [existing PR278 per-seed retrieval commands](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json)
+into a fresh ignored path, with whole archive and extracted-member SHA256 verification.
+
 ## PR298 — M1 v0.5.3 package prepared for owner review
 
 [PR298](https://github.com/dberweger2017/CFR-NLHE-6max/pull/298),

@@ -1,0 +1,34 @@
+{
+  "at_utc": "2026-10-15T23:18:49.099Z",
+  "source": "Google Drive get_file_metadata",
+  "metadata": {
+    "id": "1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3",
+    "title": "hu200-v055-blend-continuation-M4-20261016.zip",
+    "mime_type": "application/zip",
+    "size": "10571715",
+    "url": "https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": "2026-10-15T23:16:51.897Z",
+    "modified_time": "2026-10-15T23:16:51.908Z",
+    "parent_ids": [
+      "1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH"
+    ],
+    "drive_id": null,
+    "current_user_can_share": true,
+    "has_augmented_permissions": null,
+    "shared": false,
+    "permissions": [
+      {
+        "type": "user",
+        "role": "owner",
+        "emailAddress": "dberweger2017@gmail.com",
+        "domain": null,
+        "displayName": "Davide Berweger",
+        "allowFileDiscovery": null
+      }
+    ],
+    "source_visibility_status": "permission_metadata_available"
+  },
+  "remote_archive_bytes_downloaded": false
+}

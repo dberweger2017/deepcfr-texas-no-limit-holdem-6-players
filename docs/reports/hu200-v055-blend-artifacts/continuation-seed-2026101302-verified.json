@@ -1,0 +1,111 @@
+{
+  "archive_cache_now_inactive": true,
+  "archive_stat": {
+    "device": 16777234,
+    "inode": 68638792,
+    "mtime_ns": 1791929799329103469,
+    "size": 26698069587
+  },
+  "at": 1792096635.0729191,
+  "average_path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/average.gz",
+  "exact_average_reproduced": true,
+  "inactive_archive_cache_release": {
+    "after": {
+      "allocated": 0,
+      "ctime_ns": 1792096676001503053,
+      "device": 16777234,
+      "inode": 68638792,
+      "mtime_ns": 1791929799329103469,
+      "nlink": 1,
+      "size": 26698069587
+    },
+    "api": "FileManager.default.evictUbiquitousItem (one normal request)",
+    "at": 1792096677.3985658,
+    "before": {
+      "allocated": 26698072064,
+      "ctime_ns": 1792095908116439366,
+      "device": 16777234,
+      "inode": 68638792,
+      "mtime_ns": 1791929799329103469,
+      "nlink": 1,
+      "size": 26698069587
+    },
+    "cloud": {
+      "created_time": "2026-10-13T22:15:19.394Z",
+      "current_user_can_share": true,
+      "display_url": "https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view?usp=drivesdk",
+      "drive_id": null,
+      "file_or_folder": "file",
+      "has_augmented_permissions": null,
+      "id": "1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI",
+      "mime_type": "application/zip",
+      "modified_time": "2026-10-13T22:16:39.329Z",
+      "parent_ids": [
+        "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK"
+      ],
+      "permissions": [
+        {
+          "allowFileDiscovery": null,
+          "displayName": "Davide Berweger",
+          "domain": null,
+          "emailAddress": "dberweger2017@gmail.com",
+          "role": "owner",
+          "type": "user"
+        }
+      ],
+      "shared": false,
+      "size": "26698069587",
+      "source_visibility_status": "permission_metadata_available",
+      "title": "hu200-k50-frozen-full-M4-20261013.zip",
+      "url": "https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view?usp=drivesdk"
+    },
+    "inactive_local_cache_released": true,
+    "native_after": {
+      "at": 1792096677.398517,
+      "bytes": 26698069587,
+      "cloud_file_id": "1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI",
+      "cloud_folder_id": "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK",
+      "conflicts": {
+        "exists": true,
+        "nil": false,
+        "unresolved_count": 0
+      },
+      "is_uploaded": 1,
+      "is_uploading": 0,
+      "name": "hu200-k50-frozen-full-M4-20261013.zip",
+      "native_accepted": true,
+      "path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+      "raw": "Evaluating actions against {\n    domainUserInfo =     {\n        \"ACTIVATION_RULE_DENY_COPY\" = 1;\n        \"ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION\" = 1;\n        \"CONTEXT_MENU_CREATE_CSE_EDITOR_FILES\" = 0;\n        \"CONTEXT_MENU_CREATE_SHARED_DRIVE\" = 1;\n        \"CONTEXT_MENU_FILE_REVISIONS_WEB\" = 1;\n        \"CONTEXT_MENU_MANAGE_SHARED_DRIVES\" = 1;\n        \"CONTEXT_MENU_OPEN_GEMINI_WEB\" = 1;\n    };\n    fileproviderItems =     (\n                {\n            capabilities = 536870975;\n            contentModificationDate = \"2026-10-13 22:16:39 +0000\";\n            contentType = \"public.zip-archive\";\n            creationDate = \"2026-10-13 22:15:19 +0000\";\n            displayName = \"hu200-k50-frozen-full-M4-20261013.zip\";\n            documentSize = 26698069587;\n            filename = \"hu200-k50-frozen-full-M4-20261013.zip\";\n            hasUnresolvedConflicts = 0;\n            inheritedUserInfo =             {\n            };\n            isDownloadRequested = 0;\n            isDownloaded = 0;\n            isDownloading = 0;\n            isExcludedFromSync = 0;\n            isFolder = 0;\n            isKeepDownloaded = 0;\n            isMostRecentVersionDownloaded = 0;\n            isRecursivelyDownloaded = 0;\n            isShared = 0;\n            isSharedByCurrentUser = 0;\n            isSyncPaused = 0;\n            isTrashed = 0;\n            isUploaded = 1;\n            isUploading = 0;\n            itemIdentifier = 84934;\n            lastUsedDate = \"2026-10-13 22:16:43 +0000\";\n            parentItemIdentifier = 84932;\n            resolvedUserInfo =             {\n            };\n            typeIdentifier = \"public.zip-archive\";\n            userInfo =             {\n                \"ACTION_ADD_SHORTCUT\" = 1;\n                \"ACTION_COPY_LINK\" = 1;\n                \"ACTION_OPEN\" = 1;\n                \"ACTION_OPEN_REVISION_FOLDER\" = 1;\n                \"ACTION_PIN\" = 1;\n                \"ACTION_SHARE\" = 1;\n                \"ACTION_UNKNOWN\" = 1;\n                \"ACTION_UNPIN\" = 0;\n                \"CAN_MANAGE_MEMBERS\" = 0;\n                \"IS_SHARED_DRIVES\" = 0;\n                \"SHARED_DRIVE_ROOT\" = 0;\n            };\n            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 455a6c56 ... 527a4c30 316e5051 };\n        }\n    );\n}\n\nActions:\nACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO\nACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO\nACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES\nACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO\nACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO\nACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO\nACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES\nACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES\nACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO\nACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO\nACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO\nACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO\nACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO\nACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO\nACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES\n\nDecorations:\n\nCapabilities: rwdpf-tT----\n\nContent Policy: 1\n\nInherited Content Policy: 2\n\nEffective Content Policy: 1\n\nEvicted with clone: no\n\nSync is paused: no\n\nProvider supports upload with fail on conflict: no\n\nNamespace Policy: 0\n\nInherited Namespace Policy: 0\n\nEffective Namespace Policy: 1\n",
+      "remote_archive_bytes_downloaded": false
+    },
+    "no_synced_deletion_or_forced_offload": true,
+    "research_originals_removed": [],
+    "restoration_link": "https://drive.google.com/file/d/1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI/view?usp=drivesdk"
+  },
+  "input": {
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-full-M4-20261013.zip",
+    "archive_bytes": 26698069587,
+    "archive_sha256": "5fe98dddba46eff70b402ded1448c39280902b58cdded109d3cd3dec00aa404f",
+    "average_bytes": 3164563975,
+    "average_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "checkpoint_bytes": 4960844586,
+    "checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "drive_id": "1dnVW4lVL_FjnlkrhdU5D5K1eqiXAKlsI",
+    "entries": 85373907,
+    "iterations": 16670844,
+    "manifest_sha256": "26760f63abd5da6ffd3c42b18f93cba27707a842b7d9963f781c8b3d891663ce",
+    "member": "research/frozen/20000000000.gz",
+    "seed": 2026101302
+  },
+  "path": "/Users/dberweger/Local/hu200-v055-frozen-blend/results/hu200-v055-blend/inputs/2026101302/checkpoint.gz",
+  "remote_input_archive_bytes_downloaded_and_whole_verified": true,
+  "required_archive_member_verified": true,
+  "resources": {
+    "any_breach": false,
+    "minimum_free_disk_bytes": 45590859776,
+    "sampled_peak_family_rss_bytes": 57212928,
+    "samples": 1956,
+    "worker_time_log_tail": "{\"command\":\"export\",\"options\":{\"average\":\"results/hu200-v055-blend/inputs/2026101302/average.gz\",\"current\":null,\"zero_mass\":\"uniform\"},\"positionals\":[\"results/hu200-v055-blend/inputs/2026101302/checkpoint.gz\"]}\nexported 85373907 entries in 718.29 s\n      718.29 real       714.48 user         2.84 sys\n             4587520  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 404  page reclaims\n                  54  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                2198  voluntary context switches\n                3833  involuntary context switches\n      10534101170588  instructions retired\n       3017388875417  cycles elapsed\n             3359032  peak memory footprint\n"
+  },
+  "seconds": 9876.808557987213
+}
