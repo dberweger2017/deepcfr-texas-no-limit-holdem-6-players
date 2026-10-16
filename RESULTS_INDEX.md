@@ -1,3 +1,13 @@
+## PR316 — AIVAT on real Slumbot hands
+
+Per-hand AIVAT corrections and analyzer summaries for #304's three runs and the v0.5.5 blend's exploratory run, behind [the report](docs/reports/slumbot-aivat-real-runs.md) and its charts.
+
+- **Archive:** `gdrive:PR-316-slumbot-aivat-real-runs/slumbot-aivat-real-runs-perhand-20261017.zip`, **2,062,452 bytes**, SHA256 `51a525a617eb90c83d746e6bfd26347fa47f93774b3d379c172a4e091ca298ee`, Drive MD5 `e769f9873de0fbf2df0d60f446966d1f`, Drive ID `1uB46WMr3kTdEVJbjc79HVdeFEtNVWCAf`.
+- **Manifest:** embedded `ARCHIVE-MANIFEST.json`, SHA256 `61a5d592f98015cd4ce264bbc3b45b8d7fd93aabf3abcb5776f8af7edb821943`. Members: four `perhand-*.jsonl`, four `summary-*.json` and `dump_aivat.py`.
+- **Upload:** uploaded from cygnus-x1 with `research_cache.py`, whose receipt covers all 9 unpacked files at `/research/PR-316-slumbot-aivat-real-runs/`.
+- **Restore:** `rclone copy gdrive:PR-316-slumbot-aivat-real-runs/ DEST`.
+- **Inputs:** #304's journals are in PR304's archive. The blend run's journals are on cygnus-x1 under `~/slumbot-blend/runs/`.
+
 ## PR306 — frozen HU200 three-seed blend run
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), completed fixed study;
