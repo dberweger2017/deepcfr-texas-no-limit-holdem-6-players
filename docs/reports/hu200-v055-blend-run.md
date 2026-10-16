@@ -5,16 +5,16 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 15:52 Madrid): blend audited; all pilots verified; full fixed evaluation admitted under the owner's extension.**
-All 156,208,331 rows pass the unchanged independent checkpoint/current/average
-audit on the 16 GiB M4. The average inference model is 6,282,968,150 bytes;
-its raw synthetic checkpoint is 6,042,193,732 bytes. All three fixed cost-pilot
-groups independently replay and reproduce. The owner explicitly authorizes a
-prospective time-budget extension to 02:30 science /04:30 preservation Madrid
-October 17. The same measured quote now admits, projecting science 02:08 and
-preservation 04:08; the first full final group is running. No final strength
-result has been read. The PR remains draft pending the actual evaluation and
-accepted archival evidence.
+**Current status (October 16, 16:40 Madrid): blend audited; first full final group verified; two groups and global verification remain.**
+The first seed's complete fixed-count group takes40m24s, with every hand
+independently replayed and reproduced and a12.57GB sampled process-family RSS
+peak on the16GiB M4. Its inactive cache is retired with full source/rebuild
+provenance; the second seed cache is building. No final strength result is read
+before all groups and global hand/decision fingerprint checks verify. Actual
+runtime now suggests18:30–19:00 Madrid for verified results, followed by roughly
+one to two hours of archival closeout, conditional on Drive throughput. The
+frozen conservative pilot quote and owner-authorized02:30science/04:30preservation
+budget remain unchanged evidence. The PR stays draft pending completion.
 
 All construction, export, cache and evaluation work runs on the base Apple M4
 with 16 GiB physical memory, under both exclusive research locks and the existing
@@ -392,3 +392,23 @@ plan/admission hash match. The seed2026101302 final group starts at
 each of the seven scripted opponents. Later groups use the other two seeds
 at the same fixed counts. No final outcome is read before all groups and the
 global hand/decision fingerprint barrier verify.
+
+### October 16, 16:40 Madrid: first full final group verified
+
+Seed2026101302 completes all eight fixed final comparisons with full independent
+replay and reproduction. Its guard returns0 after2,424.17seconds,483 samples,
+peak family RSS12,571,754,496bytes and no breach. The inactive seed cache is
+retired after fresh M1 owning-PR status, exact source/cache hashes, unchanged
+file inventory/metadata and no-handle checks. The second seed cache is building.
+No strength result has been read, and global verification still waits for all
+three complete groups.
+
+The observed full group is substantially faster than the frozen conservative
+pilot projection. An informational runtime update now estimates18:30–19:00Madrid
+for verified science, followed by roughly1–2hours for archival preservation and
+the unpacked2TB copy, conditional on Drive throughput. The original cost formula,
+quote, planning multiplier, authorized deadlines and every scientific parameter
+remain unchanged.
+[Completed group](hu200-v055-blend-run-artifacts/final1302-complete.json),
+[full group resources](hu200-v055-blend-run-artifacts/final1302-resource-receipt.json),
+[cache retirement/rebuild proof](hu200-v055-blend-run-artifacts/final1302-cache-retirement.json).
