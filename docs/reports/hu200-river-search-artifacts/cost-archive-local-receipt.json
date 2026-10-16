@@ -1,0 +1,15 @@
+{
+  "all_members_size_sha256_readback": true,
+  "archive": "hu200-river-search-cost-gate-M4-20261016.zip",
+  "bytes": 6510687952,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 19486271362,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "6f41214ac6acfceeb29d29536da1c85c2dac026a39ad394b643d1cd378fd584c",
+  "members": 833,
+  "originals_retained": true,
+  "scientific_source": "11fa4fa424ec577cf8492338fd61c60ed7f3c97c",
+  "seconds": 145.2577454589773,
+  "sha256": "d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8",
+  "status": "locally-verified"
+}

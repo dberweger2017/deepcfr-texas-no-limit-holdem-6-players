@@ -1,3 +1,61 @@
+## PR317 — HU200 river search, completed cost gate; strength pending
+
+[Draft PR317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), scientific
+source `11fa4fa424ec577cf8492338fd61c60ed7f3c97c`.
+[Report](docs/reports/hu200-river-search.md),
+[prospective protocol](docs/hu200-river-search.md). All correctness, search,
+cache verification and cost evaluation run on the 16 GiB M4. The fixed 24-spot
+pilot completes with zero fallback/timeouts; p50 15.03 s, p95 36.79 s, max
+39.94 s, peak family RSS 4.41 GB. The latency gate fails; strength remains
+undeclared and unrun, with an owner scope decision pending. No Slumbot play.
+
+**Locally verified preservation; Drive acceptance pending:**
+`hu200-river-search-cost-gate-M4-20261016.zip`, **6,510,687,952 bytes**, SHA256
+`d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8`.
+Embedded `ARCHIVE-MANIFEST.json`, SHA256
+`6f41214ac6acfceeb29d29536da1c85c2dac026a39ad394b643d1cd378fd584c`;
+833 payload members /19,486,271,362 uncompressed bytes all pass local size/SHA256
+readback. [Local receipt](docs/reports/hu200-river-search-artifacts/cost-archive-local-receipt.json).
+Archive retains complete pilot outputs and native profiles, both pilot attempts,
+earlier failures, reference/replay evidence, raw resource traces, frozen real
+input journals, verified play cache, external solver source/binaries and source
+provenance. The immutable #306 blueprint and K50 tables are dependencies indexed
+below, not duplicated here; [input hashes](docs/reports/hu200-river-search-artifacts/inputs.json).
+
+The verified ZIP is copied over the private cable to
+`bb128:/research/PR-317-HU200-river-search/`; uncompressed preservation and
+receipt closeout are in progress. Drive upload waits for the existing Slumbot
+play to finish under the shared-uplink policy. There is **no accepted Drive ID,
+MD5 or coverage claim yet**. Intended remote path is
+`gdrive:PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip`;
+it is a pending destination, not an available restoration source.
+
+Closed archival guard streams and the cost report snapshot are additionally
+preserved in `hu200-river-search-cost-administration-20261016.zip`, 32,359 bytes,
+SHA256 `8464d1ec8bfa5cfb68d62d4696e622656bcef43e124a09ef6fa3f2d4bf6edb24`.
+Its embedded `administration/ARCHIVE-MANIFEST.json` has SHA256
+`1dc5cf5319a8e6ed3d8d277e4f17741557849373cf6dbe4bd0510002be34f918`.
+All 12 payload members pass local readback and the copied uncompressed bb128
+administrative files match. [Compact receipt](docs/reports/hu200-river-search-artifacts/cost-administration-local-receipt.json).
+This supplemental ZIP also awaits upload acceptance; no science was run to
+prepare it.
+
+While pending, retrieve the verified ZIP with
+`rsync bb128-lan:/research/PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip RESTORE_ROOT/`
+from the M4/private cable, or use `bb128:` for the administrative host. Verify
+the whole SHA256 above, extract the named member into a fresh ignored directory,
+then verify its size/SHA256 from the embedded manifest before use. Eventual
+Drive fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' '/research/PR-317-HU200-river-search/'`
+after upload acceptance is recorded. M4 originals remain protected under
+`~/Local/hu200-river-search/`, including its ignored research and preservation
+directories, and the clean pilot worktree `~/Local/hu200-river-search-pilot/`.
+Keep #306's model/tables, both runtime environments and all shared Git intact.
+No cleanup or additional scientific run is authorized by this receipt.
+
+The preservation guard completed successfully; a nonblocking common-lock check
+confirmed availability at **20:58:47 UTC /22:58 Madrid, October 16**. The M4
+reservation is released. [Guard receipt](docs/reports/hu200-river-search-artifacts/cost-preservation-guard.json).
+
 ## PR306 — frozen HU200 three-seed blend run
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), completed fixed study;

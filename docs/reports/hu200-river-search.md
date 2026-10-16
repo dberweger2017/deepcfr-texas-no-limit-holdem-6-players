@@ -133,6 +133,12 @@ possible. No research outcome was rerun, tuned or extended. [Failure record](hu2
    cost result and omit strength claims. This requires an explicit scope
    decision; the current PR remains draft while planned strength is unrun.
 
-No option has been applied automatically. Evidence preservation and M4 release
-proceed without further science. Archive acceptance and restoration details are
-recorded in RESULTS_INDEX when complete; all originals remain protected.
+No option has been applied automatically. The M4 preservation stage and release
+complete without further science. The M4 reservation is released at 22:58
+Madrid, October 16, after successful archival guard closure, verified cable
+copy and a fresh common-lock availability check. The verified local ZIP and
+pending Drive acceptance are distinguished in [RESULTS_INDEX](../../RESULTS_INDEX.md#pr317--hu200-river-search-completed-cost-gate-strength-pending).
+The large upload waits for existing Slumbot play under the shared-uplink policy;
+no upload acceptance is claimed. All originals remain protected. Final-review
+readiness remains unresolved until the owner chooses the cost-gate scope and
+any required research and storage closeout actually finish.

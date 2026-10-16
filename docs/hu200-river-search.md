@@ -135,8 +135,11 @@ one further post-review allocation-fallback check. Independent Python review
 findings are addressed. [Compact evidence](reports/hu200-river-search-artifacts/)
 retains the original plumbing failures, reference definitions and source pins.
 
-The fixed 24-spot cost pilot is ready. No strength test is declared, no strength
-hands have been played, and no search setting is qualified. Any fallback or
-unavailable successful-decision EV is disclosed alongside latency and memory;
-an incomplete search workload cannot qualify the design solely through cheap
-blueprint fallbacks.
+The fixed 24-spot cost pilot completes: p50 15.03 seconds, p95 36.79 seconds,
+maximum 39.94 seconds, peak family RSS 4.41 GB and minimum host available
+memory 5.58 GB. All 24 searches complete with no fallback, timeout or missing
+actual-decision EV. Memory passes; the 3-second latency target fails.
+[Readout and owner options](reports/hu200-river-search.md). No strength test is
+declared, no strength hands have been played, and no search setting is qualified.
+The PR remains draft pending the owner's response to the cost gate. This
+status update does not change the prospective sample or work declaration above.
