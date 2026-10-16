@@ -72,6 +72,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **bb128 research storage (October 16):** HDD archives/checkpoints at rest now upload directly to the shared Drive folder through immutable rclone copies; live work stays on NVMe. Root listing and ext4/fstab verified. [Workflow and acceptance](docs/artifact-storage.md#bb128-archive-workflow), [activation observations](docs/artifacts/bb128-storage-activation-20261016.md). Macs retain native Drive; no science or archival payload migration in this documentation change.
 - **M4 headroom for open PR306 (October 16):** owner-prioritized cleanup of 17 inactive merged HU100 copies recovered **13.923 GB**, leaving **93.812 GB free** at verification. HU200/open PR inputs remain protected. [Receipt and restoration](docs/artifacts/m4-pr306-headroom-20261016.md).
 
 - **v0.5.5 Slumbot confirmation ([#304](https://github.com/dberweger2017/CFR-NLHE-6max/pull/304)), recipe does not qualify:** 10,000 hands per seed, raw: 2026101422 **−7.87 [−39.39, +23.65]** and 2026101421 **−10.66 [−40.53, +19.21]** pass; the frozen 20B candidate 2026101302 **−23.08 [−56.53, +10.38]** fails the −50 lower bound. All journals verify; abandoned 33/60/108 of 200. Interpretation, not decisive: 9.3 BB/100 of 1302's gap is all-in luck, and at a true −10 to −14 the three-seed rule passes only about a quarter to a third of the time. No rerun or extension; the owner decides the next candidate and test design. [Report](docs/reports/hu200-v055-slumbot-confirmation.md).
