@@ -247,3 +247,8 @@ through Sunday18 morning, Madrid. Evaluation/replay/reproduction retains24h
 and still requires its cost pilot. Complete report plus archive target is
 Monday19 evening, with Tuesday20 upload contingency; upload bandwidth is
 unmeasured. Original Monday19 02:29:18UTC training deadline is unchanged.
+
+The real queue integration fixture is explicitly bb128-only: it relies on
+qualified physical CPU0–7 and a50GB free-disk floor. Generic CI cannot execute
+that hardware fixture on its smaller runner. This changes only test collection,
+not live source94b84b32 or its already passed36-check validation.

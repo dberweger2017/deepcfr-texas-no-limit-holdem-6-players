@@ -176,7 +176,8 @@ def test_one_guard_broadcasts_to_trainers_and_audits_before_termination(monkeypa
     if mode=='vrm':assert tick[0]==30
 
 
-@pytest.mark.skipif(not Path('/proc/self/stat').exists(),reason='Linux guarded process scheduling')
+@pytest.mark.skipif(not hasattr(os,'uname') or os.uname().nodename!='cygnus-x1',
+                    reason='Qualified bb128 CPU reservations and50GB disk floor')
 def test_real_queue_overlaps_only_independent_jobs_and_pins_cpu_limits(monkeypatch,tmp_path):
     import sys
     q=schedule.Queue.__new__(schedule.Queue)
