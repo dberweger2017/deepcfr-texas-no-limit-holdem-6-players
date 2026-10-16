@@ -166,3 +166,13 @@ the older isolated checkout) are retained; no scientific attempt was repeated.
 The handoff is queued until the current audit exits0; no incomplete audit is
 interrupted. October19/20 remains provisional until the first two-audit batch
 completes and supplies the requested ETA re-quote.
+
+[Deployment launch](hu200-capacity-cygnus-artifacts/scheduler-launch.json):
+clean source94b84b3255f16daa529eae8250ca9a391249b2ac is deployed separately
+from the live old source. Detached scheduler PID65291 starts07:21UTC, waiting
+for the current normalized prefix audit to finish successfully. Original
+controller61705 remains active and supervising that audit until the verified
+boundary. The unchanged deadline is1792376957.996109; no third audit is yet
+admitted. The first parallel-batch measurement will emit an event into this
+same bounded campaign for the requested ETA update. All raw scheduler validation
+logs are also retained under the owned bb128 planning directory.
