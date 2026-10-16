@@ -5,11 +5,11 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 15:18 Madrid): the blend is built and fully audited.**
+**Current status (October 16, 15:32 Madrid): the blend is built and fully audited.**
 All 156,208,331 rows pass the unchanged independent checkpoint/current/average
 audit on the 16 GiB M4. The average inference model is 6,282,968,150 bytes;
-its raw synthetic checkpoint is 6,042,193,732 bytes. The blend cache and first cost pilot
-are complete; the remaining pilots and fixed final evaluation are pending. This PR stays draft until the
+its raw synthetic checkpoint is 6,042,193,732 bytes. The blend cache and first two cost pilots
+are complete; the last pilot and fixed final evaluation are pending. This PR stays draft until the
 planned research actually runs or a research failure is recorded. Plumbing
 interruptions remain pending work, with their evidence preserved.
 
@@ -314,3 +314,14 @@ is building. Final cost admission and the measured ETA follow all three pilots.
 [Verified group](hu200-v055-blend-run-artifacts/pilot1302-complete.json),
 [guard completion](hu200-v055-blend-run-artifacts/pilot1302-guard-complete.json),
 [cache retirement and rebuild evidence](hu200-v055-blend-run-artifacts/pilot1302-cache-retirement.json).
+
+### October 16, 15:32 Madrid: second cost pilot verified
+
+The seed2026101421 group completes the same fixed pilot counts, with all eight
+comparisons independently replayed and reproduced. Its guard returns 0 after
+432.99 seconds and 87 samples, with a 1,398,063,104-byte sampled family RSS peak
+and no resource breach. The third seed cache is building. No final hand or
+strength readout has started.
+[Verified group](hu200-v055-blend-run-artifacts/pilot1421-complete.json),
+[resources](hu200-v055-blend-run-artifacts/pilot1421-resource-receipt.json),
+[inactive-cache retirement](hu200-v055-blend-run-artifacts/pilot1421-cache-retirement.json).
