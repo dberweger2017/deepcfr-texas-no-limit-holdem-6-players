@@ -1,6 +1,8 @@
 # HU200 capacity experiment on cygnus-x1
 
-Post-BIOS preflight and all three exact-resume gates pass. **Three fresh500M prefixes are saved; full prefix audits and twin parity gates remain in progress. No final hands have started.**
+Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three verified twins are restored; the three large lineages are training toward2B. No final hands have started.**
+
+Measured first parallel batch: **1.79x throughput**, two audits in74m31s, peak CPU/VRM61/61°C and95.4MB helper RSS. Admission permits up to three audits within the unchanged global guards and disk reservations. Re-quoted complete report/archive target: **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation cost and upload throughput remain to be measured.
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
 
@@ -195,3 +197,53 @@ combined audit RSS93.7MB, swap unchanged1MiB, free disk280.36GB;
 [live snapshot](hu200-capacity-cygnus-artifacts/parallel-audits-live-20261016.json).
 Neither third-worker admission nor the requested measured ETA re-quote occurs
 before this first two-audit batch completes.
+
+The first two-audit batch is verified against its completed every-row audit and
+identity receipts:69,180,237 and69,055,433 rows pass in4,470.523s wall, versus
+4,008.892s for the comparable69,084,815-row serial normalized audit. Row-normalized
+throughput is1.7943x; worker CPU utilization0.9002, host NVMe busy0.1585%,
+peak CPU/VRM61/61°C, peak helper RSS95,367,168B, minimum available132.353GB
+and free disk268.865GB. Initial/extraction/final-validation phases each use
+about0.88–0.92 cores per worker; the pipeline is CPU-bound in this measurement.
+[Batch](hu200-capacity-cygnus-artifacts/parallel-audit-batch.json),
+[independent verification](hu200-capacity-cygnus-artifacts/parallel-batch-verification.json),
+[HTTP202 delivery](hu200-capacity-cygnus-artifacts/parallel-audit-batch-delivery.json).
+This meets the published thresholds for an audit limit of three; actual writers
+still require disjoint CPUs,512MiB family RSS and original disk reservations.
+No measured three-worker speedup is claimed. Per-process I/O may include reaped
+children, so host disk counters, rather than summed process writes, govern the
+disk-bound conclusion. Raw utilization/resources remain in owned guards/scheduler.
+
+[All three exact prefixes](hu200-capacity-cygnus-artifacts/twin-gates.json) match
+the indexed twin500M compressed hashes and every row, excluding only header
+config.max_entries. [Mature-memory admission](hu200-capacity-cygnus-artifacts/prefix-memory-admission.json)
+is100.00–100.03bytes/key versus the unchanged130 budget; cap301,153,954 remains.
+Native telemetry retains its original pre-audit "unaudited" label; independent
+full audit/identity receipts establish the verified status.
+
+[Restoration](hu200-capacity-cygnus-artifacts/twins-restored.json) passes whole
+archive SHA, embedded manifest SHA, selected-member bytes/SHA/CRC and20B
+seed/schema/uniform-fallback identity for every twin. All three model hashes
+match the owner's pins. [Transport retirement](hu200-capacity-cygnus-artifacts/transport-copy-retirements.json)
+removes only12,245,806,798B of unchanged owned input ZIP replicas after all
+restorations pass; Drive originals and9,489,299,657B of restored models remain.
+Owning PR265/278 are independently confirmed MERGED; PR301 stays OPEN. No other
+root or synced original is removed. Retrieval pins remain in drive-inputs.json.
+
+[Live30-second trainer observation](hu200-capacity-cygnus-artifacts/trainer-thread-observation.json)
+confirms three native processes on0–1/2–3/4–5, environment thread limits2.
+Each has a main thread and two CPU-active traversal workers: worker pairs each
+consume about0.85 cores combined, main about0.30, total1.14–1.15 cores/run.
+This confirms configured two-worker traversal with variable utilization, not
+continuous two-core saturation. No binary or scientific option changes.
+
+[Post-batch ETA arithmetic](hu200-capacity-cygnus-artifacts/eta-after-parallel-batch.json)
+conservatively projects the slower normalized audit to5.415hours at301M rows.
+Twelve full-cap audits would cost64.98 worker-hours, about21.66–32.49 wall hours
+with two-to-three concurrent workers before scheduling gaps. Allow9–12hours
+for native training/saves; overlap can reduce the sum, while disk admission
+can lower concurrency. Training/audits therefore project to Saturday17 evening
+through Sunday18 morning, Madrid. Evaluation/replay/reproduction retains24h
+and still requires its cost pilot. Complete report plus archive target is
+Monday19 evening, with Tuesday20 upload contingency; upload bandwidth is
+unmeasured. Original Monday19 02:29:18UTC training deadline is unchanged.

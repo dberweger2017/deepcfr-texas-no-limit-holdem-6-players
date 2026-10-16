@@ -4126,7 +4126,7 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
-[report](docs/reports/hu200-capacity-cygnus.md). All fresh500M full audits pass; normalized twin audits are running two at once. No final hands yet.
+[report](docs/reports/hu200-capacity-cygnus.md). All fresh/normalized500M full audits, exact twin parity and memory gates pass. All twins restored; three large runs are training toward2B. No final hands yet.
 Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
 Open PR292 root/archives/upload processes/shared inputs remain protected.
 
@@ -4136,10 +4136,10 @@ folder ID `159JoTfd8HUyblui5QgSMc6w1JNz-z7px`, under the existing research proje
 Future archive receipts must supply whole/member hashes, local readback,
 Drive piece/archive IDs and separate upload/metadata acceptance.
 
-The three fixed twins are restoring from their already indexed #265/#278
+The three fixed twins are restored from their already indexed #265/#278
 accepted Drive archives through read-only synced archive I/O and SSH; no model
 work runs on the coordinator. [Exact archive IDs, hashes, members and model pins](docs/reports/hu200-capacity-cygnus-artifacts/drive-inputs.json).
-Restoration and verification on bb128 remain pending. For retrieval, download the
+Restoration on bb128 verifies whole archive/manifest/member hashes and all three pinned20B model hashes. For retrieval, download the
 named accepted archive to ignored `inputs/archives/`, verify its whole SHA256
 and embedded `ARCHIVE-MANIFEST.json` hash, extract the named member to fresh
 `inputs/seed-SEED/`, then verify its exact model SHA256. Original restoration
@@ -4185,3 +4185,14 @@ No restoration/hash acceptance or final-hand result is yet claimed.
 
 PR301 input transport receipts: [1302](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101302.json), [1421](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101421.json), [1422](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101422.json). All files remain at the indexed owned `inputs/archives/` paths; no source/archive cleanup has occurred.
 [Approved scheduling amendment](docs/hu200-capacity-scheduling-amendment.md), [36-check validation](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-validation.json), [successful07:52UTC handoff](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-handoff.json) and [two-audit08:19UTC snapshot](docs/reports/hu200-capacity-cygnus-artifacts/parallel-audits-live-20261016.json). Live source94b84b3255f16daa529eae8250ca9a391249b2ac at owned `repo-scheduling`; original clock SHA/deadline unchanged. Retain that source, old source dependencies, raw traces, fixtures/failures and logs through campaign archival. No third audit admission or measured ETA re-quote before first-batch completion.
+
+PR301 [first parallel batch](docs/reports/hu200-capacity-cygnus-artifacts/parallel-audit-batch.json) and [independent verification](docs/reports/hu200-capacity-cygnus-artifacts/parallel-batch-verification.json):1.7943x throughput, peak CPU/VRM61/61C; an upper limit of three audits is admitted within existing resource/output reservations. [Exact twin gates](docs/reports/hu200-capacity-cygnus-artifacts/twin-gates.json), [mature-memory admission](docs/reports/hu200-capacity-cygnus-artifacts/prefix-memory-admission.json), [actual trainer worker observation](docs/reports/hu200-capacity-cygnus-artifacts/trainer-thread-observation.json) and [re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-parallel-batch.json). Original deadlines unchanged.
+
+PR301 [verified twin restoration](docs/reports/hu200-capacity-cygnus-artifacts/twins-restored.json) binds original Drive IDs/member paths to the retained models under `/home/dberweger/hu200-capacity-20261015/inputs/seed-SEED/final.average.gz`. All three SHA256s match the fixed user pins. [Cleanup receipt](docs/reports/hu200-capacity-cygnus-artifacts/transport-copy-retirements.json):12,245,806,798B of unchanged owned `inputs/archives/*.zip` transport replicas retired only after all restorations pass; their original Drive files and9,489,299,657B restored models remain. The receipt provides each exact removed path, bytes/mtime/hash, Drive restoration URL/member and retained model. PR265/278 currently MERGED verified; PR301 OPEN, so model originals/source/partials stay retained. To repeat retrieval after transport retirement, re-materialize the indexed accepted Drive ZIP via the read-only synced-file/SSH route into a fresh ignored directory, verify `drive-inputs.json` whole SHA and embedded manifest SHA, extract its exact named member and verify its listed model SHA before use. No cleanup in synced folders or other roots. New campaign output archives/upload acceptance still pending.
+
+Actual guarded input restoration command (already completed; existing verified destinations must not be reused):
+```
+cd /home/dberweger/hu200-capacity-20261015/repo-scheduling
+.venv/bin/python -m scripts.restore_hu200_capacity_twins --base /home/dberweger/hu200-capacity-20261015
+```
+For a fresh recovery, stage all three indexed ZIPs under a fresh ignored owned base's `inputs/archives/` and run that same pinned module against the fresh base; preserve existing verified models. Source paths, exact IDs/hashes/members and per-model spec/lineage are recorded in the linked restoration receipt.

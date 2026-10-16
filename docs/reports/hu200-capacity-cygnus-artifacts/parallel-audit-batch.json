@@ -1,0 +1,53 @@
+{
+  "admission_rule": "speedup>=1.4, CPU>=0.8, NVMe busy<0.5, unchanged RAM/disk floors and output reservation",
+  "admitted_audit_limit": 3,
+  "baseline_rows": 69084815,
+  "baseline_seconds": 4008.8918179149987,
+  "conservative_cpu_fraction": 0.9002190255713574,
+  "counts": [
+    69180237,
+    69055433
+  ],
+  "elapsed_seconds": 4470.523228038997,
+  "first_batch": [
+    "prefix-audit-2026101421",
+    "prefix-audit-2026101422"
+  ],
+  "host_nvme_busy_fraction": 0.0015846019892189237,
+  "original_deadline": 1792376957.996109,
+  "resources": {
+    "minimum_available_bytes": 132353257472,
+    "minimum_free_disk_bytes": 268864729088,
+    "peak_cpu_c": 61.0,
+    "peak_helper_rss_bytes": 95367168,
+    "peak_vrm_c": 61.0
+  },
+  "results": [
+    {
+      "cpus": [
+        6
+      ],
+      "elapsed_seconds": 4336.101807788997,
+      "exit_codes": [
+        0
+      ],
+      "hard_stop_reason": null,
+      "status": "passed",
+      "stop_reason": null
+    },
+    {
+      "cpus": [
+        7
+      ],
+      "elapsed_seconds": 4469.888484372001,
+      "exit_codes": [
+        0
+      ],
+      "hard_stop_reason": null,
+      "status": "passed",
+      "stop_reason": null
+    }
+  ],
+  "row_normalized_speedup": 1.7943348982350247,
+  "status": "measured"
+}

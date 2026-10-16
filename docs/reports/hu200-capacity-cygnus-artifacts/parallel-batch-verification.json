@@ -1,0 +1,196 @@
+{
+  "observed_utc": "2026-10-16T09:09:39.509964+00:00",
+  "status": "verified",
+  "twins": {
+    "2026101302": {
+      "entries": 69084815,
+      "full_twin_sha256": "2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d",
+      "all_row_bytes_equal": true,
+      "audit_status": "verified"
+    },
+    "2026101421": {
+      "entries": 69180237,
+      "full_twin_sha256": "251ab69b5f69785722d2442e628d65e41d578ab20751164d482561cca16f954f",
+      "all_row_bytes_equal": true,
+      "audit_status": "verified"
+    },
+    "2026101422": {
+      "entries": 69055433,
+      "full_twin_sha256": "45144a01a799b81d185c20e15772fe70793518a3d35b03fa84eb6db0bfa46966",
+      "all_row_bytes_equal": true,
+      "audit_status": "verified"
+    }
+  },
+  "phase_utilization": {
+    "prefix-audit-2026101421 / checkpoint-verification": {
+      "cpu_seconds": 428.49,
+      "wall_seconds": 474.5730413240017,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 4096,
+      "cpu_core_equivalents": 0.902895787768653
+    },
+    "prefix-audit-2026101422 / checkpoint-verification": {
+      "cpu_seconds": 429.2500000000001,
+      "wall_seconds": 487.8854985549988,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 4096,
+      "cpu_core_equivalents": 0.8798170908365526
+    },
+    "prefix-audit-2026101421 / native-export": {
+      "cpu_seconds": 1739.3999999999987,
+      "wall_seconds": 1887.2118019119953,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 3484917760,
+      "cpu_core_equivalents": 0.9216771526321298
+    },
+    "prefix-audit-2026101422 / native-export": {
+      "cpu_seconds": 1722.6199999999997,
+      "wall_seconds": 1959.2511189989964,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 3475742720,
+      "cpu_core_equivalents": 0.8792236907743126
+    },
+    "prefix-audit-2026101421 / sorted-validation-and-final-hashes": {
+      "cpu_seconds": 1789.7699999999973,
+      "wall_seconds": 1969.6964284440037,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 3489239040,
+      "cpu_core_equivalents": 0.908652711227109
+    },
+    "prefix-audit-2026101422 / sorted-validation-and-final-hashes": {
+      "cpu_seconds": 1817.7899999999977,
+      "wall_seconds": 2023.3869668350017,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 3483885568,
+      "cpu_core_equivalents": 0.8983896949990735
+    },
+    "prefix-finalize / prefix-finalize": {
+      "cpu_seconds": 26.380000000000003,
+      "wall_seconds": 37.34139631599828,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 40960,
+      "cpu_core_equivalents": 0.7064545679213914
+    },
+    "restore / restore": {
+      "cpu_seconds": 37.11,
+      "wall_seconds": 42.644879888001014,
+      "physical_read_bytes": 1086148608,
+      "physical_write_bytes": 9489313792,
+      "cpu_core_equivalents": 0.8702099782544267
+    },
+    "train-2026101302-2000000000 / train": {
+      "cpu_seconds": 85.42000000000002,
+      "wall_seconds": 90.68884165400232,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 0,
+      "cpu_core_equivalents": 0.941901985316958
+    },
+    "train-2026101421-2000000000 / train": {
+      "cpu_seconds": 85.41999999999999,
+      "wall_seconds": 90.68884165400232,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 0,
+      "cpu_core_equivalents": 0.9419019853169577
+    },
+    "train-2026101422-2000000000 / train": {
+      "cpu_seconds": 85.42999999999999,
+      "wall_seconds": 90.68884165400232,
+      "physical_read_bytes": 0,
+      "physical_write_bytes": 0,
+      "cpu_core_equivalents": 0.942012252465789
+    }
+  },
+  "trainer_samples": {
+    "train-2026101302-2000000000": {
+      "core_equivalents": 1.0024420427009593,
+      "thread_deltas": [
+        {
+          "tid": 66611,
+          "core_equivalents": 1.0024420427009593
+        }
+      ],
+      "utc": "2026-10-16T09:09:22.013399+00:00",
+      "processes": 1
+    },
+    "train-2026101421-2000000000": {
+      "core_equivalents": 1.0018856248223922,
+      "thread_deltas": [
+        {
+          "tid": 66612,
+          "core_equivalents": 1.0018856248223922
+        }
+      ],
+      "utc": "2026-10-16T09:09:00.628592+00:00",
+      "processes": 1
+    },
+    "train-2026101422-2000000000": {
+      "core_equivalents": 1.0020363791601568,
+      "thread_deltas": [
+        {
+          "tid": 66613,
+          "core_equivalents": 1.0020363791601568
+        }
+      ],
+      "utc": "2026-10-16T09:09:11.316320+00:00",
+      "processes": 1
+    }
+  },
+  "independent_speedup": 1.7943348982350247,
+  "memory_admission": {
+    "budget_bytes_per_entry": 130,
+    "measurements": [
+      {
+        "action_slots": 215953499,
+        "entries": 69084815,
+        "mature_bytes_per_entry": 100.01307696922979,
+        "peak_rss_bytes": 7487889408,
+        "regret_free_slots": 100690818,
+        "seed": 2026101302
+      },
+      {
+        "action_slots": 216263139,
+        "entries": 69180237,
+        "mature_bytes_per_entry": 100.0018770100484,
+        "peak_rss_bytes": 7494729728,
+        "regret_free_slots": 100931857,
+        "seed": 2026101421
+      },
+      {
+        "action_slots": 215891947,
+        "entries": 69055433,
+        "mature_bytes_per_entry": 100.0266756708339,
+        "peak_rss_bytes": 7486042112,
+        "regret_free_slots": 100671790,
+        "seed": 2026101422
+      }
+    ],
+    "status": "passed"
+  },
+  "twins-restored.json": {
+    "status": "verified",
+    "models": [
+      {
+        "seed": 2026101302,
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "bytes": 3164563975,
+        "archive_sha_verified": true,
+        "member_verified": true
+      },
+      {
+        "seed": 2026101421,
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "bytes": 3162671080,
+        "archive_sha_verified": true,
+        "member_verified": true
+      },
+      {
+        "seed": 2026101422,
+        "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "bytes": 3162064602,
+        "archive_sha_verified": true,
+        "member_verified": true
+      }
+    ]
+  },
+  "io_caveat": "Per-process I/O can include reaped children; phase-boundary samples can therefore duplicate write counters. Admission uses host NVMe busy counters, not summed process writes."
+}

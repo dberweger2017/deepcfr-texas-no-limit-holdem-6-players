@@ -1,0 +1,8 @@
+{
+  "http_status": 202,
+  "payload": {
+    "event": "first_parallel_audit_batch_measured",
+    "experiment": "PR301",
+    "observed_utc": "2026-10-16T09:07:30.582362+00:00"
+  }
+}

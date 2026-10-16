@@ -1,0 +1,38 @@
+{
+  "at": 1792141730.8066034,
+  "original_drive_files_retained": true,
+  "owning_prs": [
+    265,
+    278
+  ],
+  "removed": [
+    {
+      "archive_member": "averages/20000000000.average.gz",
+      "bytes": 5921067848,
+      "drive_url": "https://drive.google.com/file/d/1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh/view",
+      "mtime_ns": 1792138722926963973,
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/archives/hu200-k50-frozen-averages-M4-20261013.zip",
+      "retained_model": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+      "sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943"
+    },
+    {
+      "archive_member": "averages/seed-2026101421/final.average.gz",
+      "bytes": 3162672661,
+      "drive_url": "https://drive.google.com/file/d/1OAKKAxH91_flAKK9eWa4peCy_jUImhDl/view",
+      "mtime_ns": 1792134458087893668,
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/archives/hu200-v055-seed-2026101421-final-average-20261014.zip",
+      "retained_model": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101421/final.average.gz",
+      "sha256": "27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f"
+    },
+    {
+      "archive_member": "averages/seed-2026101422/final.average.gz",
+      "bytes": 3162066289,
+      "drive_url": "https://drive.google.com/file/d/1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT/view",
+      "mtime_ns": 1792132493076168242,
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/archives/hu200-v055-seed-2026101422-final-average-20261014.zip",
+      "retained_model": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101422/final.average.gz",
+      "sha256": "76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e"
+    }
+  ],
+  "status": "verified-replicas-retired-after-restoration"
+}

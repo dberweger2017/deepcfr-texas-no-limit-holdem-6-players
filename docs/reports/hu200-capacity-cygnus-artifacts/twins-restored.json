@@ -1,0 +1,132 @@
+{
+  "models": [
+    {
+      "archive": {
+        "bytes": 5921067848,
+        "folder_id": "1qrozNU9QvCgN5QTF1OKyQZxhmUHlb6dK",
+        "id": "1iVND4K_trvJ8S6gnDnyDc4tj5fNR2mDh",
+        "manifest_sha256": "d349217a651c7d28ac536124be40609778c8b55827d4b000e6840e49544eddc5",
+        "member": "averages/20000000000.average.gz",
+        "model_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "name": "hu200-k50-frozen-averages-M4-20261013.zip",
+        "seed": 2026101302,
+        "sha256": "fe3465bea7591e82a762943e197d88d89fa36c8002b4143e6ebf70a887b2d943"
+      },
+      "embedded_manifest_sha256_verified": true,
+      "member": {
+        "bytes": 3164563975,
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "source_mtime_ns": 1791928039103998939,
+        "source_path": "/Users/dberweger/Local/hu200-k50-frozen-20261013/results/hu200-k50-frozen/frozen/20000000000.average.gz"
+      },
+      "model": {
+        "bytes": 3164563975,
+        "mtime_ns": 1792141699404187082,
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+      },
+      "seed": 2026101302,
+      "selected_member_size_hash_crc_verified": true,
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 3164563975,
+        "card_buckets": "/home/dberweger/cygnus-qualification-20261014/tables",
+        "entries": 85373907,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 16670844,
+        "name": "twin-2026101302",
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f"
+      },
+      "status": "verified",
+      "whole_archive_sha256_verified": true
+    },
+    {
+      "archive": {
+        "bytes": 3162672661,
+        "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+        "id": "1OAKKAxH91_flAKK9eWa4peCy_jUImhDl",
+        "manifest_sha256": "678205c4f4894d643f75e4b08d064649e2e983bc0f5e7901505d640997de8f25",
+        "member": "averages/seed-2026101421/final.average.gz",
+        "model_sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "name": "hu200-v055-seed-2026101421-final-average-20261014.zip",
+        "seed": 2026101421,
+        "sha256": "27790a65a55f4e95e7818511118ac62b09387c41f432727a102522f53611f85f"
+      },
+      "embedded_manifest_sha256_verified": true,
+      "member": {
+        "bytes": 3162671080,
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "source_mtime_ns": 1792006674802034313,
+        "source_path": "m4:/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101421/frozen/20000000000.average.gz"
+      },
+      "model": {
+        "bytes": 3162671080,
+        "mtime_ns": 1792141711988296898,
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101421/final.average.gz",
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+      },
+      "seed": 2026101421,
+      "selected_member_size_hash_crc_verified": true,
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 3162671080,
+        "card_buckets": "/home/dberweger/cygnus-qualification-20261014/tables",
+        "entries": 85373916,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 16745107,
+        "name": "twin-2026101421",
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101421/final.average.gz",
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "source_checkpoint_sha256": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676"
+      },
+      "status": "verified",
+      "whole_archive_sha256_verified": true
+    },
+    {
+      "archive": {
+        "bytes": 3162066289,
+        "folder_id": "1-0y8ETC4xqzfGzSMOnt9BWMJAUkqpNiP",
+        "id": "1nOhwFtDzJakpkB7MnHdk5JgY75CRnQjT",
+        "manifest_sha256": "14ec89c65d748a7fd2204546793108a152515d24933aded0753404ec29539089",
+        "member": "averages/seed-2026101422/final.average.gz",
+        "model_sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "name": "hu200-v055-seed-2026101422-final-average-20261014.zip",
+        "seed": 2026101422,
+        "sha256": "76a82e8c1f757f295a7f2498b429047eff23befb29fe3f7d48580f4cdb84332e"
+      },
+      "embedded_manifest_sha256_verified": true,
+      "member": {
+        "bytes": 3162064602,
+        "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "source_mtime_ns": 1792023042429743234,
+        "source_path": "/Users/dberweger/Local/hu200-v055-confirmation-20261014/results/hu200-v055-confirmation/seed-2026101422/frozen/20000000000.average.gz"
+      },
+      "model": {
+        "bytes": 3162064602,
+        "mtime_ns": 1792141724540406434,
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101422/final.average.gz",
+        "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f"
+      },
+      "seed": 2026101422,
+      "selected_member_size_hash_crc_verified": true,
+      "spec": {
+        "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+        "bytes": 3162064602,
+        "card_buckets": "/home/dberweger/cygnus-qualification-20261014/tables",
+        "entries": 85373928,
+        "format": "holdem-hu200-stored-cfr-average-research-v1",
+        "iteration": 16827728,
+        "name": "twin-2026101422",
+        "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101422/final.average.gz",
+        "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "source_checkpoint_sha256": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c"
+      },
+      "status": "verified",
+      "whole_archive_sha256_verified": true
+    }
+  ],
+  "source": "read-only indexed synced Drive archives; SSH transport; all verification on bb128",
+  "status": "verified"
+}
