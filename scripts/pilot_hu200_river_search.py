@@ -107,6 +107,39 @@ def pin_earlier_blueprint(policy, view):
                                   cause="earlier-blueprint-river-action")
 
 
+def measure_spot(index, spot, base, binary, out, *, compact_profiles=False, cancel_check=None):
+    view = SlumbotAdapter().observation(spot["decision"]["public"], spot["decision"]["hand_id"])
+    solver = ExternalTurnSolver(binary, out / str(index) / "native",
+        compact_profiles=compact_profiles, **({"resource_check": cancel_check} if cancel_check else {}))
+    policy = HU200RiverSearchPolicy(base, solver, CONFIG, ledger=out / str(index) / "ledger")
+    if cancel_check is not None:
+        original_check = policy._check
+
+        def check(deadline):
+            cancel_check()
+            original_check(deadline)
+
+        policy._check = check
+    player = HU200RiverSearchPlayer(policy, seed=20261016317000 + index)
+    t0 = monotonic()
+    with FamilyPeak() as memory:
+        pin_earlier_blueprint(policy, view)
+        player.choose_action(view)
+    row = dict(player.last_decision, sample_index=index, source=spot["source"],
+               pre_output_seconds=monotonic() - t0,
+               sampled_peak_family_rss_bytes=memory.peak,
+               minimum_host_available_bytes=memory.minimum_available_bytes,
+               stats=dict(policy.stats), native_records=solver.records)
+    # Encode action dataclasses while retaining exact integer targets.
+    row["blueprint_action"] = asdict(row["blueprint_action"])
+    row["search_action"] = asdict(row["search_action"])
+    put(out / str(index) / "decision.json", row)
+    row["complete_seconds"] = monotonic() - t0
+    put(out / str(index) / "timing.json", dict(complete_seconds=row["complete_seconds"],
+        scope="through decision serialization and write; this timing receipt excluded"))
+    return row
+
+
 def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
         latency_target_seconds=3):
     plan = json.loads(plan_path.read_text())
@@ -130,27 +163,7 @@ def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
         load_and_validation_seconds=monotonic() - started))
     rows = []
     for index, spot in enumerate(plan["sample"]):
-        view = SlumbotAdapter().observation(spot["decision"]["public"], spot["decision"]["hand_id"])
-        solver = ExternalTurnSolver(binary, out / str(index) / "native",
-                                    compact_profiles=compact_profiles)
-        policy = HU200RiverSearchPolicy(base, solver, CONFIG, ledger=out / str(index) / "ledger")
-        player = HU200RiverSearchPlayer(policy, seed=20261016317000 + index)
-        t0 = monotonic()
-        with FamilyPeak() as memory:
-            pin_earlier_blueprint(policy, view)
-            player.choose_action(view)
-        row = dict(player.last_decision, sample_index=index, source=spot["source"],
-                   pre_output_seconds=monotonic() - t0,
-                   sampled_peak_family_rss_bytes=memory.peak,
-                   minimum_host_available_bytes=memory.minimum_available_bytes,
-                   stats=dict(policy.stats), native_records=solver.records)
-        # Encode action dataclasses while retaining exact integer targets.
-        row["blueprint_action"] = asdict(row["blueprint_action"])
-        row["search_action"] = asdict(row["search_action"])
-        put(out / str(index) / "decision.json", row)
-        row["complete_seconds"] = monotonic() - t0
-        put(out / str(index) / "timing.json", dict(complete_seconds=row["complete_seconds"],
-            scope="through decision serialization and write; this timing receipt excluded"))
+        row = measure_spot(index, spot, base, binary, out, compact_profiles=compact_profiles)
         rows.append(row)
         print(json.dumps(dict(index=index, seconds=row["complete_seconds"], fallback=row["fallback"])), flush=True)
     times = [r["complete_seconds"] for r in rows]
