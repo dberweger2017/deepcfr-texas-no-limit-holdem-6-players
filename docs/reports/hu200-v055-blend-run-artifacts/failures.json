@@ -1,0 +1,28 @@
+{
+  "at": 1792135216.131221,
+  "research_failures": [],
+  "plumbing": [
+    {
+      "phase": "inventory",
+      "kind": "disk-capacity",
+      "state": "pending",
+      "detail": "#303 removed 19,407,460,871 bytes of required inputs. About 83.38 GB free before restoration projects about 64 GB afterward versus the unchanged prior 74.474 GB construction need. Owner alerted and acknowledged; actual restored admission remains required."
+    }
+  ],
+  "administrative_failures": [
+    {
+      "phase": "M1 precommit",
+      "detail": "System Python 3.9 rejected zip(strict=True) in repository-artifact guard. No commit occurred; rerun under Python 3.11 passed."
+    },
+    {
+      "phase": "M4 worktree creation",
+      "detail": "Explicit fetch populated FETCH_HEAD without origin branch tracking ref. Worktree add corrected to use that fetched commit; no research launched by failed command."
+    },
+    {
+      "phase": "administrative tool orchestration",
+      "detail": "One functions.exec snippet had an unmatched JavaScript parenthesis and was rejected before any shell code ran. Corrected call succeeded."
+    }
+  ],
+  "no_failed_hand_retry": true,
+  "no_outcomes_observed": true
+}

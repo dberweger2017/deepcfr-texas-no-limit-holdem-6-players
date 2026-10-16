@@ -62,3 +62,30 @@ Python 3.9, which lacks `zip(strict=True)`; Python 3.11 passed before the initia
 commit. M4's branch fetch populated `FETCH_HEAD` without a remote tracking ref;
 worktree creation was corrected to use that fetched commit. Neither failure
 started research. All scientific failures, if any, will be recorded separately.
+
+## First fresh input proof and improved storage
+
+Seed2026101421 freshly reproduces full average SHA256
+`c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444`
+from raw checkpoint `c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676`.
+The frozen exporter handles 85,373,916 entries in 713.16 seconds; export plus
+hashing is 714.38 seconds. All 169 small-blind root keys exist; mass is exactly
+140,199,312,593,278.0, equal to W. Full proof takes 769.18 seconds, 154 clear
+samples, 75,415,552-byte sampled family peak, zero swap growth and minimum
+80% free memory. [Exact reproduction](hu200-v055-blend-run-artifacts/local-average-reproduced.json),
+[root/resource summary](hu200-v055-blend-run-artifacts/local-proof-summary.json).
+
+During that proof M4 free disk rises to about 93.816 GB. After the remaining
+16.245 GB of checkpoint/average pairs, the provisional 77.571 GB free projection
+would exceed the unchanged prior construction admission by 3.097 GB. This is
+provisional: the actual restored sizes and fresh union gate still decide.
+Seed1302 archive restoration starts 07:23:30 UTC /09:23:30 Madrid under the
+same resource baseline and campaign clock. No full blend, cache or hand exists.
+
+The [new campaign clock](hu200-v055-blend-run-artifacts/campaign-clock.json)
+starts this owner-authorized intake at 07:10:28 UTC /09:10:28 Madrid, with the
+frozen 16-hour envelope: science ends 23:10:28 Madrid, preservation ends
+01:10:28 Madrid October 17. The original #297 clocks/evidence remain unchanged.
+No old scientific outcome or failed hand exists to repeat. This campaign's
+[failures and pending plumbing](hu200-v055-blend-run-artifacts/failures.json)
+remain disclosed; no guard threshold, weight, rule or evaluation count changes.

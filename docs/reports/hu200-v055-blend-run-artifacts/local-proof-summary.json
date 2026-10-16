@@ -1,0 +1,29 @@
+{
+  "root_mass": 140199312593278.0,
+  "scheduled_weight": 140199312593278,
+  "root_mass_minus_weight": 0.0,
+  "missing_root_keys": [],
+  "root_key_count": 169,
+  "entries": 85373916,
+  "sorted_key_sha256": "85ab441df298c21d2f47c93798f89f69d9690709304a60f4f737eb782c8d55df",
+  "resource_receipt": {
+    "cpu_seconds_by_identity": {
+      "(12574, 1792134628.166801)": 2.086793728,
+      "(12583, 1792134628.234116)": 53.353017856,
+      "(12589, 1792134630.355277)": 711.449134336
+    },
+    "failure": null,
+    "finished": 1792135397.379236,
+    "peak_family_rss_bytes": 75415552,
+    "reasons": [],
+    "returncode": 0,
+    "samples": 154,
+    "started": 1792134628.204143,
+    "status": "complete",
+    "wall_seconds": 769.1750929355621
+  },
+  "min_disk_free_bytes": 79888564224,
+  "min_free_percent": 80,
+  "max_swap_growth_bytes": 0,
+  "all_resource_samples_clear": true
+}
