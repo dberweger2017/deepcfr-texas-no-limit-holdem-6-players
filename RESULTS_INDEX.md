@@ -1,3 +1,28 @@
+## M1-prioritized cleanup — October 16 afternoon
+
+Owner-requested cleanup retired **40 M1 paths /16 unique inodes**, representing
+**14,747,889,664 allocated bytes (14.748 GB upper bound)**, and **four M4 paths /
+4,693,065,728 allocated bytes (4.693 GB)**. Free space at the final pass checks:
+**M1 16.855 GB /M4 57.727 GB**; other activity changes these readings.
+M1 removed completed release/package/probe copies, one redundant retrieved ZIP
+and one redundant table; M4 removed four redundant PR211 pilot-model copies.
+Canonical inputs, small scientific/failure records, shared Git and open
+PR301/306/314 dependencies remain. Nothing inside synced Drive was deleted or
+offloaded. Current PR312/313 storage/contributor changes were checked first;
+the live cache tool and cron were not changed.
+
+[Exact paths, preservation, administrative failures and restoration](docs/artifacts/storage-cleanup-afternoon-20261016.md).
+[Full receipt ZIP](https://drive.google.com/file/d/1vEmYHa3c63-YWoWFCuuE81JlmWEsUJSm/view),
+**84,338 bytes**, SHA256
+`c369b620fafaf3c7f9ef6d1f7fa8c19d83f4cbdd13041c6c3db53e4c6193e0cb`,
+MD5 `d6cf7038f54b2a640458037c06916171`, embedded manifest SHA256
+`acd9f514549dac787c84fb9dcb2e1ce710222454062c8c957f8c13cb1397ed07`.
+All 18 members passed readback. The bb128-only immutable upload accepted Drive
+MD5/size and all 19 local files are covered by `.drive-receipt.json`.
+Uncompressed cache: `/research/PR-315-storage-cleanup-afternoon-20261016/`.
+Always restore with `rclone copy gdrive:PR-315-storage-cleanup-afternoon-20261016/ FRESH_DIRECTORY`,
+then verify the ZIP/manifest and read `evidence/complete-receipt.json`.
+
 ## Research storage policy — owner-approved October 16, 2026
 
 **Google Drive holds all research files long-term.** The only new-upload route is
