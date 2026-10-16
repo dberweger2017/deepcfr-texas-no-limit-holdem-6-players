@@ -1,0 +1,26 @@
+{
+  "status": "requoted-at-approved-recovery-admission",
+  "observed_utc": "2026-10-16T19:40:58.757627+00:00",
+  "source": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+  "deadline_epoch": 1792380557.996109,
+  "extension_seconds_once": 3600,
+  "original_clock_unchanged": true,
+  "remaining_native_and_save_allowance_hours": [
+    9,
+    12
+  ],
+  "six_remaining_full_cap_audit_worker_hours": 31.761610808713165,
+  "audit_wall_hours_at_one_to_three_workers_before_gaps": [
+    10.587203602904388,
+    31.761610808713165
+  ],
+  "training_audit_forecast_madrid": "Saturday October17 evening through Sunday October18 evening",
+  "evaluation_max_hours": 24,
+  "complete_report_archive_target_madrid": "Monday October19 evening",
+  "upload_contingency_madrid": "Tuesday October20",
+  "assumptions": [
+    "Recovery includes the approved approximately15B repeated physical nodes; final endpoints unchanged.",
+    "Original259GB plan includes retained interrupted evidence; later audits may serialize. Forecast upper planning sum is43.76h, not guaranteed runtime.",
+    "Evaluation cost admission, upload and unpacked retention-copy timing remain unmeasured. No further extension or scientific retry authorized."
+  ]
+}

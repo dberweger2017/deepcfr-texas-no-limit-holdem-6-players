@@ -1,11 +1,30 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Interrupted by the owner's accidental power-off; training is stopped.** All11 completed files checked after reboot (76.18GB) match their pre-shutdown SHA256s: three5B recoveries, three5B averages, two completed10B checkpoints and three twin averages. Seed1302's10B temporary checkpoint is incomplete; the two other10B every-row audits were interrupted.
+**Owner-approved common5B recovery is admitted and ready to launch.** All original5B recovery/average and twin bytes survived.53 guarded validation checks pass; fresh binary/K50/parent hashes, source/gate pins and RAM/disk admission pass. Exactly+3600s is recorded once in a separate ledger; the original clock stays unchanged. Effective main deadline October19 03:29:18UTC /05:29:18Madrid; evaluation stays24h. No recovery trainer has started at this admission snapshot.
 
-[Recovery proposal](../hu200-capacity-power-loss-recovery.md) follows the owner's requested common5B restart and exactly one-hour main deadline extension. **Proposal only, owner review pending; no scientific restart or clock change.** Previous October19 evening/October20 upload forecast is conditional on approved recovery and fresh admission. No final hands have started.
+Clean sourcec48e64ceccde0b99287b7f40e3c9076bb60fea8a uses fresh results-recovery-20261016 paths, retains interrupted evidence and requires exact rebuilt10B references. Training/audits target Saturday17 evening–Sunday18 evening Madrid; report/archives Monday19 evening, Tuesday20 upload contingency, subject to evaluation/transfer cost admission. No final hands.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Approved recovery admission — October16,19:41UTC
+
+The owner explicitly approved the documented common5B rollback and single one-hour
+extension.53 checks pass on bb128 under the resource guard. An earlier test
+assertion and source-staging setup failures are preserved in
+[validation](hu200-capacity-cygnus-artifacts/recovery-validation.json); no scientific
+job ran during those corrections. Neither trainer nor exporter code changed.
+
+[Fresh admission](hu200-capacity-cygnus-artifacts/recovery-admission-20261016.json)
+revalidates the qualified binary, allK50 tables, all three5B parent hashes,
+unchanged5B averages/twins and prior gate receipts. Available132.841GB versus
+130.192GB conservative requirement leaves2.649GB margin. Owned94.597GB plus
+60GB initial output reservations,20GB growth and50GB floor totals224.597GB
+within259GB. NVMe free220.646GB; CPU/VRM55/44°C, swap0 after reboot. The
+original1MiB swap baseline is retained. The readmission guard exits0 in46.43s.
+[Single fixed extension ledger](hu200-capacity-cygnus-artifacts/training-deadline-amendment-20261016.json).
+[Re-quoted launch ETA](hu200-capacity-cygnus-artifacts/eta-at-recovery-launch.json).
+All scientific launch/output and observer receipts follow separately.
 
 ## Accidental power-off — October16,18:19UTC
 
@@ -30,7 +49,7 @@ main-stage nodes across the three seeds, with the same20B endpoint per seed.
 The separate proposal names exact parent/reference hashes, preserves old
 attempts in place, budgets their extra30.676GB, admits lower audit concurrency
 if needed, and proposes exactly+3600s once to the main deadline. Original
-clock remains unchanged until approval. Evaluation's24h and every other guard
+clock remains unchanged; the subsequently approved extension is a separate ledger. Evaluation's24h and every other guard
 remain fixed. Completion target is conditional while recovery is pending.
 
 ## All three5B saves audited — October16,16:40UTC

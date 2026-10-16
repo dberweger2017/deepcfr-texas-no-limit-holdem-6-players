@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "source": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+  "tests_passed": 53,
+  "coverage": "Recovery DAG/adopted parent pins, fixed+3600s clock, retry refusal, exact10B reference checks, guarded retirement, initial RAM/disk admission; existing global CPU/VRM/failure stops, disjoint reservations, process overlap and serial/parallel native export byte equality.",
+  "final_guard": {
+    "result.json": {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-c48e64ce/result.json",
+      "bytes": 145,
+      "sha256": "94d642fac4e4e27989df995af3c2af203ddb30f4bb2698839e2eb2a6b7a88bc9",
+      "data": {
+        "status": "passed",
+        "exit_codes": [
+          0
+        ],
+        "stop_reason": null,
+        "hard_stop_reason": null,
+        "elapsed_seconds": 7.102547962999779
+      }
+    },
+    "plan.json": {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-c48e64ce/plan.json",
+      "bytes": 1025,
+      "sha256": "3ba07481b3b8d0d5629b9b51b286f94c7ff5a6d0efd933ca769fef11a0042da0",
+      "data": {
+        "max_seconds": 1200,
+        "original_campaign_deadline_epoch": 1792380557.996109,
+        "swap_baseline_bytes": 1048576,
+        "aggregate_rss_gib": 8,
+        "jobs": [
+          {
+            "name": "recovery-validation",
+            "cpus": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "rss_gib": 4,
+            "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/recovery-validation-c48e64ce.stop",
+            "command": [
+              "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_hu200_capacity_recovery.py",
+              "tests/test_hu200_capacity_schedule.py",
+              "tests/test_hu200_capacity_guard.py",
+              "tests/test_hu200_capacity_retention.py",
+              "tests/test_hu200_capacity_identity.py",
+              "tests/test_hu200_capacity_sorted_audit.py",
+              "--basetemp",
+              "/home/dberweger/hu200-capacity-20261015/planning/recovery-validation-fixtures-c48e64ce"
+            ]
+          }
+        ]
+      }
+    },
+    "recovery-validation.log": {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-c48e64ce/recovery-validation.log",
+      "bytes": 99,
+      "sha256": "bd349e26338489f22b78767d77b5923fc5f84a1f78d9d6476b66a3db44071372"
+    },
+    "resources": {
+      "samples": 8,
+      "peak_cpu_c": 39.0,
+      "peak_vrm_c": 32.5,
+      "peak_rss_bytes": 83681280
+    }
+  },
+  "earlier_non_scientific_test_failure": {
+    "source": "4d02f273",
+    "result": "51passed,1failed; test substring matched20B while excluding2B. Corrected assertion, not trainer behavior. No scientific run started.",
+    "guard_and_log": {
+      "result.json": {
+        "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-4d02f273/result.json",
+        "bytes": 185,
+        "sha256": "51b21072efeb725959f66650ce416eadd5cedd917253407ad8f796a4d368c6cc",
+        "data": {
+          "status": "failed",
+          "exit_codes": [
+            1
+          ],
+          "stop_reason": null,
+          "hard_stop_reason": "A workload failed; stopping all owned work",
+          "elapsed_seconds": 7.105032958000265
+        }
+      },
+      "plan.json": {
+        "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-4d02f273/plan.json",
+        "bytes": 1025,
+        "sha256": "ef7ee338e7b863e92a105ec6872c81da0c326ea95de7336c17205f1a1c3ba92a",
+        "data": {
+          "max_seconds": 1200,
+          "original_campaign_deadline_epoch": 1792380557.996109,
+          "swap_baseline_bytes": 1048576,
+          "aggregate_rss_gib": 8,
+          "jobs": [
+            {
+              "name": "recovery-validation",
+              "cpus": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "rss_gib": 4,
+              "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/recovery-validation-4d02f273.stop",
+              "command": [
+                "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+                "-m",
+                "pytest",
+                "-q",
+                "tests/test_hu200_capacity_recovery.py",
+                "tests/test_hu200_capacity_schedule.py",
+                "tests/test_hu200_capacity_guard.py",
+                "tests/test_hu200_capacity_retention.py",
+                "tests/test_hu200_capacity_identity.py",
+                "tests/test_hu200_capacity_sorted_audit.py",
+                "--basetemp",
+                "/home/dberweger/hu200-capacity-20261015/planning/recovery-validation-fixtures-4d02f273"
+              ]
+            }
+          ]
+        }
+      },
+      "recovery-validation.log": {
+        "path": "/home/dberweger/hu200-capacity-20261015/guards/recovery-validation-4d02f273/recovery-validation.log",
+        "bytes": 1188,
+        "sha256": "e9715e8b61badcb117b329446f729be71058fd994cccc5ac5ba6414de7b33e03"
+      },
+      "resources": {
+        "samples": 8,
+        "peak_cpu_c": 39.0,
+        "peak_vrm_c": 33.5,
+        "peak_rss_bytes": 86011904
+      }
+    }
+  },
+  "non_scientific_source_staging_incidents": {
+    "scope": "non-scientific staging; no trainer or test job started before corrections",
+    "failures": [
+      "Bundle contains HEAD, not branch ref; fetch corrected to HEAD.",
+      "Initial dependent validation could not find .venv after failed checkout.",
+      "Read-only qualification venv is repo-main/.venv; corrected only the new checkout broken symlink."
+    ],
+    "partial_source_preserved": true
+  }
+}

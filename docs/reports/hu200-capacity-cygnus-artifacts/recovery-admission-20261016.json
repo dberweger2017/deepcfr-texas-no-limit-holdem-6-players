@@ -1,0 +1,168 @@
+{
+  "admitted_utc": "2026-10-16T19:40:58.757627+00:00",
+  "adopted_gates": {
+    "prefix-memory-admission.json": "2eb422e7414084bec341d948c00391f6150a852568326f6a55aa7cab4dd6f0e0",
+    "resume-gates.json": "6a8a66804cf7ed7f2d7b0211772650bfdaf971b55b62c9c9c4ea1219adcc4f1b",
+    "twin-gates.json": "bbadb43329b954c911ca75625810bc569df5e2a91d56a7fa443b358144af9fb5",
+    "twins-restored.json": "3162033ec40d56327cc7b55163bb7d4865b984b54505870cccfa4f9c159d29d4"
+  },
+  "adopted_parents": {
+    "2026101302": {
+      "audit_sha256": "f0f828a5f2bbb4b7a87fa92977396c87d35045233a6948881c59dddfaeefe0a3",
+      "average": {
+        "bytes": 5517075440,
+        "mtime_ns": 1792162653793418415,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.average.gz",
+        "sha256": "19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5"
+      },
+      "checkpoint": {
+        "bytes": 8843959155,
+        "mtime_ns": 1792156017859236644,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.gz",
+        "sha256": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa"
+      }
+    },
+    "2026101421": {
+      "audit_sha256": "587cc8bfb3f4983914bfd9439f83d646debc050bb9a6414e136fea2eebe92780",
+      "average": {
+        "bytes": 5534707321,
+        "mtime_ns": 1792162094643890677,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.average.gz",
+        "sha256": "835362e1e29ffa300015ad2852691b9d128481f79bed4b6e83c86f65d56f1cf8"
+      },
+      "checkpoint": {
+        "bytes": 8877181907,
+        "mtime_ns": 1792156308030130566,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.gz",
+        "sha256": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a"
+      }
+    },
+    "2026101422": {
+      "audit_sha256": "45bc363540f9de24f29df9aff9ab9c4043c6c8ff9e9b003b9b7effce8b259925",
+      "average": {
+        "bytes": 5474296298,
+        "mtime_ns": 1792161662895245001,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.average.gz",
+        "sha256": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4"
+      },
+      "checkpoint": {
+        "bytes": 8777061168,
+        "mtime_ns": 1792155355392636380,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.gz",
+        "sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33"
+      }
+    }
+  },
+  "amendment_sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134",
+  "approval_sha256": "85009e8d55a3a692b508c12cafad8cd4754a52e2d69e05420273e6dd7d291594",
+  "boot_id": "a5a1b0a7-a615-44d7-9936-e44341deb78e",
+  "deadline_epoch": 1792380557.996109,
+  "extra_automatic_retries": false,
+  "initial_output_reservations": 60000000000,
+  "original_clock_sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+  "owned_bytes": 94596887934,
+  "resources": {
+    "available_bytes": 132841406464,
+    "clock_khz": [
+      800000,
+      4884796,
+      800000,
+      800000,
+      800000,
+      800000,
+      800000,
+      800000,
+      800000,
+      5005883,
+      5000005,
+      4902935,
+      800000,
+      800000,
+      800000,
+      5000567
+    ],
+    "cpu_clocks_khz": {
+      "cpu0": 5000567,
+      "cpu1": 800000,
+      "cpu10": 800000,
+      "cpu11": 800000,
+      "cpu12": 800000,
+      "cpu13": 800000,
+      "cpu14": 800000,
+      "cpu15": 800000,
+      "cpu2": 800000,
+      "cpu3": 800000,
+      "cpu4": 4902935,
+      "cpu5": 800000,
+      "cpu6": 5000005,
+      "cpu7": 800000,
+      "cpu8": 5005883,
+      "cpu9": 4884796
+    },
+    "device_temperatures_c": {
+      "acpitz/temp1_input": 27.8,
+      "coretemp/Core 0": 40.0,
+      "coretemp/Core 1": 33.0,
+      "coretemp/Core 2": 34.0,
+      "coretemp/Core 3": 33.0,
+      "coretemp/Core 4": 35.0,
+      "coretemp/Core 5": 35.0,
+      "coretemp/Core 6": 55.0,
+      "coretemp/Core 7": 35.0,
+      "coretemp/Package id 0": 55.0,
+      "iwlwifi_1/temp1_input": 35.0,
+      "nct6687/Diode 0 (curr)": 34.5,
+      "nct6687/PCH CHIP": 36.0,
+      "nct6687/PECI 0.0": 55.0,
+      "nct6687/Thermistor 0": 16.0,
+      "nct6687/Thermistor 1": 13.5,
+      "nct6687/Thermistor 15": 44.0,
+      "nct6687/Thermistor 16": 29.5,
+      "nvme/Composite": 37.85,
+      "pch_cometlake/temp1_input": 36.0
+    },
+    "fan1_rpm": 715,
+    "free_disk_bytes": 220646055936,
+    "monotonic": 4783.497279689,
+    "package_c": 55.0,
+    "swap_used_bytes": 0,
+    "throttle_counts": {
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0
+    },
+    "utc": "2026-10-16T19:40:58.401006+00:00",
+    "vrm_c": 44.0
+  },
+  "source": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+  "status": "admitted"
+}

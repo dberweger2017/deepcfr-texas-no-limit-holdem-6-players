@@ -4122,11 +4122,11 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (power-off interruption, recovery proposal, October 16, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (approved recovery admitted, October 16, 2026)
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
-[report](docs/reports/hu200-capacity-cygnus.md). All fresh/normalized500M full audits, exact twin parity and memory gates pass. All twins restored; all three5B saves pass every-row audits and required5B averages remain. Accidental power-off interrupted10B; scientific work is stopped pending owner review of the recovery proposal. No final hands yet.
+[report](docs/reports/hu200-capacity-cygnus.md). All fresh/normalized500M full audits, exact twin parity and memory gates pass. All twins restored; all three5B saves pass every-row audits and required5B averages remain. Accidental power-off interrupted10B; the owner approved common5B recovery with a single one-hour extension; fresh launch admission passes. No final hands yet.
 Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
 Open PR292 root/archives/upload processes/shared inputs remain protected.
 
@@ -4243,3 +4243,14 @@ twins remain intact. Old files, scratch and the truncated trace stay preserved.
 common5B restart, about15B repeated physical nodes, exactly+3600s once proposed
 for the main deadline, unchanged fixed evaluation/guards/storage budget.
 No restart, retry, deadline change, new archive acceptance or HDD copy performed.
+
+PR301 owner-approved recovery: [authorization](docs/reports/hu200-capacity-cygnus-artifacts/recovery-approval.json),
+[single fixed deadline ledger](docs/reports/hu200-capacity-cygnus-artifacts/training-deadline-amendment-20261016.json),
+[53 guarded validation checks and preserved setup/test failures](docs/reports/hu200-capacity-cygnus-artifacts/recovery-validation.json),
+[fresh hash/resource admission](docs/reports/hu200-capacity-cygnus-artifacts/recovery-admission-20261016.json).
+Pinned sourcec48e64ce, three original5B parents, new results-recovery-20261016 paths.
+Original clock bytes unchanged; effective deadline Oct19 03:29:18UTC; evaluation
+still24h, no further automatic retries. Rebuilt1421/1422 must equal old10B hashes.
+[Launch ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-at-recovery-launch.json)
+retains Monday19 evening target/Tuesday20 contingency. Launch receipts pending;
+no recovery trainer or final hands started at the admission snapshot.
