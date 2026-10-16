@@ -1,0 +1,78 @@
+{
+  "at": 1792158807.298332,
+  "pr": 306,
+  "roots": [
+    20261015297010,
+    20261015297011,
+    20261015297012,
+    20261015297020,
+    20261015297101,
+    20261015297102,
+    20261015297103,
+    20261015297200
+  ],
+  "source_refs": {
+    "main": "21946a3395c2cc7ceaeef824e6345c4b896e2b5a",
+    "pr314": "515e0595173da6db833690e3500b9ab468a339b0",
+    "pr301": "ce007523f9568d7b2a1a657ba3851b5cb3d2842f"
+  },
+  "open_prs": [
+    {
+      "headRefOid": "515e0595173da6db833690e3500b9ab468a339b0",
+      "number": 314,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/314"
+    },
+    {
+      "headRefOid": "7a72d15cd831d6915e3292b9c2f80ffad79f9903",
+      "number": 306,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+    },
+    {
+      "headRefOid": "ce007523f9568d7b2a1a657ba3851b5cb3d2842f",
+      "number": 301,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/301"
+    }
+  ],
+  "matches": {
+    "main": [
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/hu200-v055-blend-protocol.md:79:pilots/finals. Pilot direct roots are 20261015297010\u201312; shared pilot panel",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/hu200-v055-blend-protocol.md:80:root is 20261015297020. Final direct roots are 20261015297101\u201303; shared",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/hu200-v055-blend-protocol.md:81:final panel root is 20261015297200. Distinct script scenario names define",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:5:    20261015297010,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:6:    20261015297011,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:7:    20261015297012,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:8:    20261015297020,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:9:    20261015297101,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:10:    20261015297102,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:11:    20261015297103,",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:12:    20261015297200",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:scripts/evaluate_hu200_blend.py:35:                           root=20261015297010+i if pilot else 20261015297101+i))",
+      "21946a3395c2cc7ceaeef824e6345c4b896e2b5a:scripts/evaluate_hu200_blend.py:39:                               root=20261015297020 if pilot else 20261015297200))"
+    ],
+    "pr314": [
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/hu200-v055-blend-protocol.md:79:pilots/finals. Pilot direct roots are 20261015297010\u201312; shared pilot panel",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/hu200-v055-blend-protocol.md:80:root is 20261015297020. Final direct roots are 20261015297101\u201303; shared",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/hu200-v055-blend-protocol.md:81:final panel root is 20261015297200. Distinct script scenario names define",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:5:    20261015297010,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:6:    20261015297011,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:7:    20261015297012,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:8:    20261015297020,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:9:    20261015297101,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:10:    20261015297102,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:11:    20261015297103,",
+      "515e0595173da6db833690e3500b9ab468a339b0:docs/reports/hu200-v055-blend-artifacts/root-reservation.json:12:    20261015297200",
+      "515e0595173da6db833690e3500b9ab468a339b0:scripts/evaluate_hu200_blend.py:35:                           root=20261015297010+i if pilot else 20261015297101+i))",
+      "515e0595173da6db833690e3500b9ab468a339b0:scripts/evaluate_hu200_blend.py:39:                               root=20261015297020 if pilot else 20261015297200))"
+    ],
+    "pr301": []
+  },
+  "conflicts": [],
+  "fresh_for_play": true,
+  "scope": "Fresh exact numeric scan of main and every other open head; only byte-identical inherited #297 declarations are allowed. Owning PR306 holds these fixed disjoint pilot/final roots and is excluded from the other-head scan.",
+  "baseline_revision": "13ccb498482c228776128e70ad9e733fb0f5621a",
+  "allowed_inherited_declarations": [
+    "docs/hu200-v055-blend-protocol.md",
+    "scripts/evaluate_hu200_blend.py",
+    "docs/reports/hu200-v055-blend-artifacts/root-reservation.json"
+  ]
+}
