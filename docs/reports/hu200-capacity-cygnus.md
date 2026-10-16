@@ -1,10 +1,37 @@
 # HU200 capacity experiment on cygnus-x1
 
-Post-BIOS preflight, all three exact-resume gates, all fresh/normalized500M full audits, exact twin parity and mature-memory admission pass. **All three5B saves are fully audited, all5B averages are retained, and the three large lineages are training toward10B. All verified twins are restored. No final hands have started.**
+**Interrupted by the owner's accidental power-off; training is stopped.** All11 completed files checked after reboot (76.18GB) match their pre-shutdown SHA256s: three5B recoveries, three5B averages, two completed10B checkpoints and three twin averages. Seed1302's10B temporary checkpoint is incomplete; the two other10B every-row audits were interrupted.
 
-Three5B audits demonstrate3h05m of triple overlap, CPU/VRM peaks75/88°C and no stop. Individual audits take3h06m–3h30m; the full-cap projection is5.294h. Swap growth is0.75MiB, within the256MiB guard. Complete report/archive target remains **Monday October19 evening, Madrid**, upload contingency **Tuesday October20**; evaluation, upload and final unpacked retention-copy timing remain to be measured.
+[Recovery proposal](../hu200-capacity-power-loss-recovery.md) follows the owner's requested common5B restart and exactly one-hour main deadline extension. **Proposal only, owner review pending; no scientific restart or clock change.** Previous October19 evening/October20 upload forecast is conditional on approved recovery and fresh admission. No final hands have started.
+
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Accidental power-off — October16,18:19UTC
+
+The last complete trace sample is18:19:00.665UTC, CPU54°C/VRM67°C, no stop;
+the final JSONL row is truncated and preserved. Reboot began about18:21:15UTC.
+Both prior scheduler/observer processes are absent. No scientific work restarts.
+The guarded post-boot readback passes all11 files /76,175,040,480B, including
+both completed10B checkpoints, in168.5s; CPU/VRM55/53°C, RSS33.44MB, no swap.
+[Readback](hu200-capacity-cygnus-artifacts/power-off-byte-readback.json),
+[guard](hu200-capacity-cygnus-artifacts/power-off-readback-result.json),
+[assessment](hu200-capacity-cygnus-artifacts/power-off-assessment.json).
+
+Seed1302's partial temporary checkpoint header reports10,000,000,240 nodes,
+but the6.708GB partial file cannot be used for recovery.99m52s elapsed on that
+attempt before the last trace. Seeds1421/1422 saved complete10B files that match
+their native hashes, but neither completed its every-row audit. No final10B
+milestone is claimed. All audited5B recovery/average bytes and restored twins
+remain intact; no confirmed corruption among the checked files.
+
+The owner's proposed common5B restart repeats approximately15B physical
+main-stage nodes across the three seeds, with the same20B endpoint per seed.
+The separate proposal names exact parent/reference hashes, preserves old
+attempts in place, budgets their extra30.676GB, admits lower audit concurrency
+if needed, and proposes exactly+3600s once to the main deadline. Original
+clock remains unchanged until approval. Evaluation's24h and every other guard
+remain fixed. Completion target is conditional while recovery is pending.
 
 ## All three5B saves audited — October16,16:40UTC
 
