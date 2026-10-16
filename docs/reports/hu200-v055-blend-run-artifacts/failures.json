@@ -25,7 +25,7 @@
     },
     {
       "acceptance": "seed1421-checkpoint-upload-acceptance.json",
-      "detail": "Current independent cloud metadata and M4 native placeholder both show592464795 bytes, not full20952808971. Retained M1 local full ZIP whole SHA and manifest verify; an unchanged raw checkpoint-only archive now passes complete local readback and is uploading under PR306. M4 raw/average proof alreadypasses; no scientific setting or model bytes change.",
+      "detail": "Independent cloud metadata and the M4 native placeholder show 592,464,795 bytes rather than the full 20,952,808,971. The retained M1 full ZIP whole SHA and manifest verify; the unchanged raw checkpoint-only archive now has complete local readback plus native and independent upload acceptance under PR306. M4 raw/average proof passes; no scientific setting or model bytes changed.",
       "kind": "seed1421-full-cloud-ZIP-partial",
       "observed_at": 1792137144.4180942,
       "phase": "input archive provenance",
@@ -39,7 +39,7 @@
       "phase": "seed1302 restoration",
       "research_failure": false,
       "scientific_parameters_changed": false,
-      "state": "fixed-resumed-before-extraction"
+      "state": "resolved-seed1302-average-exactly-reproduced"
     }
   ],
   "research_failures": []

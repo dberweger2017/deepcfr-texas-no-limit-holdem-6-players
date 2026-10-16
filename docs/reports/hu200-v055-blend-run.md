@@ -141,3 +141,23 @@ unchanged. A distinct guarded intake continuation is running. This is a
 plumbing repair with no model mismatch, research failure or hand retry.
 [Configuration failure and repair](hu200-v055-blend-run-artifacts/intake-configuration-recovery.json),
 [guard-state preservation](hu200-v055-blend-run-artifacts/intake-guard-sentinel-preservation.json).
+
+### October 16, 11:23 Madrid: second exact average and final restore
+
+Seed2026101302 now verifies its full source ZIP, indexed manifest and raw
+checkpoint, then exactly reproduces all 85,373,907 original average rows:
+`9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6`.
+The unchanged exporter takes 715.87 seconds; its kernel RSS peak is 4,603,904
+bytes. The complete cached-archive continuation takes 739.26 seconds, with
+148 clear guard samples and a 58,048,512-byte family RSS peak. The initial
+download/configuration stop remains separate in the failure record.
+
+After fresh merged-owner, native upload, independent cloud metadata and open-handle
+checks, one normal FileManager request releases the inactive 26.698-GB ZIP
+cache. Cloud ID, placeholder size, inode and modification time remain the same;
+raw checkpoint and exact average stay protected. The final seed2026101422
+archive restoration is now running. Both completed average proofs precede any
+full blend or hand.
+[Exact reproduction](hu200-v055-blend-run-artifacts/seed1302-input-verified.json),
+[resource receipt](hu200-v055-blend-run-artifacts/seed1302-reproduction-resource-receipt.json),
+[normal cache-release receipt](hu200-v055-blend-run-artifacts/seed1302-archive-cache-released.json).
