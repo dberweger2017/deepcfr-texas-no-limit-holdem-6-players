@@ -1,0 +1,166 @@
+{
+  "at": 1792156679.479896,
+  "cache_manifest": {
+    "entries": 85373907,
+    "files": {
+      "counts": {
+        "bytes": 682991384,
+        "length": 85373907,
+        "sha256": "5298b6c4d6b52b80968971ea83cd718ea3f80ee9e3018a6c6e5835b8c29f52d2"
+      },
+      "flags": {
+        "bytes": 85374035,
+        "length": 85373907,
+        "sha256": "747e909538f4222992b2132d95b96169b060233bbe9a37b07c112af2010f67fa"
+      },
+      "keys": {
+        "bytes": 1365982640,
+        "length": 85373907,
+        "sha256": "77e613dbfb4ab41a5e1d73cb7264081d6d9f93c72d379e0b54711d91d65e7ba8"
+      },
+      "menu": {
+        "bytes": 170747942,
+        "length": 85373907,
+        "sha256": "6d2d5e6e4b02450765cf93cc86b972122d97e5e1af2e012aa08fbc5da6824a4d"
+      },
+      "offsets": {
+        "bytes": 682991384,
+        "length": 85373907,
+        "sha256": "e476bbbc945ba2c25eb3f670ea9806899fc37d8242bcebe4a53b9e6ae41c8d46"
+      },
+      "probabilities": {
+        "bytes": 2127460576,
+        "length": 265932556,
+        "sha256": "6e73e8cc04361d130004bee3ca9d75be8fd7bf156fa071acac3a49f65b92d8de"
+      }
+    },
+    "format": "compact-average-cache-v1",
+    "menus": [
+      [
+        "check",
+        "min",
+        "pot"
+      ],
+      [
+        "fold",
+        "call"
+      ],
+      [
+        "fold",
+        "call",
+        "min"
+      ],
+      [
+        "fold",
+        "call",
+        "min",
+        "pot"
+      ],
+      [
+        "fold",
+        "call",
+        "min",
+        "pot",
+        "jam"
+      ],
+      [
+        "check",
+        "min",
+        "pot",
+        "jam"
+      ],
+      [
+        "check",
+        "min"
+      ]
+    ],
+    "schema": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "source_sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+  },
+  "current_owner_status": {
+    "checked_at": 1792156674.2959611,
+    "number": 306,
+    "state": "OPEN",
+    "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/306"
+  },
+  "owning_pr": 306,
+  "paths": [
+    {
+      "bytes": 682991384,
+      "mtime_ns": 1792156139595591405,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/counts.npy",
+      "sha256": "5298b6c4d6b52b80968971ea83cd718ea3f80ee9e3018a6c6e5835b8c29f52d2"
+    },
+    {
+      "bytes": 170747942,
+      "mtime_ns": 1792156139592205300,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/menu.npy",
+      "sha256": "6d2d5e6e4b02450765cf93cc86b972122d97e5e1af2e012aa08fbc5da6824a4d"
+    },
+    {
+      "bytes": 682991384,
+      "mtime_ns": 1792156139592589631,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/offsets.npy",
+      "sha256": "e476bbbc945ba2c25eb3f670ea9806899fc37d8242bcebe4a53b9e6ae41c8d46"
+    },
+    {
+      "bytes": 85374035,
+      "mtime_ns": 1792156139595558613,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/flags.npy",
+      "sha256": "747e909538f4222992b2132d95b96169b060233bbe9a37b07c112af2010f67fa"
+    },
+    {
+      "bytes": 1365982640,
+      "mtime_ns": 1792156139590890641,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/keys.npy",
+      "sha256": "77e613dbfb4ab41a5e1d73cb7264081d6d9f93c72d379e0b54711d91d65e7ba8"
+    },
+    {
+      "bytes": 1605,
+      "mtime_ns": 1792156142565304278,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/manifest.json",
+      "sha256": "d52bac7337d653df445a95072386d5af062e4e0f4c23f5bb301fa26d7ee09940"
+    },
+    {
+      "bytes": 2127460576,
+      "mtime_ns": 1792156139595305948,
+      "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache/9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6-hu200-native-reopening-ordered-history-equity-k50-v1-compact-average-cache-v1/probabilities.npy",
+      "sha256": "6e73e8cc04361d130004bee3ca9d75be8fd7bf156fa071acac3a49f65b92d8de"
+    }
+  ],
+  "rebuild_command": [
+    "/Users/dberweger/Local/hu20-k50-5b-first-pass-20261012/.venv/bin/python",
+    "-m",
+    "scripts.build_streaming_average_cache",
+    "--model",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101302/average.gz",
+    "--sha256",
+    "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "--schema",
+    "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "--cache",
+    "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/policy-cache",
+    "--entries",
+    "85373907",
+    "--action-slots",
+    "265932556"
+  ],
+  "source_average": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "bytes": 3164563975,
+    "card_buckets": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/protected-inputs/tables",
+    "entries": 85373907,
+    "format": "holdem-hu200-stored-cfr-average-research-v1",
+    "iteration": 16670844,
+    "name": "frozen-seed-2026101302",
+    "path": "/Users/dberweger/Local/hu200-v055-blend-run/results/hu200-v055-blend/inputs/2026101302/average.gz",
+    "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+    "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+    "translation": {
+      "max_events": 128,
+      "max_states": 512
+    }
+  },
+  "status": "eligible-after-complete-group-replay-and-reproduction",
+  "unique_research_evidence_removed": false
+}

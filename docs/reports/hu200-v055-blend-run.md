@@ -5,11 +5,11 @@ admission stop was plumbing: no full blend, cache, pilot or final hand existed.
 This campaign follows [the frozen protocol](../hu200-v055-blend-protocol.md)
 and preserves [the original report](hu200-v055-blend.md).
 
-**Current status (October 16, 14:53 Madrid): the blend is built and fully audited.**
-All156,208,331 rows pass the unchanged independent checkpoint/current/average
-audit on the 16 GiB M4. The average inference model is6,282,968,150 bytes;
-its raw synthetic checkpoint is6,042,193,732 bytes. Caching is running; fixed
-pilots and final evaluation remain pending. This PR stays draft until the
+**Current status (October 16, 15:18 Madrid): the blend is built and fully audited.**
+All 156,208,331 rows pass the unchanged independent checkpoint/current/average
+audit on the 16 GiB M4. The average inference model is 6,282,968,150 bytes;
+its raw synthetic checkpoint is 6,042,193,732 bytes. The blend cache and first cost pilot
+are complete; the remaining pilots and fixed final evaluation are pending. This PR stays draft until the
 planned research actually runs or a research failure is recorded. Plumbing
 interruptions remain pending work, with their evidence preserved.
 
@@ -300,3 +300,17 @@ run yet.
 [Blend cache/rebuild provenance](hu200-v055-blend-run-artifacts/blend-cache-complete.json),
 [cache resources](hu200-v055-blend-run-artifacts/blend-cache-resource-receipt.json),
 [fresh root reservation](hu200-v055-blend-run-artifacts/root-reservation-before-pilots.json).
+
+### October 16, 15:18 Madrid: first cost pilot verified
+
+The seed2026101302 cost-only group finishes in 463.33 seconds: 128 direct
+blocks and 32 paired blocks against each of the seven scripted opponents.
+Every pilot hand independently replays and reproduces before completion.
+The guard returns 0, with 93 samples, a 1,530,511,360-byte sampled family RSS
+peak and no breach. No strength readout is opened. Fresh M1 PR-status metadata
+and source/cache pins authorize retirement of only this inactive derived seed
+cache; its source model and rebuild provenance remain. The second seed cache
+is building. Final cost admission and the measured ETA follow all three pilots.
+[Verified group](hu200-v055-blend-run-artifacts/pilot1302-complete.json),
+[guard completion](hu200-v055-blend-run-artifacts/pilot1302-guard-complete.json),
+[cache retirement and rebuild evidence](hu200-v055-blend-run-artifacts/pilot1302-cache-retirement.json).
