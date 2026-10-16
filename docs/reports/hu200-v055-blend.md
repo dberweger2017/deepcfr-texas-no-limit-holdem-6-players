@@ -422,3 +422,17 @@ Current-main integration initially conflicts only in `RESULTS_INDEX.md`; the
 resolution preserves the complete incoming index and this PR's complete entry.
 The empty duplicate PR296 heading is removed. That administrative conflict and
 its resolution join the failure receipt above. No M4 job is restarted.
+
+
+The [final M1 supplement](https://drive.google.com/file/d/116HIFdiynffhQUhNedsTPL3gnUw5BD6U/view)
+is **298,943 bytes /62 members**, whole SHA256
+`8908a84839687f06c2cb8222694decc14db2da979c2aa8150a7049553a1f9b61`,
+manifest SHA256 `237836ae89b886bd4482a87cba87454c6a2bd6276a46701ef859e54e905699d0`.
+All members read back; native uploaded1/uploading0/no-conflicts and independent
+Drive ID/name/size/direct-parent checks accept it. It preserves the M1 dependency
+failure/correction, main-integration/conflict resolution, closed guard/release,
+prior archive acceptance and final report/source metadata. Its own closing
+native/cloud receipts remain compact Git records to avoid recursive archives.
+No remote output-archive bytes are downloaded; every local original remains.
+[Readback](hu200-v055-blend-artifacts/continuation-admin-final-archive-receipt.json),
+[acceptance](hu200-v055-blend-artifacts/continuation-admin-final-upload-acceptance.json).

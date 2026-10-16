@@ -28,6 +28,7 @@ ID `1lX59J6TcKq7FzTIEN3r7VjJqgESxz-qH`, direct project parent
 |---|---:|---|---|
 | [hu200-v055-blend-continuation-M4-20261016.zip](https://drive.google.com/file/d/1m0o8SUM_JjkxV4k4YpKx99s5T8RhcQw3/view) | 10,571,715 /188 | `1f1c86dad2f5306074aa1e86226255e23a9fd5aedd004ebabedf76a403b608b6` | `6a2e3aeada17b3c09318aecf6063ed5788ef3d8feac31783930de707b4a77689` |
 | [hu200-v055-blend-continuation-admin-M1-20261016.zip](https://drive.google.com/file/d/1ga1ryoykMblzH_muVnXhJ_ZpTi5ckcK7/view) | 263,319 /55 | `a33d20b808b50d926b26ceeccca62949c321af8458e126c529c9d8a0d4f4e602` | `4f75323572a4e7737fc86faf3f7c6f5c25ac2a618225e27aa9d57174360784fd` |
+| [hu200-v055-blend-continuation-admin-final-M1-20261016.zip](https://drive.google.com/file/d/116HIFdiynffhQUhNedsTPL3gnUw5BD6U/view) | 298,943 /62 | `8908a84839687f06c2cb8222694decc14db2da979c2aa8150a7049553a1f9b61` | `237836ae89b886bd4482a87cba87454c6a2bd6276a46701ef859e54e905699d0` |
 
 All members verify against embedded `ARCHIVE-MANIFEST.json`, followed by whole
 archive SHA256. Separate current native/upload and independent exact Drive
@@ -48,6 +49,13 @@ preserves earlier proof/build/check histories. `control/`, `source/` and
 M4 archive guard, release and primary-upload receipts, plus report/source metadata;
 [admin readback](docs/reports/hu200-v055-blend-artifacts/continuation-admin-archive-receipt.json) and
 [admin upload acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-admin-upload-acceptance.json).
+The final M1 supplement also preserves the administrative import failure,
+its unchanged-function correction, main-integration/conflict resolution and
+acceptance of the two earlier ZIPs.
+[Final supplement readback](docs/reports/hu200-v055-blend-artifacts/continuation-admin-final-archive-receipt.json) and
+[final supplement acceptance](docs/reports/hu200-v055-blend-artifacts/continuation-admin-final-upload-acceptance.json).
+Its own final native/cloud observations remain as compact Git receipts, avoiding
+recursive archival. No model/hand payload is processed on M1.
 Indexed canonical input files
 are excluded after SHA256 verification and retained locally; their retrieval
 links below remain dependencies. No full blended player is claimed.
