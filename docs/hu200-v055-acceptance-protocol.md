@@ -1,5 +1,7 @@
 # v0.5.5 acceptance: HU200 against Slumbot
 
+**Outcome (October 16):** the confirmation under this protocol failed on seed 2026101302 ([report](reports/hu200-v055-slumbot-confirmation.md)). New candidates follow [version 2](hu200-v055-acceptance-protocol-v2.md): the three-seed blend, 30,000 pooled hands across three accounts.
+
 Owner-approved October 14, 2026, before the exploratory frozen 20B + translation
 run reached 5,000 hands. These criteria decide whether the recipe below
 qualifies for v0.5.5; publishing still needs the owner's explicit go.
