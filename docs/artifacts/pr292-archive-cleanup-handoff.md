@@ -1,5 +1,11 @@
 # PR292 archive and cleaning-agent handoff
 
+> **Superseded October 16 by completed archival closeout:** all 237 pieces,
+> final restoration index and failure/provenance bundle are accepted. See
+> [current receipt and restoration](pr292-closeout-20261016.md). All scientific
+> originals remain because process-dependency inspection was denied; no removal
+> ran. The blocked counts and steps below are the historical handoff snapshot.
+
 Snapshot: October 16, 2026. [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292).
 The owner authorized merge after this handoff and green CI. All scientific
 work is complete; the learning rule passes on all three seeds. Archive

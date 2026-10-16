@@ -1,0 +1,228 @@
+{
+  "status": "archive-closeout-complete-cleanup-deferred",
+  "observed_utc": "2026-10-16T08:02:51.495274+00:00",
+  "owner_pr": 292,
+  "continuation_pr": 305,
+  "source_pr_head": "2c0bdb8ce5edf65bfd4d021914ba4c1f01de4b29",
+  "source_revision_for_closeout": "72217c7f",
+  "main_cloud_index": {
+    "cloud_metadata": {
+      "id": "1rZHM3IWAZeBjYV_a6EJ15ACdfP11lGHx",
+      "title": "archive-main-cloud-final.json",
+      "mime_type": null,
+      "size": "147762",
+      "url": "https://drive.google.com/file/d/1rZHM3IWAZeBjYV_a6EJ15ACdfP11lGHx/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1rZHM3IWAZeBjYV_a6EJ15ACdfP11lGHx/view?usp=drivesdk",
+      "file_or_folder": null,
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "local": {
+      "bytes": 147762,
+      "sha256": "0c603f26408c1f37deb953c6028d049e33259d55e7ba92df26b5c70550335a46"
+    },
+    "status": "accepted",
+    "at": 1792136957.543586,
+    "native": {
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0,
+      "isDownloading": 0,
+      "isSyncPaused": 0,
+      "isTrashed": 0,
+      "isExcludedFromSync": 0,
+      "documentSize": 147762
+    },
+    "native_path": "/Users/dberweger/Local/Research-Cloud/PR-292-nplayer-blueprint-phase2/archive-main-cloud-final.json",
+    "remote_archive_bytes_downloaded": false
+  },
+  "transport_provenance": {
+    "cloud_metadata": {
+      "id": "1V-W7wvjn__b7IvjSCR7AJ2vdUX5UA_TT",
+      "title": "pr292-transport-provenance-M1-20261016.zip",
+      "mime_type": null,
+      "size": "95901180",
+      "url": "https://drive.google.com/file/d/1V-W7wvjn__b7IvjSCR7AJ2vdUX5UA_TT/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1V-W7wvjn__b7IvjSCR7AJ2vdUX5UA_TT/view?usp=drivesdk",
+      "file_or_folder": null,
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "local": {
+      "bytes": 95901180,
+      "sha256": "b2e55702c593a8f8cac59f09913799051cddd2c2f03daef4f81317cb01cdad90",
+      "manifest_member": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "7289bc8b33d9bea044d318d08e81a6a4f3abcaca23605e4dc6478e5c34bf94da",
+      "members": 1363,
+      "all_member_sizes_sha256_crc_readback": true
+    },
+    "status": "accepted",
+    "at": 1792137464.113457,
+    "acceptance_route": "bb128-rclone-md5-plus-independent-cloud-metadata",
+    "mac_native_observation_before_rclone": {
+      "status": "native-visibility-pending",
+      "at": 1792137464.113457
+    },
+    "rclone": {
+      "status": "accepted",
+      "observed_utc": "2026-10-16T08:02:51.309836+00:00",
+      "local_path": "/mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2/pr292-transport-provenance-M1-20261016.zip",
+      "bytes": 95901180,
+      "sha256": "b2e55702c593a8f8cac59f09913799051cddd2c2f03daef4f81317cb01cdad90",
+      "md5": "feb9f6c2076d03ea2fdf9749d4f705bc",
+      "cloud_file": {
+        "Path": "pr292-transport-provenance-M1-20261016.zip",
+        "Name": "pr292-transport-provenance-M1-20261016.zip",
+        "Size": 95901180,
+        "MimeType": "application/zip",
+        "ModTime": "2026-10-16T07:52:57.679Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "feb9f6c2076d03ea2fdf9749d4f705bc"
+        },
+        "ID": "1V-W7wvjn__b7IvjSCR7AJ2vdUX5UA_TT"
+      },
+      "cloud_folder_id": "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9",
+      "check_command": "rclone check --one-way /mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2 gdrive:PR-292-nplayer-blueprint-phase2/",
+      "check_exit_code": 0,
+      "check_stdout": "",
+      "check_stderr": "2026/10/16 10:02:50 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 0 differences found\n2026/10/16 10:02:50 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 2 matching files\n",
+      "retained_cache_files": 2,
+      "remote_archive_bytes_downloaded": false,
+      "new_upload": false
+    }
+  },
+  "existing_archive_guard_current_native": {
+    "at": 1792134685.969939,
+    "path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-292-nplayer-blueprint-phase2/phase2-archive-guard-closeout.zip",
+    "name": "phase2-archive-guard-closeout.zip",
+    "bytes": 53823,
+    "is_uploaded": 1,
+    "is_uploading": 0,
+    "conflicts": {
+      "exists": true,
+      "nil": false,
+      "unresolved_count": 0
+    },
+    "native_accepted": true,
+    "cloud_file_id": "1utIneB1zdFo0BcLR3_no3tJN48jd_oOl",
+    "cloud_folder_id": "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9",
+    "remote_archive_bytes_downloaded": false
+  },
+  "scientific_piece_listing": {
+    "files": 239,
+    "scientific_pieces": 237,
+    "all_ids_names_sizes_match": true
+  },
+  "hdd_piece_cache": {
+    "status": "accepted-rclone-check",
+    "observed_utc": "2026-10-16T07:47:36.079041+00:00",
+    "local_path": "/mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2/main-evidence.zip.part0117-0",
+    "bytes": 67108864,
+    "sha256": "b9660a69d42d76b974719e6e42a4f6cf45c63eec32a65c6e12ea637724e1c3a8",
+    "md5": "d380847a10d8328b6d28e55d3725119e",
+    "cloud_file": {
+      "Path": "main-evidence.zip.part0117-0",
+      "Name": "main-evidence.zip.part0117-0",
+      "Size": 67108864,
+      "MimeType": "application/octet-stream",
+      "ModTime": "2026-10-16T07:44:44.563Z",
+      "IsDir": false,
+      "Hashes": {
+        "md5": "d380847a10d8328b6d28e55d3725119e"
+      },
+      "ID": "1btHXxKkqXp1xcO-uKCCbdLS9aHhM998X"
+    },
+    "cloud_folder_id": "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9",
+    "check_command": "rclone check --one-way /mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2 gdrive:PR-292-nplayer-blueprint-phase2/",
+    "check_exit_code": 0,
+    "check_stdout": "",
+    "check_stderr": "2026/10/16 09:47:34 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 0 differences found\n2026/10/16 09:47:34 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 1 matching files\n",
+    "source_part_path": "/home/dberweger/nplayer-blueprint-phase2-20261015/archives/main/evidence.zip.part0117",
+    "source_part_mtime_ns": 1792086959741572461,
+    "new_upload": false,
+    "originals_retained": true
+  },
+  "hdd_provenance_cache": {
+    "status": "accepted",
+    "observed_utc": "2026-10-16T08:02:51.309836+00:00",
+    "local_path": "/mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2/pr292-transport-provenance-M1-20261016.zip",
+    "bytes": 95901180,
+    "sha256": "b2e55702c593a8f8cac59f09913799051cddd2c2f03daef4f81317cb01cdad90",
+    "md5": "feb9f6c2076d03ea2fdf9749d4f705bc",
+    "cloud_file": {
+      "Path": "pr292-transport-provenance-M1-20261016.zip",
+      "Name": "pr292-transport-provenance-M1-20261016.zip",
+      "Size": 95901180,
+      "MimeType": "application/zip",
+      "ModTime": "2026-10-16T07:52:57.679Z",
+      "IsDir": false,
+      "Hashes": {
+        "md5": "feb9f6c2076d03ea2fdf9749d4f705bc"
+      },
+      "ID": "1V-W7wvjn__b7IvjSCR7AJ2vdUX5UA_TT"
+    },
+    "cloud_folder_id": "1O7yc5RzlIRGD0iWn8nSXoyElcBWdriI9",
+    "check_command": "rclone check --one-way /mnt/data2tb/research-cloud/PR-292-nplayer-blueprint-phase2 gdrive:PR-292-nplayer-blueprint-phase2/",
+    "check_exit_code": 0,
+    "check_stdout": "",
+    "check_stderr": "2026/10/16 10:02:50 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 0 differences found\n2026/10/16 10:02:50 NOTICE: Google drive root 'PR-292-nplayer-blueprint-phase2': 2 matching files\n",
+    "retained_cache_files": 2,
+    "remote_archive_bytes_downloaded": false,
+    "new_upload": false
+  },
+  "cleanup": {
+    "status": "cleanup-deferred-originals-retained",
+    "at": 1792137077.474905,
+    "owner": {
+      "headRefOid": "2c0bdb8ce5edf65bfd4d021914ba4c1f01de4b29",
+      "mergeCommit": {
+        "oid": "7b41774ecc67c04ba30ab8a429a7be75263533d8"
+      },
+      "mergedAt": "2026-10-16T06:30:22Z",
+      "number": 292,
+      "state": "MERGED",
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/292"
+    },
+    "reason": "Pre-removal dependency helper refused because /proc dependency inspection raised PermissionError for five owned processes.",
+    "uncertain_processes": [
+      "/proc/61391",
+      "/proc/61393",
+      "/proc/63285",
+      "/proc/63331",
+      "/proc/66293"
+    ],
+    "helper_exit": 1,
+    "removed_paths": [],
+    "source_root": "/home/dberweger/nplayer-blueprint-phase2-20261015",
+    "scope": "No scientific originals, source ZIPs/host parts or shared dependencies removed. Existing archived-member inventory, cloud final index and all original transport receipts retained. A later cleanup needs dependency visibility; no permission/security changes attempted.",
+    "secondary_error": "Empty redirected plan then failed JSON parsing; no removal helper was run.",
+    "source_free_bytes_at_probe": 284795727872,
+    "noninteractive_privileged_read_probe": {
+      "command": "sudo -n true",
+      "exit_code": 1,
+      "stderr": "sudo: a password is required",
+      "credentials_requested_or_changed": false
+    }
+  },
+  "scientific_work_rerun": false,
+  "remote_archive_bytes_downloaded": false
+}

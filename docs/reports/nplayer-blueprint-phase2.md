@@ -1,10 +1,10 @@
 # Three-player Phase 2: first full-average blueprint
 
-**The predeclared learning rule passes across all three seeds. Cloud archive closeout is pending.**
+**The predeclared learning rule passes across all three seeds. Cloud archival is complete; local cleanup remains deferred.**
 [PR292](https://github.com/dberweger2017/CFR-NLHE-6max/pull/292) follows merged
 PR289/PR291. The [protocol](../nplayer-blueprint-phase2-protocol.md) fixes the
 owner's all-street averages, three sequential fresh seeds and learning rule.
-No search, release or merge is authorized.
+Search and release remain out of scope.
 
 ## Harness proven before training
 
@@ -202,6 +202,8 @@ includes overall, every physical seat and BTN/SB/BB position intervals.
 also retains both roles and model lookup missing shares by street.
 
 ## Resources and archive closeout
+
+**October 16 closeout update:** all 237 archive pieces, final restoration index and restart/failure provenance are accepted in Drive. [Current receipts and retrieval](../artifacts/pr292-closeout-20261016.md). All scientific originals remain; cleanup was refused because five owned processes could not be inspected for dependencies. The original transport history below is retained as dated evidence.
 
 Across 18,320 retained readings through verified readout, maximum CPU package
 was **70°C**, VRM **78°C**, peak family RSS **9.585 GiB** and swap growth zero.
