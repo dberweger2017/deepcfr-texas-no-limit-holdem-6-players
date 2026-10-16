@@ -1,3 +1,20 @@
+## M1-prioritized cleanup — October 16 afternoon
+
+Owner-requested cleanup retired **40 M1 paths /16 unique inodes**, representing
+**14,747,889,664 allocated bytes (14.748 GB upper bound)**, and **four M4 paths /
+4,693,065,728 allocated bytes (4.693 GB)**. Free space at the final pass checks:
+**M1 16.855 GB /M4 57.727 GB**; other activity changes these readings.
+M1 removed completed release/package/probe copies, one redundant retrieved ZIP
+and one redundant table; M4 removed four redundant PR211 pilot-model copies.
+Canonical inputs, small scientific/failure records, shared Git and open
+PR301/306/314 dependencies remain. Nothing inside synced Drive was deleted or
+offloaded. Current PR312/313 storage/contributor changes were checked first;
+the live cache tool and cron were not changed.
+
+[Exact paths, preservation, administrative failures and restoration](docs/artifacts/storage-cleanup-afternoon-20261016.md).
+Full receipt upload acceptance is pending in this draft; cleanup itself and
+retained-file checks are complete. New receipt upload uses only bb128's cache.
+
 ## Research storage policy — owner-approved October 16, 2026
 
 **Google Drive holds all research files long-term.** The only new-upload route is
