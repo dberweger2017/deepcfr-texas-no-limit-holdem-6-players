@@ -1,0 +1,8 @@
+{
+  "status": "owner-approved",
+  "observed_utc": "2026-10-17T10:25:22.431655+00:00",
+  "owner_message": "You can continue your training and just the timing for the stopping",
+  "scope": "PR301 remaining work only:1302 audited10B\u219220B;1421/1422 revalidate retained20B exports;all final audits and fixed evaluation/archives unchanged",
+  "downtime_credit": "One interval from recorded2026-10-17T09:21:22.269998+00:00 storage failure to actual restart admission; seal once, preserve old clocks, no future automatic credit.",
+  "future_automatic_retries": false
+}

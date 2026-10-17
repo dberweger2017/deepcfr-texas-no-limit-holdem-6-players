@@ -349,6 +349,11 @@ class Queue:
             result += ['--folder', str(self.folder(task))]
         return result
 
+    def output_reservation(self, task):
+        kind = task['kind']
+        return (20_000_000_000 if kind == 'train' else 23_000_000_000 if kind == 'audit'
+                else 10_000_000_000 if kind == 'restore' else 0)
+
     def launch(self, task, row, totals):
         kind, name = task['kind'], task['name']
         if kind == 'audit' and sum(j['kind'] == 'audit' for j in self.active.values()) >= self.audit_limit:
@@ -359,7 +364,7 @@ class Queue:
         cpus = allocate(list(self.active.values()), kind, task['seed'])
         if cpus is None or row['package_c'] >= 68 or row['vrm_c'] >= 83:
             return False
-        reserve = 20_000_000_000 if kind == 'train' else 23_000_000_000 if kind == 'audit' else 10_000_000_000 if kind == 'restore' else 0
+        reserve = self.output_reservation(task)
         if not fits(totals, row['free_disk_bytes'], sum(self.reservation(j) for j in self.active.values()), reserve):
             return False
         folder = self.folder(task) if task['seed'] is not None else None

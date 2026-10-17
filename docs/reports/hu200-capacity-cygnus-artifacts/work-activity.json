@@ -1,0 +1,44 @@
+{
+  "status": "coordinator-active-preparing-owner-approved-restart",
+  "timezone": "UTC;Madrid=UTC+02:00 on these dates",
+  "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
+  "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
+  "events": [
+    {
+      "utc": "2026-10-17T05:55:57.054574+00:00",
+      "coordinator": "10B milestone update complete; subsequent handback",
+      "jobs": "Guarded training/audits continued",
+      "time_basis": "PR description readback; completion evidenced by this time, exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T09:21:54.514129+00:00",
+      "coordinator": "Resumed by this time to investigate terminal storage event",
+      "jobs": "Scientific workers stopped after09:21:22failure",
+      "time_basis": "Owned-root failure collection timestamp"
+    },
+    {
+      "utc": "2026-10-17T09:31:05.523694+00:00",
+      "coordinator": "Failure report update complete; subsequent handback",
+      "jobs": "Stopped; no retry",
+      "time_basis": "PR description readback; exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T09:38:43.528589+00:00",
+      "coordinator": "Resumed by this time for owner-authorized storage relocation",
+      "jobs": "No scientific worker; storage only",
+      "time_basis": "Storage preflight timestamp"
+    },
+    {
+      "utc": "2026-10-17T09:58:23.552233+00:00",
+      "coordinator": "Storage relocation/report complete; subsequent handback",
+      "jobs": "Storage job finished; science still stopped",
+      "time_basis": "PR description readback; exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T10:21:14+00:00",
+      "coordinator": "Resumed for owner-requested activity logging; owner then approved scientific continuation and downtime adjustment",
+      "jobs": "Preparing guarded restart; no launch yet",
+      "time_basis": "Current turn first clock observation"
+    }
+  ]
+}
