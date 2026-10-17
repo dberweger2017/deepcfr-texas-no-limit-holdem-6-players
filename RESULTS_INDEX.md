@@ -4506,3 +4506,12 @@ with SHA256 verification, retainingHDD originals. Raw closed guards/export-recov
 controller/observer logs and planning/collect_training_complete_20261017.py plus
 publication/readback helpers require final archives. No complete model archive or
 final unpackedHDD bundle exists yet. No final hands/outcomes, no source/trainer change.
+
+PR301 first cost-only evaluation procedure: [protocol](docs/hu200-capacity-evaluation-first-pilot.md),
+[config](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-first-pilot-config-20261017.json)
+SHA256`99f694ab42b67a5f9db67a42c701c59a7a0c92c375c62f80def095a94924f7ea`, immutable source`2d2ec4a17d20d586b8563dc656ed339b7fba218f`.
+[Fresh roots](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-roots-prepilot-20261017.json).
+BB source repo-evaluation-first-pilot-20261017, guards/evaluation-first-pilot-{checks,restore}-20261017,
+evaluation-first-pilot-20261017/config/roots/receipts plus evaluation-cache-20261017 and evaluation/
+are required final evidence. First cache seals evaluation-clock.json; no automatic restart.
+Keep all partial caches/receipts/logs, no global outcome read before six-group barrier.

@@ -7,6 +7,35 @@
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
 
+## First evaluation cost pilot declared — October17
+
+Immutable source **2d2ec4a17d20d586b8563dc656ed339b7fba218f** adds scheduling/restoration only;
+the fixed scientific harness and all inference/trainer bytes remain unchanged.
+**14 guarded checks pass** in0.98s (outer2.025s), including synthetic complete
+cache/play/replay/reproduction, global barrier refusal, exclusive clock, disk
+reservations and stop preservation. No final outcomes were read.
+[Bounded first-pilot procedure](../hu200-capacity-evaluation-first-pilot.md).
+
+First restore1302's3,164,563,975-byte twin from the authorized inactiveHDD tree,
+retain the source and verify source/destination SHA256 and fsync under the original
+guards. Then build1302's large/twin caches once each, serially, onNVMe, and run
+only its predeclared1024direct/64per-script cost pilots. Independent replay,
+fresh-process reproduction and full raw verification precede the cost quote.
+[Actual models/config/source pins](hu200-capacity-cygnus-artifacts/evaluation-first-pilot-config-20261017.json),
+configSHA256 **99f694ab42b67a5f9db67a42c701c59a7a0c92c375c62f80def095a94924f7ea**.
+[Live main/all-other-openPR root reservation](hu200-capacity-cygnus-artifacts/evaluation-roots-prepilot-20261017.json)
+is fresh: pilot roots202610160301/302; final roots remain reserved but unplayed.
+
+The first cache starts the exclusive unchanged24h evaluation clock. Reserve
+CPUs0–1/two thread environment and38GiB; one active stage. All original CPU85°C,
+VRM95°C/30s, swap-growth, RSS and50GB disk guards remain. Prospective outputs
+18.5GBlarge/5.2GBtwin caches plus bounded pilot traces fit the original258.4GB
+budget; runtime counters and actual cache manifests determine later admission.
+The full fixed experiment still requires published measured cost/resource/cache
+pins, refreshed roots and exact PR readback before final hands, and all six groups
+must cross the global replay/reproduction barrier before any final mean.
+No final-hand admission exists. No automatic retry or additional budget credit.
+
 ## Training complete — October17,22:11:35Madrid
 
 All three20B endpoints now pass their complete every-row audits:301,153,962,
