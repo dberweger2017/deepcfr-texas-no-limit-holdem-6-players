@@ -9,8 +9,9 @@ import pytest
 from scripts.calibrate_hu200_river_search import schedule
 from scripts.quote_hu200_river_strength import rounded_count, variance_summary
 from src.arena.policies import CheckCall, make_policy
-from src.arena.river_search_calibration import ForbiddenSolver, block_value, play_hand, view_key
-from src.blueprint.abstraction import Choice
+from src.arena.river_search_calibration import ForbiddenSolver, block_value, make_players, play_hand, view_key
+from src.blueprint.abstraction import Choice, HU200_EQUITY_SCHEMA
+from src.blueprint.hu20_turn_solver import SolveFailure
 from src.blueprint.hu20_turn_solver import PolicyMatrix
 from src.blueprint.river_ledger import DecisionLedger, encode_matrix
 from src.game.observation import Observation
@@ -18,12 +19,26 @@ from src.game.types import Street
 
 
 class ToyBlueprint:
+    abstraction = HU200_EQUITY_SCHEMA
+    description = {"fixture": "calibration-wiring"}
     def distribution(self, view):
         assert isinstance(view, Observation)
         return (Choice('pass',CheckCall().choose_action(view)),),(1.,),True
 
     def policy(self, seed):
         return CheckCall()
+
+
+def test_real_search_deadline_wiring_preserves_static_check(tmp_path):
+    from scripts.pilot_hu200_river_search import CONFIG
+    calls=[]
+    _,policy,solver=make_players(ToyBlueprint(),None,'fixture',CONFIG,tmp_path,
+        [1,2],None,True,True,lambda:calls.append(True))
+    policy._check(None)
+    assert calls==[True]
+    with pytest.raises(SolveFailure,match='deadline'):
+        policy._check(0)
+    assert calls==[True,True] and not solver.records
 
 
 def toy_search(base,binary,identity,config,directory,seeds,opponent,searched,reproduce,check,

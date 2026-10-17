@@ -1,0 +1,15 @@
+{
+  "phase": "calibration-launch-plumbing-before-any-action",
+  "source": "5b6b2f6c1ca7d5989deb29cf62345755e1afd839",
+  "failure": "AttributeError: function object has no attribute __func__",
+  "cause": "Evaluator deadline wrapper incorrectly treated the inherited static check as a bound method",
+  "completed_blocks": 0,
+  "played_decisions": 0,
+  "terminal_hands": 0,
+  "native_receipts": 0,
+  "repair": "Capture and call the static check directly; no search/game changes",
+  "original_deadline_unix": 1792225958.0844858,
+  "clock_reset": false,
+  "originals_retained": true,
+  "continuation": "Same declared roots and counts, new evidence root; no completed hand to rerun"
+}

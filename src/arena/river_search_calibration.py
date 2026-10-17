@@ -5,7 +5,6 @@ from math import fsum, isfinite
 import json
 from pathlib import Path
 from time import monotonic
-import weakref
 
 from src.arena.policies import make_policy
 from src.arena.runner import public_events
@@ -74,11 +73,10 @@ def make_players(base, binary, identity, config, directory, seeds, opponent,
             resource_check=check))
         policy = HU200RiverSearchPolicy(base, solver, config,
             ledger=directory / "ledger", replay_ledger=replay)
-        original = policy._check.__func__
-        reference = weakref.ref(policy)
+        original = policy._check
         def guarded(deadline):
             check()
-            original(reference(), deadline)
+            original(deadline)
         policy._check = guarded
         hero = HU200RiverSearchPlayer(policy, seeds[0])
     else:
