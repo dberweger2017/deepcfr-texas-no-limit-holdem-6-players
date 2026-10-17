@@ -1,0 +1,23 @@
+{
+  "removed": [
+    {
+      "bytes": 6544914929,
+      "mtime_ns": 1792209291409307392,
+      "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.current.gz",
+      "sha256": "d1e71b6adf8b837142694888e035ff6c0b399e80e02ac8236c7497c700d7436c"
+    },
+    {
+      "bytes": 8843959155,
+      "mtime_ns": 1792156017859236644,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.gz",
+      "sha256": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa"
+    },
+    {
+      "bytes": 7278367994,
+      "mtime_ns": 1792209291409307392,
+      "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.average.gz",
+      "sha256": "f1afa55ca5f579918ef68cbf4795923428696020019da7fc25f776ac50f872fc"
+    }
+  ],
+  "status": "verified"
+}

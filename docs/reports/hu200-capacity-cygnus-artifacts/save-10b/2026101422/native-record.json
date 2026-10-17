@@ -1,0 +1,102 @@
+{
+  "audit_status": "unaudited",
+  "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+  "checkpoint_bytes": 11832491674,
+  "checkpoint_sha256": "b6dd7cb280736a5c93af1590f66f68e5655abc1b5aa83de78c14aa0fa6142fa0",
+  "completed_nodes": 10000001181,
+  "diagnostics": {
+    "coverage_start": [
+      0,
+      0,
+      0
+    ],
+    "decisions_by_street": [
+      118881621,
+      430896804,
+      1369587893,
+      3727003375
+    ],
+    "entries": 259040031,
+    "positive_average_mass_keys": 158680704,
+    "traverser_visits": 1907479411,
+    "traverser_visits_by_street": [
+      36741418,
+      136038821,
+      456576473,
+      1278122699
+    ],
+    "visits_histogram": {
+      "0": 81853830,
+      "1": 76131831,
+      "10-99": 25591453,
+      "100+": 2102841,
+      "2-9": 73360076
+    },
+    "zero_average_mass_keys": 100359327
+  },
+  "elapsed_seconds_including_writes": 7122.177532441,
+  "entries_per_completed_node": 0.025904000040737594,
+  "frozen_table": {
+    "discarded_traverser_visits_since_previous_save": 0,
+    "discarded_updates_since_previous_save": 0,
+    "interval_start_iteration": 3748218,
+    "missing_opponent_by_street": [
+      1287,
+      63727,
+      1743620,
+      25926730
+    ],
+    "missing_opponent_share_by_street": [
+      3.1509117813252534e-05,
+      0.00043093792831671104,
+      0.003745822712270391,
+      0.020834270042826324
+    ],
+    "missing_traverser_by_street": [
+      15567,
+      182513,
+      3272476,
+      29963691
+    ],
+    "missing_traverser_share_by_street": [
+      0.0008813816159319735,
+      0.0027626461146490647,
+      0.014535779821257146,
+      0.04744503830929462
+    ],
+    "opponent_decisions_by_street": [
+      40845320,
+      147879766,
+      465483856,
+      1244427088
+    ],
+    "state": null,
+    "streets": [
+      "preflop",
+      "flop",
+      "turn",
+      "river"
+    ],
+    "traverser_decisions_by_street": [
+      17662043,
+      66064560,
+      225132469,
+      631545301
+    ]
+  },
+  "iteration": 7869018,
+  "new_entries": 61125371,
+  "nodes_per_second_including_writes": 702032.477879885,
+  "nodes_since_previous_save": 4999999941,
+  "overshoot_nodes": 1181,
+  "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/10000000000/checkpoint.gz",
+  "process_rss_bytes_after_save": 25148727296,
+  "recent_nodes_per_second_including_writes": 702032.477879885,
+  "requested_nodes": 10000000000,
+  "status": "saved",
+  "stop_requested": false,
+  "version": 1,
+  "write_finished": 1792187257.0471087,
+  "write_seconds": 1743.90101351,
+  "write_started": 1792185513.1460946
+}

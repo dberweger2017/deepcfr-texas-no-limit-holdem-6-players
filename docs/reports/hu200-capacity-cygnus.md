@@ -1,11 +1,61 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Two seeds have saved20B; their final audits are pending.** Both completed10B recovery checkpoints (1421/1422) reproduce pre-shutdown compressed hashes exactly and pass every-row audits. Seed1302's10B checkpoint matches its known node/iteration identity; its full audit is still running before20B continuation. No failure or guard stop. No final evaluation hands yet.
+**All three rebuilt 10B saves pass every-row audits.** Seeds 1421/1422 exactly reproduce their pre-shutdown compressed checkpoint hashes; 1302 reproduces its recorded node/iteration identity. Two final 20B audits are active; 1302's continuation awaits the original disk reservation gate. No failure or guard stop. No final evaluation hands yet.
 
-October17,07:42Madrid snapshot: CPU59°C/VRM63.5°C,132.52GB available,158.37GB free NVMe,75MiB swap (74MiB growth over1MiB baseline, within256MiB guard). Two audits are active; full prospective output reservations currently limit further admission. Training/audits remain on the weekend forecast; report/archive target Monday19 evening, Tuesday20 upload contingency.
+October 17, 07:53 Madrid snapshot: CPU 59°C/VRM 63°C, 132.52 GB available, 179.64 GB free NVMe, 75 MiB swap (74 MiB growth over the 1 MiB baseline). Training/audits expected Saturday evening–Sunday morning, Sunday evening contingency. Report/archive target Monday 19 evening, Tuesday 20 upload contingency.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## All three rebuilt10B saves audited — October17,05:53UTC
+
+The new global10B milestone is independently verified against the owned native,
+byte-readback, every-row audit, exit0 job and retirement receipts. It supersedes
+the earlier partial snapshot, which had1302's audit pending. Rebuilt1421/1422
+compressed checkpoint SHA256s exactly match their complete pre-shutdown saves.
+1302 matches its recorded10,000,000,240 nodes/iteration7,864,201; its original
+partial file has no complete-byte reference hash. All three remain unfrozen.
+[Verification and byte-identical source receipts](hu200-capacity-cygnus-artifacts/milestone-10b-verification.json).
+
+| Seed | Completed nodes | Entries | Mean visits/key | Zero visits | Zero average mass |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2026101302 | 10,000,000,240 | 257,683,983 | 7.4016 | 31.515% | 38.687% |
+| 2026101421 | 10,000,000,620 | 258,980,747 | 7.3639 | 31.583% | 38.775% |
+| 2026101422 | 10,000,001,181 | 259,040,031 | 7.3636 | 31.599% | 38.743% |
+
+Over each5B→10B interval, traverser river missing share is4.581–4.745%, opponent
+river1.975–2.083%. [All streets/roles and exact counters](hu200-capacity-cygnus-artifacts/coverage-10b.csv).
+These are training coverage measurements. No final hands or playing result exists.
+
+Full10B audit durations are3h51m,4h11m and4h22m. Approved receipt-backed
+retirement removes68,083,458,565B across the three seeds: redundant10B current
+exports/temporary averages and predecessor5B training recoveries. Required5B
+averages and current10B recoveries remain; interrupted attempt trees remain.
+Fresh retained-file sizes/mtimes match audited pins. The event handling checks
+receipts/metadata; it does not claim another full model-byte readback.
+
+At05:53UTC two final20B audits run (1421/1422);1302's20B continuation awaits
+prospective output space. Owned135.322GB plus estimated remaining reservations
+43.154GB,20GB growth and50GB floor totals248.476GB of259GB, leaving10.524GB.
+The next native job needs20GB, so this pause follows the existing disk plan.
+No ad hoc launch, changed budget or new scientific attempt is introduced.
+
+CPU/VRM59/63°C, available132.520GB, free NVMe179.637GB, family RSS90.4MB;
+swap75MiB,74MiB above original baseline. Fan1/2/3 are808/1225/1240RPM.
+Recovery peaks remain69/83°C and75.336GB RSS; no stop/failure sample. Source
+c48e64ce stays clean/immutable; supervisor4325 and observer4367 are alive.
+Original clock hash and the single approved extension ledger match their pins.
+
+[Re-quoted ETA](hu200-capacity-cygnus-artifacts/eta-after-10b.json): remaining
+three full-cap audits project15.23 worker-hours using the slowest measured linear
+row rate, with two already in progress; allow4h for1302 native/load/save and4h
+additional admission delay. Training/audits expected Saturday17 evening–Sunday18
+morning Madrid, Sunday18 evening contingency. Complete report/archive target
+remains **Monday19 evening Madrid**, **Tuesday20 upload contingency**. Evaluation,
+upload and retained-copy cost still need measurement. The fixed training deadline
+October19 03:29:18UTC and evaluation24h are unchanged. Evaluation starts only
+after all three20B saves audit; all final outcomes remain behind the global
+independent replay/exact reproduction barrier.
 
 ## Morning progress — October17,05:42UTC /07:42Madrid
 

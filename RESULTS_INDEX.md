@@ -4122,7 +4122,7 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (approved common5B recovery running, October 16, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (rebuilt10B audited; final20B audits active, October 17, 2026)
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
@@ -4270,3 +4270,19 @@ saved20B and await final audits.1302 is finishing its10B audit. Native20B table
 counts301,153,954/301,153,964 reflect unchanged complete-iteration freezing.
 No terminal20B audit or final playing result claimed. Original disk reservations
 limit new admissions; no failure/stop/limit change. Deadline and ETA unchanged.
+
+PR301 October17,05:53UTC: [all three rebuilt10B audits verified](docs/reports/hu200-capacity-cygnus-artifacts/milestone-10b-verification.json),
+with byte-identical owned source metadata under `save-10b/`, native/checkpoint/export
+hashes, CRC/EOF/order/every-row validation, exit0 jobs and exact retirement paths.
+1421/1422 match pre-shutdown compressed hashes;1302 matches known nodes/iteration.
+[Every-street/role interval coverage](docs/reports/hu200-capacity-cygnus-artifacts/coverage-10b.csv).
+Approved redundant-file retirement totals68,083,458,565B;5B averages/current10B
+recoveries and all interrupted attempts remain. Two final20B audits are active,
+1302 continuation awaits original prospective disk reservations. CPU/VRM59/63°C,
+no stop/failure; clock/source unchanged. [Re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-10b.json)
+expects training/audits Saturday17evening–Sunday18morning, Sunday18evening contingency;
+report/archive target Monday19evening Madrid/Tuesday20upload contingency.
+Ignored coordinator `planning/{collect_status_20261017_10b.py,status-20261017-10b-collected.json,verify_10b_event.py,10b-event-source-collection.json,publish_10b_event.py}`
+are metadata evidence for final archival, excluding private endpoint files.
+No final hands/outcomes, new cloud archive acceptance or final unpacked retention
+copy yet. Existing bounded event task remains until complete closeout.
