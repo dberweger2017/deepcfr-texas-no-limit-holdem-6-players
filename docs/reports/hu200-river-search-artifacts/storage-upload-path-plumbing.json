@@ -1,0 +1,12 @@
+{
+  "phase": "storage-only-upload-receipt-plumbing",
+  "completed_transfers": 4,
+  "receipt_error": "ValueError: /research/... is not in the subpath of /mnt/data2tb/research-cloud/...",
+  "cause": "Deployed receipt implementation compares unresolved input paths lexically with its resolved cache root",
+  "repair": "Invoke the unchanged deployed tool with resolved real input paths; receipt existing transfers without retransmitting them",
+  "deployed_tool_modified": false,
+  "scientific_reruns": 0,
+  "deleted_files": 0,
+  "failure_logs_preserved": true,
+  "upload_acceptance_requires_separate_receipt": true
+}

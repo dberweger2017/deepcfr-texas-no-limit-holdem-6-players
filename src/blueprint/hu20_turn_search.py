@@ -82,11 +82,18 @@ class HU20TurnSearchPolicy:
         return self.config.decision_seconds is None and not self.continue_on_defect
 
     def __init__(self, blueprint, solver, config=TurnSearchConfig()):
+        self._validate_blueprint(blueprint)
+        self._initialize(blueprint, solver, config)
+
+    @staticmethod
+    def _validate_blueprint(blueprint):
         from src.blueprint.abstraction import EQUITY_SCHEMAS, MENU_V2_SCHEMAS
         if getattr(blueprint, "abstraction", None) in MENU_V2_SCHEMAS:
             raise ValueError("Search does not support menu-v2 schemas")
         if getattr(blueprint, "abstraction", None) in EQUITY_SCHEMAS:
             raise ValueError("K50 models are not yet supported by HU20 turn search blueprint ranges")
+
+    def _initialize(self, blueprint, solver, config):
         self.blueprint = blueprint
         self.abstraction = getattr(blueprint, "abstraction", None)
         self.raise_cap = getattr(blueprint, "raise_cap", None)
@@ -106,6 +113,18 @@ class HU20TurnSearchPolicy:
         self.live_solutions = {}
         self.live_turn_models = {}
         self.last_turn_source = {}
+
+    def _compile_tree(self, root, history, **kwargs):
+        return compile_tree(root, history, **kwargs)
+
+    def _opponent_lock(self, history, observed_action, deadline):
+        return None
+
+    def _supported_holdings(self, solution, view):
+        return solution.matrix(view.history).holdings
+
+    def _try_ancestor(self, history, bot_seat, previous):
+        return True
 
     def _key(self, history, bot_seat):
         locks=[value[2] for (seat,prior),value in self.played.items()
@@ -173,15 +192,16 @@ class HU20TurnSearchPolicy:
                                  for h in candidate.holdings]
         return bool(np.allclose(candidate.probabilities,expected,atol=2e-5,rtol=0))
 
-    def _complete_matrix(self,view,matrix):
+    def _complete_matrix(self,view,matrix,supported=None):
         """Define unsupported rows from base before consulting the played holding."""
         pairs=tuple(tuple(sorted(h)) for h in combinations((c for c in DECK if c not in view.board),2))
-        if set(pairs)==set(matrix.holdings):return matrix
+        supported = set(matrix.holdings) if supported is None else set(supported)
+        if set(pairs)==set(matrix.holdings) and set(pairs)==supported:return matrix
         base=self._base_matrix(view.history,pairs)
         actions={c.action:i for i,c in enumerate(matrix.menu)}
         rows=[]
         for h in pairs:
-            if h in matrix.holding_indices:rows.append(matrix.row(h))
+            if h in matrix.holding_indices and h in supported:rows.append(matrix.row(h))
             else:
                 row=np.zeros(len(matrix.menu))
                 for c,p in zip(base.menu,base.row(h),strict=True):
@@ -301,14 +321,15 @@ class HU20TurnSearchPolicy:
         root = round_root(history)
         previous = [(i, e) for i, e in enumerate(history) if i >= len(root)
                     and isinstance(e, ActionTaken)]
-        if previous:
+        if previous and self._try_ancestor(history, bot_seat, previous):
             prior = history[:previous[-1][0]]
             try:
                 solution = self._resolve(prior, bot_seat, deadline)
                 solution.matrix(history)
                 consistent=True
                 for index,event in previous:
-                    used=self._played_matrix(history[:index],bot_seat) if event.seat==bot_seat else None
+                    used=(self._played_matrix(history[:index],bot_seat) if event.seat==bot_seat
+                          else self._opponent_lock(history[:index], event.action, deadline))
                     if used is not None:
                         candidate=solution.matrix(history[:index])
                         if not self._matches_played(candidate,used):
@@ -329,6 +350,9 @@ class HU20TurnSearchPolicy:
             fixed = {}
             for index, event in previous:
                 if event.seat != bot_seat:
+                    matrix = self._opponent_lock(history[:index], event.action, deadline)
+                    if matrix is not None:
+                        fixed[line_key(betting_line(root, history[:index]))] = matrix
                     continue
                 prior = history[:index]
                 matrix=self._played_matrix(prior,bot_seat)
@@ -340,7 +364,7 @@ class HU20TurnSearchPolicy:
                         holdings = [h for h, w in ranges[bot_seat] if w > 0]
                         matrix = self._base_matrix(prior, holdings)
                 fixed[line_key(betting_line(root, prior))] = matrix
-            request = compile_tree(root, history, menu=self.config.menu,
+            request = self._compile_tree(root, history, menu=self.config.menu,
                 max_nodes=self.config.max_public_nodes, deadline=deadline,
                 fixed_menus={k: tuple(c.action for c in m.menu) for k, m in fixed.items()})
             request.update(threads=self.config.threads, compress=self.config.compress,
@@ -355,8 +379,8 @@ class HU20TurnSearchPolicy:
                 policy = np.zeros((len(node["actions"]), len(matrix.holdings)))
                 # Amounts are absolute raise-to; reconstruct the prior node for jam/kind.
                 prior = next(history[:i] for i, e in previous
-                             if e.seat == bot_seat and line_key(betting_line(root, history[:i])) == line_key(node["line"]))
-                prior_view = replay(prior, bot_seat, ())
+                             if line_key(betting_line(root, history[:i])) == line_key(node["line"]))
+                prior_view = replay(prior, replay(prior, 0, ()).actor, ())
                 old = {line_key([solver_action(prior_view, c.action)])[0]: i
                        for i, c in enumerate(matrix.menu)}
                 for a, token in enumerate(node["actions"]):
@@ -376,7 +400,11 @@ class HU20TurnSearchPolicy:
             self.stats["solves"] += 1
             self.records.append({"status": "completed", "public_history": public_identity(history),
                 "street": request["initial_street"], "range_coverage": coverage,
-                "frozen_hero_nodes": len(fixed), "seconds": monotonic() - started,
+                "frozen_hero_nodes": sum(e.seat == bot_seat for _, e in previous),
+                "frozen_opponent_nodes": sum(e.seat != bot_seat for _, e in previous)
+                    if any(e.seat != bot_seat and line_key(betting_line(root, history[:i])) in fixed
+                           for i, e in previous) else 0,
+                "seconds": monotonic() - started,
                 "request_identity": digest({k: v for k, v in request.items() if k != "seconds"})})
             return solution
         except (TimeoutError, MemoryError, ValueError, KeyError) as exc:
@@ -414,15 +442,18 @@ class HU20TurnSearchPolicy:
         try:
             solution = self._resolve(view.history, view.seat, deadline)
             matrix = solution.matrix(view.history)
+            supported = self._supported_holdings(solution, view)
             if query_kind=="play":
-                played_matrix=self._complete_matrix(view,matrix)
+                played_matrix=self._complete_matrix(view,matrix,supported)
                 self._check(deadline)
+            if tuple(sorted(view.hole_cards)) not in supported:
+                raise SolveFailure("unsupported_holding", "Holding has zero conditional reach")
             probabilities = matrix.row(view.hole_cards)
             for choice in matrix.menu:
                 view.legal_actions.validate(choice.action)
             self.stats[query_kind + ":search"] += 1
             if query_kind == "play":
-                self._remember_play(view,played_matrix,False,supported=matrix.holdings)
+                self._remember_play(view,played_matrix,False,supported=supported)
                 self._pin_live(view,solution=solution)
                 self.records.append({"status": "decision", "street": view.street.value,
                     "public_history": public_identity(view.history),
@@ -447,7 +478,7 @@ class HU20TurnSearchPolicy:
                 view.legal_actions.validate(choice.action)
             if query_kind=="play":
                 if cause=="unsupported_holding":
-                    self._remember_play(view,played_matrix,False,supported=matrix.holdings)
+                    self._remember_play(view,played_matrix,False,supported=supported)
                     self._pin_live(view,solution=solution)
                 else:
                     pairs=tuple(tuple(sorted(h)) for h in combinations((c for c in DECK if c not in view.board),2))

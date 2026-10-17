@@ -1,0 +1,155 @@
+{
+  "binary_sha256": "5b5b1e36023c81d0ad70af5981d012232dcd2dac420a8676d70bd36fc41c4bd0",
+  "note": "Fixed small ranges establish integration, not full-range convergence or cost",
+  "rows": [
+    {
+      "action_ev_error_chips": 0.0002628877418828779,
+      "constrained_reference": {
+        "best_response_gains_bb": [
+          0.2847903155923781,
+          0.48803804309075716
+        ],
+        "exploitability_bb": 0.38641417934156763,
+        "exploitability_root_pot": 0.004830177241769595,
+        "profile_values_bb": [
+          28.430797226870425,
+          -28.43079722687042
+        ],
+        "zero_sum_error_bb": 3.552713678800501e-15
+      },
+      "inserted_raise_to": null,
+      "locked_reference_nodes": [],
+      "max_value_error_chips": 0.00013284329270391027,
+      "native": {
+        "current_ev_chips": [
+          -2843.07958984375,
+          2843.07958984375
+        ],
+        "event": "quality",
+        "exploitability_pct_pot": 0.48301849365234373,
+        "law": "search",
+        "mes_ev_chips": [
+          -2794.27587890625,
+          2871.558837890625
+        ],
+        "solver_peak_rss_bytes": 141328384
+      },
+      "nodes": 2241,
+      "repeat_max_absolute_error": 0.0,
+      "unrestricted_reference": {
+        "best_response_gains_bb": [
+          0.2847903155923781,
+          0.48803804309075716
+        ],
+        "exploitability_bb": 0.38641417934156763,
+        "exploitability_root_pot": 0.004830177241769595,
+        "profile_values_bb": [
+          28.430797226870425,
+          -28.43079722687042
+        ],
+        "zero_sum_error_bb": 3.552713678800501e-15
+      }
+    },
+    {
+      "action_ev_error_chips": 8.529450587957399e-05,
+      "constrained_reference": {
+        "best_response_gains_bb": [
+          0.07988649917119872,
+          0.09858595969799921
+        ],
+        "constrained_mean_response_gain_bb": 0.08923622943459897,
+        "constrained_mean_response_gain_root_pot": 0.001115452867932487,
+        "profile_values_bb": [
+          28.621667982163615,
+          -28.621667982163615
+        ],
+        "zero_sum_error_bb": 0.0
+      },
+      "inserted_raise_to": 7333,
+      "locked_reference_nodes": [
+        0
+      ],
+      "max_value_error_chips": 0.000391503438095242,
+      "native": {
+        "current_ev_chips": [
+          -2862.166748046875,
+          2862.1669921875
+        ],
+        "event": "quality",
+        "exploitability_pct_pot": 0.11154327392578126,
+        "law": "search",
+        "mes_ev_chips": [
+          -2852.30859375,
+          2870.155517578125
+        ],
+        "solver_peak_rss_bytes": 141377536
+      },
+      "nodes": 2253,
+      "repeat_max_absolute_error": 0.0,
+      "unrestricted_reference": {
+        "best_response_gains_bb": [
+          0.07988649917119872,
+          23.048587612247218
+        ],
+        "exploitability_bb": 11.564237055709208,
+        "exploitability_root_pot": 0.14455296319636513,
+        "profile_values_bb": [
+          28.621667982163615,
+          -28.621667982163615
+        ],
+        "zero_sum_error_bb": 0.0
+      }
+    },
+    {
+      "action_ev_error_chips": 0.0003108027572125138,
+      "constrained_reference": {
+        "best_response_gains_bb": [
+          0.10392078429785911,
+          0.10013533816703557
+        ],
+        "constrained_mean_response_gain_bb": 0.10202806123244734,
+        "constrained_mean_response_gain_root_pot": 0.0012753507654055917,
+        "profile_values_bb": [
+          28.599995272164396,
+          -28.599995272164392
+        ],
+        "zero_sum_error_bb": 3.552713678800501e-15
+      },
+      "inserted_raise_to": 12000,
+      "locked_reference_nodes": [
+        0
+      ],
+      "max_value_error_chips": 0.00033472526411060244,
+      "native": {
+        "current_ev_chips": [
+          -2859.99951171875,
+          2859.99951171875
+        ],
+        "event": "quality",
+        "exploitability_pct_pot": 0.12753448486328126,
+        "law": "search",
+        "mes_ev_chips": [
+          -2849.986328125,
+          2870.391845703125
+        ],
+        "solver_peak_rss_bytes": 141295616
+      },
+      "nodes": 2247,
+      "repeat_max_absolute_error": 0.0,
+      "unrestricted_reference": {
+        "best_response_gains_bb": [
+          0.10392078429785911,
+          23.105888887122553
+        ],
+        "exploitability_bb": 11.604904835710206,
+        "exploitability_root_pot": 0.14506131044637757,
+        "profile_values_bb": [
+          28.599995272164396,
+          -28.599995272164392
+        ],
+        "zero_sum_error_bb": 3.552713678800501e-15
+      }
+    }
+  ],
+  "status": "passed"
+}

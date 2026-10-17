@@ -1,0 +1,13 @@
+{
+  "all_member_size_sha256_readback": true,
+  "archive": "hu200-river-search-optimization-administration-20261017.zip",
+  "bytes": 110492,
+  "cloud_upload_accepted": false,
+  "logical_member_bytes": 485341,
+  "manifest_path": "optimization-administration-20261017/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "37f8e6a30672db5cea16e5ef11847af11ca01470b1e4673db4b353657e6ba0f8",
+  "originals_retained": true,
+  "payload_members": 43,
+  "sha256": "8e7419281681b3c2bad14e4a886d0e139849b6dfee850282856551879ac7f16b",
+  "status": "locally-verified"
+}

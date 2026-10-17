@@ -1,0 +1,15 @@
+{
+  "status": "verified-uncompressed-and-zip",
+  "at": "2026-10-16T22:56:16.250225+00:00",
+  "archive": "hu200-river-search-optimization-M4-20261017.zip",
+  "archive_bytes": 2359632223,
+  "archive_sha256": "d4688e3feabc1998f812911204242995fa62a6e1e2c3af4b1a30729a69349021",
+  "manifest_path": "optimization-20261017/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "fba42a1a74289a5db54a992f00651491ff5f5d61d46bd0cc145826dbbe6be1a4",
+  "payload_members": 1507,
+  "logical_member_bytes": 19478922634,
+  "uncompressed_disk_sha256_readback": true,
+  "zip_member_sha256_readback": true,
+  "originals_retained": true,
+  "cloud_upload_accepted": false
+}

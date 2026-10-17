@@ -1,0 +1,10 @@
+{
+  "all_members_size_sha256_readback": true,
+  "archive": "hu200-river-search-cost-administration-20261016.zip",
+  "bytes": 32359,
+  "cloud_upload_accepted": false,
+  "manifest_path": "administration/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "1dc5cf5319a8e6ed3d8d277e4f17741557849373cf6dbe4bd0510002be34f918",
+  "members": 12,
+  "sha256": "8464d1ec8bfa5cfb68d62d4696e622656bcef43e124a09ef6fa3f2d4bf6edb24"
+}

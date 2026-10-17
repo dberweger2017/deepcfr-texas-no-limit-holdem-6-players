@@ -1,0 +1,50 @@
+{
+  "at": 1792218684.082177,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/hu200-river-search",
+      "headRefOid": "5b6b2f6c1ca7d5989deb29cf62345755e1afd839",
+      "number": 317,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/317"
+    },
+    {
+      "headRefName": "report/slumbot-aivat-real-runs",
+      "headRefOid": "841cbc0ee4ef1533058c460a439e5dc4ac59609d",
+      "number": 316,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/316"
+    },
+    {
+      "headRefName": "feature/hu200-capacity-cygnus",
+      "headRefOid": "7fb3057ea4eaaa2b4d35f3dfb11179033a9b2e37",
+      "number": 301,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/301"
+    }
+  ],
+  "pr": 317,
+  "roots": [
+    20261017317100,
+    20261017317101,
+    20261017317102,
+    20261017317103,
+    20261017317104,
+    20261017317105,
+    20261017317106,
+    20261017317107,
+    20261017317900,
+    20261017317901,
+    20261017317902,
+    20261017317903,
+    20261017317904,
+    20261017317905,
+    20261017317906,
+    20261017317907
+  ],
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads",
+  "source_refs": {
+    "main": "f0165a6f7ba7575b5c5849f4f1b887ec41ce47ad",
+    "pr301": "7fb3057ea4eaaa2b4d35f3dfb11179033a9b2e37",
+    "pr316": "841cbc0ee4ef1533058c460a439e5dc4ac59609d"
+  }
+}

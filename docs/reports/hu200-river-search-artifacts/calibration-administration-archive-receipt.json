@@ -1,0 +1,15 @@
+{
+  "status": "verified-uncompressed-and-zip",
+  "at": "2026-10-17T06:57:29.374344+00:00",
+  "archive": "hu200-river-search-calibration-administration-20261017.zip",
+  "archive_bytes": 466679,
+  "archive_sha256": "6a2bf2fa3968d2be8cc3635dd167af7a729b7d3ea67aeded8aab7b3ac25f7f43",
+  "manifest_path": "calibration-administration-20261017/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "ae7416c78c9450fb8e01a815dd1853b46b219392601a3f35d648ca1560764a04",
+  "payload_members": 112,
+  "logical_member_bytes": 1121565,
+  "uncompressed_disk_sha256_readback": true,
+  "zip_member_sha256_readback": true,
+  "originals_retained": true,
+  "cloud_upload_accepted": false
+}

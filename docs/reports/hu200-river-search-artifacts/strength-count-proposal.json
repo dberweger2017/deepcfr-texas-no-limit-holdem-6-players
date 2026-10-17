@@ -1,0 +1,60 @@
+{
+  "concurrency_measured": false,
+  "concurrency_storage_admitted": false,
+  "cost_fixed_sample_complete_mean_seconds": 5.2905007794165995,
+  "cost_sha256": "09d5be58f5658318212bcfb133a2ec1e3e4a5b3f5ca99a66ebac8795aac7ff2c",
+  "counts_owner_approved": false,
+  "disk_free_m4_bytes": 20988583936,
+  "fixed_sample_full_evidence_bytes": 4869006899,
+  "full_evidence_bytes_per_decision": 202875287.45833334,
+  "historical_blend_river_decisions_per_hand": [
+    0.38233184814453125,
+    0.38982391357421875,
+    0.3899078369140625
+  ],
+  "historical_sd_bb100": 879.3558501872744,
+  "historical_summary_sha256": "7dd99e0a726b73c3185123c5e04825e54cf07ae9e30d27ebe6fcd5049f0ba31a",
+  "no_strength_hands": true,
+  "normal_approximation_80power_required_blocks": 60693,
+  "options": [
+    {
+      "approximate_power_for_plus10_under_historical_variance": 0.829252993804953,
+      "assumed_searched_decisions": {
+        "direct": 51106.0,
+        "panel": 14336,
+        "total": 65442.0
+      },
+      "direct_duplicate_blocks": 65536,
+      "direct_minimum_effect_80power_bb100": 9.623399809944647,
+      "direct_primary_hands": 131072,
+      "full_native_evidence_bytes_projection": 13276564561848.25,
+      "name": "historical-proxy-80-percent",
+      "panel_paired_blocks_per_script": 1024,
+      "panel_primary_hands": 28672,
+      "single_worker_seconds_with_25percent_headroom": 432776.1900082264
+    },
+    {
+      "approximate_power_for_plus10_under_historical_variance": 0.17737426649146604,
+      "assumed_searched_decisions": {
+        "direct": 6388.25,
+        "panel": 3584,
+        "total": 9972.25
+      },
+      "direct_duplicate_blocks": 8192,
+      "direct_minimum_effect_80power_bb100": 27.21908505472477,
+      "direct_primary_hands": 16384,
+      "full_native_evidence_bytes_projection": 2023123085356.3647,
+      "name": "smaller-time-option",
+      "panel_paired_blocks_per_script": 256,
+      "panel_primary_hands": 7168,
+      "single_worker_seconds_with_25percent_headroom": 65947.74549692147
+    }
+  ],
+  "panel_frequency_assumption": "one searched decision per hand in the search arm; two search-arm hands per paired block; not measured for this search",
+  "planning_direct_rate": 0.3899078369140625,
+  "runtime_limitations": "Spot sample is outcome-blind and stratified, not frequency representative; historical frequencies and variance are planning proxies. Search can change both. Replay/reproduction setup, failures and I/O require the declared 25 percent allowance and final admission.",
+  "source": "214695a3e2fed08bac871d3b3f500c54255143f5",
+  "status": "proposal-only-no-hands",
+  "unchanged_m4_disk_floor_bytes": 17179869184,
+  "variance_basis": "maximum observed independent direct duplicate-block SD across PR306 blend-vs-seed matches; not a measured search-vs-blend variance"
+}

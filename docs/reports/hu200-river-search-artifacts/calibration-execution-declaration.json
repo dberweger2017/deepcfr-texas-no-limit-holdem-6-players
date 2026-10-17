@@ -1,0 +1,63 @@
+{
+  "binary_sha256": "9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914",
+  "budget_seconds": 7200,
+  "calibration_excluded_from_finals": true,
+  "config": {
+    "cache_entries": 2,
+    "compress": false,
+    "decision_seconds": 120,
+    "iterations": 50,
+    "max_public_nodes": 300000,
+    "memory_budget_bytes": 2147483648,
+    "menu": "native",
+    "opponent_likelihood_floor": 0,
+    "threads": 6
+  },
+  "direct_blocks": 128,
+  "disk_admission": {
+    "basis": "fixed24 retained bytes per decision times 1152; prospective estimate, usual disk guard unchanged",
+    "failure_margin_bytes": 536870912,
+    "floor_bytes": 17179869184,
+    "measured_free_bytes": 21108305920,
+    "per_worker_transient_bytes": 242746073,
+    "projected_decisions": 1152,
+    "projected_retained_bytes": 2607332112,
+    "required_free_bytes": 21052310427
+  },
+  "final_hands_authorized": false,
+  "gates": {
+    "concurrency": {
+      "path": "concurrency-3/summary.json",
+      "sha256": "de736db7904d6eea2128506e434a3076982719dd371243f4558c1d28882a85f3"
+    },
+    "cost": {
+      "path": "cost-01/summary.json",
+      "sha256": "50719c44886ac31dd6819cb436a8c45392a78456d76b499ccefd5d8d5701d182"
+    },
+    "parity": {
+      "path": "parity-01/summary.json",
+      "sha256": "475d2c60bd7340a69bab0b3889569ddd703962957f73acaf9d537c219df930e8"
+    }
+  },
+  "model_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "panel_blocks": 32,
+  "performance": {
+    "chosen_concurrent_mean_seconds": 6.522483390708051,
+    "sequential_mean_seconds": 5.462228548541286
+  },
+  "phase": "fixed-calibration-not-final",
+  "qualified_search_source": "5b6b2f6c1ca7d5989deb29cf62345755e1afd839",
+  "root_reservation_sha256": "c3b07f403b594ae6c5f6d7c655718b84ab7a8fe9c05359dfbc77f13b42ff3f6b",
+  "roots": {
+    "check_call": 20261017317102,
+    "direct": 20261017317100,
+    "half_pot_pressure": 20261017317106,
+    "loose_aggressive": 20261017317104,
+    "matched_pot_pressure": 20261017317107,
+    "pot_pressure": 20261017317105,
+    "random": 20261017317101,
+    "tight_aggressive": 20261017317103
+  },
+  "source": "5b6b2f6c1ca7d5989deb29cf62345755e1afd839",
+  "workers": 3
+}

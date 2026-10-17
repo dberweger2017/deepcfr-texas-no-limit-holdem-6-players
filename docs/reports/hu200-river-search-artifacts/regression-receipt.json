@@ -1,0 +1,11 @@
+{
+  "failure": null,
+  "machine": "Apple M4, 16 GiB",
+  "peak_family_rss_bytes": 573816832,
+  "reasons": [],
+  "returncode": 0,
+  "samples": 8,
+  "status": "complete",
+  "tests_passed": 118,
+  "wall_seconds": 35.23642921447754
+}

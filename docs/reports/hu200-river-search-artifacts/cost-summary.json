@@ -1,0 +1,46 @@
+{
+  "all_search_work_completed": true,
+  "changed_actions": 11,
+  "conditional_model_ev_delta_chips": {
+    "mean": 59.023366001875544,
+    "median": 2.436534348467646,
+    "scope": "hypothetical solved-opponent continuation; not realized strength"
+  },
+  "decisions": 24,
+  "fallback_decisions": 0,
+  "host_memory_definition": "psutil.virtual_memory().available; available includes reclaimable memory",
+  "latency_target_met": false,
+  "memory_target_met": true,
+  "minimum_host_available_bytes": 5579259904,
+  "native_solves": 48,
+  "no_automatic_budget_weakening": true,
+  "no_strength_hands": true,
+  "peak_family_rss_bytes": 4411490304,
+  "phase_total_seconds": {
+    "adapter_transport_seconds": 223.62344633782084,
+    "complete_seconds": 427.8090906669968,
+    "native_process_seconds": 142.732041076,
+    "native_seconds": 366.3554874138208,
+    "phase_opponent_locks_seconds": 6.20540991704911,
+    "phase_ranges_seconds": 14.258896958781406,
+    "phase_tree_seconds": 24.522983541188296
+  },
+  "physical_memory_bytes": 17179869184,
+  "physical_minus_family_bytes": 12768378880,
+  "research_status": "cost target failed; owner decision pending; strength not declared/run",
+  "search_budget_unchanged": true,
+  "seconds": {
+    "max": 39.935557749995496,
+    "p50": 15.02724804150057,
+    "p95": 36.794921016905555
+  },
+  "source": "11fa4fa4",
+  "status": "complete",
+  "strength_hands": 0,
+  "successful_decisions_missing_ev": 0,
+  "telemetry_target_met": true,
+  "tree_nodes": {
+    "max": 9651,
+    "min": 2121
+  }
+}

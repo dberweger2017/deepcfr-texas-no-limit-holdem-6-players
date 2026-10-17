@@ -1,3 +1,203 @@
+## PR317 — HU200 river search, calibration complete; finals pending
+
+Latest: evidence-retention source `5b6b2f6c` passes the same24 parity and amended
+10 s gate at p95 **9.834 s**, with two/three-worker parity/memory measurements.
+The owner-approved fixed calibration, source `d0849fca`, completes **352 blocks /
+1,152 primary hands**, all replayed and reproduced, in **604.32 s from the
+original clock**, including launch repair. **202 searched decisions, 67 changed
+actions, zero fallbacks/timeouts/missing EVs.** The M4 is released **October17
+at08:49:03Madrid**. Final hands remain zero; [final-count/venue/storage proposal](docs/hu200-river-search-final-proposal.md)
+recommends131,072direct +2,048per script (M4 **73.4 h**, conditional/unmeasured
+cygnus trainer proxy **448.6 h**, after#301), pending owner choice and admission.
+All old failures and roots remain protected; no Slumbot play.
+
+**Earlier cost-gate record:** [Draft PR317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), scientific
+source `11fa4fa424ec577cf8492338fd61c60ed7f3c97c`.
+[Report](docs/reports/hu200-river-search.md),
+[prospective protocol](docs/hu200-river-search.md). All correctness, search,
+cache verification and cost evaluation run on the 16 GiB M4. The fixed 24-spot
+pilot completes with zero fallback/timeouts; p50 15.03 s, p95 36.79 s, max
+39.94 s, peak family RSS 4.41 GB. The original 3-second gate fails; final strength remains
+undeclared and unrun. The owner selected lossless adapter engineering with
+full same 24 parity, then an amended 10-second gate and a count proposal before
+any strength hands. First parity passes; first amended cost still fails at
+p95 10.766536 s. Exact-source parser continuation now passes all24 parity and
+the amended cost gate: p95 9.648689 s, peak search-family RSS2.91 GB, minimum
+host available5.32 GB, zero fallback/missing actual EV. Original failures remain.
+At that earlier stage no concurrency or calibration hands had run. [Historical count/runtime/storage proposal](docs/hu200-river-search-strength-proposal.md). No Slumbot play.
+
+**Original local preservation; Drive acceptance now recorded below:**
+`hu200-river-search-cost-gate-M4-20261016.zip`, **6,510,687,952 bytes**, SHA256
+`d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8`.
+Embedded `ARCHIVE-MANIFEST.json`, SHA256
+`6f41214ac6acfceeb29d29536da1c85c2dac026a39ad394b643d1cd378fd584c`;
+833 payload members /19,486,271,362 uncompressed bytes all pass local size/SHA256
+readback. [Local receipt](docs/reports/hu200-river-search-artifacts/cost-archive-local-receipt.json).
+Archive retains complete pilot outputs and native profiles, both pilot attempts,
+earlier failures, reference/replay evidence, raw resource traces, frozen real
+input journals, verified play cache, external solver source/binaries and source
+provenance. The immutable #306 blueprint and K50 tables are dependencies indexed
+below, not duplicated here; [input hashes](docs/reports/hu200-river-search-artifacts/inputs.json).
+
+The verified ZIP is copied over the private cable to
+`bb128:/research/PR-317-HU200-river-search/`; all 833 payload members are
+uncompressed at identical member paths and pass independent disk size/SHA256
+readback. [Retention receipt](docs/reports/hu200-river-search-artifacts/cost-uncompressed-retention.json).
+Drive upload was initially deferred during Slumbot play. All seven archives
+are now accepted with IDs, MD5/size and complete local coverage in the
+[closeout receipt](docs/reports/hu200-river-search-artifacts/cloud-closeout-receipt.json). Remote path is
+`gdrive:PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip`;
+it is now an accepted restoration source.
+
+Closed archival guard streams and the cost report snapshot are additionally
+preserved in `hu200-river-search-cost-administration-20261016.zip`, 32,359 bytes,
+SHA256 `8464d1ec8bfa5cfb68d62d4696e622656bcef43e124a09ef6fa3f2d4bf6edb24`.
+Its embedded `administration/ARCHIVE-MANIFEST.json` has SHA256
+`1dc5cf5319a8e6ed3d8d277e4f17741557849373cf6dbe4bd0510002be34f918`.
+All 12 payload members pass local readback and the copied uncompressed bb128
+administrative files match. [Compact receipt](docs/reports/hu200-river-search-artifacts/cost-administration-local-receipt.json).
+This supplemental ZIP is also accepted in the closeout receipt; no science was
+run to prepare it.
+
+Retrieve the verified ZIP with
+`rsync bb128-lan:/research/PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip RESTORE_ROOT/`
+from the M4/private cable, or use `bb128:` for the administrative host. Verify
+the whole SHA256 above, extract the named member into a fresh ignored directory,
+then verify its size/SHA256 from the embedded manifest before use. Drive fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' '/research/PR-317-HU200-river-search/'`
+with acceptance recorded in the closeout receipt. M4 originals remain protected under
+`~/Local/hu200-river-search/`, including its ignored research and preservation
+directories, and the clean pilot worktree `~/Local/hu200-river-search-pilot/`.
+The optimization worktree `~/Local/hu200-river-search-optimized/` and all
+`results/hu200-river-search/optimization-*` roots are also protected. Raw
+optimization parity, failed amended cost, builds, tests and current validation
+remain on M4. Incremental preservation is recorded below. The ZIP
+above covers the original `11fa4fa4` cost study, not this later optimization.
+Keep #306's model/tables, both runtime environments and all shared Git intact.
+No cleanup or additional scientific run is authorized by this receipt.
+
+**Incremental engineering preservation, October 17:** source `214695a3`,
+including both completed optimization cost attempts, full same-24 parity,
+external compact exporter/binary, build/test failures and guards, the restart
+continuity audit and prospective count arithmetic. **1,507 payload files /
+19,478,922,634 bytes** are sealed and copied uncompressed to
+`bb128:/research/PR-317-HU200-river-search/optimization-20261017/`.
+Every payload member passes independent bb128 disk size/SHA256 readback.
+Manifest `optimization-20261017/ARCHIVE-MANIFEST.json`, SHA256
+`fba42a1a74289a5db54a992f00651491ff5f5d61d46bd0cc145826dbbe6be1a4`.
+ZIP **`hu200-river-search-optimization-M4-20261017.zip`**, **2,359,632,223 bytes**,
+SHA256 `d4688e3feabc1998f812911204242995fa62a6e1e2c3af4b1a30729a69349021`,
+passes every member's size/SHA256 readback on bb128.
+[Archive and uncompressed receipt](docs/reports/hu200-river-search-artifacts/optimization-archive-local-receipt.json).
+
+Closed archival/readout/continuity guards, the full audit, M4 release receipt,
+all 24 timing/EV rows and the prospective count proposal are additionally retained
+in **`hu200-river-search-optimization-administration-20261017.zip`**, **110,492 bytes**,
+SHA256 `8e7419281681b3c2bad14e4a886d0e139849b6dfee850282856551879ac7f16b`.
+Its embedded `optimization-administration-20261017/ARCHIVE-MANIFEST.json` has
+SHA256 `37f8e6a30672db5cea16e5ef11847af11ca01470b1e4673db4b353657e6ba0f8`.
+All 43 payload members /485,341 bytes pass ZIP and independent uncompressed
+bb128 disk readback at the same member paths.
+[Local receipt](docs/reports/hu200-river-search-artifacts/optimization-administration-local-receipt.json),
+[uncompressed receipt](docs/reports/hu200-river-search-artifacts/optimization-administration-retention.json).
+
+Both new ZIPs remain under the same bb128 PR root. Restore either with
+`rsync bb128-lan:/research/PR-317-HU200-river-search/ZIP_NAME RESTORE_ROOT/`,
+verify its whole SHA256, extract into a fresh ignored directory, and verify
+member sizes/SHA256s from its embedded manifest. Drive acceptance is complete under the shared-uplink rule: the
+`gdrive:PR-317-HU200-river-search/ZIP_NAME` destinations have accepted IDs/MD5 in the linked closeout receipt and are
+available restore sources. Drive fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' RESTORE_ROOT/`.
+Restore through the private cable with
+`rsync -a bb128-lan:/research/PR-317-HU200-river-search/optimization-20261017/ RESTORE_ROOT/`
+and verify the relative payload paths/sizes/SHA256s from that manifest.
+The original cost-gate ZIP supplies the original external upstream dependency;
+#306 supplies model/K50 inputs. Original M4 roots and the hard-linked incremental
+preservation staging root remain protected; no original has been removed.
+
+The preservation guard completed successfully; a nonblocking common-lock check
+confirmed availability at **20:58:47 UTC /22:58 Madrid, October 16**. The M4
+reservation is released. [Guard receipt](docs/reports/hu200-river-search-artifacts/cost-preservation-guard.json).
+
+
+**Evidence-I/O/calibration preservation, October17:**
+`bb128:/research/PR-317-HU200-river-search/calibration-20261017/` contains
+**13,496 payload members /1,642,132,532 bytes**, with full ledgers/telemetry,
+outcome-independent selected bodies and all failures, every intermediate stop,
+fixed24 parity/cost/concurrency, all352 calibration blocks, verification barrier,
+frozen source/control/input provenance. All unpacked files and all ZIP members
+pass SHA256 readback. Archive **`hu200-river-search-calibration-M4-20261017.zip`**,
+**633,416,285 bytes**, SHA256
+`efa83610c98cbb4d8f93245d7472673fe5bb56f051eb310768ad08102733ad64`;
+embedded `calibration-20261017/ARCHIVE-MANIFEST.json`, SHA256
+`5a48332e0d228b50a6674868668863b76949fe6aaa387410f99a90148e426d85`.
+[Local readback receipt](docs/reports/hu200-river-search-artifacts/calibration-archive-receipt.json),
+[summary](docs/reports/hu200-river-search-artifacts/calibration-summary.json),
+[global verification barrier](docs/reports/hu200-river-search-artifacts/calibration-all-hands-verified.json),
+[release](docs/reports/hu200-river-search-artifacts/calibration-m4-release.json).
+
+The sealed source pins compact native binary SHA256
+`9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914`,
+restorable from the prior optimization ZIP member
+`optimization-20261017/research/optimization-01/external/harness/target/release/hu20-exact-flop-tool`.
+The original cost ZIP supplies the verified play cache and original upstream;
+#306 supplies the immutable blend SHA256
+`ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485`
+and pinned K50 tables. Calibration members are rooted at
+`calibration-20261017/research/calibration-02/`; exact paths/hashes are in the
+embedded manifest. Selected native bodies/requests are already losslessly gzip
+encoded research files, with original-byte SHA256 in each native receipt.
+
+Retrieve the ZIP via
+`rsync bb128-lan:/research/PR-317-HU200-river-search/hu200-river-search-calibration-M4-20261017.zip RESTORE_ROOT/`
+or `bb128:` for the administrative host; verify archive SHA256, extract to a
+fresh ignored directory, then verify required member hashes before use. The
+Drive destination is
+`gdrive:PR-317-HU200-river-search/hu200-river-search-calibration-M4-20261017.zip`;
+acceptance is complete in the deployed-tool closeout receipt. Drive
+fallback is `rclone copy 'gdrive:PR-317-HU200-river-search/' RESTORE_ROOT/`.
+All seven archives transferred serially from bb128 after Slumbot became idle;
+Drive MD5/size acceptance covers all 16,029 current local files. No Mac synced
+folder is written.
+M4 originals, hard-linked staging, shared inputs and open roots remain intact.
+Supplemental **`hu200-river-search-calibration-administration-20261017.zip`**
+retains the closed preservation/proposal guards, M4 release, final-count
+arithmetic and administrative/report source: **112 payload members /1,121,565
+bytes**, ZIP **466,679 bytes**, SHA256
+`6a2bf2fa3968d2be8cc3635dd167af7a729b7d3ea67aeded8aab7b3ac25f7f43`.
+Embedded `calibration-administration-20261017/ARCHIVE-MANIFEST.json`, SHA256
+`ae7416c78c9450fb8e01a815dd1853b46b219392601a3f35d648ca1560764a04`.
+Both ZIP and uncompressed bb128 files pass all SHA256 readback;
+[receipt](docs/reports/hu200-river-search-artifacts/calibration-administration-archive-receipt.json).
+Retrieve this ZIP by the same bb128/private-cable command and verify the above
+hash/manifest before extraction; its Drive fallback is the same PR317 folder
+with this ZIP name after upload acceptance. A storage-only symlink-path receipt
+failure and resolved-path recovery are additionally preserved and indexed at
+closeout; no deployed tool or research result changes.
+
+
+**Drive closeout accepted October 17:** [all seven objects, IDs/URLs, MD5s and
+local coverage](docs/reports/hu200-river-search-artifacts/cloud-closeout-receipt.json).
+All **16,029 current local files** have unchanged size/mtime receipt coverage;
+no uncovered/changed files. Acceptance is remote MD5/size plus local ZIP-member
+CRC32/size, complementing the separately verified SHA256 manifests; it is not a
+remote SHA256/member audit. No original has been removed.
+
+Latest [calibration ZIP](https://drive.google.com/file/d/1U2JH2J65ulvrg5YmyidWEh2VgwQ1D-Fm/view) has Drive MD5
+`8de72cd0ca01157d0712a7d79fd60959`. The [storage closeout ZIP](https://drive.google.com/file/d/1uUh-urUYsDfHjYUhkaw4RXs9pZenqZMR/view)
+retains the failed symlink-path receipt, unchanged-tool resolved-path recovery,
+closed logs/control and the pre-closeout acceptance snapshot: **13 payload
+members /4,050,673 bytes**, ZIP **343,720 bytes**, SHA256
+`68b44362546cdf01600680c10bad89797a110b43e75918df57c7a4172d385a5f`.
+Embedded `storage-closeout-20261017/ARCHIVE-MANIFEST.json`, SHA256
+`88591d968f7076f8430d045bf37621d5e070d53ad0abcbff205a120d2adf7f90`;
+all unpacked/ZIP SHA256 readback passes. Drive MD5
+`54382b6a362d8568ee667b3f7463fb0c`. [Readback receipt](docs/reports/hu200-river-search-artifacts/storage-closeout-archive-receipt.json),
+[path plumbing record](docs/reports/hu200-river-search-artifacts/storage-upload-path-plumbing.json).
+Uncompressed copies remain under the same bb128 root at their exact ZIP member
+paths. Restore any ZIP with the private-cable command above or
+`rclone copy 'gdrive:PR-317-HU200-river-search/' RESTORE_ROOT/`, verify its recorded
+whole SHA256, extract into a fresh ignored directory and verify needed member
+hashes before research. This closeout authorizes no open-PR cleanup or final play.
+
 ## PR306 — frozen HU200 three-seed blend run
 
 [PR306](https://github.com/dberweger2017/CFR-NLHE-6max/pull/306), completed fixed study;

@@ -1,0 +1,41 @@
+{
+  "owner_amendment_date": "2026-10-16",
+  "original_scientific_source": "11fa4fa424ec577cf8492338fd61c60ed7f3c97c",
+  "full_plan_sha256": "943c8a5fd7fa9fed1172629c3d74e3de3732fa833d957af558a54f2fdca4c1e5",
+  "sample": "same fixed24; no outcome, stratum, holding or menu selection changes",
+  "original_gate": {
+    "target_p95_seconds": 3,
+    "measured_p95_seconds": 36.794921016905555,
+    "status": "failed, retained unchanged"
+  },
+  "amended_gate": {
+    "target_p95_seconds": 10,
+    "minimum_host_available_bytes": 3000000000,
+    "minimum_physical_minus_family_rss_bytes": 3000000000,
+    "physical_memory_bytes": 17179869184
+  },
+  "unchanged_search": {
+    "iterations": 50,
+    "threads": 6,
+    "compress": false,
+    "menu": "native",
+    "opponent_likelihood_floor": 0,
+    "memory_budget_bytes": 2147483648,
+    "max_public_nodes": 300000,
+    "decision_seconds": 120,
+    "translation": [
+      512,
+      128
+    ]
+  },
+  "external_binary_sha256": "9e1efe275c2eab216e3af9da20d55dea9436e88aacb057a41b86b32c171cf914",
+  "transport": "hu20-profile-f64-v1; promoted f64 arrays, all nodes, strategies, values, masks and weights retained; serde_json arbitrary_precision disabled",
+  "ancestor_rule": "Skip a cold ancestor only when its next observed action is absent from the full native menu. Keep existing candidates and uncertified on-menu ancestors to preserve rare reusable policies.",
+  "parity_before_cost": "All24: identical final scientific requests, ranges/menu/locks; identical normalized finite strategy and EV bits and unavailable masks at every public node; identical raw profile values/weights; identical played completion/support, same-seed action and fresh replay without native work.",
+  "cost": "One fresh policy per fixed spot, sequential, all complete decision preparation/evidence/output measured; no partial profile or cheap fallback can qualify.",
+  "concurrency_if_sequential_passes": "Consider 2 then at most3 workers on the same24 spots, before strength, with aggregate simultaneous family RSS and host available memory. Admit only from measured capacity; retain all setup/contention cost. No reduction of per-search work.",
+  "strength": "No strength hands or roots. Propose counts, power assumptions, replay costs and elapsed M4 budget to owner before any strength hands, even below24h.",
+  "research_failures": "Retain any parity/cost failure. Fix only identified plumbing with append-preserving attempts; no strategy changes or outcome-based retuning.",
+  "concurrency_memory_admission": "Two workers: projected RSS twice sequential peak, historical and fresh host availability minus2GB must both leave3GB. Three:1.5 times two-worker peak RSS, host availability minus observed incremental host-use plus0.5GB reserve must leave3GB, checked again fresh. Family capacity min(13GiB,16GiB-3GB). All runs retain aggregate sampled memory and unchanged usual guards.",
+  "concurrency_stop": "Any parity/error sets shared stop, aborts barrier and cancels siblings via public preparation/native resource checks; no further spot starts. Admission binds plan/binary hashes of all source receipts."
+}

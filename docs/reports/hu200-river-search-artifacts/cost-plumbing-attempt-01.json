@@ -1,0 +1,22 @@
+{
+  "all_search_work_completed": false,
+  "decisions": 24,
+  "fallback_decisions": 24,
+  "host_memory_definition": "psutil.virtual_memory().available; available includes reclaimable memory",
+  "latency_target_met": true,
+  "memory_target_met": true,
+  "minimum_host_available_bytes": 6128992256,
+  "no_automatic_budget_weakening": true,
+  "no_strength_hands": true,
+  "peak_family_rss_bytes": 2197635072,
+  "physical_memory_bytes": 17179869184,
+  "physical_minus_family_bytes": 14982234112,
+  "seconds": {
+    "max": 2.9748702500364743,
+    "p50": 0.954921958502382,
+    "p95": 2.0144969517190465
+  },
+  "status": "complete",
+  "successful_decisions_missing_ev": 0,
+  "telemetry_target_met": true
+}

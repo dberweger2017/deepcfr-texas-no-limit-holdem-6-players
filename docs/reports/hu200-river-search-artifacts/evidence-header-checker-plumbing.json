@@ -1,0 +1,16 @@
+{
+  "classification": "checker plumbing; runtime RSS is not a scientific profile output",
+  "source": "1cca8a0fe490b960df7563bbf7d7b999e7cbe2b3",
+  "focused_checks_passed": 78,
+  "completed_native_solves": 1,
+  "cost_gate_run": false,
+  "strength_hands": 0,
+  "normalized_profiles_ev_masks_played_support_action_checks_before_stop": "passed at fixed spot 0",
+  "previous_source214_parity_header_sha256": "4a4d4c214470d691f83873449d62bbe1b30cb783ddad2ac08aa22449402ea6b5",
+  "previous_source214_cost_header_sha256": "4c524c533205849ba04bed7ab0338b228750cf5fc5b506d6af928b8a33b2068a",
+  "new_header_sha256": "b974b1762befb67f524f229c2e7655d1fb09f2595f45744b1209ff68e3563392",
+  "numeric_body_sha256_all_three": "fecc37b39a3a4c6d7d645cb057ad380a8ccba707c8b17966524ba1059f8722ff",
+  "numeric_body_bytes": 154626240,
+  "differing_old_header_field": "solver_peak_rss_bytes",
+  "repair": "Compare scientific header semantics excluding only runtime RSS; retain losslessly compressed headers. Recover the completed spot from the identical hash-verified numeric body and previously validated request/node metadata, without another native solve. Preserve failed guard and all original evidence."
+}

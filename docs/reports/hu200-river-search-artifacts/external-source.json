@@ -1,0 +1,16 @@
+{
+  "license": "AGPL-3.0-or-later; external harness and upstream remain outside the MIT repository",
+  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "build": "scripts/build_hu20_search_solver.sh on Apple M4; two build jobs; locked dependencies",
+  "changes": "After fixed iteration completion, optionally finalize conditional EV storage and export per-action values with each full holding profile. No iteration or strategy-selection change.",
+  "files_sha256": {
+    "harness/src/compact.rs": "5a5c52e47737d210df60c96ece4a887bb73ffa5e7cd637799c653e3aa443da7f",
+    "harness/src/main.rs": "329c609de0eea319cc6eaf38ef45e3ac0851085c923aa24e293797885588e7e7",
+    "harness/src/weighted.rs": "ad4e105d568f9af527db55b1a7ffb95296ab9cb98da174551189fb776978f5ab",
+    "harness/Cargo.toml": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd",
+    "harness/Cargo.lock": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
+  },
+  "binary_sha256": "5b5b1e36023c81d0ad70af5981d012232dcd2dac420a8676d70bd36fc41c4bd0",
+  "before_telemetry_binary_sha256": "395e0e75a0bb646025e1bf1c4f8f51f9abc3623faece4337856554540f4f7eab",
+  "retrieval": "Source, lockfile, binary and before-change snapshot will be included in this PR's final research archive; upload acceptance pending"
+}

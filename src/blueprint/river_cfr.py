@@ -29,7 +29,8 @@ def _visit(game: RiverGame, node_id: int, traverser: int,
            opponent_reach: np.ndarray, profile: Profile,
            deltas: Profile | None = None, weight: int = 1,
            zero_external: list[int] | None = None,
-           best_response: bool = False, check=None) -> np.ndarray:
+           best_response: bool = False, check=None,
+           locked_nodes: frozenset[int] = frozenset()) -> np.ndarray:
     if check is not None:
         check()
     node = game.nodes[node_id]
@@ -39,10 +40,11 @@ def _visit(game: RiverGame, node_id: int, traverser: int,
     if node.actor == traverser:
         actions = np.stack([
             _visit(game, child, traverser, opponent_reach, profile,
-                   deltas, weight, zero_external, best_response, check)
+                   deltas, weight, zero_external, best_response, check, locked_nodes)
             for child in node.children
         ], axis=1)
-        value = actions.max(axis=1) if best_response else np.sum(policy * actions, axis=1)
+        value = (actions.max(axis=1) if best_response and node_id not in locked_nodes
+                 else np.sum(policy * actions, axis=1))
         if deltas is not None:
             deltas[node_id] += weight * (actions - value[:, None])
             if zero_external is not None:
@@ -53,7 +55,7 @@ def _visit(game: RiverGame, node_id: int, traverser: int,
     for action, child in enumerate(node.children):
         value += _visit(game, child, traverser,
                         opponent_reach * policy[:, action], profile,
-                        deltas, weight, zero_external, best_response, check)
+                                deltas, weight, zero_external, best_response, check, locked_nodes)
     return value
 
 
@@ -76,8 +78,15 @@ def _stage_average(game: RiverGame, node_id: int, traverser: int,
                            weight, numer, denom)
 
 
-def profile_quality(game: RiverGame, profile: Profile) -> dict:
-    """Information-set best responses, summing hidden worlds before maximization."""
+def profile_quality(game: RiverGame, profile: Profile, *, locked_nodes=()) -> dict:
+    """Information-set responses, optionally retaining specified policy nodes.
+
+    A constrained response cannot change an earlier policy already used in a
+    hand. Report it separately from unrestricted exploitability diagnostics.
+    """
+    locked_nodes = frozenset(locked_nodes)
+    if not locked_nodes.issubset(profile):
+        raise ValueError("A locked reference node has no policy")
     values = []
     gains = []
     for seat in game.seats:
@@ -85,17 +94,21 @@ def profile_quality(game: RiverGame, profile: Profile) -> dict:
         reach = np.ones(len(game.holdings[game.seats.index(other)]), dtype=np.float64)
         value = float(_visit(game, 0, seat, reach, profile).sum())
         response = float(_visit(game, 0, seat, reach, profile,
-                                best_response=True).sum())
+                                best_response=True, locked_nodes=locked_nodes).sum())
         values.append(value)
         gains.append(max(0.0, response - value))
     exploitability = sum(gains) / 2
-    return {
+    result = {
         "profile_values_bb": values,
         "best_response_gains_bb": gains,
         "exploitability_bb": exploitability,
         "exploitability_root_pot": exploitability * game.big_blind / game.root_pot,
         "zero_sum_error_bb": abs(sum(values)),
     }
+    if locked_nodes:
+        result["constrained_mean_response_gain_bb"] = result.pop("exploitability_bb")
+        result["constrained_mean_response_gain_root_pot"] = result.pop("exploitability_root_pot")
+    return result
 
 
 @dataclass(slots=True)

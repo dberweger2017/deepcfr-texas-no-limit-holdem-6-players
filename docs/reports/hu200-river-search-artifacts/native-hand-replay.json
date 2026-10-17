@@ -1,0 +1,31 @@
+{
+  "actions": [
+    [
+      "check",
+      null
+    ],
+    [
+      "raise",
+      12000
+    ],
+    [
+      "fold",
+      null
+    ]
+  ],
+  "binary_sha256": "5b5b1e36023c81d0ad70af5981d012232dcd2dac420a8676d70bd36fc41c4bd0",
+  "fresh_replay_did_not_solve": true,
+  "native_solves": 2,
+  "replay_stats": {
+    "play:search": 2
+  },
+  "stats": {
+    "evictions": 1,
+    "live_solution_hits": 1,
+    "on_tree_queries": 1,
+    "play:queries:river": 2,
+    "play:search": 2,
+    "solves": 2
+  },
+  "status": "hand-replay-verified"
+}
