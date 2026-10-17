@@ -1,0 +1,281 @@
+{
+  "archive": "v055-confirmation-diagnostics-20261017.zip",
+  "bytes": 77186931,
+  "sha256": "b8a19db561a5c8255968356a08d7c90ae3aa502d57495934f7748993c1cd5668",
+  "manifest": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "ba7a00c8c634958a1dedafea77e3a9acfc29388668e0cd2eb7bed0e1818c2e29",
+  "payload_members": 400,
+  "all_members_read_back": true,
+  "all_uncompressed_payload_sha256_match": true,
+  "pr": 330,
+  "cache_root": "/research/PR-330-v055-confirmation-diagnostics",
+  "folder": "PR-330-v055-confirmation-diagnostics",
+  "drive_folder_id": "1ueATVOG6U3hgyjP5eKiMQfp4LW4nYrtW",
+  "drive_file_id": "1AvXlWYatfU7Pic1jLHJmeeIIEuLpVUdH",
+  "drive_md5": "1497f2d536f5b5bd051ff11d2b34ea28",
+  "remote_bytes": 77186931,
+  "uncompressed_files_and_zip_covered": 414,
+  "uncovered_files": [],
+  "changed_files": [],
+  "receipt_updated_utc": "2026-10-17T16:58:41Z",
+  "remote_verification": "Drive MD5/size acceptance; no remote SHA256/member audit or redownload",
+  "source": {
+    "source_revision": "fc19783d390c9850130b3d664667695ee7489fb6",
+    "pr": 330,
+    "source_tar": "source/source-final.tar",
+    "source_tree": "source/final/",
+    "models_loaded": false,
+    "training": false,
+    "new_play": false,
+    "scope": "30,000 confirmation card-only corrections and 70,000 public-action hands"
+  },
+  "drive_objects": {
+    "v055-confirmation-diagnostics-20261017.zip": {
+      "drive_file_id": "1AvXlWYatfU7Pic1jLHJmeeIIEuLpVUdH",
+      "bytes": 77186931,
+      "md5": "1497f2d536f5b5bd051ff11d2b34ea28"
+    },
+    "v055-confirmation-diagnostics-closeout-20261017.zip": {
+      "drive_file_id": "1BVqop1jQck1e2EJw28J1vVWH9sziVcsf",
+      "bytes": 11224,
+      "md5": "efe1d7d07bed9ab4401d3e4423c38334"
+    }
+  },
+  "closeout_archive": {
+    "archive": "v055-confirmation-diagnostics-closeout-20261017.zip",
+    "bytes": 11224,
+    "sha256": "6c44aef485abcdf04bd69452bb0115617f73c7aef61caef5fe4ab28b1e039502",
+    "manifest": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "20abaf1ee18c19a658ed1801393224a77a356dc796cedab4b9bf05e6c49bc524",
+    "payload_members": 11,
+    "all_members_read_back": true
+  },
+  "drive_folder_url": "https://drive.google.com/drive/folders/1ueATVOG6U3hgyjP5eKiMQfp4LW4nYrtW",
+  "receipt": {
+    "path": ".drive-receipt.json",
+    "bytes": 82499,
+    "sha256": "ef9a27551cd4f2b02f91918ff7f909b3e26a0112bef25648f7ea828b6ceba002",
+    "covered_files": 414,
+    "drive_objects": 2
+  },
+  "required_input_archives": {
+    "pr318": {
+      "name": "v055-blend-confirmation-20261017.zip",
+      "bytes": 15259085,
+      "sha256": "9b453e6073200476f91d39c4162a65f3513c61f7525ee4fc26295f7f41d1dfe1",
+      "manifest_sha256": "4b2449e1528604e3d44e8e97ee9cde88f8cd03d5672a409269d9538c5e1cb4e7",
+      "verified_members": 10,
+      "member": "inputs/v055-blend-confirmation-20261017.zip"
+    },
+    "pr304": {
+      "name": "hu200-v055-slumbot-confirmation-20261015.zip",
+      "bytes": 15256156,
+      "sha256": "51f4587dc3fec12a65537be51e27572c3f1eec147952c8ed383f1c7689c57137",
+      "manifest_sha256": "4c3d53ca809f9b03715aa0a3adb0edbfca5b1da32d822efc589baf3f83f35e1a",
+      "verified_members": 25,
+      "member": "inputs/hu200-v055-slumbot-confirmation-20261015.zip"
+    },
+    "pr316": {
+      "name": "slumbot-aivat-real-runs-perhand-20261017.zip",
+      "bytes": 2062452,
+      "sha256": "51a525a617eb90c83d746e6bfd26347fa47f93774b3d379c172a4e091ca298ee",
+      "manifest_sha256": "61a5d592f98015cd4ce264bbc3b45b8d7fd93aabf3abcb5776f8af7edb821943",
+      "verified_members": 9,
+      "member": "inputs/slumbot-aivat-real-runs-perhand-20261017.zip"
+    }
+  },
+  "required_journals": {
+    "inputs/pr318/account-a-seed-20261016055101-20261016T200159Z-5029/journal.jsonl": {
+      "decisions": 28353,
+      "hands": 10000,
+      "tail_sha256": "bdf46c54c1dbf6ede30415409c4e1d10d8bd72a3b9ec41a5531a9f5d44e60d9e",
+      "bytes": 89489088,
+      "sha256": "dba8d6f9192e835566cbbd2afddd210ab85b3c95b514ce599b706963e8f7dc23"
+    },
+    "inputs/pr318/account-b-seed-20261016055201-20261016T200159Z-5057/journal.jsonl": {
+      "decisions": 28188,
+      "hands": 10000,
+      "tail_sha256": "602be40d37307735fb7770ce4cfe784053bb712f69dba5a38afc86bdae2a01f6",
+      "bytes": 88887011,
+      "sha256": "e6d92cd25a77b169d33553e644507ec9b2d7541ae05330986052da615c7fbff9"
+    },
+    "inputs/pr318/account-c-seed-20261016055301-20261016T200200Z-5087/journal.jsonl": {
+      "decisions": 28323,
+      "hands": 10000,
+      "tail_sha256": "4013b22db3ec09b308652d94aa03a2162f540947b481a9d621b879bec721e94a",
+      "bytes": 89342497,
+      "sha256": "ad189898c70d9bf4080947242e4031859e3ec26dcf9b4928ada3d84dd467cce5"
+    },
+    "inputs/pr304/v055-runs/seed-2026101302-20261015T060148Z-2020882/journal.jsonl": {
+      "decisions": 759,
+      "hands": 271,
+      "tail_sha256": "e38a19eda875919c9cd4137a80e9aec2c4dbf5c9d838f26afadc912985af892c",
+      "bytes": 2377386,
+      "sha256": "1bfc13ea16b9c6e6c4b78e99bacce27b8f82a452ee321daee05e0bf89d9e449a"
+    },
+    "inputs/pr304/v055-runs/seed-2026101302-part2-20261015T162506Z-3872135/journal.jsonl": {
+      "decisions": 27067,
+      "hands": 9729,
+      "tail_sha256": "18bd4d500ced89511a5aa284628dfcb1d1a03f2b90dbc7306361be6d3b788d49",
+      "bytes": 85322039,
+      "sha256": "a5c675ae5c4896a1c421f399032a8fe7a447143e2cf714bd43f77868ca4f054e"
+    },
+    "inputs/pr304/v055-runs-pr278/seed-2026101421-20261015T060149Z-2020931/journal.jsonl": {
+      "decisions": 1231,
+      "hands": 431,
+      "tail_sha256": "e97481724e30b26027ed947f90a07346bb0ad2d8d69eb777f9044ab3231f59f1",
+      "bytes": 3835283,
+      "sha256": "f4049edb04ce18b625b0c685b01783c4e56f3ad835b28311455142d22e74b7aa"
+    },
+    "inputs/pr304/v055-runs-pr278/seed-2026101421-part2-20261015T162507Z-3872214/journal.jsonl": {
+      "decisions": 27283,
+      "hands": 9569,
+      "tail_sha256": "10c76b1c43c673ec8b1ea4f14e85ba3f462567e7ab03dc5279eb5a5649dc285a",
+      "bytes": 86016843,
+      "sha256": "44d719219437346f337619f749fbecc9b1271bb57a2a6a91de64213a94ff1113"
+    },
+    "inputs/pr304/v055-runs-pr278/seed-2026101422-20261015T060150Z-2020949/journal.jsonl": {
+      "decisions": 4087,
+      "hands": 1439,
+      "tail_sha256": "875bb482fe39617edc7d2ee365e59f8927f1dd913b8a212fed3f4ff8b7a0e7dd",
+      "bytes": 12821604,
+      "sha256": "3d853c1a382b435f348c11dd6bc8ee39fe7a71eff6f949011f6522ea12f285cd"
+    },
+    "inputs/pr304/v055-runs-pr278/seed-2026101422-part2-20261015T162132Z-3861600/journal.jsonl": {
+      "decisions": 24323,
+      "hands": 8561,
+      "tail_sha256": "467356e13299dd8144e76b6f1b994bd03da225d1fbb25924a433f4b14dfd248b",
+      "bytes": 76693628,
+      "sha256": "32011635d005fc7b17beb88b6de44531f1cc27c4cd0ce647f3ec3941f2079b1e"
+    },
+    "inputs/exploratory/prefix/journal.jsonl": {
+      "decisions": 23568,
+      "hands": 8300,
+      "tail_sha256": "ca6e64dec66e94233bf456885b8dc726c6926c55dc01b463e156791d47c592b8",
+      "bytes": 74416117,
+      "sha256": "b6924568c704df26f6c6ea03eef6cdda273146faf19e6dff819c84b153859b06"
+    },
+    "inputs/exploratory/part2/journal.jsonl": {
+      "decisions": 4985,
+      "hands": 1700,
+      "tail_sha256": "4c5d009335149b14ea7df97afbd4eef14e4c538c652485d7795f900b83a8c91c",
+      "bytes": 15748280,
+      "sha256": "96aad029ce818a587078a567fb527799c8dd1565f90c842d5caf06829c0fc03a"
+    }
+  },
+  "required_perhand": {
+    "outputs/m1/perhand-confirmation-a.jsonl": {
+      "bytes": 1519708,
+      "sha256": "7ce660a99cddafb582b8ff08673c074818a2b9c163467a743359bec0fd0c5d8f",
+      "hands": 10000
+    },
+    "outputs/m1/perhand-confirmation-b.jsonl": {
+      "bytes": 1517307,
+      "sha256": "9e4c469da411bd2c181b0e2c22ae473fb159edaa5dd7c10b5863475b583b0704",
+      "hands": 10000
+    },
+    "outputs/m1/perhand-confirmation-c.jsonl": {
+      "bytes": 1518823,
+      "sha256": "2c469d7f3bb1e580004ea241a349c60b02d1e214c434c9d4a9ecbe2bf32844e6",
+      "hands": 10000
+    },
+    "outputs/m1/perhand-confirmation-pooled.jsonl": {
+      "bytes": 4555838,
+      "sha256": "b1c991efc208628009f23a67513a4af2c22031173d7d1344991282b2b1f73c77",
+      "hands": 30000
+    },
+    "inputs/pr316/perhand-2026101302.jsonl": {
+      "bytes": 1867760,
+      "sha256": "99cd9a30ea76a6bd08bf61a42fda650767e5a1ecd2bc0850c4693e6561238e1a"
+    },
+    "inputs/pr316/perhand-2026101421.jsonl": {
+      "bytes": 1878806,
+      "sha256": "68441ecae0414e7a3e88f89c9b35a3fdb747d195be214ab9bd8d92a63b6d6c4b"
+    },
+    "inputs/pr316/perhand-2026101422.jsonl": {
+      "bytes": 1877663,
+      "sha256": "21193c256e866dc4d6858fd2033afe2650018c2e5801e1b980d14f2514ac2f89"
+    },
+    "inputs/pr316/perhand-blend.jsonl": {
+      "bytes": 1882530,
+      "sha256": "9be08873bca5438f02c86c6b897fc6669cce3dd440a9a33789788a4abd01700b"
+    }
+  },
+  "analysis_source_sha256": {
+    "src/arena/external/analysis.py": "b4b48b56b5cf0cb36a67c2dcdce73c577ba56d54acfa821101e3885a187551d1",
+    "src/arena/external/aivat.py": "eaeafc6b0d1819e6febfd936aba6b0a1156c8228b790ff77baa3fe33e4799455",
+    "src/arena/external/style.py": "f9adf1b110a6f0a2ef4304f8fb58a7a570b225b27554c09c7a131a2a288b0751",
+    "src/arena/external/journal.py": "b3d522c0c7432f19a477f9a200f84ede3552b0599e6db3357ebd0709adf49ee4",
+    "docs/reports/slumbot-aivat-real-runs/dump_aivat.py": "21d13c2659788c50376c7fc4e6c325de26084473133a860250cd54e90b8cc43d"
+  },
+  "failures": [
+    {
+      "stage": "retrieval",
+      "error": "ssh cygnus-x1: Host key verification failed.",
+      "resolution": "Existing bb128 SSH alias connects to hostname cygnus-x1; no SSH trust changes."
+    },
+    {
+      "stage": "AIVAT launch 1",
+      "error": "macOS spawn re-entered the unguarded dump wrapper; RuntimeError then BrokenProcessPool",
+      "results_produced": false,
+      "log": "failures/aivat-launch-1.log",
+      "resolution": "Keep the guarded driver as __main__; run wrapper under a distinct runpy name. Two-hand smoke passed before full restart."
+    },
+    {
+      "stage": "optional cache status preflight",
+      "error": "research_cache.py status did not return after more than three minutes",
+      "resolution": "Stopped only this task\u2019s status process (PID 75043); a separate SSH/df check confirms cygnus-x1 has 1.5 TB free. No upload, eviction or remote data mutation occurred."
+    },
+    {
+      "stage": "status display only",
+      "error": "notify expects non-empty text after a still-running SSH tool session returned no immediate stdout",
+      "resolution": "Read the returned SSH session to normal exit 0; calculations and transfer collector were unaffected. Future monitoring preserves pending session IDs rather than notifying empty output.",
+      "scientific_jobs_restarted": false
+    },
+    {
+      "stage": "output-transfer collector readiness check",
+      "error": "SSH readiness check returned exit 255",
+      "scientific_jobs_restarted": false,
+      "results_affected": false,
+      "resolution": "Preserve collector and traceback; retry SSH/scp connection and timeout failures with retained logs before resuming verified output collection."
+    },
+    {
+      "stage": "upload receipt 1",
+      "error": "ValueError: /research/...zip is not in the subpath of /mnt/data2tb/research-cloud/...",
+      "resolution": "Same immutable upload succeeded using the resolved ZIP path. Main object bytes unchanged.",
+      "evidence": "closeout/upload-symlink-path-failure.log; closeout/upload-resolved-path.log"
+    },
+    {
+      "stage": "main archive coverage",
+      "error": "Three nested input ARCHIVE-MANIFEST.json files skipped by basename filter",
+      "resolution": "All three exact files are covered by the complementary closeout ZIP; the builder now excludes only root control files. No scientific output changed.",
+      "evidence": "closeout/packaging-resolution.json; closeout/build_archive_fixed.py"
+    },
+    {
+      "stage": "final metadata assembly",
+      "error": "KeyError: 'ID' at folder['ID']; directory --stat omitted its ID",
+      "resolution": "Obtain the exact folder ID from rclone lsjson --dirs-only gdrive:, filtered by the PR folder name. Rerun succeeded; both objects match MD5/size and all 414 files match receipt size/mtime.",
+      "evidence": "this compact receipt; PR330 issuecomment-6237172521"
+    }
+  ],
+  "preservation": {
+    "raw_inputs_uncompressed": true,
+    "new_corrections_uncompressed": true,
+    "historical_corrections_uncompressed": true,
+    "originals_removed": false,
+    "main_archive_immutable": true,
+    "models_required": false,
+    "remote_archives_redownloaded": false
+  },
+  "retrieval": {
+    "cache": "scp -r bb128:/research/PR-330-v055-confirmation-diagnostics/ FRESH_DESTINATION/",
+    "drive": "rclone copy gdrive:PR-330-v055-confirmation-diagnostics/ FRESH_DESTINATION/",
+    "verify": "Verify both indexed whole ZIP SHA256s and embedded manifests before extracting or using members.",
+    "extract": "In a fresh destination: unzip -n v055-confirmation-diagnostics-20261017.zip; unzip -n v055-confirmation-diagnostics-closeout-20261017.zip. The second root manifest is skipped; its identical closeout/ARCHIVE-MANIFEST.json copy remains available.",
+    "reproduce": "source/final/docs/reports/v055-confirmation-diagnostics/REPRODUCE.md; use the calculation source revision above. The final packaging-only root-filter correction is retained at closeout/build_archive_fixed.py."
+  },
+  "packaging_fix_validation": {
+    "nested_input_manifest_preserved_and_read_back": true,
+    "source_manifest_sha256": "4b2449e1528604e3d44e8e97ee9cde88f8cd03d5672a409269d9538c5e1cb4e7"
+  }
+}

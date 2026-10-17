@@ -31,7 +31,7 @@ def main():
     members = []
     for path in sorted(root.rglob('*')):
         assert not path.is_symlink(), path
-        if not path.is_file() or path.name in ('.drive-receipt.json', 'ARCHIVE-MANIFEST.json', 'KEEP'):
+        if not path.is_file() or path in (root / '.drive-receipt.json', root / 'ARCHIVE-MANIFEST.json', root / 'KEEP'):
             continue
         members.append({'path': path.relative_to(root).as_posix(), 'bytes': path.stat().st_size,
                         'sha256': digest(path)})

@@ -113,4 +113,4 @@ One short entry per active line of work; details live in the linked reports. Sto
 
 - **HU200 frozen three-seed blend ([#297](https://github.com/dberweger2017/CFR-NLHE-6max/pull/297)), capacity stop, owner-authorized merge:** all three raw 20B checkpoints verify and reproduce their released averages exactly. The unchanged sequence-form rule yields 156,208,331 union keys; the first disk gate requires 74.47 GB free versus 63.33 GB available, an 11.14 GB shortfall. No full blend, cache or evaluation ran; the normalized-export stop remains preserved. Evidence archives, resource traces, failures and cleanup receipts are accepted and indexed. M4 released October 16 at 01:19 Madrid. No strength, release or default change; continuation needs a new owner decision. [Report](docs/reports/hu200-v055-blend.md).
 
-*Updated October 16, 2026.* Earlier entries, including storage receipts, are in [roadmap history](docs/roadmap-history.md#superseded-current-position-through-october-16-2026).
+*Updated October 17, 2026.* Earlier entries, including storage receipts, are in [roadmap history](docs/roadmap-history.md#superseded-current-position-through-october-16-2026).
