@@ -39,6 +39,9 @@ Completed checks:
 - Standalone stdlib verification passes for the blend and the separate collection
   of three averages **and three raw checkpoints**, with ordered parts at most
   1 GiB, pinned tables, recipe, identities and source/publication binding.
+  Fresh bundles from clean source `ea5301bb` verify all **49 assets** and all six
+  shipped documents byte for byte; both reject a wrong source and a request for
+  publication approval. [Review-bundle receipt](verification/review-bundles.json).
   The first complete reconstruction from prepared parts reproduces all three
   averages and both exact audited blend hashes. The original release model is unchanged.
 - Public documentation includes protocol-v2 qualification, the failed first
@@ -49,8 +52,10 @@ Still required before the packaging PR is ready:
 - Complete and preserve the second exact reconstruction with the integrated
   native readers; the first reconstruction does not substitute for this check.
 - Finish evidence archival and record its accepted restoration receipt.
-- Verify fresh bundles from the final documentation/source, run the staged
-  repository artifact guard and confirm green CI on the final PR commit.
+- Confirm final code and shipped-document source equivalence to the tested
+  sources and verified review bundles, run the staged repository artifact guard
+  and confirm green CI on the final PR commit. Publication always builds fresh
+  approved bundles from the owner's merge commit.
 
 The separate research pre-release is `hu200-frozen-20b-seeds`, never Latest.
 Publication requires the owner's packaging merge, publication-approved bundles,
