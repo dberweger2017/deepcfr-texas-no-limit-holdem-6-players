@@ -1,9 +1,12 @@
 # HU200 river search: amended cost gate passes; strength pending
 
 [PR #317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), October 17, 2026.
-**Draft; strength study not declared or run.** This is the completed cost-gate
-readout, not a final strength result or a release recommendation. The original latency failure remains below; the owner-amended 10-second gate
-now passes. The owner must approve strength counts before play and decides merge.
+**Draft; final strength study not declared or run.** The owner-approved disjoint
+128 direct plus seven by 32 calibration completed under its hard two-hour cap.
+This is a cost/engineering readout, not a final strength result or a release
+recommendation. The original latency failure remains below; the owner-amended
+10-second gate passes. The owner chooses final counts/venue before final hands
+and decides merge.
 
 ## Finding
 
@@ -247,3 +250,96 @@ counts. The proposal suggests 128 direct duplicate blocks and 32 paired blocks
 per each of seven scripts for that calibration; no such hands are authorized or
 played here. The much larger historical-proxy count/time/storage estimates are
 planning evidence, not a commitment to a five-day campaign.
+
+## Evidence retention and measured concurrency, October 17
+
+The owner approved evidence I/O plumbing before a separate variance calibration.
+The scientific-request SHA256 rule selects full native bodies independently of
+outcomes at a fixed 1% rate; every native failure retains its full generated
+body. Every decision retains full policy/support/fallback ledgers, telemetry
+and original-byte checksums. Retained requests, headers and selected/failed
+bodies are losslessly compressed. No range, menu, iteration, lock, game rule or
+solver calculation changes.
+
+All 24 fixed spots retain exact scientific-request, numeric-body, normalized
+probability/EV/mask, played-matrix/support/action and fresh-replay parity. Source
+`5b6b2f6c` measures sequential p50/p95/max **4.640/9.834/11.511 s**, peak family
+RSS **2,898,165,760 bytes**, minimum host available **6,221,905,920 bytes**;
+all 24 complete with zero fallbacks or missing EVs. The original 3 s failure
+and all earlier cost results remain unchanged. These empirical percentiles do
+not guarantee population latency.
+
+| Concurrent searches | Decisions/s | Complete-work wall | p95 per decision | Peak family RSS | Minimum host available | Full parity |
+|---|---:|---:|---:|---:|---:|---|
+|2|0.318685|75.309 s|10.711 s|4.719 GB|5.999 GB|24/24|
+|3|0.419357|57.231 s|11.510 s|6.279 GB|6.074 GB|24/24|
+
+The offline throughput choice is three workers, frozen before calibration
+outcomes. Each native solve still uses six threads; concurrency contention is
+reported separately from the sequential interactive cost gate. Fixed24 evidence
+is **54,319,419 bytes** for 35 native calls, including one selected full body;
+other tree/sample/failure distributions can require more storage.
+[Engineering readout](hu200-river-search-artifacts/evidence-io-engineering-readout.json).
+
+Intermediate plumbing stops remain preserved: runtime RSS fields made raw
+header hashes differ although scientific/numeric outputs matched; later the
+usual disk floor stopped a three-worker attempt before any completed spot.
+The corrected comparison excludes only runtime RSS semantics, while retaining
+original-byte checksums, and selected/failed bodies are also losslessly
+compressed with fresh disk admission. The owned-array diagnostic found no
+retained memory-map leak; the parser was unchanged. Completed native outputs
+were reused only after scientific input, raw numeric SHA and header semantics
+matched. Full24 parity precedes the final cost/concurrency measurements.
+
+The [prospective calibration protocol](../hu200-river-calibration-protocol.md)
+and pinned execution/continuation declarations precede any played calibration
+action. The initial evaluator callback wiring failure occurs before any action,
+hand or native solve; its repair and fixture setup correction pass all **84**
+focused M4 checks. The original absolute two-hour deadline is retained rather
+than restarted. Final hands remain zero.
+
+## Completed calibration; proposed finals, not a strength result
+
+All **352 blocks / 1,152 primary hands** replay and reproduce with fresh players
+and **zero native reproduction solves**, crossing the global checksum/identity
+barrier before readout. The original two-hour clock includes the launch repair:
+worker closure takes **604.32 s**. No completed research is rerun or extended.
+
+Three-worker peak family RSS is **10.326 GB**, minimum host available **6.033 GB**.
+All memory checks pass. There are **202 searched decisions, 67 changed actions,
+zero fallbacks/timeouts and zero missing successful EVs**. Full decision/EV and
+policy/failure evidence remains archived; calibration mean effects are withheld
+from variance planning, and its roots/deals stay excluded from finals.
+
+Direct block SD **1,086.84 BB/100**, normal-model 95% interval
+**[968.04, 1,239.15]**, upper one-sided 95% SD **1,212.92** gives the declared
+rounded recommendation: **131,072 direct blocks + 2,048 per each seven scripts**,
+approximately **84.7%** power for +10 BB/100 under that model. M4 compute forecast
+is **73.4 h** including local verification/setup and 25% headroom, or **87.4 h**
+using an upper block-cost projection. Cygnus remains unbenchmarked while #301
+computes: its pre-XMP trainer proxy gives **448.6 h**, with an explicitly
+conditional one-worker scenario range **184.6–448.6 h**, within eight busy threads.
+No final hand is authorized by those numbers.
+
+The panel pilot is sparse: pot_pressure has only **five searched decisions and
+two nonzero blocks**, and its projected seven-way halfwidth is about **117.3
+BB/100** at 2,048 blocks. This panel count is exploratory, not a per-opponent
++10 power claim. Zero observed SD on two panels does not exclude unobserved tails.
+The full SD uncertainty and every opponent are in the linked proposal/summary.
+
+[Final-count/venue/storage proposal](../hu200-river-search-final-proposal.md),
+[verified calibration summary](hu200-river-search-artifacts/calibration-summary.json),
+[barrier](hu200-river-search-artifacts/calibration-all-hands-verified.json),
+[calculated options](hu200-river-search-artifacts/calibration-final-count-proposal.json).
+The recommended evidence projection is **90.6 GB**, beyond M4 local admission;
+closed-block transfer/verified local retirement needs the owner's specific
+choice before implementation and qualification. No old research is removed.
+
+The M4 was released **October 17 at 08:49:03 Madrid**. The new **13,496-member,
+1.642 GB** uncompressed bb128 evidence and **633,416,285-byte** ZIP both pass all
+SHA256 readback checks, including every failure/partial/control/source pin.
+ZIP SHA256 `efa83610c98cbb4d8f93245d7472673fe5bb56f051eb310768ad08102733ad64`;
+manifest SHA256 `5a48332e0d228b50a6674868668863b76949fe6aaa387410f99a90148e426d85`.
+Drive acceptance and supplemental administration receipts are recorded separately
+in the index; no pending upload is treated as accepted. The PR stays draft for
+owner choice before final research and final-review readiness.

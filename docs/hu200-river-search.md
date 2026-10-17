@@ -201,3 +201,21 @@ unchanged. [Report](reports/hu200-river-search.md).
 The [strength-count proposal](hu200-river-search-strength-proposal.md) is not an
 approved final plan. No strength hands or fresh roots are consumed. Storage
 admission and owner-approved counts still precede a committed final declaration.
+
+## Owner-approved evidence retention and separate calibration
+
+On October 17 the owner approved the [evidence-I/O and calibration protocol](hu200-river-calibration-protocol.md):
+search unchanged, full ledgers/telemetry/checksums for every decision, full native
+bodies for a predeclared outcome-independent sample and all failures, then
+full24 parity and the same cost gate. Those gates pass at p95 9.834 s. Two/three
+workers also pass output/memory checks; three are selected from measured
+throughput before calibration outcomes.
+
+The calibration is exactly 128 direct duplicate blocks plus 32 paired blocks
+per each of seven scripts, fresh disjoint roots excluded from finals, with a
+hard two M4 hours including loading and all verification/readout. A launch
+callback plumbing repair precedes all actions and consumes the original clock.
+Propose final counts from measured variance with two runtime quotes: the M4 at
+its measured admitted concurrency, and cygnus-x1 only after #301 finishes within
+its eight-busy-thread heat limit. Any cygnus quote before a search benchmark is
+explicitly conditional. The owner chooses before any final hands.

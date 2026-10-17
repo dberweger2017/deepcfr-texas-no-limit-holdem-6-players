@@ -1,9 +1,15 @@
 # HU200 river search: proposed strength counts and resource admission
 
-October 17, 2026. **Proposal only: no strength hands, reserved roots or final
-strength declaration.** The owner requires approval of counts before any play.
-The unchanged-source amended cost gate passes; this does not admit a strength
-campaign whose time or storage exceeds the available resources.
+October 17, 2026. **Historical proxy proposal, superseded for final sizing by
+the owner-approved [fixed calibration](hu200-river-calibration-protocol.md).**
+The [measured final-count proposal](hu200-river-search-final-proposal.md) now recommends
+131,072 direct blocks plus 2,048 per script, pending owner choice and storage
+admission. The old options and storage failures below remain evidence of the original
+full-body design. They are not current admission claims. The evidence-retention
+gate now passes, two/three-worker throughput is measured, and the fixed
+128 direct plus seven by 32 calibration completed within its original two-hour
+cap. Calibration roots are reserved and excluded from finals. Final counts and
+venue remain the owner's decision before any final hands.
 
 ## Measured inputs and uncertainty
 

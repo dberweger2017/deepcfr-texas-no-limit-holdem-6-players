@@ -1,0 +1,48 @@
+{
+  "alternative_quote_scope": "approximately proportional to complete measured powered quote; no final hands",
+  "changed_actions": 67,
+  "current_m4_free_bytes": 19562930176,
+  "cygnus_search_benchmarked": false,
+  "fallbacks": 0,
+  "final_counts_owner_approved": false,
+  "final_storage_admitted": false,
+  "options": [
+    {
+      "approximate_effect_for80percent_power": 9.385979171177308,
+      "approximate_power_for_plus10": 0.8472895556938492,
+      "cygnus_hours_conditional_trainer_proxy": 448.64125837924433,
+      "cygnus_scenario_hours": [
+        184.59378787727422,
+        448.64125837924433
+      ],
+      "direct_blocks": 131072,
+      "evidence_bytes_projection": 90581865472.0,
+      "label": "powered recommendation",
+      "m4_blockcost_upper95_hours_with25percent_headroom": 87.39047480600223,
+      "m4_hours_with25percent_headroom": 73.3965828808807,
+      "paired_blocks_per_script": 2048,
+      "primary_hands": 319488
+    },
+    {
+      "approximate_effect_for80percent_power": 18.771958342354615,
+      "approximate_power_for_plus10": 0.32032151062838093,
+      "cygnus_hours_conditional_trainer_proxy": 112.16031459481108,
+      "cygnus_scenario_hours": [
+        46.148446969318556,
+        112.16031459481108
+      ],
+      "direct_blocks": 32768,
+      "evidence_bytes_projection": 22645466368.0,
+      "label": "approximately one-day M4 option; below requested power",
+      "m4_blockcost_upper95_hours_with25percent_headroom": 21.847618701500558,
+      "m4_hours_with25percent_headroom": 18.349145720220175,
+      "paired_blocks_per_script": 512,
+      "primary_hands": 79872
+    }
+  ],
+  "proposal_at": 1792219715.9363358,
+  "searched_decisions": 202,
+  "summary_sha256": "edfe21421f6e116f1a0a292119740f3a49565544e94d3c2ebed0fe4c4ac37c13",
+  "timeouts": 0,
+  "unchanged_disk_floor_bytes": 17179869184
+}

@@ -1,0 +1,27 @@
+{
+  "decision_work_wall_seconds": 57.23053258300206,
+  "decisions": 24,
+  "decisions_per_second": 0.41935657273838123,
+  "fallback_decisions": 0,
+  "memory_target_met": true,
+  "minimum_host_available_bytes": 6073991168,
+  "no_strength_hands": true,
+  "outputs_match_parity": true,
+  "peak_family_rss_bytes": 6278758400,
+  "per_search_iterations": 50,
+  "per_search_threads": 6,
+  "seconds": {
+    "max": 13.507322334000492,
+    "p50": 5.459950041498814,
+    "p95": 11.509781874997492
+  },
+  "setup_and_work_wall_seconds": 67.39389741600098,
+  "status": "complete",
+  "throughput_scope": "includes per-spot parity validation, evidence writes, and contention; excludes fixed input verification",
+  "worker_setup_seconds": [
+    8.957783292000386,
+    8.958386791997327,
+    8.958924500002468
+  ],
+  "workers": 3
+}

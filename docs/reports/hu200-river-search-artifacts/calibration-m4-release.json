@@ -1,0 +1,9 @@
+{
+  "at_unix": 1792219743.002508,
+  "at_utc": "2026-10-17T06:49:03.002579+00:00",
+  "status": "M4-released-after-calibration-and-cable-preservation",
+  "common_research_lock_verified_available": true,
+  "final_hands": 0,
+  "remaining_work": "bb128 archive/upload and M1 documentation; no M4 compute reserved",
+  "originals_retained": true
+}
