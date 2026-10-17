@@ -108,7 +108,7 @@ def main():
     with (OUT / 'perhand-confirmation-pooled.jsonl').open('x') as stream:
         for row in records['confirmation-pooled']:
             stream.write(json.dumps(row) + '\n')
-    rows, seat_rows, weights = [], [], []
+    rows, seat_rows, weights, split_seats = [], [], [], []
     for name, summary in summaries.items():
         a = summary['aivat']
         luck = a['card_luck_bb_per_100']
@@ -134,9 +134,14 @@ def main():
             seat_rows.append(entry)
         for half, w in enumerate(a['weights_by_half']):
             weights.append({'run': name, 'evaluation_parity': half, **{n: w[n] for n in NAMES}})
+            selected = records[name][half::2]
+            split_seats.append({'run': name, 'evaluation_parity': half, 'hands': len(selected),
+                                'big_blind': sum(r['client_pos'] == 0 for r in selected),
+                                'button': sum(r['client_pos'] == 1 for r in selected)})
     csv_file(OUT / 'aivat-estimates.csv', rows)
     csv_file(OUT / 'aivat-seats.csv', seat_rows)
     csv_file(OUT / 'aivat-weights.csv', weights)
+    csv_file(OUT / 'aivat-crossfit-seats.csv', split_seats)
     all_luck = [sum(r['corrections'][:4]) for name, rs in records.items()
                 if not name.endswith('-pooled') for r in rs]
     assert len(all_luck) == 70000

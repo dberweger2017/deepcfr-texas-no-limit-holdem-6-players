@@ -28,6 +28,7 @@ def main():
     estimates = {r['run']: r for r in csv.DictReader((OUT / 'aivat-estimates.csv').open())}
     seats = list(csv.DictReader((OUT / 'aivat-seats.csv').open()))
     weights = list(csv.DictReader((OUT / 'aivat-weights.csv').open()))
+    splits = list(csv.DictReader((OUT / 'aivat-crossfit-seats.csv').open()))
     result = ['## Card-only AIVAT', '',
               'Each account uses #316’s unchanged per-hand wrapper and the existing analyzer, without a model. '
               'The pool concatenates A, B, C and fits its own weights; it does not average account fits. '
@@ -45,7 +46,8 @@ def main():
         'The −50 reference is shown for context only: protocol v2 judges raw BB/100 and its verdict stands.', '',
         '![Cumulative card-only results](v055-confirmation-diagnostics/charts/aivat-cumulative.png)', '',
         'Cumulative curves show raw, plain cards and weighted cards. The pooled curve uses A, B, C concatenation, '
-        'not a global chronological order across simultaneous accounts.', '',
+        'not a global chronological order across simultaneous accounts. The weighted curve is retrospective, '
+        'using the full-sample cross-fitted weights.', '',
         '### Removed card luck and the zero-mean check', '',
         'Positive luck means favorable cards increased raw winnings; the correction is subtracted. '
         'The exact chance corrections have mean zero in expectation. These finite-sample intervals check compatibility '
@@ -70,6 +72,13 @@ def main():
         [LABELS[r['run']], r['evaluation_parity'], *[f'{float(r[k]):.3f}' for k in ('deal', 'flop', 'turn', 'river')]]
         for r in weights if r['run'].startswith('confirmation-')]), '',
         '![Cross-fitted card weights](v055-confirmation-diagnostics/charts/aivat-weights.png)', '',
+        'The [seat counts within each cross-fit half](v055-confirmation-diagnostics/tables/aivat-crossfit-seats.csv) '
+        'also matter when comparing runs. The unchanged analyzer alternates hands between halves; '
+        'uninterrupted sessions also alternate seats. The table below records the resulting confirmation splits. '
+        'Each half still uses only the other half’s fitted weights; no alternative splitter was run.', '',
+        table(['Run', 'Evaluation half', 'BB hands', 'Button hands'], [
+            [LABELS[r['run']], r['evaluation_parity'], r['big_blind'], r['button']]
+            for r in splits if r['run'].startswith('confirmation-')]), '',
         '### Results by seat', '',
         'These rates use hands in that seat as the denominator, unlike flop-fold contributions over all hands.', '',
         table(['Run', 'Seat', 'Hands', 'Raw', 'Plain cards', 'Weighted cards'], [
@@ -96,7 +105,8 @@ def main():
     for name in ORDER:
         source = OUT / f'cards-{name}.json'
         (DEST / source.name).write_bytes(source.read_bytes())
-    for name in ('aivat-estimates.csv', 'aivat-seats.csv', 'aivat-weights.csv', 'decision-reconciliation.csv'):
+    for name in ('aivat-estimates.csv', 'aivat-seats.csv', 'aivat-weights.csv', 'aivat-crossfit-seats.csv',
+                 'decision-reconciliation.csv'):
         (DEST / 'tables' / name).write_bytes((OUT / name).read_bytes())
 
 
