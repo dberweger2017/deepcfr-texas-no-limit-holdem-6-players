@@ -2,10 +2,56 @@
 
 **Campaign stopped by the prospective disk-space guard on October 17 at 09:21:22 UTC /11:21 Madrid.** All three rebuilt 10B saves remain fully audited. Two native 20B saves exist, but their final audits were interrupted; the third 20B continuation never started. All owned workers/controllers are absent. No retry or evaluation was launched.
 
-**The previous completion ETA is withdrawn.** The fixed training deadline remains October 19, 03:29:18 UTC; evaluation's 24-hour limit is unchanged. Current disk headroom also prevents the declared one-seed archive staging, so archival closeout remains pending. All originals and partials are retained.
+**The previous completion ETA is withdrawn.** The fixed training deadline remains October 19, 03:29:18 UTC; evaluation's 24-hour limit is unchanged. Owner-authorized relocation now provides 111 GB free on NVMe and permits HDD staging. Archival closeout remains pending; all model and partial bytes are retained at indexed locations.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Verified inactive model relocation — October 17, 09:56 UTC
+
+The owner authorized storing inactive models on the 2 TB drive, then explicitly
+authorized managing file placement, staging and retrieval between the two devices
+so storage does not block this bounded PR301 campaign.
+[Storage amendment](../hu200-capacity-storage-amendment.md).
+
+**11 files /56,691,594,602 bytes** are relocated under
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017/`,
+preserving their paths relative to the original campaign root. They are the three
+85M twin averages, three audited 5B averages, two complete old interrupted-attempt
+10B checkpoints, seed1302's incomplete old checkpoint and seed1421's two partial
+export streams. Partial evidence remains partial; moving it does not admit it as
+a model. All three current 10B recoveries and both pending 20B checkpoint/current/
+average sets remain on NVMe, with sizes/mtimes matching their existing receipts.
+
+Every file passes a full source-stream SHA256 and independent destination
+size/SHA256 readback after fsync. The eight intact models match their pinned
+hashes. Source inode/device/size/mtime checks and a durable journal precede each
+exact NVMe unlink. All destination sizes/mtimes and source absences are checked
+again at completion. No files were discarded: unique interrupted evidence is
+preserved on the HDD. [Completion, every location/hash and guard proof](hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017.json),
+[byte-identical manifest](hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017/relocation-manifest.json).
+
+The existing guard exits0 after 879.015 seconds, with 872 resource samples and
+no stop. CPU/VRM peaks58/63.5°C, RSS31.42MB, minimum available132.307GB;
+swap peaks129.0625MiB,128.0625MiB above original baseline, below256MiB growth.
+Minimum NVMe free56.394GB stays above50GB. At09:56 collection, free NVMe is
+**111.180GB**, HDD **1.754TB**. Closed guard/helper/journal trace hashes are indexed.
+No trainer, exporter, audit or evaluation was run during the relocation.
+
+Restore selected required inputs to their exact original NVMe paths before use,
+after fresh space/dependency/guard admission; verify indexed size/SHA256 and
+restore recorded mtime. Keep the HDD copy. Do not silently substitute symlinks or
+compute policies directly from HDD. Future archive assembly must include the
+relocated bytes at their original member paths through the manifest mapping.
+HDD staging is now owner-authorized; no repeated storage approval is needed
+within PR301. Other PRs and future experiments remain outside this permission.
+
+This resolves the immediate storage-staging restriction reported at the failure
+snapshot. The scientific failure and no-automatic-retry rule remain: no recovery
+or evaluation has restarted, no final hands/outcomes exist, and the completion
+ETA remains withdrawn pending a recovery decision. Original deadlines and all
+scientific counts/guards remain fixed. Cloud acceptance and final unpacked bundle
+retention are still pending; this relocation is not archival closeout.
 
 ## Terminal storage-guard failure — October 17, 09:21 UTC
 

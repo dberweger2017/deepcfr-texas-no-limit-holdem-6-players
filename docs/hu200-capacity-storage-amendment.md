@@ -2,7 +2,10 @@
 
 The owner explicitly authorized storing models that are not needed now on bb128's
 2 TB drive under this PR's name, then retrieving them when needed. This expands
-the earlier final-retention-only permission to inactive model storage. It does
+the earlier final-retention-only permission to inactive model storage. The owner
+then explicitly authorized juggling files between the two devices so storage
+does not block this PR301 campaign. This includes staging and later retrieval,
+with verified copies and indexed moves, without repeated storage approval. It does
 not authorize retrying the stopped campaign, running models from the HDD,
 changing scientific work, or extending any deadline or resource budget.
 
@@ -57,3 +60,15 @@ The independent final Drive archives and final unpacked retention requirements
 remain open. This temporary storage layout does not claim cloud upload or final
 closeout. The previous completion ETA remains withdrawn while scientific work
 is stopped; storage completion alone does not authorize a restart.
+
+This ongoing storage permission applies only within the current PR301 campaign.
+Use the HDD for inactive models, retained evidence and archive staging as needed;
+keep active training/evaluation/cache work on NVMe for performance. Check current
+dependencies before each move, and never relocate a file an active worker is
+using. Preserve source-relative member hierarchy and update the location ledger
+before the original copy is removed. Restore only the required inputs for the
+next admitted stage rather than duplicating every model at once. Preserve the
+50 GB NVMe floor and all other guards. PR292, other work roots and future
+experiments remain outside this permission. Scientific restart after the terminal
+failure still needs an explicit recovery authorization; storage approval alone
+does not rerun a failed job.

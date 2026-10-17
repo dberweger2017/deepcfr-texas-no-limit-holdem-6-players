@@ -4306,3 +4306,50 @@ Ignored `planning/{collect_training_failure_20261017.py,training-failure-2026101
 require later archival along with current coordinator metadata; private endpoint
 files excluded. Event task retained until full closeout, terminal observer exited,
 no new task. No final hands/outcomes; owner decides any recovery and merge.
+
+PR301 October17,09:56UTC: [verified inactive model relocation](docs/reports/hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017.json),
+[byte-identical manifest](docs/reports/hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017/relocation-manifest.json),
+[storage amendment and continuing placement authority](docs/hu200-capacity-storage-amendment.md).
+The owner specifically authorizes moving inactive models/evidence and managing
+placement/staging/retrieval between NVMe and2TB HDD within this bounded PR301.
+All11 files /56,691,594,602B pass source SHA and independent destination every-byte
+readback, eight intact-model pinned hashes, source identity checks and durable
+pre-unlink journaling. Original NVMe copies are removed only after verification;
+all bytes remain unpacked at `/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017/<original-relative-path>`.
+The exact source/destination/bytes/SHA/mtime/removal state for every file is in the
+manifest. Three twins/three5B averages and the old interrupted10B model/partial
+files are there. Current3 audited10B recoveries and both pending20B checkpoint/
+current/average sets remain at `results-recovery-20261016/` on NVMe, metadata intact.
+Unique partial evidence is preserved rather than discarded; all original audit
+statuses remain unchanged.
+
+The HDD's `/dev/sda1` ext4 rw mount is verified. Guard passes in879.015s; CPU/VRM
+max58/63.5°C, RSS31.42MB, swap growth128.0625MiB below256MiB, NVMe minimum56.394GB.
+Final collected free NVMe111.180GB/HDD1.754TB. Manifest/journal/helper/closed guard
+trace pins and final source-absence/destination metadata checks are in the receipt.
+No cloud upload/acceptance, scientific retry, final hands or outcome read occurred.
+HDD archive staging is now authorized, removing the prior staging-space blocker;
+scientific recovery remains unapproved and the old finishETA remains withdrawn.
+
+Retrieval recipe (after required NVMe space/dependency admission and under the
+same watchdog): select one `relative_path` from the manifest, copy back while
+preserving its recorded mtime, verify its exact `bytes` and `sha256`, and retain
+the HDD copy. Example paths and command for1302's5B average:
+
+```sh
+# On bb128; do not overwrite an existing or active model.
+rel=results/2026101302/5000000000/checkpoint.average.gz
+from=/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017
+back=/home/dberweger/hu200-capacity-20261015
+cp --no-clobber --preserve=timestamps "$from/$rel" "$back/$rel"
+sha256sum "$back/$rel"
+# Expected:19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5
+```
+
+Source metadata/raw storage worker/journal/resource traces remain in bb128 owned
+`planning/`, `guards/inactive-model-offload-20261017/` and the HDD destination;
+coordinator ignored `planning/{offload_inactive_models_20261017.py,offload-inactive-models-20261017-launch.json,monitor_offload_20261017.py,collect_offload_receipts_20261017.py,offload-inactive-models-20261017-completion-collected.json,publish_offload_completion_20261017.py}`
+plus updated handoff/history need final archival. Exclude all private endpoint files.
+No PR292/source/dependency cleanup or new schedule; event task remains until full
+closeout. Future bundle manifests must use the relocation ledger for missing
+original NVMe member paths; never silently omit relocated evidence.
