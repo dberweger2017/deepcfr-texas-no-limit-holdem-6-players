@@ -53,6 +53,16 @@ MODELS = {
         'seed': 2026101422, 'iteration': 16827728, 'entries': 85373928,
     },
 }
+SEEDS = ('2026101302', '2026101421', '2026101422')
+for seed, size, nodes in zip(SEEDS, (4960844586, 4957752665, 4957316628),
+                             (20000002032, 20000000322, 20000000096)):
+    MODELS[seed + '-checkpoint'] = {
+        **MODELS[seed], 'kind': 'checkpoint',
+        'file': f'HU200-frozen-20B-seed-{seed}.checkpoint.gz',
+        'bytes': size, 'sha256': MODELS[seed]['checkpoint_sha256'], 'actual_nodes': nodes,
+    }
+RECIPE = {'file': 'blend-config.json', 'bytes': 8498,
+          'sha256': '83c72410433ef57904fbf97829a84ecb3dae7a74132e48fb87dad3f0b909a47f'}
 RELEASES = {
     'v0.5.5': {'models': ['blend'], 'prerelease': False, 'latest': True,
                'name': 'v0.5.5 · HU200 · three-seed blend · translation 512/128',
@@ -60,7 +70,7 @@ RELEASES = {
                             'protocol_version': 2, 'slumbot_hands': 30000,
                             'raw_bb_per_100': -19.67, 'ci95': [-38.57, -0.76],
                             'qualified': True, 'beats_slumbot': False}},
-    'hu200-frozen-20b-seeds': {'models': ['2026101302', '2026101421', '2026101422'],
+    'hu200-frozen-20b-seeds': {'models': [*SEEDS, *(seed + '-checkpoint' for seed in SEEDS)],
                             'prerelease': True, 'latest': False,
                             'name': 'HU200 frozen 20B research seeds',
                             'evidence': {'confirmation_pr': 304, 'protocol_version': 1,
@@ -98,18 +108,26 @@ def part_layout(model):
 
 def assets(release):
     return (DOCS | {VERIFIER, 'release-manifest.json'} | set(CARD_TABLES)
+            | ({RECIPE['file']} if release == 'hu200-frozen-20b-seeds' else set())
             | {p['file'] for model in RELEASES[release]['models'] for p in part_layout(model)})
 
 
 def verify_header(header, model):
     pin = MODELS[model]
-    checkpoint = header['checkpoint_header']
+    raw = pin.get('kind') == 'checkpoint'
+    checkpoint = header if raw else header['checkpoint_header']
     tables = {name.removesuffix('-k50.bin'): p['sha256'] for name, p in CARD_TABLES.items()}
-    if (header.get('format') != FORMAT or header.get('kind') != 'diagnostic-inference'
-            or header.get('extraction') != EXTRACTION
-            or header.get('source_checkpoint_sha256') != pin['checkpoint_sha256']
-            or header.get('zero_mass_rule') != 'uniform in retained menu; reported separately from missing keys'
-            or checkpoint['config']['seed'] != pin['seed'] or checkpoint['config']['game'] != GAME
+    if raw:
+        if (header.get('format') != 'holdem-hu200-native-reopening-blueprint-v1'
+                or header.get('kind') != 'training'
+                or header.get('native_state', {}).get('completed_nodes') != pin['actual_nodes']):
+            raise ValueError('Raw frozen checkpoint identity differs')
+    elif (header.get('format') != FORMAT or header.get('kind') != 'diagnostic-inference'
+          or header.get('extraction') != EXTRACTION
+          or header.get('source_checkpoint_sha256') != pin['checkpoint_sha256']
+          or header.get('zero_mass_rule') != 'uniform in retained menu; reported separately from missing keys'):
+        raise ValueError('HU200 average extraction differs')
+    if (checkpoint['config']['seed'] != pin['seed'] or checkpoint['config']['game'] != GAME
             or checkpoint['config']['raise_cap'] is not None or checkpoint['abstraction'] != SCHEMA
             or checkpoint['iteration'] != pin['iteration'] or checkpoint['average_rule'] != 'opponent-sampled'
             or checkpoint['identity']['players'] != 2 or checkpoint['identity']['card_tables'] != tables
@@ -123,7 +141,7 @@ def verify_header(header, model):
                 or blend.get('kind') != 'synthetic-sequence-form-average'
                 or [(s['seed'], s['average_sha256'], s['sha256'], s['iterations']) for s in blend['inputs']]
                 != [(MODELS[m]['seed'], MODELS[m]['sha256'], MODELS[m]['checkpoint_sha256'], MODELS[m]['iteration'])
-                    for m in RELEASES['hu200-frozen-20b-seeds']['models']]):
+                    for m in SEEDS]):
             raise ValueError('HU200 blend ingredient identity differs')
 
 
@@ -149,7 +167,7 @@ def manifest(release, source, approved=False, *, model_parts):
                        or {k: p[k] for k in ('file', 'bytes')} != expected or not digest(p['sha256'])
                        for p, expected in zip(parts, layout))):
             raise ValueError('Model parts differ from the fixed ordered layout')
-    return {'release': release, 'package_source_commit': source,
+    data = {'release': release, 'package_source_commit': source,
             'owner_publication_approval': approved,
             'approved_release_source_commit': source if approved else None,
             'release_tag': release if approved else None,
@@ -160,6 +178,11 @@ def manifest(release, source, approved=False, *, model_parts):
             'inference': INFERENCE, 'table': TABLE, 'card_tables': CARD_TABLES,
             'evidence': pins['evidence'], 'provenance': PROVENANCE,
             'dependency': {'python': '3.11', 'pokers_git_revision': '5db20e3d5d6862b32a7402035c1340b622d3b005'}}
+    if release == 'hu200-frozen-20b-seeds':
+        data['rebuild'] = {'recipe': RECIPE, 'tool': 'native/hu20-trainer/examples/hu200_blend.rs',
+                           'input_lookup': '--input-dir', 'average_sha256': MODELS['blend']['sha256'],
+                           'checkpoint_sha256': MODELS['blend']['checkpoint_sha256']}
+    return data
 
 
 def verify_parts(directory, model, parts, destination=None):
@@ -224,6 +247,10 @@ def verify_bundle(directory, expected_source=None, *, require_publication=False,
     for name, pin in CARD_TABLES.items():
         if (directory / name).stat().st_size != pin['bytes'] or hashes[name] != pin['sha256']:
             raise ValueError('Pinned card table differs: ' + name)
+    if release == 'hu200-frozen-20b-seeds':
+        recipe = directory / RECIPE['file']
+        if recipe.stat().st_size != RECIPE['bytes'] or hashes[RECIPE['file']] != RECIPE['sha256']:
+            raise ValueError('Pinned blend recipe differs')
     if assemble is not None:
         if Path(assemble).resolve().is_relative_to(directory.resolve()):
             raise ValueError('Assemble outside the immutable bundle')

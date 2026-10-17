@@ -37,7 +37,11 @@ def package(request, tmp_path, monkeypatch):
             header['checkpoint_header']['blend_provenance'] = {
                 'model_identity': pin['synthetic_identity'], 'kind': 'synthetic-sequence-form-average',
                 'inputs': [{'seed': p['seed'], 'average_sha256': p['sha256'], 'sha256': p['checkpoint_sha256'],
-                            'iterations': p['iteration']} for m, p in verifier.MODELS.items() if m != 'blend']}
+                            'iterations': p['iteration']} for m, p in verifier.MODELS.items() if m in verifier.SEEDS]}
+        if pin.get('kind') == 'checkpoint':
+            header = {**header['checkpoint_header'], 'kind': 'training',
+                      'format': 'holdem-hu200-native-reopening-blueprint-v1',
+                      'native_state': {'completed_nodes': pin['actual_nodes']}}
         p = tmp_path / pin['file']
         p.write_bytes(gzip.compress((json.dumps(header) + '\n' + random.Random(5).randbytes(4096).hex()).encode(), mtime=0))
         pin.update(bytes=p.stat().st_size, sha256=verifier.sha(p))

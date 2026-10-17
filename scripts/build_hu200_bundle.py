@@ -5,7 +5,7 @@ from pathlib import Path
 import shutil
 import subprocess
 
-from src.policies.hu200_bundle import CARD_TABLES, DOCS, MODELS, RELEASES, VERIFIER, assets, manifest, part_layout, sha, verify_bundle, verify_model
+from src.policies.hu200_bundle import CARD_TABLES, DOCS, MODELS, RECIPE, RELEASES, VERIFIER, assets, manifest, part_layout, sha, verify_bundle, verify_model
 
 
 def check_source(source, release):
@@ -17,6 +17,10 @@ def check_source(source, release):
     for path in ('src/policies/hu200_bundle.py', *(f'docs/releases/{release}/{name}' for name in DOCS)):
         if subprocess.check_output(['git', 'show', f'{source}:{path}'], cwd=repo) != (repo / path).read_bytes():
             raise ValueError('Package asset source bytes differ')
+    if release == 'hu200-frozen-20b-seeds':
+        recipe = repo / 'docs/releases' / release / 'BLEND_CONFIG.json'
+        if recipe.stat().st_size != RECIPE['bytes'] or sha(recipe) != RECIPE['sha256']:
+            raise ValueError('Pinned blend recipe source differs')
     return repo
 
 
@@ -50,6 +54,8 @@ def build(release, sources, destination, source_sha, tables, *, publication_appr
     for name in DOCS:
         # These three files ship byte for byte from the tagged source.
         shutil.copyfile(repo / 'docs/releases' / release / name, destination / name)
+    if release == 'hu200-frozen-20b-seeds':
+        shutil.copyfile(repo / 'docs/releases' / release / 'BLEND_CONFIG.json', destination / RECIPE['file'])
     shutil.copyfile(repo / 'src/policies/hu200_bundle.py', destination / VERIFIER)
     data = manifest(release, source_sha, publication_approved, model_parts=parts)
     (destination / 'release-manifest.json').write_text(json.dumps(data, indent=2, sort_keys=True) + '\n')
