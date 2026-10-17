@@ -32,6 +32,7 @@ class ToyBlueprint:
 def test_real_search_deadline_wiring_preserves_static_check(tmp_path):
     from scripts.pilot_hu200_river_search import CONFIG
     calls=[]
+    (tmp_path/'ledger').mkdir()
     _,policy,solver=make_players(ToyBlueprint(),None,'fixture',CONFIG,tmp_path,
         [1,2],None,True,True,lambda:calls.append(True))
     policy._check(None)
