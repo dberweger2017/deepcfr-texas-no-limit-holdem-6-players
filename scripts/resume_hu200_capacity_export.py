@@ -48,7 +48,7 @@ def approval(base):
 def adjusted_deadline(stopped, resumed):
     if stopped != STOPPED or not STOPPED <= resumed < PRIOR_DEADLINE:
         raise ValueError('Only the recorded closed interval may be credited')
-    return PRIOR_DEADLINE + resumed - STOPPED
+    return PRIOR_DEADLINE + (resumed - STOPPED)
 
 
 def checked_ledger(base):
