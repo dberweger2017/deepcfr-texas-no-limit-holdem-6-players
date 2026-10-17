@@ -23,6 +23,8 @@ from src.play_api.configuration import PlayTable, policy_table, recorded_table, 
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
 HU100_API_VERSION = "hu100-research-play-api-v1"
+HU200_API_VERSION = "hu200-release-play-api-v1"
+HU200_BENCHMARK_PROTOCOL = "hu200-human-benchmark-v1"
 HU100_BENCHMARK_PROTOCOL = "hu100-human-research-benchmark-v1"
 ADAPTER_ID = "direct-v1"
 BENCHMARK_PROTOCOL = "hu20-human-benchmark-v1"
@@ -103,8 +105,8 @@ class PlayService:
         self.table = table or policy_table(policy)
         self.table.validate_policy(policy)
         self.model = _model_info(policy)
-        self.api_version = HU100_API_VERSION if self.table.stack == 10000 else API_VERSION
-        self.benchmark_protocol = HU100_BENCHMARK_PROTOCOL if self.table.stack == 10000 else BENCHMARK_PROTOCOL
+        self.api_version = HU200_API_VERSION if self.table.stack == 20000 else HU100_API_VERSION if self.table.stack == 10000 else API_VERSION
+        self.benchmark_protocol = HU200_BENCHMARK_PROTOCOL if self.table.stack == 20000 else HU100_BENCHMARK_PROTOCOL if self.table.stack == 10000 else BENCHMARK_PROTOCOL
         self.db_path = db_path
         self.source_version = source_version
         self.lock = threading.RLock()
@@ -138,7 +140,7 @@ class PlayService:
 
     def _ack_matches(self, response):
         recorded = response['model']
-        if self.table.stack == 10000:
+        if self.table.stack != 2000:
             return recorded == self.model
         # Pre-configuration HU20 acknowledgments retain their original shape.
         return all(self.model.get(key) == value for key, value in recorded.items())
@@ -536,7 +538,7 @@ class PlayService:
                 "fallbackPercent": 100 * fallback / (trained + fallback) if trained + fallback else None,
                 "handsWithFallback": fallback_hands,
                 "handsWithFallbackFraction": fallback_hands / len(rows) if rows else None}
-        if self.table.stack == 10000:
+        if self.table.stack != 2000:
             modes = [item['telemetry']['mode'] for row in rows for item in row['lookup']
                      if item.get('telemetry') is not None]
             report['inferenceSummary'] = {mode: modes.count(mode) for mode in ('exact', 'translated', 'uniform')}

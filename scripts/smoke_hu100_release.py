@@ -37,23 +37,24 @@ def browser_receipt(path, seconds=600):
 
 
 class Runtime:
-    def __init__(self, bundle, data, out, source):
+    def __init__(self, bundle, data, out, source, *, flag="--hu100-release", stack_bb=100, port=8768, load_timeout=900):
         self.bundle, self.data, self.out, self.source = bundle, data, out, source
         self.process = None
         self.starts = []
-        self.port = 8768
+        self.port = port
+        self.flag, self.stack_bb, self.load_timeout = flag, stack_bb, load_timeout
 
     def start(self):
         started = monotonic()
         log = (self.out / f'server-{len(self.starts)}.log').open('x')
         self.process = subprocess.Popen([sys.executable, '-m', 'src.play_api.server',
-            '--hu100-release', str(self.bundle), '--stack-bb', '100',
+            self.flag, str(self.bundle), '--stack-bb', str(self.stack_bb),
             '--data-dir', str(self.data), '--source-version', self.source,
             '--port', str(self.port)], stdout=log, stderr=subprocess.STDOUT)
         log.close()
-        while monotonic() - started < 900:
+        while monotonic() - started < self.load_timeout:
             if self.process.poll() is not None:
-                raise RuntimeError('HU100 release server exited during startup')
+                raise RuntimeError('Release server exited during startup')
             token = self.data / 'access.token'
             if token.exists():
                 self.token = token.read_text().strip()

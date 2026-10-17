@@ -160,7 +160,7 @@ def test_incompatible_tables_models_and_restart_options(tmp_path):
     policy = fixture_policy(tmp_path)
     with pytest.raises(ValueError, match='incompatible'):
         PlayService(tmp_path / 'wrong.sqlite', policy, table=PlayTable())
-    for kwargs in ({'stack': 20000}, {'stack': True}, {'small_blind': 100}, {'chip_unit': '1'}):
+    for kwargs in ({'stack': 30000}, {'stack': True}, {'small_blind': 100}, {'chip_unit': '1'}):
         with pytest.raises(ValueError): PlayTable(**kwargs)
     path = tmp_path / 'identity.sqlite'
     service = PlayService(path, policy)
