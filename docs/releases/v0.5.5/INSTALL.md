@@ -7,11 +7,20 @@ pipeline. First start verifies the bundle and builds a binary play cache by
 streaming all 156,208,331 rows with `scripts/build_streaming_average_cache.py`.
 Every start verifies the canonical model SHA256, header, K50 tables and all cache
 files, then maps the cache read-only. Later starts skip JSON row parsing.
-Startup time varies by CPU and storage; use a **16 GB machine**.
+On Linux with one CPU core and local SSD storage, two fresh CLI starts measured:
+
+| Start | Time until ready | Process peak RSS |
+|---|---:|---:|
+| First: verify, reassemble and build cache | 20 min 15 s | 0.52 GB (0.48 GiB) |
+| Later: verify and reuse cache | 81 s | 0.59 GB (0.55 GiB) |
+
+These are process peaks over each CLI's lifetime, including play; operating-system
+file caching is additional. Timing varies by CPU and storage. Use a **16 GB machine**.
 
 Allow **25 GB of free disk**, plus the Python environment and session journals:
 about **7.67 GB of downloads** (6.28 GB model parts and 1.38 GB card tables),
-plus the **6.28 GB reassembled model** and **9.33 GB binary cache** (about 8.69 GiB).
+plus the **6.28 GB reassembled model** and **9.33 GB binary cache** (about 8.69 GiB;
+9,331,096,671 bytes including its manifest in the measured build).
 Keep the immutable assets, reassembled file and cache. Reassembly uses a
 temporary file with an exclusive final link; it does not require a second whole
 model copy. The cache is derived locally; it is not a release download.

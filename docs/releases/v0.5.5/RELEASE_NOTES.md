@@ -58,6 +58,11 @@ Every start verifies its model binding and file hashes and maps it read-only;
 later starts avoid parsing the 156 million JSON rows. Corrupt or mismatched
 caches stop startup and are preserved for diagnosis. Allow 25 GB free disk,
 including the 9.33 GB derived cache, and a 16 GB machine.
+Two fresh CLI starts on Linux with one CPU core and local SSD storage measured
+**20 min 15 s / 0.52 GB peak RSS** for first-start verification, reassembly and
+cache building, then **81 s / 0.59 GB peak RSS** with the existing cache. These
+process peaks include play; operating-system file caching is additional.
+The measured cache occupies **9,331,096,671 bytes** including its manifest.
 Load time varies by CPU and storage.
 See [INSTALL.md](INSTALL.md) for disk/RAM requirements and the verifier commands.
 

@@ -63,8 +63,12 @@ The blend was **built and tested on a base 16 GB MacBook Pro M4**, with #306's
 measured peak simultaneous family RSS **12,748,324,864 bytes** (12.75 GB /11.87 GiB).
 The runtime builds a binary cache by streaming the verified model on first
 start, then verifies and maps that cache read-only on every start. A 16 GB
-machine is recommended; load time varies by CPU and storage. Allow 25 GB free
-disk including the 9.33 GB derived cache. Cache corruption or model mismatch
+machine is recommended. On Linux with one CPU core and local SSD storage,
+first-start verification, reassembly and cache building took **20 min 15 s**
+at **0.52 GB peak process RSS**; a fresh later start took **81 s** at **0.59 GB**.
+The peaks include play and exclude operating-system file caching. Load time
+varies by CPU and storage. Allow 25 GB free disk including the 9.33 GB derived
+cache (9,331,096,671 bytes with its manifest). Cache corruption or model mismatch
 stops startup rather than falling back to unverified data.
 No model is trained, re-exported or selected for packaging. Six ordered <=1 GiB
 parts reassemble to the pinned whole hash. The standalone verifier pins the

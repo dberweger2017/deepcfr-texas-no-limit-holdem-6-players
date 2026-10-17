@@ -1,0 +1,29 @@
+{
+  "cache_bytes_including_manifest": 9331096671,
+  "first_start": {
+    "load_seconds": 1214.9307502360025,
+    "peak_rss_bytes": 516747264
+  },
+  "first_start_includes": [
+    "bundle verification",
+    "model reassembly",
+    "low-memory streaming cache build",
+    "verified read-only policy load"
+  ],
+  "model_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "platform": "Linux, one CPU core, local SSD storage",
+  "rss_scope": "per-process peak over each CLI lifetime, including play; excludes operating-system file caching",
+  "runtime_refusals_and_independent_replay": "recorded separately; not implied by these measurements",
+  "second_start": {
+    "load_seconds": 80.96011287400324,
+    "peak_rss_bytes": 586121216
+  },
+  "second_start_includes": [
+    "bundle verification",
+    "canonical model verification",
+    "cache binding and array verification",
+    "read-only policy load"
+  ],
+  "source": "db0102c178b412345a7b0c96e8469f99af37c047",
+  "status": "measured"
+}
