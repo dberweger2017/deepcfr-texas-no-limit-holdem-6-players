@@ -1,11 +1,43 @@
 # HU200 capacity experiment on cygnus-x1
 
-**All three owner-approved common5B recovery runs are active toward10B.** All original5B recovery/average and twin bytes survived.53 guarded validation checks pass; fresh binary/K50/parent hashes, source/gate pins and RAM/disk admission pass. Exactly+3600s is recorded once in a separate ledger; the original clock stays unchanged. Effective main deadline October19 03:29:18UTC /05:29:18Madrid; evaluation stays24h. Recovery supervisor4325 and trainers4337/4338/4339 started October16 at19:43UTC; the owned metadata observer4367 is active.
+**Two seeds have saved20B; their final audits are pending.** Both completed10B recovery checkpoints (1421/1422) reproduce pre-shutdown compressed hashes exactly and pass every-row audits. Seed1302's10B checkpoint matches its known node/iteration identity; its full audit is still running before20B continuation. No failure or guard stop. No final evaluation hands yet.
 
-Clean sourcec48e64ceccde0b99287b7f40e3c9076bb60fea8a uses fresh results-recovery-20261016 paths, retains interrupted evidence and requires exact rebuilt10B references. Training/audits target Saturday17 evening–Sunday18 evening Madrid; report/archives Monday19 evening, Tuesday20 upload contingency, subject to evaluation/transfer cost admission. No final hands.
+October17,07:42Madrid snapshot: CPU59°C/VRM63.5°C,132.52GB available,158.37GB free NVMe,75MiB swap (74MiB growth over1MiB baseline, within256MiB guard). Two audits are active; full prospective output reservations currently limit further admission. Training/audits remain on the weekend forecast; report/archive target Monday19 evening, Tuesday20 upload contingency.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Morning progress — October17,05:42UTC /07:42Madrid
+
+[Verified status snapshot and source receipt pins](hu200-capacity-cygnus-artifacts/status-20261017-morning.json):
+
+| Seed | Current saved endpoint | Entries | Verification/progress |
+| --- | ---: | ---: | --- |
+| 2026101302 |10,000,000,240 |257,683,983 | Full10B audit, final sorted validation/hashes phase |
+| 2026101421 |20,000,001,428 |301,153,954 |10B exact reference/full audit passed;20B native export/audit active |
+| 2026101422 |20,000,000,322 |301,153,964 |10B exact reference/full audit passed;20B save awaiting audit admission |
+
+The ten-key cap overshoot for1422 is the unchanged complete-iteration freeze
+semantics. Both20B tables are frozen. Final20B every-row verification is still
+pending, so neither is yet claimed as a verified terminal model. No final
+evaluation or playing-strength result exists.
+
+Completed10B audits take4h11m and4h22m, matching the current cost projection.
+Seed1302's audit started later at01:58UTC due resource admission and is now
+finishing its sorted-stream checks. Native10B→20B stages for1421/1422 take
+3h05m/3h11m including loads/writes. The first20B audit began05:23UTC.
+The current original259GB plan has approximately257.32GB committed to owned
+files, remaining output reservations,20GB growth and50GB floor, leaving1.68GB
+estimated admission margin. A further23GB audit reservation cannot yet fit;
+verified completion/retirement frees it. No disk budget or guard is relaxed.
+
+Recovery trace through the snapshot peaks CPU69°C/VRM83°C, RSS75.34GB; minimum
+available55.04GB, free157.11GB. Swap peaks75MiB,74MiB above original baseline;
+no clean-stop sample. Current fan1 798RPM, fan2 1204, fan3 1200. Mutable trace
+byte cut and conservative reservation-estimate limitations are recorded.
+The deadline remains October19 03:29:18UTC; report/archives target remains
+October19 evening Madrid/October20 upload contingency. Evaluation/transfer
+costs still need measurement.
 
 ## Recovery running — October16,19:45UTC
 
