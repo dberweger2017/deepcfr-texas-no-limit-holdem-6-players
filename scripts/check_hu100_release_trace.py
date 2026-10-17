@@ -30,7 +30,7 @@ def check(release, model, cache, out):
     specs=[spec,dict(spec,name='released-control-on')]
     source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     registry,done=direct.execute(specs,64,ROOTS[release],'compatibility',out/'play',source,
-        opponent='pot_pressure',cache=cache,cache_read_only=True)
+        opponent='pot_pressure',cache=cache,cache_read_only=cache is not None)
     del registry;gc.collect()
     audit=direct.audit(out/'play',out/'replay.json')
     digests={};translated=0
@@ -56,7 +56,7 @@ def check(release, model, cache, out):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--release',choices=ROOTS,required=True);parser.add_argument('--model',type=Path,required=True)
-    parser.add_argument('--cache',type=Path,required=True);parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--cache',type=Path);parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args();print(json.dumps(check(args.release,args.model,args.cache,args.out),sort_keys=True))
 
 

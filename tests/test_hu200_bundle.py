@@ -14,7 +14,7 @@ from src.policies import hu200_bundle as verifier
 @pytest.fixture(params=verifier.RELEASES)
 def package(request, tmp_path, monkeypatch):
     release = request.param
-    monkeypatch.setattr(builder, 'check_source', lambda _: Path(__file__).resolve().parents[1])
+    monkeypatch.setattr(builder, 'check_source', lambda *_: Path(__file__).resolve().parents[1])
     monkeypatch.setattr(verifier, 'PART_BYTES', 4096)
     tables = tmp_path / 'tables'; tables.mkdir()
     pins = {}

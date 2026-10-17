@@ -46,8 +46,12 @@ def test_restricted_render_action_and_replay_use_schema_owned_sizes(tmp_path, me
         service.close()
 
 
-def test_k50_spectator_postflop_and_independent_audit_use_policy_tables(tmp_path, monkeypatch):
+@pytest.mark.parametrize('stack', [10000, 20000])
+def test_k50_spectator_postflop_and_independent_audit_use_policy_tables(tmp_path, monkeypatch, stack):
     from random import Random
+    from src.blueprint.abstraction import HU200_EQUITY_SCHEMA
+    from src.blueprint.solver import HU200_GAME
+    from src.blueprint.action_translation import version_for_schema
     from src.blueprint import equity_buckets
     from src.blueprint.equity_buckets import EquityCards
     from src.game.hand import Hand, Table
@@ -59,7 +63,7 @@ def test_k50_spectator_postflop_and_independent_audit_use_policy_tables(tmp_path
     from tests.native_equity_tables import write_tables
 
     seed = Random(1).randrange(2**63)
-    hand = Hand.start(Table(('bot-a', 'bot-b'), (10000, 10000)), hand_id='fixture', seed=seed)
+    hand = Hand.start(Table(('bot-a', 'bot-b'), (stack, stack)), hand_id='fixture', seed=seed)
     scenes = []; views = []
     while not hand.finished:
         view = hand.observe(hand.actor); views.append(view)
@@ -73,10 +77,11 @@ def test_k50_spectator_postflop_and_independent_audit_use_policy_tables(tmp_path
     monkeypatch.setattr(equity_buckets, '_registered', object())
     monkeypatch.setattr('src.play_api.spectator.secrets.randbits', lambda _: 1)
     policy = fixture_policy(tmp_path, True)
-    policy.abstraction = HU100_EQUITY_MENU_V2_SCHEMA
+    policy.abstraction = HU100_EQUITY_MENU_V2_SCHEMA if stack == 10000 else HU200_EQUITY_SCHEMA
+    if stack == 20000: policy.game = HU200_GAME
     policy.description['abstraction'] = policy.abstraction
     policy.identity = {'card_tables': cards.sha256}; policy.equity_cards = cards
-    policy.adapter_id = HU100_K50_MENU_V2_VERSION
+    policy.adapter_id = version_for_schema(policy.abstraction)
     policy.configure_translation(TranslationOptions())
     policy.entries = {}; policy.zero_mass = set(); policy.visits = {}
     for view in views:
@@ -86,7 +91,7 @@ def test_k50_spectator_postflop_and_independent_audit_use_policy_tables(tmp_path
         assert sum(probabilities) == 1
         policy.entries[key] = (tuple(item.name for item in menu), probabilities)
         policy.visits[key] = 1
-    version = 'v0.5.3'; identity = {'version': version, **_model_info(policy)}
+    version = 'v0.5.3' if stack == 10000 else 'v0.5.5'; identity = {'version': version, **_model_info(policy)}
     service = SpectatorService(tmp_path/'spectator.sqlite', {version: policy}, {version: identity})
     try:
         state = service.create('k50-spectator-create-0001', {'sessionType': 'spectator', 'modelVersions': [version, version]})

@@ -8,17 +8,20 @@ import subprocess
 from src.policies.hu200_bundle import CARD_TABLES, DOCS, MODELS, RELEASES, VERIFIER, assets, manifest, part_layout, sha, verify_bundle, verify_model
 
 
-def check_source(source):
+def check_source(source, release):
     repo = Path(__file__).resolve().parents[1]
     if subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip() != source:
         raise ValueError('Package source must be the checked-out commit')
     if subprocess.run(['git', 'diff', '--quiet', source, '--'], cwd=repo).returncode:
         raise ValueError('Package source must have clean tracked bytes')
+    for path in ('src/policies/hu200_bundle.py', *(f'docs/releases/{release}/{name}' for name in DOCS)):
+        if subprocess.check_output(['git', 'show', f'{source}:{path}'], cwd=repo) != (repo / path).read_bytes():
+            raise ValueError('Package asset source bytes differ')
     return repo
 
 
 def build(release, sources, destination, source_sha, tables, *, publication_approved=False):
-    repo = check_source(source_sha)
+    repo = check_source(source_sha, release)
     pins = RELEASES[release]
     if set(sources) != set(pins['models']): raise ValueError('Exact release model inputs required')
     for model, path in sources.items(): verify_model(Path(path), model)

@@ -1,0 +1,30 @@
+[
+  {
+    "release": "v0.5.0",
+    "source": "b9c9bd161422e87371a2641ae4c60304c66eed79",
+    "bytes": 2466,
+    "sha256": "9a7a7209087e5e8ec7d93ab06f382233777cefcbbe0e905f48ea845468cee729",
+    "rebuilt_byte_identically": true
+  },
+  {
+    "release": "v0.5.1",
+    "source": "dca7547e6eca82ce77f3e42230b82fabc1c29a4c",
+    "bytes": 2466,
+    "sha256": "47185da27bd8589b249938fd52c58b57975423f56c1e32037d35b26f8f765df6",
+    "rebuilt_byte_identically": true
+  },
+  {
+    "release": "v0.5.2",
+    "source": "3a3bc4218bab96637d6a27a69b73383ee8bb196c",
+    "bytes": 2549,
+    "sha256": "0cd861e293f84c3aaedc036546634decbc1fe888d433070768e527cc4c14d51b",
+    "rebuilt_byte_identically": true
+  },
+  {
+    "release": "v0.5.3",
+    "source": "74f1be71c1b0f4851dac5e701862e22a1290da23",
+    "bytes": 3676,
+    "sha256": "86a6cd999db08b1af5ccf1551b12db4b4fb7e80f1ab23917c3b397c940b707db",
+    "rebuilt_byte_identically": true
+  }
+]
