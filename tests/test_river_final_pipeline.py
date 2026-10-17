@@ -9,17 +9,19 @@ from scripts.evaluate_hu200_river_final import execute_pipeline
 
 
 def test_search_storage_overlap_is_bounded_and_every_job_ships_once():
-    lock=threading.Lock();active=set();resident=set();completed=[];overlap=[];peaks=[]
+    lock=threading.Lock();active=set();resident=set();completed=[];overlap=[];peaks=[];shipping=[False]
     def produce(job):
-        with lock:active.add(job);resident.add(job);peaks.append((len(active),len(resident)))
+        with lock:
+            active.add(job);resident.add(job);peaks.append((len(active),len(resident)))
+            overlap.append(shipping[0])
         time.sleep(.005)
         with lock:active.remove(job)
         return job
     def ship(panel,index,summary):
         job=(panel,index);assert summary==job
-        with lock:overlap.append(bool(active))
+        with lock:overlap.append(bool(active));shipping[0]=True
         time.sleep(.015)
-        with lock:resident.remove(job)
+        with lock:resident.remove(job);shipping[0]=False
         return job
     def progress(job,receipt):assert receipt==job;completed.append(job)
     jobs=[('fixture',i) for i in range(24)]
