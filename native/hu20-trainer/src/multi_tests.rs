@@ -94,7 +94,7 @@ fn resume_matches_complete_bytes_and_frozen_membership() {
                 .join(format!("multi-{}-{freeze}-{street}.gz", std::process::id()));
             crate::multi_checkpoint::save(&prefix, &path).unwrap();
             let mut resumed = crate::multi_checkpoint::load(&path).unwrap();
-            let frozen_keys: std::collections::HashSet<_> = resumed.table.keys().copied().collect();
+            let frozen_keys: std::collections::HashSet<_> = resumed.table.keys().collect();
             for _ in 0..40 {
                 fresh.step(&game);
             }
@@ -110,7 +110,7 @@ fn resume_matches_complete_bytes_and_frozen_membership() {
             std::fs::remove_file(&path).unwrap();
             assert!(fresh.counts.traverser[..3].iter().all(|&n| n > 0));
             if freeze {
-                assert_eq!(frozen_keys, fresh.table.keys().copied().collect());
+                assert_eq!(frozen_keys, fresh.table.keys().collect());
                 assert!(fresh.counts.discarded_keys > 0 && fresh.counts.discarded_visits > 0);
             }
             for e in fresh.table.values() {
@@ -152,7 +152,7 @@ fn exhaustive_sample_expectation_equals_full_tree_counterfactual_updates() {
         hand: crate::small_games::Hand,
         player: usize,
         reach: f64,
-        expected: &mut Table,
+        expected: &mut Deltas,
     ) -> f64 {
         let Some(d) = hand.decision() else {
             return hand.payoff(player);
@@ -183,13 +183,13 @@ fn exhaustive_sample_expectation_equals_full_tree_counterfactual_updates() {
     }
     let game = SmallGame::new(Kind::Kuhn, 3);
     for player in 0..3 {
-        let mut expected = Table::default();
+        let mut expected = Deltas::default();
         let mut actual: HashMap<[u8; 16], ([f64; 2], [f64; 2])> = HashMap::new();
         for (hand, p) in game.deals() {
             full(hand, player, p, &mut expected);
             for bits in 0..256 {
                 let mut state = hand;
-                let mut deltas = Table::default();
+                let mut deltas = Deltas::default();
                 let mut counts = Counts::default();
                 let mut rng = Tape { bits, used: 0 };
                 Traversal {

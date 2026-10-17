@@ -21,14 +21,12 @@ fn fingerprint(trainer: &Trainer, survey: &survey::Survey) -> serde_json::Value 
     for key in keys {
         reached.update(key);
     }
-    let mut rows: Vec<_> = trainer.table.iter().filter(|(_, e)| e.visits > 0).collect();
-    rows.sort_unstable_by_key(|r| r.0);
     let mut regrets = Sha256::new();
-    for (key, e) in rows {
+    for (key, e) in trainer.table.sorted().filter(|(_, e)| e.visits > 0) {
         regrets.update(key);
         regrets.update(e.code.to_le_bytes());
         regrets.update(e.visits.to_le_bytes());
-        for r in &e.regrets {
+        for r in e.regrets {
             regrets.update(r.to_bits().to_le_bytes());
         }
     }
@@ -59,7 +57,7 @@ fn main() {
     let mut trainer = Trainer::new(&game, seed, scope, cap, false);
     println!(
         "{}",
-        json!({"identity":game.identity(),"scope":scope,"seed":seed,"target_nodes":nodes,"max_entries":cap,"baseline_requested_bytes":memory::live(),"entry_struct_bytes":std::mem::size_of::<hu20_trainer::multi_cfr::Entry>()})
+        json!({"identity":game.identity(),"scope":scope,"seed":seed,"target_nodes":nodes,"max_entries":cap,"baseline_requested_bytes":memory::live(),"entry_record_bytes":hu20_trainer::store::ENTRY_BYTES,"shards":hu20_trainer::store::SHARDS})
     );
     memory::reset_peak();
     let start = Instant::now();
@@ -97,20 +95,18 @@ fn main() {
             let s = survey.borrow();
             assert_eq!(s.decisions, trainer.counts.decisions);
             let mut entries = [0u64; 4];
-            let mut regret_bytes = 0;
-            let mut average_bytes = 0;
             let mut averages = [0u64; 4];
             for e in trainer.table.values() {
                 entries[e.street as usize] += 1;
-                regret_bytes += e.regrets.len() * 8;
-                if let Some(a) = &e.average {
-                    average_bytes += a.len() * 8;
+                if e.average.is_some() {
                     averages[e.street as usize] += 1;
                 }
             }
+            let (regret_bytes, average_bytes) = trainer.table.payload_bytes();
+            let a = trainer.table.allocation();
             println!(
                 "{}",
-                json!({"nodes":trainer.counts.nodes,"iteration":trainer.iteration,"entries":trainer.table.len(),"hash_capacity":trainer.table.capacity(),"entries_by_street":entries,"reached_keys":s.keys.len(),"reached_by_street":s.by_street,"observer_requested_bytes":s.allocated,"table_requested_bytes":table_bytes,"regret_payload_bytes":regret_bytes,"average_payload_bytes":average_bytes,"average_entries_by_street":averages,"requested_live_bytes":memory::live(),"requested_peak_bytes":memory::peak(),"rss_bytes":hu20_trainer::telemetry::process_rss_bytes().unwrap(),"training_seconds":training_seconds,"elapsed_seconds":start.elapsed().as_secs_f64()})
+                json!({"nodes":trainer.counts.nodes,"iteration":trainer.iteration,"entries":trainer.table.len(),"index_capacity":trainer.table.index_capacity(),"index_bytes":a.index,"entry_bytes":a.entries,"value_bytes":a.values,"entries_by_street":entries,"reached_keys":s.keys.len(),"reached_by_street":s.by_street,"observer_requested_bytes":s.allocated,"table_requested_bytes":table_bytes,"regret_payload_bytes":regret_bytes,"average_payload_bytes":average_bytes,"average_entries_by_street":averages,"requested_live_bytes":memory::live(),"requested_peak_bytes":memory::peak(),"rss_bytes":hu20_trainer::telemetry::process_rss_bytes().unwrap(),"training_seconds":training_seconds,"elapsed_seconds":start.elapsed().as_secs_f64()})
             );
             while next < milestones.len() && milestones[next] <= trainer.counts.nodes {
                 next += 1;
@@ -150,16 +146,23 @@ mod tests {
                         - before
                         - (watched.survey.borrow().allocated - old_observer) as i128;
                 }
-                // A deep clone owns exactly the same hash capacity and payloads.
+                assert_eq!(observed.table.allocation().total() as i128, measured);
+                // A deep clone owns exactly the same index capacity and chunks, plus its shard array.
+                let shards = (hu20_trainer::store::SHARDS * std::mem::size_of::<hu20_trainer::store::Shard>()) as i128;
                 let before = memory::accounted_live();
                 let copy = observed.table.clone();
-                assert_eq!(memory::accounted_live() - before, measured);
+                assert_eq!(memory::accounted_live() - before, measured + shards);
+                assert_eq!(copy.allocation(), observed.table.allocation());
                 drop(copy);
+                let (regret_bytes, average_bytes) = observed.table.payload_bytes();
+                let logical: usize = observed.table.values().map(|e| e.regrets.len() * 8).sum();
+                assert!(regret_bytes < logical, "opponent-only keys keep no regrets");
+                assert_eq!(average_bytes, observed.table.values().filter_map(|e| e.average).map(|a| a.len() * 8).sum::<usize>());
                 assert_eq!(plain.table, observed.table);
                 assert_eq!(plain.counts, observed.counts);
                 let s = watched.survey.borrow();
                 assert_eq!(s.decisions, observed.counts.decisions);
-                assert!(observed.table.keys().all(|k| s.keys.contains_key(k)));
+                assert!(observed.table.keys().all(|k| s.keys.contains_key(&k)));
                 if scope == 3 {
                     assert_eq!(observed.table.len(), s.keys.len());
                 } else {

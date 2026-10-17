@@ -27,11 +27,9 @@ pub fn save(trainer: &Trainer, path: &Path) -> Result<(), String> {
             "freeze_at_cap":trainer.freeze_at_cap,"frozen_at":trainer.frozen_at,"entries":trainer.table.len(),
             "counts":counts_json(&trainer.counts)});
         writeln!(out, "{header}").map_err(|e| e.to_string())?;
-        let mut rows: Vec<_> = trainer.table.iter().collect();
-        rows.sort_unstable_by_key(|r| r.0);
-        for (key, e) in rows {
+        for (key, e) in trainer.table.sorted() {
             let row = json!([
-                key_hex(key),
+                key_hex(&key),
                 e.actor,
                 e.street,
                 e.code,
