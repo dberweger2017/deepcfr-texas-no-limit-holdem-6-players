@@ -262,12 +262,17 @@ pub fn key_bytes(hand: &Hand, menu: &[Choice]) -> [u8; 16] {
     BUFFER.with(|buffer| {
         let mut buffer = buffer.borrow_mut();
         write_payload(&mut buffer, hand, menu);
-        let mut hasher = Blake2bVar::new(16).unwrap();
-        hasher.update(&buffer);
-        let mut out = [0u8; 16];
-        hasher.finalize_variable(&mut out).unwrap();
-        out
+        digest16(&buffer)
     })
+}
+
+/// The 16-byte BLAKE2b digest every information key uses.
+pub fn digest16(bytes: &[u8]) -> [u8; 16] {
+    let mut hasher = Blake2bVar::new(16).unwrap();
+    hasher.update(bytes);
+    let mut out = [0u8; 16];
+    hasher.finalize_variable(&mut out).unwrap();
+    out
 }
 
 pub fn key_hex(hand: &Hand, menu: &[Choice]) -> String {
