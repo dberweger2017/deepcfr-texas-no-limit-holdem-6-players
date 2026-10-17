@@ -54,7 +54,7 @@ CI runs the same checks on every PR. PRs that only edit Markdown get a fast pros
 
 **Laptop-scale experiments.** Small games such as Kuhn and Leduc, short HU20 runs, benchmarks and reproductions of published results on your hardware. Report what you find, including weak or negative results; they are kept as evidence.
 
-**Large or paid compute.** Long training and big evaluations follow the research process below. The maintainer approves the budget and the machines before the main run.
+**Large or paid compute.** Long training and big evaluations follow the research process below. The maintainer approves the budget and the machines before the main run. The project's machines are described in [docs/hardware-inventory.md](docs/hardware-inventory.md); design for them when your work will run there.
 
 **Playing the bot.** Play it in the local web table, or watch two versions in the [spectator](docs/spectator.md), which shows each decision's exact probabilities. Report bugs and decisions that look wrong in an issue, with the hand history.
 
