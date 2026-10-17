@@ -2,8 +2,11 @@
 
 Use Python 3.11 and a 16 GB machine. The blend was built and tested on a base
 16 GB MacBook Pro M4; #306 measured 12.75 GB peak family RSS for its research
-pipeline. Startup validates 156,208,331 rows; allow tens of minutes for an
-uncached load. Memory used by that validation is released when the process exits.
+pipeline. Two fresh CLI starts took **22m41s and 22m16s**, with peak process RSS
+of **9,412,120,576 bytes** (9.41 GB /8.77 GiB) on the packaging test machine.
+Startup validates 156,208,331 rows; speed varies by CPU and storage. Use a
+**16 GB machine with about 12 GB RAM available** before starting. Memory used
+by validation is released when the process exits.
 
 Allow **15 GB of free disk**, plus the Python environment and session journals:
 about **7.67 GB of downloads** (6.28 GB model parts and 1.38 GB card tables),

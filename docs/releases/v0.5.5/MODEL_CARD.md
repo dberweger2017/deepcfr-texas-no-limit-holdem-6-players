@@ -41,11 +41,11 @@ claim to beat Slumbot. All journals verify; no abandoned/rejected hands counted.
 The first protocol failed on seed 2026101302 (#304): −23.08 [−56.53, +10.38],
 while seeds 1421 and 1422 gave −10.66 [−40.53, +19.21] and −7.87 [−39.39, +23.65].
 The recipe did not qualify under that declared rule. [#316's later AIVAT
-analysis](../../reports/slumbot-aivat-real-runs.md) attributes that failure mostly
+analysis](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/reports/slumbot-aivat-real-runs.md) attributes that failure mostly
 to card luck; it does not revise the raw-statistic verdict. Protocol v2 was
 predeclared for the blend with fresh hands and a pooled decision statistic.
 
-[#306's internal comparisons](../../reports/hu200-v055-blend-run.md) are
+[#306's internal comparisons](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/reports/hu200-v055-blend-run.md) are
 +3.61 [−1.15, +8.37] /+0.37 [−4.30, +5.05] /+1.85 [−2.83, +6.52] BB/100 over
 the three seeds, all within noise. The [release notes](RELEASE_NOTES.md) give
 the full scripted panel, including 1.5× pot pressure **−29.39 [−55.24, −3.53]**.
@@ -61,6 +61,9 @@ HU100, multiway, search, exploitability or professional-strength performance.
 
 The blend was **built and tested on a base 16 GB MacBook Pro M4**, with #306's
 measured peak simultaneous family RSS **12,748,324,864 bytes** (12.75 GB /11.87 GiB).
+Two fresh CLI loads during packaging took 22m41s and 22m16s, with peak process
+RSS 9,412,120,576 bytes (9.41 GB /8.77 GiB). A 16 GB machine with about 12 GB
+RAM available is recommended; load time varies by CPU and storage.
 No model is trained, re-exported or selected for packaging. Six ordered <=1 GiB
 parts reassemble to the pinned whole hash. The standalone verifier pins the
 model, tables, translation and publication source/approval. The three public
@@ -70,4 +73,4 @@ documents ship byte for byte from the tagged source.
 play. The separate non-Latest `hu200-frozen-20b-seeds` research pre-release
 retains the three ingredients and their failed original qualification history.
 Code is MIT; the upstream engine licensing question is recorded in the
-[licence audit](../v0.4.0/LICENSE_AUDIT.md).
+[licence audit](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/releases/v0.4.0/LICENSE_AUDIT.md).

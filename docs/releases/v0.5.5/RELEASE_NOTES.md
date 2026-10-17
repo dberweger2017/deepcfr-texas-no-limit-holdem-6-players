@@ -1,6 +1,6 @@
 # v0.5.5 — HU200 three-seed blend vs Slumbot
 
-v0.5.5 qualified under [protocol version 2](../../hu200-v055-acceptance-protocol-v2.md):
+v0.5.5 qualified under [protocol version 2](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/hu200-v055-acceptance-protocol-v2.md):
 **−19.67 [−38.57, −0.76] BB/100 against Slumbot over 30,000 fresh hands**, 10,000
 on each of three fresh accounts (#318). Its lower 95% bound clears the declared
 −50 BB/100 threshold. In the protocol's wording it is not an embarrassing opponent,
@@ -8,7 +8,7 @@ but it **loses to Slumbot by a small, detectable margin**. It does not beat Slum
 
 The original protocol required every one of three training seeds to clear the
 threshold. It failed on seed 2026101302 (#304), whose lower bound was −56.53.
-[#316's AIVAT analysis](../../reports/slumbot-aivat-real-runs.md) attributes that
+[#316's AIVAT analysis](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/reports/slumbot-aivat-real-runs.md) attributes that
 failure mostly to card luck: about −9 BB/100 for that seed. This later analysis
 does not change the original failed verdict. Protocol v2 was declared before
 any qualifying blend hand; exploratory hands were excluded.
@@ -20,7 +20,7 @@ There was no retraining, re-export or model selection for this release.
 
 ## Internal results and limitations
 
-[#306](../../reports/hu200-v055-blend-run.md) found blend-minus-seed results of
+[#306](https://github.com/dberweger2017/CFR-NLHE-6max/blob/v0.5.5/docs/reports/hu200-v055-blend-run.md) found blend-minus-seed results of
 +3.61 [−1.15, +8.37], +0.37 [−4.30, +5.05] and +1.85 [−2.83, +6.52] BB/100,
 respectively, over 131,072 duplicate blocks per seed. All are within noise;
 no direct improvement is established. Its scripted panel used 16,384 paired
@@ -53,7 +53,9 @@ The HU20 default remains v0.4.2; existing HU100 releases remain available.
 The blend was **built and tested on a base 16 GB MacBook Pro M4**, with #306's
 measured simultaneous process-family peak RSS of **12,748,324,864 bytes**
 (12.75 GB /11.87 GiB). That is the research pipeline peak, not a runtime-load measurement.
-Startup validates all 156 million entries; allow tens of minutes for an uncached load.
+Two fresh CLI starts took 22m41s and 22m16s, with a 9.41 GB peak process RSS;
+startup validates all 156 million entries. Allow about 12 GB available RAM on a
+16 GB machine. Load time varies by CPU and storage.
 See [INSTALL.md](INSTALL.md) for disk/RAM requirements and the verifier commands.
 
 The release contains six ordered model parts of at most 1 GiB, three K50 tables,
