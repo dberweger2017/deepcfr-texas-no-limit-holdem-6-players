@@ -7,6 +7,25 @@
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
 
+## Preliminary training diagnostics — October17,20:45Madrid
+
+The two completed large-model audits, seeds1421/1422, can be compared with their
+own85M twins at20B. These are training diagnostics; no evaluation hands or win-rate
+results exist. Third seed1302 has finished export and is in final sorted validation.
+
+| Metric | Own85M twins | Large301M models |
+| --- | ---: | ---: |
+| River traverser decisions with missing keys,10B→20B |19.16–19.44% |3.43–3.48% |
+| Entries never visited by traverser,at20B |16.63–16.64% |27.67–27.69% |
+| Mean traverser visits per key,at20B |37.37–37.39 |12.42 |
+
+Each range spans the two seeds, with no pooling or population-strength claim.
+[Exact seed-paired counts/source pins](hu200-capacity-cygnus-artifacts/preliminary-training-coverage-20261017.json).
+The larger table retains coverage for more training decisions while spreading
+visits more thinly across keys. Whether that produces a stronger player awaits
+the fixed matches and global every-hand replay/reproduction barrier. No final
+playing outcomes were inspected; no scientific changes or clock credit.
+
 ## Live status — October17,18:40Madrid
 
 All three native20B endpoints remain saved;1421/1422 full audits pass.1302 is

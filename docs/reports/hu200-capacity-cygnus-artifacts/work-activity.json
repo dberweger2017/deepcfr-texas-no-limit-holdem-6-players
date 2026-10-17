@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-handback-declared;export-recovery-continues",
+  "status": "coordinator-handback-declared;final-validation-continues",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -130,6 +130,20 @@
       "coordinator": "Handback declared after live status/report verification",
       "jobs": "1302 native export/audit,supervisor79721 and existing eventobserver79742 continue; no new failure",
       "time_basis": "Current status observation; final publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T18:45:50.109271+00:00",
+      "coordinator": "Returned by this time for owner preliminary-results question; PR marker18:46:08UTC followed metadata check",
+      "jobs": "1302 sorted final validation; no new failure",
+      "time_basis": "First current metadata observation and subsequent PR marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T18:47:36.547612+00:00",
+      "coordinator": "Handback declared after deriving two-seed matched training diagnostics from already verified receipts",
+      "jobs": "1302 final validation/supervisor/observer continue; no evaluation hands or outcome read",
+      "time_basis": "Current declaration; report publication/readback follows",
       "clock_credit": false
     }
   ]
