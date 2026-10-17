@@ -1,3 +1,13 @@
+## PR318 — v0.5.5 confirmation (protocol version 2): the blend qualifies
+
+The three confirmation accounts' journals, summaries and launchers, plus the pooled analysis, behind [the report](docs/reports/hu200-v055-blend-confirmation.md).
+
+- **Archive:** `gdrive:PR-318-v055-blend-confirmation/v055-blend-confirmation-20261017.zip`, **15,259,085 bytes**, SHA256 `9b453e6073200476f91d39c4162a65f3513c61f7525ee4fc26295f7f41d1dfe1`, Drive MD5 `a148cce10ec91fde427415b6abac7d44`, Drive ID `1UMBiAryiC5b-cNmJfMCPds6VKNodiXLm`.
+- **Manifest:** embedded `ARCHIVE-MANIFEST.json`, SHA256 `4b2449e1528604e3d44e8e97ee9cde88f8cd03d5672a409269d9538c5e1cb4e7`. It pins model SHA256 `ce3ecc2c…e6485` and client commit `e2f3de1c`.
+- **Members (10):** the three `account-*/journal.jsonl` and `summary.json`, three launchers and `analysis/pooled-30000.json`.
+- **Upload:** uploaded from cygnus-x1 with `research_cache.py`, whose receipt covers all 10 unpacked files at `/research/PR-318-v055-blend-confirmation/`.
+- **Restore and reproduce:** `rclone copy gdrive:PR-318-v055-blend-confirmation/ DEST`, unzip, then `python -m scripts.analyze_slumbot_run account-a-* account-b-* account-c-* --out pooled.json`.
+
 ## PR316 — AIVAT on real Slumbot hands
 
 Per-hand AIVAT corrections and analyzer summaries for #304's three runs and the v0.5.5 blend's exploratory run, behind [the report](docs/reports/slumbot-aivat-real-runs.md) and its charts.

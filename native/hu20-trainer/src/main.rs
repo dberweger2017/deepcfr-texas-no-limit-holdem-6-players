@@ -146,6 +146,7 @@ fn run(args: Vec<String>, command: &mut cli::Command) {
             };
             assert!(freeze_at_cap || trainer.frozen_table.is_none(), "frozen checkpoint resume requires --freeze-at-cap");
             if freeze_at_cap { trainer.freeze_at_cap(max_entries); }
+            if args.iter().any(|a| a == "--fast-gzip") { trainer.gzip = hu20_trainer::gz::Gzip::Parallel; }
             let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game != hu20_trainer::game::Game::Hu20;
             // CFR+'s floor keeps the production average weights, so exports and their bounds are unchanged.
             // DCFR reweights the average and stays bench-only.

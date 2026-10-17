@@ -234,7 +234,7 @@ fn corrupt_checkpoint_metadata_and_accumulators_are_rejected() {
     let path = std::env::temp_dir().join(format!("multi-invalid-{}.gz", std::process::id()));
     crate::multi_checkpoint::save(&trainer, &path).unwrap();
     let mut plain = String::new();
-    flate2::read::GzDecoder::new(std::fs::File::open(&path).unwrap())
+    flate2::read::MultiGzDecoder::new(std::fs::File::open(&path).unwrap())
         .read_to_string(&mut plain)
         .unwrap();
     let original: Vec<serde_json::Value> = plain

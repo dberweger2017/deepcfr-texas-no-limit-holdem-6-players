@@ -1,6 +1,7 @@
 //! Bounded, three-lookahead merge of hash-pinned raw HU200 averages. Inference
 //! normalization remains exclusively in the existing checkpoint exporter.
-use flate2::{read::GzDecoder, write::GzEncoder, Compression};
+// Multi-member: `train --fast-gzip` writes each piece as its own gzip member.
+use flate2::{read::MultiGzDecoder, write::GzEncoder, Compression};
 use hu20_trainer::{
     cards,
     cfr::{fsum, Node},
@@ -40,7 +41,7 @@ struct Input {
     spec: Value,
     path: PathBuf,
     header: Value,
-    lines: std::io::Lines<BufReader<GzDecoder<File>>>,
+    lines: std::io::Lines<BufReader<MultiGzDecoder<File>>>,
     next: Option<Row>,
     previous: Option<[u8; 16]>,
     count: u64,
@@ -69,7 +70,7 @@ impl Input {
             spec["sha256"].as_str().unwrap(),
             "checkpoint SHA256"
         );
-        let mut lines = BufReader::new(GzDecoder::new(File::open(&path).unwrap())).lines();
+        let mut lines = BufReader::new(MultiGzDecoder::new(File::open(&path).unwrap())).lines();
         let header: Value = serde_json::from_str(&lines.next().expect("header").unwrap()).unwrap();
         assert_eq!(checkpoint::header_game(&header).unwrap(), Game::Hu200);
         assert_eq!(header["abstraction"], cards::equity_schema(Game::Hu200));
@@ -449,8 +450,20 @@ mod tests {
 
     #[test]
     fn streamed_union_merge_and_existing_export_agree() {
-        let directory =
-            std::env::temp_dir().join(format!("hu200-blend-test-{}", std::process::id()));
+        streamed_union_merge(false);
+    }
+
+    /// `train --fast-gzip` checkpoints hold the header and row pieces as separate gzip members.
+    #[test]
+    fn multi_member_checkpoints_blend_identically() {
+        streamed_union_merge(true);
+    }
+
+    fn streamed_union_merge(multi_member: bool) {
+        let directory = std::env::temp_dir().join(format!(
+            "hu200-blend-test-{}-{multi_member}",
+            std::process::id()
+        ));
         std::fs::create_dir(&directory).unwrap();
         let identity = checkpoint::identity(
             Game::Hu200,
@@ -478,6 +491,9 @@ mod tests {
                     "small_blind":50,"big_blind":100,"chip_unit":"0.01"},"identity":identity});
             let mut gz = GzEncoder::new(fresh(&path), Compression::default());
             writeln!(gz, "{h}").unwrap();
+            if multi_member {
+                gz = GzEncoder::new(gz.finish().unwrap(), Compression::default());
+            }
             for (key, values) in rows {
                 writeln!(gz, "{}", encoded(&format!("{key:032x}"), &node(values))).unwrap();
             }
@@ -552,7 +568,7 @@ mod tests {
             .unwrap(),
             5
         );
-        let rows = BufReader::new(GzDecoder::new(File::open(&average).unwrap()))
+        let rows = BufReader::new(MultiGzDecoder::new(File::open(&average).unwrap()))
             .lines()
             .skip(1)
             .map(|s| serde_json::from_str::<Value>(&s.unwrap()).unwrap())

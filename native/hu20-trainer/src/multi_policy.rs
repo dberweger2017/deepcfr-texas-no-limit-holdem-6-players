@@ -7,7 +7,7 @@ use crate::{
     multi_holdem::{self, MENU, SCHEMA},
     nplayer::{Action, Config, Observation},
 };
-use flate2::{read::GzDecoder, write::GzEncoder, Compression};
+use flate2::{read::MultiGzDecoder as GzDecoder, write::GzEncoder, Compression};
 use rand::{Rng, SeedableRng};
 use serde_json::{json, Value};
 use std::{

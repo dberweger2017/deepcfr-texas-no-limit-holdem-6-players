@@ -2,7 +2,6 @@
 //! Kuhn follows Szafron/Gibson/Sturtevant (2013); multiplayer Leduc follows
 //! OpenSpiel's 2*(N+1)-card, two-raises-per-round convention (see protocol).
 use crate::multi_cfr::{Decision, Game, State};
-use blake2::digest::{Update, VariableOutput};
 use rand::seq::SliceRandom;
 use serde_json::{json, Value};
 
@@ -234,10 +233,7 @@ impl State for Hand {
     }
     fn decision(&self) -> Option<Decision> {
         let a = self.actor?;
-        let mut key = [0; 16];
-        let mut hash = blake2::Blake2bVar::new(16).unwrap();
-        hash.update(&self.payload());
-        hash.finalize_variable(&mut key).unwrap();
+        let key = crate::key::digest16(&self.payload());
         Some(Decision {
             key,
             actor: a,
