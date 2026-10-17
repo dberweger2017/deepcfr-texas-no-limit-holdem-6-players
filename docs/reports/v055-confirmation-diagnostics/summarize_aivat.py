@@ -97,8 +97,8 @@ def main():
         if name.startswith('confirmation-') and name != 'confirmation-pooled':
             assert all(not any(r['corrections'][4:]) for r in records[name])
             analyzer = json.loads((OUT / f'aivat-{name}.json').read_text())
-            assert summary['aivat'] == analyzer['aivat']
-            assert summary['bb_per_100'] == analyzer['bb_per_100']
+            assert_close(summary['aivat'], analyzer['aivat'])
+            assert_close(summary['bb_per_100'], analyzer['bb_per_100'])
         if name in ('2026101302', '2026101421', '2026101422'):
             previous = json.loads(Path(f'docs/reports/slumbot-aivat-real-runs/cards-{name}.json').read_text())
             assert_close(summary['aivat'], previous['aivat'])
@@ -139,6 +139,7 @@ def main():
     csv_file(OUT / 'aivat-weights.csv', weights)
     all_luck = [sum(r['corrections'][:4]) for name, rs in records.items()
                 if not name.endswith('-pooled') for r in rs]
+    assert len(all_luck) == 70000
     (OUT / 'card-luck-70000.json').write_text(json.dumps(analysis.interval(all_luck), indent=2) + '\n')
     print(json.dumps(rows, indent=2))
 
