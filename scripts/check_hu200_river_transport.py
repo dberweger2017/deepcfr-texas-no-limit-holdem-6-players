@@ -71,8 +71,12 @@ class ReusedCompletedSolver:
                 or record['profile_retention']['generated_files']['profile.f64'] != previous['profile.f64']
                 or file_hash(baseline/'profile.f64') != previous['profile.f64']['sha256']):
             raise ValueError('Completed work cannot be reused')
+        expected_semantics = header_semantic_sha256(baseline/'profile.jsonl')
+        known_semantics = record['profile_retention'].get('header_semantic_sha256')
+        if known_semantics is not None and known_semantics != expected_semantics:
+            raise ValueError('Reusable header semantics differ')
         profiles = parse_profiles(read_request(baseline),baseline/'profile.jsonl',compact=True)
-        record['profile_retention']['header_semantic_sha256'] = header_semantic_sha256(baseline/'profile.jsonl')
+        record['profile_retention']['header_semantic_sha256'] = expected_semantics
         record['plumbing_reused_native_work'] = True
         record['reconstructed_header_semantics'] = 'prior strict request/metadata validation plus identical numeric body; process RSS excluded'
         self.records.append(record)
@@ -90,6 +94,10 @@ def run(args):
     baseline_summary = json.loads((args.baseline/'summary.json').read_text())
     if not baseline_summary['all_search_work_completed'] or baseline_summary['decisions'] != 24:
         raise ValueError('Incomplete original baseline')
+    if args.reuse_completed_root:
+        reused = json.loads((args.reuse_completed_root/'summary.json').read_text())
+        if reused['status'] != 'exact-parity' or reused['decisions'] != 24 or reused['plan_sha256'] != file_hash(args.plan):
+            raise ValueError('Only a complete fixed24 parity root may be reused')
     args.out.mkdir(parents=True, exist_ok=False)
     base = AveragePolicy(args.model, MODEL_SHA256, expected_schema=HU200_EQUITY_SCHEMA,
         card_buckets=args.tables, cache=args.cache, cache_read_only=True,

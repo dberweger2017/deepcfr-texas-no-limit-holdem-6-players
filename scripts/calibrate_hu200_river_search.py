@@ -8,6 +8,7 @@ import json
 import multiprocessing as mp
 from pathlib import Path
 import subprocess
+import shutil
 import time
 
 import psutil
@@ -192,6 +193,9 @@ def main():
         raise ValueError('Search/game changed after the qualified gates')
     if args.deadline-time.time() > 7200 or args.deadline <= time.time():
         raise ValueError('Invalid calibration clock')
+    if (plan['disk_admission']['floor_bytes'] != 16*1024**3
+            or shutil.disk_usage(args.out.parent).free < plan['disk_admission']['required_free_bytes']):
+        raise ValueError('Fresh calibration temporary/retained disk admission fails')
     args.out.mkdir(parents=True,exist_ok=False)
     put(args.out/'inputs.json',dict(declaration_sha256=file_pin(args.declaration)['sha256'],
         source=source,plan=plan,deadline=args.deadline,calibration_only=True))
