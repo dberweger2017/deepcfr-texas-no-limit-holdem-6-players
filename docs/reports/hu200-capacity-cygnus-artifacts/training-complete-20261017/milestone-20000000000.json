@@ -1,0 +1,326 @@
+{
+  "2026101302": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 14414526873,
+    "checkpoint_sha256": "b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93",
+    "completed_nodes": 20000000759,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        237547067,
+        865412558,
+        2769154436,
+        7476860986
+      ],
+      "entries": 301153962,
+      "positive_average_mass_keys": 187450574,
+      "traverser_visits": 3740953370,
+      "traverser_visits_by_street": [
+        72244620,
+        268563573,
+        905375549,
+        2518357423
+      ],
+      "visits_histogram": {
+        "0": 83315373,
+        "1": 78795038,
+        "10-99": 40761103,
+        "100+": 4427782,
+        "2-9": 93854666
+      },
+      "zero_average_mass_keys": 113703388
+    },
+    "elapsed_seconds_including_writes": 10992.076666012,
+    "entries_per_completed_node": 0.01505769752856038,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 23587795,
+      "discarded_updates_since_previous_save": 45761906,
+      "interval_start_iteration": 7864201,
+      "missing_opponent_by_street": [
+        4192,
+        126496,
+        2889303,
+        38224210
+      ],
+      "missing_opponent_share_by_street": [
+        5.06305190526798e-05,
+        0.00042111682067773077,
+        0.0030454999432620354,
+        0.015204683040514885
+      ],
+      "missing_traverser_by_street": [
+        15445,
+        246155,
+        4705432,
+        43106332
+      ],
+      "missing_traverser_share_by_street": [
+        0.0004371908226555596,
+        0.001869769787970286,
+        0.010524943193060084,
+        0.0346729289937417
+      ],
+      "opponent_decisions_by_street": [
+        82795912,
+        300382207,
+        948712216,
+        2513976115
+      ],
+      "state": {
+        "discarded_traverser_visits": 23587795,
+        "discarded_updates": 45761906,
+        "entries": 301153962,
+        "since_iteration": 12277287,
+        "version": 1
+      },
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        35327823,
+        131649897,
+        447074337,
+        1243227303
+      ]
+    },
+    "iteration": 16367262,
+    "new_entries": 43469979,
+    "nodes_per_second_including_writes": 909746.2493070536,
+    "nodes_since_previous_save": 10000000519,
+    "overshoot_nodes": 759,
+    "path": "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+    "process_rss_bytes_after_save": 28833185792,
+    "recent_nodes_per_second_including_writes": 909746.2493070536,
+    "requested_nodes": 20000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792244831.5921464,
+    "write_seconds": 1845.387595059,
+    "write_started": 1792242986.204551
+  },
+  "2026101421": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 14407546362,
+    "checkpoint_sha256": "bb8ea06e4be3ada1e82dd524f54beaa5846d0c4814c215ace76ca145d901c098",
+    "completed_nodes": 20000001428,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        236723735,
+        862934161,
+        2766624063,
+        7481708949
+      ],
+      "entries": 301153954,
+      "positive_average_mass_keys": 187281734,
+      "traverser_visits": 3740323830,
+      "traverser_visits_by_street": [
+        71816938,
+        267675633,
+        904527164,
+        2520004463
+      ],
+      "visits_histogram": {
+        "0": 83315794,
+        "1": 78859447,
+        "10-99": 40659256,
+        "100+": 4423153,
+        "2-9": 93896304
+      },
+      "zero_average_mass_keys": 113872220
+    },
+    "elapsed_seconds_including_writes": 10577.737891687,
+    "entries_per_completed_node": 0.01505769662488046,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 23700368,
+      "discarded_updates_since_previous_save": 46423479,
+      "interval_start_iteration": 7897803,
+      "missing_opponent_by_street": [
+        20877,
+        162316,
+        2982557,
+        37927336
+      ],
+      "missing_opponent_share_by_street": [
+        0.00025198682687172457,
+        0.0005411950831495119,
+        0.003145648719362273,
+        0.015084297747952075
+      ],
+      "missing_traverser_by_street": [
+        27672,
+        272341,
+        4698952,
+        42591234
+      ],
+      "missing_traverser_share_by_street": [
+        0.0007842627332304466,
+        0.002072178173189983,
+        0.010512512102264471,
+        0.034258771779370055
+      ],
+      "opponent_decisions_by_street": [
+        82849569,
+        299921424,
+        948153232,
+        2514358748
+      ],
+      "state": {
+        "discarded_traverser_visits": 23700368,
+        "discarded_updates": 46423479,
+        "entries": 301153954,
+        "since_iteration": 12443560,
+        "version": 1
+      },
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        35284094,
+        131427405,
+        446986596,
+        1243221277
+      ]
+    },
+    "iteration": 16365537,
+    "new_entries": 42173207,
+    "nodes_per_second_including_writes": 945381.7924396632,
+    "nodes_since_previous_save": 10000000808,
+    "overshoot_nodes": 1428,
+    "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.gz",
+    "process_rss_bytes_after_save": 28835504128,
+    "recent_nodes_per_second_including_writes": 945381.7924396632,
+    "requested_nodes": 20000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792213357.0374022,
+    "write_seconds": 1863.984425289,
+    "write_started": 1792211493.0529766
+  },
+  "2026101422": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 14406200971,
+    "checkpoint_sha256": "0d4b990deb63fcddd2dc9e96ec03ea06882229d666a4d541b4d5d43c5f8bdcb0",
+    "completed_nodes": 20000000322,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        235501310,
+        861009516,
+        2764280307,
+        7488429231
+      ],
+      "entries": 301153964,
+      "positive_average_mass_keys": 187305112,
+      "traverser_visits": 3739467603,
+      "traverser_visits_by_street": [
+        71416016,
+        267040970,
+        903280580,
+        2522366167
+      ],
+      "visits_histogram": {
+        "0": 83387291,
+        "1": 78817671,
+        "10-99": 40723515,
+        "100+": 4421744,
+        "2-9": 93803743
+      },
+      "zero_average_mass_keys": 113848852
+    },
+    "elapsed_seconds_including_writes": 10959.352843821,
+    "entries_per_completed_node": 0.015057697957571062,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 24636130,
+      "discarded_updates_since_previous_save": 48324685,
+      "interval_start_iteration": 7869018,
+      "missing_opponent_by_street": [
+        12727,
+        159703,
+        3104764,
+        38773829
+      ],
+      "missing_opponent_share_by_street": [
+        0.00015531131694026675,
+        0.0005339263127260404,
+        0.003275107907000798,
+        0.015403662914870195
+      ],
+      "missing_traverser_by_street": [
+        24864,
+        270831,
+        4822259,
+        43361021
+      ],
+      "missing_traverser_share_by_street": [
+        0.0007170667126407637,
+        0.002067378299267442,
+        0.010795197367639156,
+        0.03484930571482012
+      ],
+      "opponent_decisions_by_street": [
+        81945091,
+        299110563,
+        947988307,
+        2517182388
+      ],
+      "state": {
+        "discarded_traverser_visits": 24636130,
+        "discarded_updates": 48324685,
+        "entries": 301153964,
+        "since_iteration": 12268440,
+        "version": 1
+      },
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        34674598,
+        131002149,
+        446704107,
+        1244243468
+      ]
+    },
+    "iteration": 16366443,
+    "new_entries": 42113933,
+    "nodes_per_second_including_writes": 912462.5590130631,
+    "nodes_since_previous_save": 9999999141,
+    "overshoot_nodes": 322,
+    "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.gz",
+    "process_rss_bytes_after_save": 28837236736,
+    "recent_nodes_per_second_including_writes": 912462.5590130631,
+    "requested_nodes": 20000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792214503.3776007,
+    "write_seconds": 1820.744652281,
+    "write_started": 1792212682.6329482
+  }
+}

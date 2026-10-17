@@ -4493,3 +4493,16 @@ Raw BB `guards/{storage-continuation-tests-20261017,storage-continuation-tests-r
 are required final evidence; closed-source pins indexed in startup/validation.
 Mutable new trace byte cuts are snapshots, not sealed hashes. Exclude privateURLs.
 Delete the existing event task only at complete closeout; owner decides merge.
+
+PR301 training completion, October17,20:11:35UTC: all three final every-row audits pass.
+[Attempt-specific completion/deduplication and closed-trace pins](docs/reports/hu200-capacity-cygnus-artifacts/training-complete-verification-20261017.json),
+[exact completion/offload/audit receipts](docs/reports/hu200-capacity-cygnus-artifacts/training-complete-20261017/),
+[ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-training-complete-20261017.json).
+Final1302 checkpoint/current relocated with full independent readback under
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/after-export-recovery-20261017/`
+mirroring original owned-relative paths. Average f69c6f3e… staysNVMe; all hashes,
+bytes and original paths are in the receipts. Restore selected required inputs toNVMe
+with SHA256 verification, retainingHDD originals. Raw closed guards/export-recovery-20261017,
+controller/observer logs and planning/collect_training_complete_20261017.py plus
+publication/readback helpers require final archives. No complete model archive or
+final unpackedHDD bundle exists yet. No final hands/outcomes, no source/trainer change.

@@ -1,11 +1,36 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Owner-approved export recovery running from October17,17:45:19Madrid.** All three native20B saves remain;1421/1422 audits pass.1302's unchanged export/full audit runs from its verified20B checkpoint in a fresh output root.70.431GB inactive files have been verified onHDD before restart; no training repeat.
+**Training, exports and full-row audits complete, October17,22:11:35Madrid.** Evaluation preparation is active. No final hands or playing outcomes.
 
-**ETA:** last export/audit/storage tonight22:45–23:45Madrid, Sunday18morning contingency. Full report/archive Monday19evening, Tuesday20upload contingency, conditional on the fixed evaluation quote. Actual downtime1h20m9.848s credited once; fixed deadline nowOctober19 08:04:59Madrid. No final hands/outcomes.
+**ETA:** full report/archive Monday19evening, Tuesday20upload contingency, conditional on the measured fixed evaluation quote; its unchanged24h clock has not started.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Training complete — October17,22:11:35Madrid
+
+All three20B endpoints now pass their complete every-row audits:301,153,962,
+301,153,954 and301,153,964 rows for1302/1421/1422. The final1302 export-only
+recovery completed at20:11:35UTC, followed by successful verified relocation of
+its checkpoint/current export toHDD. Its average remainsNVMe; other inactive
+models retain their indexedHDD locations. No training was repeated by this recovery.
+[Attempt-specific completion, hashes, closed traces and deduplication proof](hu200-capacity-cygnus-artifacts/training-complete-verification-20261017.json).
+The supervisor, worker and event observer have exited; no current-attempt failure.
+
+The closed export-recovery trace contains10,379 samples: maximum CPU73°C,
+VRM87.5°C, minimum freeNVMe85.713GB, no guard stop, maximum sample gap2.067s.
+FreeNVMe after final offload is110.035GB. Evaluation has not started; no playing
+outcomes exist. Restore only selected inputs, measure actual caches and admit
+writers against the50GB floor before choosing seed concurrency. Compressed
+averages remain required by the unchanged harness throughout compatible matches.
+
+**ETA:** training/export/audits finished earlier than the22:45–23:45 estimate.
+Fixed evaluation retains24h from the first cache build, including pilots, replay
+and reproduction; that clock is not started. Full report/archive target remains
+Monday19evening, Tuesday20upload contingency, conditional on measured cache,
+fixed evaluation and archive costs. No further downtime credit or automatic
+scientific retry. Final hands require published cost/resource/root admission;
+all six groups must pass global every-hand replay/reproduction before readout.
 
 ## Preliminary training diagnostics — October17,20:45Madrid
 

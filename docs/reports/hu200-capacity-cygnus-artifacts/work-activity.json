@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-handback-declared;final-validation-continues",
+  "status": "coordinator-active;training-complete;evaluation-preparation",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -144,6 +144,12 @@
       "coordinator": "Handback declared after deriving two-seed matched training diagnostics from already verified receipts",
       "jobs": "1302 final validation/supervisor/observer continue; no evaluation hands or outcome read",
       "time_basis": "Current declaration; report publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T20:12:00.609551+00:00",
+      "coordinator": "Returned and marked PR301 for training_complete event; verified owned attempt and deduplicated receipts",
+      "jobs": "Training supervisor/worker/observer exited; evaluation preparation active",
       "clock_credit": false
     }
   ]

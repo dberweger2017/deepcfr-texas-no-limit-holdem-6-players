@@ -1,0 +1,12 @@
+{
+  "cpus": [
+    6
+  ],
+  "elapsed_seconds": 15538.651688769998,
+  "exit_codes": [
+    0
+  ],
+  "hard_stop_reason": null,
+  "status": "passed",
+  "stop_reason": null
+}
