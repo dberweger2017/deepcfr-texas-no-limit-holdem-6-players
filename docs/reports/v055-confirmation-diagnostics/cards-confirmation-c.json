@@ -1,0 +1,88 @@
+{
+  "hands": 10000,
+  "bb_per_100": {
+    "mean": -10.975,
+    "half_width_95": 33.197775530265815,
+    "n": 10000
+  },
+  "by_seat": {
+    "big_blind": {
+      "mean": -26.59,
+      "half_width_95": 47.784798844510476,
+      "n": 5000
+    },
+    "small_blind_button": {
+      "mean": 4.64,
+      "half_width_95": 46.09824697287873,
+      "n": 5000
+    }
+  },
+  "aivat": {
+    "own_actions_corrected": false,
+    "bb_per_100": {
+      "mean": -18.672428611683436,
+      "half_width_95": 27.21795897995046,
+      "n": 10000
+    },
+    "by_seat": {
+      "big_blind": {
+        "mean": -26.328945115470148,
+        "half_width_95": 39.81669585945862,
+        "n": 5000
+      },
+      "small_blind_button": {
+        "mean": -11.01591210789673,
+        "half_width_95": 37.122852555531225,
+        "n": 5000
+      }
+    },
+    "weighted_bb_per_100": {
+      "mean": -10.858820579933669,
+      "half_width_95": 29.74220867064836,
+      "n": 10000
+    },
+    "weighted_by_seat": {
+      "big_blind": {
+        "mean": -26.560458533393877,
+        "half_width_95": 39.210085188040935,
+        "n": 5000
+      },
+      "small_blind_button": {
+        "mean": 4.842817373526537,
+        "half_width_95": 44.731869121900324,
+        "n": 5000
+      }
+    },
+    "card_luck_bb_per_100": {
+      "mean": 7.697428611683439,
+      "half_width_95": 17.419547529025287,
+      "n": 10000
+    },
+    "weights_by_half": [
+      {
+        "deal": 5.8446593656110934,
+        "flop": 1.0460090611450823,
+        "turn": 1.7513574448786169,
+        "river": 0.8442192912456918,
+        "preflop_actions": 0.0,
+        "flop_actions": 0.0,
+        "turn_actions": 0.0,
+        "river_actions": 0.0
+      },
+      {
+        "deal": 6.005282156133857,
+        "flop": 2.749675907197018,
+        "turn": 3.017971078993874,
+        "river": 1.427756414429983,
+        "preflop_actions": 0.0,
+        "flop_actions": 0.0,
+        "turn_actions": 0.0,
+        "river_actions": 0.0
+      }
+    ],
+    "plain_variance_vs_raw": 0.6721916947683204,
+    "plain_hands_worth": 1.4876708649973174,
+    "weighted_variance_vs_raw": 0.8026541665173043,
+    "weighted_hands_worth": 1.2458665783035479
+  }
+}
