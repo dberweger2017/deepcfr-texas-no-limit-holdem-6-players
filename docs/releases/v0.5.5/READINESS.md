@@ -42,15 +42,17 @@ Completed checks:
   Fresh bundles from clean source `ea5301bb` verify all **49 assets** and all six
   shipped documents byte for byte; both reject a wrong source and a request for
   publication approval. [Review-bundle receipt](verification/review-bundles.json).
-  The first complete reconstruction from prepared parts reproduces all three
-  averages and both exact audited blend hashes. The original release model is unchanged.
+  Two complete reconstructions from prepared parts reproduce all three averages
+  and both exact audited blend hashes, including the integrated native readers.
+  Completed outputs have source/copy/readback SHA256 verification and retained
+  restoration provenance. The original release model is unchanged.
+  [Reconstruction receipt](verification/reconstruction.json),
+  [source coverage](verification/source-coverage.json).
 - Public documentation includes protocol-v2 qualification, the failed first
   protocol, AIVAT context, internal results, weaknesses and measured requirements.
 
 Still required before the packaging PR is ready:
 
-- Complete and preserve the second exact reconstruction with the integrated
-  native readers; the first reconstruction does not substitute for this check.
 - Finish evidence archival and record its accepted restoration receipt.
 - Confirm final code and shipped-document source equivalence to the tested
   sources and verified review bundles, run the staged repository artifact guard

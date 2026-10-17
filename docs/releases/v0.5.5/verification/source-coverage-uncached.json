@@ -1,0 +1,31 @@
+{
+  "backend_groups_unchanged_since_cli_smoke": [
+    "src/play_api",
+    "src/policies/hu200_release.py",
+    "src/blueprint/average.py",
+    "src/blueprint/action_translation.py"
+  ],
+  "changed_code_sha256": {
+    "apps/poker-web/playback.js": "302cc85df30626ceccc9e1a112d972aef2589f5ba9a31cfbceb871a4b4900ebc",
+    "apps/poker-web/spectator.js": "b99c20c65d55c5d19e84b08d921847491e7560153be971ce42e90225af0e7623",
+    "native/hu20-trainer/examples/hu200_blend.rs": "24a68ff96ea0cbb6cf0c34a1236af551b67c58ac94e44c689af07dc1eedc1fa1",
+    "scripts/build_hu200_bundle.py": "dad93ea62553557d18e89fce13a4cb7684e1543b76817ab05e826e46338aa8d8",
+    "scripts/check_hu100_release_trace.py": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+    "scripts/rebuild_hu200_release.py": "2faea498c8d488dd48f3e40fa211166dac184d56b0f868409f2d5368f3638734",
+    "scripts/smoke_hu100_release.py": "3c3b570d028217fa2062c6c6cbc843cc58ae0882efd7c2e499a71c805dddb7a3",
+    "scripts/smoke_hu200_release.py": "9b8de725349eb7c048a4a064945c5e0e4df24934d9aa25ced432665e63eaca0d",
+    "scripts/verify_hu200_bundle.py": "dfbdc6ec3cfbc316c94c58f196ad471dfa9deb41f93f13d07936af3d07c2c987",
+    "src/play_api/configuration.py": "ba9b602987774ce2378ca911241ecd79739c80ebd2be239b68c666710d491795",
+    "src/play_api/play_audit.py": "4dba92a4e283bf139cf33b9bb54dc2f4068264fe1a7b54240aae993f2b747e27",
+    "src/play_api/server.py": "75ca3a9ff12caff9632531577ab076795d17db819498f67f29db40a70dde7572",
+    "src/play_api/service.py": "650dabba6bbdf551d6de0b4341ded64557ac04b1422b5df4333b0b511595364e",
+    "src/policies/hu200_bundle.py": "c77f41bab0292ef4d63a914c930b9468816d411b2085c6285edde35a59855d29",
+    "src/policies/hu200_release.py": "9d7fe3772b72f570594aad672520b05a799cc8f5459987fbcfbac93a2bf6fa6a",
+    "tests/play_ui/playback.test.cjs": "6743a34c8d9d466993ded2c3f968b2268320d7baf55daff36d8127180fd9075c"
+  },
+  "code_commit": "8cc26a77f72209f55da72d2ee63c51b3b8bda75b",
+  "hu100_policy_translation_and_trace_modules_unchanged_since_compatibility": true,
+  "native_changes_since_blend_scientific_source": [
+    "native/hu20-trainer/examples/hu200_blend.rs"
+  ]
+}
