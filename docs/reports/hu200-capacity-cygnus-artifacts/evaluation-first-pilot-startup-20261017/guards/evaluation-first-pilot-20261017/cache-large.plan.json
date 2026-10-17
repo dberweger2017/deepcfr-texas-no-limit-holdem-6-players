@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+    "-m",
+    "scripts.pilot_hu200_capacity",
+    "stage",
+    "--base",
+    "/home/dberweger/hu200-capacity-20261015",
+    "--config",
+    "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+    "--name",
+    "cache-large",
+    "--stop",
+    "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/cache-large.stop"
+  ],
+  "cpus": [
+    0,
+    1
+  ],
+  "kind": "pilot-cache-large",
+  "name": "cache-large",
+  "original_deadline": 1792354954.5604858,
+  "reserve_bytes": 18500000000,
+  "rss_gib": 38,
+  "stop_file": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/cache-large.stop"
+}

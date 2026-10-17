@@ -1,0 +1,24 @@
+{
+  "aggregate_rss_gib": 8,
+  "clean_save_grace_seconds": 1200,
+  "jobs": [
+    {
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+        "-m",
+        "scripts.pilot_hu200_capacity",
+        "restore",
+        "--base",
+        "/home/dberweger/hu200-capacity-20261015"
+      ],
+      "cpus": [
+        6
+      ],
+      "name": "restore",
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/restore.stop"
+    }
+  ],
+  "max_seconds": 1200,
+  "swap_baseline_bytes": 1048576
+}

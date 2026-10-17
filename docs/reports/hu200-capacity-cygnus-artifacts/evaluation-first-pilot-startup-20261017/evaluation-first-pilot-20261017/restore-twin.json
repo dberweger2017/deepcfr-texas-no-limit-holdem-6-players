@@ -1,0 +1,12 @@
+{
+  "destination": {
+    "bytes": 3164563975,
+    "mtime_ns": 1792141699404187082,
+    "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+    "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+  },
+  "retained_source": true,
+  "source": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017/inputs/seed-2026101302/final.average.gz",
+  "status": "verified",
+  "utc": "2026-10-17T20:21:54.520810+00:00"
+}

@@ -1,10 +1,14 @@
 {
-  "utc": "2026-10-17T20:17:50.133905+00:00",
+  "utc": "2026-10-17T20:23:54.467291+00:00",
   "training_completed_utc": "2026-10-17T20:11:35.764794+00:00",
-  "evaluation_clock_started": false,
+  "evaluation_clock_started": true,
   "evaluation_limit_seconds": 86400,
   "report_archive_target": "October19 evening Europe/Madrid",
   "upload_contingency": "October20 Europe/Madrid",
   "conditions": "Actual cache sizes, cost-only fixed pilots, full fixed work and archive costs must fit original budgets; no extension or automatic retry",
-  "final_outcomes_read": false
+  "final_outcomes_read": false,
+  "evaluation_started_epoch": 1792268554.5604858,
+  "evaluation_deadline_epoch": 1792354954.5604858,
+  "evaluation_deadline_utc": "2026-10-18T20:22:34.560486+00:00",
+  "measured_full_cost_quote_available": false
 }

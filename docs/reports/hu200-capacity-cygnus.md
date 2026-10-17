@@ -2,10 +2,33 @@
 
 **Training, exports and full-row audits complete, October17,22:11:35Madrid.** Evaluation preparation is active. No final hands or playing outcomes.
 
-**ETA:** full report/archive Monday19evening, Tuesday20upload contingency, conditional on the measured fixed evaluation quote; its unchanged24h clock has not started.
+**ETA:** full report/archive Monday19evening, Tuesday20upload contingency, conditional on the measured fixed evaluation quote; its unchanged24h clock endsOctober18,22:22:34Madrid.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Evaluation clock started — October17,22:22:34Madrid
+
+The first large cache is running from clean immutable source2d2ec4a1. The clock
+started at20:22:34.560486UTC and ends **2026-10-18T20:22:34.560486+00:00 /October18,22:22:34Madrid**.
+It includes all remaining cache/pilot/final/replay/reproduction work; no extension.
+The source and config remain pinned; both owned worker processes have affinity0–1
+and the declared two-thread environment. No current evaluation failure or final hands.
+[Startup/source/process/clock/restoration/guard proof](hu200-capacity-cygnus-artifacts/evaluation-first-pilot-startup-20261017.json).
+
+The1302 twin restoration passed in28.268s with full source/destination hashes,
+fsync and retainedHDD source; maxCPU62°C/VRM65.5°C, no stop. The14-test guard
+passed in2.025s. At startup20:22:34UTC CPU55°C/VRM66°C; the20:23 cut has
+105.329GB freeNVMe. All original guards remain. Actual caches are not yet built,
+so no complete fixed-work cost quote or final-hand admission exists. A terminal
+pilot event reuses the existing bounded campaign webhook; no new schedule.
+
+Full report/archive target remainsMonday19evening, Tuesday20upload contingency,
+conditional on the measured fixed-work quote fitting the sealed evaluation deadline.
+Coordinator handback declared **2026-10-17T20:23:54.467291+00:00** after verifying the live source/workers;
+cache supervisor continues through the serial cost-only pilot and sends its terminal
+event. No downtime credit or automatic retry. The global six-group every-hand
+barrier still prevents final outcome readout.
 
 ## First evaluation cost pilot declared — October17
 

@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-active;training-complete;evaluation-preparation",
+  "status": "coordinator-handback-declared;first-cost-pilot-running",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -151,6 +151,13 @@
       "coordinator": "Returned and marked PR301 for training_complete event; verified owned attempt and deduplicated receipts",
       "jobs": "Training supervisor/worker/observer exited; evaluation preparation active",
       "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T20:23:54.467291+00:00",
+      "coordinator": "Handback declared after verified all-three completion, fresh roots, guarded restoration/checks and first cost-pilot launch",
+      "jobs": "Immutable2d2ec4a1 cache supervisor and first large cache continue; terminal callback uses existing event task",
+      "clock_credit": false,
+      "time_basis": "Current declaration; final publication/push/readback follows"
     }
   ]
 }
