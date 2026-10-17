@@ -1,0 +1,15 @@
+{
+  "status": "verified-uncompressed-and-zip",
+  "at": "2026-10-17T07:04:24.983810+00:00",
+  "archive": "hu200-river-search-storage-closeout-20261017.zip",
+  "archive_bytes": 343720,
+  "archive_sha256": "68b44362546cdf01600680c10bad89797a110b43e75918df57c7a4172d385a5f",
+  "manifest_path": "storage-closeout-20261017/ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "88591d968f7076f8430d045bf37621d5e070d53ad0abcbff205a120d2adf7f90",
+  "payload_members": 13,
+  "logical_member_bytes": 4050673,
+  "uncompressed_disk_sha256_readback": true,
+  "zip_member_sha256_readback": true,
+  "originals_retained": true,
+  "cloud_upload_accepted": false
+}

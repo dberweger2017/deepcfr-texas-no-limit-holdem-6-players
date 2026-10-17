@@ -343,3 +343,22 @@ manifest SHA256 `5a48332e0d228b50a6674868668863b76949fe6aaa387410f99a90148e426d8
 Drive acceptance and supplemental administration receipts are recorded separately
 in the index; no pending upload is treated as accepted. The PR stays draft for
 owner choice before final research and final-review readiness.
+
+The supplemental administration ZIP retains closed preservation/proposal guards,
+release, count arithmetic and report/control provenance: **112 payload members**,
+**466,679-byte** ZIP, SHA256
+`6a2bf2fa3968d2be8cc3635dd167af7a729b7d3ea67aeded8aab7b3ac25f7f43`.
+All unpacked and ZIP members pass SHA256 readback. A deployed upload-receipt path
+comparison fails after the four earlier transfers complete; resolving input
+paths fixes invocation without modifying the live tool or rerunning science.
+The raw stop/recovery and separate Drive acceptance are preserved at closeout.
+
+Storage closeout is complete: **all seven ZIPs have accepted Drive MD5/size
+receipts, covering all 16,029 current local files**, with no uncovered or changed
+size/mtime records. The 13-member storage closeout bundle preserves the failed
+receipt/recovery and closed administration; its ZIP and unpacked files pass
+SHA256 readback. The live tool is unchanged and all originals remain protected.
+[Drive IDs/URLs, hashes and coverage](hu200-river-search-artifacts/cloud-closeout-receipt.json),
+[retrieval/index](../../RESULTS_INDEX.md#pr317--hu200-river-search-calibration-complete-finals-pending).
+This acceptance is not a remote SHA256/member audit. Final research remains
+pending the owner's counts/venue/storage choice; the PR remains draft.

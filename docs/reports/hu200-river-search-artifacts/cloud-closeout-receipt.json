@@ -1,0 +1,100 @@
+{
+  "acceptance_scope": "Drive MD5/size plus local ZIP member CRC32/size coverage; SHA256 provenance from separately verified local archives/manifests, not a remote SHA256 audit",
+  "archives": {
+    "hu200-river-search-calibration-M4-20261017.zip": {
+      "bytes": 633416285,
+      "drive_bytes": 633416285,
+      "drive_id": "1U2JH2J65ulvrg5YmyidWEh2VgwQ1D-Fm",
+      "drive_md5": "8de72cd0ca01157d0712a7d79fd60959",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-calibration-M4-20261017.zip",
+      "drive_url": "https://drive.google.com/file/d/1U2JH2J65ulvrg5YmyidWEh2VgwQ1D-Fm/view",
+      "local_readback_receipt": "calibration-archive-receipt.json",
+      "manifest_path": "calibration-20261017/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "5a48332e0d228b50a6674868668863b76949fe6aaa387410f99a90148e426d85",
+      "sha256": "efa83610c98cbb4d8f93245d7472673fe5bb56f051eb310768ad08102733ad64"
+    },
+    "hu200-river-search-calibration-administration-20261017.zip": {
+      "bytes": 466679,
+      "drive_bytes": 466679,
+      "drive_id": "1X1ESBvzf3oI5oAQlOG5Q8quxUkBXrSRN",
+      "drive_md5": "c4b02bb0b108ac7068bd91d5f5942d0e",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-calibration-administration-20261017.zip",
+      "drive_url": "https://drive.google.com/file/d/1X1ESBvzf3oI5oAQlOG5Q8quxUkBXrSRN/view",
+      "local_readback_receipt": "calibration-administration-archive-receipt.json",
+      "manifest_path": "calibration-administration-20261017/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "ae7416c78c9450fb8e01a815dd1853b46b219392601a3f35d648ca1560764a04",
+      "sha256": "6a2bf2fa3968d2be8cc3635dd167af7a729b7d3ea67aeded8aab7b3ac25f7f43"
+    },
+    "hu200-river-search-cost-administration-20261016.zip": {
+      "bytes": 32359,
+      "drive_bytes": 32359,
+      "drive_id": "1ATYpd3uxg8fjAlZH_tk50iM4sqM7ZPFK",
+      "drive_md5": "03ca59e6c3657e4817c9c3b3dbc4b892",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-cost-administration-20261016.zip",
+      "drive_url": "https://drive.google.com/file/d/1ATYpd3uxg8fjAlZH_tk50iM4sqM7ZPFK/view",
+      "local_readback_receipt": "cost-administration-local-receipt.json",
+      "manifest_path": "administration/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "1dc5cf5319a8e6ed3d8d277e4f17741557849373cf6dbe4bd0510002be34f918",
+      "sha256": "8464d1ec8bfa5cfb68d62d4696e622656bcef43e124a09ef6fa3f2d4bf6edb24"
+    },
+    "hu200-river-search-cost-gate-M4-20261016.zip": {
+      "bytes": 6510687952,
+      "drive_bytes": 6510687952,
+      "drive_id": "15Qv-9-hp-DH3P3Yr5cGBb6TYWe5hPkEq",
+      "drive_md5": "7f9412abf719bc23c489be02f99d9561",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip",
+      "drive_url": "https://drive.google.com/file/d/15Qv-9-hp-DH3P3Yr5cGBb6TYWe5hPkEq/view",
+      "local_readback_receipt": "cost-archive-local-receipt.json",
+      "manifest_path": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "6f41214ac6acfceeb29d29536da1c85c2dac026a39ad394b643d1cd378fd584c",
+      "sha256": "d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8"
+    },
+    "hu200-river-search-optimization-M4-20261017.zip": {
+      "bytes": 2359632223,
+      "drive_bytes": 2359632223,
+      "drive_id": "1A48iG2ORp5WsVUu392tGxgKyhbYzKO9h",
+      "drive_md5": "61d9efb55359c765f62c0070dcf5929c",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-optimization-M4-20261017.zip",
+      "drive_url": "https://drive.google.com/file/d/1A48iG2ORp5WsVUu392tGxgKyhbYzKO9h/view",
+      "local_readback_receipt": "optimization-archive-local-receipt.json",
+      "manifest_path": "optimization-20261017/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "fba42a1a74289a5db54a992f00651491ff5f5d61d46bd0cc145826dbbe6be1a4",
+      "sha256": "d4688e3feabc1998f812911204242995fa62a6e1e2c3af4b1a30729a69349021"
+    },
+    "hu200-river-search-optimization-administration-20261017.zip": {
+      "bytes": 110492,
+      "drive_bytes": 110492,
+      "drive_id": "1znOPCp0KYoy1EiT_znJUXTPEwUWhgOxo",
+      "drive_md5": "0786c8ae96ee53272bc86d46f150f819",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-optimization-administration-20261017.zip",
+      "drive_url": "https://drive.google.com/file/d/1znOPCp0KYoy1EiT_znJUXTPEwUWhgOxo/view",
+      "local_readback_receipt": "optimization-administration-local-receipt.json",
+      "manifest_path": "optimization-administration-20261017/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "37f8e6a30672db5cea16e5ef11847af11ca01470b1e4673db4b353657e6ba0f8",
+      "sha256": "8e7419281681b3c2bad14e4a886d0e139849b6dfee850282856551879ac7f16b"
+    },
+    "hu200-river-search-storage-closeout-20261017.zip": {
+      "bytes": 343720,
+      "drive_bytes": 343720,
+      "drive_id": "1uUh-urUYsDfHjYUhkaw4RXs9pZenqZMR",
+      "drive_md5": "54382b6a362d8568ee667b3f7463fb0c",
+      "drive_remote": "gdrive:PR-317-HU200-river-search/hu200-river-search-storage-closeout-20261017.zip",
+      "drive_url": "https://drive.google.com/file/d/1uUh-urUYsDfHjYUhkaw4RXs9pZenqZMR/view",
+      "local_readback_receipt": "storage-closeout-archive-receipt.json",
+      "manifest_path": "storage-closeout-20261017/ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "88591d968f7076f8430d045bf37621d5e070d53ad0abcbff205a120d2adf7f90",
+      "sha256": "68b44362546cdf01600680c10bad89797a110b43e75918df57c7a4172d385a5f"
+    }
+  },
+  "at_utc": "2026-10-17T07:05:03.362621+00:00",
+  "changed_covered_files": [],
+  "covered_local_files": 16029,
+  "deleted_files": 0,
+  "deployed_tool": "/research/.tools/research_cache.py",
+  "final_hands": 0,
+  "live_tool_modified": false,
+  "originals_retained": true,
+  "status": "all-seven-archives-drive-accepted-complete-local-coverage",
+  "uncovered_files": [],
+  "upload_method": "rclone copyto --immutable via deployed tool, resolved real input paths"
+}
