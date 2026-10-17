@@ -97,6 +97,6 @@ fn main() {
     }
     export("average.json", &tree.profile(&trainer.table, true));
     if let Some(out) = &out {
-        hu20_trainer::multi_checkpoint::save(&trainer, &out.join("checkpoint.gz")).unwrap();
+        hu20_trainer::multi_checkpoint::save(&trainer, &out.join("checkpoint.gz"), hu20_trainer::gz::Gzip::Compatible).unwrap();
     }
 }

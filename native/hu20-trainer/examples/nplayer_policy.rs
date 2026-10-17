@@ -23,13 +23,16 @@ fn run() -> Result<(), String> {
     let a: Vec<String> = std::env::args().collect();
     match a.get(1).map(String::as_str) {
         Some("export") => {
-            if a.len() != 6 {
+            // Positional arguments never start with "--".
+            let fast = a.len() == 7 && a[6] == "--fast-gzip";
+            if !(a.len() == 6 || fast) || a[2..6].iter().any(|s| s.starts_with("--")) {
                 return Err(
-                    "export CHECKPOINT SHA256 current|average|scoped-average NEW_OUTPUT".into(),
+                    "export CHECKPOINT SHA256 current|average|scoped-average NEW_OUTPUT [--fast-gzip]".into(),
                 );
             }
+            let gzip = if fast { hu20_trainer::gz::Gzip::Parallel } else { hu20_trainer::gz::Gzip::Compatible };
             let mode = Mode::parse(&a[4])?;
-            hu20_trainer::multi_policy::export(Path::new(&a[2]), &a[3], mode, Path::new(&a[5]))?;
+            hu20_trainer::multi_policy::export(Path::new(&a[2]), &a[3], mode, Path::new(&a[5]), gzip)?;
             println!(
                 "{}",
                 json!({"mode":mode.name(),"bytes":std::fs::metadata(&a[5]).map_err(|e|e.to_string())?.len(),"sha256":hu20_trainer::export::sha256_file(Path::new(&a[5]))})

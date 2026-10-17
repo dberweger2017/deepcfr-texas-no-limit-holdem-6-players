@@ -39,7 +39,8 @@ The [research history](research-history.md) indexes completed experiments.
   explicit `--players`, `--nodes`, `--max-entries`, `--max-seconds`, `--card-buckets`
   and `--out`; optional `--stack-bb`, `--stacks`, blinds, `--last-average-street`
   (0=preflop through 3=river), `--freeze-at-cap`, `--telemetry` and `--stop-file`
-  control a bounded run. Resume requires `--resume` plus `--resume-sha256` and
+  control a bounded run; `--fast-gzip` writes the checkpoint as one gzip member per
+  formatted piece (same content, faster, different `.gz` bytes). Resume requires `--resume` plus `--resume-sha256` and
   identical game/seed/averaging/cap settings. This version supports only the exact
   HU v1 sizing convention, including its conditional jam and duplicate removal.
   N-player checkpoints use a distinct N-tagged format; legacy HU commands and
@@ -49,7 +50,7 @@ The [research history](research-history.md) indexes completed experiments.
   phases with `python -m scripts.run_nplayer_size_study --phase pilots|main --out NEW_DIRECTORY`.
   `python -m scripts.analyze_nplayer_sizes RESULTS_JSON --out PROJECTIONS_JSON` emits growth scenarios.
   Build `--example nplayer_policy` for minimal N-player research inference:
-  `nplayer_policy export CHECKPOINT SHA256 current|average|scoped-average NEW_OUTPUT`.
+  `nplayer_policy export CHECKPOINT SHA256 current|average|scoped-average NEW_OUTPUT [--fast-gzip]`.
   Full `average` requires all streets; `scoped-average` explicitly uses current
   regret-matching probabilities after the stored averaging scope. Missing keys
   and zero-mass rows use uniform probabilities over the exact legal menu.

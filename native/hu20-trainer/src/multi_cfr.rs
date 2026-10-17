@@ -1,5 +1,7 @@
 //! N-player external sampling. The legacy HU traversal is intentionally separate.
 use crate::cfr::{fsum, regret_match, Key, KeyHasher, MAX_ACTIONS};
+use crate::gz::Gzip;
+use crate::store::{Allocation, Store, View};
 use rand::{Rng, SeedableRng};
 use std::collections::HashMap;
 use std::hash::BuildHasherDefault;
@@ -62,6 +64,49 @@ impl Entry {
             visits: 0,
         }
     }
+    pub fn stored(&self) -> Stored<'_> {
+        Stored {
+            actor: self.actor,
+            street: self.street,
+            code: self.code,
+            visits: self.visits,
+            regrets: &self.regrets,
+            average: self.average.as_deref(),
+        }
+    }
+    pub fn check(&self, d: Decision) {
+        self.stored().check(d)
+    }
+}
+
+/// An entry as the table holds it.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Stored<'a> {
+    pub actor: u8,
+    pub street: u8,
+    pub code: u16,
+    pub visits: u64,
+    pub regrets: &'a [f64],
+    pub average: Option<&'a [f64]>,
+}
+impl<'a> Stored<'a> {
+    /// The store's `meta`: owner in the low byte, street in the next.
+    fn meta(&self) -> u32 {
+        self.actor as u32 | (self.street as u32) << 8
+    }
+    fn view(&self) -> View<'a> {
+        View { code: self.code, meta: self.meta(), visits: self.visits, regrets: self.regrets, average: self.average }
+    }
+    fn of(v: View<'a>) -> Self {
+        Stored {
+            actor: v.meta as u8,
+            street: (v.meta >> 8) as u8,
+            code: v.code,
+            visits: v.visits,
+            regrets: v.regrets,
+            average: v.average,
+        }
+    }
     pub fn check(&self, d: Decision) {
         assert_eq!(
             (
@@ -76,17 +121,83 @@ impl Entry {
     }
     pub fn policy(&self, average: bool) -> [f64; MAX_ACTIONS] {
         if average {
-            let a = self
-                .average
-                .as_ref()
-                .expect("average not stored for this street");
-            regret_match(a)
+            regret_match(self.average.expect("average not stored for this street"))
         } else {
-            regret_match(&self.regrets)
+            regret_match(self.regrets)
         }
     }
 }
-pub type Table = HashMap<Key, Entry, BuildHasherDefault<KeyHasher>>;
+
+/// One iteration's updates, in deterministic DFS order per key.
+pub type Deltas = HashMap<Key, Entry, BuildHasherDefault<KeyHasher>>;
+
+/// The training table: the HU trainer's compact sharded store.
+#[derive(Clone, Default)]
+pub struct Table(Store);
+impl Table {
+    pub fn len(&self) -> usize {
+        self.0.len()
+    }
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+    pub fn get(&self, key: &Key) -> Option<Stored<'_>> {
+        self.0.view(key).map(Stored::of)
+    }
+    pub fn contains_key(&self, key: &Key) -> bool {
+        self.0.contains(key)
+    }
+    /// Adds a new key's entry; false if the key is already stored.
+    pub fn insert(&mut self, key: Key, entry: Entry) -> bool {
+        self.0.insert_view(key, entry.stored().view())
+    }
+    /// Adds a delta to its key's entry, or stores it as a new entry.
+    pub fn merge(&mut self, key: Key, delta: &Entry) {
+        self.0.merge(key, delta.stored().view())
+    }
+    /// Every entry, in no particular order.
+    pub fn iter(&self) -> impl Iterator<Item = (Key, Stored<'_>)> + '_ {
+        self.0.views().map(|(k, v)| (k, Stored::of(v)))
+    }
+    /// Every entry in key order.
+    pub fn sorted(&self) -> impl Iterator<Item = (Key, Stored<'_>)> + '_ {
+        self.0.sorted_views().map(|(k, v)| (k, Stored::of(v)))
+    }
+    pub fn keys(&self) -> impl Iterator<Item = Key> + '_ {
+        self.iter().map(|(k, _)| k)
+    }
+    pub fn values(&self) -> impl Iterator<Item = Stored<'_>> + '_ {
+        self.iter().map(|(_, v)| v)
+    }
+    pub fn allocation(&self) -> Allocation {
+        self.0.allocation()
+    }
+    /// Bytes of stored regrets and stored averages.
+    pub fn payload_bytes(&self) -> (usize, usize) {
+        self.0.payload_bytes()
+    }
+    pub fn index_capacity(&self) -> usize {
+        self.0.index_capacity()
+    }
+    /// `head`, then one `row` per entry in key order, formatted in parallel.
+    pub fn write_sorted(&self, file: std::fs::File, gzip: Gzip, head: &[u8],
+                        row: impl Fn(Key, Stored, &mut Vec<u8>) + Sync) -> std::io::Result<std::fs::File> {
+        self.0.write_sorted(file, gzip, head, |shard, i, out| {
+            let (key, v) = shard.row_view(i);
+            row(key, Stored::of(v), out)
+        })
+    }
+}
+impl PartialEq for Table {
+    fn eq(&self, other: &Self) -> bool {
+        self.len() == other.len() && self.sorted().eq(other.sorted())
+    }
+}
+impl std::fmt::Debug for Table {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_map().entries(self.sorted()).finish()
+    }
+}
 
 fn sample_policy<R: Rng>(rng: &mut R, policy: &[f64]) -> usize {
     let draw: f64 = rng.gen();
@@ -120,7 +231,7 @@ pub struct Counts {
 /// an earlier branch's update. Deltas are accumulated in deterministic DFS order.
 pub struct Traversal<'a, R: Rng> {
     pub table: &'a Table,
-    pub deltas: &'a mut Table,
+    pub deltas: &'a mut Deltas,
     pub rng: &'a mut R,
     pub traverser: usize,
     pub weight: f64,
@@ -247,7 +358,7 @@ impl Trainer {
             self.iteration <= 1 << 53,
             "linear weight no longer exactly representable"
         );
-        let mut deltas = Table::default();
+        let mut deltas = Deltas::default();
         for player in 0..self.players {
             // Domain-separated deterministic root streams need no opaque RNG state
             // in checkpoints and do not depend on thread scheduling or hash order.
@@ -277,25 +388,7 @@ impl Trainer {
                 self.counts.discarded_visits += delta.visits;
                 continue;
             }
-            if let Some(entry) = self.table.get_mut(&key) {
-                assert_eq!(
-                    (entry.actor, entry.street, entry.code),
-                    (delta.actor, delta.street, delta.code)
-                );
-                for (v, inc) in entry.regrets.iter_mut().zip(&delta.regrets) {
-                    *v += inc;
-                    assert!(v.is_finite());
-                }
-                if let (Some(a), Some(b)) = (&mut entry.average, delta.average) {
-                    for (v, inc) in a.iter_mut().zip(b) {
-                        *v += inc;
-                        assert!(v.is_finite());
-                    }
-                }
-                entry.visits += delta.visits;
-            } else {
-                self.table.insert(key, delta);
-            }
+            self.table.merge(key, &delta);
         }
         if self.freeze_at_cap && self.frozen_at.is_none() && self.table.len() >= self.max_entries {
             self.frozen_at = Some(self.iteration);

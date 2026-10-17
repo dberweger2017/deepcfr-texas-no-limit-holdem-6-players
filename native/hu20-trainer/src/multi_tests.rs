@@ -82,8 +82,11 @@ fn hidden_private_and_future_public_cards_never_enter_small_keys() {
 #[test]
 fn resume_matches_complete_bytes_and_frozen_membership() {
     let game = SmallGame::new(Kind::Leduc, 3);
-    for freeze in [false, true] {
-        for street in [0, 3] {
+    use crate::gz::Gzip;
+    for (freeze, street, gzip) in [false, true].into_iter()
+        .flat_map(|f| [0, 3].into_iter().flat_map(move |s| [Gzip::Compatible, Gzip::Parallel].map(|g| (f, s, g))))
+    {
+        {
             let cap = if freeze { 30 } else { usize::MAX };
             let mut fresh = Trainer::new(&game, 71, street, cap, freeze);
             let mut prefix = fresh.clone();
@@ -91,10 +94,11 @@ fn resume_matches_complete_bytes_and_frozen_membership() {
                 prefix.step(&game);
             }
             let path = std::env::temp_dir()
-                .join(format!("multi-{}-{freeze}-{street}.gz", std::process::id()));
-            crate::multi_checkpoint::save(&prefix, &path).unwrap();
+                .join(format!("multi-{}-{freeze}-{street}-{gzip:?}.gz", std::process::id()));
+            // A resume from a gzip-member checkpoint equals one from a single stream.
+            crate::multi_checkpoint::save(&prefix, &path, gzip).unwrap();
             let mut resumed = crate::multi_checkpoint::load(&path).unwrap();
-            let frozen_keys: std::collections::HashSet<_> = resumed.table.keys().copied().collect();
+            let frozen_keys: std::collections::HashSet<_> = resumed.table.keys().collect();
             for _ in 0..40 {
                 fresh.step(&game);
             }
@@ -103,14 +107,14 @@ fn resume_matches_complete_bytes_and_frozen_membership() {
             }
             assert_eq!(fresh.table, resumed.table);
             assert_eq!(fresh.counts, resumed.counts);
-            crate::multi_checkpoint::save(&fresh, &path).unwrap();
+            crate::multi_checkpoint::save(&fresh, &path, Gzip::Compatible).unwrap();
             let bytes = std::fs::read(&path).unwrap();
-            crate::multi_checkpoint::save(&resumed, &path).unwrap();
+            crate::multi_checkpoint::save(&resumed, &path, Gzip::Compatible).unwrap();
             assert_eq!(bytes, std::fs::read(&path).unwrap());
             std::fs::remove_file(&path).unwrap();
             assert!(fresh.counts.traverser[..3].iter().all(|&n| n > 0));
             if freeze {
-                assert_eq!(frozen_keys, fresh.table.keys().copied().collect());
+                assert_eq!(frozen_keys, fresh.table.keys().collect());
                 assert!(fresh.counts.discarded_keys > 0 && fresh.counts.discarded_visits > 0);
             }
             for e in fresh.table.values() {
@@ -152,7 +156,7 @@ fn exhaustive_sample_expectation_equals_full_tree_counterfactual_updates() {
         hand: crate::small_games::Hand,
         player: usize,
         reach: f64,
-        expected: &mut Table,
+        expected: &mut Deltas,
     ) -> f64 {
         let Some(d) = hand.decision() else {
             return hand.payoff(player);
@@ -183,13 +187,13 @@ fn exhaustive_sample_expectation_equals_full_tree_counterfactual_updates() {
     }
     let game = SmallGame::new(Kind::Kuhn, 3);
     for player in 0..3 {
-        let mut expected = Table::default();
+        let mut expected = Deltas::default();
         let mut actual: HashMap<[u8; 16], ([f64; 2], [f64; 2])> = HashMap::new();
         for (hand, p) in game.deals() {
             full(hand, player, p, &mut expected);
             for bits in 0..256 {
                 let mut state = hand;
-                let mut deltas = Table::default();
+                let mut deltas = Deltas::default();
                 let mut counts = Counts::default();
                 let mut rng = Tape { bits, used: 0 };
                 Traversal {
@@ -232,7 +236,7 @@ fn corrupt_checkpoint_metadata_and_accumulators_are_rejected() {
         trainer.step(&game);
     }
     let path = std::env::temp_dir().join(format!("multi-invalid-{}.gz", std::process::id()));
-    crate::multi_checkpoint::save(&trainer, &path).unwrap();
+    crate::multi_checkpoint::save(&trainer, &path, crate::gz::Gzip::Compatible).unwrap();
     let mut plain = String::new();
     flate2::read::MultiGzDecoder::new(std::fs::File::open(&path).unwrap())
         .read_to_string(&mut plain)
