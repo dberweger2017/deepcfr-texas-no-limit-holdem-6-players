@@ -5,6 +5,10 @@ the next experiment from its observed cost. Three to eight hours is a planning
 estimate, not a grant to fill or an automatic extension. This is cost and
 feasibility work, not a playing-strength comparison.
 
+The first 1,000-hand task completed in 34.122 seconds. See the
+[measured report](reports/nplayer-search-cost-pilot.md); search timing remains
+pending current-model adapter qualification.
+
 ## First task: current-model baseline
 
 Play exactly 1,000 three-player 20 BB hands with three independently seeded
@@ -27,7 +31,7 @@ This short observation uses one physical CPU, low CPU/I/O priority and at most
 Its own ten-minute fail-safe is a maximum, not an expected duration. It stops
 its own process group on CPU >=75 C, Thermistor 15 >=85 C, available RAM <6 GiB,
 swap growth >256 MiB, NVMe free space after a 512 MiB output reservation <50 GB,
-or an output above256 MiB. Admission requires CPU <70 C and Thermistor 15 <80 C.
+or an output above 256 MiB. Admission requires CPU <70 C and Thermistor 15 <80 C.
 The bounded concurrent cost observation follows the owner's request to use
 spare capacity; it does not change PR301's source, workload, deadlines or lock.
 No general shared-host reservation or later parallel study is authorized by it.
@@ -53,18 +57,18 @@ validation before they are an eligible comparison arm.
 1. From cost-only play, select a fixed outcome-independent set of postflop
    decisions, stratified by street and two/three live players. Search receives
    only the acting player's observation, never the replay trace or real deck.
-2. After compatibility tests pass, time12 fixed decisions at the smallest work
+2. After compatibility tests pass, time 12 fixed decisions at the smallest work
    setting. Freeze a grid of solver iterations, sampled holdings and precise
    street-boundary horizons from these cost measurements, without examining
    winnings. Depth and solve iterations are separate parameters.
-3. Reuse the same32--64 decision observations across eligible configurations
+3. Reuse the same 32–64 decision observations across eligible configurations
    and independent solver RNG seeds. Measure loading, range construction,
    solving, replay and storage separately; report median/tail latency, CPU time,
    memory, target-information-set visits, action changes and failures.
-4. Quote approximately1,000 full hands per eligible configuration from the
+4. Quote approximately 1,000 full hands per eligible configuration from the
    observed searched-decision frequency and cost, including seat rotation and
    all verification/storage work. If using six-permutation blocks, declare
-   the nearest complete count (for example996 hands), not a partial block.
+   the nearest complete count (for example 996 hands), not a partial block.
 5. A pilot can support feasibility and exploratory comparisons; it cannot
    establish general strength or select a release. Future confirmation uses
    fresh hands, fixed counts and its own prospective analysis.

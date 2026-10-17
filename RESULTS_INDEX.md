@@ -1,3 +1,20 @@
+## Three-player search cost calibration — retained active evidence
+
+[Protocol](docs/nplayer-search-cost-pilot.md), [report and retrieval commands](docs/reports/nplayer-search-cost-pilot.md).
+October 17, 2026: fixed 1,000-hand three-player blueprint baseline, seed
+`202610173401`, source `2fe300e2`; zero search solves. Raw output remains at
+`bb128:/home/dberweger/nplayer-search-cost-20261017/baseline/`; local ignored
+copy and 43 extracted legal observations are under
+`/tmp/cfr-three-player-search-cost-pilot/results/nplayer-search-cost-20261017/`.
+Trace: 2,438,056 bytes, SHA256
+`d39d160c1d0d193b29056872c74c5a1e2a3d724d4b77dbdc0b281fef2e75399f`.
+Input model: PR292 `training/2026101541/1000m-average.gz`, SHA256
+`990246065bfc1f8a13c5ca3456090689b5ab52105c860d4bca1531b3f5e3db70`;
+its [accepted archive/member provenance](docs/reports/nplayer-blueprint-phase2-artifacts/archive-model-members.json)
+and restoration links remain in the PR292 entry. Inputs were read in place.
+Drive archival of this new run is pending; no upload acceptance or cleanup is
+claimed. Preserve these active originals until closeout and dependency review.
+
 ## PR330 — v0.5.5 confirmation: card luck and public-action diagnosis
 
 [PR330](https://github.com/dberweger2017/CFR-NLHE-6max/pull/330); [report](docs/reports/v055-confirmation-diagnostics.md), [reproduction commands](docs/reports/v055-confirmation-diagnostics/REPRODUCE.md), [complete storage/input/member receipt](docs/reports/v055-confirmation-diagnostics/storage.json). Calculation/result freeze `fc19783d390c9850130b3d664667695ee7489fb6`: 30,000 new card-only per-hand corrections and public-action diagnosis over 70,000 distinct completed hands. No play, training, model computation or own-action correction. Protocol v2's raw qualification stands.
