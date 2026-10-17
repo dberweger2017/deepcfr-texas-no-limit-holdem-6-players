@@ -24,6 +24,17 @@ at05:02. Provisional M4-release window, including range diagnostics: October21
 08:15–October23 17:00. The [PR ETA](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082)
 states the allowances. These are forecasts, not completed research.
 
+Final preparation retained two plumbing failures before any final hand: the
+pipeline overlap fixture initially observed only transfer-start timing, and an
+admission helper initially imported from the owner checkout instead of the
+frozen evaluation checkout. Observing both starts and explicitly selecting the
+qualified source path repaired those checks; all 96 checks then passed. No
+scientific policy or completed research outcome changed. Closed preparation
+logs, receipts, helpers and manifests remain unpacked under the PR317 cache's
+`final-preparation-20261017/`; 72 copied files pass size/SHA256 verification.
+Calibration-copy qualification evidence remains alongside it. New final and
+preparation ZIP/Drive closeout is pending.
+
 ## Finding
 
 River-only search on #306's audited HU200 K50 blend completes all **24 fixed
