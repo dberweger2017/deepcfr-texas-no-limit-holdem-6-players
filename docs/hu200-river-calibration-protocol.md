@@ -191,3 +191,20 @@ three maximum observed native scratch sets and 512 MiB failure margin above the
 unchanged 16 GiB disk floor. This is a prospective estimate (1.64 searched
 decisions per search-arm hand), not a decision cap or a guarantee about unseen
 failures; the usual guard remains binding. No final hands are authorized.
+
+### Launch plumbing continuation, same clock
+
+The initial evaluator launcher fails while constructing the deadline wrapper,
+before any action, terminal hand, native solve or completed block. It treated
+an inherited static method as a bound method. The evaluator now captures and
+calls that static check directly; search/game source is unchanged from the
+qualified gates. A new real-policy wiring fixture checks both the external cap
+callback and original expired-deadline behavior. An initial fixture run omitted
+its required existing replay-ledger directory; that fixture setup is corrected,
+and all 84 focused M4 checks pass.
+
+The [continuation declaration](reports/hu200-river-search-artifacts/calibration-continuation-declaration.json)
+pins repaired source, unchanged roots/counts/gates and the original absolute
+calibration deadline, 1792225958.0844858. The initial attempt and every guard/test
+receipt remain preserved. The clock is not reset; repair and revalidation consume
+the approved two hours. There is no completed research hand to rerun.
