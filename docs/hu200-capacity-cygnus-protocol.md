@@ -5,6 +5,13 @@ Base: current main `f949b930`. This is an experiment, without a milestone gate.
 The owner decides merge and any later external play. No trainer changes, release,
 tag, default change, Slumbot, credentials or compute on M4/M1/db-ocean.
 
+October17's owner-approved [export recovery](hu200-capacity-export-recovery.md)
+supersedes older storage and deadline wording only for one unfinished1302
+export/audit: move inactive owned models to the2TB drive, keep active compute on
+NVMe, reserve the complete23GB output plus50GB floor and20GB extra physical
+headroom, and credit the exact latest stopped interval once. All native20B
+training is already complete; no training or completed audits are repeated.
+
 The owner approved the [accidental power-off recovery](hu200-capacity-power-loss-recovery.md)
 on October16: one common5B rollback for all three seeds, fresh output paths,
 exact rebuilt10B identity checks, and **exactly+3600s once** to the main deadline.
