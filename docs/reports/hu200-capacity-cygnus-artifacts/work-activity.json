@@ -117,6 +117,20 @@
       "jobs": "1302 export/audit79744 and supervisor79721/eventobserver79742 continue under original guards; no training repeat",
       "time_basis": "Current live health observation; publication/readback follows",
       "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T16:40:15.130227+00:00",
+      "coordinator": "Returned for owner-requested live status",
+      "jobs": "1302 native export/audit continues; no new attempt or clock credit",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T16:41:19.919817+00:00",
+      "coordinator": "Handback declared after live status/report verification",
+      "jobs": "1302 native export/audit,supervisor79721 and existing eventobserver79742 continue; no new failure",
+      "time_basis": "Current status observation; final publication/readback follows",
+      "clock_credit": false
     }
   ]
 }

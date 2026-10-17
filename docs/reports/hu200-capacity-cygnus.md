@@ -7,6 +7,18 @@
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
 
+## Live status — October17,18:40Madrid
+
+All three native20B endpoints remain saved;1421/1422 full audits pass.1302 is
+still in native policy export, with final every-row audit and verified offload
+remaining. No new failure or final evaluation hands. Snapshot CPU70.0°C,
+VRM85.5°C, NVMe free119.059GB, available RAM
+125.366GB; no clean stop. VRM remains below95°C/30s stop;
+CPU below85°C. Running work retains the original guards. Estimated final
+export/audit completion stays tonight22:45–23:45Madrid, Sundaymorning contingency;
+full report/archive Mondayevening/Tuesdayupload contingency pending costquote.
+[Mutable status cut](hu200-capacity-cygnus-artifacts/status-20261017-1640.json).
+
 ## Owner-approved export recovery running — October 17, 15:45 UTC
 
 The owner explicitly authorized returning, correcting timing for the stopped
