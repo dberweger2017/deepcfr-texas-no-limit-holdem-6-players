@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-handback-declared;1302-export-audit-continues",
+  "status": "coordinator-handback-declared;science-stopped-after-new-failure",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -73,6 +73,27 @@
       "coordinator": "Handback declared after live status verification and report preparation",
       "jobs": "1302 native export then full-row audit continues under supervisor36848;1421/1422 audit and HDD relocation complete;observer36870 active",
       "time_basis": "Declared handback; publication and exact PR readback follow",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:25:47.924001+00:00",
+      "coordinator": "Returned for new training_failed event; verified against current attempt and committed receipts",
+      "jobs": "Scientific workers and observer already stopped",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:28:52.064703+00:00",
+      "coordinator": "Bounded failure-evidence archive built with full local readback; separate Drive upload and cloud readback then passed",
+      "jobs": "Storage metadata archive only; scientific attempt remains failed",
+      "time_basis": "Archive and cloud readback receipts",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:32:12.717306+00:00",
+      "coordinator": "Handback declared after failure investigation, partial evidence archival and report preparation",
+      "jobs": "All owned scientific jobs and terminal observer absent; archive job complete; no retry/evaluation scheduled",
+      "time_basis": "Declared handback; publication/readback follows",
       "clock_credit": false
     }
   ]

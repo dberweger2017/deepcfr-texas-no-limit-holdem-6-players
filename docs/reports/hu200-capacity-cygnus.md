@@ -1,11 +1,70 @@
 # HU200 capacity experiment on cygnus-x1
 
-**All three native runs have reached20B; seeds1421/1422 pass final full-row audits.** Seed1302 is exporting policies before its final audit. No new guard failure or final evaluation hands. Snapshot October17,14:09UTC /16:09Madrid.
+**Stopped October17,14:25UTC /16:25Madrid by a new disk-reservation failure.** All three native20B saves remain;1421/1422 final audits pass, but1302 policy export was interrupted before its final audit. All recorded owned jobs/observer are absent. No automatic retry or evaluation.
 
-The owner-approved stopped interval adds1h15m31.263s once: the new training/audit deadline is **October19 04:44:49UTC /06:44:49Madrid**. Original clocks are unchanged. Conditional training/audit ETA is Saturday17 evening, Sunday18 morning contingency; report/archives Monday19evening/Tuesday20upload contingency. Coordinator stop/resume entries and live-job state are logged below and in PR301.
+**Finish ETA withdrawn.** Current deadline remainsOctober19 06:44:49Madrid; no new credit. Small failure evidence is cloud-archived and fully read back. Full model archives/final retention remain incomplete.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## New continuation storage failure — October 17, 14:25 UTC
+
+This is a new event, distinct from the09:21UTC historical root failure. The current
+`continuation-20261017/training-failed.json` SHA256 is
+`fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b`;
+its failure time is14:25:09.233853UTC /16:25Madrid. The committedf10c2a71 snapshot
+had no current failure. Delivery was acknowledgedHTTP202 at14:25:23UTC. All nine
+recorded owned worker/controller/observer PIDs are absent. The1302 stop file and
+closed controller traceback confirm termination; no retry or evaluation started.
+[Exact failure, preserved metadata and closed trace pins](hu200-capacity-cygnus-artifacts/training-continuation-failure-20261017.json).
+
+The physical prospective free-space predicate failed again: last free69.821GB
+minus estimated remaining output reservation19.875GB leaves **49.946GB**, below
+the50GB floor. The estimate uses final partial-file sizes after termination;
+the in-memory before-size and last-write timing add small uncertainty. The
+controller independently records the reservation failure. Owned logical bytes
+plus remaining reservation,20GB growth and floor total approximately177.539GB,
+within the unchanged259GB plan. At14:27 collection free space had fallen further
+to66.600GB. No outside root or process was inspected or blamed.
+
+The last sample is CPU53°C, VRM62.5°C, fan1/2/3 700/947/963RPM, RAM available
+132.424GB and swap128.805MiB,127.805MiB above the original1MiB baseline. Current
+attempt peaks: CPU70°C, VRM84°C, family RSS28.886GB, swap129.8125MiB, minimum
+available RAM95.588GB. No thermal or swap limit was reached. Source2f138ecd and
+all three original/amended clock files remain unchanged.
+
+All three **native20B saves remain intact**.1302 checkpoint14,414,526,873 bytes,
+SHA`b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93`,
+retains its byte-identical committed full gzip/key/row/hash readback receipt.
+Its final current/average outputs were not published, and no finalaudit.json
+exists. Both interrupted scratch files are retained:
+`checkpoint.average.export-scratch-67630-1/average.tmp` (1,667,129,458 bytes) and
+`checkpoint.current.export-scratch-67630-0/current.gz` (1,457,681,899 bytes).
+Seeds1421/1422 retain byte-identical completed full audit receipts; their
+verified20B averages/recoveries stay NVMe and earlier relocation receipts stay
+valid. The1302 audited10B recovery is still required and retained. No model or
+partial was moved/deleted in response to this event; no HDD or other-PR action.
+
+A **partial failure-evidence archive** (1,410,443 bytes,61 members) seals the
+closed current guard/utilization/controller traces, model/phase metadata and
+orchestration source. Its full local readback passes; the1.015s guarded archive
+job passes with the original thermal/RSS/swap/disk guards. The Google Drive
+upload completes, independent metadata confirms ID/name/size/parent, and a fresh
+cloud download matches whole SHA256 and every manifest member. This archive
+contains no model or interrupted model bytes and does not finish campaign
+archival. [Acceptance/readback/retrieval receipt](hu200-capacity-cygnus-artifacts/continuation-failure-archive-20261017.json).
+All originals and transport copies remain; no cleanup is claimed.
+
+**The previous finish ETA is withdrawn.** Full41GB one-seed staging cannot fit
+above the50GB floor with66.600GB free. Training deadline remainsOctober19
+04:44:49UTC /06:44:49Madrid; evaluation24h remains unstarted. No later stop-time
+credit or automatic retry is authorized. The continuation protocol explicitly
+says, “On any new failure, stop/report; no later automatic scientific retry.”
+No final hands/outcomes or global replay/reproduction barrier. Full model
+archives, final unpacked retention and complete closeout remain pending; the
+existing event task is retained for this incomplete campaign, its terminal
+observer has exited, and no new work is scheduled.
+[ETA withdrawal](hu200-capacity-cygnus-artifacts/eta-after-continuation-failure-20261017.json).
 
 ## Three native 20B saves; two final audits complete — October 17, 14:09 UTC
 

@@ -1,0 +1,8 @@
+{
+  "amended_deadline_epoch": 1792380557.996109,
+  "approval_sha256": "85009e8d55a3a692b508c12cafad8cd4754a52e2d69e05420273e6dd7d291594",
+  "extension_seconds": 3600,
+  "original_clock_sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+  "original_deadline_epoch": 1792376957.996109,
+  "status": "owner-approved-single-extension"
+}

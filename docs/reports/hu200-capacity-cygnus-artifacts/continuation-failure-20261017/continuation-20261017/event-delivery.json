@@ -1,0 +1,9 @@
+{
+  "http_status": 202,
+  "payload": {
+    "attempt": "continuation-20261017",
+    "event": "training_failed",
+    "experiment": "PR301",
+    "observed_utc": "2026-10-17T14:25:23.849510+00:00"
+  }
+}

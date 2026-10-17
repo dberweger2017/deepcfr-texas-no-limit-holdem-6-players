@@ -4122,7 +4122,39 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (owner-approved post-storage continuation running, October 17, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (new continuation failure; originals retained, October 17, 2026)
+
+October17,14:25UTC NEW continuation `training_failed` event, failureSHA
+`fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b`,
+deduplicated from historical rootSHAcdb382… and committedf10c2a71 running snapshot.
+[Failure assessment/source copies](docs/reports/hu200-capacity-cygnus-artifacts/training-continuation-failure-20261017.json)
+plus `continuation-failure-20261017/` pin exact failure/stop/model/clock/guard
+receipts and closed raw traces. All9 owned PIDs absent; no automatic retry.
+1302 intact20B checkpoint/full save verification retained, final export scratch
+files3,124,811,357 bytes retained/unaudited.1421/1422 full audits unchanged.
+50GB prospective floor failed(69.821free−19.875reservation≈49.946GB); physical
+free66.600GB atcollection. No heat stop or newHDD/otherPR use. No clock reset.
+[ETA withdrawn](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-continuation-failure-20261017.json).
+
+Partial failure-evidence ZIP **PR301-continuation-failure-20261017.zip** accepted
+in [existing PR301 Drive folder](https://drive.google.com/drive/folders/159JoTfd8HUyblui5QgSMc6w1JNz-z7px):
+[file1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ](https://drive.google.com/file/d/1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ/view),
+**1,410,443 bytes**,SHA256`2a863212d38771cb88d2314cbef27ffacab18bd5a5ffbb1919587c5fd4b9eb58`,
+MD5`885a0fdb267fd03cf25527c1d7ac0b09`,61 members; manifest`MANIFEST.json`
+SHA256`5a269f75ccd99596b4bb6cc6ca785d745c18070a93eae1e00f8a48d173b26d11`.
+Full local AND independently downloaded cloud whole/member readback pass.
+[Native upload/independent metadata/readback receipt](docs/reports/hu200-capacity-cygnus-artifacts/continuation-failure-archive-20261017.json).
+BB original archive/manifest/readback at owned `archives/continuation-failure-20261017/`;
+original member paths preserved. Fetch this exactDriveID to fresh ignored storage,
+check wholeSHA above, then verify size/SHA for each MANIFEST member before use.
+Models/partial model bytes are excluded and remain at indexed NVMe/HDD locations;
+this is partial evidence acceptance, not complete model archival or final retention.
+No original/transport cleanup; no newHDD copy. Archiveguard rawplan/result/readings
+at `guards/failure-evidence-archive-20261017/`; worker/plan inownedplanning.
+Local ignored collection/publication helpers, all collection/readback/connector
+receipts in `planning/failure-evidence-archive-20261017/` and new coordinator
+metadata require final archival. Exclude private endpoint/download URLs. Full
+campaign closeout incomplete; eventtask retained,terminalobserver exited,no newtask.
 
 October17,14:09UTC update: all3 native20B endpoints saved;1421/1422 final full-row
 audits and verified HDD relocations pass.1302 native save SHA
