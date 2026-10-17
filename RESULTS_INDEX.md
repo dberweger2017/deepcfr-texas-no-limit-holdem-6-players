@@ -1,6 +1,6 @@
-## Three-player search cost calibration — retained active evidence
+## PR334 — three-player search cost calibration: retained active evidence
 
-[Protocol](docs/nplayer-search-cost-pilot.md), [report and retrieval commands](docs/reports/nplayer-search-cost-pilot.md).
+[PR334](https://github.com/dberweger2017/CFR-NLHE-6max/pull/334), [protocol](docs/nplayer-search-cost-pilot.md), [report and retrieval commands](docs/reports/nplayer-search-cost-pilot.md).
 October 17, 2026: fixed 1,000-hand three-player blueprint baseline, seed
 `202610173401`, source `2fe300e2`; zero search solves. Raw output remains at
 `bb128:/home/dberweger/nplayer-search-cost-20261017/baseline/`; local ignored
