@@ -35,6 +35,32 @@ def file_pin(path):
     return dict(bytes=Path(path).stat().st_size, sha256=hasher.hexdigest())
 
 
+def header_semantic_sha256(path):
+    hasher = sha256()
+    opener = gzip.open if str(path).endswith(".gz") else open
+    with opener(path, "rt") as stream:
+        for line in stream:
+            row = json.loads(line)
+            # The native event writer adds process RSS to each profile row.
+            # It is retained telemetry, never a mathematical solver output.
+            row.pop("solver_peak_rss_bytes", None)
+            payload = json.dumps(row, sort_keys=True, separators=(",", ":"), allow_nan=False)
+            hasher.update((payload + "\n").encode())
+    return hasher.hexdigest()
+
+
+def compressed_copy(source):
+    compressed = source.with_name(source.name + ".gz")
+    with compressed.open("xb") as target:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=target,
+                           compresslevel=1, mtime=0) as zipped:
+            with source.open("rb") as stream:
+                shutil.copyfileobj(stream, zipped, 1 << 20)
+        target.flush()
+        os.fsync(target.fileno())
+    return compressed
+
+
 def seal_evidence(directory, request, record, files):
     """Durably record every generated hash before removing successful scratch.
 
@@ -56,21 +82,17 @@ def seal_evidence(directory, request, record, files):
     record["profile_retention"] = dict(rule=COMPACT_RETENTION_RULE,
         sample_key=key, sample_selected=sampled, failure_kept=not success,
         body_retained=bool(body) and (sampled or not success), generated_files=body,
-        request_uncompressed=original)
+        request_uncompressed=original,
+        header_semantic_sha256=header_semantic_sha256(directory / "profile.jsonl") if success else None)
     removed = []
     if success:
-        compressed = directory / "request.json.gz"
-        with compressed.open("xb") as target:
-            with gzip.GzipFile(filename="", mode="wb", fileobj=target,
-                               compresslevel=1, mtime=0) as zipped:
-                with (directory / "request.json").open("rb") as source:
-                    shutil.copyfileobj(source, zipped, 1 << 20)
-            target.flush()
-            os.fsync(target.fileno())
+        compressed = compressed_copy(directory / "request.json")
         files[compressed.name] = file_pin(compressed)
         record["profile_retention"]["request_stored"] = compressed.name
         removed.append("request.json")
         if not sampled:
+            compressed_header = compressed_copy(directory / "profile.jsonl")
+            files[compressed_header.name] = file_pin(compressed_header)
             removed.extend(body)
     else:
         record["profile_retention"]["request_stored"] = "request.json"

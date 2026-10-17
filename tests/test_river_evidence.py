@@ -63,3 +63,13 @@ def test_compression_failure_never_removes_original_evidence(tmp_path, monkeypat
         evidence.seal_evidence(tmp_path, request, record, files)
     assert all((tmp_path / name).is_file() for name in files)
     assert not (tmp_path / "receipt.json").exists()
+
+
+def test_header_semantics_exclude_only_runtime_rss(tmp_path):
+    one = tmp_path / "one"
+    two = tmp_path / "two"
+    one.write_text(json.dumps(dict(player=0, actions=[1], solver_peak_rss_bytes=100))+"\n")
+    two.write_text(json.dumps(dict(player=0, actions=[1], solver_peak_rss_bytes=900))+"\n")
+    assert evidence.header_semantic_sha256(one) == evidence.header_semantic_sha256(two)
+    two.write_text(json.dumps(dict(player=1, actions=[1], solver_peak_rss_bytes=100))+"\n")
+    assert evidence.header_semantic_sha256(one) != evidence.header_semantic_sha256(two)

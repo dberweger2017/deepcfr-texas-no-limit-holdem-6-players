@@ -13,7 +13,8 @@ work watchdog unchanged. All earlier gates and failures remain recorded.
 
 1. Test retention, failure preservation and owned-array lifetime on M4.
 2. Prove complete output parity on the original fixed 24 against source 214695a3:
-   all final and ancestor scientific requests and compact native body hashes,
+   all final and ancestor scientific requests and compact numeric body hashes,
+   scientific header semantics excluding runtime RSS,
    every normalized final profile probability/EV/mask, played policy/support,
    same-seed actions and fresh replay. Request decompression must recover its
    exact original bytes and SHA256. Do not omit a mismatching spot.
@@ -53,7 +54,10 @@ retention decision, response and failure information. All failed/partial native
 bodies remain. Successful full requests are losslessly gzip-compressed with
 fixed gzip metadata; their original size/SHA256 remains and decompression must
 reproduce every byte. Selected successful bodies retain both `profile.jsonl`
-and `profile.f64`; other successful bodies are temporary parser input. A durable
+and `profile.f64`; other successful numeric bodies are temporary parser input.
+Their compact headers remain losslessly compressed for audit. Header semantic
+comparison excludes only native `solver_peak_rss_bytes`, while original raw
+header bytes/checksums and runtime telemetry remain recorded. A durable
 receipt precedes removal. No parsed strategy, normalization or solver input is
 changed by retention. Persistence failures are recorded as plumbing failures.
 
@@ -127,3 +131,17 @@ The owner chooses counts and venue before final hands. A later final protocol
 must commit all roots/counts, intervals, stopping/adverse-result rules and the
 range-model diagnosis before playing. The PR remains draft while that planned
 research and storage closeout are unfinished. Owner decides merge.
+
+## Checker plumbing clarification before cost or calibration
+
+The first retention parity attempt passes all normalized profile/EV/mask,
+played-policy/support/action comparisons at spot 0, then stops because an
+over-strict checker compares raw compact header hashes. The unchanged native
+writer inserts `solver_peak_rss_bytes` into profile rows. Two previously retained
+source 214695a3 runs already have different header hashes for this reason, with
+identical numeric bodies; the new completed numeric body has that same SHA256.
+No mathematical mismatch or strength outcome is observed. The failed checker
+receipt remains. Compare header semantics excluding only runtime RSS, keep
+compressed headers for audit, and reuse the completed hash-verified native
+work for spot 0 rather than invoking that solve again. The remaining 23 spots,
+then the single new cost gate, use the corrected evidence/checker plumbing.

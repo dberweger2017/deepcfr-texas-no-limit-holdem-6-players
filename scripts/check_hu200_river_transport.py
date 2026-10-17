@@ -19,7 +19,7 @@ from src.blueprint.average import AveragePolicy
 from src.blueprint.hu200_river_search import HU200RiverSearchPlayer, HU200RiverSearchPolicy
 from src.blueprint.hu20_turn_solver import ExternalTurnSolver, parse_profiles, profile_rows
 from src.blueprint.river_ledger import DecisionLedger, decode_matrix
-from src.blueprint.river_evidence import COMPACT_RETENTION_RULE, read_request
+from src.blueprint.river_evidence import COMPACT_RETENTION_RULE, header_semantic_sha256, read_request
 from src.policies.files import file_hash
 
 
@@ -35,6 +35,42 @@ def same_numbers(a, b):
 def scientific_request(request):
     return {k: v for k, v in request.items() if k not in
             ("mode", "dump_path", "seconds", "profile_format")}
+
+
+class ReusedCompletedSolver:
+    """Reparse a completed, hash-identical body after a checker-only stop.
+
+    The old strict parser completed before its receipt was sealed. Its numeric
+    body matches the retained baseline exactly; all node/holding/array metadata
+    were validated against the identical request. Only process RSS was variable.
+    This recovers completed work without invoking the native solver again.
+    """
+    def __init__(self, binary, original, baseline):
+        self.expected_sha256 = file_hash(binary)
+        self.original = sorted((original/'native').iterdir())
+        self.baseline = baseline
+        self.records = []
+        if len(self.original) != len(baseline):
+            raise ValueError('Incomplete reusable native inventory')
+
+    def solve(self, request, deadline, **kwargs):
+        index = len(self.records)
+        source = self.original[index]
+        record = json.loads((source/'receipt.json').read_text())
+        baseline = Path(self.baseline[index]['path'])
+        previous = json.loads((baseline/'manifest.json').read_text())
+        if (record['status'] != 'completed' or record['executable_sha256'] != self.expected_sha256
+                or scientific_request(read_request(source)) != request
+                or scientific_request(read_request(baseline)) != request
+                or record['profile_retention']['generated_files']['profile.f64'] != previous['profile.f64']
+                or file_hash(baseline/'profile.f64') != previous['profile.f64']['sha256']):
+            raise ValueError('Completed work cannot be reused')
+        profiles = parse_profiles(read_request(baseline),baseline/'profile.jsonl',compact=True)
+        record['profile_retention']['header_semantic_sha256'] = header_semantic_sha256(baseline/'profile.jsonl')
+        record['plumbing_reused_native_work'] = True
+        record['reconstructed_header_semantics'] = 'prior strict request/metadata validation plus identical numeric body; process RSS excluded'
+        self.records.append(record)
+        return profiles
 
 
 def run(args):
@@ -62,8 +98,10 @@ def run(args):
         folder = args.out/str(index)
         old = json.loads((args.baseline/str(index)/'decision.json').read_text())
         view = SlumbotAdapter().observation(spot['decision']['public'],spot['decision']['hand_id'])
-        solver = ExternalTurnSolver(args.binary,folder/'native',compact_profiles=True,
-            profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None)
+        solver = (ReusedCompletedSolver(args.binary,args.reuse_completed_spot,old['native_records'])
+            if index == 0 and args.reuse_completed_spot else
+            ExternalTurnSolver(args.binary,folder/'native',compact_profiles=True,
+                profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None))
         policy = HU200RiverSearchPolicy(base,solver,CONFIG,ledger=folder/'ledger')
         pin_earlier_blueprint(policy,view)
         player = HU200RiverSearchPlayer(policy,seed=20261016317000+index)
@@ -114,8 +152,12 @@ def run(args):
                 if scientific_request(request_now) != scientific_request(read_request(previous_path)):
                     raise ValueError('An ancestor scientific request changed')
                 for name,pin in generated['profile_retention']['generated_files'].items():
-                    if pin != previous_files[name] or file_hash(previous_path/name) != pin['sha256']:
-                        raise ValueError('Generated raw compact body bytes differ: '+name)
+                    if name == 'profile.f64' and (pin != previous_files[name]
+                            or file_hash(previous_path/name) != pin['sha256']):
+                        raise ValueError('Generated numeric compact body bytes differ')
+                semantics = generated['profile_retention'].get('header_semantic_sha256')
+                if semantics != header_semantic_sha256(previous_path/'profile.jsonl'):
+                    raise ValueError('Compact scientific header metadata differs')
                 if set(generated['profile_retention']['generated_files']) != {'profile.jsonl','profile.f64'}:
                     raise ValueError('Missing complete raw checksum inventory')
             count = len(current.profiles)
@@ -141,6 +183,9 @@ def run(args):
             unavailable_masks_identical=True,played_matrix_support_action_ev_identical=True,
             fresh_replay_identical_without_solver=True,
             certified_ancestor_skips=policy.stats['certified_off_menu_ancestor_skips'])
+        row['reused_native_solves'] = sum(r.get('plumbing_reused_native_work',False) for r in solver.records)
+        if row['reused_native_solves']:
+            put(folder/'reused-native-evidence.json',solver.records)
         put(folder/'parity.json',row)
         rows.append(row)
         print(json.dumps(row),flush=True)
@@ -160,6 +205,7 @@ def main():
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument("--sample-native-bodies",action="store_true")
     parser.add_argument("--baseline-compact",action="store_true")
+    parser.add_argument("--reuse-completed-spot",type=Path)
     args = parser.parse_args()
     if subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string'],text=True).strip() != 'Apple M4':
         raise ValueError('Scientific validation requires the authorized M4')
