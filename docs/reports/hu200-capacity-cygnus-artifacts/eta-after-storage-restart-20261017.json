@@ -1,0 +1,30 @@
+{
+  "status": "conditional-requote-after-owner-approved-storage-stop-restart",
+  "observed_utc": "2026-10-17T10:38:28.706942+00:00",
+  "restart_utc": "2026-10-17T10:36:53.532651+00:00",
+  "downtime_credited_seconds": 4531.262597799301,
+  "effective_training_deadline_epoch": 1792385089.2587068,
+  "effective_training_deadline_utc": "2026-10-19T04:44:49.258707+00:00",
+  "remaining_training_and_audit_hours": [
+    8,
+    10
+  ],
+  "training_audit_expected": "October17 20:30\u201323:00 Europe/Madrid",
+  "training_audit_contingency": "October18 morning Europe/Madrid",
+  "complete_report_archive_target": "October19 evening Europe/Madrid",
+  "upload_contingency": "October20 Europe/Madrid",
+  "evaluation_max_seconds": 86400,
+  "evaluation_cache_clock_started": false,
+  "costs_unmeasured": [
+    "Actual full evaluation quote including cache construction/play/replay/reproduction",
+    "Drive upload/final unpacked bundle retention timing"
+  ],
+  "basis": [
+    "1302 native10B\u219220B: prior two measured3h05m/3h11m stages plus margin",
+    "1302 full-cap save/export/every-row audit:5.294h conservative prior projection",
+    "1421/1422 existing exports get unchanged full-row revalidation in parallel, without repeating native training/export",
+    "Storage offloads after each successful audit overlap within same global limits"
+  ],
+  "no_further_automatic_retry_or_credit": true,
+  "final_hands_started": false
+}

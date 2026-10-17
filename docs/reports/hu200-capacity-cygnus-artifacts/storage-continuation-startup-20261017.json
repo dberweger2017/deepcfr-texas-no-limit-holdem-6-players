@@ -1,0 +1,538 @@
+{
+  "summary": {
+    "observed_utc": "2026-10-17T10:38:28.706942+00:00",
+    "mutable_trace_cuts": {
+      "resources.jsonl": 213961,
+      "utilization.jsonl": 44749
+    },
+    "resources.jsonl": {
+      "utc": "2026-10-17T10:38:28.296770+00:00",
+      "monotonic": 58633.393043726,
+      "package_c": 60.0,
+      "clock_khz": [
+        800000,
+        4800000,
+        4799999,
+        800000,
+        800000,
+        800000,
+        4800713,
+        800000,
+        800000,
+        800000,
+        4800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        4800000
+      ],
+      "throttle_counts": {
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+      },
+      "cpu_clocks_khz": {
+        "cpu11": 800000,
+        "cpu9": 4800000,
+        "cpu7": 4799999,
+        "cpu5": 800000,
+        "cpu3": 800000,
+        "cpu14": 800000,
+        "cpu1": 4800713,
+        "cpu12": 800000,
+        "cpu10": 800000,
+        "cpu8": 800000,
+        "cpu6": 4800000,
+        "cpu4": 800000,
+        "cpu15": 800000,
+        "cpu2": 800000,
+        "cpu13": 800000,
+        "cpu0": 4800000
+      },
+      "device_temperatures_c": {
+        "iwlwifi_1/temp1_input": 31.0,
+        "nct6687/Thermistor 0": 16.0,
+        "nct6687/Thermistor 15": 71.0,
+        "nct6687/Thermistor 1": 13.5,
+        "nct6687/PCH CHIP": 34.0,
+        "nct6687/PECI 0.0": 61.0,
+        "nct6687/Thermistor 16": 38.5,
+        "nct6687/Diode 0 (curr)": 33.5,
+        "acpitz/temp1_input": 27.8,
+        "coretemp/Core 4": 45.0,
+        "coretemp/Core 1": 60.0,
+        "coretemp/Core 5": 45.0,
+        "coretemp/Core 2": 44.0,
+        "coretemp/Core 6": 60.0,
+        "coretemp/Package id 0": 60.0,
+        "coretemp/Core 3": 45.0,
+        "coretemp/Core 7": 53.0,
+        "coretemp/Core 0": 60.0,
+        "pch_cometlake/temp1_input": 34.0,
+        "nvme/Composite": 38.85
+      },
+      "available_bytes": 127902732288,
+      "swap_used_bytes": 136118272,
+      "vrm_c": 71.0,
+      "fan1_rpm": 843,
+      "free_disk_bytes": 105884786688,
+      "fan_rpm": {
+        "fan3": 1298,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 843,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 1286,
+        "fan6": 0
+      },
+      "job_rss_bytes": {
+        "train-2026101302-20000000000": 4575715328,
+        "audit-2026101421-20000000000": 46481408,
+        "audit-2026101422-20000000000": 46546944
+      },
+      "family_rss_bytes": 4668743680,
+      "active_jobs": {
+        "train-2026101302-20000000000": {
+          "kind": "train",
+          "cpus": [
+            0,
+            1
+          ]
+        },
+        "audit-2026101421-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            6
+          ]
+        },
+        "audit-2026101422-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            7
+          ]
+        }
+      },
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    },
+    "utilization.jsonl": {
+      "utc": "2026-10-17T10:38:28.320610+00:00",
+      "monotonic": 58633.416882424,
+      "hz": 100,
+      "jobs": {
+        "train-2026101302-20000000000": [
+          {
+            "pid": 36875,
+            "start": "5853916",
+            "ticks": 9345,
+            "argv": [
+              "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+              "train",
+              "--stack-bb",
+              "200",
+              "--menu",
+              "v1",
+              "--seed",
+              "2026101302",
+              "--roots-per-seat",
+              "1",
+              "--average-rule",
+              "opponent-sampled",
+              "--card-buckets",
+              "/home/dberweger/cygnus-qualification-20261014/tables",
+              "--max-entries",
+              "301153954",
+              "--nodes",
+              "20000000000",
+              "--recovery",
+              "--max-seconds",
+              "148075.1912238598",
+              "--out",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+              "--telemetry",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/telemetry.jsonl",
+              "--stop-file",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/stop.request",
+              "--freeze-at-cap",
+              "--resume",
+              "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+              "--resume-sha256",
+              "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975"
+            ],
+            "io": {
+              "rchar": 16145232511,
+              "wchar": 0,
+              "syscr": 62536,
+              "syscw": 0,
+              "read_bytes": 5526179840,
+              "write_bytes": 0,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 36875,
+                "ticks": 9345
+              }
+            ]
+          }
+        ],
+        "audit-2026101421-20000000000": [
+          {
+            "pid": 36877,
+            "start": "5853958",
+            "ticks": 9311,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+              "-m",
+              "scripts.continue_hu200_capacity",
+              "audit-existing",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015",
+              "--seed",
+              "2026101421"
+            ],
+            "io": {
+              "rchar": 54946703323,
+              "wchar": 1239,
+              "syscr": 52965,
+              "syscw": 1,
+              "read_bytes": 4841467904,
+              "write_bytes": 4096,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 36877,
+                "ticks": 9311
+              }
+            ]
+          }
+        ],
+        "audit-2026101422-20000000000": [
+          {
+            "pid": 36878,
+            "start": "5854001",
+            "ticks": 7171,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+              "-m",
+              "scripts.continue_hu200_capacity",
+              "audit-existing",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015",
+              "--seed",
+              "2026101422"
+            ],
+            "io": {
+              "rchar": 42621856383,
+              "wchar": 1239,
+              "syscr": 41206,
+              "syscw": 1,
+              "read_bytes": 0,
+              "write_bytes": 4096,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 36878,
+                "ticks": 7171
+              }
+            ]
+          }
+        ]
+      },
+      "phases": {
+        "train-2026101302-20000000000": "train",
+        "audit-2026101421-20000000000": "checkpoint-verification",
+        "audit-2026101422-20000000000": "checkpoint-verification"
+      },
+      "disks": {
+        "nvme0n1": {
+          "read_sectors": 990107447,
+          "written_sectors": 504273442,
+          "busy_ms": 411384
+        }
+      }
+    },
+    "source": "2f138ecdb2e2ed8470363d2156c3fa226f2c672a",
+    "source_status": "",
+    "processes": {
+      "36848": {
+        "name": "supervisor",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+          "-m",
+          "scripts.continue_hu200_capacity",
+          "run",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015"
+        ],
+        "affinity": "7",
+        "thread_environment": {}
+      },
+      "36870": {
+        "name": "observer",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+          "-m",
+          "scripts.continue_hu200_capacity",
+          "observe",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015"
+        ],
+        "affinity": "7",
+        "thread_environment": {}
+      },
+      "36875": {
+        "name": "train-2026101302-20000000000",
+        "argv": [
+          "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+          "train",
+          "--stack-bb",
+          "200",
+          "--menu",
+          "v1",
+          "--seed",
+          "2026101302",
+          "--roots-per-seat",
+          "1",
+          "--average-rule",
+          "opponent-sampled",
+          "--card-buckets",
+          "/home/dberweger/cygnus-qualification-20261014/tables",
+          "--max-entries",
+          "301153954",
+          "--nodes",
+          "20000000000",
+          "--recovery",
+          "--max-seconds",
+          "148075.1912238598",
+          "--out",
+          "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+          "--telemetry",
+          "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/telemetry.jsonl",
+          "--stop-file",
+          "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/stop.request",
+          "--freeze-at-cap",
+          "--resume",
+          "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+          "--resume-sha256",
+          "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975"
+        ],
+        "affinity": "0-1",
+        "thread_environment": {
+          "OMP_NUM_THREADS": "2",
+          "MKL_NUM_THREADS": "2",
+          "OPENBLAS_NUM_THREADS": "2",
+          "RAYON_NUM_THREADS": "2",
+          "MKL_CBWR": "AVX2,STRICT"
+        }
+      },
+      "36877": {
+        "name": "audit-2026101421-20000000000",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+          "-m",
+          "scripts.continue_hu200_capacity",
+          "audit-existing",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015",
+          "--seed",
+          "2026101421"
+        ],
+        "affinity": "6",
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "RAYON_NUM_THREADS": "1",
+          "MKL_CBWR": "AVX2,STRICT"
+        }
+      },
+      "36878": {
+        "name": "audit-2026101422-20000000000",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+          "-m",
+          "scripts.continue_hu200_capacity",
+          "audit-existing",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015",
+          "--seed",
+          "2026101422"
+        ],
+        "affinity": "7",
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "RAYON_NUM_THREADS": "1",
+          "MKL_CBWR": "AVX2,STRICT"
+        }
+      }
+    },
+    "new_attempt_failed": false,
+    "new_attempt_complete": false,
+    "tests_final_log_tail": ".....................................................................    [100%]\n69 passed in 6.43s\n"
+  },
+  "source_pins": [
+    {
+      "path": "continuation-20261017/admission.json",
+      "bytes": 5482,
+      "sha256": "2438b63ad5e303cd0e1f7c6a70782100fe4636759d88166945510f984a7f5522"
+    },
+    {
+      "path": "continuation-20261017/deadline.json",
+      "bytes": 551,
+      "sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120"
+    },
+    {
+      "path": "continuation-20261017/launch.json",
+      "bytes": 1158,
+      "sha256": "3c246e2845b9ba7f9e4535eb7e6ac5736f6ae4ffa6053636dfdc50ce6582767f"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/resources.jsonl",
+      "bytes": 15544,
+      "sha256": "b344656b960c087315a4e07a355e1cb561f70491d1a974d56f51351cb19b704c"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/plan.json",
+      "bytes": 872,
+      "sha256": "4bc783f2d7dc847757bb9f49496b0b0015c1c48bce1ec10c3b85e2808bcba705"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/result.json",
+      "bytes": 186,
+      "sha256": "0ef71b592cabbf331adab2f284d2aef69d051fc01e38fd59ed6a44b64b99d7d9"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/continuation-tests.log",
+      "bytes": 8156,
+      "sha256": "ebfe1317eefb59436917b1f81c94aa93f3eb893ec0bfdb05561e57818e87019a"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/resources.jsonl",
+      "bytes": 31070,
+      "sha256": "13cfe365fa9910dd375adc639f2c0242c5ce0c83cd44593cc3c996d463406dee"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/plan.json",
+      "bytes": 983,
+      "sha256": "b11ea80563b865e88eee28d9961ce1b741cbf5b1affa79be91834303d17ad271"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/result.json",
+      "bytes": 145,
+      "sha256": "93cd3a8c0ed1f537c553eb1f25fde031eac855484067be7db789bc8f7dfe18c8"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/continuation-tests.log",
+      "bytes": 99,
+      "sha256": "1a995d98432d3a99c8d6f091ead0009633ee1d7e3750bd5b86788f6cc26bb125"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/resources.jsonl",
+      "bytes": 260024,
+      "sha256": "b81ac36d21202f7ed0826ea7312d6f22820a0e1047a190c1aa666afe57e212b9"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/plan.json",
+      "bytes": 610,
+      "sha256": "6b3ae9727c8c461fc223dec984658d51eeed3e063c31dc3e06c6f13e9e89a491"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/result.json",
+      "bytes": 144,
+      "sha256": "489915b00eeda77f763beaba968d2b2f04de0bde87428a31204fcae0f31cefdf"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/readmission.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guards/continuation-20261017/train-2026101302-20000000000.plan.json",
+      "bytes": 1429,
+      "sha256": "4054ebb50d2d104c1f5061ba54564b90a84d0a5e79a437d304b6aa2891189fb5"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101422-20000000000.plan.json",
+      "bytes": 560,
+      "sha256": "38f2887bdf5c9cf9c42301d87dfe5209c0e771665331ee28d7bbe4dbcc821646"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101421-20000000000.plan.json",
+      "bytes": 560,
+      "sha256": "bed4d6618db9fb5e34523fda68c38e1abc2a9099f451aeeb55a4355761228697"
+    },
+    {
+      "path": "training-clock.json",
+      "bytes": 174,
+      "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a"
+    },
+    {
+      "path": "training-deadline-amendment-20261016.json",
+      "bytes": 358,
+      "sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134"
+    },
+    {
+      "path": "training-failed.json",
+      "bytes": 223,
+      "sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe"
+    }
+  ],
+  "verification": {
+    "status": "running-owner-authorized-continuation",
+    "fixed_native_flags_checked": {
+      "--stack-bb": "200",
+      "--menu": "v1",
+      "--seed": "2026101302",
+      "--roots-per-seat": "1",
+      "--average-rule": "opponent-sampled",
+      "--max-entries": "301153954",
+      "--nodes": "20000000000",
+      "--resume-sha256": "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975"
+    },
+    "three_live_jobs_verified": true,
+    "old_failure_retained": true,
+    "original_clock_and_previous_ledger_unchanged": true,
+    "source_immutable_while_running": true,
+    "final_hands_started": false,
+    "tests": "69pass after preserving one environment-dependent fixture failure; test fixed without changing actual watchdog or scientific code.",
+    "phase_label_caveat": "Original utilization heuristic labels fresh reused-audit proof folders as checkpoint-verification; these workers perform retained-input hashes then unchanged sorted every-row validation, without export."
+  }
+}

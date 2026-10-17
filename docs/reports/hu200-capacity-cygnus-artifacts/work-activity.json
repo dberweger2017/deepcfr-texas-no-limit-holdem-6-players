@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-active-preparing-owner-approved-restart",
+  "status": "coordinator-active;scientific-jobs-running",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -39,6 +39,20 @@
       "coordinator": "Resumed for owner-requested activity logging; owner then approved scientific continuation and downtime adjustment",
       "jobs": "Preparing guarded restart; no launch yet",
       "time_basis": "Current turn first clock observation"
+    },
+    {
+      "utc": "2026-10-17T10:36:53.532651+00:00",
+      "coordinator": "Owner-approved continuation admitted",
+      "jobs": "1302 training;1421/1422 retained-export validation launched immediately after admission",
+      "time_basis": "Immutable restart ledger and startup process proof",
+      "downtime_credit_seconds": 4531.262597799301,
+      "new_deadline_epoch": 1792385089.2587068
+    },
+    {
+      "utc": "2026-10-17T10:38:28.706942+00:00",
+      "coordinator": "Verified live source/commands/affinities and finalized startup report",
+      "jobs": "All3 guarded jobs alive, no new failure",
+      "time_basis": "Fresh owned-root startup snapshot"
     }
   ]
 }

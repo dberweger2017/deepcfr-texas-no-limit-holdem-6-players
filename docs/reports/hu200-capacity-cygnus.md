@@ -1,11 +1,93 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Campaign stopped by the prospective disk-space guard on October 17 at 09:21:22 UTC /11:21 Madrid.** All three rebuilt 10B saves remain fully audited. Two native 20B saves exist, but their final audits were interrupted; the third 20B continuation never started. All owned workers/controllers are absent. No retry or evaluation was launched.
+**Owner-approved continuation restarted October17 at10:36:53UTC /12:36:53Madrid.** Seed1302 is training10B→20B; seeds1421/1422 are revalidating retained20B exports. All three10B parent hashes and original gates pass,69 guarded checks pass, no new failure or final hands. The old storage-stop evidence is preserved.
 
-**The previous completion ETA is withdrawn.** The fixed training deadline remains October 19, 03:29:18 UTC; evaluation's 24-hour limit is unchanged. Owner-authorized relocation now provides 111 GB free on NVMe and permits HDD staging. Archival closeout remains pending; all model and partial bytes are retained at indexed locations.
+The owner-approved stopped interval adds1h15m31.263s once: the new training/audit deadline is **October19 04:44:49UTC /06:44:49Madrid**. Original clocks are unchanged. Conditional training/audit ETA is Saturday17 evening, Sunday18 morning contingency; report/archives Monday19evening/Tuesday20upload contingency. Coordinator stop/resume entries and live-job state are logged below and in PR301.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Owner-approved continuation running — October 17, 10:36:53 UTC
+
+The owner authorized continuing training and adjusting timing for this stop.
+[Protocol](../hu200-capacity-storage-stop-continuation.md),
+[exact approval](hu200-capacity-cygnus-artifacts/storage-stop-restart-approval-20261017.json),
+[startup/process/command proof](hu200-capacity-cygnus-artifacts/storage-continuation-startup-20261017.json).
+Clean source **2f138ecd** is immutable in `repo-continuation-20261017` while the
+new supervisor36848 and observer36870 run. All69 guarded checks pass. One prior
+host-disk-dependent integration-fixture failure is retained and fixed without
+changing the real watchdog or scientific code.
+[Validation](hu200-capacity-cygnus-artifacts/storage-continuation-validation-20261017.json).
+
+Seed1302 trains only its remaining10B→20B from its fully audited own10B checkpoint,
+SHAe13c397a…, into fresh `results-continuation-20261017/2026101302/20000000000/`.
+Actual native PID36875 has affinity0–1, RAYON_NUM_THREADS=2 and the unchanged
+recipe flags/binary. Seeds1421/1422 retain their completed20B checkpoint/current/
+average bytes under `results-recovery-20261016/` and restart only every-row
+validation (PIDs36877/36878, CPUs6/7, one thread each). No native export or training
+is repeated for those two. Full row/order/lineage/number/EOF/CRC/hash checks use
+the existing auditor. Original stops, exports, clocks and failure bytes remain.
+
+Readmission rehashes all three retained10B parents, qualified binary and#163 card
+tables, and checks original gate receipts/relocated model metadata. Single-trainer
+plus helpers/floor memory requirement49.124GB is satisfied. At10:38:28UTC CPU/VRM
+60/71°C, available127.903GB, family RSS4.669GB during load, freeNVMe105.885GB,
+swap129.8125MiB,128.8125MiB above original baseline; no stop. Native reserves20GB;
+read-only validation/storage jobs reserve64MiB metadata. Normal full-export audits
+still reserve23GB. Max8CPU reservations,3helpers,38GiB/trainer,512MiB/helper and
+all original RSS/swap/CPU/VRM/disk guards remain.
+
+The stopped interval09:21:22.269998→10:36:53.532596UTC is **4,531.262598s
+(1h15m31.263s)**, credited once in a separate immutable ledger. Original clock and
+October16 one-hour ledger stay byte-identical. Effective deadline is now
+**October19 04:44:49.258707UTC /06:44:49.258707Madrid**, epoch1792385089.2587068.
+[Exact ledger](hu200-capacity-cygnus-artifacts/storage-continuation-20261017/continuation-20261017/deadline.json).
+No future idle/failure credit or automatic scientific retry is granted. Evaluation
+still gets24h from its first cache build after all training/audits; not started.
+
+After each successful20B audit, its inactive10B recovery and20B current export
+move, with source SHA/independent readback/journal, under
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-after-20b-20261017/`.
+Latest20B recoveries/averages stayNVMe. Successful source-file removals are storage
+relocations, not lost evidence; each has a fresh location receipt. No model is
+moved while a job uses it.5B averages/twins remain in the first HDD relocation
+until needed. PR292 and shared dependencies remain untouched.
+
+Root `training-failed.json` is preserved historical evidence. The active attempt's
+failure/completion receipts are under `continuation-20261017/`; root20B milestone
+and a superseding root completion publish only after current audits/storage
+finish. Event deduplication must inspect the active attempt, not mistake the old
+root failure for a new one. The existing enabled webhook task is reused, with a
+new attempt-local delivery receipt; no schedule is created. The original raw
+utilization phase heuristic calls reused-audit folders checkpoint verification;
+these workers hash retained inputs then validate rows without exporting.
+
+[Re-quoted ETA](hu200-capacity-cygnus-artifacts/eta-after-storage-restart-20261017.json):
+remaining training/audits8–10h, expected **Saturday17 20:30–23:00Madrid**, Sunday18
+morning contingency. Full report/archive target **Monday19 eveningMadrid**,
+**Tuesday20 upload contingency**, conditional on the still-unmeasured full
+evaluation/upload costs. All fixed samples and global replay/reproduction barrier
+remain. No final hands or playing outcome exists.
+
+## Coordinator stop and resume record
+
+The owner requires every coordinator handback and return to be marked in PR301,
+including reason and background job state. Job starts/stops are recorded separately;
+a coordinator handback while guarded jobs run does not pause the scientific clock.
+[Persistent activity ledger](hu200-capacity-cygnus-artifacts/work-activity.json).
+Older handbacks below use evidenced completion bounds; exact prior turn-end times
+were not captured and are not invented. All times are October17.
+
+| UTC | Madrid | Coordinator or job event | Background work |
+| --- | --- | --- | --- |
+|05:55:57 |07:55:57 |10B event update complete by this time; subsequent handback |Guarded jobs continued |
+|09:21:22 |11:21:22 |Scientific disk guard stopped work |Jobs terminated |
+|09:21:54 |11:21:54 |Coordinator working on failure by this time |Science stopped |
+|09:31:05 |11:31:05 |Failure report complete by this time; subsequent handback |Science stopped |
+|09:38:43 |11:38:43 |Coordinator working on authorized storage by this time |Storage only |
+|09:58:23 |11:58:23 |Storage/report complete by this time; subsequent handback |All own jobs finished |
+|10:21:14 |12:21:14 |Coordinator resumed; owner then authorized continuation |Restart preparation |
+|10:36:53 |12:36:53 |Remaining scientific jobs restarted |One trainer and two validators |
 
 ## Verified inactive model relocation — October 17, 09:56 UTC
 

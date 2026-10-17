@@ -1,0 +1,30 @@
+{
+  "status": "owner-approved-continuation-launched",
+  "utc": "2026-10-17T10:36:53.537110+00:00",
+  "source": "2f138ecdb2e2ed8470363d2156c3fa226f2c672a",
+  "supervisor_pid": 36848,
+  "observer_pid": 36870,
+  "command": [
+    "taskset",
+    "-c",
+    "7",
+    "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+    "-m",
+    "scripts.continue_hu200_capacity",
+    "run",
+    "--base",
+    "/home/dberweger/hu200-capacity-20261015"
+  ],
+  "deadline": {
+    "approval_sha256": "6bdea7ddcebd8100d0bebc1ecd8b9067144a54af89719f2913d0b5e904927bcf",
+    "deadline_epoch": 1792385089.2587068,
+    "extension_seconds": 4531.262597799301,
+    "original_clock_sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+    "prior_ledger_sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134",
+    "restart_admitted_utc": "2026-10-17T10:36:53.532651+00:00",
+    "resumed_epoch": 1792233413.5325959,
+    "status": "owner-approved-storage-stop-credit",
+    "stopped_epoch": 1792228882.269998
+  },
+  "historical_failure_sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe"
+}
