@@ -16,9 +16,13 @@
 //! gives the checkpoint's sorted rows without sorting the whole table at once.
 
 use crate::cfr::{Key, Lookup, Node, MAX_ACTIONS};
+use crate::gz::Gzip;
 use hashbrown::HashTable;
+use rayon::prelude::*;
 
 pub const SHARDS: usize = 64;
+/// Checkpoint rows per parallel formatting piece.
+const SAVE_PIECE: usize = 16_384;
 
 /// Regrets of keys without stored ones: `Node::empty`'s.
 static ZEROS: [f64; MAX_ACTIONS] = [0.0; MAX_ACTIONS];
@@ -375,6 +379,20 @@ impl Store {
 
     pub fn sorted_views(&self) -> impl Iterator<Item = (Key, View<'_>)> + '_ {
         self.0.iter().flat_map(Shard::sorted_views)
+    }
+
+    /// `head`, then one `row` per entry in key order: shards sorted and rows formatted in parallel.
+    pub fn write_sorted(&self, file: std::fs::File, gzip: Gzip, head: &[u8],
+                        row: impl Fn(&Shard, u32, &mut Vec<u8>) + Sync) -> std::io::Result<std::fs::File> {
+        let orders: Vec<Vec<u32>> = self.0.par_iter().map(Shard::order).collect();
+        let pieces: Vec<(usize, std::ops::Range<usize>)> = orders.iter().enumerate()
+            .flat_map(|(s, order)| (0..order.len()).step_by(SAVE_PIECE).map(move |i| (s, i..(i + SAVE_PIECE).min(order.len()))))
+            .collect();
+        crate::gz::write_ordered(file, gzip, head, &pieces, |(s, range), out| {
+            for &i in &orders[*s][range.clone()] {
+                row(&self.0[*s], i, out);
+            }
+        })
     }
 }
 

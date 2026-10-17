@@ -4,8 +4,8 @@
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use rayon::prelude::*;
+use std::fs::File;
 use std::io::{BufWriter, Write};
-use std::path::Path;
 use std::sync::mpsc::sync_channel;
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -15,10 +15,10 @@ pub enum Gzip {
     Parallel,
 }
 
-/// `head`, then each piece's bytes in order.
-pub fn write_ordered<P: Sync>(path: &Path, gzip: Gzip, head: &[u8], pieces: &[P],
-                              format: impl Fn(&P, &mut Vec<u8>) + Sync) -> std::io::Result<()> {
-    let mut file = BufWriter::new(std::fs::File::create(path)?);
+/// `head`, then each piece's bytes in order, into `file`; returns it flushed, not synced.
+pub fn write_ordered<P: Sync>(file: File, gzip: Gzip, head: &[u8], pieces: &[P],
+                              format: impl Fn(&P, &mut Vec<u8>) + Sync) -> std::io::Result<File> {
+    let mut file = BufWriter::new(file);
     let window = 2 * rayon::current_num_threads().max(1);
     let formatted = |piece: &P| {
         let mut bytes = Vec::new();
@@ -28,12 +28,12 @@ pub fn write_ordered<P: Sync>(path: &Path, gzip: Gzip, head: &[u8], pieces: &[P]
     match gzip {
         Gzip::Compatible => std::thread::scope(|scope| {
             let (send, receive) = sync_channel::<Vec<u8>>(window);
-            let compressor = scope.spawn(move || -> std::io::Result<()> {
+            let compressor = scope.spawn(move || -> std::io::Result<File> {
                 let mut out = GzEncoder::new(file, Compression::default());
                 for bytes in receive {
                     out.write_all(&bytes)?;
                 }
-                out.finish()?.flush()
+                out.finish()?.into_inner().map_err(|e| e.into_error())
             });
             let mut open = send.send(head.to_vec()).is_ok();
             for window in pieces.chunks(window) {
@@ -59,7 +59,7 @@ pub fn write_ordered<P: Sync>(path: &Path, gzip: Gzip, head: &[u8], pieces: &[P]
                     file.write_all(&bytes?)?;
                 }
             }
-            file.flush()
+            file.into_inner().map_err(|e| e.into_error())
         }
     }
 }
@@ -86,7 +86,7 @@ mod tests {
         let single = single.finish().unwrap();
         for gzip in [Gzip::Compatible, Gzip::Parallel] {
             let path = dir.join(format!("{gzip:?}.gz"));
-            write_ordered(&path, gzip, b"{\"header\":1}\n", &pieces, format).unwrap();
+            write_ordered(File::create(&path).unwrap(), gzip, b"{\"header\":1}\n", &pieces, format).unwrap();
             let bytes = std::fs::read(&path).unwrap();
             let mut decoded = Vec::new();
             flate2::read::MultiGzDecoder::new(&bytes[..]).read_to_end(&mut decoded).unwrap();

@@ -17,12 +17,19 @@ fn train() -> Result<(), String> {
     let mut options = BTreeMap::new();
     let mut args = std::env::args().skip(1);
     let mut freeze = false;
+    let mut gzip = None;
     while let Some(key) = args.next() {
         if key == "--freeze-at-cap" {
             if freeze {
                 return Err("duplicate --freeze-at-cap".into());
             }
             freeze = true;
+            continue;
+        }
+        if key == "--fast-gzip" {
+            if gzip.replace(hu20_trainer::gz::Gzip::Parallel).is_some() {
+                return Err("duplicate --fast-gzip".into());
+            }
             continue;
         }
         if ![
@@ -183,8 +190,10 @@ fn train() -> Result<(), String> {
             }
         }
     };
-    multi_checkpoint::save(&trainer, &out)?;
+    let save_start = std::time::Instant::now();
+    multi_checkpoint::save(&trainer, &out, gzip.unwrap_or_default())?;
     let report = json!({"identity":game.identity(),"stop_reason":reason,"iteration":trainer.iteration,
+        "save_seconds":save_start.elapsed().as_secs_f64(),
         "entries":trainer.table.len(),"frozen_at":trainer.frozen_at,"counts":multi_checkpoint::counts_json(&trainer.counts),
         "elapsed_seconds":start.elapsed().as_secs_f64(),"checkpoint":out,
         "sha256":hu20_trainer::export::sha256_file(&out)});

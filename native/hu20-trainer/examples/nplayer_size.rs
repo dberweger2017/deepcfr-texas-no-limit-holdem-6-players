@@ -172,9 +172,10 @@ mod tests {
                     "nplayer-size-{}-{n}-{scope}.gz",
                     std::process::id()
                 ));
-                hu20_trainer::multi_checkpoint::save(&plain, &path).unwrap();
+                let gzip = hu20_trainer::gz::Gzip::Compatible;
+                hu20_trainer::multi_checkpoint::save(&plain, &path, gzip).unwrap();
                 let bytes = std::fs::read(&path).unwrap();
-                hu20_trainer::multi_checkpoint::save(&observed, &path).unwrap();
+                hu20_trainer::multi_checkpoint::save(&observed, &path, gzip).unwrap();
                 assert_eq!(bytes, std::fs::read(&path).unwrap());
                 std::fs::remove_file(path).unwrap();
             }

@@ -17,9 +17,6 @@ use rayon::prelude::*;
 use serde_json::{json, Value};
 use std::path::Path;
 
-/// Checkpoint rows per parallel formatting piece.
-const SAVE_PIECE: usize = 16_384;
-
 /// Two workers for the production setting's two traversals: the global pool would wake every
 /// idle worker on each ~0.3 ms iteration.
 static PAIR: std::sync::LazyLock<rayon::ThreadPool> =
@@ -302,19 +299,13 @@ impl Trainer {
         }
         let temporary = path.with_extension("tmp");
         let head = serde_json::to_string(&header).unwrap() + "\n";
-        let orders: Vec<Vec<u32>> = self.table.0.par_iter().map(|shard| shard.order()).collect();
-        let pieces: Vec<(usize, std::ops::Range<usize>)> = orders.iter().enumerate()
-            .flat_map(|(s, order)| (0..order.len()).step_by(SAVE_PIECE).map(move |i| (s, i..(i + SAVE_PIECE).min(order.len()))))
-            .collect();
-        crate::gz::write_ordered(&temporary, self.gzip, head.as_bytes(), &pieces, |(s, range), out| {
-            for &i in &orders[*s][range.clone()] {
-                let (key, node) = self.table.0[*s].row(i);
-                let node = &self.caught_up(&node);
-                let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
-                let n = node.len as usize;
-                serde_json::to_writer(&mut *out, &(hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits)).unwrap();
-                out.push(b'\n');
-            }
+        self.table.write_sorted(std::fs::File::create(&temporary)?, self.gzip, head.as_bytes(), |shard, i, out| {
+            let (key, node) = shard.row(i);
+            let node = &self.caught_up(&node);
+            let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
+            let n = node.len as usize;
+            serde_json::to_writer(&mut *out, &(hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits)).unwrap();
+            out.push(b'\n');
         })?;
         std::fs::rename(temporary, path)
     }

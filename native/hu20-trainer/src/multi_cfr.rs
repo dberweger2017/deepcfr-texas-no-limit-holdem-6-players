@@ -1,5 +1,6 @@
 //! N-player external sampling. The legacy HU traversal is intentionally separate.
 use crate::cfr::{fsum, regret_match, Key, KeyHasher, MAX_ACTIONS};
+use crate::gz::Gzip;
 use crate::store::{Allocation, Store, View};
 use rand::{Rng, SeedableRng};
 use std::collections::HashMap;
@@ -177,6 +178,14 @@ impl Table {
     }
     pub fn index_capacity(&self) -> usize {
         self.0.index_capacity()
+    }
+    /// `head`, then one `row` per entry in key order, formatted in parallel.
+    pub fn write_sorted(&self, file: std::fs::File, gzip: Gzip, head: &[u8],
+                        row: impl Fn(Key, Stored, &mut Vec<u8>) + Sync) -> std::io::Result<std::fs::File> {
+        self.0.write_sorted(file, gzip, head, |shard, i, out| {
+            let (key, v) = shard.row_view(i);
+            row(key, Stored::of(v), out)
+        })
     }
 }
 impl PartialEq for Table {
