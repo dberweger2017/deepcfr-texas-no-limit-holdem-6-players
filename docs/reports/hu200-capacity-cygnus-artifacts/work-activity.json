@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-handback-declared;guarded-jobs-continue",
+  "status": "coordinator-handback-declared;1302-export-audit-continues",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -59,6 +59,20 @@
       "coordinator": "Handback declared after restart verification, reporting and PR update preparation",
       "jobs": "1302 trainer and1421/1422 validators continue under supervisor36848;terminal observer36870 active",
       "time_basis": "Current declared handoff marker; final PR readback/bookkeeping follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:08:13.122985+00:00",
+      "coordinator": "Returned for owner-requested status report",
+      "jobs": "Guarded continuation running; no scientific restart",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:10:11.329695+00:00",
+      "coordinator": "Handback declared after live status verification and report preparation",
+      "jobs": "1302 native export then full-row audit continues under supervisor36848;1421/1422 audit and HDD relocation complete;observer36870 active",
+      "time_basis": "Declared handback; publication and exact PR readback follow",
       "clock_credit": false
     }
   ]

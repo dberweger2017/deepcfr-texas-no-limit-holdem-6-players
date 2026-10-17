@@ -4124,6 +4124,27 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 
 ## PR301 — HU200 capacity on cygnus-x1 (owner-approved post-storage continuation running, October 17, 2026)
 
+October17,14:09UTC update: all3 native20B endpoints saved;1421/1422 final full-row
+audits and verified HDD relocations pass.1302 native save SHA
+`b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93`,
+14,414,526,873 bytes, full gzip/row/hash readback verified; policy export/full
+current-average audit still running. No final hands or Drive acceptance.
+[Snapshot, source pins and exact receipt copies](docs/reports/hu200-capacity-cygnus-artifacts/progress-20261017-1408.json)
+index closed audit/result/offload/journal records under
+`progress-20261017-1408/` with original owned-root relative paths. Raw live
+resources/utilization remain unsealed cuts in `guards/continuation-20261017/`.
+Four relocated files39,111,722,256 bytes retain original relative paths below
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-after-20b-20261017/`;
+per-seed `continuation-20261017/offloads/SEED/receipt.json` gives each original,
+destination, bytes, mtime and SHA256, with durable `journal.jsonl` and independent
+all-byte readback. Current source absence and destination size were rechecked.
+Restore selected files only after admission, copying back to the exact original
+NVMe path and verifying recorded size/SHA/mtime; retain the HDD original.
+Twins/5B averages remain in the earlier separately indexed HDD location. Latest
+20B recovery/averages remain NVMe. Include local ignored `planning/collect_status_20261017_1408.py`,
+`status-20261017-1408-collected.json`, publication/readback/activity metadata and
+all raw closed/live phase traces in final archives; private webhook URL excluded.
+
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
 [report](docs/reports/hu200-capacity-cygnus.md). All fresh/normalized500M full audits, exact twin parity and memory gates pass. All twins restored; all three5B saves pass every-row audits and required5B averages remain. Accidental power-off interrupted10B; the owner-approved common5B recovery is running on all three seeds with a single one-hour extension. No final hands yet.

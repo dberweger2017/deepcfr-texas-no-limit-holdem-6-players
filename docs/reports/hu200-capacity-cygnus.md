@@ -1,11 +1,41 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Owner-approved continuation restarted October17 at10:36:53UTC /12:36:53Madrid.** Seed1302 is training10B→20B; seeds1421/1422 are revalidating retained20B exports. All three10B parent hashes and original gates pass,69 guarded checks pass, no new failure or final hands. The old storage-stop evidence is preserved.
+**All three native runs have reached20B; seeds1421/1422 pass final full-row audits.** Seed1302 is exporting policies before its final audit. No new guard failure or final evaluation hands. Snapshot October17,14:09UTC /16:09Madrid.
 
 The owner-approved stopped interval adds1h15m31.263s once: the new training/audit deadline is **October19 04:44:49UTC /06:44:49Madrid**. Original clocks are unchanged. Conditional training/audit ETA is Saturday17 evening, Sunday18 morning contingency; report/archives Monday19evening/Tuesday20upload contingency. Coordinator stop/resume entries and live-job state are logged below and in PR301.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Three native 20B saves; two final audits complete — October 17, 14:09 UTC
+
+All three seeds have reached their 20B training endpoint. Seed1302 saved
+20,000,000,759 nodes and301,153,962 entries; its14,414,526,873-byte checkpoint
+passes independent SHA256 and full gzip EOF/CRC/readback. It is now exporting
+current/average policies, followed by the unchanged every-row audit. Its final
+model is not admitted until that audit succeeds.
+
+Seeds1421/1422 passed full validation of301,153,954/301,153,964 rows at
+12:55:39/13:41:15UTC. Their average SHA256s are respectively
+`c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be`
+and `388410f517f663378c1c97cd5cca11f8bed47f4e2777b131d7a2bb69d7f0451f`.
+No training or export was repeated for those two. Both verified HDD offloads
+finished; four inactive files total39,111,722,256 bytes have relocation receipts,
+full destination readback and source removal journals. Their20B recovery and
+average files remain on NVMe. All previous failed-attempt bytes remain preserved.
+
+At14:09UTC /16:09Madrid CPU59°C, VRM62.5°C, available RAM132.440GB,
+NVMe free93.025GB. Continuation trace cut:6,831 samples, CPU/VRM maxima70/84°C,
+no clean-stop sample or new failure. Fan1 at the snapshot771RPM. No identifiable
+DIMM temperature is available. Source2f138ecd remains clean and immutable.
+[Snapshot and pinned receipts](hu200-capacity-cygnus-artifacts/progress-20261017-1408.json).
+
+The existing forecast holds: training/export/audit completion Saturday17
+20:30–23:00Madrid, Sunday18 morning contingency. Complete report/archive target
+Monday19 evening, Tuesday20 upload contingency, conditional on still-unmeasured
+full cache/evaluation/upload costs. Training deadline October19 06:44:49Madrid
+and evaluation24h cap remain unchanged. No final hands or playing outcomes;
+evaluation waits for the last full audit and verified storage terminal.
 
 ## Owner-approved continuation running — October 17, 10:36:53 UTC
 

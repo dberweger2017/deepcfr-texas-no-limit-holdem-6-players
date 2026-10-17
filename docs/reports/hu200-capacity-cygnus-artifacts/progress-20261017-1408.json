@@ -1,0 +1,342 @@
+{
+  "summary": {
+    "observed_utc": "2026-10-17T14:09:13.483614+00:00",
+    "resources.jsonl": {
+      "utc": "2026-10-17T14:09:12.454897+00:00",
+      "monotonic": 71277.551171123,
+      "package_c": 59.0,
+      "clock_khz": [
+        800000,
+        800000,
+        4999296,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        4999296,
+        800000,
+        800000,
+        800000,
+        4900490
+      ],
+      "throttle_counts": {
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+      },
+      "cpu_clocks_khz": {
+        "cpu11": 800000,
+        "cpu9": 800000,
+        "cpu7": 4999296,
+        "cpu5": 800000,
+        "cpu3": 800000,
+        "cpu14": 800000,
+        "cpu1": 800000,
+        "cpu12": 800000,
+        "cpu10": 800000,
+        "cpu8": 800000,
+        "cpu6": 800000,
+        "cpu4": 4999296,
+        "cpu15": 800000,
+        "cpu2": 800000,
+        "cpu13": 800000,
+        "cpu0": 4900490
+      },
+      "device_temperatures_c": {
+        "iwlwifi_1/temp1_input": 30.0,
+        "nct6687/Thermistor 0": 16.0,
+        "nct6687/Thermistor 15": 62.5,
+        "nct6687/Thermistor 1": 13.5,
+        "nct6687/PCH CHIP": 34.0,
+        "nct6687/PECI 0.0": 59.5,
+        "nct6687/Thermistor 16": 36.0,
+        "nct6687/Diode 0 (curr)": 33.5,
+        "acpitz/temp1_input": 27.8,
+        "coretemp/Core 4": 60.0,
+        "coretemp/Core 1": 37.0,
+        "coretemp/Core 5": 42.0,
+        "coretemp/Core 2": 41.0,
+        "coretemp/Core 6": 41.0,
+        "coretemp/Package id 0": 59.0,
+        "coretemp/Core 3": 38.0,
+        "coretemp/Core 7": 52.0,
+        "coretemp/Core 0": 38.0,
+        "pch_cometlake/temp1_input": 33.0,
+        "nvme/Composite": 36.85
+      },
+      "available_bytes": 132440281088,
+      "swap_used_bytes": 135061504,
+      "vrm_c": 62.5,
+      "fan1_rpm": 795,
+      "free_disk_bytes": 93025337344,
+      "fan_rpm": {
+        "fan3": 1196,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 795,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 1197,
+        "fan6": 0
+      },
+      "job_rss_bytes": {
+        "audit-2026101302-20000000000": 46645248
+      },
+      "family_rss_bytes": 46645248,
+      "active_jobs": {
+        "audit-2026101302-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            7
+          ]
+        }
+      },
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    },
+    "utilization.jsonl": {
+      "utc": "2026-10-17T14:09:12.477493+00:00",
+      "monotonic": 71277.573762295,
+      "hz": 100,
+      "jobs": {
+        "audit-2026101302-20000000000": [
+          {
+            "pid": 67630,
+            "start": "7059003",
+            "ticks": 53024,
+            "argv": [
+              "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+              "export",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+              "--current",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.current.gz",
+              "--average",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.average.gz",
+              "--zero-mass",
+              "uniform"
+            ],
+            "io": {
+              "rchar": 15488638149,
+              "wchar": 1233996653,
+              "syscr": 46541,
+              "syscw": 54658,
+              "read_bytes": 0,
+              "write_bytes": 1234141184,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 67630,
+                "ticks": 53024
+              }
+            ]
+          },
+          {
+            "pid": 67030,
+            "start": "7005213",
+            "ticks": 41394,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+              "-m",
+              "scripts.run_hu200_capacity_training",
+              "audit",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000"
+            ],
+            "io": {
+              "rchar": 28837277547,
+              "wchar": 2688,
+              "syscr": 3533423,
+              "syscw": 1,
+              "read_bytes": 1605632,
+              "write_bytes": 4096,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 67030,
+                "ticks": 41394
+              }
+            ]
+          }
+        ]
+      },
+      "phases": {
+        "audit-2026101302-20000000000": "native-export"
+      },
+      "disks": {
+        "nvme0n1": {
+          "read_sectors": 1561937559,
+          "written_sectors": 629148090,
+          "busy_ms": 610092
+        }
+      }
+    },
+    "trace_cut": {
+      "bytes": 28408069,
+      "samples": 6831,
+      "cpu_max_c": 70.0,
+      "vrm_max_c": 84.0,
+      "any_stop": false
+    },
+    "source": "2f138ecdb2e2ed8470363d2156c3fa226f2c672a",
+    "source_status": "",
+    "new_attempt_failed": false,
+    "new_attempt_complete": false,
+    "controller_events": [
+      {
+        "event": "passed",
+        "job": "audit-2026101421-20000000000",
+        "utc": "2026-10-17T12:55:39.177547+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "offload-2026101421-20000000000",
+        "utc": "2026-10-17T13:00:52.461911+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "audit-2026101422-20000000000",
+        "utc": "2026-10-17T13:41:15.881453+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "train-2026101302-20000000000",
+        "utc": "2026-10-17T13:48:46.624619+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "offload-2026101422-20000000000",
+        "utc": "2026-10-17T13:51:39.356781+00:00"
+      }
+    ],
+    "processes": {
+      "36848": "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python -m scripts.continue_hu200_capacity run --base /home/dberweger/hu200-capacity-20261015 ",
+      "36870": "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python -m scripts.continue_hu200_capacity observe --base /home/dberweger/hu200-capacity-20261015 ",
+      "67030": "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python -m scripts.run_hu200_capacity_training audit --base /home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000 ",
+      "67630": "/home/dberweger/cygnus-qualification-20261014/trainer-first export /home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz --current /home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.current.gz --average /home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.average.gz --zero-mass uniform "
+    }
+  },
+  "source_pins": [
+    {
+      "path": "guards/continuation-20261017/audit-2026101421-20000000000.result.json",
+      "bytes": 168,
+      "sha256": "1d4a622530e831a233cfaf00b761621b3d667f103da5be28d6ef311102980855"
+    },
+    {
+      "path": "guards/continuation-20261017/offload-2026101422-20000000000.result.json",
+      "bytes": 168,
+      "sha256": "c7b8fb170958c98383c524fc33f1257e8415b04172b11a387e1e640675e0519c"
+    },
+    {
+      "path": "guards/continuation-20261017/offload-2026101421-20000000000.result.json",
+      "bytes": 169,
+      "sha256": "515475577cece2048122be110294755ebdf124a37b7f73fdaf9d5e3c03374aea"
+    },
+    {
+      "path": "guards/continuation-20261017/train-2026101302-20000000000.result.json",
+      "bytes": 176,
+      "sha256": "5cc64ce5abf38d72786a293f65edbd82fda872f9fc29c5f9762f4f1725adf34f"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101422-20000000000.result.json",
+      "bytes": 169,
+      "sha256": "c0eec9c3509687e09fd0c564448bedb1e4cd816628000a7b91ca993fc8897694"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/saved-bytes.json",
+      "bytes": 2688,
+      "sha256": "57e35d6a7d3817046176aff33089e70d8d2bca051ff9762fe95779f6c558a05d"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/native-record.json",
+      "bytes": 2802,
+      "sha256": "e934920a471cf742d980a9be4add23739d669534ec6f38cd293e46a462059bf2"
+    },
+    {
+      "path": "continuation-20261017/audits/2026101421/audit.json",
+      "bytes": 4644,
+      "sha256": "01b673ca9dd8ded9850eb11525969f34aab9dcfb1fe19e35ff293aee73b6920e"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/audit.json",
+      "bytes": 4644,
+      "sha256": "01b673ca9dd8ded9850eb11525969f34aab9dcfb1fe19e35ff293aee73b6920e"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101421/receipt.json",
+      "bytes": 1666,
+      "sha256": "54ffe3b87772abb10892c40f8981a2260c7a04dee3f197ee39819e6d2e1e59cb"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101421/journal.jsonl",
+      "bytes": 2404,
+      "sha256": "ed2a8c656ad4e43e63631e87ec2f3cc307b8b9049f043ce0e8a49123c02c1fce"
+    },
+    {
+      "path": "continuation-20261017/audits/2026101422/audit.json",
+      "bytes": 4641,
+      "sha256": "5aca3c71b0773159c46cfe007392e6c50a35bd4fcee0a8cb1f33fedec89fa43f"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/audit.json",
+      "bytes": 4641,
+      "sha256": "5aca3c71b0773159c46cfe007392e6c50a35bd4fcee0a8cb1f33fedec89fa43f"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101422/receipt.json",
+      "bytes": 1666,
+      "sha256": "982db1ebdbf682a176b48abe48b3bf82e2d99f02c579bc14c5a652cdd6509888"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101422/journal.jsonl",
+      "bytes": 2404,
+      "sha256": "a839058f0ff9b8254ad9f271f291de29a8abfcf06554dde319429cf876c041b7"
+    }
+  ],
+  "verification": {
+    "source_immutable": true,
+    "two_full_row_audits_verified": true,
+    "two_relocations_receipt_and_destination_size_and_source_absence_verified": true,
+    "no_new_failure": true,
+    "all_three_native_20b_saved": true,
+    "global_final_audit_incomplete": true,
+    "final_hands_started": false,
+    "live_traces_are_unsealed_cuts": true
+  }
+}
