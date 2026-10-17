@@ -46,31 +46,6 @@
   "publication_requires_fresh_owner_merge_bundles": true,
   "resources": {
     "hu200-frozen-20b-seeds-build-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-m",
-        "scripts.build_hu200_bundle",
-        "--release",
-        "hu200-frozen-20b-seeds",
-        "--source-sha",
-        "ea5301bb46718038cd1de78df072778188a285ab",
-        "--card-tables",
-        "/home/dberweger/v055-publication/tables",
-        "--out",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds",
-        "--model",
-        "2026101302=/home/dberweger/v055-publication/seed-inputs/2026101302.average.gz",
-        "--model",
-        "2026101421=/home/dberweger/v055-publication/seed-inputs/2026101421.average.gz",
-        "--model",
-        "2026101422=/home/dberweger/v055-publication/seed-inputs/2026101422.average.gz",
-        "--model",
-        "2026101302-checkpoint=/home/dberweger/v055-publication/seed-inputs/HU200-frozen-20B-seed-2026101302.checkpoint.gz",
-        "--model",
-        "2026101421-checkpoint=/home/dberweger/v055-publication/seed-inputs/HU200-frozen-20B-seed-2026101421.checkpoint.gz",
-        "--model",
-        "2026101422-checkpoint=/home/dberweger/v055-publication/seed-inputs/HU200-frozen-20B-seed-2026101422.checkpoint.gz"
-      ],
       "peak_child_rss_bytes": 44036096,
       "returncode": 0,
       "system_seconds": 37.234013,
@@ -78,16 +53,6 @@
       "wall_seconds": 1006.4391454090073
     },
     "hu200-frozen-20b-seeds-publication-refusal-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds",
-        "--expect-source",
-        "ea5301bb46718038cd1de78df072778188a285ab",
-        "--require-publication"
-      ],
       "peak_child_rss_bytes": 19234816,
       "returncode": 2,
       "system_seconds": 0.00769,
@@ -95,15 +60,6 @@
       "wall_seconds": 0.02318873000331223
     },
     "hu200-frozen-20b-seeds-stdlib-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds",
-        "--expect-source",
-        "ea5301bb46718038cd1de78df072778188a285ab"
-      ],
       "peak_child_rss_bytes": 37441536,
       "returncode": 0,
       "system_seconds": 13.926773,
@@ -111,15 +67,6 @@
       "wall_seconds": 784.1303778979927
     },
     "hu200-frozen-20b-seeds-wrong-source-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/seeds",
-        "--expect-source",
-        "0000000000000000000000000000000000000000"
-      ],
       "peak_child_rss_bytes": 19525632,
       "returncode": 2,
       "system_seconds": 0.0,
@@ -127,21 +74,6 @@
       "wall_seconds": 0.03372894700441975
     },
     "v0.5.5-build-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-m",
-        "scripts.build_hu200_bundle",
-        "--release",
-        "v0.5.5",
-        "--source-sha",
-        "ea5301bb46718038cd1de78df072778188a285ab",
-        "--card-tables",
-        "/home/dberweger/v055-publication/tables",
-        "--out",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend",
-        "--model",
-        "blend=/home/dberweger/slumbot-blend/model/hu200-v055-blend.average.gz"
-      ],
       "peak_child_rss_bytes": 45408256,
       "returncode": 0,
       "system_seconds": 5.042263,
@@ -149,16 +81,6 @@
       "wall_seconds": 103.59507232499891
     },
     "v0.5.5-publication-refusal-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend",
-        "--expect-source",
-        "ea5301bb46718038cd1de78df072778188a285ab",
-        "--require-publication"
-      ],
       "peak_child_rss_bytes": 19353600,
       "returncode": 2,
       "system_seconds": 0.0037289999999999997,
@@ -166,15 +88,6 @@
       "wall_seconds": 0.022489448994747363
     },
     "v0.5.5-stdlib-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend",
-        "--expect-source",
-        "ea5301bb46718038cd1de78df072778188a285ab"
-      ],
       "peak_child_rss_bytes": 36171776,
       "returncode": 0,
       "system_seconds": 1.111886,
@@ -182,15 +95,6 @@
       "wall_seconds": 33.751427688999684
     },
     "v0.5.5-wrong-source-resource.txt": {
-      "command": [
-        "/home/dberweger/v055-publication/venv/bin/python",
-        "-I",
-        "-S",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend/verify_hu200_bundle.py",
-        "/mnt/data2tb/v055-release-assets/review-ea5301bb/blend",
-        "--expect-source",
-        "0000000000000000000000000000000000000000"
-      ],
       "peak_child_rss_bytes": 19292160,
       "returncode": 2,
       "system_seconds": 0.0,
