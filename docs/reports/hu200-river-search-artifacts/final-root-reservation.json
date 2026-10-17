@@ -1,0 +1,49 @@
+{
+  "at": 1792221927.704354,
+  "fresh": true,
+  "matches": {},
+  "open_prs": [
+    {
+      "headRefName": "feature/v055-release-package",
+      "headRefOid": "4de76fdd943cfaf358611d73ca94f600db71148e",
+      "number": 319,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/319"
+    },
+    {
+      "headRefName": "report/v055-blend-confirmation",
+      "headRefOid": "6a5f23d33269020128a5d94dc80e8594d79918e8",
+      "number": 318,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/318"
+    },
+    {
+      "headRefName": "feature/hu200-river-search",
+      "headRefOid": "35740594bd2f609a8f679b42c931bc51d33423b0",
+      "number": 317,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/317"
+    },
+    {
+      "headRefName": "feature/hu200-capacity-cygnus",
+      "headRefOid": "7fb3057ea4eaaa2b4d35f3dfb11179033a9b2e37",
+      "number": 301,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/301"
+    }
+  ],
+  "pr": 317,
+  "roots": [
+    20261017317900,
+    20261017317901,
+    20261017317902,
+    20261017317903,
+    20261017317904,
+    20261017317905,
+    20261017317906,
+    20261017317907
+  ],
+  "scope": "exact numerical root scan; main and every other current open PR head",
+  "source_refs": {
+    "main": "5fa964fc90d98e45af0ce8a16cc866103d05d5c7",
+    "pr301": "7fb3057ea4eaaa2b4d35f3dfb11179033a9b2e37",
+    "pr318": "6a5f23d33269020128a5d94dc80e8594d79918e8",
+    "pr319": "4de76fdd943cfaf358611d73ca94f600db71148e"
+  }
+}

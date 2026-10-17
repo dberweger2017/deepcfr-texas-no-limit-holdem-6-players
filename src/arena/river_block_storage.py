@@ -130,7 +130,7 @@ def unpack(value): return json.loads(gzip.decompress(value))
 class Journal:
     """One local writer, compressed full receipts, durable before each retirement."""
     def __init__(self, path):
-        self.connection = sqlite3.connect(path)
+        self.connection = sqlite3.connect(path, check_same_thread=False)
         self.connection.execute('PRAGMA journal_mode=WAL')
         self.connection.execute('PRAGMA synchronous=FULL')
         self.connection.execute('CREATE TABLE IF NOT EXISTS blocks (panel TEXT, number INTEGER, phase TEXT, manifest BLOB, arrival BLOB, retirement BLOB, summary BLOB, PRIMARY KEY(panel,number))')

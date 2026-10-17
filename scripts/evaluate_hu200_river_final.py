@@ -2,7 +2,7 @@
 
 import argparse
 from collections import Counter
-from concurrent.futures import ProcessPoolExecutor, wait, FIRST_COMPLETED
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, wait, FIRST_COMPLETED
 from dataclasses import asdict
 import fcntl
 import hashlib
@@ -252,40 +252,54 @@ def main():
     context=mp.get_context('spawn');started=time.time();done=len(retired);exhausted=False
     with FamilyPeak() as memory,context.Manager() as manager:
         stop=manager.Event()
-        with ProcessPoolExecutor(max_workers=3,mp_context=context,initializer=initialize,initargs=(runtime,stop)) as pool:
-            pending={}
+        # One storage writer overlaps up to three searches. At most three closed
+        # blocks wait for transport; disk capacity gates further dispatch.
+        def ship(panel,index,summary):
+            identity=dict(panel=panel,block=index,root=ROOTS[panel],source=source,
+                declaration_sha256=RUNTIME_DECLARATION_SHA,summary_sha256=digest(summary))
+            error=None
+            for attempt in range(3):
+                try:
+                    receipt=transfer.transfer(args.out/'blocks'/panel/str(index),identity,summary,journal)
+                    if index%128==0:journal.checkpoint()
+                    return receipt
+                except (OSError,subprocess.SubprocessError) as exc:
+                    error=exc;journal.event(panel,index,dict(operation='transport-plumbing-error',attempt=attempt,
+                        error=repr(exc),stderr=str(getattr(exc,'stderr',''))[-2000:]))
+                    if attempt<2:time.sleep((5,15)[attempt])
+            raise error
+        with ThreadPoolExecutor(max_workers=1) as storage,ProcessPoolExecutor(
+                max_workers=3,mp_context=context,initializer=initialize,initargs=(runtime,stop)) as pool:
+            searches={};transfers={}
             try:
-                while pending or not exhausted:
+                while searches or transfers or not exhausted:
+                    if time.time()>=args.deadline:raise FinalStopped('Fixed final safety deadline')
                     free=shutil.disk_usage(args.out).free
                     slots=min(3,max(0,(free-16*GIB-256*1024**2)//(512*1024**2)))
-                    while not exhausted and len(pending)<slots:
+                    while not exhausted and len(searches)<slots and len(transfers)<3:
                         try:job=next(jobs)
                         except StopIteration:exhausted=True;break
-                        pending[pool.submit(block,job)]=job
-                    if not pending:
+                        searches[pool.submit(block,job)]=job
+                    if not searches and not transfers:
                         if exhausted:break
                         raise OSError('Fresh dispatch reserve unavailable; originals retained')
-                    ready,_=wait(pending,timeout=5,return_when=FIRST_COMPLETED)
-                    if time.time()>=args.deadline:raise FinalStopped('Fixed final safety deadline')
-                    for future in ready:
-                        panel,index=pending.pop(future);summary=future.result()
-                        identity=dict(panel=panel,block=index,root=ROOTS[panel],source=source,declaration_sha256=RUNTIME_DECLARATION_SHA,summary_sha256=digest(summary))
-                        error=None
-                        for attempt in range(3):
-                            try:
-                                transfer.transfer(args.out/'blocks'/panel/str(index),identity,summary,journal);error=None;break
-                            except (OSError,subprocess.SubprocessError) as exc:
-                                error=exc;journal.event(panel,index,dict(operation='transport-plumbing-error',attempt=attempt,error=repr(exc),stderr=str(getattr(exc,'stderr',''))[-2000:]))
-                                if attempt<2:time.sleep((5,15)[attempt])
-                        if error:raise error
-                        done+=1
-                        if done%128==0:journal.checkpoint()
+                    candidates=set(transfers)
+                    if len(transfers)<3:candidates.update(searches)
+                    ready,_=wait(candidates,timeout=5,return_when=FIRST_COMPLETED)
+                    for future in ready & set(transfers):
+                        panel,index=transfers.pop(future);future.result();done+=1
                         print(json.dumps(dict(status='verified-transferred-retired',panel=panel,block=index,
                             completed_blocks=done,total_blocks=sum(COUNTS.values()),elapsed_seconds=time.time()-started)),flush=True)
+                    for future in list(searches):
+                        if not future.done():continue
+                        if future.exception() is not None:future.result()
+                        if len(transfers)>=3:break
+                        panel,index=searches.pop(future);summary=future.result()
+                        transfers[storage.submit(ship,panel,index,summary)]=(panel,index)
             except BaseException as exc:
                 stop.set()
                 durable(args.out/'failures'/f'controller-{time.time_ns()}.json',dict(error=repr(exc),completed_blocks=done,at=time.time()))
-                for future in pending:future.cancel()
+                for future in searches:future.cancel()
                 raise
     barrier(args.out,journal)
     from scripts.report_hu200_river_final import report

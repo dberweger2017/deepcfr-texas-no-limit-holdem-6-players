@@ -172,3 +172,13 @@ are unchanged. Fault fixtures exercise corrupt arrivals, changed local files,
 unknown extras/symlinks and interruption after a verified unlink. Only newly
 created owned qualification copies are retired. Keep all receipts and failed
 attempts. Pin the passing qualification in the execution declaration.
+
+The first transport qualification passes every checksum/retirement check, but
+its per-file durable flushing exposes nontrivial storage latency. A dedicated
+single storage writer therefore overlaps up to three searches, with at most
+three completed blocks queued and free-disk admission still binding. No parallel
+hashing workload is added on cygnus. A second storage-only qualification uses
+read-only copies of all352 calibration blocks, with prospective final-count
+weights for timing projections. No outcomes enter timing analysis, and no new
+research hand is played. Earlier qualification files remain preserved. This
+engineering refinement precedes final hands and changes no search or retention.
