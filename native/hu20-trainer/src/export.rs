@@ -4,7 +4,7 @@
 //! use the same `fsum` normalization, so they equal Python's bit for bit.
 
 use crate::cfr::{fsum, regret_match};
-use flate2::read::GzDecoder;
+use flate2::read::MultiGzDecoder as GzDecoder;
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use serde_json::{json, Map, Value};

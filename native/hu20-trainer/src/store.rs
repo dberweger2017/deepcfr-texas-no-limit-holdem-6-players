@@ -152,11 +152,21 @@ impl Shard {
         self.index.len()
     }
 
-    /// Entries in key order.
-    fn sorted(&self) -> impl Iterator<Item = (Key, Node)> + '_ {
+    /// Entry positions in key order.
+    pub fn order(&self) -> Vec<u32> {
         let mut order: Vec<u32> = self.index.iter().copied().collect();
         order.sort_unstable_by(|&a, &b| self.entry(a).key.cmp(&self.entry(b).key));
-        order.into_iter().map(move |i| (self.entry(i).key, self.node(i)))
+        order
+    }
+
+    /// The key and node at a position from `order`.
+    pub fn row(&self, i: u32) -> (Key, Node) {
+        (self.entry(i).key, self.node(i))
+    }
+
+    /// Entries in key order.
+    fn sorted(&self) -> impl Iterator<Item = (Key, Node)> + '_ {
+        self.order().into_iter().map(move |i| self.row(i))
     }
 }
 
