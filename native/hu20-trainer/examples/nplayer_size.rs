@@ -21,14 +21,12 @@ fn fingerprint(trainer: &Trainer, survey: &survey::Survey) -> serde_json::Value 
     for key in keys {
         reached.update(key);
     }
-    let mut rows: Vec<_> = trainer.table.iter().filter(|(_, e)| e.visits > 0).collect();
-    rows.sort_unstable_by_key(|r| r.0);
     let mut regrets = Sha256::new();
-    for (key, e) in rows {
+    for (key, e) in trainer.table.sorted().filter(|(_, e)| e.visits > 0) {
         regrets.update(key);
         regrets.update(e.code.to_le_bytes());
         regrets.update(e.visits.to_le_bytes());
-        for r in &e.regrets {
+        for r in e.regrets {
             regrets.update(r.to_bits().to_le_bytes());
         }
     }
@@ -59,7 +57,7 @@ fn main() {
     let mut trainer = Trainer::new(&game, seed, scope, cap, false);
     println!(
         "{}",
-        json!({"identity":game.identity(),"scope":scope,"seed":seed,"target_nodes":nodes,"max_entries":cap,"baseline_requested_bytes":memory::live(),"entry_struct_bytes":std::mem::size_of::<hu20_trainer::multi_cfr::Entry>()})
+        json!({"identity":game.identity(),"scope":scope,"seed":seed,"target_nodes":nodes,"max_entries":cap,"baseline_requested_bytes":memory::live()})
     );
     memory::reset_peak();
     let start = Instant::now();
@@ -110,7 +108,7 @@ fn main() {
             }
             println!(
                 "{}",
-                json!({"nodes":trainer.counts.nodes,"iteration":trainer.iteration,"entries":trainer.table.len(),"hash_capacity":trainer.table.capacity(),"entries_by_street":entries,"reached_keys":s.keys.len(),"reached_by_street":s.by_street,"observer_requested_bytes":s.allocated,"table_requested_bytes":table_bytes,"regret_payload_bytes":regret_bytes,"average_payload_bytes":average_bytes,"average_entries_by_street":averages,"requested_live_bytes":memory::live(),"requested_peak_bytes":memory::peak(),"rss_bytes":hu20_trainer::telemetry::process_rss_bytes().unwrap(),"training_seconds":training_seconds,"elapsed_seconds":start.elapsed().as_secs_f64()})
+                json!({"nodes":trainer.counts.nodes,"iteration":trainer.iteration,"entries":trainer.table.len(),"index_capacity":trainer.table.index_capacity(),"table_allocation_bytes":trainer.table.allocation_size(),"entries_by_street":entries,"reached_keys":s.keys.len(),"reached_by_street":s.by_street,"observer_requested_bytes":s.allocated,"table_requested_bytes":table_bytes,"regret_payload_bytes":regret_bytes,"average_payload_bytes":average_bytes,"average_entries_by_street":averages,"requested_live_bytes":memory::live(),"requested_peak_bytes":memory::peak(),"rss_bytes":hu20_trainer::telemetry::process_rss_bytes().unwrap(),"training_seconds":training_seconds,"elapsed_seconds":start.elapsed().as_secs_f64()})
             );
             while next < milestones.len() && milestones[next] <= trainer.counts.nodes {
                 next += 1;
@@ -150,16 +148,12 @@ mod tests {
                         - before
                         - (watched.survey.borrow().allocated - old_observer) as i128;
                 }
-                // A deep clone owns exactly the same hash capacity and payloads.
-                let before = memory::accounted_live();
-                let copy = observed.table.clone();
-                assert_eq!(memory::accounted_live() - before, measured);
-                drop(copy);
+                assert_eq!(observed.table.allocation_size() as i128, measured);
                 assert_eq!(plain.table, observed.table);
                 assert_eq!(plain.counts, observed.counts);
                 let s = watched.survey.borrow();
                 assert_eq!(s.decisions, observed.counts.decisions);
-                assert!(observed.table.keys().all(|k| s.keys.contains_key(k)));
+                assert!(observed.table.keys().all(|k| s.keys.contains_key(&k)));
                 if scope == 3 {
                     assert_eq!(observed.table.len(), s.keys.len());
                 } else {

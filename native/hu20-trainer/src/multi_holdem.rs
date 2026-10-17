@@ -272,7 +272,7 @@ mod tests {
                 assert_eq!(state.decision().unwrap(), d);
                 let mut table = crate::multi_cfr::Table::default();
                 table.insert(d.key, crate::multi_cfr::Entry::new(d, 3));
-                table[&d.key].check(d);
+                table.get(&d.key).unwrap().check(d);
             }
         }
     }

@@ -123,16 +123,14 @@ fn write(trainer: &Trainer, source: &str, mode: Mode, out: &Path) -> Result<(), 
         let mut w = GzEncoder::new(std::io::BufWriter::new(file), Compression::default());
         let header = json!({"format":"nplayer-policy-v1","identity":trainer.identity,"players":trainer.players,"entries":trainer.table.len(),"strategy":mode.name(),"last_average_street":trainer.last_average_street,"continuation":mode.continuation(),"missing":"uniform","source_checkpoint_sha256":source});
         writeln!(w, "{header}").map_err(|e| e.to_string())?;
-        let mut rows: Vec<_> = trainer.table.iter().collect();
-        rows.sort_unstable_by_key(|r| r.0);
-        for (key, e) in rows {
+        for (key, e) in trainer.table.sorted() {
             let average = mode != Mode::Current && e.street as usize <= trainer.last_average_street;
             let policy = e.policy(average);
             writeln!(
                 w,
                 "{}",
                 json!([
-                    multi_checkpoint::key_hex(key),
+                    multi_checkpoint::key_hex(&key),
                     e.actor,
                     e.street,
                     e.code,
