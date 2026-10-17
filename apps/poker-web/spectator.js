@@ -52,7 +52,7 @@ function spectatorSeat(target, seatIndex, hand) {
 function identityDetails(models) {
   const fragment = document.createDocumentFragment();
   for (const [index, model] of models.entries()) {
-    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Research identity; no release manifest"}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
+    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Verified model identity"}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
     if (!model.manifestUrl) { fragment.append(item); continue; }
     const link = node("a", "", "Published release manifest"); link.href = model.manifestUrl;
     link.target = "_blank"; link.rel = "noopener noreferrer"; item.append(link); fragment.append(item);

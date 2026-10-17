@@ -1,0 +1,102 @@
+{
+  "all_trace_hand_records_replayed": 1280,
+  "comparisons": [
+    {
+      "all_hands_independently_replayed": true,
+      "blocks": 64,
+      "common_harness_sha256": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+      "decisions": 736,
+      "excluded_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands": 256,
+      "matches_published_pr298_trace_hashes": true,
+      "model_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+      "outcomes_reported": false,
+      "release": "v0.5.0",
+      "root": 20261015530500,
+      "source": "6b0a1278784cd4eefa27facda634769beec96890",
+      "status": "verified",
+      "trace_sha256": {
+        "decisions": "4f024209f9558036f716fe1ae8bece7f01f51cb4a30ec35e112d8f1ba83d27e6",
+        "hands": "40f972302c546c3b64b87368796be2ceb29c2081f370d466d2601d96decaef64"
+      },
+      "translated": 50
+    },
+    {
+      "all_hands_independently_replayed": true,
+      "blocks": 64,
+      "common_harness_sha256": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+      "decisions": 782,
+      "excluded_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands": 256,
+      "matches_published_pr298_trace_hashes": true,
+      "model_sha256": "e6f79ccac39a651352424e05382681f4d1994bb570b025f692556d170f87e9ae",
+      "outcomes_reported": false,
+      "release": "v0.5.1",
+      "root": 20261015530501,
+      "source": "6b0a1278784cd4eefa27facda634769beec96890",
+      "status": "verified",
+      "trace_sha256": {
+        "decisions": "ec63027a3e15f558898d713851f6071c7f39c362fe804abfd0e82b8731f9a57f",
+        "hands": "96cafcccecce933bd79fad14604440725fe28da2478596682ceb51831b766f5f"
+      },
+      "translated": 80
+    },
+    {
+      "all_hands_independently_replayed": true,
+      "blocks": 64,
+      "common_harness_sha256": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+      "decisions": 750,
+      "excluded_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands": 256,
+      "matches_published_pr298_trace_hashes": true,
+      "model_sha256": "0ed7f9512996bb3e9535a7258a5d0e4bc8c00f22734d511c642c0e5b95cbd3c0",
+      "outcomes_reported": false,
+      "release": "v0.5.2",
+      "root": 20261015530502,
+      "source": "6b0a1278784cd4eefa27facda634769beec96890",
+      "status": "verified",
+      "trace_sha256": {
+        "decisions": "bbbfbff74c87bdeee31e45754fe83877dbbc4f7e369d84cea4942fd9a38eafbd",
+        "hands": "7f183f44bd725ec90d6fdffa463a0358c3fefce22d4d673201c247d8774eff67"
+      },
+      "translated": 86
+    },
+    {
+      "all_hands_independently_replayed": true,
+      "baseline_source": "5fa964fc90d98e45af0ce8a16cc866103d05d5c7",
+      "blocks": 64,
+      "common_harness_sha256": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+      "decisions": 666,
+      "excluded_fields": [
+        "decision_seconds",
+        "translation.lookup_seconds"
+      ],
+      "hands": 256,
+      "matches_fresh_baseline": true,
+      "model_sha256": "c3a8edc4cc78098f07ac3e4ecbbb3dacae298a266b9fcd5fc788d0e2b6fcfc8e",
+      "outcomes_reported": false,
+      "release": "v0.5.3",
+      "root": 20261017530503,
+      "source": "6b0a1278784cd4eefa27facda634769beec96890",
+      "status": "verified",
+      "trace_sha256": {
+        "decisions": "a54e186dddc0875d106dc03d4814a25d1f8d1002cc5bb37567f5452112767a0b",
+        "hands": "df1071d12e76b169dfc0bbbe937b5badc94fda2bce5987bd9b160624342f1a87"
+      },
+      "translated": 0
+    }
+  ],
+  "hands_per_trace": 256,
+  "hu20_default": "v0.4.2",
+  "status": "verified",
+  "trace_runs_including_v053_baseline": 5
+}

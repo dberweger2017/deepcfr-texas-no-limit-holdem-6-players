@@ -25,6 +25,25 @@ function timers() {
 }
 const flush = () => new Promise(setImmediate);
 
+test('default timers preserve the browser Window receiver for play and pause', () => {
+  const browser = vm.createContext({});
+  vm.runInContext(`
+    globalThis.waiting = new Map(); let next = 0;
+    globalThis.setTimeout = function (run) {
+      if (this !== globalThis) throw new TypeError('Illegal invocation');
+      waiting.set(++next, run); return next;
+    };
+    globalThis.clearTimeout = function (id) {
+      if (this !== globalThis) throw new TypeError('Illegal invocation');
+      waiting.delete(id);
+    };
+  `, browser);
+  vm.runInContext(source + '\nglobalThis.Playback = SpectatorPlayback;', browser);
+  const playback = new browser.Playback({ advance: async () => {}, changed: () => {} });
+  playback.play(); assert.equal(browser.waiting.size, 1);
+  playback.pause(); assert.equal(browser.waiting.size, 0);
+});
+
 test('play queues one request, pause cancels the next, and rapid steps cannot overlap', async () => {
   const timer = timers(); const pending = deferred(); let calls = 0;
   const playback = new Playback({ advance: () => { calls++; return pending.promise; }, changed: () => {}, ...timer });

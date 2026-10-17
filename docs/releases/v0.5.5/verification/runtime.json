@@ -1,0 +1,111 @@
+{
+  "actual_browser": {
+    "console_errors_observed": [],
+    "free_all_in_raise_chips": 20000,
+    "free_off_menu_raise_chips": 800,
+    "human_hands": 3,
+    "real_ui_controls": true,
+    "restricted_raise_chips": 300,
+    "spectator_hands": 2,
+    "spectator_play_pause_and_step": true
+  },
+  "all_retained_hands_replayed": 30,
+  "all_six_arrays_verified_and_mapped_read_only": true,
+  "at_rest_cache_preservation_each_array_sha256_copy_and_readback": true,
+  "bad_cache_reported_and_preserved_without_automatic_replacement": true,
+  "browser_pause_observation_seconds": 3.0049309730529785,
+  "browser_revision_unchanged_after_pause": true,
+  "cache_array_bytes": 9331095057,
+  "cache_manifest_sha256": "f268dffb117722029d4d7c3ee4bbb07e049a1b62f670c434939b466dee6f2328",
+  "cache_model_binding": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "cache_total_bytes": 9331096671,
+  "fault_refusals": [
+    {
+      "case": "wrong-valid-HU100-model-with-existing-cache",
+      "seconds": 32.85428856599901,
+      "status": "refused"
+    },
+    {
+      "case": "rehashed-wrong-K50-table-with-existing-cache",
+      "seconds": 10.515133248001803,
+      "status": "refused"
+    },
+    {
+      "case": "rehashed-wrong-translation-with-existing-cache",
+      "seconds": 0.0001639139954932034,
+      "status": "refused"
+    },
+    {
+      "case": "cache-source-model-mismatch",
+      "seconds": 56.34965083599673,
+      "status": "refused"
+    },
+    {
+      "case": "corrupted-cache-probability-array",
+      "seconds": 70.76778829500836,
+      "status": "refused"
+    }
+  ],
+  "first_start_had_no_model_or_cache": true,
+  "fresh_cli_starts": [
+    {
+      "load_seconds": 1214.9307502360025,
+      "peak_rss_bytes": 516747264
+    },
+    {
+      "load_seconds": 80.96011287400324,
+      "peak_rss_bytes": 586121216
+    }
+  ],
+  "fresh_independent_reader_peak_rss_bytes": 585986048,
+  "fresh_independent_reader_seconds": 79.7767553809972,
+  "historical_uncached_run_and_spectator_bug_fix": "runtime-uncached.json",
+  "http_all_in_wagers": 2,
+  "http_off_menu_wagers_chips": [
+    550,
+    800,
+    550,
+    800
+  ],
+  "human_completed": 16,
+  "human_inference": {
+    "exact": 28,
+    "translated": 15,
+    "uniform": 3
+  },
+  "independent_modules": [
+    "play_audit.audit_state",
+    "spectator_audit.audit_states",
+    "service.verify_replay"
+  ],
+  "injected_damage_restored_and_complete_model_bundle_cache_reverified": true,
+  "model_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "outcomes_are_not_strength_evidence": true,
+  "partial_hands_remaining": 0,
+  "refused": [
+    "table-2000",
+    "table-10000",
+    "inference identity",
+    "wrong-valid-HU100-model-with-existing-cache",
+    "rehashed-wrong-K50-table-with-existing-cache",
+    "rehashed-wrong-translation-with-existing-cache",
+    "cache-source-model-mismatch",
+    "corrupted-cache-probability-array"
+  ],
+  "restart_before_pending_bot_and_idempotency_verified": true,
+  "rss_scope": "individual CLI process lifetime, including play; excludes OS file cache",
+  "runtime": "streaming-built, verified read-only binary play cache",
+  "source": "db0102c178b412345a7b0c96e8469f99af37c047",
+  "spectator_completed": 14,
+  "spectator_counts": {
+    "bot_0_decisions": 39,
+    "bot_1_decisions": 42,
+    "button_0_hands": 7,
+    "button_1_hands": 7,
+    "decisions": 81,
+    "hands": 14,
+    "trained": 81
+  },
+  "stack_bb": 200,
+  "status": "verified"
+}

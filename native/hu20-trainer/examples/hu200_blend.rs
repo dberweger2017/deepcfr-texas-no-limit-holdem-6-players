@@ -39,6 +39,7 @@ struct Row {
 }
 struct Input {
     spec: Value,
+    path: PathBuf,
     header: Value,
     lines: std::io::Lines<BufReader<MultiGzDecoder<File>>>,
     next: Option<Row>,
@@ -52,14 +53,24 @@ struct Input {
 }
 
 impl Input {
-    fn open(spec: &Value, roots: &BTreeSet<String>) -> Self {
-        let path = Path::new(spec["path"].as_str().expect("checkpoint path"));
+    fn open(spec: &Value, roots: &BTreeSet<String>, input_dir: Option<&Path>) -> Self {
+        // Keep the original spec in the output header: rebasing provenance paths
+        // would change the frozen model bytes. Only the input file lookup moves.
+        let path = input_dir.map_or_else(
+            || PathBuf::from(spec["path"].as_str().expect("checkpoint path")),
+            |directory| {
+                directory.join(format!(
+                    "HU200-frozen-20B-seed-{}.checkpoint.gz",
+                    spec["seed"].as_u64().unwrap()
+                ))
+            },
+        );
         assert_eq!(
-            sha256_file(path),
+            sha256_file(&path),
             spec["sha256"].as_str().unwrap(),
             "checkpoint SHA256"
         );
-        let mut lines = BufReader::new(MultiGzDecoder::new(File::open(path).unwrap())).lines();
+        let mut lines = BufReader::new(MultiGzDecoder::new(File::open(&path).unwrap())).lines();
         let header: Value = serde_json::from_str(&lines.next().expect("header").unwrap()).unwrap();
         assert_eq!(checkpoint::header_game(&header).unwrap(), Game::Hu200);
         assert_eq!(header["abstraction"], cards::equity_schema(Game::Hu200));
@@ -79,6 +90,7 @@ impl Input {
         assert_eq!(spec["weight"].as_u64().unwrap(), w, "predeclared weight");
         let mut input = Self {
             spec: spec.clone(),
+            path,
             header,
             lines,
             next: None,
@@ -130,7 +142,7 @@ impl Input {
 
     fn summary(&self) -> Value {
         assert_eq!(
-            sha256_file(Path::new(self.spec["path"].as_str().unwrap())),
+            sha256_file(&self.path),
             self.spec["sha256"].as_str().unwrap(),
             "input changed while streaming"
         );
@@ -218,6 +230,7 @@ fn run(
     report_path: &Path,
     output_path: &Path,
     gate: Option<&Path>,
+    input_dir: Option<&Path>,
 ) {
     let started = Instant::now();
     let config: Value = serde_json::from_reader(File::open(config_path).unwrap()).unwrap();
@@ -258,7 +271,10 @@ fn run(
         !report_path.exists() && !output_path.exists(),
         "preserve previous outputs"
     );
-    let mut inputs: Vec<_> = specs.iter().map(|s| Input::open(s, &roots)).collect();
+    let mut inputs: Vec<_> = specs
+        .iter()
+        .map(|s| Input::open(s, &roots, input_dir))
+        .collect();
     assert!(inputs
         .iter()
         .all(|s| s.header["identity"] == inputs[0].header["identity"]));
@@ -361,10 +377,19 @@ fn run(
 }
 
 fn main() {
-    let a: Vec<_> = std::env::args().collect();
+    let mut a: Vec<_> = std::env::args().collect();
+    let input_dir = a
+        .iter()
+        .position(|argument| argument == "--input-dir")
+        .map(|index| {
+            assert_eq!(index + 2, a.len(), "--input-dir DIR must be last");
+            let directory = PathBuf::from(a.pop().unwrap());
+            a.pop();
+            directory
+        });
     assert!(
         a.len() == 5 || a.len() == 6,
-        "hu200_blend scan|merge CONFIG NEW_REPORT NEW_CHECKPOINT [CAPACITY_GATE]"
+        "hu200_blend scan|merge CONFIG NEW_REPORT NEW_CHECKPOINT [CAPACITY_GATE] [--input-dir DIR]"
     );
     run(
         &a[1],
@@ -372,6 +397,7 @@ fn main() {
         Path::new(&a[3]),
         Path::new(&a[4]),
         a.get(5).map(Path::new),
+        input_dir.as_deref(),
     );
 }
 
@@ -480,7 +506,14 @@ mod tests {
             &json!({"blend_seed":99,"inputs":specs,"root_keys":(0..169).map(|i|format!("{i:032x}")).collect::<Vec<_>>()}),
         );
         let scan = directory.join("scan.json");
-        run("scan", &config, &scan, &directory.join("sample.gz"), None);
+        run(
+            "scan",
+            &config,
+            &scan,
+            &directory.join("sample.gz"),
+            None,
+            None,
+        );
         let statistics: Value = serde_json::from_reader(File::open(&scan).unwrap()).unwrap();
         assert_eq!(statistics["union_keys"], 5);
         assert_eq!(statistics["action_slots"], 10);
@@ -499,6 +532,30 @@ mod tests {
             &directory.join("merged.json"),
             &merged,
             Some(&gate),
+            None,
+        );
+        let relocated = directory.join("relocated");
+        std::fs::create_dir(&relocated).unwrap();
+        for seed in 1..=3 {
+            std::fs::rename(
+                directory.join(format!("seed-{seed}.gz")),
+                relocated.join(format!("HU200-frozen-20B-seed-{seed}.checkpoint.gz")),
+            )
+            .unwrap();
+        }
+        let portable = directory.join("portable-blend.gz");
+        run(
+            "merge",
+            &config,
+            &directory.join("portable.json"),
+            &portable,
+            Some(&gate),
+            Some(&relocated),
+        );
+        assert_eq!(
+            sha256_file(&portable),
+            sha256_file(&merged),
+            "input relocation changes no compressed model bytes"
         );
         let average = directory.join("average.gz");
         assert_eq!(

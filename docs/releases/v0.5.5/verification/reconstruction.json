@@ -1,0 +1,150 @@
+{
+  "action_slots": 482975338,
+  "all_completed_outputs_preserved_with_source_and_readback_sha256": true,
+  "canonical_model_copies_indexed": 22,
+  "first_complete_reconstruction": {
+    "average": {
+      "bytes": 6282968150,
+      "sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485"
+    },
+    "bundle_manifest_sha256": "bc8f2a302e90e658a7a62f97782c9c2a71fc29bd61fffa99816fac994d36f8a6",
+    "checkpoint": {
+      "bytes": 6042193732,
+      "sha256": "59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123"
+    },
+    "peak_child_rss_bytes": 462647296,
+    "source": "c0b6327bcf9eed138419bee18e74357a0d947734",
+    "status": "verified",
+    "steps": [
+      {
+        "label": "build-tools",
+        "returncode": 0,
+        "seconds": 34.883481484001095
+      },
+      {
+        "label": "export-2026101302",
+        "returncode": 0,
+        "seconds": 1419.3858170510066
+      },
+      {
+        "label": "export-2026101421",
+        "returncode": 0,
+        "seconds": 1412.2937930229964
+      },
+      {
+        "label": "export-2026101422",
+        "returncode": 0,
+        "seconds": 1342.7263790490033
+      },
+      {
+        "label": "scan",
+        "returncode": 0,
+        "seconds": 468.7503388670011
+      },
+      {
+        "label": "merge",
+        "returncode": 0,
+        "seconds": 6515.541361193005
+      },
+      {
+        "label": "export-blend",
+        "returncode": 0,
+        "seconds": 3265.8218769949963
+      }
+    ],
+    "wrapper_wall_seconds": 15335.676623296
+  },
+  "guard_pause_time_included_in_wall_measurements": true,
+  "integrated_complete_reconstruction": {
+    "average": {
+      "bytes": 6282968150,
+      "sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485"
+    },
+    "bundle_manifest_sha256": "cbbb3f5a0891e5dcf080b9a66ecda7b5a2a7deb16cfe0a77517b3589cdb64904",
+    "checkpoint": {
+      "bytes": 6042193732,
+      "sha256": "59a6dd353fb4ef06d77a86783c7251521d8c9f8b92a785bb7e11a9ae724d4123"
+    },
+    "peak_child_rss_bytes": 477503488,
+    "source": "df9269c449d6b45f21ba779afd5a64d5f91887b0",
+    "status": "verified",
+    "steps": [
+      {
+        "label": "build-tools",
+        "returncode": 0,
+        "seconds": 35.5728190200025
+      },
+      {
+        "label": "export-2026101302",
+        "returncode": 0,
+        "seconds": 1732.0989151199901
+      },
+      {
+        "label": "export-2026101421",
+        "returncode": 0,
+        "seconds": 1716.4634878259967
+      },
+      {
+        "label": "export-2026101422",
+        "returncode": 0,
+        "seconds": 1870.6664476680016
+      },
+      {
+        "label": "scan",
+        "returncode": 0,
+        "seconds": 3778.425851754
+      },
+      {
+        "label": "merge",
+        "returncode": 0,
+        "seconds": 4076.060371036001
+      },
+      {
+        "label": "export-blend",
+        "returncode": 0,
+        "seconds": 3219.822918858001
+      }
+    ],
+    "wrapper_wall_seconds": 18226.998405332997
+  },
+  "native_fixtures": {
+    "blend_passed": 6,
+    "library_passed": 42
+  },
+  "no_training_evaluation_or_selection": true,
+  "prepared_parts_only": true,
+  "recipe_sha256": "83c72410433ef57904fbf97829a84ecb3dae7a74132e48fb87dad3f0b909a47f",
+  "reconstruction_from_public_downloads": "required after publication; not implied by this receipt",
+  "release_input_remains_original_audited_average": true,
+  "seed_average_reproductions": [
+    {
+      "average": {
+        "bytes": 3164563975,
+        "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6"
+      },
+      "export_seconds": 1732.0989151199901,
+      "full_model_verification": "passed before receipt emitted",
+      "seed": "2026101302"
+    },
+    {
+      "average": {
+        "bytes": 3162671080,
+        "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444"
+      },
+      "export_seconds": 1716.4634878259967,
+      "full_model_verification": "passed before receipt emitted",
+      "seed": "2026101421"
+    },
+    {
+      "average": {
+        "bytes": 3162064602,
+        "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f"
+      },
+      "export_seconds": 1870.6664476680016,
+      "full_model_verification": "passed before receipt emitted",
+      "seed": "2026101422"
+    }
+  ],
+  "status": "verified",
+  "union_entries": 156208331
+}

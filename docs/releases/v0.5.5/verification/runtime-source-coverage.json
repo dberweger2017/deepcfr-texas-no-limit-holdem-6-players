@@ -1,0 +1,36 @@
+{
+  "cached_runtime_tested_source": "db0102c178b412345a7b0c96e8469f99af37c047",
+  "changed_runtime_code_sha256": {
+    "apps/poker-web/playback.js": "302cc85df30626ceccc9e1a112d972aef2589f5ba9a31cfbceb871a4b4900ebc",
+    "apps/poker-web/spectator.js": "b99c20c65d55c5d19e84b08d921847491e7560153be971ce42e90225af0e7623",
+    "scripts/build_hu200_bundle.py": "dad93ea62553557d18e89fce13a4cb7684e1543b76817ab05e826e46338aa8d8",
+    "scripts/build_streaming_average_cache.py": "b861eb6d1048ae1c0b9e0b7c88daf94f095ead7faa5b46c23299d2b0967a823c",
+    "scripts/check_hu100_release_trace.py": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+    "scripts/rebuild_hu200_release.py": "2faea498c8d488dd48f3e40fa211166dac184d56b0f868409f2d5368f3638734",
+    "scripts/smoke_hu100_release.py": "f22e09ce61c2593e398fe023af5190f203c2e22c36c600f3ad2f281417ef6b2f",
+    "scripts/smoke_hu200_release.py": "5a08b438a2d442ce96c97bdb1a712aa90d2853fd8dcecb089d22c01245827bc7",
+    "scripts/verify_hu200_bundle.py": "dfbdc6ec3cfbc316c94c58f196ad471dfa9deb41f93f13d07936af3d07c2c987",
+    "src/play_api/configuration.py": "ba9b602987774ce2378ca911241ecd79739c80ebd2be239b68c666710d491795",
+    "src/play_api/play_audit.py": "4dba92a4e283bf139cf33b9bb54dc2f4068264fe1a7b54240aae993f2b747e27",
+    "src/play_api/server.py": "75ca3a9ff12caff9632531577ab076795d17db819498f67f29db40a70dde7572",
+    "src/play_api/service.py": "650dabba6bbdf551d6de0b4341ded64557ac04b1422b5df4333b0b511595364e",
+    "src/policies/files.py": "ecc27893eb68e948900cfe965e8776dc93f65b4cd12c36d2b75befa1a85a7c34",
+    "src/policies/hu200_bundle.py": "c77f41bab0292ef4d63a914c930b9468816d411b2085c6285edde35a59855d29",
+    "src/policies/hu200_release.py": "3658c8f48e238a43cbd1454ae34bf3851aa8122e550d9d6403c01d74e223fe57",
+    "tests/play_ui/playback.test.cjs": "6743a34c8d9d466993ded2c3f968b2268320d7baf55daff36d8127180fd9075c"
+  },
+  "code_commit": "c74f0bc5fbdbd98f3b1a51f5e81909de0a743e1c",
+  "file_hash_function_ast_unchanged_since_compatibility": true,
+  "hu100_groups_byte_identical_to_compatibility_source": [
+    "src/blueprint",
+    "src/policies/hu100_release.py",
+    "src/policies/hu100_bundle.py",
+    "scripts/evaluate_hu100_direct.py"
+  ],
+  "native_reconstruction_coverage": "recorded separately; not implied by runtime proof",
+  "runtime_groups_byte_identical_to_tested_source": [
+    "src",
+    "scripts",
+    "apps/poker-web"
+  ]
+}

@@ -30,7 +30,7 @@ def audit_state(state, policy):
                           hand_id=row['handId'], seed=row['dealSeed'])
         generator = Random()
         audited = 'botDecisions' in row
-        if table.stack == 10000:
+        if table.stack != 2000:
             assert audited and row['modelIdentity'] == _model_info(policy), 'Research decision identity'
         if audited:
             generator.setstate(_tuple(row['samplingStart']))

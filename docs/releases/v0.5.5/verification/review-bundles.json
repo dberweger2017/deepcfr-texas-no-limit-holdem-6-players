@@ -1,0 +1,163 @@
+{
+  "assets": 49,
+  "bundles": [
+    {
+      "asset_count": 15,
+      "checksums_sha256": "7ad627f80ecd177a3fc8af525127e84937f1682d7f69b7633109a4f19a1f14bc",
+      "docs": {
+        "INSTALL.md": "c1951542386748e16558b8d84a57a54b10f594cacb5a21619d4067949cef6673",
+        "MODEL_CARD.md": "ce39fb961e18128ef6fce9d109721eaaeb8184d295b229ef238c2a48a8f9a134",
+        "RELEASE_NOTES.md": "e1a61e4b9e334e3b1230ffe47f4033f193534c0ba9193ff061d7fa10e1bdd818"
+      },
+      "manifest_sha256": "a14e6468709bb1d9cd84be2ab4da184d83392bd52a0d4e818ef3f276db251e6e",
+      "models": {
+        "blend": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485"
+      },
+      "release": "v0.5.5",
+      "verifier_sha256": "c77f41bab0292ef4d63a914c930b9468816d411b2085c6285edde35a59855d29"
+    },
+    {
+      "asset_count": 34,
+      "checksums_sha256": "e1dcea4f0fa67137ac4e18365e92db7bb73cf9649d43775c5585271f4cc581f4",
+      "docs": {
+        "INSTALL.md": "9c6da3b99d06a3c5475c3373897c8515581ad2acda6f82cf72ac5f07cd54fa81",
+        "MODEL_CARD.md": "1ef43b419f7d0405f37a0f433d6878ada3690c7b533ef3d9dfdb00ff6e146267",
+        "RELEASE_NOTES.md": "9ff34d955dcc202eed029725e3933ac523dfcee144c81eb61607e7dcb64bee1f"
+      },
+      "manifest_sha256": "b6bd2a91cc29998e49b1e0f93b48afb8475d302fcc6bf3e47927d355b003c673",
+      "models": {
+        "2026101302": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+        "2026101302-checkpoint": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+        "2026101421": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+        "2026101421-checkpoint": "c70e8e01b3b27c7fa8b8e0561bdbe5b77b321125de646f04614c82ecacacc676",
+        "2026101422": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+        "2026101422-checkpoint": "e265c384686f003521e49158c5162e57175d3b53e405140cb494d30a8ec9660c"
+      },
+      "release": "hu200-frozen-20b-seeds",
+      "verifier_sha256": "c77f41bab0292ef4d63a914c930b9468816d411b2085c6285edde35a59855d29"
+    }
+  ],
+  "completed_at": "2026-10-17T18:36:03.953103+00:00",
+  "fresh_clean_detached_source": true,
+  "full_builder_and_isolated_stdlib_verification": true,
+  "native_rebuild_source_byte_identical_to_df9269c4": true,
+  "owner_publication_approval": false,
+  "publication": "Requires fresh clean detached owner merge checkout, approved bundles and exact-merge CI; these review bundles do not authorize publication.",
+  "publication_requires_fresh_owner_merge_bundles": true,
+  "resources": {
+    "hu200-frozen-20b-seeds-build-resource.txt": {
+      "peak_child_rss_bytes": 44036096,
+      "returncode": 0,
+      "system_seconds": 37.234013,
+      "user_seconds": 252.481195,
+      "wall_seconds": 1006.4391454090073
+    },
+    "hu200-frozen-20b-seeds-publication-refusal-resource.txt": {
+      "peak_child_rss_bytes": 19234816,
+      "returncode": 2,
+      "system_seconds": 0.00769,
+      "user_seconds": 0.015380999999999999,
+      "wall_seconds": 0.02318873000331223
+    },
+    "hu200-frozen-20b-seeds-stdlib-resource.txt": {
+      "peak_child_rss_bytes": 37441536,
+      "returncode": 0,
+      "system_seconds": 13.926773,
+      "user_seconds": 121.836239,
+      "wall_seconds": 784.1303778979927
+    },
+    "hu200-frozen-20b-seeds-wrong-source-resource.txt": {
+      "peak_child_rss_bytes": 19525632,
+      "returncode": 2,
+      "system_seconds": 0.0,
+      "user_seconds": 0.022668999999999998,
+      "wall_seconds": 0.03372894700441975
+    },
+    "v0.5.5-build-resource.txt": {
+      "peak_child_rss_bytes": 45408256,
+      "returncode": 0,
+      "system_seconds": 5.042263,
+      "user_seconds": 68.6288,
+      "wall_seconds": 103.59507232499891
+    },
+    "v0.5.5-publication-refusal-resource.txt": {
+      "peak_child_rss_bytes": 19353600,
+      "returncode": 2,
+      "system_seconds": 0.0037289999999999997,
+      "user_seconds": 0.018645,
+      "wall_seconds": 0.022489448994747363
+    },
+    "v0.5.5-stdlib-resource.txt": {
+      "peak_child_rss_bytes": 36171776,
+      "returncode": 0,
+      "system_seconds": 1.111886,
+      "user_seconds": 32.636657,
+      "wall_seconds": 33.751427688999684
+    },
+    "v0.5.5-wrong-source-resource.txt": {
+      "peak_child_rss_bytes": 19292160,
+      "returncode": 2,
+      "system_seconds": 0.0,
+      "user_seconds": 0.022742,
+      "wall_seconds": 0.022853603994008154
+    }
+  },
+  "review_bundle_manifest_is_bound_only_to": "ea5301bb46718038cd1de78df072778188a285ab",
+  "runtime_source_byte_identical_to_db0102c1": true,
+  "shipped_docs_byte_identical_to_source": true,
+  "source": "ea5301bb46718038cd1de78df072778188a285ab",
+  "source_equivalence_checked_groups": [
+    "src",
+    "scripts",
+    "native",
+    "apps/poker-web",
+    "requirements.txt",
+    "requirements-play.txt",
+    "docs/releases/v0.5.5/INSTALL.md",
+    "docs/releases/v0.5.5/MODEL_CARD.md",
+    "docs/releases/v0.5.5/RELEASE_NOTES.md",
+    "docs/releases/hu200-frozen-20b-seeds/INSTALL.md",
+    "docs/releases/hu200-frozen-20b-seeds/MODEL_CARD.md",
+    "docs/releases/hu200-frozen-20b-seeds/RELEASE_NOTES.md",
+    "docs/releases/hu200-frozen-20b-seeds/BLEND_CONFIG.json"
+  ],
+  "status": "verified",
+  "steps": [
+    {
+      "label": "v0.5.5-build",
+      "returncode": 0
+    },
+    {
+      "label": "v0.5.5-stdlib",
+      "returncode": 0
+    },
+    {
+      "expected_refusal": "Release identity, source or publication status differs",
+      "label": "v0.5.5-wrong-source",
+      "returncode": 2
+    },
+    {
+      "expected_refusal": "Publication verification requires the expected source and approval",
+      "label": "v0.5.5-publication-refusal",
+      "returncode": 2
+    },
+    {
+      "label": "hu200-frozen-20b-seeds-build",
+      "returncode": 0
+    },
+    {
+      "label": "hu200-frozen-20b-seeds-stdlib",
+      "returncode": 0
+    },
+    {
+      "expected_refusal": "Release identity, source or publication status differs",
+      "label": "hu200-frozen-20b-seeds-wrong-source",
+      "returncode": 2
+    },
+    {
+      "expected_refusal": "Publication verification requires the expected source and approval",
+      "label": "hu200-frozen-20b-seeds-publication-refusal",
+      "returncode": 2
+    }
+  ]
+}

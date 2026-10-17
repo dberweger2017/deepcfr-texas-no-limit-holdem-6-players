@@ -1,0 +1,91 @@
+{
+  "all_three_seed_averages_reproduced_with_integrated_source": true,
+  "both_golden_compressed_blend_outputs_reproduced_with_integrated_source": true,
+  "cached_runtime_tested_source": "db0102c178b412345a7b0c96e8469f99af37c047",
+  "changed_code_sha256": {
+    "apps/poker-web/playback.js": "302cc85df30626ceccc9e1a112d972aef2589f5ba9a31cfbceb871a4b4900ebc",
+    "apps/poker-web/spectator.js": "b99c20c65d55c5d19e84b08d921847491e7560153be971ce42e90225af0e7623",
+    "native/hu20-trainer/examples/hu200_blend.rs": "2222abb2673a84df3245cce08de2537355390923f78ba4c75906c8f3cf1e6c1d",
+    "native/hu20-trainer/src/checkpoint.rs": "67cbe98a182128897cca67356750edbaa00b751f66abf63d1effae2d9ea9f989",
+    "native/hu20-trainer/src/cli.rs": "774ce986959f65eb0e4524c824a5f6fcb8391feddcc57d4d859d3ce5ba51a9a7",
+    "native/hu20-trainer/src/export.rs": "61632c0804235397da5860aabe8eb39f67e618fb0a82b42cd72a5f005190988a",
+    "native/hu20-trainer/src/gz.rs": "b4982d325dc6b6c5513d4d02530d5ff840e30453516a533fca1880362c6d580a",
+    "native/hu20-trainer/src/key.rs": "94e6888ba5e81fb33c33c4b65a5feb6263f304767ac619db5a6ee28a31937ec6",
+    "native/hu20-trainer/src/lib.rs": "328cb02655a498cb2d848263a1a11bf8644180ebfc28dbaf419ac37faa83ed27",
+    "native/hu20-trainer/src/main.rs": "5058e2e312fa3f01a5f1b378e679d6f0fbb8d96672620b934a38bdac3c794aa9",
+    "native/hu20-trainer/src/multi_checkpoint.rs": "e14f547e10f7b7c72276d9916dde80f27671569cb49656fd0f24b00740b6ed5e",
+    "native/hu20-trainer/src/multi_holdem.rs": "0302739acb9a393e1b7f4374a27eda56f065336692a0e172daaac11d80ac0894",
+    "native/hu20-trainer/src/multi_policy.rs": "3722282dab08d867d3b4f3cabed1cdf967ff858cacb4bf70b3105d9e346ccbfc",
+    "native/hu20-trainer/src/multi_tests.rs": "eb4a8ed80fa10ce5589b459ee5cd2fdc97caa639951c5d2d42b714563a5720b0",
+    "native/hu20-trainer/src/small_games.rs": "edbd357fdf65ff8aed44920dbf648e317f04513691ae8032fe374cb8d23020bd",
+    "native/hu20-trainer/src/store.rs": "2b0a2ae746dc8697e68081688be6f95fd15c4e9b7c62438c45cdcc54381380b8",
+    "native/hu20-trainer/src/trainer.rs": "4e7275af2a8965184982d24d8f78059ed2808c244ff862b99a07b93468b1ea07",
+    "scripts/build_hu200_bundle.py": "dad93ea62553557d18e89fce13a4cb7684e1543b76817ab05e826e46338aa8d8",
+    "scripts/build_streaming_average_cache.py": "b861eb6d1048ae1c0b9e0b7c88daf94f095ead7faa5b46c23299d2b0967a823c",
+    "scripts/check_hu100_release_trace.py": "a9502a004c50fe8da9b7d86a95dc8a2be424ac1e6c097f8b573f4ff388b087bb",
+    "scripts/rebuild_hu200_release.py": "2faea498c8d488dd48f3e40fa211166dac184d56b0f868409f2d5368f3638734",
+    "scripts/smoke_hu100_release.py": "f22e09ce61c2593e398fe023af5190f203c2e22c36c600f3ad2f281417ef6b2f",
+    "scripts/smoke_hu200_release.py": "5a08b438a2d442ce96c97bdb1a712aa90d2853fd8dcecb089d22c01245827bc7",
+    "scripts/verify_hu200_bundle.py": "dfbdc6ec3cfbc316c94c58f196ad471dfa9deb41f93f13d07936af3d07c2c987",
+    "src/play_api/configuration.py": "ba9b602987774ce2378ca911241ecd79739c80ebd2be239b68c666710d491795",
+    "src/play_api/play_audit.py": "4dba92a4e283bf139cf33b9bb54dc2f4068264fe1a7b54240aae993f2b747e27",
+    "src/play_api/server.py": "75ca3a9ff12caff9632531577ab076795d17db819498f67f29db40a70dde7572",
+    "src/play_api/service.py": "650dabba6bbdf551d6de0b4341ded64557ac04b1422b5df4333b0b511595364e",
+    "src/policies/files.py": "ecc27893eb68e948900cfe965e8776dc93f65b4cd12c36d2b75befa1a85a7c34",
+    "src/policies/hu200_bundle.py": "c77f41bab0292ef4d63a914c930b9468816d411b2085c6285edde35a59855d29",
+    "src/policies/hu200_release.py": "3658c8f48e238a43cbd1454ae34bf3851aa8122e550d9d6403c01d74e223fe57",
+    "tests/play_ui/playback.test.cjs": "6743a34c8d9d466993ded2c3f968b2268320d7baf55daff36d8127180fd9075c"
+  },
+  "code_commit": "e642b9a9372337b9411644714828b6aa88c6b6d2",
+  "hu100_coverage": "runtime-source-coverage.json and compatibility.json",
+  "integrated_reconstruction_tested_source": "df9269c449d6b45f21ba779afd5a64d5f91887b0",
+  "latest_main_integration": {
+    "all_recorded_release_code_sha256_unchanged": true,
+    "classification": "Owner-merged AIVAT chart/reporting CLI; no references from src, apps or other scripts; no release runtime, bundle, cache, reconstruction or shipped-document change.",
+    "main_commit": "59b4a97de04b79d6c00cda34b25639995eea8d1d",
+    "only_additional_script_difference_to_runtime_source": "scripts/plot_slumbot_aivat.py",
+    "release_code_reference_commit": "599d0a4e6582deb99e2648c55a84b426e0725e70",
+    "reporting_script_sha256": "fe4fc8b9e9ec439f11cb6acf52b9ca7155b91afb9dae7e0d76fa1da321645dff"
+  },
+  "native_and_rebuild_groups_byte_identical_to_tested_source": [
+    "native/hu20-trainer",
+    "native/hu20-buckets",
+    "scripts/rebuild_hu200_release.py",
+    "src/policies/hu200_bundle.py"
+  ],
+  "native_changes_relative_to_integrated_main": [
+    "native/hu20-trainer/examples/hu200_blend.rs"
+  ],
+  "native_changes_since_original_blend_source": [
+    "native/hu20-trainer/examples/hu200_blend.rs",
+    "native/hu20-trainer/src/checkpoint.rs",
+    "native/hu20-trainer/src/cli.rs",
+    "native/hu20-trainer/src/export.rs",
+    "native/hu20-trainer/src/gz.rs",
+    "native/hu20-trainer/src/key.rs",
+    "native/hu20-trainer/src/lib.rs",
+    "native/hu20-trainer/src/main.rs",
+    "native/hu20-trainer/src/multi_checkpoint.rs",
+    "native/hu20-trainer/src/multi_holdem.rs",
+    "native/hu20-trainer/src/multi_policy.rs",
+    "native/hu20-trainer/src/multi_tests.rs",
+    "native/hu20-trainer/src/small_games.rs",
+    "native/hu20-trainer/src/store.rs",
+    "native/hu20-trainer/src/trainer.rs"
+  ],
+  "publication_requires_fresh_merge_source_and_public_asset_verification": true,
+  "runtime_groups_byte_identical_to_tested_source": [
+    "src",
+    "apps/poker-web",
+    "requirements.txt",
+    "requirements-play.txt"
+  ],
+  "runtime_scripts_byte_identical_except_reporting_paths": {
+    "excluded_paths": [
+      "scripts/plot_slumbot_aivat.py"
+    ],
+    "group": "scripts",
+    "source": "db0102c178b412345a7b0c96e8469f99af37c047"
+  },
+  "upstream_native_integration_base": "9b2a481a6cd067be5db0442ee02833e293fe2d7d"
+}

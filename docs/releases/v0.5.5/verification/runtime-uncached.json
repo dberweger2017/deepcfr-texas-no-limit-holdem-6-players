@@ -1,0 +1,73 @@
+{
+  "all_retained_hands_replayed": 36,
+  "browser_11_hands_reopened_stores_with_same_immutable_verified_policy": true,
+  "browser_all_in_raise_chips": 20000,
+  "browser_backend_source": "0a565d439ea4518585d8a9471c6f3699c54d0612",
+  "browser_free_off_menu_raise_chips": 800,
+  "browser_frontend_source": "8cc26a77f72209f55da72d2ee63c51b3b8bda75b",
+  "browser_restricted_raise_chips": 300,
+  "cli_source": "4de76fdd943cfaf358611d73ca94f600db71148e",
+  "fresh_cli_starts": [
+    {
+      "load_seconds": 1360.6564210180004,
+      "max_cli_child_rss_bytes_so_far": 9381646336
+    },
+    {
+      "load_seconds": 1335.7460733949993,
+      "max_cli_child_rss_bytes_so_far": 9412120576
+    }
+  ],
+  "fresh_independent_reader_peak_rss_bytes": 9420115968,
+  "fresh_independent_reader_seconds": 1323.444961672998,
+  "http_all_in_wagers": 2,
+  "http_off_menu_wagers_chips": [
+    550,
+    800,
+    550,
+    800
+  ],
+  "human_completed": 16,
+  "human_inference_modes_in_original_smoke": {
+    "exact": 26,
+    "translated": 13,
+    "uniform": 3
+  },
+  "identity_label_corrected_and_render_verified": true,
+  "independent_modules": [
+    "play_audit.audit_state",
+    "spectator_audit.audit_states",
+    "service.verify_replay"
+  ],
+  "model_sha256": "ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485",
+  "original_25_hands_had_a_fresh_reader": true,
+  "outcomes_are_not_strength_evidence": true,
+  "partial_hands_remaining": 0,
+  "refused": [
+    "wrong model",
+    "wrong valid HU100 release model",
+    "rehashed wrong K50 table",
+    "rehashed wrong translation identity",
+    "wrong source identity",
+    "absent publication approval",
+    "table-2000",
+    "table-10000",
+    "inference identity"
+  ],
+  "restart_before_pending_bot_and_idempotency_verified": true,
+  "spectator_completed": 20,
+  "spectator_timer_failure": {
+    "error": "TypeError: Illegal invocation",
+    "failed_prefix_and_fixed_continuation_preserved_and_replayed": true,
+    "fix": "Bind default browser timers to globalThis",
+    "fix_source": "8cc26a77f72209f55da72d2ee63c51b3b8bda75b",
+    "new_console_errors": [],
+    "old_code_regression_reproduced": true,
+    "pause_observation_seconds": 3,
+    "playback_regressions_passed": 4,
+    "real_autoplay_additional_completed_hands": 4,
+    "revision_unchanged_after_pause": true,
+    "source": "apps/poker-web/playback.js"
+  },
+  "stack_bb": 200,
+  "status": "verified"
+}

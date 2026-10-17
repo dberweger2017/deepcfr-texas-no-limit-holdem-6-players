@@ -15,12 +15,11 @@ import numpy as np
 from src.blueprint import policy_cache
 from src.blueprint.average import (EXTRACTIONS, average_rule, checked_header,
                                    format_for_schema, zero_mass_rule)
-from src.policies.files import file_hash
+from src.policies.files import file_hash, local_cache
 
 
 def build(path: Path, sha256: str, schema: str, cache: Path, entries: int, slots: int):
     """Counts come from the verified union; every row and both counts are checked."""
-    from scripts.evaluate_hu100_direct import local_cache
     cache = local_cache(cache)
     if entries < 1 or slots < entries or file_hash(path) != sha256:
         raise ValueError('Invalid counts or canonical model SHA256')
@@ -118,7 +117,6 @@ def main():
     parser.add_argument('--entries', type=int, required=True)
     parser.add_argument('--action-slots', type=int, required=True)
     args = parser.parse_args()
-    from scripts.evaluate_hu100_direct import local_cache
     manifest = build(args.model, args.sha256, args.schema, local_cache(args.cache),
                      args.entries, args.action_slots)
     print(json.dumps({'status': 'verified', 'entries': manifest['entries'],

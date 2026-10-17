@@ -11,7 +11,7 @@ The [research history](research-history.md) indexes completed experiments.
 - `src/blueprint/`: information keys, Python reference trainer, current/average
   policy readers, compact storage and turn/river search. `average.py` owns the
   stored-average reader and its validation; `compact_policy.py` owns storage.
-- `src/policies/`: released v0.4.0/v0.4.1/v0.4.2 artifact pins, verification and loading.
+- `src/policies/`: released HU20/HU100 artifact pins and HU200 bundle verification/loading.
   Adding a released model here or to the web catalog still requires release authorization.
   `hu100_release.py` loads a verified HU100 release bundle (v0.5.0–v0.5.3; v0.5.3 is unpublished owner review);
   `hu100_bundle.py` pins each release's model and provenance and is the bundles'
