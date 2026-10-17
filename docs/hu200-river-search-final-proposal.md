@@ -1,6 +1,9 @@
 # HU200 river search: final counts and venue proposal
 
-October 17, 2026, PR317. **Owner decision required before final hands.**
+October 17, 2026, PR317. **Approved on the M4 with up to three searches.**
+The [final declaration](hu200-river-final-protocol.md) fixes counts, roots, analysis
+and the owner-authorized verified block transfer/local retirement.
+The remaining text preserves the decision proposal and its original assumptions.
 The fixed, disjoint calibration is complete; no final hands have been played.
 Recommend **131,072 direct duplicate blocks and 2,048 paired blocks per each of
 seven scripts**, on the M4 at three searches, subject to storage admission.

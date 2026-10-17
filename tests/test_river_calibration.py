@@ -112,3 +112,19 @@ def test_variance_readout_has_uncertainty_and_no_gain_mean():
     assert not any('mean' in key for key in summary)
     assert rounded_count(0)==4096
     assert rounded_count(879.3558501872744)==65536
+
+
+def test_final_verification_reuses_complete_hand_and_rejects_changed_evidence(tmp_path):
+    from scripts.evaluate_hu200_river_final import verify_hand, recovered_result
+    from scripts.evaluate_hu100_direct import action_seed
+    item=SimpleNamespace(scenario='fixture-final',index=0,button=0,deal_seeds=(31,))
+    root=4127;seeds=[action_seed(root,item,0,r) for r in (0,1)]
+    directory=tmp_path/'closed'
+    play_hand(ToyBlueprint(),None,'fixture',None,directory,deal=31,seeds=seeds,
+        button=0,rotation=0,hand_id='table-0/0/0/0',opponent='check_call',player_builder=toy_search)
+    hand=verify_hand(directory,item,root,0,'search')
+    recovered=recovered_result(directory,hand)
+    assert recovered['recovered_without_native'] and recovered['target_chips']==hand['target_chips']
+    assert recovered['primary_seconds'] is None
+    path=next((directory/'decisions').glob('*.json'));path.write_text('{}')
+    with pytest.raises(ValueError,match='checksum'):verify_hand(directory,item,root,0,'search')
