@@ -1,0 +1,118 @@
+{
+  "archives": {
+    "pr318": {
+      "name": "v055-blend-confirmation-20261017.zip",
+      "bytes": 15259085,
+      "sha256": "9b453e6073200476f91d39c4162a65f3513c61f7525ee4fc26295f7f41d1dfe1",
+      "manifest_sha256": "4b2449e1528604e3d44e8e97ee9cde88f8cd03d5672a409269d9538c5e1cb4e7",
+      "verified_members": 10
+    },
+    "pr304": {
+      "name": "hu200-v055-slumbot-confirmation-20261015.zip",
+      "bytes": 15256156,
+      "sha256": "51f4587dc3fec12a65537be51e27572c3f1eec147952c8ed383f1c7689c57137",
+      "manifest_sha256": "4c3d53ca809f9b03715aa0a3adb0edbfca5b1da32d822efc589baf3f83f35e1a",
+      "verified_members": 25
+    },
+    "pr316": {
+      "name": "slumbot-aivat-real-runs-perhand-20261017.zip",
+      "bytes": 2062452,
+      "sha256": "51a525a617eb90c83d746e6bfd26347fa47f93774b3d379c172a4e091ca298ee",
+      "manifest_sha256": "61a5d592f98015cd4ce264bbc3b45b8d7fd93aabf3abcb5776f8af7edb821943",
+      "verified_members": 9
+    }
+  },
+  "journals": {
+    "results/inputs/pr318/account-a-seed-20261016055101-20261016T200159Z-5029/journal.jsonl": {
+      "decisions": 28353,
+      "hands": 10000,
+      "tail_sha256": "bdf46c54c1dbf6ede30415409c4e1d10d8bd72a3b9ec41a5531a9f5d44e60d9e",
+      "bytes": 89489088,
+      "sha256": "dba8d6f9192e835566cbbd2afddd210ab85b3c95b514ce599b706963e8f7dc23"
+    },
+    "results/inputs/pr318/account-b-seed-20261016055201-20261016T200159Z-5057/journal.jsonl": {
+      "decisions": 28188,
+      "hands": 10000,
+      "tail_sha256": "602be40d37307735fb7770ce4cfe784053bb712f69dba5a38afc86bdae2a01f6",
+      "bytes": 88887011,
+      "sha256": "e6d92cd25a77b169d33553e644507ec9b2d7541ae05330986052da615c7fbff9"
+    },
+    "results/inputs/pr318/account-c-seed-20261016055301-20261016T200200Z-5087/journal.jsonl": {
+      "decisions": 28323,
+      "hands": 10000,
+      "tail_sha256": "4013b22db3ec09b308652d94aa03a2162f540947b481a9d621b879bec721e94a",
+      "bytes": 89342497,
+      "sha256": "ad189898c70d9bf4080947242e4031859e3ec26dcf9b4928ada3d84dd467cce5"
+    },
+    "results/inputs/pr304/v055-runs/seed-2026101302-20261015T060148Z-2020882/journal.jsonl": {
+      "decisions": 759,
+      "hands": 271,
+      "tail_sha256": "e38a19eda875919c9cd4137a80e9aec2c4dbf5c9d838f26afadc912985af892c",
+      "bytes": 2377386,
+      "sha256": "1bfc13ea16b9c6e6c4b78e99bacce27b8f82a452ee321daee05e0bf89d9e449a"
+    },
+    "results/inputs/pr304/v055-runs/seed-2026101302-part2-20261015T162506Z-3872135/journal.jsonl": {
+      "decisions": 27067,
+      "hands": 9729,
+      "tail_sha256": "18bd4d500ced89511a5aa284628dfcb1d1a03f2b90dbc7306361be6d3b788d49",
+      "bytes": 85322039,
+      "sha256": "a5c675ae5c4896a1c421f399032a8fe7a447143e2cf714bd43f77868ca4f054e"
+    },
+    "results/inputs/pr304/v055-runs-pr278/seed-2026101421-20261015T060149Z-2020931/journal.jsonl": {
+      "decisions": 1231,
+      "hands": 431,
+      "tail_sha256": "e97481724e30b26027ed947f90a07346bb0ad2d8d69eb777f9044ab3231f59f1",
+      "bytes": 3835283,
+      "sha256": "f4049edb04ce18b625b0c685b01783c4e56f3ad835b28311455142d22e74b7aa"
+    },
+    "results/inputs/pr304/v055-runs-pr278/seed-2026101421-part2-20261015T162507Z-3872214/journal.jsonl": {
+      "decisions": 27283,
+      "hands": 9569,
+      "tail_sha256": "10c76b1c43c673ec8b1ea4f14e85ba3f462567e7ab03dc5279eb5a5649dc285a",
+      "bytes": 86016843,
+      "sha256": "44d719219437346f337619f749fbecc9b1271bb57a2a6a91de64213a94ff1113"
+    },
+    "results/inputs/pr304/v055-runs-pr278/seed-2026101422-20261015T060150Z-2020949/journal.jsonl": {
+      "decisions": 4087,
+      "hands": 1439,
+      "tail_sha256": "875bb482fe39617edc7d2ee365e59f8927f1dd913b8a212fed3f4ff8b7a0e7dd",
+      "bytes": 12821604,
+      "sha256": "3d853c1a382b435f348c11dd6bc8ee39fe7a71eff6f949011f6522ea12f285cd"
+    },
+    "results/inputs/pr304/v055-runs-pr278/seed-2026101422-part2-20261015T162132Z-3861600/journal.jsonl": {
+      "decisions": 24323,
+      "hands": 8561,
+      "tail_sha256": "467356e13299dd8144e76b6f1b994bd03da225d1fbb25924a433f4b14dfd248b",
+      "bytes": 76693628,
+      "sha256": "32011635d005fc7b17beb88b6de44531f1cc27c4cd0ce647f3ec3941f2079b1e"
+    },
+    "results/inputs/exploratory/prefix/journal.jsonl": {
+      "decisions": 23568,
+      "hands": 8300,
+      "tail_sha256": "ca6e64dec66e94233bf456885b8dc726c6926c55dc01b463e156791d47c592b8",
+      "bytes": 74416117,
+      "sha256": "b6924568c704df26f6c6ea03eef6cdda273146faf19e6dff819c84b153859b06"
+    },
+    "results/inputs/exploratory/part2/journal.jsonl": {
+      "decisions": 4985,
+      "hands": 1700,
+      "tail_sha256": "4c5d009335149b14ea7df97afbd4eef14e4c538c652485d7795f900b83a8c91c",
+      "bytes": 15748280,
+      "sha256": "96aad029ce818a587078a567fb527799c8dd1565f90c842d5caf06829c0fc03a"
+    }
+  },
+  "exploratory_prefix": {
+    "source": "/home/dberweger/slumbot-blend/runs/blend-exploratory-20261016T123644Z-71835/journal.jsonl",
+    "source_sha256": "cfd606f240e7a7645882fb75dcd0db0ca022e4a1bc092b0595281843baeff031",
+    "kept_lines": 31869,
+    "reason": "bb128 lost power about 20:19-20:21 Madrid on October 16; the last record was torn mid-write. The complete prefix verifies (8,300 hands).",
+    "prefix_sha256": "b6924568c704df26f6c6ea03eef6cdda273146faf19e6dff819c84b153859b06"
+  },
+  "analysis_source_sha256": {
+    "src/arena/external/analysis.py": "b4b48b56b5cf0cb36a67c2dcdce73c577ba56d54acfa821101e3885a187551d1",
+    "src/arena/external/aivat.py": "eaeafc6b0d1819e6febfd936aba6b0a1156c8228b790ff77baa3fe33e4799455",
+    "src/arena/external/style.py": "f9adf1b110a6f0a2ef4304f8fb58a7a570b225b27554c09c7a131a2a288b0751",
+    "src/arena/external/journal.py": "b3d522c0c7432f19a477f9a200f84ede3552b0599e6db3357ebd0709adf49ee4",
+    "docs/reports/slumbot-aivat-real-runs/dump_aivat.py": "21d13c2659788c50376c7fc4e6c325de26084473133a860250cd54e90b8cc43d"
+  }
+}

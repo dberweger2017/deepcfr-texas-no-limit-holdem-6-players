@@ -21,6 +21,12 @@ There are two release lines, HU20 and HU100, for 20 and 100 big-blind stacks, wi
 - **What the intervals cover:** they're nominal paired 95% intervals, conditional on the saved lineages. No full-game exploitability certificate or human or professional strength follows.
 - [Updated decision table and limits](docs/reports/hu20-v042-lbr-confirmation.md) · [v0.4.2 model card](docs/releases/v0.4.2/MODEL_CARD.md) · [earlier v0.4.0 → v0.4.1 comparison](docs/reports/v0.4.1-release.md)
 
+## Research archive
+
+The [public research archive on Google Drive](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s?usp=sharing) contains archived training checkpoints, policy exports, raw evaluation evidence, logs and campaign provenance, organized mainly by pull request. Anyone with the link can view and download the files.
+
+Start with the repository's [research results index](RESULTS_INDEX.md) for current campaign records, exact archive and member locations, SHA256 hashes and restoration instructions. The archive includes experimental, partial and failed runs; read each campaign's linked report for its results and limits. Published models and their installation instructions remain available through [GitHub Releases](https://github.com/dberweger2017/CFR-NLHE-6max/releases).
+
 ## Watch two bots
 
 In the local web app, choose **Bot-vs-bot spectator**, select two pinned models, then use **Play**, **Pause** or **Step**. Each decision shows its exact policy probabilities, selected action, lookup status and acting bot's legal perspective. Sessions retain both release/model/manifest identities and replayable hand history; v0.4.0 and v0.4.1 remain selectable. See the [spectator guide and independent audit command](docs/spectator.md).

@@ -1,0 +1,5038 @@
+{
+  "confirmation-a": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -24.285,
+      "half_width_95": 33.054535055822214
+    },
+    "endings": {
+      "showdown": {
+        "hands": 2068,
+        "bb_per_100": -66.77949709864603,
+        "half_width_95": 145.7759559774735,
+        "share": 0.2068,
+        "adds_bb_per_100": -13.81,
+        "adds_half_width_95": 30.14534694007083
+      },
+      "player folded preflop": {
+        "hands": 1749,
+        "bb_per_100": -114.57975986277873,
+        "half_width_95": 6.026477474791191,
+        "share": 0.1749,
+        "adds_bb_per_100": -20.04,
+        "adds_half_width_95": 1.3558578112709452
+      },
+      "slumbot folded preflop": {
+        "hands": 1560,
+        "bb_per_100": 124.1025641025641,
+        "half_width_95": 9.08770148191249,
+        "share": 0.156,
+        "adds_bb_per_100": 19.36,
+        "adds_half_width_95": 1.6696756828056682
+      },
+      "player folded flop": {
+        "hands": 1233,
+        "bb_per_100": -309.5701540957015,
+        "half_width_95": 20.149783031987706,
+        "share": 0.1233,
+        "adds_bb_per_100": -38.17,
+        "adds_half_width_95": 3.1856297170646535
+      },
+      "slumbot folded flop": {
+        "hands": 937,
+        "bb_per_100": 286.2326574172892,
+        "half_width_95": 22.881852070858063,
+        "share": 0.0937,
+        "adds_bb_per_100": 26.82,
+        "adds_half_width_95": 2.695451037219078
+      },
+      "player folded turn": {
+        "hands": 731,
+        "bb_per_100": -518.8782489740082,
+        "half_width_95": 81.96488817178485,
+        "share": 0.0731,
+        "adds_bb_per_100": -37.93,
+        "adds_half_width_95": 6.546971328192389
+      },
+      "slumbot folded turn": {
+        "hands": 586,
+        "bb_per_100": 484.7269624573379,
+        "half_width_95": 55.362612425462956,
+        "share": 0.0586,
+        "adds_bb_per_100": 28.405,
+        "adds_half_width_95": 3.9354993043873714
+      },
+      "player folded river": {
+        "hands": 576,
+        "bb_per_100": -723.7847222222222,
+        "half_width_95": 97.48789909999407,
+        "share": 0.0576,
+        "adds_bb_per_100": -41.69,
+        "adds_half_width_95": 6.511935406536055
+      },
+      "slumbot folded river": {
+        "hands": 560,
+        "bb_per_100": 942.3214285714286,
+        "half_width_95": 112.25093995008682,
+        "share": 0.056,
+        "adds_bb_per_100": 52.77,
+        "adds_half_width_95": 7.5817373109862665
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3309,
+        "bb_per_100": -2.0550015110305226,
+        "half_width_95": 6.706608037520869,
+        "share": 0.3309,
+        "adds_bb_per_100": -0.68,
+        "adds_half_width_95": 2.219073138266357
+      },
+      "ended flop": {
+        "hands": 2170,
+        "bb_per_100": -52.30414746543779,
+        "half_width_95": 19.566667636510015,
+        "share": 0.217,
+        "adds_bb_per_100": -11.35,
+        "adds_half_width_95": 4.26618280667554
+      },
+      "ended turn": {
+        "hands": 1317,
+        "bb_per_100": -72.32346241457859,
+        "half_width_95": 58.317091709457884,
+        "share": 0.1317,
+        "adds_bb_per_100": -9.525,
+        "adds_half_width_95": 7.692779755714899
+      },
+      "ended river": {
+        "hands": 1136,
+        "bb_per_100": 97.53521126760563,
+        "half_width_95": 88.59391770552025,
+        "share": 0.1136,
+        "adds_bb_per_100": 11.08,
+        "adds_half_width_95": 10.07861607910446
+      },
+      "showdown": {
+        "hands": 2068,
+        "bb_per_100": -66.77949709864603,
+        "half_width_95": 145.7759559774735,
+        "share": 0.2068,
+        "adds_bb_per_100": -13.81,
+        "adds_half_width_95": 30.14534694007083
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7649,
+        "bb_per_100": -10.668061184468558,
+        "half_width_95": 5.053604815877521,
+        "share": 0.7649,
+        "adds_bb_per_100": -8.16,
+        "adds_half_width_95": 3.8664598571673685
+      },
+      "10–30 BB": {
+        "hands": 1663,
+        "bb_per_100": -28.683102826217677,
+        "half_width_95": 40.28640878677179,
+        "share": 0.1663,
+        "adds_bb_per_100": -4.77,
+        "adds_half_width_95": 6.701220697889317
+      },
+      "30–100 BB": {
+        "hands": 529,
+        "bb_per_100": -36.57844990548204,
+        "half_width_95": 207.82536509449255,
+        "share": 0.0529,
+        "adds_bb_per_100": -1.935,
+        "adds_half_width_95": 10.985287151090006
+      },
+      "100–399 BB": {
+        "hands": 118,
+        "bb_per_100": 218.64406779661016,
+        "half_width_95": 1467.4427419410854,
+        "share": 0.0118,
+        "adds_bb_per_100": 2.58,
+        "adds_half_width_95": 17.249367445361656
+      },
+      "all-in, 400 BB": {
+        "hands": 41,
+        "bb_per_100": -2926.829268292683,
+        "half_width_95": 6054.445812685976,
+        "share": 0.0041,
+        "adds_bb_per_100": -12.0,
+        "adds_half_width_95": 24.792380829091776
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.6703,
+      "median": 5.0,
+      "max": 14
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8155,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4236,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.1116,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.2652,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.6232,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.21896383186705767,
+        "of": 5115
+      },
+      "fold_to_3bet": {
+        "rate": 0.38054607508532423,
+        "of": 586
+      },
+      "flop_cbet": {
+        "rate": 0.6045643153526971,
+        "of": 2410
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5613832853025936,
+          "of": 1735
+        },
+        "call": {
+          "rate": 0.37118155619596543,
+          "of": 1735
+        },
+        "raise": {
+          "rate": 0.06743515850144093,
+          "of": 1735
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6691,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.3090718876102227,
+        "of": 6691
+      },
+      "won_at_showdown": {
+        "rate": 0.48307543520309476,
+        "of": 2068
+      },
+      "won_after_flop": {
+        "rate": 0.4606187415931849,
+        "of": 6691
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1749,
+          "check": 0,
+          "call": 4736,
+          "bet": 0,
+          "raise": 4319,
+          "aggression_factor": 0.9119510135135135,
+          "aggression_frequency": 0.3997593483894854
+        },
+        "flop": {
+          "fold": 1233,
+          "check": 3662,
+          "call": 915,
+          "bet": 2479,
+          "raise": 201,
+          "aggression_factor": 2.92896174863388,
+          "aggression_frequency": 0.31566548881036516
+        },
+        "turn": {
+          "fold": 731,
+          "check": 2164,
+          "call": 596,
+          "bet": 1702,
+          "raise": 113,
+          "aggression_factor": 3.045302013422819,
+          "aggression_frequency": 0.3420655861289107
+        },
+        "river": {
+          "fold": 576,
+          "check": 1361,
+          "call": 421,
+          "bet": 1270,
+          "raise": 125,
+          "aggression_factor": 3.31353919239905,
+          "aggression_frequency": 0.37170263788968827
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 446,
+          "~½": 1662,
+          "~pot": 2210,
+          "all-in": 1
+        },
+        "flop": {
+          "<0.4": 1582,
+          "~½": 332,
+          "~pot": 766
+        },
+        "turn": {
+          "<0.4": 968,
+          "~½": 55,
+          "~pot": 780,
+          "all-in": 12
+        },
+        "river": {
+          "<0.4": 528,
+          "~½": 11,
+          "~pot": 828,
+          "all-in": 28
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 2669,
+          "raise": 1044,
+          "fold": 795
+        },
+        "preflop ~pot": {
+          "call": 720,
+          "fold": 385,
+          "raise": 149
+        },
+        "preflop 1.2–2.5×": {
+          "fold": 11,
+          "call": 19,
+          "raise": 10
+        },
+        "preflop all-in": {
+          "call": 2
+        },
+        "flop <0.4": {
+          "call": 38,
+          "raise": 15,
+          "fold": 2
+        },
+        "flop ~½": {
+          "call": 785,
+          "raise": 169,
+          "fold": 1133
+        },
+        "flop ~⅔–¾": {
+          "raise": 7,
+          "fold": 23,
+          "call": 19
+        },
+        "flop ~pot": {
+          "call": 57,
+          "fold": 58,
+          "raise": 6
+        },
+        "flop 1.2–2.5×": {
+          "call": 12,
+          "fold": 12,
+          "raise": 3
+        },
+        "flop >2.5×": {
+          "call": 1,
+          "fold": 1,
+          "raise": 1
+        },
+        "flop all-in": {
+          "call": 3,
+          "fold": 4
+        },
+        "turn <0.4": {
+          "raise": 9,
+          "call": 14,
+          "fold": 5
+        },
+        "turn ~½": {
+          "call": 410,
+          "fold": 503,
+          "raise": 72
+        },
+        "turn ~⅔–¾": {
+          "raise": 9,
+          "call": 30,
+          "fold": 55
+        },
+        "turn ~pot": {
+          "call": 115,
+          "fold": 144,
+          "raise": 11
+        },
+        "turn 1.2–2.5×": {
+          "call": 26,
+          "fold": 18,
+          "raise": 12
+        },
+        "turn >2.5×": {
+          "fold": 1
+        },
+        "turn all-in": {
+          "fold": 5,
+          "call": 1
+        },
+        "river <0.4": {
+          "call": 45,
+          "fold": 7,
+          "raise": 14
+        },
+        "river ~½": {
+          "fold": 331,
+          "call": 215,
+          "raise": 71
+        },
+        "river ~⅔–¾": {
+          "fold": 52,
+          "call": 35,
+          "raise": 5
+        },
+        "river ~pot": {
+          "fold": 153,
+          "call": 99,
+          "raise": 28
+        },
+        "river 1.2–2.5×": {
+          "fold": 23,
+          "call": 18,
+          "raise": 7
+        },
+        "river all-in": {
+          "fold": 10,
+          "call": 9
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7538,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5701,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.0984,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.9016,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.18806161745827984,
+        "of": 3116
+      },
+      "fold_to_3bet": {
+        "rate": 0.31339285714285714,
+        "of": 1120
+      },
+      "flop_cbet": {
+        "rate": 0.5871404399323181,
+        "of": 2955
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.335621139327385,
+          "of": 1457
+        },
+        "call": {
+          "rate": 0.546328071379547,
+          "of": 1457
+        },
+        "raise": {
+          "rate": 0.11805078929306795,
+          "of": 1457
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6691,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.3090718876102227,
+        "of": 6691
+      },
+      "won_at_showdown": {
+        "rate": 0.4647001934235977,
+        "of": 2068
+      },
+      "won_after_flop": {
+        "rate": 0.5232401733672097,
+        "of": 6691
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1560,
+          "check": 719,
+          "call": 2562,
+          "bet": 0,
+          "raise": 5804,
+          "aggression_factor": 2.2654176424668226,
+          "aggression_frequency": 0.5452325035227806
+        },
+        "flop": {
+          "fold": 937,
+          "check": 3794,
+          "call": 1427,
+          "bet": 2033,
+          "raise": 316,
+          "aggression_factor": 1.6461107217939734,
+          "aggression_frequency": 0.27612554366991887
+        },
+        "turn": {
+          "fold": 586,
+          "check": 2373,
+          "call": 1019,
+          "bet": 1230,
+          "raise": 210,
+          "aggression_factor": 1.4131501472031402,
+          "aggression_frequency": 0.26578073089701
+        },
+        "river": {
+          "fold": 560,
+          "check": 1469,
+          "call": 629,
+          "bet": 916,
+          "raise": 206,
+          "aggression_factor": 1.7837837837837838,
+          "aggression_frequency": 0.2968253968253968
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4508,
+          "~pot": 1254,
+          "1.2–2.5×": 40,
+          "all-in": 2
+        },
+        "flop": {
+          "<0.4": 55,
+          "~½": 2087,
+          "~⅔–¾": 49,
+          "~pot": 121,
+          "1.2–2.5×": 27,
+          ">2.5×": 3,
+          "all-in": 7
+        },
+        "turn": {
+          "<0.4": 28,
+          "~½": 985,
+          "~⅔–¾": 94,
+          "~pot": 270,
+          "1.2–2.5×": 56,
+          ">2.5×": 1,
+          "all-in": 6
+        },
+        "river": {
+          "<0.4": 66,
+          "~½": 617,
+          "~⅔–¾": 92,
+          "~pot": 280,
+          "1.2–2.5×": 48,
+          "all-in": 19
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 333,
+          "raise": 41,
+          "fold": 72
+        },
+        "preflop ~½": {
+          "call": 1183,
+          "raise": 385,
+          "fold": 94
+        },
+        "preflop ~pot": {
+          "call": 1045,
+          "fold": 902,
+          "raise": 263
+        },
+        "preflop all-in": {
+          "call": 1
+        },
+        "flop <0.4": {
+          "fold": 379,
+          "raise": 249,
+          "call": 954
+        },
+        "flop ~½": {
+          "fold": 136,
+          "call": 175,
+          "raise": 21
+        },
+        "flop ~pot": {
+          "fold": 422,
+          "raise": 46,
+          "call": 298
+        },
+        "turn <0.4": {
+          "call": 657,
+          "raise": 165,
+          "fold": 146
+        },
+        "turn ~½": {
+          "call": 25,
+          "fold": 28,
+          "raise": 2
+        },
+        "turn ~pot": {
+          "fold": 408,
+          "call": 329,
+          "raise": 43
+        },
+        "turn all-in": {
+          "call": 8,
+          "fold": 4
+        },
+        "river <0.4": {
+          "raise": 125,
+          "call": 318,
+          "fold": 85
+        },
+        "river ~½": {
+          "fold": 1,
+          "call": 6,
+          "raise": 4
+        },
+        "river ~pot": {
+          "fold": 463,
+          "call": 288,
+          "raise": 77
+        },
+        "river all-in": {
+          "call": 17,
+          "fold": 11
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr318/account-a-seed-20261016055101-20261016T200159Z-5029"
+    ]
+  },
+  "confirmation-b": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -23.745,
+      "half_width_95": 31.96921307127899
+    },
+    "endings": {
+      "showdown": {
+        "hands": 1960,
+        "bb_per_100": -66.63265306122449,
+        "half_width_95": 148.68845785306888,
+        "share": 0.196,
+        "adds_bb_per_100": -13.06,
+        "adds_half_width_95": 29.14157171958391
+      },
+      "player folded preflop": {
+        "hands": 1733,
+        "bb_per_100": -127.66878245816503,
+        "half_width_95": 20.003644741273074,
+        "share": 0.1733,
+        "adds_bb_per_100": -22.125,
+        "adds_half_width_95": 3.5929047933371954
+      },
+      "slumbot folded preflop": {
+        "hands": 1579,
+        "bb_per_100": 129.76567447751742,
+        "half_width_95": 7.76882388915244,
+        "share": 0.1579,
+        "adds_bb_per_100": 20.49,
+        "adds_half_width_95": 1.537604113491175
+      },
+      "player folded flop": {
+        "hands": 1228,
+        "bb_per_100": -304.1530944625407,
+        "half_width_95": 18.41097756743788,
+        "share": 0.1228,
+        "adds_bb_per_100": -37.35,
+        "adds_half_width_95": 2.9893890012944295
+      },
+      "slumbot folded flop": {
+        "hands": 964,
+        "bb_per_100": 278.8381742738589,
+        "half_width_95": 18.69611128713861,
+        "share": 0.0964,
+        "adds_bb_per_100": 26.88,
+        "adds_half_width_95": 2.4181179943004096
+      },
+      "player folded turn": {
+        "hands": 719,
+        "bb_per_100": -483.65785813630043,
+        "half_width_95": 46.41854769935193,
+        "share": 0.0719,
+        "adds_bb_per_100": -34.775,
+        "adds_half_width_95": 4.137847644635194
+      },
+      "slumbot folded turn": {
+        "hands": 642,
+        "bb_per_100": 571.3395638629283,
+        "half_width_95": 65.61321423223336,
+        "share": 0.0642,
+        "adds_bb_per_100": 36.68,
+        "adds_half_width_95": 5.025217970633834
+      },
+      "player folded river": {
+        "hands": 623,
+        "bb_per_100": -803.5313001605136,
+        "half_width_95": 99.94681490125815,
+        "share": 0.0623,
+        "adds_bb_per_100": -50.06,
+        "adds_half_width_95": 7.294159053150216
+      },
+      "slumbot folded river": {
+        "hands": 552,
+        "bb_per_100": 898.0978260869565,
+        "half_width_95": 94.39023694846206,
+        "share": 0.0552,
+        "adds_bb_per_100": 49.575,
+        "adds_half_width_95": 6.577437929777217
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3312,
+        "bb_per_100": -4.936594202898551,
+        "half_width_95": 11.934015108198542,
+        "share": 0.3312,
+        "adds_bb_per_100": -1.635,
+        "adds_half_width_95": 3.952409043559227
+      },
+      "ended flop": {
+        "hands": 2192,
+        "bb_per_100": -47.76459854014598,
+        "half_width_95": 17.90894619117051,
+        "share": 0.2192,
+        "adds_bb_per_100": -10.47,
+        "adds_half_width_95": 3.9440064748632673
+      },
+      "ended turn": {
+        "hands": 1361,
+        "bb_per_100": 13.997060984570169,
+        "half_width_95": 48.38978071878036,
+        "share": 0.1361,
+        "adds_bb_per_100": 1.905,
+        "adds_half_width_95": 6.584430504323257
+      },
+      "ended river": {
+        "hands": 1175,
+        "bb_per_100": -4.127659574468085,
+        "half_width_95": 84.44323098222381,
+        "share": 0.1175,
+        "adds_bb_per_100": -0.485,
+        "adds_half_width_95": 9.918386727461858
+      },
+      "showdown": {
+        "hands": 1960,
+        "bb_per_100": -66.63265306122449,
+        "half_width_95": 148.68845785306888,
+        "share": 0.196,
+        "adds_bb_per_100": -13.06,
+        "adds_half_width_95": 29.14157171958391
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7607,
+        "bb_per_100": -13.612462205863022,
+        "half_width_95": 5.037767179279768,
+        "share": 0.7607,
+        "adds_bb_per_100": -10.355,
+        "adds_half_width_95": 3.833859707691692
+      },
+      "10–30 BB": {
+        "hands": 1666,
+        "bb_per_100": -4.111644657863145,
+        "half_width_95": 39.84516488233096,
+        "share": 0.1666,
+        "adds_bb_per_100": -0.685,
+        "adds_half_width_95": 6.636611690011432
+      },
+      "30–100 BB": {
+        "hands": 565,
+        "bb_per_100": 336.1061946902655,
+        "half_width_95": 201.6853659243784,
+        "share": 0.0565,
+        "adds_bb_per_100": 18.99,
+        "adds_half_width_95": 11.486857993944266
+      },
+      "100–399 BB": {
+        "hands": 123,
+        "bb_per_100": -1113.4146341463415,
+        "half_width_95": 1308.3727192312554,
+        "share": 0.0123,
+        "adds_bb_per_100": -13.695,
+        "adds_half_width_95": 16.20773144415259
+      },
+      "all-in, 400 BB": {
+        "hands": 39,
+        "bb_per_100": -4615.384615384615,
+        "half_width_95": 6017.529326256716,
+        "share": 0.0039,
+        "adds_bb_per_100": -18.0,
+        "adds_half_width_95": 23.843011157949572
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.655,
+      "median": 5.0,
+      "max": 15
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8178,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4333,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.1034,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.2598,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.6368,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.22450175849941384,
+        "of": 5118
+      },
+      "fold_to_3bet": {
+        "rate": 0.37325038880248834,
+        "of": 643
+      },
+      "flop_cbet": {
+        "rate": 0.5946280991735537,
+        "of": 2420
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.564087418783225,
+          "of": 1693
+        },
+        "call": {
+          "rate": 0.3691671588895452,
+          "of": 1693
+        },
+        "raise": {
+          "rate": 0.06674542232722977,
+          "of": 1693
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6688,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2930622009569378,
+        "of": 6688
+      },
+      "won_at_showdown": {
+        "rate": 0.49642857142857144,
+        "of": 1960
+      },
+      "won_after_flop": {
+        "rate": 0.46815191387559807,
+        "of": 6688
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1733,
+          "check": 0,
+          "call": 4705,
+          "bet": 0,
+          "raise": 4418,
+          "aggression_factor": 0.9390010626992561,
+          "aggression_frequency": 0.406963890935888
+        },
+        "flop": {
+          "fold": 1228,
+          "check": 3599,
+          "call": 868,
+          "bet": 2512,
+          "raise": 198,
+          "aggression_factor": 3.122119815668203,
+          "aggression_frequency": 0.3224271267102915
+        },
+        "turn": {
+          "fold": 719,
+          "check": 2144,
+          "call": 559,
+          "bet": 1665,
+          "raise": 140,
+          "aggression_factor": 3.228980322003578,
+          "aggression_frequency": 0.3453223646451119
+        },
+        "river": {
+          "fold": 623,
+          "check": 1333,
+          "call": 399,
+          "bet": 1199,
+          "raise": 146,
+          "aggression_factor": 3.3709273182957395,
+          "aggression_frequency": 0.3635135135135135
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 436,
+          "~½": 1656,
+          "~pot": 2325,
+          "all-in": 1
+        },
+        "flop": {
+          "<0.4": 1538,
+          "~½": 307,
+          "~pot": 865
+        },
+        "turn": {
+          "<0.4": 917,
+          "~½": 45,
+          "~pot": 832,
+          "all-in": 11
+        },
+        "river": {
+          "<0.4": 460,
+          "~½": 12,
+          "~pot": 851,
+          "all-in": 22
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 2625,
+          "fold": 819,
+          "raise": 1070
+        },
+        "preflop ~pot": {
+          "raise": 154,
+          "call": 769,
+          "fold": 386
+        },
+        "preflop 1.2–2.5×": {
+          "call": 11,
+          "fold": 9,
+          "raise": 10
+        },
+        "preflop all-in": {
+          "call": 1,
+          "fold": 2
+        },
+        "flop <0.4": {
+          "call": 32,
+          "fold": 4,
+          "raise": 11
+        },
+        "flop ~½": {
+          "fold": 1111,
+          "call": 738,
+          "raise": 162
+        },
+        "flop ~⅔–¾": {
+          "call": 26,
+          "raise": 7,
+          "fold": 25
+        },
+        "flop ~pot": {
+          "raise": 15,
+          "call": 57,
+          "fold": 75
+        },
+        "flop 1.2–2.5×": {
+          "call": 9,
+          "fold": 11,
+          "raise": 3
+        },
+        "flop >2.5×": {
+          "fold": 1
+        },
+        "flop all-in": {
+          "call": 6,
+          "fold": 1
+        },
+        "turn <0.4": {
+          "call": 26,
+          "raise": 11,
+          "fold": 7
+        },
+        "turn ~½": {
+          "fold": 499,
+          "raise": 91,
+          "call": 384
+        },
+        "turn ~⅔–¾": {
+          "fold": 36,
+          "call": 24,
+          "raise": 9
+        },
+        "turn ~pot": {
+          "fold": 140,
+          "call": 101,
+          "raise": 18
+        },
+        "turn 1.2–2.5×": {
+          "raise": 11,
+          "fold": 33,
+          "call": 20
+        },
+        "turn >2.5×": {
+          "call": 1
+        },
+        "turn all-in": {
+          "fold": 4,
+          "call": 3
+        },
+        "river <0.4": {
+          "call": 34,
+          "raise": 18,
+          "fold": 6
+        },
+        "river ~½": {
+          "fold": 362,
+          "raise": 77,
+          "call": 201
+        },
+        "river ~⅔–¾": {
+          "call": 29,
+          "fold": 45,
+          "raise": 13
+        },
+        "river ~pot": {
+          "fold": 165,
+          "raise": 25,
+          "call": 105
+        },
+        "river 1.2–2.5×": {
+          "fold": 26,
+          "raise": 13,
+          "call": 19
+        },
+        "river all-in": {
+          "call": 11,
+          "fold": 19
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7623,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5761,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.0972,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.9028,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.20194723618090452,
+        "of": 3184
+      },
+      "fold_to_3bet": {
+        "rate": 0.329852045256745,
+        "of": 1149
+      },
+      "flop_cbet": {
+        "rate": 0.5786056049213943,
+        "of": 2926
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.3467685892981237,
+          "of": 1439
+        },
+        "call": {
+          "rate": 0.5482974287699791,
+          "of": 1439
+        },
+        "raise": {
+          "rate": 0.10493398193189715,
+          "of": 1439
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6688,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2930622009569378,
+        "of": 6688
+      },
+      "won_at_showdown": {
+        "rate": 0.45663265306122447,
+        "of": 1960
+      },
+      "won_after_flop": {
+        "rate": 0.5180921052631579,
+        "of": 6688
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1579,
+          "check": 695,
+          "call": 2587,
+          "bet": 0,
+          "raise": 5856,
+          "aggression_factor": 2.263625821414766,
+          "aggression_frequency": 0.5464215732014557
+        },
+        "flop": {
+          "fold": 964,
+          "check": 3804,
+          "call": 1440,
+          "bet": 1988,
+          "raise": 306,
+          "aggression_factor": 1.5930555555555554,
+          "aggression_frequency": 0.26981886614914136
+        },
+        "turn": {
+          "fold": 642,
+          "check": 2387,
+          "call": 946,
+          "bet": 1201,
+          "raise": 217,
+          "aggression_factor": 1.4989429175475688,
+          "aggression_frequency": 0.26293343222696086
+        },
+        "river": {
+          "fold": 552,
+          "check": 1454,
+          "call": 576,
+          "bet": 951,
+          "raise": 217,
+          "aggression_factor": 2.0277777777777777,
+          "aggression_frequency": 0.31146666666666667
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4514,
+          "~pot": 1309,
+          "1.2–2.5×": 30,
+          "all-in": 3
+        },
+        "flop": {
+          "<0.4": 47,
+          "~½": 2011,
+          "~⅔–¾": 58,
+          "~pot": 147,
+          "1.2–2.5×": 23,
+          ">2.5×": 1,
+          "all-in": 7
+        },
+        "turn": {
+          "<0.4": 44,
+          "~½": 974,
+          "~⅔–¾": 69,
+          "~pot": 259,
+          "1.2–2.5×": 64,
+          ">2.5×": 1,
+          "all-in": 7
+        },
+        "river": {
+          "<0.4": 58,
+          "~½": 640,
+          "~⅔–¾": 87,
+          "~pot": 295,
+          "1.2–2.5×": 58,
+          "all-in": 30
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 318,
+          "fold": 87,
+          "raise": 31
+        },
+        "preflop ~½": {
+          "raise": 426,
+          "call": 1138,
+          "fold": 92
+        },
+        "preflop ~pot": {
+          "fold": 914,
+          "call": 1130,
+          "raise": 281
+        },
+        "preflop all-in": {
+          "call": 1
+        },
+        "flop <0.4": {
+          "call": 939,
+          "fold": 360,
+          "raise": 239
+        },
+        "flop ~½": {
+          "call": 163,
+          "fold": 123,
+          "raise": 21
+        },
+        "flop ~pot": {
+          "fold": 481,
+          "call": 338,
+          "raise": 46
+        },
+        "turn <0.4": {
+          "call": 579,
+          "raise": 173,
+          "fold": 165
+        },
+        "turn ~½": {
+          "fold": 24,
+          "call": 18,
+          "raise": 3
+        },
+        "turn ~pot": {
+          "fold": 447,
+          "raise": 41,
+          "call": 344
+        },
+        "turn all-in": {
+          "call": 5,
+          "fold": 6
+        },
+        "river <0.4": {
+          "raise": 128,
+          "call": 272,
+          "fold": 60
+        },
+        "river ~½": {
+          "fold": 8,
+          "call": 3,
+          "raise": 1
+        },
+        "river ~pot": {
+          "fold": 474,
+          "call": 289,
+          "raise": 88
+        },
+        "river all-in": {
+          "call": 12,
+          "fold": 10
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr318/account-b-seed-20261016055201-20261016T200159Z-5057"
+    ]
+  },
+  "confirmation-c": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -10.975,
+      "half_width_95": 33.197775530265815
+    },
+    "endings": {
+      "showdown": {
+        "hands": 1999,
+        "bb_per_100": -11.680840420210105,
+        "half_width_95": 150.47820698194624,
+        "share": 0.1999,
+        "adds_bb_per_100": -2.335,
+        "adds_half_width_95": 30.07471187996171
+      },
+      "player folded preflop": {
+        "hands": 1785,
+        "bb_per_100": -120.75630252100841,
+        "half_width_95": 10.256083292652283,
+        "share": 0.1785,
+        "adds_bb_per_100": -21.555,
+        "adds_half_width_95": 2.0424213688709787
+      },
+      "slumbot folded preflop": {
+        "hands": 1510,
+        "bb_per_100": 129.50331125827816,
+        "half_width_95": 9.228372301557284,
+        "share": 0.151,
+        "adds_bb_per_100": 19.555,
+        "adds_half_width_95": 1.6633544569696959
+      },
+      "player folded flop": {
+        "hands": 1314,
+        "bb_per_100": -308.82800608828006,
+        "half_width_95": 19.995299599297862,
+        "share": 0.1314,
+        "adds_bb_per_100": -40.58,
+        "adds_half_width_95": 3.3287787402238282
+      },
+      "slumbot folded flop": {
+        "hands": 894,
+        "bb_per_100": 264.26174496644296,
+        "half_width_95": 16.72348794578333,
+        "share": 0.0894,
+        "adds_bb_per_100": 23.625,
+        "adds_half_width_95": 2.1017067480087377
+      },
+      "player folded turn": {
+        "hands": 704,
+        "bb_per_100": -478.97727272727275,
+        "half_width_95": 47.14215982396839,
+        "share": 0.0704,
+        "adds_bb_per_100": -33.72,
+        "adds_half_width_95": 4.094914563307039
+      },
+      "slumbot folded turn": {
+        "hands": 629,
+        "bb_per_100": 619.872813990461,
+        "half_width_95": 90.89354139846148,
+        "share": 0.0629,
+        "adds_bb_per_100": 38.99,
+        "adds_half_width_95": 6.429563065598272
+      },
+      "player folded river": {
+        "hands": 594,
+        "bb_per_100": -823.8215488215488,
+        "half_width_95": 100.87037186182151,
+        "share": 0.0594,
+        "adds_bb_per_100": -48.935,
+        "adds_half_width_95": 7.100145339534131
+      },
+      "slumbot folded river": {
+        "hands": 571,
+        "bb_per_100": 945.3590192644483,
+        "half_width_95": 116.22943193665995,
+        "share": 0.0571,
+        "adds_bb_per_100": 53.98,
+        "adds_half_width_95": 7.903125364752168
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3295,
+        "bb_per_100": -6.0698027314112295,
+        "half_width_95": 8.177619806771286,
+        "share": 0.3295,
+        "adds_bb_per_100": -2.0,
+        "adds_half_width_95": 2.694831818843838
+      },
+      "ended flop": {
+        "hands": 2208,
+        "bb_per_100": -76.78894927536231,
+        "half_width_95": 18.031070382025117,
+        "share": 0.2208,
+        "adds_bb_per_100": -16.955,
+        "adds_half_width_95": 4.029218674530922
+      },
+      "ended turn": {
+        "hands": 1333,
+        "bb_per_100": 39.53488372093023,
+        "half_width_95": 57.66541678526171,
+        "share": 0.1333,
+        "adds_bb_per_100": 5.27,
+        "adds_half_width_95": 7.688813348482767
+      },
+      "ended river": {
+        "hands": 1165,
+        "bb_per_100": 43.30472103004292,
+        "half_width_95": 92.01547837181424,
+        "share": 0.1165,
+        "adds_bb_per_100": 5.045,
+        "adds_half_width_95": 10.719196952589632
+      },
+      "showdown": {
+        "hands": 1999,
+        "bb_per_100": -11.680840420210105,
+        "half_width_95": 150.47820698194624,
+        "share": 0.1999,
+        "adds_bb_per_100": -2.335,
+        "adds_half_width_95": 30.07471187996171
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7633,
+        "bb_per_100": -17.14922048997773,
+        "half_width_95": 5.052992049872865,
+        "share": 0.7633,
+        "adds_bb_per_100": -13.09,
+        "adds_half_width_95": 3.859534608556252
+      },
+      "10–30 BB": {
+        "hands": 1616,
+        "bb_per_100": -12.438118811881187,
+        "half_width_95": 40.92977340300579,
+        "share": 0.1616,
+        "adds_bb_per_100": -2.01,
+        "adds_half_width_95": 6.613144102669794
+      },
+      "30–100 BB": {
+        "hands": 573,
+        "bb_per_100": 185.51483420593368,
+        "half_width_95": 199.77018881878976,
+        "share": 0.0573,
+        "adds_bb_per_100": 10.63,
+        "adds_half_width_95": 11.468591950672458
+      },
+      "100–399 BB": {
+        "hands": 137,
+        "bb_per_100": -36.86131386861314,
+        "half_width_95": 1295.0378391824063,
+        "share": 0.0137,
+        "adds_bb_per_100": -0.505,
+        "adds_half_width_95": 17.678231342980485
+      },
+      "all-in, 400 BB": {
+        "hands": 41,
+        "bb_per_100": -1463.4146341463415,
+        "half_width_95": 6027.96576032201,
+        "share": 0.0041,
+        "adds_bb_per_100": -6.0,
+        "adds_half_width_95": 24.48133378332114
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.6668,
+      "median": 5.0,
+      "max": 15
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8129,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4136,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.1162,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.271,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.6128,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.20843865448181995,
+        "of": 5143
+      },
+      "fold_to_3bet": {
+        "rate": 0.36622073578595316,
+        "of": 598
+      },
+      "flop_cbet": {
+        "rate": 0.5990545767082079,
+        "of": 2327
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5853521126760564,
+          "of": 1775
+        },
+        "call": {
+          "rate": 0.35774647887323946,
+          "of": 1775
+        },
+        "raise": {
+          "rate": 0.056901408450704224,
+          "of": 1775
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6705,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2981357196122297,
+        "of": 6705
+      },
+      "won_at_showdown": {
+        "rate": 0.5017508754377189,
+        "of": 1999
+      },
+      "won_after_flop": {
+        "rate": 0.46189410887397464,
+        "of": 6705
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1785,
+          "check": 0,
+          "call": 4856,
+          "bet": 0,
+          "raise": 4217,
+          "aggression_factor": 0.8684102141680395,
+          "aggression_frequency": 0.3883772333763124
+        },
+        "flop": {
+          "fold": 1314,
+          "check": 3644,
+          "call": 884,
+          "bet": 2457,
+          "raise": 212,
+          "aggression_factor": 3.019230769230769,
+          "aggression_frequency": 0.3135941722476795
+        },
+        "turn": {
+          "fold": 704,
+          "check": 2062,
+          "call": 578,
+          "bet": 1725,
+          "raise": 160,
+          "aggression_factor": 3.2612456747404845,
+          "aggression_frequency": 0.36048957735704723
+        },
+        "river": {
+          "fold": 594,
+          "check": 1358,
+          "call": 408,
+          "bet": 1229,
+          "raise": 136,
+          "aggression_factor": 3.3455882352941178,
+          "aggression_frequency": 0.36644295302013424
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 418,
+          "~½": 1623,
+          "~pot": 2175,
+          "all-in": 1
+        },
+        "flop": {
+          "<0.4": 1525,
+          "~½": 322,
+          "~pot": 822
+        },
+        "turn": {
+          "<0.4": 937,
+          "~½": 54,
+          "~pot": 889,
+          "all-in": 5
+        },
+        "river": {
+          "<0.4": 476,
+          "~½": 11,
+          "~pot": 855,
+          "all-in": 23
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "fold": 803,
+          "call": 2697,
+          "raise": 1013
+        },
+        "preflop ~pot": {
+          "raise": 132,
+          "fold": 375,
+          "call": 782
+        },
+        "preflop 1.2–2.5×": {
+          "fold": 23,
+          "raise": 8,
+          "call": 19
+        },
+        "preflop all-in": {
+          "call": 3,
+          "fold": 3
+        },
+        "flop <0.4": {
+          "call": 34,
+          "raise": 20,
+          "fold": 4
+        },
+        "flop ~½": {
+          "fold": 1190,
+          "call": 759,
+          "raise": 163
+        },
+        "flop ~⅔–¾": {
+          "call": 19,
+          "fold": 25,
+          "raise": 2
+        },
+        "flop ~pot": {
+          "fold": 72,
+          "raise": 23,
+          "call": 57
+        },
+        "flop 1.2–2.5×": {
+          "fold": 18,
+          "call": 9,
+          "raise": 4
+        },
+        "flop >2.5×": {
+          "call": 2,
+          "fold": 1
+        },
+        "flop all-in": {
+          "call": 4,
+          "fold": 4
+        },
+        "turn <0.4": {
+          "call": 24,
+          "raise": 10,
+          "fold": 3
+        },
+        "turn ~½": {
+          "raise": 104,
+          "fold": 505,
+          "call": 384
+        },
+        "turn ~⅔–¾": {
+          "call": 31,
+          "fold": 28,
+          "raise": 17
+        },
+        "turn ~pot": {
+          "call": 110,
+          "fold": 138,
+          "raise": 22
+        },
+        "turn 1.2–2.5×": {
+          "call": 18,
+          "fold": 26,
+          "raise": 7
+        },
+        "turn >2.5×": {
+          "fold": 1
+        },
+        "turn all-in": {
+          "call": 11,
+          "fold": 3
+        },
+        "river <0.4": {
+          "call": 32,
+          "raise": 23,
+          "fold": 6
+        },
+        "river ~½": {
+          "fold": 347,
+          "call": 211,
+          "raise": 64
+        },
+        "river ~⅔–¾": {
+          "call": 25,
+          "fold": 45,
+          "raise": 7
+        },
+        "river ~pot": {
+          "fold": 153,
+          "call": 116,
+          "raise": 31
+        },
+        "river 1.2–2.5×": {
+          "raise": 11,
+          "fold": 24,
+          "call": 12
+        },
+        "river >2.5×": {
+          "fold": 1
+        },
+        "river all-in": {
+          "call": 12,
+          "fold": 18
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7544,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5741,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.0974,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.9026,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.19516971279373369,
+        "of": 3064
+      },
+      "fold_to_3bet": {
+        "rate": 0.3041044776119403,
+        "of": 1072
+      },
+      "flop_cbet": {
+        "rate": 0.5854221635883905,
+        "of": 3032
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.3149210903873745,
+          "of": 1394
+        },
+        "call": {
+          "rate": 0.5609756097560976,
+          "of": 1394
+        },
+        "raise": {
+          "rate": 0.12410329985652797,
+          "of": 1394
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6705,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2981357196122297,
+        "of": 6705
+      },
+      "won_at_showdown": {
+        "rate": 0.4502251125562781,
+        "of": 1999
+      },
+      "won_after_flop": {
+        "rate": 0.5237882177479493,
+        "of": 6705
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1510,
+          "check": 725,
+          "call": 2479,
+          "bet": 0,
+          "raise": 5858,
+          "aggression_factor": 2.3630496167809603,
+          "aggression_frequency": 0.5541051835035944
+        },
+        "flop": {
+          "fold": 894,
+          "check": 3791,
+          "call": 1438,
+          "bet": 2073,
+          "raise": 337,
+          "aggression_factor": 1.6759388038942977,
+          "aggression_frequency": 0.2824329075354506
+        },
+        "turn": {
+          "fold": 629,
+          "check": 2340,
+          "call": 1042,
+          "bet": 1228,
+          "raise": 214,
+          "aggression_factor": 1.383877159309021,
+          "aggression_frequency": 0.2644415917843389
+        },
+        "river": {
+          "fold": 571,
+          "check": 1484,
+          "call": 594,
+          "bet": 938,
+          "raise": 200,
+          "aggression_factor": 1.9158249158249159,
+          "aggression_frequency": 0.3005017163982044
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4513,
+          "~pot": 1289,
+          "1.2–2.5×": 50,
+          "all-in": 6
+        },
+        "flop": {
+          "<0.4": 58,
+          "~½": 2112,
+          "~⅔–¾": 46,
+          "~pot": 152,
+          "1.2–2.5×": 31,
+          ">2.5×": 3,
+          "all-in": 8
+        },
+        "turn": {
+          "<0.4": 37,
+          "~½": 993,
+          "~⅔–¾": 76,
+          "~pot": 270,
+          "1.2–2.5×": 51,
+          ">2.5×": 1,
+          "all-in": 14
+        },
+        "river": {
+          "<0.4": 61,
+          "~½": 622,
+          "~⅔–¾": 77,
+          "~pot": 300,
+          "1.2–2.5×": 47,
+          ">2.5×": 1,
+          "all-in": 30
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "raise": 51,
+          "call": 299,
+          "fold": 68
+        },
+        "preflop ~½": {
+          "call": 1137,
+          "fold": 103,
+          "raise": 383
+        },
+        "preflop ~pot": {
+          "call": 1042,
+          "fold": 852,
+          "raise": 281
+        },
+        "preflop all-in": {
+          "call": 1
+        },
+        "flop <0.4": {
+          "fold": 329,
+          "raise": 260,
+          "call": 936
+        },
+        "flop ~½": {
+          "call": 168,
+          "fold": 129,
+          "raise": 25
+        },
+        "flop ~pot": {
+          "fold": 436,
+          "call": 334,
+          "raise": 52
+        },
+        "turn <0.4": {
+          "call": 634,
+          "fold": 150,
+          "raise": 153
+        },
+        "turn ~½": {
+          "raise": 7,
+          "call": 24,
+          "fold": 23
+        },
+        "turn ~pot": {
+          "call": 381,
+          "fold": 454,
+          "raise": 54
+        },
+        "turn all-in": {
+          "fold": 2,
+          "call": 3
+        },
+        "river <0.4": {
+          "call": 290,
+          "raise": 110,
+          "fold": 76
+        },
+        "river ~½": {
+          "call": 3,
+          "fold": 5,
+          "raise": 3
+        },
+        "river ~pot": {
+          "fold": 474,
+          "raise": 87,
+          "call": 294
+        },
+        "river all-in": {
+          "call": 7,
+          "fold": 16
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr318/account-c-seed-20261016055301-20261016T200200Z-5087"
+    ]
+  },
+  "confirmation-pooled": {
+    "hands": 30000,
+    "overall": {
+      "hands": 30000,
+      "bb_per_100": -19.668333333333333,
+      "half_width_95": 18.904891557094228
+    },
+    "endings": {
+      "showdown": {
+        "hands": 6027,
+        "bb_per_100": -48.456943753111,
+        "half_width_95": 85.60949447097074,
+        "share": 0.2009,
+        "adds_bb_per_100": -9.735,
+        "adds_half_width_95": 17.199210575373694
+      },
+      "player folded preflop": {
+        "hands": 5267,
+        "bb_per_100": -120.97968483007405,
+        "half_width_95": 7.707398752536426,
+        "share": 0.17556666666666668,
+        "adds_bb_per_100": -21.24,
+        "adds_half_width_95": 1.4498441001679547
+      },
+      "slumbot folded preflop": {
+        "hands": 4649,
+        "bb_per_100": 127.78016777801678,
+        "half_width_95": 5.023989292740323,
+        "share": 0.15496666666666667,
+        "adds_bb_per_100": 19.801666666666666,
+        "adds_half_width_95": 0.9379969050752569
+      },
+      "player folded flop": {
+        "hands": 3775,
+        "bb_per_100": -307.5496688741722,
+        "half_width_95": 11.294358492239205,
+        "share": 0.12583333333333332,
+        "adds_bb_per_100": -38.7,
+        "adds_half_width_95": 1.8307741528593136
+      },
+      "slumbot folded flop": {
+        "hands": 2795,
+        "bb_per_100": 276.65474060822896,
+        "half_width_95": 11.360353735533108,
+        "share": 0.09316666666666666,
+        "adds_bb_per_100": 25.775,
+        "adds_half_width_95": 1.3956845366381547
+      },
+      "player folded turn": {
+        "hands": 2154,
+        "bb_per_100": -494.0807799442897,
+        "half_width_95": 35.36439033905965,
+        "share": 0.0718,
+        "adds_bb_per_100": -35.475,
+        "adds_half_width_95": 2.920264673610352
+      },
+      "slumbot folded turn": {
+        "hands": 1857,
+        "bb_per_100": 560.4469574582661,
+        "half_width_95": 42.095741264394185,
+        "share": 0.0619,
+        "adds_bb_per_100": 34.69166666666667,
+        "adds_half_width_95": 3.020275547651641
+      },
+      "player folded river": {
+        "hands": 1793,
+        "bb_per_100": -784.6346904629113,
+        "half_width_95": 57.47838959258795,
+        "share": 0.05976666666666667,
+        "adds_bb_per_100": -46.895,
+        "adds_half_width_95": 4.028071538584686
+      },
+      "slumbot folded river": {
+        "hands": 1683,
+        "bb_per_100": 928.8472964943553,
+        "half_width_95": 62.48943069141956,
+        "share": 0.0561,
+        "adds_bb_per_100": 52.108333333333334,
+        "adds_half_width_95": 4.258298039736653
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 9916,
+        "bb_per_100": -4.351553045582897,
+        "half_width_95": 5.317569282972839,
+        "share": 0.33053333333333335,
+        "adds_bb_per_100": -1.4383333333333332,
+        "adds_half_width_95": 1.7577272076195942
+      },
+      "ended flop": {
+        "hands": 6570,
+        "bb_per_100": -59.018264840182646,
+        "half_width_95": 10.688738633929471,
+        "share": 0.219,
+        "adds_bb_per_100": -12.925,
+        "adds_half_width_95": 2.356934941731548
+      },
+      "ended turn": {
+        "hands": 4011,
+        "bb_per_100": -5.858888057840938,
+        "half_width_95": 31.70483278872825,
+        "share": 0.1337,
+        "adds_bb_per_100": -0.7833333333333333,
+        "adds_half_width_95": 4.238538399912521
+      },
+      "ended river": {
+        "hands": 3476,
+        "bb_per_100": 44.99424626006905,
+        "half_width_95": 51.03504259201348,
+        "share": 0.11586666666666667,
+        "adds_bb_per_100": 5.213333333333333,
+        "adds_half_width_95": 5.914753657109407
+      },
+      "showdown": {
+        "hands": 6027,
+        "bb_per_100": -48.456943753111,
+        "half_width_95": 85.60949447097074,
+        "share": 0.2009,
+        "adds_bb_per_100": -9.735,
+        "adds_half_width_95": 17.199210575373694
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 22889,
+        "bb_per_100": -13.807942679889903,
+        "half_width_95": 2.914637866205106,
+        "share": 0.7629666666666667,
+        "adds_bb_per_100": -10.535,
+        "adds_half_width_95": 2.2247525977971976
+      },
+      "10–30 BB": {
+        "hands": 4945,
+        "bb_per_100": -15.096056622851364,
+        "half_width_95": 23.292307892725738,
+        "share": 0.16483333333333333,
+        "adds_bb_per_100": -2.4883333333333333,
+        "adds_half_width_95": 3.839547713368907
+      },
+      "30–100 BB": {
+        "hands": 1667,
+        "bb_per_100": 166.0767846430714,
+        "half_width_95": 117.36224800695958,
+        "share": 0.05556666666666667,
+        "adds_bb_per_100": 9.228333333333333,
+        "adds_half_width_95": 6.533781182867478
+      },
+      "100–399 BB": {
+        "hands": 378,
+        "bb_per_100": -307.4074074074074,
+        "half_width_95": 781.95867170454,
+        "share": 0.0126,
+        "adds_bb_per_100": -3.8733333333333335,
+        "adds_half_width_95": 9.847449364926925
+      },
+      "all-in, 400 BB": {
+        "hands": 121,
+        "bb_per_100": -2975.206611570248,
+        "half_width_95": 3463.0636671724073,
+        "share": 0.004033333333333333,
+        "adds_bb_per_100": -12.0,
+        "adds_half_width_95": 14.072810096365112
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.664033333333333,
+      "median": 5.0,
+      "max": 15
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8154,
+        "of": 30000
+      },
+      "pfr": {
+        "rate": 0.4235,
+        "of": 30000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.1104,
+          "of": 15000
+        },
+        "call": {
+          "rate": 0.2653333333333333,
+          "of": 15000
+        },
+        "raise": {
+          "rate": 0.6242666666666666,
+          "of": 15000
+        }
+      },
+      "3bet": {
+        "rate": 0.217286680541103,
+        "of": 15376
+      },
+      "fold_to_3bet": {
+        "rate": 0.37328954570333883,
+        "of": 1827
+      },
+      "flop_cbet": {
+        "rate": 0.5994131619393601,
+        "of": 7157
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5704401306938305,
+          "of": 5203
+        },
+        "call": {
+          "rate": 0.36594272535075917,
+          "of": 5203
+        },
+        "raise": {
+          "rate": 0.06361714395541034,
+          "of": 5203
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6694666666666667,
+        "of": 30000
+      },
+      "showdown_after_flop": {
+        "rate": 0.30008962358096,
+        "of": 20084
+      },
+      "won_at_showdown": {
+        "rate": 0.49361207897793263,
+        "of": 6027
+      },
+      "won_after_flop": {
+        "rate": 0.46355307707627963,
+        "of": 20084
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 5267,
+          "check": 0,
+          "call": 14297,
+          "bet": 0,
+          "raise": 12954,
+          "aggression_factor": 0.906064209274673,
+          "aggression_frequency": 0.39836398302478626
+        },
+        "flop": {
+          "fold": 3775,
+          "check": 10905,
+          "call": 2667,
+          "bet": 7448,
+          "raise": 611,
+          "aggression_factor": 3.021747281589801,
+          "aggression_frequency": 0.317208533417303
+        },
+        "turn": {
+          "fold": 2154,
+          "check": 6370,
+          "call": 1733,
+          "bet": 5092,
+          "raise": 413,
+          "aggression_factor": 3.1765724177726486,
+          "aggression_frequency": 0.349257708412638
+        },
+        "river": {
+          "fold": 1793,
+          "check": 4052,
+          "call": 1228,
+          "bet": 3698,
+          "raise": 407,
+          "aggression_factor": 3.342833876221498,
+          "aggression_frequency": 0.3672392198962247
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 1300,
+          "~½": 4941,
+          "~pot": 6710,
+          "all-in": 3
+        },
+        "flop": {
+          "<0.4": 4645,
+          "~½": 961,
+          "~pot": 2453
+        },
+        "turn": {
+          "<0.4": 2822,
+          "~½": 154,
+          "~pot": 2501,
+          "all-in": 28
+        },
+        "river": {
+          "<0.4": 1464,
+          "~½": 34,
+          "~pot": 2534,
+          "all-in": 73
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 7991,
+          "raise": 3127,
+          "fold": 2417
+        },
+        "preflop ~pot": {
+          "call": 2271,
+          "fold": 1146,
+          "raise": 435
+        },
+        "preflop 1.2–2.5×": {
+          "fold": 43,
+          "call": 49,
+          "raise": 28
+        },
+        "preflop all-in": {
+          "call": 6,
+          "fold": 5
+        },
+        "flop <0.4": {
+          "call": 104,
+          "raise": 46,
+          "fold": 10
+        },
+        "flop ~½": {
+          "call": 2282,
+          "raise": 494,
+          "fold": 3434
+        },
+        "flop ~⅔–¾": {
+          "raise": 16,
+          "fold": 73,
+          "call": 64
+        },
+        "flop ~pot": {
+          "call": 171,
+          "fold": 205,
+          "raise": 44
+        },
+        "flop 1.2–2.5×": {
+          "call": 30,
+          "fold": 41,
+          "raise": 10
+        },
+        "flop >2.5×": {
+          "call": 3,
+          "fold": 3,
+          "raise": 1
+        },
+        "flop all-in": {
+          "call": 13,
+          "fold": 9
+        },
+        "turn <0.4": {
+          "raise": 30,
+          "call": 64,
+          "fold": 15
+        },
+        "turn ~½": {
+          "call": 1178,
+          "fold": 1507,
+          "raise": 267
+        },
+        "turn ~⅔–¾": {
+          "raise": 35,
+          "call": 85,
+          "fold": 119
+        },
+        "turn ~pot": {
+          "call": 326,
+          "fold": 422,
+          "raise": 51
+        },
+        "turn 1.2–2.5×": {
+          "call": 64,
+          "fold": 77,
+          "raise": 30
+        },
+        "turn >2.5×": {
+          "fold": 2,
+          "call": 1
+        },
+        "turn all-in": {
+          "fold": 12,
+          "call": 15
+        },
+        "river <0.4": {
+          "call": 111,
+          "fold": 19,
+          "raise": 55
+        },
+        "river ~½": {
+          "fold": 1040,
+          "call": 627,
+          "raise": 212
+        },
+        "river ~⅔–¾": {
+          "fold": 142,
+          "call": 89,
+          "raise": 25
+        },
+        "river ~pot": {
+          "fold": 471,
+          "call": 320,
+          "raise": 84
+        },
+        "river 1.2–2.5×": {
+          "fold": 73,
+          "call": 49,
+          "raise": 31
+        },
+        "river >2.5×": {
+          "fold": 1
+        },
+        "river all-in": {
+          "fold": 47,
+          "call": 32
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7568333333333334,
+        "of": 30000
+      },
+      "pfr": {
+        "rate": 0.5734333333333334,
+        "of": 30000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.09766666666666667,
+          "of": 15000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 15000
+        },
+        "raise": {
+          "rate": 0.9023333333333333,
+          "of": 15000
+        }
+      },
+      "3bet": {
+        "rate": 0.1951089278086288,
+        "of": 9364
+      },
+      "fold_to_3bet": {
+        "rate": 0.3160730320263394,
+        "of": 3341
+      },
+      "flop_cbet": {
+        "rate": 0.5837540670930103,
+        "of": 8913
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.33263403263403263,
+          "of": 4290
+        },
+        "call": {
+          "rate": 0.5517482517482517,
+          "of": 4290
+        },
+        "raise": {
+          "rate": 0.11561771561771562,
+          "of": 4290
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6694666666666667,
+        "of": 30000
+      },
+      "showdown_after_flop": {
+        "rate": 0.30008962358096,
+        "of": 20084
+      },
+      "won_at_showdown": {
+        "rate": 0.4572755931640949,
+        "of": 6027
+      },
+      "won_after_flop": {
+        "rate": 0.5217088229436367,
+        "of": 20084
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 4649,
+          "check": 2139,
+          "call": 7628,
+          "bet": 0,
+          "raise": 17518,
+          "aggression_factor": 2.2965390665967487,
+          "aggression_frequency": 0.5485689234045218
+        },
+        "flop": {
+          "fold": 2795,
+          "check": 11389,
+          "call": 4305,
+          "bet": 6094,
+          "raise": 959,
+          "aggression_factor": 1.6383275261324042,
+          "aggression_frequency": 0.276133427296218
+        },
+        "turn": {
+          "fold": 1857,
+          "check": 7100,
+          "call": 3007,
+          "bet": 3659,
+          "raise": 641,
+          "aggression_factor": 1.4299966744263386,
+          "aggression_frequency": 0.264387604525332
+        },
+        "river": {
+          "fold": 1683,
+          "check": 4407,
+          "call": 1799,
+          "bet": 2805,
+          "raise": 623,
+          "aggression_factor": 1.90550305725403,
+          "aggression_frequency": 0.30290713086507026
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 13535,
+          "~pot": 3852,
+          "1.2–2.5×": 120,
+          "all-in": 11
+        },
+        "flop": {
+          "<0.4": 160,
+          "~½": 6210,
+          "~⅔–¾": 153,
+          "~pot": 420,
+          "1.2–2.5×": 81,
+          ">2.5×": 7,
+          "all-in": 22
+        },
+        "turn": {
+          "<0.4": 109,
+          "~½": 2952,
+          "~⅔–¾": 239,
+          "~pot": 799,
+          "1.2–2.5×": 171,
+          ">2.5×": 3,
+          "all-in": 27
+        },
+        "river": {
+          "<0.4": 185,
+          "~½": 1879,
+          "~⅔–¾": 256,
+          "~pot": 875,
+          "1.2–2.5×": 153,
+          ">2.5×": 1,
+          "all-in": 79
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 950,
+          "raise": 123,
+          "fold": 227
+        },
+        "preflop ~½": {
+          "call": 3458,
+          "raise": 1194,
+          "fold": 289
+        },
+        "preflop ~pot": {
+          "call": 3217,
+          "fold": 2668,
+          "raise": 825
+        },
+        "preflop all-in": {
+          "call": 3
+        },
+        "flop <0.4": {
+          "fold": 1068,
+          "raise": 748,
+          "call": 2829
+        },
+        "flop ~½": {
+          "fold": 388,
+          "call": 506,
+          "raise": 67
+        },
+        "flop ~pot": {
+          "fold": 1339,
+          "raise": 144,
+          "call": 970
+        },
+        "turn <0.4": {
+          "call": 1870,
+          "raise": 491,
+          "fold": 461
+        },
+        "turn ~½": {
+          "call": 67,
+          "fold": 75,
+          "raise": 12
+        },
+        "turn ~pot": {
+          "fold": 1309,
+          "call": 1054,
+          "raise": 138
+        },
+        "turn all-in": {
+          "call": 16,
+          "fold": 12
+        },
+        "river <0.4": {
+          "raise": 363,
+          "call": 880,
+          "fold": 221
+        },
+        "river ~½": {
+          "fold": 14,
+          "call": 12,
+          "raise": 8
+        },
+        "river ~pot": {
+          "fold": 1411,
+          "call": 871,
+          "raise": 252
+        },
+        "river all-in": {
+          "call": 36,
+          "fold": 37
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr318/account-a-seed-20261016055101-20261016T200159Z-5029",
+      "results/inputs/pr318/account-b-seed-20261016055201-20261016T200159Z-5057",
+      "results/inputs/pr318/account-c-seed-20261016055301-20261016T200200Z-5087"
+    ]
+  },
+  "2026101302": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -23.075,
+      "half_width_95": 33.458711046625666
+    },
+    "endings": {
+      "showdown": {
+        "hands": 1961,
+        "bb_per_100": -147.6032636409995,
+        "half_width_95": 155.6233025626044,
+        "share": 0.1961,
+        "adds_bb_per_100": -28.945,
+        "adds_half_width_95": 30.533089325888632
+      },
+      "player folded preflop": {
+        "hands": 1795,
+        "bb_per_100": -115.65459610027855,
+        "half_width_95": 5.767131241515995,
+        "share": 0.1795,
+        "adds_bb_per_100": -20.76,
+        "adds_half_width_95": 1.3520446322709785
+      },
+      "slumbot folded preflop": {
+        "hands": 1630,
+        "bb_per_100": 126.71779141104294,
+        "half_width_95": 7.005237502701575,
+        "share": 0.163,
+        "adds_bb_per_100": 20.655,
+        "adds_half_width_95": 1.4645252326852265
+      },
+      "player folded flop": {
+        "hands": 1209,
+        "bb_per_100": -304.5492142266336,
+        "half_width_95": 18.319314880672145,
+        "share": 0.1209,
+        "adds_bb_per_100": -36.82,
+        "adds_half_width_95": 2.9477350557015574
+      },
+      "slumbot folded flop": {
+        "hands": 979,
+        "bb_per_100": 272.16547497446373,
+        "half_width_95": 19.09059831358517,
+        "share": 0.0979,
+        "adds_bb_per_100": 26.645,
+        "adds_half_width_95": 2.450145557872323
+      },
+      "player folded turn": {
+        "hands": 710,
+        "bb_per_100": -510.28169014084506,
+        "half_width_95": 82.09697385540905,
+        "share": 0.071,
+        "adds_bb_per_100": -36.23,
+        "adds_half_width_95": 6.3663182789724635
+      },
+      "slumbot folded turn": {
+        "hands": 606,
+        "bb_per_100": 550.2475247524752,
+        "half_width_95": 68.63555786959421,
+        "share": 0.0606,
+        "adds_bb_per_100": 33.345,
+        "adds_half_width_95": 4.8882683343784326
+      },
+      "player folded river": {
+        "hands": 561,
+        "bb_per_100": -687.8787878787879,
+        "half_width_95": 70.83037116209917,
+        "share": 0.0561,
+        "adds_bb_per_100": -38.59,
+        "adds_half_width_95": 5.038779228058608
+      },
+      "slumbot folded river": {
+        "hands": 549,
+        "bb_per_100": 1049.6357012750454,
+        "half_width_95": 132.41229708895176,
+        "share": 0.0549,
+        "adds_bb_per_100": 57.625,
+        "adds_half_width_95": 8.643856854647257
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3425,
+        "bb_per_100": -0.30656934306569344,
+        "half_width_95": 6.056662316640463,
+        "share": 0.3425,
+        "adds_bb_per_100": -0.105,
+        "adds_half_width_95": 2.074209661342826
+      },
+      "ended flop": {
+        "hands": 2188,
+        "bb_per_100": -46.5036563071298,
+        "half_width_95": 17.882794710128174,
+        "share": 0.2188,
+        "adds_bb_per_100": -10.175,
+        "adds_half_width_95": 3.930166084995081
+      },
+      "ended turn": {
+        "hands": 1316,
+        "bb_per_100": -21.922492401215806,
+        "half_width_95": 61.44006374318312,
+        "share": 0.1316,
+        "adds_bb_per_100": -2.885,
+        "adds_half_width_95": 8.084149168382638
+      },
+      "ended river": {
+        "hands": 1110,
+        "bb_per_100": 171.48648648648648,
+        "half_width_95": 90.44079983862865,
+        "share": 0.111,
+        "adds_bb_per_100": 19.035,
+        "adds_half_width_95": 10.090306186855702
+      },
+      "showdown": {
+        "hands": 1961,
+        "bb_per_100": -147.6032636409995,
+        "half_width_95": 155.6233025626044,
+        "share": 0.1961,
+        "adds_bb_per_100": -28.945,
+        "adds_half_width_95": 30.533089325888632
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7714,
+        "bb_per_100": -9.067928441794141,
+        "half_width_95": 4.9786617968500115,
+        "share": 0.7714,
+        "adds_bb_per_100": -6.995,
+        "adds_half_width_95": 3.8412080195559506
+      },
+      "10–30 BB": {
+        "hands": 1600,
+        "bb_per_100": -19.0,
+        "half_width_95": 40.932696840901755,
+        "share": 0.16,
+        "adds_bb_per_100": -3.04,
+        "adds_half_width_95": 6.548935263250983
+      },
+      "30–100 BB": {
+        "hands": 512,
+        "bb_per_100": 167.96875,
+        "half_width_95": 215.22126415236787,
+        "share": 0.0512,
+        "adds_bb_per_100": 8.6,
+        "adds_half_width_95": 11.033002198864642
+      },
+      "100–399 BB": {
+        "hands": 130,
+        "bb_per_100": 489.2307692307692,
+        "half_width_95": 1323.1357998825995,
+        "share": 0.013,
+        "adds_bb_per_100": 6.36,
+        "adds_half_width_95": 17.169731887568105
+      },
+      "all-in, 400 BB": {
+        "hands": 44,
+        "bb_per_100": -6363.636363636364,
+        "half_width_95": 5522.098947196203,
+        "share": 0.0044,
+        "adds_bb_per_100": -28.0,
+        "adds_half_width_95": 25.399845152547233
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.5785,
+      "median": 5.0,
+      "max": 14
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8084,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4306,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.1064,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.259,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.6346,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.2233392469938892,
+        "of": 5073
+      },
+      "fold_to_3bet": {
+        "rate": 0.3876500857632933,
+        "of": 583
+      },
+      "flop_cbet": {
+        "rate": 0.610648918469218,
+        "of": 2404
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5570258349086327,
+          "of": 1587
+        },
+        "call": {
+          "rate": 0.3667296786389414,
+          "of": 1587
+        },
+        "raise": {
+          "rate": 0.07624448645242596,
+          "of": 1587
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6575,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.29825095057034223,
+        "of": 6575
+      },
+      "won_at_showdown": {
+        "rate": 0.4987251402345742,
+        "of": 1961
+      },
+      "won_after_flop": {
+        "rate": 0.47330798479087455,
+        "of": 6575
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1795,
+          "check": 0,
+          "call": 4572,
+          "bet": 0,
+          "raise": 4388,
+          "aggression_factor": 0.9597550306211724,
+          "aggression_frequency": 0.4079962807996281
+        },
+        "flop": {
+          "fold": 1209,
+          "check": 3506,
+          "call": 818,
+          "bet": 2518,
+          "raise": 210,
+          "aggression_factor": 3.334963325183374,
+          "aggression_frequency": 0.33022636484687085
+        },
+        "turn": {
+          "fold": 710,
+          "check": 2113,
+          "call": 577,
+          "bet": 1618,
+          "raise": 129,
+          "aggression_factor": 3.027729636048527,
+          "aggression_frequency": 0.3394210219545366
+        },
+        "river": {
+          "fold": 561,
+          "check": 1317,
+          "call": 416,
+          "bet": 1202,
+          "raise": 115,
+          "aggression_factor": 3.1658653846153846,
+          "aggression_frequency": 0.36471891442813625
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 438,
+          "~½": 1620,
+          "~pot": 2330
+        },
+        "flop": {
+          "<0.4": 1511,
+          "~½": 325,
+          "~pot": 891,
+          "all-in": 1
+        },
+        "turn": {
+          "<0.4": 904,
+          "~½": 59,
+          "~pot": 770,
+          "all-in": 14
+        },
+        "river": {
+          "<0.4": 497,
+          "~½": 4,
+          "~pot": 793,
+          "all-in": 23
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 2556,
+          "fold": 887,
+          "raise": 1060
+        },
+        "preflop ~pot": {
+          "call": 704,
+          "fold": 365,
+          "raise": 151
+        },
+        "preflop 1.2–2.5×": {
+          "call": 17,
+          "fold": 11,
+          "raise": 4
+        },
+        "flop <0.4": {
+          "call": 28,
+          "raise": 18,
+          "fold": 3
+        },
+        "flop ~½": {
+          "fold": 1096,
+          "call": 707,
+          "raise": 168
+        },
+        "flop ~⅔–¾": {
+          "call": 18,
+          "fold": 24,
+          "raise": 5
+        },
+        "flop ~pot": {
+          "fold": 67,
+          "call": 51,
+          "raise": 19
+        },
+        "flop 1.2–2.5×": {
+          "fold": 17,
+          "call": 8
+        },
+        "flop >2.5×": {
+          "call": 2
+        },
+        "flop all-in": {
+          "fold": 2,
+          "call": 4
+        },
+        "turn <0.4": {
+          "call": 21,
+          "raise": 12,
+          "fold": 5
+        },
+        "turn ~½": {
+          "call": 387,
+          "fold": 515,
+          "raise": 79
+        },
+        "turn ~⅔–¾": {
+          "fold": 31,
+          "call": 37,
+          "raise": 11
+        },
+        "turn ~pot": {
+          "fold": 135,
+          "call": 104,
+          "raise": 20
+        },
+        "turn 1.2–2.5×": {
+          "call": 19,
+          "fold": 19,
+          "raise": 7
+        },
+        "turn all-in": {
+          "call": 9,
+          "fold": 5
+        },
+        "river <0.4": {
+          "raise": 18,
+          "call": 26,
+          "fold": 2
+        },
+        "river ~½": {
+          "fold": 349,
+          "call": 216,
+          "raise": 51
+        },
+        "river ~⅔–¾": {
+          "raise": 9,
+          "call": 29,
+          "fold": 49
+        },
+        "river ~pot": {
+          "fold": 130,
+          "raise": 29,
+          "call": 103
+        },
+        "river 1.2–2.5×": {
+          "raise": 8,
+          "call": 26,
+          "fold": 24
+        },
+        "river all-in": {
+          "fold": 7,
+          "call": 16
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7521,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5656,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.0994,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.9006,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.18373778758272927,
+        "of": 3173
+      },
+      "fold_to_3bet": {
+        "rate": 0.3292144748455428,
+        "of": 1133
+      },
+      "flop_cbet": {
+        "rate": 0.5635653409090909,
+        "of": 2816
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.3569482288828338,
+          "of": 1468
+        },
+        "call": {
+          "rate": 0.526566757493188,
+          "of": 1468
+        },
+        "raise": {
+          "rate": 0.1164850136239782,
+          "of": 1468
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6575,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.29825095057034223,
+        "of": 6575
+      },
+      "won_at_showdown": {
+        "rate": 0.45385007649158593,
+        "of": 1961
+      },
+      "won_after_flop": {
+        "rate": 0.5125475285171103,
+        "of": 6575
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1630,
+          "check": 725,
+          "call": 2573,
+          "bet": 0,
+          "raise": 5755,
+          "aggression_factor": 2.23668869024485,
+          "aggression_frequency": 0.5387063558925396
+        },
+        "flop": {
+          "fold": 979,
+          "check": 3839,
+          "call": 1392,
+          "bet": 1880,
+          "raise": 357,
+          "aggression_factor": 1.6070402298850575,
+          "aggression_frequency": 0.2648277494968628
+        },
+        "turn": {
+          "fold": 606,
+          "check": 2320,
+          "call": 917,
+          "bet": 1192,
+          "raise": 224,
+          "aggression_factor": 1.544165757906216,
+          "aggression_frequency": 0.2692527096406161
+        },
+        "river": {
+          "fold": 549,
+          "check": 1421,
+          "call": 560,
+          "bet": 884,
+          "raise": 208,
+          "aggression_factor": 1.95,
+          "aggression_frequency": 0.3014908890115958
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4503,
+          "~pot": 1220,
+          "1.2–2.5×": 32
+        },
+        "flop": {
+          "<0.4": 49,
+          "~½": 1971,
+          "~⅔–¾": 47,
+          "~pot": 137,
+          "1.2–2.5×": 25,
+          ">2.5×": 2,
+          "all-in": 6
+        },
+        "turn": {
+          "<0.4": 38,
+          "~½": 981,
+          "~⅔–¾": 79,
+          "~pot": 259,
+          "1.2–2.5×": 45,
+          "all-in": 14
+        },
+        "river": {
+          "<0.4": 46,
+          "~½": 616,
+          "~⅔–¾": 87,
+          "~pot": 262,
+          "1.2–2.5×": 58,
+          "all-in": 23
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 316,
+          "fold": 90,
+          "raise": 32
+        },
+        "preflop ~½": {
+          "call": 1172,
+          "raise": 354,
+          "fold": 94
+        },
+        "preflop ~pot": {
+          "call": 1085,
+          "fold": 949,
+          "raise": 296
+        },
+        "flop <0.4": {
+          "fold": 349,
+          "call": 902,
+          "raise": 260
+        },
+        "flop ~½": {
+          "call": 146,
+          "fold": 141,
+          "raise": 38
+        },
+        "flop ~pot": {
+          "call": 343,
+          "raise": 59,
+          "fold": 489
+        },
+        "flop all-in": {
+          "call": 1
+        },
+        "turn <0.4": {
+          "call": 563,
+          "raise": 169,
+          "fold": 172
+        },
+        "turn ~½": {
+          "call": 20,
+          "fold": 30,
+          "raise": 9
+        },
+        "turn ~pot": {
+          "fold": 396,
+          "call": 328,
+          "raise": 46
+        },
+        "turn all-in": {
+          "call": 6,
+          "fold": 8
+        },
+        "river <0.4": {
+          "fold": 86,
+          "call": 294,
+          "raise": 117
+        },
+        "river ~½": {
+          "call": 3,
+          "fold": 1
+        },
+        "river ~pot": {
+          "fold": 447,
+          "call": 255,
+          "raise": 91
+        },
+        "river all-in": {
+          "fold": 15,
+          "call": 8
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr304/v055-runs/seed-2026101302-20261015T060148Z-2020882",
+      "results/inputs/pr304/v055-runs/seed-2026101302-part2-20261015T162506Z-3872135"
+    ]
+  },
+  "2026101421": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -10.66,
+      "half_width_95": 29.868394217386655
+    },
+    "endings": {
+      "showdown": {
+        "hands": 2030,
+        "bb_per_100": -4.802955665024631,
+        "half_width_95": 132.1901164353897,
+        "share": 0.203,
+        "adds_bb_per_100": -0.975,
+        "adds_half_width_95": 26.829351539280665
+      },
+      "player folded preflop": {
+        "hands": 1673,
+        "bb_per_100": -128.30245068738793,
+        "half_width_95": 19.60391571023516,
+        "share": 0.1673,
+        "adds_bb_per_100": -21.465,
+        "adds_half_width_95": 3.4106270696024197
+      },
+      "slumbot folded preflop": {
+        "hands": 1549,
+        "bb_per_100": 123.04712717882505,
+        "half_width_95": 9.456044853029212,
+        "share": 0.1549,
+        "adds_bb_per_100": 19.06,
+        "adds_half_width_95": 1.704633623334639
+      },
+      "player folded flop": {
+        "hands": 1328,
+        "bb_per_100": -304.14156626506025,
+        "half_width_95": 20.98896380867817,
+        "share": 0.1328,
+        "adds_bb_per_100": -40.39,
+        "adds_half_width_95": 3.443398954071353
+      },
+      "slumbot folded flop": {
+        "hands": 973,
+        "bb_per_100": 324.7173689619733,
+        "half_width_95": 28.42306188539759,
+        "share": 0.0973,
+        "adds_bb_per_100": 31.595,
+        "adds_half_width_95": 3.3465484060415736
+      },
+      "player folded turn": {
+        "hands": 703,
+        "bb_per_100": -502.63157894736844,
+        "half_width_95": 66.58768864841315,
+        "share": 0.0703,
+        "adds_bb_per_100": -35.335,
+        "adds_half_width_95": 5.312975281918657
+      },
+      "player folded river": {
+        "hands": 618,
+        "bb_per_100": -701.9417475728155,
+        "half_width_95": 73.60041310528595,
+        "share": 0.0618,
+        "adds_bb_per_100": -43.38,
+        "adds_half_width_95": 5.624360280187617
+      },
+      "slumbot folded turn": {
+        "hands": 605,
+        "bb_per_100": 551.5702479338843,
+        "half_width_95": 64.94185426022734,
+        "share": 0.0605,
+        "adds_bb_per_100": 33.37,
+        "adds_half_width_95": 4.696447308660909
+      },
+      "slumbot folded river": {
+        "hands": 521,
+        "bb_per_100": 899.4241842610364,
+        "half_width_95": 111.50470558027216,
+        "share": 0.0521,
+        "adds_bb_per_100": 46.86,
+        "adds_half_width_95": 7.002630581400818
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3222,
+        "bb_per_100": -7.464307883302297,
+        "half_width_95": 11.96057040930574,
+        "share": 0.3222,
+        "adds_bb_per_100": -2.405,
+        "adds_half_width_95": 3.853896929227624
+      },
+      "ended flop": {
+        "hands": 2301,
+        "bb_per_100": -38.22251195132551,
+        "half_width_95": 21.266478604175948,
+        "share": 0.2301,
+        "adds_bb_per_100": -8.795,
+        "adds_half_width_95": 4.9027493043342645
+      },
+      "ended turn": {
+        "hands": 1308,
+        "bb_per_100": -15.022935779816514,
+        "half_width_95": 54.71279482247762,
+        "share": 0.1308,
+        "adds_bb_per_100": -1.965,
+        "adds_half_width_95": 7.154744064469868
+      },
+      "ended river": {
+        "hands": 1139,
+        "bb_per_100": 30.5531167690957,
+        "half_width_95": 79.6289106146817,
+        "share": 0.1139,
+        "adds_bb_per_100": 3.48,
+        "adds_half_width_95": 9.068199963266876
+      },
+      "showdown": {
+        "hands": 2030,
+        "bb_per_100": -4.802955665024631,
+        "half_width_95": 132.1901164353897,
+        "share": 0.203,
+        "adds_bb_per_100": -0.975,
+        "adds_half_width_95": 26.829351539280665
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7624,
+        "bb_per_100": -15.759443861490032,
+        "half_width_95": 5.066098394353854,
+        "share": 0.7624,
+        "adds_bb_per_100": -12.015,
+        "adds_half_width_95": 3.864570199420192
+      },
+      "10–30 BB": {
+        "hands": 1702,
+        "bb_per_100": 1.4688601645123385,
+        "half_width_95": 39.59633842532248,
+        "share": 0.1702,
+        "adds_bb_per_100": 0.25,
+        "adds_half_width_95": 6.737662271091356
+      },
+      "30–100 BB": {
+        "hands": 522,
+        "bb_per_100": 88.79310344827586,
+        "half_width_95": 212.48015973533714,
+        "share": 0.0522,
+        "adds_bb_per_100": 4.635,
+        "adds_half_width_95": 11.088149287854442
+      },
+      "100–399 BB": {
+        "hands": 122,
+        "bb_per_100": 1022.1311475409836,
+        "half_width_95": 1361.3897648733416,
+        "share": 0.0122,
+        "adds_bb_per_100": 12.47,
+        "adds_half_width_95": 16.68714676572883
+      },
+      "all-in, 400 BB": {
+        "hands": 30,
+        "bb_per_100": -5333.333333333333,
+        "half_width_95": 6759.221429240346,
+        "share": 0.003,
+        "adds_bb_per_100": -16.0,
+        "adds_half_width_95": 20.741356643853912
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.6699,
+      "median": 5.0,
+      "max": 14
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8249,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4317,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.11257748450309939,
+          "of": 5001
+        },
+        "call": {
+          "rate": 0.24495100979804038,
+          "of": 5001
+        },
+        "raise": {
+          "rate": 0.6424715056988602,
+          "of": 5001
+        }
+      },
+      "3bet": {
+        "rate": 0.21883052527254707,
+        "of": 5045
+      },
+      "fold_to_3bet": {
+        "rate": 0.37577639751552794,
+        "of": 644
+      },
+      "flop_cbet": {
+        "rate": 0.5922249793217536,
+        "of": 2418
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5893774985722444,
+          "of": 1751
+        },
+        "call": {
+          "rate": 0.35237007424328953,
+          "of": 1751
+        },
+        "raise": {
+          "rate": 0.05825242718446602,
+          "of": 1751
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6778,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2994983771023901,
+        "of": 6778
+      },
+      "won_at_showdown": {
+        "rate": 0.5,
+        "of": 2030
+      },
+      "won_after_flop": {
+        "rate": 0.4594275597521393,
+        "of": 6778
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1673,
+          "check": 0,
+          "call": 4730,
+          "bet": 0,
+          "raise": 4401,
+          "aggression_factor": 0.9304439746300212,
+          "aggression_frequency": 0.40734912995186967
+        },
+        "flop": {
+          "fold": 1328,
+          "check": 3742,
+          "call": 874,
+          "bet": 2454,
+          "raise": 204,
+          "aggression_factor": 3.0411899313501145,
+          "aggression_frequency": 0.3089979074633806
+        },
+        "turn": {
+          "fold": 703,
+          "check": 2166,
+          "call": 592,
+          "bet": 1653,
+          "raise": 138,
+          "aggression_factor": 3.0253378378378377,
+          "aggression_frequency": 0.341012947448591
+        },
+        "river": {
+          "fold": 618,
+          "check": 1419,
+          "call": 416,
+          "bet": 1199,
+          "raise": 116,
+          "aggression_factor": 3.1610576923076925,
+          "aggression_frequency": 0.3489915074309979
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 453,
+          "~½": 1716,
+          "~pot": 2231,
+          "all-in": 1
+        },
+        "flop": {
+          "<0.4": 1500,
+          "~½": 299,
+          "~pot": 858,
+          "all-in": 1
+        },
+        "turn": {
+          "<0.4": 956,
+          "~½": 62,
+          "~pot": 769,
+          "all-in": 4
+        },
+        "river": {
+          "<0.4": 501,
+          "~½": 9,
+          "~pot": 791,
+          "all-in": 14
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 2767,
+          "fold": 702,
+          "raise": 1044
+        },
+        "preflop ~pot": {
+          "call": 722,
+          "fold": 390,
+          "raise": 136
+        },
+        "preflop 1.2–2.5×": {
+          "fold": 17,
+          "call": 16,
+          "raise": 8
+        },
+        "preflop all-in": {
+          "fold": 1
+        },
+        "flop <0.4": {
+          "call": 32,
+          "raise": 24,
+          "fold": 6
+        },
+        "flop ~½": {
+          "call": 752,
+          "fold": 1218,
+          "raise": 155
+        },
+        "flop ~⅔–¾": {
+          "fold": 20,
+          "raise": 4,
+          "call": 9
+        },
+        "flop ~pot": {
+          "call": 59,
+          "fold": 71,
+          "raise": 14
+        },
+        "flop 1.2–2.5×": {
+          "call": 15,
+          "fold": 9,
+          "raise": 7
+        },
+        "flop all-in": {
+          "call": 7,
+          "fold": 4
+        },
+        "turn <0.4": {
+          "call": 30,
+          "raise": 12,
+          "fold": 9
+        },
+        "turn ~½": {
+          "fold": 502,
+          "call": 418,
+          "raise": 86
+        },
+        "turn ~⅔–¾": {
+          "fold": 40,
+          "call": 24,
+          "raise": 5
+        },
+        "turn ~pot": {
+          "raise": 20,
+          "fold": 116,
+          "call": 96
+        },
+        "turn 1.2–2.5×": {
+          "fold": 29,
+          "raise": 15,
+          "call": 15
+        },
+        "turn >2.5×": {
+          "call": 1
+        },
+        "turn all-in": {
+          "fold": 7,
+          "call": 8
+        },
+        "river <0.4": {
+          "call": 39,
+          "raise": 9,
+          "fold": 3
+        },
+        "river ~½": {
+          "call": 224,
+          "fold": 389,
+          "raise": 61
+        },
+        "river ~⅔–¾": {
+          "call": 30,
+          "raise": 9,
+          "fold": 56
+        },
+        "river ~pot": {
+          "call": 95,
+          "fold": 137,
+          "raise": 31
+        },
+        "river 1.2–2.5×": {
+          "raise": 6,
+          "fold": 24,
+          "call": 19
+        },
+        "river all-in": {
+          "call": 9,
+          "fold": 9
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7541,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5689,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.09721944388877776,
+          "of": 4999
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 4999
+        },
+        "raise": {
+          "rate": 0.9027805561112222,
+          "of": 4999
+        }
+      },
+      "3bet": {
+        "rate": 0.20043572984749455,
+        "of": 3213
+      },
+      "fold_to_3bet": {
+        "rate": 0.29257246376811596,
+        "of": 1104
+      },
+      "flop_cbet": {
+        "rate": 0.5780785737867283,
+        "of": 3029
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.36941340782122906,
+          "of": 1432
+        },
+        "call": {
+          "rate": 0.5174581005586593,
+          "of": 1432
+        },
+        "raise": {
+          "rate": 0.11312849162011174,
+          "of": 1432
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6778,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.2994983771023901,
+        "of": 6778
+      },
+      "won_at_showdown": {
+        "rate": 0.4522167487684729,
+        "of": 2030
+      },
+      "won_after_flop": {
+        "rate": 0.5262614340513426,
+        "of": 6778
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1549,
+          "check": 693,
+          "call": 2580,
+          "bet": 0,
+          "raise": 5803,
+          "aggression_factor": 2.2492248062015503,
+          "aggression_frequency": 0.546164705882353
+        },
+        "flop": {
+          "fold": 973,
+          "check": 3850,
+          "call": 1344,
+          "bet": 2065,
+          "raise": 341,
+          "aggression_factor": 1.7901785714285714,
+          "aggression_frequency": 0.2806485477662429
+        },
+        "turn": {
+          "fold": 605,
+          "check": 2329,
+          "call": 974,
+          "bet": 1221,
+          "raise": 212,
+          "aggression_factor": 1.4712525667351128,
+          "aggression_frequency": 0.26830181613929976
+        },
+        "river": {
+          "fold": 521,
+          "check": 1482,
+          "call": 581,
+          "bet": 937,
+          "raise": 213,
+          "aggression_factor": 1.9793459552495698,
+          "aggression_frequency": 0.30798071772897695
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4513,
+          "~pot": 1248,
+          "1.2–2.5×": 41,
+          "all-in": 1
+        },
+        "flop": {
+          "<0.4": 62,
+          "~½": 2125,
+          "~⅔–¾": 33,
+          "~pot": 144,
+          "1.2–2.5×": 31,
+          "all-in": 11
+        },
+        "turn": {
+          "<0.4": 51,
+          "~½": 1006,
+          "~⅔–¾": 69,
+          "~pot": 232,
+          "1.2–2.5×": 59,
+          ">2.5×": 1,
+          "all-in": 15
+        },
+        "river": {
+          "<0.4": 51,
+          "~½": 674,
+          "~⅔–¾": 95,
+          "~pot": 263,
+          "1.2–2.5×": 49,
+          "all-in": 18
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 338,
+          "raise": 41,
+          "fold": 74
+        },
+        "preflop ~½": {
+          "call": 1189,
+          "raise": 429,
+          "fold": 98
+        },
+        "preflop ~pot": {
+          "fold": 890,
+          "raise": 288,
+          "call": 1053
+        },
+        "preflop all-in": {
+          "fold": 1
+        },
+        "flop <0.4": {
+          "fold": 365,
+          "call": 875,
+          "raise": 260
+        },
+        "flop ~½": {
+          "fold": 129,
+          "call": 141,
+          "raise": 29
+        },
+        "flop ~pot": {
+          "fold": 478,
+          "call": 328,
+          "raise": 52
+        },
+        "flop all-in": {
+          "fold": 1
+        },
+        "turn <0.4": {
+          "fold": 169,
+          "raise": 166,
+          "call": 621
+        },
+        "turn ~½": {
+          "call": 29,
+          "raise": 4,
+          "fold": 29
+        },
+        "turn ~pot": {
+          "fold": 405,
+          "raise": 42,
+          "call": 322
+        },
+        "turn all-in": {
+          "call": 2,
+          "fold": 2
+        },
+        "river <0.4": {
+          "fold": 72,
+          "call": 303,
+          "raise": 126
+        },
+        "river ~½": {
+          "fold": 7,
+          "raise": 1,
+          "call": 1
+        },
+        "river ~pot": {
+          "fold": 432,
+          "call": 273,
+          "raise": 86
+        },
+        "river all-in": {
+          "fold": 10,
+          "call": 4
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr304/v055-runs-pr278/seed-2026101421-20261015T060149Z-2020931",
+      "results/inputs/pr304/v055-runs-pr278/seed-2026101421-part2-20261015T162507Z-3872214"
+    ]
+  },
+  "2026101422": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -7.87,
+      "half_width_95": 31.517279253921224
+    },
+    "endings": {
+      "showdown": {
+        "hands": 2034,
+        "bb_per_100": -31.022615535889873,
+        "half_width_95": 138.50053638815038,
+        "share": 0.2034,
+        "adds_bb_per_100": -6.31,
+        "adds_half_width_95": 28.166555058959784
+      },
+      "player folded preflop": {
+        "hands": 1794,
+        "bb_per_100": -119.7603121516165,
+        "half_width_95": 8.313596484809965,
+        "share": 0.1794,
+        "adds_bb_per_100": -21.485,
+        "adds_half_width_95": 1.742023777520888
+      },
+      "slumbot folded preflop": {
+        "hands": 1479,
+        "bb_per_100": 118.289384719405,
+        "half_width_95": 5.951167371808604,
+        "share": 0.1479,
+        "adds_bb_per_100": 17.495,
+        "adds_half_width_95": 1.2048904325669823
+      },
+      "player folded flop": {
+        "hands": 1263,
+        "bb_per_100": -308.19477434679334,
+        "half_width_95": 26.499971669000185,
+        "share": 0.1263,
+        "adds_bb_per_100": -38.925,
+        "adds_half_width_95": 3.901436819432759
+      },
+      "slumbot folded flop": {
+        "hands": 983,
+        "bb_per_100": 308.03662258392677,
+        "half_width_95": 33.9405582072191,
+        "share": 0.0983,
+        "adds_bb_per_100": 30.28,
+        "adds_half_width_95": 3.788450209433263
+      },
+      "player folded turn": {
+        "hands": 684,
+        "bb_per_100": -497.6608187134503,
+        "half_width_95": 63.43097639659421,
+        "share": 0.0684,
+        "adds_bb_per_100": -34.04,
+        "adds_half_width_95": 4.98615872270677
+      },
+      "slumbot folded turn": {
+        "hands": 623,
+        "bb_per_100": 510.35313001605135,
+        "half_width_95": 58.72832868621344,
+        "share": 0.0623,
+        "adds_bb_per_100": 31.795,
+        "adds_half_width_95": 4.383189727823222
+      },
+      "player folded river": {
+        "hands": 573,
+        "bb_per_100": -738.0453752181501,
+        "half_width_95": 98.023953833271,
+        "share": 0.0573,
+        "adds_bb_per_100": -42.29,
+        "adds_half_width_95": 6.542223318042446
+      },
+      "slumbot folded river": {
+        "hands": 567,
+        "bb_per_100": 980.7760141093474,
+        "half_width_95": 131.32577002702533,
+        "share": 0.0567,
+        "adds_bb_per_100": 55.61,
+        "adds_half_width_95": 8.667158609480973
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3273,
+        "bb_per_100": -12.190650779101741,
+        "half_width_95": 6.668428500707138,
+        "share": 0.3273,
+        "adds_bb_per_100": -3.99,
+        "adds_half_width_95": 2.1852306188752175
+      },
+      "ended flop": {
+        "hands": 2246,
+        "bb_per_100": -38.4906500445236,
+        "half_width_95": 24.544821174658903,
+        "share": 0.2246,
+        "adds_bb_per_100": -8.645,
+        "adds_half_width_95": 5.520800160490978
+      },
+      "ended turn": {
+        "hands": 1307,
+        "bb_per_100": -17.17674062739097,
+        "half_width_95": 51.28114110606704,
+        "share": 0.1307,
+        "adds_bb_per_100": -2.245,
+        "adds_half_width_95": 6.701176634056446
+      },
+      "ended river": {
+        "hands": 1140,
+        "bb_per_100": 116.84210526315789,
+        "half_width_95": 95.8071216836774,
+        "share": 0.114,
+        "adds_bb_per_100": 13.32,
+        "adds_half_width_95": 10.9420016080576
+      },
+      "showdown": {
+        "hands": 2034,
+        "bb_per_100": -31.022615535889873,
+        "half_width_95": 138.50053638815038,
+        "share": 0.2034,
+        "adds_bb_per_100": -6.31,
+        "adds_half_width_95": 28.166555058959784
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7710,
+        "bb_per_100": -14.059662775616083,
+        "half_width_95": 5.050299888260224,
+        "share": 0.771,
+        "adds_bb_per_100": -10.84,
+        "adds_half_width_95": 3.895444870329675
+      },
+      "10–30 BB": {
+        "hands": 1609,
+        "bb_per_100": 1.646985705407085,
+        "half_width_95": 40.66818976890437,
+        "share": 0.1609,
+        "adds_bb_per_100": 0.265,
+        "adds_half_width_95": 6.541815860893655
+      },
+      "30–100 BB": {
+        "hands": 506,
+        "bb_per_100": 269.2687747035573,
+        "half_width_95": 212.03455215369408,
+        "share": 0.0506,
+        "adds_bb_per_100": 13.625,
+        "adds_half_width_95": 10.781120093596362
+      },
+      "100–399 BB": {
+        "hands": 142,
+        "bb_per_100": 76.05633802816901,
+        "half_width_95": 1278.370068028376,
+        "share": 0.0142,
+        "adds_bb_per_100": 1.08,
+        "adds_half_width_95": 18.090587907883517
+      },
+      "all-in, 400 BB": {
+        "hands": 33,
+        "bb_per_100": -3636.3636363636365,
+        "half_width_95": 6706.519996862722,
+        "share": 0.0033,
+        "adds_bb_per_100": -12.0,
+        "adds_half_width_95": 22.174730050787147
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.6539,
+      "median": 5.0,
+      "max": 15
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8138,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4241,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.11211031175059952,
+          "of": 5004
+        },
+        "call": {
+          "rate": 0.26258992805755393,
+          "of": 5004
+        },
+        "raise": {
+          "rate": 0.6252997601918465,
+          "of": 5004
+        }
+      },
+      "3bet": {
+        "rate": 0.21774035637360487,
+        "of": 5107
+      },
+      "fold_to_3bet": {
+        "rate": 0.42077464788732394,
+        "of": 568
+      },
+      "flop_cbet": {
+        "rate": 0.5957015409570154,
+        "of": 2466
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.566429418742586,
+          "of": 1686
+        },
+        "call": {
+          "rate": 0.3623962040332147,
+          "of": 1686
+        },
+        "raise": {
+          "rate": 0.0711743772241993,
+          "of": 1686
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6727,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.3023636093355136,
+        "of": 6727
+      },
+      "won_at_showdown": {
+        "rate": 0.49557522123893805,
+        "of": 2034
+      },
+      "won_after_flop": {
+        "rate": 0.4728705217779099,
+        "of": 6727
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1794,
+          "check": 0,
+          "call": 4677,
+          "bet": 0,
+          "raise": 4316,
+          "aggression_factor": 0.9228137695103699,
+          "aggression_frequency": 0.4001112450171503
+        },
+        "flop": {
+          "fold": 1263,
+          "check": 3675,
+          "call": 862,
+          "bet": 2482,
+          "raise": 220,
+          "aggression_factor": 3.1345707656612527,
+          "aggression_frequency": 0.3178075746883086
+        },
+        "turn": {
+          "fold": 684,
+          "check": 2189,
+          "call": 599,
+          "bet": 1640,
+          "raise": 118,
+          "aggression_factor": 2.9348914858096826,
+          "aggression_frequency": 0.3361376673040153
+        },
+        "river": {
+          "fold": 573,
+          "check": 1358,
+          "call": 409,
+          "bet": 1262,
+          "raise": 127,
+          "aggression_factor": 3.3960880195599024,
+          "aggression_frequency": 0.37248592115848755
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 453,
+          "~½": 1650,
+          "~pot": 2213
+        },
+        "flop": {
+          "<0.4": 1578,
+          "~½": 285,
+          "~pot": 837,
+          "all-in": 2
+        },
+        "turn": {
+          "<0.4": 858,
+          "~½": 82,
+          "~pot": 814,
+          "all-in": 4
+        },
+        "river": {
+          "<0.4": 543,
+          "~½": 8,
+          "~pot": 810,
+          "all-in": 28
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "fold": 818,
+          "raise": 1035,
+          "call": 2660
+        },
+        "preflop ~pot": {
+          "fold": 398,
+          "call": 683,
+          "raise": 147
+        },
+        "preflop 1.2–2.5×": {
+          "raise": 5,
+          "fold": 15,
+          "call": 18
+        },
+        "preflop all-in": {
+          "fold": 2,
+          "call": 2
+        },
+        "flop <0.4": {
+          "fold": 4,
+          "raise": 16,
+          "call": 33
+        },
+        "flop ~½": {
+          "call": 746,
+          "fold": 1146,
+          "raise": 182
+        },
+        "flop ~⅔–¾": {
+          "fold": 22,
+          "call": 12,
+          "raise": 4
+        },
+        "flop ~pot": {
+          "call": 55,
+          "fold": 59,
+          "raise": 10
+        },
+        "flop 1.2–2.5×": {
+          "fold": 27,
+          "call": 10,
+          "raise": 6
+        },
+        "flop >2.5×": {
+          "raise": 2,
+          "fold": 1,
+          "call": 1
+        },
+        "flop all-in": {
+          "fold": 4,
+          "call": 5
+        },
+        "turn <0.4": {
+          "fold": 5,
+          "raise": 15,
+          "call": 25
+        },
+        "turn ~½": {
+          "fold": 492,
+          "call": 405,
+          "raise": 71
+        },
+        "turn ~⅔–¾": {
+          "call": 36,
+          "fold": 38,
+          "raise": 4
+        },
+        "turn ~pot": {
+          "fold": 122,
+          "call": 104,
+          "raise": 20
+        },
+        "turn 1.2–2.5×": {
+          "fold": 20,
+          "call": 22,
+          "raise": 8
+        },
+        "turn >2.5×": {
+          "fold": 2
+        },
+        "turn all-in": {
+          "fold": 5,
+          "call": 7
+        },
+        "river <0.4": {
+          "call": 31,
+          "fold": 2,
+          "raise": 10
+        },
+        "river ~½": {
+          "fold": 357,
+          "call": 224,
+          "raise": 68
+        },
+        "river ~⅔–¾": {
+          "fold": 35,
+          "call": 25,
+          "raise": 12
+        },
+        "river ~pot": {
+          "call": 102,
+          "fold": 136,
+          "raise": 28
+        },
+        "river 1.2–2.5×": {
+          "raise": 9,
+          "fold": 29,
+          "call": 19
+        },
+        "river all-in": {
+          "fold": 14,
+          "call": 8
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7576,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5675,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.0966773418734988,
+          "of": 4996
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 4996
+        },
+        "raise": {
+          "rate": 0.9033226581265013,
+          "of": 4996
+        }
+      },
+      "3bet": {
+        "rate": 0.18152764461489293,
+        "of": 3129
+      },
+      "fold_to_3bet": {
+        "rate": 0.2823741007194245,
+        "of": 1112
+      },
+      "flop_cbet": {
+        "rate": 0.5846047156726768,
+        "of": 2884
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.3567052416609939,
+          "of": 1469
+        },
+        "call": {
+          "rate": 0.5255275697753574,
+          "of": 1469
+        },
+        "raise": {
+          "rate": 0.11776718856364875,
+          "of": 1469
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6727,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.3023636093355136,
+        "of": 6727
+      },
+      "won_at_showdown": {
+        "rate": 0.4478859390363815,
+        "of": 2034
+      },
+      "won_after_flop": {
+        "rate": 0.5100341905752936,
+        "of": 6727
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1479,
+          "check": 720,
+          "call": 2644,
+          "bet": 0,
+          "raise": 5783,
+          "aggression_factor": 2.187216338880484,
+          "aggression_frequency": 0.5442311311876529
+        },
+        "flop": {
+          "fold": 983,
+          "check": 3848,
+          "call": 1371,
+          "bet": 1997,
+          "raise": 348,
+          "aggression_factor": 1.7104303428154632,
+          "aggression_frequency": 0.27436527436527436
+        },
+        "turn": {
+          "fold": 623,
+          "check": 2405,
+          "call": 917,
+          "bet": 1183,
+          "raise": 218,
+          "aggression_factor": 1.5278080697928027,
+          "aggression_frequency": 0.2620650953984287
+        },
+        "river": {
+          "fold": 567,
+          "check": 1470,
+          "call": 626,
+          "bet": 913,
+          "raise": 196,
+          "aggression_factor": 1.7715654952076678,
+          "aggression_frequency": 0.2940084835630965
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4513,
+          "~pot": 1228,
+          "1.2–2.5×": 38,
+          "all-in": 4
+        },
+        "flop": {
+          "<0.4": 53,
+          "~½": 2074,
+          "~⅔–¾": 38,
+          "~pot": 124,
+          "1.2–2.5×": 43,
+          ">2.5×": 4,
+          "all-in": 9
+        },
+        "turn": {
+          "<0.4": 45,
+          "~½": 968,
+          "~⅔–¾": 78,
+          "~pot": 246,
+          "1.2–2.5×": 50,
+          ">2.5×": 2,
+          "all-in": 12
+        },
+        "river": {
+          "<0.4": 43,
+          "~½": 649,
+          "~⅔–¾": 72,
+          "~pot": 266,
+          "1.2–2.5×": 57,
+          "all-in": 22
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 336,
+          "raise": 40,
+          "fold": 77
+        },
+        "preflop ~½": {
+          "raise": 343,
+          "call": 1222,
+          "fold": 85
+        },
+        "preflop ~pot": {
+          "call": 1086,
+          "fold": 834,
+          "raise": 293
+        },
+        "flop <0.4": {
+          "raise": 281,
+          "call": 916,
+          "fold": 381
+        },
+        "flop ~½": {
+          "fold": 118,
+          "call": 149,
+          "raise": 18
+        },
+        "flop ~pot": {
+          "fold": 482,
+          "call": 306,
+          "raise": 49
+        },
+        "flop all-in": {
+          "fold": 2
+        },
+        "turn <0.4": {
+          "call": 528,
+          "fold": 163,
+          "raise": 167
+        },
+        "turn ~½": {
+          "raise": 9,
+          "call": 34,
+          "fold": 39
+        },
+        "turn ~pot": {
+          "call": 354,
+          "fold": 418,
+          "raise": 42
+        },
+        "turn all-in": {
+          "fold": 3,
+          "call": 1
+        },
+        "river <0.4": {
+          "raise": 128,
+          "call": 326,
+          "fold": 89
+        },
+        "river ~½": {
+          "raise": 1,
+          "call": 3,
+          "fold": 4
+        },
+        "river ~pot": {
+          "call": 287,
+          "fold": 456,
+          "raise": 67
+        },
+        "river all-in": {
+          "fold": 18,
+          "call": 10
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/pr304/v055-runs-pr278/seed-2026101422-20261015T060150Z-2020949",
+      "results/inputs/pr304/v055-runs-pr278/seed-2026101422-part2-20261015T162132Z-3861600"
+    ]
+  },
+  "exploratory": {
+    "hands": 10000,
+    "overall": {
+      "hands": 10000,
+      "bb_per_100": -6.785,
+      "half_width_95": 32.86313268988249
+    },
+    "endings": {
+      "showdown": {
+        "hands": 2108,
+        "bb_per_100": 1.1622390891840608,
+        "half_width_95": 138.63038299527636,
+        "share": 0.2108,
+        "adds_bb_per_100": 0.245,
+        "adds_half_width_95": 29.217814798696995
+      },
+      "player folded preflop": {
+        "hands": 1702,
+        "bb_per_100": -123.00235017626322,
+        "half_width_95": 13.36168035849475,
+        "share": 0.1702,
+        "adds_bb_per_100": -20.935,
+        "adds_half_width_95": 2.447492667151339
+      },
+      "slumbot folded preflop": {
+        "hands": 1553,
+        "bb_per_100": 127.81712813908564,
+        "half_width_95": 7.534086368085544,
+        "share": 0.1553,
+        "adds_bb_per_100": 19.85,
+        "adds_half_width_95": 1.4804226563803164
+      },
+      "player folded flop": {
+        "hands": 1206,
+        "bb_per_100": -321.7247097844113,
+        "half_width_95": 28.786406166881317,
+        "share": 0.1206,
+        "adds_bb_per_100": -38.8,
+        "adds_half_width_95": 4.032496630191679
+      },
+      "slumbot folded flop": {
+        "hands": 921,
+        "bb_per_100": 301.7372421281216,
+        "half_width_95": 31.783865825602227,
+        "share": 0.0921,
+        "adds_bb_per_100": 27.79,
+        "adds_half_width_95": 3.389026793993379
+      },
+      "player folded turn": {
+        "hands": 711,
+        "bb_per_100": -513.1504922644164,
+        "half_width_95": 73.6177043063862,
+        "share": 0.0711,
+        "adds_bb_per_100": -36.485,
+        "adds_half_width_95": 5.83462919974816
+      },
+      "slumbot folded turn": {
+        "hands": 639,
+        "bb_per_100": 606.7292644757433,
+        "half_width_95": 94.38532916884334,
+        "share": 0.0639,
+        "adds_bb_per_100": 38.77,
+        "adds_half_width_95": 6.691959095809686
+      },
+      "player folded river": {
+        "hands": 597,
+        "bb_per_100": -818.1742043551088,
+        "half_width_95": 104.50791406536808,
+        "share": 0.0597,
+        "adds_bb_per_100": -48.845,
+        "adds_half_width_95": 7.300869536606927
+      },
+      "slumbot folded river": {
+        "hands": 563,
+        "bb_per_100": 916.9626998223802,
+        "half_width_95": 107.95488573960118,
+        "share": 0.0563,
+        "adds_bb_per_100": 51.625,
+        "adds_half_width_95": 7.351311172511711
+      }
+    },
+    "streets_reached": {
+      "ended preflop": {
+        "hands": 3255,
+        "bb_per_100": -3.3333333333333335,
+        "half_width_95": 8.957974907348055,
+        "share": 0.3255,
+        "adds_bb_per_100": -1.085,
+        "adds_half_width_95": 2.9156794055388855
+      },
+      "ended flop": {
+        "hands": 2127,
+        "bb_per_100": -51.763046544428775,
+        "half_width_95": 25.060659665411453,
+        "share": 0.2127,
+        "adds_bb_per_100": -11.01,
+        "adds_half_width_95": 5.345564246372427
+      },
+      "ended turn": {
+        "hands": 1350,
+        "bb_per_100": 16.925925925925927,
+        "half_width_95": 66.23336938531943,
+        "share": 0.135,
+        "adds_bb_per_100": 2.285,
+        "adds_half_width_95": 8.939358466197824
+      },
+      "ended river": {
+        "hands": 1160,
+        "bb_per_100": 23.96551724137931,
+        "half_width_95": 90.14405279176438,
+        "share": 0.116,
+        "adds_bb_per_100": 2.78,
+        "adds_half_width_95": 10.453806923115357
+      },
+      "showdown": {
+        "hands": 2108,
+        "bb_per_100": 1.1622390891840608,
+        "half_width_95": 138.63038299527636,
+        "share": 0.2108,
+        "adds_bb_per_100": 0.245,
+        "adds_half_width_95": 29.217814798696995
+      }
+    },
+    "matched_pot": {
+      "<10 BB": {
+        "hands": 7559,
+        "bb_per_100": -12.680248710146845,
+        "half_width_95": 5.10669041518968,
+        "share": 0.7559,
+        "adds_bb_per_100": -9.585,
+        "adds_half_width_95": 3.861561110673395
+      },
+      "10–30 BB": {
+        "hands": 1699,
+        "bb_per_100": -6.7098293113596235,
+        "half_width_95": 39.735659246896674,
+        "share": 0.1699,
+        "adds_bb_per_100": -1.14,
+        "adds_half_width_95": 6.74961962796247
+      },
+      "30–100 BB": {
+        "hands": 547,
+        "bb_per_100": 381.6270566727605,
+        "half_width_95": 198.2264439592724,
+        "share": 0.0547,
+        "adds_bb_per_100": 20.875,
+        "adds_half_width_95": 10.966332052303
+      },
+      "100–399 BB": {
+        "hands": 162,
+        "bb_per_100": -551.5432098765432,
+        "half_width_95": 1246.6697297179646,
+        "share": 0.0162,
+        "adds_bb_per_100": -8.935,
+        "adds_half_width_95": 20.180828840991513
+      },
+      "all-in, 400 BB": {
+        "hands": 33,
+        "bb_per_100": -2424.242424242424,
+        "half_width_95": 6771.9510096797285,
+        "share": 0.0033,
+        "adds_bb_per_100": -8.0,
+        "adds_half_width_95": 22.17542307823844
+      }
+    },
+    "actions_per_hand": {
+      "mean": 5.7226,
+      "median": 5.0,
+      "max": 14
+    },
+    "player": {
+      "vpip": {
+        "rate": 0.8179,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.4267,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.107,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.2626,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.6304,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.22013820335636722,
+        "of": 5065
+      },
+      "fold_to_3bet": {
+        "rate": 0.37763371150729336,
+        "of": 617
+      },
+      "flop_cbet": {
+        "rate": 0.5916597853014038,
+        "of": 2422
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.5438084112149533,
+          "of": 1712
+        },
+        "call": {
+          "rate": 0.3855140186915888,
+          "of": 1712
+        },
+        "raise": {
+          "rate": 0.07067757009345794,
+          "of": 1712
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6745,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.31252779836916234,
+        "of": 6745
+      },
+      "won_at_showdown": {
+        "rate": 0.4971537001897533,
+        "of": 2108
+      },
+      "won_after_flop": {
+        "rate": 0.470126019273536,
+        "of": 6745
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1702,
+          "check": 0,
+          "call": 4721,
+          "bet": 0,
+          "raise": 4360,
+          "aggression_factor": 0.9235331497564075,
+          "aggression_frequency": 0.40434016507465453
+        },
+        "flop": {
+          "fold": 1206,
+          "check": 3734,
+          "call": 934,
+          "bet": 2455,
+          "raise": 224,
+          "aggression_factor": 2.8683083511777303,
+          "aggression_frequency": 0.3132234303753069
+        },
+        "turn": {
+          "fold": 711,
+          "check": 2181,
+          "call": 637,
+          "bet": 1724,
+          "raise": 147,
+          "aggression_factor": 2.937205651491366,
+          "aggression_frequency": 0.3464814814814815
+        },
+        "river": {
+          "fold": 597,
+          "check": 1378,
+          "call": 411,
+          "bet": 1306,
+          "raise": 124,
+          "aggression_factor": 3.4793187347931873,
+          "aggression_frequency": 0.3747379454926625
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "<0.4": 458,
+          "~½": 1647,
+          "~pot": 2255
+        },
+        "flop": {
+          "<0.4": 1507,
+          "~½": 317,
+          "~pot": 848,
+          "all-in": 7
+        },
+        "turn": {
+          "<0.4": 960,
+          "~½": 68,
+          "~pot": 831,
+          "all-in": 12
+        },
+        "river": {
+          "<0.4": 553,
+          "~½": 10,
+          "~pot": 848,
+          "all-in": 19
+        }
+      },
+      "answers_to_bets": {
+        "preflop ~½": {
+          "call": 2664,
+          "raise": 1050,
+          "fold": 796
+        },
+        "preflop ~pot": {
+          "call": 722,
+          "fold": 356,
+          "raise": 149
+        },
+        "preflop 1.2–2.5×": {
+          "call": 21,
+          "fold": 11,
+          "raise": 9
+        },
+        "preflop all-in": {
+          "fold": 4,
+          "call": 1
+        },
+        "flop <0.4": {
+          "raise": 16,
+          "call": 32,
+          "fold": 6
+        },
+        "flop ~½": {
+          "call": 810,
+          "fold": 1075,
+          "raise": 179
+        },
+        "flop ~⅔–¾": {
+          "raise": 9,
+          "fold": 19,
+          "call": 17
+        },
+        "flop ~pot": {
+          "call": 53,
+          "raise": 13,
+          "fold": 82
+        },
+        "flop 1.2–2.5×": {
+          "fold": 16,
+          "call": 13,
+          "raise": 6
+        },
+        "flop >2.5×": {
+          "call": 2,
+          "fold": 2,
+          "raise": 1
+        },
+        "flop all-in": {
+          "fold": 6,
+          "call": 7
+        },
+        "turn <0.4": {
+          "call": 32,
+          "raise": 11,
+          "fold": 3
+        },
+        "turn ~½": {
+          "fold": 512,
+          "raise": 89,
+          "call": 430
+        },
+        "turn ~⅔–¾": {
+          "raise": 13,
+          "call": 25,
+          "fold": 38
+        },
+        "turn ~pot": {
+          "fold": 121,
+          "call": 128,
+          "raise": 27
+        },
+        "turn 1.2–2.5×": {
+          "call": 17,
+          "fold": 28,
+          "raise": 6
+        },
+        "turn >2.5×": {
+          "call": 1,
+          "raise": 1
+        },
+        "turn all-in": {
+          "call": 4,
+          "fold": 9
+        },
+        "river <0.4": {
+          "call": 23,
+          "fold": 7,
+          "raise": 18
+        },
+        "river ~½": {
+          "call": 232,
+          "fold": 347,
+          "raise": 56
+        },
+        "river ~⅔–¾": {
+          "fold": 49,
+          "call": 34,
+          "raise": 11
+        },
+        "river ~pot": {
+          "fold": 149,
+          "call": 92,
+          "raise": 26
+        },
+        "river 1.2–2.5×": {
+          "raise": 13,
+          "fold": 30,
+          "call": 24
+        },
+        "river all-in": {
+          "fold": 15,
+          "call": 6
+        }
+      }
+    },
+    "slumbot": {
+      "vpip": {
+        "rate": 0.7545,
+        "of": 10000
+      },
+      "pfr": {
+        "rate": 0.5682,
+        "of": 10000
+      },
+      "small_blind_first_action": {
+        "fold": {
+          "rate": 0.098,
+          "of": 5000
+        },
+        "call": {
+          "rate": 0.0,
+          "of": 5000
+        },
+        "raise": {
+          "rate": 0.902,
+          "of": 5000
+        }
+      },
+      "3bet": {
+        "rate": 0.19574873096446702,
+        "of": 3152
+      },
+      "fold_to_3bet": {
+        "rate": 0.31748878923766816,
+        "of": 1115
+      },
+      "flop_cbet": {
+        "rate": 0.5764309764309764,
+        "of": 2970
+      },
+      "against_flop_cbet": {
+        "fold": {
+          "rate": 0.34193998604326586,
+          "of": 1433
+        },
+        "call": {
+          "rate": 0.5282623866015352,
+          "of": 1433
+        },
+        "raise": {
+          "rate": 0.1297976273551989,
+          "of": 1433
+        }
+      },
+      "saw_flop": {
+        "rate": 0.6745,
+        "of": 10000
+      },
+      "showdown_after_flop": {
+        "rate": 0.31252779836916234,
+        "of": 6745
+      },
+      "won_at_showdown": {
+        "rate": 0.4629981024667932,
+        "of": 2108
+      },
+      "won_after_flop": {
+        "rate": 0.5174203113417346,
+        "of": 6745
+      },
+      "by_street": {
+        "preflop": {
+          "fold": 1553,
+          "check": 758,
+          "call": 2579,
+          "bet": 0,
+          "raise": 5783,
+          "aggression_factor": 2.242341993020551,
+          "aggression_frequency": 0.5418345357444018
+        },
+        "flop": {
+          "fold": 921,
+          "check": 3901,
+          "call": 1400,
+          "bet": 2006,
+          "raise": 358,
+          "aggression_factor": 1.6885714285714286,
+          "aggression_frequency": 0.2753319357092942
+        },
+        "turn": {
+          "fold": 639,
+          "check": 2405,
+          "call": 992,
+          "bet": 1255,
+          "raise": 240,
+          "aggression_factor": 1.5070564516129032,
+          "aggression_frequency": 0.2702947025854276
+        },
+        "river": {
+          "fold": 563,
+          "check": 1523,
+          "call": 666,
+          "bet": 931,
+          "raise": 201,
+          "aggression_factor": 1.6996996996996998,
+          "aggression_frequency": 0.29145211122554066
+        }
+      },
+      "bet_sizes": {
+        "preflop": {
+          "~½": 4510,
+          "~pot": 1227,
+          "1.2–2.5×": 41,
+          "all-in": 5
+        },
+        "flop": {
+          "<0.4": 54,
+          "~½": 2064,
+          "~⅔–¾": 45,
+          "~pot": 148,
+          "1.2–2.5×": 35,
+          ">2.5×": 5,
+          "all-in": 13
+        },
+        "turn": {
+          "<0.4": 46,
+          "~½": 1031,
+          "~⅔–¾": 76,
+          "~pot": 276,
+          "1.2–2.5×": 51,
+          ">2.5×": 2,
+          "all-in": 13
+        },
+        "river": {
+          "<0.4": 48,
+          "~½": 635,
+          "~⅔–¾": 94,
+          "~pot": 267,
+          "1.2–2.5×": 67,
+          "all-in": 21
+        }
+      },
+      "answers_to_bets": {
+        "preflop <0.4": {
+          "call": 336,
+          "fold": 78,
+          "raise": 44
+        },
+        "preflop ~½": {
+          "call": 1171,
+          "raise": 394,
+          "fold": 82
+        },
+        "preflop ~pot": {
+          "call": 1072,
+          "raise": 280,
+          "fold": 903
+        },
+        "flop <0.4": {
+          "raise": 280,
+          "call": 881,
+          "fold": 346
+        },
+        "flop ~½": {
+          "fold": 138,
+          "call": 156,
+          "raise": 23
+        },
+        "flop ~pot": {
+          "fold": 433,
+          "call": 360,
+          "raise": 55
+        },
+        "flop all-in": {
+          "call": 3,
+          "fold": 4
+        },
+        "turn <0.4": {
+          "call": 610,
+          "fold": 169,
+          "raise": 181
+        },
+        "turn ~½": {
+          "fold": 31,
+          "raise": 7,
+          "call": 30
+        },
+        "turn ~pot": {
+          "fold": 430,
+          "call": 349,
+          "raise": 52
+        },
+        "turn all-in": {
+          "fold": 9,
+          "call": 3
+        },
+        "river <0.4": {
+          "call": 341,
+          "raise": 131,
+          "fold": 81
+        },
+        "river ~½": {
+          "fold": 6,
+          "call": 4
+        },
+        "river ~pot": {
+          "call": 312,
+          "fold": 466,
+          "raise": 70
+        },
+        "river all-in": {
+          "call": 9,
+          "fold": 10
+        }
+      }
+    },
+    "runs": [
+      "results/inputs/exploratory/prefix",
+      "results/inputs/exploratory/part2"
+    ]
+  }
+}

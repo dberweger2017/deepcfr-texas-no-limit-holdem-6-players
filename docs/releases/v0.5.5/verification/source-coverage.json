@@ -39,6 +39,14 @@
   "code_commit": "e642b9a9372337b9411644714828b6aa88c6b6d2",
   "hu100_coverage": "runtime-source-coverage.json and compatibility.json",
   "integrated_reconstruction_tested_source": "df9269c449d6b45f21ba779afd5a64d5f91887b0",
+  "latest_main_integration": {
+    "all_recorded_release_code_sha256_unchanged": true,
+    "classification": "Owner-merged AIVAT chart/reporting CLI; no references from src, apps or other scripts; no release runtime, bundle, cache, reconstruction or shipped-document change.",
+    "main_commit": "59b4a97de04b79d6c00cda34b25639995eea8d1d",
+    "only_additional_script_difference_to_runtime_source": "scripts/plot_slumbot_aivat.py",
+    "release_code_reference_commit": "599d0a4e6582deb99e2648c55a84b426e0725e70",
+    "reporting_script_sha256": "fe4fc8b9e9ec439f11cb6acf52b9ca7155b91afb9dae7e0d76fa1da321645dff"
+  },
   "native_and_rebuild_groups_byte_identical_to_tested_source": [
     "native/hu20-trainer",
     "native/hu20-buckets",
@@ -68,10 +76,16 @@
   "publication_requires_fresh_merge_source_and_public_asset_verification": true,
   "runtime_groups_byte_identical_to_tested_source": [
     "src",
-    "scripts",
     "apps/poker-web",
     "requirements.txt",
     "requirements-play.txt"
   ],
+  "runtime_scripts_byte_identical_except_reporting_paths": {
+    "excluded_paths": [
+      "scripts/plot_slumbot_aivat.py"
+    ],
+    "group": "scripts",
+    "source": "db0102c178b412345a7b0c96e8469f99af37c047"
+  },
   "upstream_native_integration_base": "9b2a481a6cd067be5db0442ee02833e293fe2d7d"
 }
