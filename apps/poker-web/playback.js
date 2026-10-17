@@ -3,7 +3,8 @@
 // The next request is scheduled only after the current one settles. Pause
 // invalidates queued work and any continuation after an in-flight deal.
 class SpectatorPlayback {
-  constructor({ advance, changed, delay = () => 1500, setTimer = setTimeout, clearTimer = clearTimeout }) {
+  // Browser timers reject a controller instance as their receiver.
+  constructor({ advance, changed, delay = () => 1500, setTimer = setTimeout.bind(globalThis), clearTimer = clearTimeout.bind(globalThis) }) {
     this.advance = advance; this.changed = changed; this.delay = delay;
     this.setTimer = setTimer; this.clearTimer = clearTimer;
     this.running = false; this.busy = false; this.timer = null;
