@@ -8,13 +8,13 @@
 
 The analysis uses the three 10,000-hand confirmation accounts, [#304’s three 10,000-hand seeds](hu200-v055-slumbot-confirmation.md), and the blend’s 10,000 exploratory hands from [#316](slumbot-aivat-real-runs.md): **70,000 distinct completed hands**. Exploratory hands never enter the confirmation pool.
 
-All three indexed ZIPs match their SHA256s; every member matches its manifest; all eleven journal hash chains verify. The #316 index names the exploratory journals directly rather than an indexed journal ZIP. Its 8,300-hand verified prefix and 1,700-hand continuation were retrieved from that recorded source; the prefix matches its preservation receipt. Their ordered hand IDs, positions and winnings will also be checked against #316’s archived per-hand corrections. Both journals will be preserved in this PR’s archive.
+The [integrity receipt](v055-confirmation-diagnostics/input-integrity.json) records archive/member checks, source hashes and every journal tail. All three indexed ZIPs match their SHA256s; every member matches its manifest; all eleven journal hash chains verify. The #316 index names the exploratory journals directly rather than an indexed journal ZIP. Its 8,300-hand verified prefix and 1,700-hand continuation were retrieved from that recorded source; the prefix matches its preservation receipt. Their ordered hand IDs, positions and winnings match #316’s archived per-hand corrections, as do the three seed runs. The three seed card-only summaries reproduce to numerical precision. Both journals will be preserved in this PR’s archive.
 
 The existing `scripts.profile_slumbot_runs` tool profiles completed terminal records. The [public-action helper](v055-confirmation-diagnostics/public_tables.py) splits those events by size, position, preflop pot type and betting role. It reports final net chips, including blinds. The complete [readable tables](v055-confirmation-diagnostics/public-tables.md) and [CSV receipts](v055-confirmation-diagnostics/tables/) cover every account and comparison run.
 
 A response opportunity is a bet/raise followed by an answer on the same flop. A re-raise creates another opportunity. Response counts therefore need not equal hand counts. Terminal flop folds and the BB first-response partitions each count a hand once; the two partitions overlap and must not be added together.
 
-Sizes follow the profile tool: **raise beyond a call / pot after calling**, with all-ins separate. A half-pot bucket is (0.4, 0.6], the next is (0.6, 0.85], approximately pot is (0.85, 1.2], and large is (1.2, 2.5]. The inherited `<0.4` label includes exactly 0.4. The analyzer JSON’s `responses_by_bet_size` pools streets and uses a different convention for raises; it cannot by itself answer the flop question. Its `actions_by_street` and raw totals are cross-checked separately.
+Sizes follow the profile tool: **raise beyond a call / pot after calling**, with all-ins separate. A half-pot bucket is (0.4, 0.6], the next is (0.6, 0.85], approximately pot is (0.85, 1.2], and large is (1.2, 2.5]. The inherited `<0.4` label includes exactly 0.4. The analyzer JSON’s `responses_by_bet_size` pools streets and uses a different convention for raises; it cannot by itself answer the flop question. Its `actions_by_street` and raw totals are cross-checked separately. The older analyzer JSON contains 52, 88 and 162 extra decisions from abandoned-hand prefixes in the three seed runs, and one incomplete-prefix decision in the exploratory run; the terminal-only tables consistently exclude those prefixes.
 
 ## Card-only AIVAT
 
@@ -26,7 +26,9 @@ Plain and weighted intervals, worth, removed luck and its zero-mean check, both 
 
 The terminal public actions reproduce #318 exactly: **our 3,775 flop folds lose 1,161,000 chips (−38.70 BB/100)**, while **Slumbot’s 2,795 flop folds win 773,250 (+25.775 BB/100)**, net **−12.925 BB/100 over all 30,000 hands**.
 
-These are fold counts, not matched-strategy comparisons. We and Slumbot use different bet sizes and reach different ranges and pot types. Folding more often does not by itself establish an error.
+Facing flop bets or raises, our responses are **53.52% fold / 37.81% call / 8.66% raise** over **7,053 opportunities**; Slumbot’s are **34.68% / 53.42% / 11.90%** over **8,059 opportunities**. The original “35% more folds” compares terminal fold counts (3,775 versus 2,795), rather than these conditional rates.
+
+These are not matched-strategy comparisons. We and Slumbot use different bet sizes and reach different ranges and pot types. Folding more often does not by itself establish an error.
 
 The three largest recurring groups of our flop folds are:
 

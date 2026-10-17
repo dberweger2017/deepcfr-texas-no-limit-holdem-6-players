@@ -4,6 +4,7 @@ Analyzer decision summaries include prefixes from abandoned hands; completed-han
 profiles do not. Preserve those differences instead of mixing their denominators.
 Analyzer size buckets also pool all streets and use a different raise-size convention.
 """
+import argparse
 from collections import Counter
 import csv
 import json
@@ -14,6 +15,10 @@ PUBLIC = ROOT / 'public-final'
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--allow-pending', action='store_true', help='check available analyzer outputs during AIVAT')
+    args = parser.parse_args()
+    pending = []
     profiles = json.loads((ROOT / 'profiles.json').read_text())
     responses = list(csv.DictReader((PUBLIC / 'flop-responses.csv').open()))
     folds = list(csv.DictReader((PUBLIC / 'flop-folds.csv').open()))
@@ -41,6 +46,9 @@ def main():
         else:
             source = Path(f'results/inputs/pr304/analysis/v055/seed-{name}-pooled-10000.json')
         if not source.exists():
+            if args.allow_pending:
+                pending.append(name)
+                continue
             raise FileNotFoundError(f'Wait for all account analyzers: {source}')
         analysis = json.loads(source.read_text())
         assert abs(profile['overall']['bb_per_100'] - analysis['bb_per_100']['mean']) < 1e-10
@@ -57,11 +65,14 @@ def main():
                 checks.append({'run': name, 'street': street, 'kind': kind,
                                'completed_hand_actions': a, 'analyzer_decisions': b,
                                'extra_prefix_decisions': difference})
-    with (ROOT / 'decision-reconciliation.csv').open('x', newline='') as stream:
+    filename = 'decision-reconciliation-pending.csv' if pending else 'decision-reconciliation.csv'
+    with (ROOT / filename).open('x', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(checks[0]))
         writer.writeheader()
         writer.writerows(checks)
-    print('Profiles, raw rates, flop opportunities/folds and analyzer decision totals reconcile.')
+    print('Profiles and all flop opportunities/folds reconcile; available analyzer totals reconcile.')
+    if pending:
+        print('Pending analyzer cross-checks: ' + ', '.join(pending))
 
 
 if __name__ == '__main__':

@@ -12,6 +12,7 @@ import math
 import sys
 
 import src.arena.external.analysis as analysis
+from src.arena.external.aivat import cross_fitted
 
 sys.path.insert(0, str(Path(__file__).parent))
 from public_tables import load_runs
@@ -118,6 +119,11 @@ def main():
             row[key + '_half95'] = value['half_width_95']
         row.update({'plain_worth': a['plain_hands_worth'], 'weighted_worth': a['weighted_hands_worth'],
                     'card_luck_z': luck['mean'] / (luck['half_width_95'] / 1.96)})
+        raw = [r['raw'] for r in records[name]]
+        weighted, _ = cross_fitted(raw, [r['corrections'][:4] + [0.0] * 4 for r in records[name]])
+        weighted_luck = analysis.interval([r - w for r, w in zip(raw, weighted)])
+        row['weighted_card_luck'] = weighted_luck['mean']
+        row['weighted_card_luck_half95'] = weighted_luck['half_width_95']
         rows.append(row)
         for seat in summary['by_seat']:
             entry = {'run': name, 'seat': seat, 'hands': summary['by_seat'][seat]['n']}

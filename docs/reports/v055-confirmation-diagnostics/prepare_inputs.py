@@ -64,6 +64,12 @@ def main():
                 receipts['journals'][str(journal)] = {**checked, 'bytes': journal.stat().st_size,
                                                      'sha256': sha(journal.read_bytes())}
                 print(path, checked, flush=True)
+    source_files = ('src/arena/external/analysis.py', 'src/arena/external/aivat.py',
+                    'src/arena/external/style.py', 'src/arena/external/journal.py',
+                    'docs/reports/slumbot-aivat-real-runs/dump_aivat.py')
+    receipts['analysis_source_sha256'] = {p: sha(Path(p).read_bytes()) for p in source_files}
+    assert receipts['analysis_source_sha256'][source_files[-1]] == (
+        '21d13c2659788c50376c7fc4e6c325de26084473133a860250cd54e90b8cc43d')
     Path('results/outputs/input-integrity.json').write_text(json.dumps(receipts, indent=2) + '\n')
     Path('results/outputs/runs.json').write_text(json.dumps(runs, indent=2) + '\n')
 
