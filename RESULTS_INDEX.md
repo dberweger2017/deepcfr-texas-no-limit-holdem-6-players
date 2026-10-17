@@ -1,4 +1,4 @@
-## PR317 — HU200 river search, final execution declared
+## PR317 — HU200 river search, fixed final running
 
 Latest: evidence-retention source `5b6b2f6c` passes the same24 parity and amended
 10 s gate at p95 **9.834 s**, with two/three-worker parity/memory measurements.
@@ -12,6 +12,12 @@ finals: **131,072 direct +2,048 paired blocks per script**, up to three searches
 [execution declaration](docs/reports/hu200-river-search-artifacts/final-execution-declaration.json)
 fix counts, fresh roots, analysis, source and resource limits before any final
 hand. Frozen evaluation source is `5c5fb990`; search stays `d0849fca`.
+Declaration commit `fc5ddce1` precedes launch **October17 at09:52:03Madrid**.
+[Launch receipt](docs/reports/hu200-river-search-artifacts/final-launch-receipt.json)
+records the first 21 verified/transferred/retired blocks, without effect readout.
+[ETA posted on the PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082):
+M4 release October21 20:15–October22 17:00Madrid; final-review readiness
+October22 08:15–October23 17:00Madrid, provisional including diagnostics/archive.
 All 96 focused M4 checks and 448 existing paired-rotation prefix audits pass.
 The 352-block copied-evidence qualification verifies every file before retiring
 only those new copies; calibration originals remain unchanged. Including

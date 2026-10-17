@@ -1,0 +1,59 @@
+{
+  "at": 1792223598.230679,
+  "caveat": "Diagnostic and archival allowances are provisional; final research remains incomplete",
+  "declaration_sha256": "af95f45d1d5b856df2afb2a8ea27b2dbc58a9c93e3b4b6f02b32f829d9f4079c",
+  "eta_comment": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082",
+  "final_review_window_madrid": [
+    "2026-10-22T08:15:00+02:00",
+    "2026-10-23T17:00:00+02:00"
+  ],
+  "guard_latest": {
+    "at": 1792223594.3092449,
+    "available_memory_bytes": null,
+    "breaches": {
+      "critical_pressure": false,
+      "family_rss": false,
+      "free_disk": false,
+      "free_memory": false,
+      "swap_growth": false
+    },
+    "family_rss_bytes": 5185732608,
+    "free_disk_bytes": null,
+    "stop": []
+  },
+  "intent": {
+    "deadline": 1792698723.6186519,
+    "declaration_commit": "fc5ddce1f00bc7c98d8126850437db2637e61327",
+    "final_counts": {
+      "check_call": 2048,
+      "direct": 131072,
+      "half_pot_pressure": 2048,
+      "loose_aggressive": 2048,
+      "matched_pot_pressure": 2048,
+      "pot_pressure": 2048,
+      "random": 2048,
+      "tight_aggressive": 2048
+    },
+    "forecast_finish_utc": "2026-10-21T12:14:11.496351+00:00",
+    "owner_authorized": true,
+    "pid": 46291,
+    "safety_deadline_utc": "2026-10-22T19:52:03.618652+00:00",
+    "source": "5c5fb990557585fa12f4496e124bb7372a42ad1e",
+    "started": 1792223523.6186519,
+    "upper_forecast_finish_utc": "2026-10-22T03:01:55.657382+00:00",
+    "workers": 3
+  },
+  "latest_closed_block_progress": {
+    "block": 16,
+    "completed_blocks": 21,
+    "elapsed_seconds": 60.62942385673523,
+    "panel": "direct",
+    "status": "verified-transferred-retired",
+    "total_blocks": 145408
+  },
+  "m4_release_window_madrid": [
+    "2026-10-21T20:15:00+02:00",
+    "2026-10-22T17:00:00+02:00"
+  ],
+  "status": "fixed-finals-running-no-effect-readout"
+}

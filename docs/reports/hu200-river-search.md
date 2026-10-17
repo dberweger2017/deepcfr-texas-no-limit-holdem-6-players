@@ -1,7 +1,7 @@
 # HU200 river search: amended cost gate passes; strength pending
 
 [PR #317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), October 17, 2026.
-**Draft; final strength execution declared, results pending.** The owner-approved disjoint
+**Draft; fixed final running, results pending.** The owner-approved disjoint
 128 direct plus seven by 32 calibration completed under its hard two-hour cap.
 This is a cost/engineering readout, not a final strength result or a release
 recommendation. The original latency failure remains below; the owner-amended
@@ -14,6 +14,15 @@ the forecast is 100.37 h, upper cost 115.16 h, with a fixed 132 h execution
 safety cap. All 96 admission checks and 448 existing calibration paired-prefix
 audits pass. The owner decides merge; final research and range diagnostics
 remain pending.
+
+Declaration `fc5ddce1` was pushed before launch on October17 at09:52:03Madrid.
+The [launch receipt](hu200-river-search-artifacts/final-launch-receipt.json)
+records initial verified/transferred/retired blocks with no interim effects.
+Primary completion forecast is October21 at14:14Madrid, upper cost October22
+at05:02. Provisional M4-release window, including range diagnostics: October21
+20:15–October22 17:00; final-review window including evidence closeout: October22
+08:15–October23 17:00. The [PR ETA](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082)
+states the allowances. These are forecasts, not completed research.
 
 ## Finding
 
