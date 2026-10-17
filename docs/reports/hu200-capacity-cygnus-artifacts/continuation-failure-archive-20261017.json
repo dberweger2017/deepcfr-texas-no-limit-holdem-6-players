@@ -1,0 +1,65 @@
+{
+  "status": "partial-failure-evidence-accepted-and-cloud-readback-verified",
+  "scope": "Closed current-attempt traces, exact phase/model metadata receipts, stop/failure records and orchestration source; no model/partial-model bytes. Full experiment archival remains incomplete.",
+  "owning_pr": 301,
+  "pr_state_checked": "OPEN before copying and upload",
+  "folder_id": "159JoTfd8HUyblui5QgSMc6w1JNz-z7px",
+  "file_id": "1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ",
+  "url": "https://drive.google.com/file/d/1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ/view?usp=drivesdk",
+  "local_readback": {
+    "status": "every-member-local-readback-verified",
+    "path": "/home/dberweger/hu200-capacity-20261015/archives/continuation-failure-20261017/PR301-continuation-failure-20261017.zip",
+    "bytes": 1410443,
+    "sha256": "2a863212d38771cb88d2314cbef27ffacab18bd5a5ffbb1919587c5fd4b9eb58",
+    "md5": "885a0fdb267fd03cf25527c1d7ac0b09",
+    "manifest_sha256": "5a269f75ccd99596b4bb6cc6ca785d745c18070a93eae1e00f8a48d173b26d11",
+    "members": 61,
+    "raw_member_bytes": 36460319,
+    "cloud_upload_accepted": false,
+    "originals_retained": true,
+    "hdd_used": false,
+    "completed_utc": "2026-10-17T14:28:52.064703+00:00"
+  },
+  "cloud_readback": {
+    "status": "cloud-whole-and-every-member-readback-verified",
+    "observed_utc": "2026-10-17T14:30:17.774169+00:00",
+    "file_id": "1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ",
+    "bytes": 1410443,
+    "sha256": "2a863212d38771cb88d2314cbef27ffacab18bd5a5ffbb1919587c5fd4b9eb58",
+    "md5": "885a0fdb267fd03cf25527c1d7ac0b09",
+    "members": 61,
+    "signed_download_url_retained": false
+  },
+  "independent_metadata": {
+    "id": "1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ",
+    "title": "PR301-continuation-failure-20261017.zip",
+    "mime_type": "application/zip",
+    "size": "1410443",
+    "url": "https://drive.google.com/file/d/1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "159JoTfd8HUyblui5QgSMc6w1JNz-z7px"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "guard_result": {
+    "status": "passed",
+    "exit_codes": [
+      0
+    ],
+    "stop_reason": null,
+    "hard_stop_reason": null,
+    "elapsed_seconds": 1.0153340729884803
+  },
+  "cleanup": "No originals or transport replicas removed; all retained. No HDD use. Final unpacked retention copy not made.",
+  "retrieval": "Fetch the indexed Drive file into an ignored directory; verify whole SHA256, open MANIFEST.json, then verify each named member size/SHA256. Connector raw-fetch route was used successfully for this 1.410MB file; signed download reference was not retained.",
+  "raw_sources": "Owned archives/continuation-failure-20261017/ and guards/failure-evidence-archive-20261017/. Keep plan/helper/raw guard readings for final archive; post-archive guard result is separately retained."
+}

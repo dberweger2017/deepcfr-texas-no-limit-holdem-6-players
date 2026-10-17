@@ -1,0 +1,24 @@
+{
+  "max_seconds": 1200,
+  "original_campaign_deadline_epoch": 1792380557.996109,
+  "swap_baseline_bytes": 1048576,
+  "aggregate_rss_gib": 2,
+  "jobs": [
+    {
+      "name": "recovery-prepare",
+      "cpus": [
+        6
+      ],
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/recovery-prepare-c48e64ce.stop",
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+        "-m",
+        "scripts.recover_hu200_capacity",
+        "prepare",
+        "--base",
+        "/home/dberweger/hu200-capacity-20261015"
+      ]
+    }
+  ]
+}

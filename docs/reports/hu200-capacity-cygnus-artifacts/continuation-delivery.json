@@ -1,0 +1,18 @@
+{
+  "status": "verified",
+  "remote_http_delivery": {
+    "continuation_hook_ready": {
+      "payload": {
+        "event": "continuation_hook_ready",
+        "experiment": "PR301",
+        "observed_utc": "2026-10-16T06:11:06.176701+00:00"
+      },
+      "http_status": 202
+    }
+  },
+  "app_task_last_run_status": "succeeded",
+  "webhook_only": true,
+  "recurring_timer": false,
+  "scope": "Current owner-authorized PR301 campaign only",
+  "private_endpoint_excluded_from_git_and_archives": true
+}

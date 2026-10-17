@@ -1,0 +1,62 @@
+{
+  "status": "descriptive-training-diagnostics-for-two-completed-large-audits",
+  "observed_utc": "2026-10-17T18:47:36.547612+00:00",
+  "seeds": [
+    {
+      "seed": "2026101421",
+      "large301M": {
+        "nodes": 20000001428,
+        "entries": 301153954,
+        "river_traverser_missing_percent_10b_to_20b": 3.4258771779370054,
+        "zero_visit_percent": 27.665515558862626,
+        "mean_traverser_visits_per_key": 12.419972510140113
+      },
+      "twin85M": {
+        "nodes": 20000000322,
+        "entries": 85373916,
+        "river_traverser_missing_percent_10b_to_20b": 19.439974931457364,
+        "zero_visit_percent": 16.64475013656396,
+        "mean_traverser_visits_per_key": 37.367012659932335
+      }
+    },
+    {
+      "seed": "2026101422",
+      "large301M": {
+        "nodes": 20000000322,
+        "entries": 301153964,
+        "river_traverser_missing_percent_10b_to_20b": 3.484930571482012,
+        "zero_visit_percent": 27.68925565263355,
+        "mean_traverser_visits_per_key": 12.417128944050692
+      },
+      "twin85M": {
+        "nodes": 20000000096,
+        "entries": 85373928,
+        "river_traverser_missing_percent_10b_to_20b": 19.160117612989385,
+        "zero_visit_percent": 16.625918863660576,
+        "mean_traverser_visits_per_key": 37.39338133768426
+      }
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "docs/reports/hu200-capacity-cygnus-artifacts/progress-20261017-1408/results-recovery-20261016/2026101421/20000000000/audit.json",
+      "sha256": "01b673ca9dd8ded9850eb11525969f34aab9dcfb1fe19e35ff293aee73b6920e"
+    },
+    {
+      "path": "docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-frozen-complete.json",
+      "sha256": "ba5a12cf6f14bf791ebd346965988c05b744308fbbe75e71cf578b6c966b9df3"
+    },
+    {
+      "path": "docs/reports/hu200-capacity-cygnus-artifacts/progress-20261017-1408/results-recovery-20261016/2026101422/20000000000/audit.json",
+      "sha256": "5aca3c71b0773159c46cfe007392e6c50a35bd4fcee0a8cb1f33fedec89fa43f"
+    },
+    {
+      "path": "docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-frozen-complete.json",
+      "sha256": "111eeb25c949db318c66a14d2da29ea1062a8d90c502a97fd7ea5b71aa26c8fe"
+    }
+  ],
+  "scope": "Matched training seeds at20B; river shares cover10B\u219220B interval. Training-trajectory coverage, not fixed-deal played coverage or playing-strength results. Third large seed is in final validation and omitted until its audit passes.",
+  "evaluation_started": false,
+  "final_outcomes_read": false,
+  "strength_conclusion": null
+}

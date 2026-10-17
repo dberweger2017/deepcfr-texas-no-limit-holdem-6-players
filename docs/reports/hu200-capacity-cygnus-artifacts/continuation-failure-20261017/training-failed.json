@@ -1,0 +1,7 @@
+{
+  "automatic_retry": false,
+  "error": "RuntimeError('Existing259GB plan/output reservations exhausted')",
+  "source": "approved scheduling controller",
+  "status": "failed",
+  "utc": "2026-10-17T09:21:22.269998+00:00"
+}

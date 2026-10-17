@@ -1,0 +1,20 @@
+{
+  "max_seconds": 3600,
+  "aggregate_rss_gib": 0.5,
+  "swap_baseline_bytes": 1048576,
+  "clean_save_grace_seconds": 300,
+  "jobs": [
+    {
+      "name": "storage-export-recovery-r3",
+      "cpus": [
+        7
+      ],
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/storage-export-recovery-20261017/storage-r3.stop",
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+        "/home/dberweger/hu200-capacity-20261015/planning/offload_export_recovery_20261017_r3.py"
+      ]
+    }
+  ]
+}

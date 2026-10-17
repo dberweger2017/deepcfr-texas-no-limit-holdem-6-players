@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-17T20:22:06.811826+00:00",
+  "exact_body_readback": true,
+  "state": "OPEN",
+  "config_sha256": "99f694ab42b67a5f9db67a42c701c59a7a0c92c375c62f80def095a94924f7ea",
+  "source": "2d2ec4a17d20d586b8563dc656ed339b7fba218f",
+  "body_sha256": "d4beb373b8bdfff1fba00533f07f829c8c40fa4d755142163861e711a10ea4f5"
+}

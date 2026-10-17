@@ -1,0 +1,675 @@
+{
+  "summary": {
+    "observed_utc": "2026-10-17T14:27:31.592969+00:00",
+    "last_resource": {
+      "utc": "2026-10-17T14:25:07.895772+00:00",
+      "monotonic": 72232.992046646,
+      "package_c": 53.0,
+      "clock_khz": [
+        800000,
+        4954458,
+        4999508,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        4994826,
+        800000,
+        5001467
+      ],
+      "throttle_counts": {
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+      },
+      "cpu_clocks_khz": {
+        "cpu11": 800000,
+        "cpu9": 4954458,
+        "cpu7": 4999508,
+        "cpu5": 800000,
+        "cpu3": 800000,
+        "cpu14": 800000,
+        "cpu1": 800000,
+        "cpu12": 800000,
+        "cpu10": 800000,
+        "cpu8": 800000,
+        "cpu6": 800000,
+        "cpu4": 800000,
+        "cpu15": 800000,
+        "cpu2": 4994826,
+        "cpu13": 800000,
+        "cpu0": 5001467
+      },
+      "device_temperatures_c": {
+        "iwlwifi_1/temp1_input": 32.0,
+        "nct6687/Thermistor 0": 16.0,
+        "nct6687/Thermistor 15": 62.5,
+        "nct6687/Thermistor 1": 13.5,
+        "nct6687/PCH CHIP": 36.0,
+        "nct6687/PECI 0.0": 51.0,
+        "nct6687/Thermistor 16": 34.5,
+        "nct6687/Diode 0 (curr)": 34.0,
+        "acpitz/temp1_input": 27.8,
+        "coretemp/Core 4": 37.0,
+        "coretemp/Core 1": 36.0,
+        "coretemp/Core 5": 39.0,
+        "coretemp/Core 2": 53.0,
+        "coretemp/Core 6": 39.0,
+        "coretemp/Package id 0": 53.0,
+        "coretemp/Core 3": 36.0,
+        "coretemp/Core 7": 48.0,
+        "coretemp/Core 0": 36.0,
+        "pch_cometlake/temp1_input": 34.0,
+        "nvme/Composite": 40.85
+      },
+      "available_bytes": 132423839744,
+      "swap_used_bytes": 135061504,
+      "vrm_c": 62.5,
+      "fan1_rpm": 700,
+      "free_disk_bytes": 69821005824,
+      "fan_rpm": {
+        "fan3": 963,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 700,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 947,
+        "fan6": 0
+      },
+      "job_rss_bytes": {
+        "audit-2026101302-20000000000": 46645248
+      },
+      "family_rss_bytes": 46645248,
+      "active_jobs": {
+        "audit-2026101302-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            7
+          ]
+        }
+      },
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    },
+    "trace_summary": {
+      "samples": 7350,
+      "peak_cpu_c": 70.0,
+      "peak_vrm_c": 84.0,
+      "peak_rss_bytes": 28885659648,
+      "peak_swap_bytes": 136118272,
+      "minimum_available_bytes": 95588118528,
+      "minimum_free_disk_bytes": 69821005824,
+      "clean_stop_samples_before_exception": 0
+    },
+    "last_utilization": {
+      "utc": "2026-10-17T14:25:07.914028+00:00",
+      "monotonic": 72233.010301347,
+      "hz": 100,
+      "jobs": {
+        "audit-2026101302-20000000000": [
+          {
+            "pid": 67630,
+            "start": "7059003",
+            "ticks": 126733,
+            "argv": [
+              "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+              "export",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+              "--current",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.current.gz",
+              "--average",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.average.gz",
+              "--zero-mass",
+              "uniform"
+            ],
+            "io": {
+              "rchar": 17133558981,
+              "wchar": 3123772788,
+              "syscr": 96740,
+              "syscw": 138284,
+              "read_bytes": 0,
+              "write_bytes": 3124285440,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 67630,
+                "ticks": 126733
+              }
+            ]
+          },
+          {
+            "pid": 67030,
+            "start": "7005213",
+            "ticks": 41394,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+              "-m",
+              "scripts.run_hu200_capacity_training",
+              "audit",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000"
+            ],
+            "io": {
+              "rchar": 28837277547,
+              "wchar": 2688,
+              "syscr": 3533423,
+              "syscw": 1,
+              "read_bytes": 1605632,
+              "write_bytes": 4096,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 67030,
+                "ticks": 41394
+              }
+            ]
+          }
+        ]
+      },
+      "phases": {
+        "audit-2026101302-20000000000": "native-export"
+      },
+      "disks": {
+        "nvme0n1": {
+          "read_sectors": 1568564623,
+          "written_sectors": 673016026,
+          "busy_ms": 619000
+        }
+      }
+    },
+    "controller_pass_events": [
+      {
+        "event": "passed",
+        "job": "audit-2026101421-20000000000",
+        "utc": "2026-10-17T12:55:39.177547+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "offload-2026101421-20000000000",
+        "utc": "2026-10-17T13:00:52.461911+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "audit-2026101422-20000000000",
+        "utc": "2026-10-17T13:41:15.881453+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "train-2026101302-20000000000",
+        "utc": "2026-10-17T13:48:46.624619+00:00"
+      },
+      {
+        "event": "passed",
+        "job": "offload-2026101422-20000000000",
+        "utc": "2026-10-17T13:51:39.356781+00:00"
+      }
+    ],
+    "owned_process_checks": {
+      "36848": {
+        "present": false,
+        "cmdline": null
+      },
+      "36870": {
+        "present": false,
+        "cmdline": null
+      },
+      "36875": {
+        "present": false,
+        "cmdline": null
+      },
+      "36877": {
+        "present": false,
+        "cmdline": null
+      },
+      "36878": {
+        "present": false,
+        "cmdline": null
+      },
+      "56305": {
+        "present": false,
+        "cmdline": null
+      },
+      "66666": {
+        "present": false,
+        "cmdline": null
+      },
+      "67030": {
+        "present": false,
+        "cmdline": null
+      },
+      "67630": {
+        "present": false,
+        "cmdline": null
+      }
+    },
+    "closed_trace_pins": [
+      {
+        "path": "guards/continuation-20261017/resources.jsonl",
+        "bytes": 30470385,
+        "mtime_ns": 1792247107893308464,
+        "sha256": "379bbba1ba9782abf79a9e5c1a8498f42a47c05c7d8b90c07c8e11e894c47c2a"
+      },
+      {
+        "path": "guards/continuation-20261017/utilization.jsonl",
+        "bytes": 5785268,
+        "mtime_ns": 1792247107909308627,
+        "sha256": "72016396538741c959723f744379422e22561c380bfdd743be4ce2c43f87b27c"
+      },
+      {
+        "path": "scheduling-continuation-20261017.log",
+        "bytes": 5374,
+        "mtime_ns": 1792247109229321911,
+        "sha256": "a7dc7226f74e9b49ad46b0503e8f4e7c764171bc5020d7e37c43cf1367d3bc51"
+      },
+      {
+        "path": "event-observer-continuation-20261017.log",
+        "bytes": 173,
+        "mtime_ns": 1792247124405474710,
+        "sha256": "5756b90d2b53813effdbf0063a6ba3f092e9335ef6c17f8930f2158482378adc"
+      }
+    ],
+    "owned_bytes": 87664177537,
+    "free_disk_bytes": 66599776256,
+    "top_level_owned_bytes": {
+      "results-recovery-20261016": 58248010174,
+      "repo-scheduling": 266486302,
+      "guards": 417717960,
+      "training-clock.json": 174,
+      "memory-plan.json": 578,
+      "callback-sent-events.json": 1582,
+      "cleanup": 9795,
+      "milestone-5000000000.json": 8395,
+      "parallel-audit-batch.json": 1253,
+      "continuation-20261017": 27508,
+      "repo-scheduler-checks": 266003206,
+      "repo-evaluation": 265813033,
+      "prefix-memory-admission.json": 752,
+      "results-continuation-20261017": 17539345942,
+      "campaign-events.bundle": 2060,
+      "campaign.log": 0,
+      "scheduling-continuation-20261017.log": 5374,
+      "repo": 270161348,
+      "event-observer.log": 348,
+      "campaign-3f6eb6cb.bundle": 10372,
+      "training-deadline-amendment-20261016.json": 358,
+      "inputs": 5762,
+      "scheduling-source-final.bundle": 1651,
+      "event-observer-continuation-20261017.log": 173,
+      "recovery-approval.json": 801,
+      "training-failed.json": 223,
+      "repo-continuation-20261017": 267208882,
+      "repo-checks": 265124953,
+      "evaluation-smoke.bundle": 4052,
+      "transport-copy-retirements.jsonl": 1741,
+      "milestone-10000000000.json": 8495,
+      "twins-restored.json": 6411,
+      "campaign-events-v2.bundle": 2848,
+      "memory-resource-summary.json": 1247,
+      "postbios-memory-plan.json": 627,
+      "repo-postbios": 265205923,
+      "scheduling-handoff.json": 1340,
+      "guard-tests-plan.json": 528,
+      "evaluation.bundle": 8749,
+      "retirements.jsonl": 28554,
+      "twin-gates.json": 17100,
+      "recovery-admission-20261016.json": 7358,
+      "prefix500m-resource-summary.json": 637,
+      "transport-copy-retirements.json": 1842,
+      "milestone-2000000000.json": 8353,
+      "parallel-audit-batch-delivery.json": 179,
+      "resume-gates.json": 17537,
+      "memory-supervisor.log": 0,
+      "postbios-source.bundle": 7291,
+      "scheduling-recovery-20261016.log": 13955,
+      "event-observer-launch.json": 227,
+      "repo-recovery-20261016": 266858114,
+      "event-observer-recovery-20261016.log": 294,
+      "scheduling-source-f2f157ac.bundle": 51663,
+      "scheduling.log": 25015,
+      "owner-interruption-restart.json": 691,
+      "postbios-memory-supervisor.log": 125,
+      "event-observer-launch-v2.json": 265,
+      "checks.bundle": 14617,
+      "evaluation-checks.bundle": 4097,
+      "memory-launch.json": 163,
+      "postbios-memory-launch.json": 253,
+      "source.bundle": 945557,
+      "results": 9058795908,
+      "repo-campaign": 265232725,
+      "planning": 947348,
+      "event-observer-v2.log": 772,
+      "admission.json": 5742
+    },
+    "source_head": "2f138ecdb2e2ed8470363d2156c3fa226f2c672a",
+    "source_status": "",
+    "terminal_complete": false,
+    "global_20b_milestone": false,
+    "models": {
+      "2026101302": {
+        "files": [
+          {
+            "path": "saved-bytes.json",
+            "bytes": 2688,
+            "mtime_ns": 1792245464932249034
+          },
+          {
+            "path": "telemetry.jsonl",
+            "bytes": 2173,
+            "mtime_ns": 1792244925218042140
+          },
+          {
+            "path": "checkpoint.gz",
+            "bytes": 14414526873,
+            "mtime_ns": 1792244831588882138
+          },
+          {
+            "path": "audit.stop",
+            "bytes": 49,
+            "mtime_ns": 1792247108725316838
+          },
+          {
+            "path": "native-record.json",
+            "bytes": 2802,
+            "mtime_ns": 1792244926622059278
+          },
+          {
+            "path": "checkpoint.average.export-scratch-67630-1/average.tmp",
+            "bytes": 1667129458,
+            "mtime_ns": 1792247108657316155
+          },
+          {
+            "path": "checkpoint.current.export-scratch-67630-0/current.gz",
+            "bytes": 1457681899,
+            "mtime_ns": 1792247108665316238
+          }
+        ]
+      },
+      "2026101421": {
+        "files": [
+          {
+            "path": "saved-bytes.json",
+            "bytes": 2684,
+            "mtime_ns": 1792215010058582375
+          },
+          {
+            "path": "checkpoint.average.gz",
+            "bytes": 8827265135,
+            "mtime_ns": 1792222827483485221
+          },
+          {
+            "path": "telemetry.jsonl",
+            "bytes": 2173,
+            "mtime_ns": 1792213454644313192
+          },
+          {
+            "path": "audit.json",
+            "bytes": 4644,
+            "mtime_ns": 1792241737593271901
+          },
+          {
+            "path": "checkpoint.gz",
+            "bytes": 14407546362,
+            "mtime_ns": 1792213357031826272
+          },
+          {
+            "path": "audit.stop",
+            "bytes": 49,
+            "mtime_ns": 1792228881266529003
+          },
+          {
+            "path": "native-record.json",
+            "bytes": 2803,
+            "mtime_ns": 1792213455232316202
+          }
+        ]
+      },
+      "2026101422": {
+        "files": [
+          {
+            "path": "saved-bytes.json",
+            "bytes": 2684,
+            "mtime_ns": 1792216635931653174
+          },
+          {
+            "path": "checkpoint.average.gz",
+            "bytes": 8824845328,
+            "mtime_ns": 1792225250328292269
+          },
+          {
+            "path": "telemetry.jsonl",
+            "bytes": 2171,
+            "mtime_ns": 1792214598862403637
+          },
+          {
+            "path": "audit.json",
+            "bytes": 4641,
+            "mtime_ns": 1792244475220263586
+          },
+          {
+            "path": "checkpoint.gz",
+            "bytes": 14406200971,
+            "mtime_ns": 1792214503373318003
+          },
+          {
+            "path": "audit.stop",
+            "bytes": 49,
+            "mtime_ns": 1792228881266529003
+          },
+          {
+            "path": "native-record.json",
+            "bytes": 2801,
+            "mtime_ns": 1792214599706412984
+          }
+        ]
+      }
+    },
+    "audit_log_tail": "{\"command\":\"export\",\"options\":{\"average\":\"/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.average.gz\",\"current\":\"/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.current.gz\",\"zero_mass\":\"uniform\"},\"positionals\":[\"/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz\"]}\n",
+    "assessment": {
+      "estimated_remaining_export_audit_reservation_bytes": 19875185955,
+      "last_free_after_remaining_reservation_bytes": 49945819869,
+      "reservation_uncertainty": "Terminated files may include at most a final write after the last trace; before_bytes is not persisted. Metadata and termination-time differences are disclosed. Physical prospective-floor shortfall is independently confirmed by the controller failure.",
+      "remaining_reservation_includes_partial_scratch_bytes": true,
+      "current_owned_plus_remaining_growth_floor_bytes": 177539363492,
+      "original_budget_bytes": 259000000000,
+      "physical_floor_bytes": 50000000000,
+      "free_drop_since_1409": 26425561088,
+      "old_snapshot_utc": "2026-10-17T14:09:13.483614+00:00"
+    }
+  },
+  "status": "new-terminal-continuation-disk-reservation-failure-no-retry",
+  "failure": {
+    "attempt": "continuation-20261017",
+    "automatic_retry": false,
+    "error": "RuntimeError('Existing259GB plan/output reservations exhausted')",
+    "status": "failed",
+    "utc": "2026-10-17T14:25:09.233853+00:00"
+  },
+  "source_receipts": [
+    {
+      "path": "continuation-20261017/training-failed.json",
+      "bytes": 215,
+      "sha256": "fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b"
+    },
+    {
+      "path": "continuation-20261017/event-delivery.json",
+      "bytes": 199,
+      "sha256": "b6ff984cb7bca1ca6884a4f3b1d33ec6a9bf06b23d6938859b0c67bb57849211"
+    },
+    {
+      "path": "continuation-20261017/deadline.json",
+      "bytes": 551,
+      "sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120"
+    },
+    {
+      "path": "continuation-20261017/launch.json",
+      "bytes": 1158,
+      "sha256": "3c246e2845b9ba7f9e4535eb7e6ac5736f6ae4ffa6053636dfdc50ce6582767f"
+    },
+    {
+      "path": "training-failed.json",
+      "bytes": 223,
+      "sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe"
+    },
+    {
+      "path": "training-clock.json",
+      "bytes": 174,
+      "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a"
+    },
+    {
+      "path": "training-deadline-amendment-20261016.json",
+      "bytes": 358,
+      "sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134"
+    },
+    {
+      "path": "guards/continuation-20261017/result.json",
+      "bytes": 145,
+      "sha256": "934a466f51100cacd10e8e09495eec6d891c233c3845e375d680477c70fe89a2"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/native-record.json",
+      "bytes": 2802,
+      "sha256": "e934920a471cf742d980a9be4add23739d669534ec6f38cd293e46a462059bf2"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/saved-bytes.json",
+      "bytes": 2688,
+      "sha256": "57e35d6a7d3817046176aff33089e70d8d2bca051ff9762fe95779f6c558a05d"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/audit.stop",
+      "bytes": 49,
+      "sha256": "702f67a6d871fb1fe40d364d57977df3277b0cf2604c697a34e76978f35b2656"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/native-record.json",
+      "bytes": 2803,
+      "sha256": "bc458dbcfa7089ec395b0b0bcd8511c04a32b0d2798415be675a3be74798b0ce"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/saved-bytes.json",
+      "bytes": 2684,
+      "sha256": "527b0d3594726e46a48a14af02a841df5ec03007e3be01c2d8bf4599623cc95a"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/audit.json",
+      "bytes": 4644,
+      "sha256": "01b673ca9dd8ded9850eb11525969f34aab9dcfb1fe19e35ff293aee73b6920e"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/audit.stop",
+      "bytes": 49,
+      "sha256": "702f67a6d871fb1fe40d364d57977df3277b0cf2604c697a34e76978f35b2656"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/native-record.json",
+      "bytes": 2801,
+      "sha256": "5172daaeaeff4e9705c643fa83d3a88b47ef41d86c2e477f87b1d8076587bc29"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/saved-bytes.json",
+      "bytes": 2684,
+      "sha256": "d5b10688f25aaeb607fcb7552bf83532b25564a0e437bdde65a5ae385ef1778e"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/audit.json",
+      "bytes": 4641,
+      "sha256": "5aca3c71b0773159c46cfe007392e6c50a35bd4fcee0a8cb1f33fedec89fa43f"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/audit.stop",
+      "bytes": 49,
+      "sha256": "702f67a6d871fb1fe40d364d57977df3277b0cf2604c697a34e76978f35b2656"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101421-20000000000.result.json",
+      "bytes": 168,
+      "sha256": "1d4a622530e831a233cfaf00b761621b3d667f103da5be28d6ef311102980855"
+    },
+    {
+      "path": "guards/continuation-20261017/offload-2026101422-20000000000.result.json",
+      "bytes": 168,
+      "sha256": "c7b8fb170958c98383c524fc33f1257e8415b04172b11a387e1e640675e0519c"
+    },
+    {
+      "path": "guards/continuation-20261017/offload-2026101421-20000000000.result.json",
+      "bytes": 169,
+      "sha256": "515475577cece2048122be110294755ebdf124a37b7f73fdaf9d5e3c03374aea"
+    },
+    {
+      "path": "guards/continuation-20261017/train-2026101302-20000000000.result.json",
+      "bytes": 176,
+      "sha256": "5cc64ce5abf38d72786a293f65edbd82fda872f9fc29c5f9762f4f1725adf34f"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101422-20000000000.result.json",
+      "bytes": 169,
+      "sha256": "c0eec9c3509687e09fd0c564448bedb1e4cd816628000a7b91ca993fc8897694"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101421/receipt.json",
+      "bytes": 1666,
+      "sha256": "54ffe3b87772abb10892c40f8981a2260c7a04dee3f197ee39819e6d2e1e59cb"
+    },
+    {
+      "path": "continuation-20261017/offloads/2026101422/receipt.json",
+      "bytes": 1666,
+      "sha256": "982db1ebdbf682a176b48abe48b3bf82e2d99f02c579bc14c5a652cdd6509888"
+    }
+  ],
+  "deduplication": "New attempt-local failure not present at committed f10c2a71 14:09 snapshot. Historical root failure remains distinct and unchanged.",
+  "final_hands_started": false,
+  "final_outcomes_read": false,
+  "preservation": "No model/partial/scratch/source deleted or moved; no HDD use, code change, scientific retry or clock extension in response to this event.",
+  "post_failure_model_metadata_verification": {
+    "observed_utc": "2026-10-17T14:33:13.464819+00:00",
+    "all_three_20b_checkpoints_match_saved_byte_sizes_and_mtimes": true,
+    "both_audited_20b_averages_match_sizes_and_mtimes": true,
+    "1302_retained_audited_10b_recovery": {
+      "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+      "bytes": 11782090307,
+      "mtime_ns": 1792187303472139155
+    },
+    "previous_sha256": "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975",
+    "new_model_hash_or_audit_not_run": true
+  }
+}

@@ -4781,3 +4781,407 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - R4 members: `research/training/4/checkpoint.gz`, `research/training/4/current.gz`, `research/training/4/average.gz`; average SHA256 `db5104eb8c1d0f73fb1cbb50374e76b8add1b36ff27e3554b07ccc46e32c1c29`, actual1,000,002,794 nodes /40,858,142 entries. R8 corresponding `research/training/8/` members; average SHA256 `ef4002afa076f2f1c687ecb5d82b31127b3b64d872a546c75b35cddc345b8f30`, actual1,000,009,152 nodes /41,049,696 entries. All current/average rows audited before play.
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
+
+## PR301 — HU200 capacity on cygnus-x1 (owner-approved export recovery running, October 17, 2026)
+
+October17,15:45:19UTC export-only restart under new owner approval: no training
+or completed1421/1422 audit repeat. [Source/process/closed trace pins](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-startup-20261017.json)
+verify clean immutable57c63314071f0337afb38d0ce230297066c7ac52,
+74checksPASS/guardedfreshreadmission, supervisor79721/worker79744(CPU6,1thread)/
+observer79742. Newoutput`results-export-recovery-20261017/2026101302/20000000000/`
+keeps native checkpoint at its original verified NVMe path until final audit.
+[Closed downtime ledger](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-20261017/export-recovery-20261017/deadline.json)
+credits4,809.848438s once,14:25:09.233853→15:45:19.082291UTC; all earlier clocks
+unchanged. CurrentdeadlineOct19 06:04:59UTC /08:04:59Madrid; eval24h notstarted.
+[ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-export-recovery-20261017.json)
+nowtonight22:45–23:45Madrid finalexport/audit, fullMon19evening/Tue20uploadcontingency.
+
+**Additional inactive-file storage COMPLETE:**21files/**70,431,280,579 bytes**,
+sourceSHA/fsync/independent full destinationreadback/identity/journalbeforeunlink.
+[Exact every-file NVMeoriginal/HDDlocation/size/mtime/SHA and removal receipt](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-20261017/storage-export-recovery-20261017/receipt.json).
+HDDroot`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/`
+mirrors each original owned-root relative path. Includes1421/1422 20B recovery and
+average files,1302 10B recovery, gate/memory models, all old1302exportpartialbytes.
+These NVMe originals are now absent; old audit receipts retain their originalpaths.
+All original bytes remain recoverable onHDD; no partial promoted to admittedmodel.
+Restoration, only after fresh admission and for an inactive absent NVMe destination:
+`rsync -a --ignore-existing /mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz /home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz`
+then `sha256sum` that destination; expectedSHA
+`c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be`.
+Use each receipt row's exact hash/bytes/mtime for other files; retain HDD copy.
+Active compute/caches stayNVMe. Stage only needed averages/twins, keeping full
+prospective output reservations and50GBfloor; re-admit actual cache/evaluation
+cost before final hands. Source/Git/shared dependencies/otherPRs untouched.
+
+Raw storage metadata and journal atowned`storage-export-recovery-20261017/`;
+closed guards`guards/{storage-export-recovery-20261017,storage-export-recovery-20261017-r3,export-recovery-checks-20261017,export-readmission-20261017}/`
+are pinned instartupreceipt; exactplan/result/relocation copies under
+`export-recovery-20261017/`. Currentguard`guards/export-recovery-20261017/`
+resources/utilization remain unsealed live cuts; controller/observer logs ownedroot.
+[Setup failures retained](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-setup-failures-20261017.json).
+Earlier failuremetadata Driveacceptance remains valid; no new modelbundle/cloud
+acceptance/finalunpackedcopy claimed. Final archival must include these rawtraces,
+all 21 relocated files using originalmemberhierarchy, helper/plans/sourcebundles,
+ignored local preparation/launch/collection/publication/handoff/readback metadata,
+existingeventtask scope update receipt, and old/new failure logs/partials. Private
+webhook/signeddownload URLfiles excluded. Existingeventtask only, no new schedule;
+completecloseout pending. No final hands/outcomes or merge/release/defaultchange.
+
+October17,14:25UTC NEW continuation `training_failed` event, failureSHA
+`fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b`,
+deduplicated from historical rootSHAcdb382… and committedf10c2a71 running snapshot.
+[Failure assessment/source copies](docs/reports/hu200-capacity-cygnus-artifacts/training-continuation-failure-20261017.json)
+plus `continuation-failure-20261017/` pin exact failure/stop/model/clock/guard
+receipts and closed raw traces. All9 owned PIDs absent; no automatic retry.
+1302 intact20B checkpoint/full save verification retained, final export scratch
+files3,124,811,357 bytes retained/unaudited.1421/1422 full audits unchanged.
+50GB prospective floor failed(69.821free−19.875reservation≈49.946GB); physical
+free66.600GB atcollection. No heat stop or newHDD/otherPR use. No clock reset.
+[ETA withdrawn](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-continuation-failure-20261017.json).
+
+Partial failure-evidence ZIP **PR301-continuation-failure-20261017.zip** accepted
+in [existing PR301 Drive folder](https://drive.google.com/drive/folders/159JoTfd8HUyblui5QgSMc6w1JNz-z7px):
+[file1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ](https://drive.google.com/file/d/1fck0GZA1p_Il8apHPF8lkW4W-4JrlCRJ/view),
+**1,410,443 bytes**,SHA256`2a863212d38771cb88d2314cbef27ffacab18bd5a5ffbb1919587c5fd4b9eb58`,
+MD5`885a0fdb267fd03cf25527c1d7ac0b09`,61 members; manifest`MANIFEST.json`
+SHA256`5a269f75ccd99596b4bb6cc6ca785d745c18070a93eae1e00f8a48d173b26d11`.
+Full local AND independently downloaded cloud whole/member readback pass.
+[Native upload/independent metadata/readback receipt](docs/reports/hu200-capacity-cygnus-artifacts/continuation-failure-archive-20261017.json).
+BB original archive/manifest/readback at owned `archives/continuation-failure-20261017/`;
+original member paths preserved. Fetch this exactDriveID to fresh ignored storage,
+check wholeSHA above, then verify size/SHA for each MANIFEST member before use.
+Models/partial model bytes are excluded and remain at indexed NVMe/HDD locations;
+this is partial evidence acceptance, not complete model archival or final retention.
+No original/transport cleanup; no newHDD copy. Archiveguard rawplan/result/readings
+at `guards/failure-evidence-archive-20261017/`; worker/plan inownedplanning.
+Local ignored collection/publication helpers, all collection/readback/connector
+receipts in `planning/failure-evidence-archive-20261017/` and new coordinator
+metadata require final archival. Exclude private endpoint/download URLs. Full
+campaign closeout incomplete; eventtask retained,terminalobserver exited,no newtask.
+
+October17,14:09UTC update: all3 native20B endpoints saved;1421/1422 final full-row
+audits and verified HDD relocations pass.1302 native save SHA
+`b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93`,
+14,414,526,873 bytes, full gzip/row/hash readback verified; policy export/full
+current-average audit still running. No final hands or Drive acceptance.
+[Snapshot, source pins and exact receipt copies](docs/reports/hu200-capacity-cygnus-artifacts/progress-20261017-1408.json)
+index closed audit/result/offload/journal records under
+`progress-20261017-1408/` with original owned-root relative paths. Raw live
+resources/utilization remain unsealed cuts in `guards/continuation-20261017/`.
+Four relocated files39,111,722,256 bytes retain original relative paths below
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-after-20b-20261017/`;
+per-seed `continuation-20261017/offloads/SEED/receipt.json` gives each original,
+destination, bytes, mtime and SHA256, with durable `journal.jsonl` and independent
+all-byte readback. Current source absence and destination size were rechecked.
+Restore selected files only after admission, copying back to the exact original
+NVMe path and verifying recorded size/SHA/mtime; retain the HDD original.
+Twins/5B averages remain in the earlier separately indexed HDD location. Latest
+20B recovery/averages remain NVMe. Include local ignored `planning/collect_status_20261017_1408.py`,
+`status-20261017-1408-collected.json`, publication/readback/activity metadata and
+all raw closed/live phase traces in final archives; private webhook URL excluded.
+
+[PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
+`f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
+[report](docs/reports/hu200-capacity-cygnus.md). All fresh/normalized500M full audits, exact twin parity and memory gates pass. All twins restored; all three5B saves pass every-row audits and required5B averages remain. Accidental power-off interrupted10B; the owner-approved common5B recovery is running on all three seeds with a single one-hour extension. No final hands yet.
+Owned nonsynced host root: `/home/dberweger/hu200-capacity-20261015/` on bb128.
+Open PR292 root/archives/upload processes/shared inputs remain protected.
+
+Canonical destination: [PR-301-hu200-capacity-cygnus](https://drive.google.com/drive/folders/159JoTfd8HUyblui5QgSMc6w1JNz-z7px),
+folder ID `159JoTfd8HUyblui5QgSMc6w1JNz-z7px`, under the existing research project
+`188bEt6i0RHqegCCdvpf3wPzUiRw78N2s`. No archive uploaded or accepted yet.
+Future archive receipts must supply whole/member hashes, local readback,
+Drive piece/archive IDs and separate upload/metadata acceptance.
+
+Owner October16 additionally requires an **unpacked retained copy** of the final
+uploaded evidence under `/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/`
+on bb128, matching archive member hierarchy/manifests. This copy is pending;
+[retention plan](docs/reports/hu200-capacity-cygnus-artifacts/local-retention-plan.json)
+records the observed2TB mount and required member size/SHA256 receipt. Scientific
+training/evaluation/cache/scratch remain on NVMe under the unchanged budgets.
+
+The three fixed twins are restored from their already indexed #265/#278
+accepted Drive archives through read-only synced archive I/O and SSH; no model
+work runs on the coordinator. [Exact archive IDs, hashes, members and model pins](docs/reports/hu200-capacity-cygnus-artifacts/drive-inputs.json).
+Restoration on bb128 verifies whole archive/manifest/member hashes and all three pinned20B model hashes. For retrieval, download the
+named accepted archive to ignored `inputs/archives/`, verify its whole SHA256
+and embedded `ARCHIVE-MANIFEST.json` hash, extract the named member to fresh
+`inputs/seed-SEED/`, then verify its exact model SHA256. Original restoration
+commands: [#265](docs/reports/hu200-k50-frozen-artifacts/model-index.json),
+[#278 seed1421](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101421-model-index.json),
+[#278 seed1422](docs/reports/hu200-v055-confirmation-artifacts/seed-2026101422-model-index.json).
+
+Qualified input dependencies remain read-only at
+`/home/dberweger/cygnus-qualification-20261014/`: `trainer-first` SHA256
+`d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436`,
+`benchmark-results/500m.gz` SHA256
+`2c4c1484b7e4ebefca2bb364223d6cd12e886f98b20784b51ff6ac6678f4312d`,
+and three #163 tables under `tables/`. All four input hashes have been freshly
+verified on bb128 before the guarded no-step memory calibration. Existing
+[qualified archive/restoration pins](docs/reports/cygnus-x1-artifacts/archive-main.json)
+and [#163 table provenance](docs/reports/cygnus-x1-artifacts/input-restoration.json)
+remain authoritative. No original removed or altered. Memory calibration output
+and full thermal/resource stream await completion and archival; no result yet.
+[Administrative failures](docs/reports/hu200-capacity-cygnus-artifacts/admin-failures.json)
+include connector413 and the corrected source-transfer prerequisite race.
+
+PR301 post-BIOS continuation: [500M every-row identity](docs/reports/hu200-capacity-cygnus-artifacts/memory-row-identity.json),
+[full69,084,815-row current/average audit with file hashes](docs/reports/hu200-capacity-cygnus-artifacts/memory-postbios-audit.json),
+[thermal/resource summary and raw trace hashes](docs/reports/hu200-capacity-cygnus-artifacts/memory-resource-summary.json),
+[owner-interruption clock](docs/reports/hu200-capacity-cygnus-artifacts/owner-interruption-restart.json),
+[21 post-BIOS test receipt](docs/reports/hu200-capacity-cygnus-artifacts/postbios-tests.json).
+Raw evidence/partials remain under the owned bb128 root; not yet archived or uploaded.
+4,734.229/5,400 active preliminary seconds used. At that preliminary receipt the72h clock was unstarted; its subsequently started fixed clock is indexed below.
+New2TB disk excluded from scientific work; owner-authorized final unpacked
+retention copy pending as declared above. Open#292 and unrelated preservation data protected.
+
+PR301 admitted source3f6eb6cb; [resource admission](docs/reports/hu200-capacity-cygnus-artifacts/admission.json),
+[active72h clock](docs/reports/hu200-capacity-cygnus-artifacts/training-clock.json),
+[three exact fresh/resumed20M identities](docs/reports/hu200-capacity-cygnus-artifacts/resume-gates.json).
+Training/audit deadline October19,02:29:18UTC; evaluation allowance unchanged24h.
+All fresh500M full audits pass; normalized1302 full audit passes, with1421/1422 underway. Global twin-prefix/mature-memory gates remain pending; no strength claim.
+Initial evaluation-fixture failure retained; three corrected barrier checks pass.
+
+PR301 continued-task [delivery verification](docs/reports/hu200-capacity-cygnus-artifacts/continuation-delivery.json)
+and [bounded metadata observer](docs/reports/hu200-capacity-cygnus-artifacts/event-observer-launch-v2.json).
+Private endpoint files are excluded from all archives/Git; task removed at closeout.
+All three input transports are complete by expected byte size; whole SHA/member restoration remains pending on bb128. No model verification is inferred from transport completion.
+No restoration/hash acceptance or final-hand result is yet claimed.
+
+PR301 input transport receipts: [1302](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101302.json), [1421](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101421.json), [1422](docs/reports/hu200-capacity-cygnus-artifacts/transport-complete-2026101422.json). All files remain at the indexed owned `inputs/archives/` paths; no source/archive cleanup has occurred.
+[Approved scheduling amendment](docs/hu200-capacity-scheduling-amendment.md), [36-check validation](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-validation.json), [successful07:52UTC handoff](docs/reports/hu200-capacity-cygnus-artifacts/scheduling-handoff.json) and [two-audit08:19UTC snapshot](docs/reports/hu200-capacity-cygnus-artifacts/parallel-audits-live-20261016.json). Live source94b84b3255f16daa529eae8250ca9a391249b2ac at owned `repo-scheduling`; original clock SHA/deadline unchanged. Retain that source, old source dependencies, raw traces, fixtures/failures and logs through campaign archival. No third audit admission or measured ETA re-quote before first-batch completion.
+
+PR301 [first parallel batch](docs/reports/hu200-capacity-cygnus-artifacts/parallel-audit-batch.json) and [independent verification](docs/reports/hu200-capacity-cygnus-artifacts/parallel-batch-verification.json):1.7943x throughput, peak CPU/VRM61/61C; an upper limit of three audits is admitted within existing resource/output reservations. [Exact twin gates](docs/reports/hu200-capacity-cygnus-artifacts/twin-gates.json), [mature-memory admission](docs/reports/hu200-capacity-cygnus-artifacts/prefix-memory-admission.json), [actual trainer worker observation](docs/reports/hu200-capacity-cygnus-artifacts/trainer-thread-observation.json) and [re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-parallel-batch.json). Original deadlines unchanged.
+
+PR301 [verified twin restoration](docs/reports/hu200-capacity-cygnus-artifacts/twins-restored.json) binds original Drive IDs/member paths to the retained models under `/home/dberweger/hu200-capacity-20261015/inputs/seed-SEED/final.average.gz`. All three SHA256s match the fixed user pins. [Cleanup receipt](docs/reports/hu200-capacity-cygnus-artifacts/transport-copy-retirements.json):12,245,806,798B of unchanged owned `inputs/archives/*.zip` transport replicas retired only after all restorations pass; their original Drive files and9,489,299,657B restored models remain. The receipt provides each exact removed path, bytes/mtime/hash, Drive restoration URL/member and retained model. PR265/278 currently MERGED verified; PR301 OPEN, so model originals/source/partials stay retained. To repeat retrieval after transport retirement, re-materialize the indexed accepted Drive ZIP via the read-only synced-file/SSH route into a fresh ignored directory, verify `drive-inputs.json` whole SHA and embedded manifest SHA, extract its exact named member and verify its listed model SHA before use. No cleanup in synced folders or other roots. New campaign output archives/upload acceptance still pending.
+
+Actual guarded input restoration command (already completed; existing verified destinations must not be reused):
+```
+cd /home/dberweger/hu200-capacity-20261015/repo-scheduling
+.venv/bin/python -m scripts.restore_hu200_capacity_twins --base /home/dberweger/hu200-capacity-20261015
+```
+For a fresh recovery, stage all three indexed ZIPs under a fresh ignored owned base's `inputs/archives/` and run that same pinned module against the fresh base; preserve existing verified models. Source paths, exact IDs/hashes/members and per-model spec/lineage are recorded in the linked restoration receipt.
+
+PR301 October16,12:05UTC: [independently verified2B milestone](docs/reports/hu200-capacity-cygnus-artifacts/milestone-2b-verification.json)
+indexes byte-identical owned source receipts under `save-2b/`, including every
+seed's audit/header/checkpoint hashes, exit0 job results, retirements and5B parent
+admission. Tables contain135.43–135.89M entries and remain unfrozen. Retained
+recoveries still match recorded size/mtime; disposable exports/old prefixes retire
+only with exact receipt-backed paths. [Per-street/role interval coverage](docs/reports/hu200-capacity-cygnus-artifacts/coverage-2b.csv).
+Three actual audits overlap2h03m; CPU/VRM peak65/74°C, no stop or swap growth.
+Raw resource/utilization traces remain active on bb128; the verification records
+fixed byte cuts, nominal sampling overhead/gaps and CPU/I/O limitations.
+[Re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-2b.json)
+keeps October19 evening Madrid/October20 upload contingency, original deadlines
+unchanged. No final hands/outcomes or new output archive acceptance yet; final
+unpacked HDD retention remains required at closeout.
+
+PR301 October16,16:40UTC: [verified5B milestone](docs/reports/hu200-capacity-cygnus-artifacts/milestone-5b-verification.json)
+indexes byte-identical owned5B source receipts, all22 source size/SHA pins,
+exit0 jobs, exact retirements and10B parent admissions. All three required5B
+averages remain at their indexed owned paths (16,526,079,059B total), with full
+SHA256s, sizes/mtimes and source checkpoint hashes. Tables remain unfrozen at
+197.91–200.36M entries. [Per-street/role2B→5B coverage](docs/reports/hu200-capacity-cygnus-artifacts/coverage-5b.csv).
+Three audits overlap3h05m; peak CPU/VRM75/88°C, no threshold stop, swap growth
+0.75MiB within guard.83°C admission holds are distinguished from95°C/30s running
+VRM stops. Raw mutable trace byte cuts and sample-gap limitations are recorded.
+[Re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-5b.json)
+keeps October19 evening Madrid/October20 upload contingency, original limits
+unchanged. No final hands, outcomes, output archive acceptance or HDD copy yet.
+
+PR301 accidental power-off, October16: [damage assessment](docs/reports/hu200-capacity-cygnus-artifacts/power-off-assessment.json),
+[full post-boot byte readback](docs/reports/hu200-capacity-cygnus-artifacts/power-off-byte-readback.json),
+[readback guard plan/result](docs/reports/hu200-capacity-cygnus-artifacts/power-off-readback-result.json).
+All11 checked complete files /76.175GB match pre-shutdown SHA256s. Seed1302's
+10B temporary checkpoint is incomplete;1421/1422 native10B hashes match but
+their every-row audits were interrupted. All audited5B recoveries/averages and
+twins remain intact. Old files, scratch and the truncated trace stay preserved.
+[Owner-review recovery proposal](docs/hu200-capacity-power-loss-recovery.md):
+common5B restart, about15B repeated physical nodes, exactly+3600s once proposed
+for the main deadline, unchanged fixed evaluation/guards/storage budget.
+No restart, retry, deadline change, new archive acceptance or HDD copy performed.
+
+PR301 owner-approved recovery: [authorization](docs/reports/hu200-capacity-cygnus-artifacts/recovery-approval.json),
+[single fixed deadline ledger](docs/reports/hu200-capacity-cygnus-artifacts/training-deadline-amendment-20261016.json),
+[53 guarded validation checks and preserved setup/test failures](docs/reports/hu200-capacity-cygnus-artifacts/recovery-validation.json),
+[fresh hash/resource admission](docs/reports/hu200-capacity-cygnus-artifacts/recovery-admission-20261016.json).
+Pinned sourcec48e64ce, three original5B parents, new results-recovery-20261016 paths.
+Original clock bytes unchanged; effective deadline Oct19 03:29:18UTC; evaluation
+still24h, no further automatic retries. Rebuilt1421/1422 must equal old10B hashes.
+[Launch ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-at-recovery-launch.json)
+retains Monday19 evening target/Tuesday20 contingency. Launch receipts pending;
+no recovery trainer or final hands started at the admission snapshot.
+
+PR301 recovery launched October16,19:43UTC: [startup command/parent/process proof](docs/reports/hu200-capacity-cygnus-artifacts/recovery-startup-verification.json).
+Supervisor4325, native trainers4337/4338/4339, observer4367; immutable sourcec48e64ce.
+All three use original5B recoveries and fresh results-recovery-20261016 paths.
+Actual native flags match interrupted attempts except time/output/log/stop paths.
+At19:45UTC CPU/VRM63/61°C, swap0, no stop. Existing webhook task enabled and
+deduplicated; no new schedule. Old interrupted evidence remains untouched.
+Original clock unchanged; effective approved deadline Oct19 03:29:18UTC.
+No final evaluation or archive/HDD closeout yet.
+
+PR301 October17 morning: [status/source receipt pins](docs/reports/hu200-capacity-cygnus-artifacts/status-20261017-morning.json).
+1421/1422 reproduced old10B compressed SHA256s and pass full10B audits; both
+saved20B and await final audits.1302 is finishing its10B audit. Native20B table
+counts301,153,954/301,153,964 reflect unchanged complete-iteration freezing.
+No terminal20B audit or final playing result claimed. Original disk reservations
+limit new admissions; no failure/stop/limit change. Deadline and ETA unchanged.
+
+PR301 October17,05:53UTC: [all three rebuilt10B audits verified](docs/reports/hu200-capacity-cygnus-artifacts/milestone-10b-verification.json),
+with byte-identical owned source metadata under `save-10b/`, native/checkpoint/export
+hashes, CRC/EOF/order/every-row validation, exit0 jobs and exact retirement paths.
+1421/1422 match pre-shutdown compressed hashes;1302 matches known nodes/iteration.
+[Every-street/role interval coverage](docs/reports/hu200-capacity-cygnus-artifacts/coverage-10b.csv).
+Approved redundant-file retirement totals68,083,458,565B;5B averages/current10B
+recoveries and all interrupted attempts remain. Two final20B audits are active,
+1302 continuation awaits original prospective disk reservations. CPU/VRM59/63°C,
+no stop/failure; clock/source unchanged. [Re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-10b.json)
+expects training/audits Saturday17evening–Sunday18morning, Sunday18evening contingency;
+report/archive target Monday19evening Madrid/Tuesday20upload contingency.
+Ignored coordinator `planning/{collect_status_20261017_10b.py,status-20261017-10b-collected.json,verify_10b_event.py,10b-event-source-collection.json,publish_10b_event.py}`
+are metadata evidence for final archival, excluding private endpoint files.
+No final hands/outcomes, new cloud archive acceptance or final unpacked retention
+copy yet. Existing bounded event task remains until complete closeout.
+
+PR301 October17,09:21UTC: [terminal storage-guard assessment/source receipts](docs/reports/hu200-capacity-cygnus-artifacts/training-failure-20261017.json)
+records the new `training_failed` event and byte-identical failure/stop/header/plan
+copies under `failure-20261017/`. All15 recorded owned PIDs are absent. Last
+free62.767GB minus remaining reserved12.898GB leaves49.869GB below50GB floor;
+logical owned+reservations+growth+floor still248.518GB within259GB. No heat stop.
+Owned growth30.299GB versus free-space drop121.401GB since05:53 is disclosed
+without attributing other roots. PR292 and unrelated files/processes untouched.
+All3 verified10B checkpoints remain;1421/1422 native20B saves and byte-readback
+receipts exist but final audits interrupted,1302 never started20B. Preserve both
+20B exports/stop files and all old partial/scratch/model/source/dependency bytes.
+Closed recovery resource/utilization/controller/observer trace sizes/hashes are
+pinned in the assessment; no new archive uploaded/accepted or HDD copy performed.
+Current free58.237GB does not admit declared41GB archive staging above50GB floor.
+[ETA withdrawn](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-failure-20261017.json);
+no reliable completion ETA/retry/evaluation admission. Original limits unchanged.
+Ignored `planning/{collect_training_failure_20261017.py,training-failure-20261017-collected.json,publish_failure_20261017.py}`
+require later archival along with current coordinator metadata; private endpoint
+files excluded. Event task retained until full closeout, terminal observer exited,
+no new task. No final hands/outcomes; owner decides any recovery and merge.
+
+PR301 October17,09:56UTC: [verified inactive model relocation](docs/reports/hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017.json),
+[byte-identical manifest](docs/reports/hu200-capacity-cygnus-artifacts/inactive-model-storage-20261017/relocation-manifest.json),
+[storage amendment and continuing placement authority](docs/hu200-capacity-storage-amendment.md).
+The owner specifically authorizes moving inactive models/evidence and managing
+placement/staging/retrieval between NVMe and2TB HDD within this bounded PR301.
+All11 files /56,691,594,602B pass source SHA and independent destination every-byte
+readback, eight intact-model pinned hashes, source identity checks and durable
+pre-unlink journaling. Original NVMe copies are removed only after verification;
+all bytes remain unpacked at `/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017/<original-relative-path>`.
+The exact source/destination/bytes/SHA/mtime/removal state for every file is in the
+manifest. Three twins/three5B averages and the old interrupted10B model/partial
+files are there. Current3 audited10B recoveries and both pending20B checkpoint/
+current/average sets remain at `results-recovery-20261016/` on NVMe, metadata intact.
+Unique partial evidence is preserved rather than discarded; all original audit
+statuses remain unchanged.
+
+The HDD's `/dev/sda1` ext4 rw mount is verified. Guard passes in879.015s; CPU/VRM
+max58/63.5°C, RSS31.42MB, swap growth128.0625MiB below256MiB, NVMe minimum56.394GB.
+Final collected free NVMe111.180GB/HDD1.754TB. Manifest/journal/helper/closed guard
+trace pins and final source-absence/destination metadata checks are in the receipt.
+No cloud upload/acceptance, scientific retry, final hands or outcome read occurred.
+HDD archive staging is now authorized, removing the prior staging-space blocker;
+scientific recovery remains unapproved and the old finishETA remains withdrawn.
+
+Retrieval recipe (after required NVMe space/dependency admission and under the
+same watchdog): select one `relative_path` from the manifest, copy back while
+preserving its recorded mtime, verify its exact `bytes` and `sha256`, and retain
+the HDD copy. Example paths and command for1302's5B average:
+
+```sh
+# On bb128; do not overwrite an existing or active model.
+rel=results/2026101302/5000000000/checkpoint.average.gz
+from=/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-20261017
+back=/home/dberweger/hu200-capacity-20261015
+cp --no-clobber --preserve=timestamps "$from/$rel" "$back/$rel"
+sha256sum "$back/$rel"
+# Expected:19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5
+```
+
+Source metadata/raw storage worker/journal/resource traces remain in bb128 owned
+`planning/`, `guards/inactive-model-offload-20261017/` and the HDD destination;
+coordinator ignored `planning/{offload_inactive_models_20261017.py,offload-inactive-models-20261017-launch.json,monitor_offload_20261017.py,collect_offload_receipts_20261017.py,offload-inactive-models-20261017-completion-collected.json,publish_offload_completion_20261017.py}`
+plus updated handoff/history need final archival. Exclude all private endpoint files.
+No PR292/source/dependency cleanup or new schedule; event task remains until full
+closeout. Future bundle manifests must use the relocation ledger for missing
+original NVMe member paths; never silently omit relocated evidence.
+
+PR301 owner-authorized post-storage continuation, October17,10:36:53UTC:
+[protocol](docs/hu200-capacity-storage-stop-continuation.md),
+[owner approval](docs/reports/hu200-capacity-cygnus-artifacts/storage-stop-restart-approval-20261017.json),
+[69-check validation with preserved fixture failure](docs/reports/hu200-capacity-cygnus-artifacts/storage-continuation-validation-20261017.json),
+[startup/resource/source/actual-command proof](docs/reports/hu200-capacity-cygnus-artifacts/storage-continuation-startup-20261017.json).
+Clean live source2f138ecd at owned `repo-continuation-20261017`; supervisor36848,
+observer36870, native1302 PID36875 on0–1/two workers, read-only validators1421/1422
+PIDs36877/36878 on6/7. Qualified trainer/exporter/auditor bytes/math unchanged.
+1302 uses audited10B parent and new `results-continuation-20261017/2026101302/20000000000/`;
+1421/1422 retain current `results-recovery-20261016/` models, exports never rewritten.
+Audit proof directories and stop files are fresh under `continuation-20261017/`.
+
+[Exact stopped-interval ledger](docs/reports/hu200-capacity-cygnus-artifacts/storage-continuation-20261017/continuation-20261017/deadline.json)
+credits4,531.262598s once,09:21:22.269998→10:36:53.532596UTC. Original clock/previous
+one-hour ledger and failure record stay byte-identical. New fixed deadline
+1792385089.2587068=October19 04:44:49UTC/06:44:49Madrid; evaluation24h unchanged.
+No further automatic retry/credit. [Re-quoted ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-storage-restart-20261017.json).
+[Coordinator activity log](docs/reports/hu200-capacity-cygnus-artifacts/work-activity.json)
+records returns/handbacks and background state; older exact turn-end times unknown.
+
+Readmission rehashes all3 retained10B checkpoints/binary/#163 tables and adopts
+unchanged original gates. Single-run/helper/floor memory requirement49.124GB fits;
+at10:38CPU/VRM60/71°C,free105.885GB,swap growth128.8125MiB within256MiB,no stop.
+Default20GB/native23GB/full-audit outputs unchanged; reused-input audits/storage
+reserve64MiB metadata and never repeat a native export. Max8CPUs/3helpers/other guards
+unchanged. After each fully verified20B audit, new source+target readback receipts
+relocate inactive own10B recovery/20B current to HDD
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-models-after-20b-20261017/<original-relative-path>`.
+Keep latest20B recovery/averageNVMe; first56.69GB HDD relocation remains intact.
+No PR292/shared dependency touched, no new Drive acceptance/final retention closeout.
+
+Current-attempt terminal receipts: `/home/dberweger/hu200-capacity-20261015/continuation-20261017/{training-failed.json,training-complete.json}`.
+Original root failure remains historical; deduplicate against the active attempt.
+New root completion explicitly supersedes old failure only when all3 final audits
+and storage moves finish. Existing webhook task reused/attempt-local delivery receipt,
+no new schedule. No final hands or playing outcome. Preserve live source unchanged.
+
+Raw BB `guards/{storage-continuation-tests-20261017,storage-continuation-tests-r2-20261017,continuation-readmission-20261017,continuation-20261017}/`,
+`planning/` bundles/plans/test fixtures and controller/observer logs, plus coordinator
+`planning/{collect_continuation_startup_20261017.py,continuation-startup-20261017-collected.json,publish_continuation_startup_20261017.py,pr-continuation-declaration-readback-20261017.json}`
+are required final evidence; closed-source pins indexed in startup/validation.
+Mutable new trace byte cuts are snapshots, not sealed hashes. Exclude privateURLs.
+Delete the existing event task only at complete closeout; owner decides merge.
+
+PR301 training completion, October17,20:11:35UTC: all three final every-row audits pass.
+[Attempt-specific completion/deduplication and closed-trace pins](docs/reports/hu200-capacity-cygnus-artifacts/training-complete-verification-20261017.json),
+[exact completion/offload/audit receipts](docs/reports/hu200-capacity-cygnus-artifacts/training-complete-20261017/),
+[ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-training-complete-20261017.json).
+Final1302 checkpoint/current relocated with full independent readback under
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/after-export-recovery-20261017/`
+mirroring original owned-relative paths. Average f69c6f3e… staysNVMe; all hashes,
+bytes and original paths are in the receipts. Restore selected required inputs toNVMe
+with SHA256 verification, retainingHDD originals. Raw closed guards/export-recovery-20261017,
+controller/observer logs and planning/collect_training_complete_20261017.py plus
+publication/readback helpers require final archives. No complete model archive or
+final unpackedHDD bundle exists yet. No final hands/outcomes, no source/trainer change.
+
+PR301 first cost-only evaluation procedure: [protocol](docs/hu200-capacity-evaluation-first-pilot.md),
+[config](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-first-pilot-config-20261017.json)
+SHA256`99f694ab42b67a5f9db67a42c701c59a7a0c92c375c62f80def095a94924f7ea`, immutable source`2d2ec4a17d20d586b8563dc656ed339b7fba218f`.
+[Fresh roots](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-roots-prepilot-20261017.json).
+BB source repo-evaluation-first-pilot-20261017, guards/evaluation-first-pilot-{checks,restore}-20261017,
+evaluation-first-pilot-20261017/config/roots/receipts plus evaluation-cache-20261017 and evaluation/
+are required final evidence. First cache seals evaluation-clock.json; no automatic restart.
+Keep all partial caches/receipts/logs, no global outcome read before six-group barrier.
+
+PR301 first cost pilot launchedOctober17 20:22:34.560486UTC, deadline`2026-10-18T20:22:34.560486+00:00`.
+[Startup/closed checks/restoration/live source process proof](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-first-pilot-startup-20261017.json),
+[exact clock/restore/config/PR-readback/guard plans](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-first-pilot-startup-20261017/),
+[setup/event-task scope](docs/reports/hu200-capacity-cygnus-artifacts/evaluation-first-pilot-setup-record-20261017.json).
+Twin restored to original NVMe path with full SHA/fync/readback;HDD source retained.
+Cache and output are activeNVMe; do not move them or edit immutable2d2ec4a1 source.
+Archive closed raw tests/restore guards and active evaluation guard after completion,
+all local planning/*first_pilot* helpers/configs/readbacks/bundle/handoff. Clock cannot reset.
+No final hand admission/outcomes. Coordinator return/handback is in the activity ledger.

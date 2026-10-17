@@ -1,0 +1,22 @@
+{
+  "status": "waiting-for-successful-current-audit-boundary",
+  "pid": 65291,
+  "command": [
+    "taskset",
+    "-c",
+    "6,7",
+    "/home/dberweger/hu200-capacity-20261015/repo-scheduling/.venv/bin/python",
+    "-u",
+    "-m",
+    "scripts.schedule_hu200_capacity",
+    "handoff-run",
+    "--base",
+    "/home/dberweger/hu200-capacity-20261015",
+    "--old-pid",
+    "61705"
+  ],
+  "source": "94b84b3255f16daa529eae8250ca9a391249b2ac",
+  "original_deadline": 1792376957.996109,
+  "initial_audit_limit": 2,
+  "launched_utc": "2026-10-16T07:21:11.065285+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "http_status": 202,
+  "payload": {
+    "attempt": "export-recovery-20261017",
+    "event": "training_complete",
+    "experiment": "PR301",
+    "observed_utc": "2026-10-17T20:11:49.831771+00:00"
+  }
+}

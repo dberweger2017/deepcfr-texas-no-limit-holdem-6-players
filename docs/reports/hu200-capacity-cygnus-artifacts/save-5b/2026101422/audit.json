@@ -1,0 +1,140 @@
+{
+  "audit": {
+    "all_nodes_verified": 197914660,
+    "average_sha256": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4",
+    "checkpoint_sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+    "counts": {
+      "entries": 197914660,
+      "positive_mass": 122560045,
+      "zero_mass": 75354615
+    },
+    "current_sha256": "931fde225447f887eb44406d6f24122bb2227087341200bd84f40630c27c73df",
+    "maximum_tv": 1.0000000000000002,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.2935018984227619
+  },
+  "files": {
+    "average": {
+      "bytes": 5474296298,
+      "mtime_ns": 1792161662895245001,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.average.gz",
+      "sha256": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4"
+    },
+    "checkpoint": {
+      "bytes": 8777061168,
+      "mtime_ns": 1792155355392636380,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.gz",
+      "sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33"
+    },
+    "current": {
+      "bytes": 5008402399,
+      "mtime_ns": 1792161662895245001,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.current.gz",
+      "sha256": "931fde225447f887eb44406d6f24122bb2227087341200bd84f40630c27c73df"
+    }
+  },
+  "native": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 8777061168,
+    "checkpoint_sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+    "completed_nodes": 5000001240,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        60374258,
+        216952478,
+        678971568,
+        1851030986
+      ],
+      "entries": 197914660,
+      "positive_average_mass_keys": 122560045,
+      "traverser_visits": 967075038,
+      "traverser_visits_by_street": [
+        19079375,
+        69974261,
+        231444004,
+        646577398
+      ],
+      "visits_histogram": {
+        "0": 68435739,
+        "1": 60687147,
+        "10-99": 15002317,
+        "100+": 923651,
+        "2-9": 52865806
+      },
+      "zero_average_mass_keys": 75354615
+    },
+    "elapsed_seconds_including_writes": 3790.906136553,
+    "entries_per_completed_node": 0.0395829221834353,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 0,
+      "discarded_updates_since_previous_save": 0,
+      "interval_start_iteration": 1378288,
+      "missing_opponent_by_street": [
+        2040,
+        85770,
+        2069064,
+        27295889
+      ],
+      "missing_opponent_share_by_street": [
+        8.268949026306931e-05,
+        0.0009702703486320393,
+        0.007586558478869109,
+        0.037225625374263376
+      ],
+      "missing_traverser_by_street": [
+        17955,
+        210944,
+        3411743,
+        28978131
+      ],
+      "missing_traverser_share_by_street": [
+        0.0016317349964216337,
+        0.005184444660506665,
+        0.024910577469440972,
+        0.07517034281954578
+      ],
+      "opponent_decisions_by_street": [
+        24670608,
+        88398043,
+        272727615,
+        733255351
+      ],
+      "state": null,
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        11003625,
+        40687868,
+        136959611,
+        385499519
+      ]
+    },
+    "iteration": 3748218,
+    "new_entries": 62021497,
+    "nodes_per_second_including_writes": 791367.8292039816,
+    "nodes_since_previous_save": 3000001160,
+    "overshoot_nodes": 1240,
+    "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.gz",
+    "process_rss_bytes_after_save": 18736177152,
+    "recent_nodes_per_second_including_writes": 791367.8292039816,
+    "requested_nodes": 5000000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792155355.399482,
+    "write_seconds": 1187.370845226,
+    "write_started": 1792154168.0286365
+  },
+  "status": "verified"
+}

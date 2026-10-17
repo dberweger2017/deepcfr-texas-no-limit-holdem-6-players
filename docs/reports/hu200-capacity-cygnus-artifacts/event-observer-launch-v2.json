@@ -1,0 +1,8 @@
+{
+  "pid": 63063,
+  "source": "541342994891e54e8fbedc1de5d13feaad6b2ec6",
+  "utc": "2026-10-16T06:11:06.144908+00:00",
+  "scope": "current bounded PR301 metadata events only",
+  "replaces_failed_metadata_observer": 62840,
+  "scientific_controller_untouched": true
+}

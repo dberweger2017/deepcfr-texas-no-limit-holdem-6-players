@@ -1,0 +1,130 @@
+{
+  "status": "owner-authorized",
+  "utc": "2026-10-17T15:19:57.444445+00:00",
+  "retained_active_input": "results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+  "files": [
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/checkpoint.gz",
+      "bytes": 14407546362,
+      "mtime_ns": 1792213357031826272,
+      "sha256": "bb8ea06e4be3ada1e82dd524f54beaa5846d0c4814c215ace76ca145d901c098"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/checkpoint.gz",
+      "bytes": 14406200971,
+      "mtime_ns": 1792214503373318003,
+      "sha256": "0d4b990deb63fcddd2dc9e96ec03ea06882229d666a4d541b4d5d43c5f8bdcb0"
+    },
+    {
+      "path": "results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+      "bytes": 11782090307,
+      "mtime_ns": 1792187303472139155,
+      "sha256": "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975"
+    },
+    {
+      "path": "results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz",
+      "bytes": 8827265135,
+      "mtime_ns": 1792222827483485221,
+      "sha256": "c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be"
+    },
+    {
+      "path": "results-recovery-20261016/2026101422/20000000000/checkpoint.average.gz",
+      "bytes": 8824845328,
+      "mtime_ns": 1792225250328292269,
+      "sha256": "388410f517f663378c1c97cd5cca11f8bed47f4e2777b131d7a2bb69d7f0451f"
+    },
+    {
+      "path": "results/memory/memory-500m.gz",
+      "bytes": 2727516688,
+      "mtime_ns": 1792095500297822713,
+      "sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0"
+    },
+    {
+      "path": "results/memory-postbios/checkpoint.average.gz",
+      "bytes": 1773893363,
+      "mtime_ns": 1792111289602385510,
+      "sha256": "008a5b91ccfb896e06b5dc00c3003c558c3480376ee379c393f8c242482bb0a2"
+    },
+    {
+      "path": "results/memory-postbios/checkpoint.current.gz",
+      "bytes": 1710965335,
+      "mtime_ns": 1792111289602385510,
+      "sha256": "04e38607a81248a0ca6dcd52880a2124c0239fa4aeb4bf08948fb7b6e4bf0a5d"
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/checkpoint.average.export-scratch-67630-1/average.tmp",
+      "bytes": 1667129458,
+      "mtime_ns": 1792247108657316155
+    },
+    {
+      "path": "results-continuation-20261017/2026101302/20000000000/checkpoint.current.export-scratch-67630-0/current.gz",
+      "bytes": 1457681899,
+      "mtime_ns": 1792247108665316238
+    },
+    {
+      "path": "results/memory/memory-500m.average.export-scratch-77606-1/average.tmp",
+      "bytes": 397238272,
+      "mtime_ns": 1792096282914171997
+    },
+    {
+      "path": "results/memory/memory-500m.current.export-scratch-77606-0/current.gz",
+      "bytes": 383107072,
+      "mtime_ns": 1792096282922172162
+    },
+    {
+      "path": "results/2026101421/gate-resumed20m/checkpoint.gz",
+      "bytes": 270417591,
+      "mtime_ns": 1792119808346550409,
+      "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc"
+    },
+    {
+      "path": "results/2026101421/gate-fresh20m/checkpoint.gz",
+      "bytes": 270417591,
+      "mtime_ns": 1792117814736296704,
+      "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc"
+    },
+    {
+      "path": "results/2026101302/gate-resumed20m/checkpoint.gz",
+      "bytes": 270143670,
+      "mtime_ns": 1792119808234549853,
+      "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95"
+    },
+    {
+      "path": "results/2026101302/gate-fresh20m/checkpoint.gz",
+      "bytes": 270143670,
+      "mtime_ns": 1792117814880298279,
+      "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95"
+    },
+    {
+      "path": "results/2026101422/gate-resumed20m/checkpoint.gz",
+      "bytes": 270126707,
+      "mtime_ns": 1792119806746542510,
+      "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381"
+    },
+    {
+      "path": "results/2026101422/gate-fresh20m/checkpoint.gz",
+      "bytes": 270126707,
+      "mtime_ns": 1792117815992310440,
+      "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381"
+    },
+    {
+      "path": "results/2026101302/gate-prefix10m/checkpoint.gz",
+      "bytes": 148448601,
+      "mtime_ns": 1792119067293022044,
+      "sha256": "eb9fb0e70e4c01d65a365584c22cabb6721cd87b80f88f95f646989bbb328fa9"
+    },
+    {
+      "path": "results/2026101422/gate-prefix10m/checkpoint.gz",
+      "bytes": 147996924,
+      "mtime_ns": 1792119065653005966,
+      "sha256": "59e2b13221812855281c3a4053fea66b44fc49883891969382d562c94c0ad7b5"
+    },
+    {
+      "path": "results/2026101421/gate-prefix10m/checkpoint.gz",
+      "bytes": 147978928,
+      "mtime_ns": 1792119065505004518,
+      "sha256": "0bb153da4cd6dfcc8eb4d24976563c3391c7c33d05967332791d16448a753ed9"
+    }
+  ],
+  "scope": "All currently inactive owned research files>=100MB; no Git/source/shared dependencies/PR292 paths"
+}

@@ -1,0 +1,141 @@
+{
+  "status": "all-complete-files-match-pre-shutdown-sha256",
+  "observed_utc": "2026-10-16T19:18:46.900843+00:00",
+  "elapsed_seconds": 168.18717936199982,
+  "total_bytes": 76175040480,
+  "files": [
+    {
+      "seed": 2026101302,
+      "kind": "5B-checkpoint",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.gz",
+      "expected": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa",
+      "expected_bytes": 8843959155,
+      "bytes": 8843959155,
+      "mtime_ns": 1792156017859236644,
+      "sha256": "a050cb4ad65b807dbd1110f98c2c890e1bfb80bcdb72e8955ccb03717361b6fa",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101302,
+      "kind": "5B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/5000000000/checkpoint.average.gz",
+      "expected": "19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5",
+      "expected_bytes": 5517075440,
+      "bytes": 5517075440,
+      "mtime_ns": 1792162653793418415,
+      "sha256": "19b2723dff161d10c063e191c9b4fc10f61a2f85687b33009f1b4509441580a5",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101421,
+      "kind": "5B-checkpoint",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.gz",
+      "expected": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a",
+      "expected_bytes": 8877181907,
+      "bytes": 8877181907,
+      "mtime_ns": 1792156308030130566,
+      "sha256": "a2730c6b4b124076c40d70b03f46eae943d1e7cb80ba4a932dbf39304238ba8a",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101421,
+      "kind": "5B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.average.gz",
+      "expected": "835362e1e29ffa300015ad2852691b9d128481f79bed4b6e83c86f65d56f1cf8",
+      "expected_bytes": 5534707321,
+      "bytes": 5534707321,
+      "mtime_ns": 1792162094643890677,
+      "sha256": "835362e1e29ffa300015ad2852691b9d128481f79bed4b6e83c86f65d56f1cf8",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101422,
+      "kind": "5B-checkpoint",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.gz",
+      "expected": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+      "expected_bytes": 8777061168,
+      "bytes": 8777061168,
+      "mtime_ns": 1792155355392636380,
+      "sha256": "fb1487669e3ddff3dbb61e9f2061a45c7f47b08f9d180288a7aef3c4b0f1bf33",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101422,
+      "kind": "5B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/5000000000/checkpoint.average.gz",
+      "expected": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4",
+      "expected_bytes": 5474296298,
+      "bytes": 5474296298,
+      "mtime_ns": 1792161662895245001,
+      "sha256": "bae6c7d7f36791a9484dcc0b6bf7af408205651f9c81ad1b61cb713a7bfacac4",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101421,
+      "kind": "10B-checkpoint-not-fully-audited",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/10000000000/checkpoint.gz",
+      "expected": "63abc0a8098b7ac9b8c8ce2a6b121640fd681d38a9cf3a48437a8502dbed30b1",
+      "expected_bytes": 11828967860,
+      "bytes": 11828967860,
+      "mtime_ns": 1792174112907462144,
+      "sha256": "63abc0a8098b7ac9b8c8ce2a6b121640fd681d38a9cf3a48437a8502dbed30b1",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101422,
+      "kind": "10B-checkpoint-not-fully-audited",
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/10000000000/checkpoint.gz",
+      "expected": "b6dd7cb280736a5c93af1590f66f68e5655abc1b5aa83de78c14aa0fa6142fa0",
+      "expected_bytes": 11832491674,
+      "bytes": 11832491674,
+      "mtime_ns": 1792174317961668517,
+      "sha256": "b6dd7cb280736a5c93af1590f66f68e5655abc1b5aa83de78c14aa0fa6142fa0",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101302,
+      "kind": "85M-twin20B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+      "expected": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "expected_bytes": 3164563975,
+      "bytes": 3164563975,
+      "mtime_ns": 1792141699404187082,
+      "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101421,
+      "kind": "85M-twin20B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101421/final.average.gz",
+      "expected": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+      "expected_bytes": 3162671080,
+      "bytes": 3162671080,
+      "mtime_ns": 1792141711988296898,
+      "sha256": "c08d86a9615022df7015d34e5dc3de2705bbb8346ed6976bd72284e71d91f444",
+      "unchanged_during_read": true,
+      "verified": true
+    },
+    {
+      "seed": 2026101422,
+      "kind": "85M-twin20B-average",
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101422/final.average.gz",
+      "expected": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+      "expected_bytes": 3162064602,
+      "bytes": 3162064602,
+      "mtime_ns": 1792141724540406434,
+      "sha256": "b191c5ed8b943d138e6076fb4a1b0117c98964d92dd2d6253e157f696f691f6f",
+      "unchanged_during_read": true,
+      "verified": true
+    }
+  ],
+  "scope": "Read-only whole compressed-byte SHA/size against pre-shutdown pins; no export, full-row audit, training, evaluation or scientific retry.10B models still require full every-row audits;1302 partial write is never a recovery input."
+}

@@ -1,0 +1,277 @@
+{
+  "status": "read-only-existing-audit-observation",
+  "start": {
+    "monotonic": 30503.301484478,
+    "utc": "2026-10-16T06:53:42.201092+00:00",
+    "processes": [
+      {
+        "pid": 63866,
+        "ppid": 63691,
+        "cpu_ticks": 1072,
+        "argv": [
+          "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+          "export",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.gz",
+          "--current",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.current.gz",
+          "--average",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.average.gz",
+          "--zero-mass",
+          "uniform"
+        ],
+        "io": {
+          "rchar": 2729852335,
+          "wchar": 2913197,
+          "syscr": 2688,
+          "syscw": 182,
+          "read_bytes": 0,
+          "write_bytes": 2920448,
+          "cancelled_write_bytes": 0
+        },
+        "threads": [
+          {
+            "tid": 63866,
+            "cpu_ticks": 1072
+          }
+        ]
+      },
+      {
+        "pid": 63691,
+        "ppid": 61705,
+        "cpu_ticks": 44206,
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-campaign/.venv/bin/python",
+          "-m",
+          "scripts.run_hu200_capacity_training",
+          "audit",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m"
+        ],
+        "io": {
+          "rchar": 10918292840,
+          "wchar": 2928,
+          "syscr": 2000813,
+          "syscw": 2,
+          "read_bytes": 0,
+          "write_bytes": 8192,
+          "cancelled_write_bytes": 0
+        },
+        "threads": [
+          {
+            "tid": 63691,
+            "cpu_ticks": 44199
+          },
+          {
+            "tid": 63692,
+            "cpu_ticks": 6
+          }
+        ]
+      }
+    ],
+    "nvme": {
+      "nvme0n1": {
+        "read_sectors": 16220319,
+        "written_sectors": 263269026,
+        "io_milliseconds": 60988
+      }
+    }
+  },
+  "end": {
+    "monotonic": 30533.317708936,
+    "utc": "2026-10-16T06:54:12.217314+00:00",
+    "processes": [
+      {
+        "pid": 63866,
+        "ppid": 63691,
+        "cpu_ticks": 4072,
+        "argv": [
+          "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+          "export",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.gz",
+          "--current",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.current.gz",
+          "--average",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.average.gz",
+          "--zero-mass",
+          "uniform"
+        ],
+        "io": {
+          "rchar": 2777497007,
+          "wchar": 63784507,
+          "syscr": 4142,
+          "syscw": 2898,
+          "read_bytes": 0,
+          "write_bytes": 63811584,
+          "cancelled_write_bytes": 0
+        },
+        "threads": [
+          {
+            "tid": 63866,
+            "cpu_ticks": 4072
+          }
+        ]
+      },
+      {
+        "pid": 63691,
+        "ppid": 61705,
+        "cpu_ticks": 44206,
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-campaign/.venv/bin/python",
+          "-m",
+          "scripts.run_hu200_capacity_training",
+          "audit",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m"
+        ],
+        "io": {
+          "rchar": 10918292840,
+          "wchar": 2928,
+          "syscr": 2000813,
+          "syscw": 2,
+          "read_bytes": 0,
+          "write_bytes": 8192,
+          "cancelled_write_bytes": 0
+        },
+        "threads": [
+          {
+            "tid": 63691,
+            "cpu_ticks": 44199
+          },
+          {
+            "tid": 63692,
+            "cpu_ticks": 6
+          }
+        ]
+      }
+    ],
+    "nvme": {
+      "nvme0n1": {
+        "read_sectors": 16261791,
+        "written_sectors": 263440282,
+        "io_milliseconds": 61044
+      }
+    }
+  },
+  "elapsed_seconds": 30.01622445799876,
+  "clock_ticks_per_second": 100,
+  "process_deltas": [
+    {
+      "pid": 63866,
+      "argv": [
+        "/home/dberweger/cygnus-qualification-20261014/trainer-first",
+        "export",
+        "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.gz",
+        "--current",
+        "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.current.gz",
+        "--average",
+        "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/checkpoint.average.gz",
+        "--zero-mass",
+        "uniform"
+      ],
+      "cpu_core_equivalents": 0.9994594770564345,
+      "io_delta": {
+        "rchar": 47644672,
+        "wchar": 60871310,
+        "syscr": 1454,
+        "syscw": 2716,
+        "read_bytes": 0,
+        "write_bytes": 60891136,
+        "cancelled_write_bytes": 0
+      },
+      "threads": [
+        {
+          "tid": 63866,
+          "cpu_ticks": 4072
+        }
+      ]
+    },
+    {
+      "pid": 63691,
+      "argv": [
+        "/home/dberweger/hu200-capacity-20261015/repo-campaign/.venv/bin/python",
+        "-m",
+        "scripts.run_hu200_capacity_training",
+        "audit",
+        "--base",
+        "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m"
+      ],
+      "cpu_core_equivalents": 0.0,
+      "io_delta": {
+        "rchar": 0,
+        "wchar": 0,
+        "syscr": 0,
+        "syscw": 0,
+        "read_bytes": 0,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "threads": [
+        {
+          "tid": 63691,
+          "cpu_ticks": 44199
+        },
+        {
+          "tid": 63692,
+          "cpu_ticks": 6
+        }
+      ]
+    }
+  ],
+  "nvme_deltas": {
+    "nvme0n1": {
+      "read_sectors": 41472,
+      "written_sectors": 171256,
+      "io_milliseconds": 56
+    }
+  },
+  "caveat": "NVMe counters are host-wide; process counters identify only this owned audit. This is one active audit phase, not a parallel throughput trial.",
+  "qualified_trainer_source": {
+    "commit": "ebd3d8d567e4248f9f1eb57edfaf25262338aa31",
+    "path": "native/hu20-trainer/src/trainer.rs",
+    "source_sha256": "f468ab632cb088776f04d8671170589fd39e2b03dcd99b9ed40e73af081a3557",
+    "two_worker_pool_lines": [
+      25,
+      26
+    ],
+    "production_pair_join_line": 136,
+    "production_serial_apply_lines": [
+      218,
+      223
+    ],
+    "observation_limit": "No live training process during this sample; current worker is audit/export. Source proves two-worker traversal support, not continuous two-core utilization."
+  },
+  "completed_audit_resources": [
+    {
+      "seed": 2026101302,
+      "peak_family_rss_bytes": 48721920,
+      "peak_cpu_c": 56,
+      "peak_vrm_c": 60
+    },
+    {
+      "seed": 2026101421,
+      "peak_family_rss_bytes": 48615424,
+      "peak_cpu_c": 54,
+      "peak_vrm_c": 57
+    },
+    {
+      "seed": 2026101422,
+      "peak_family_rss_bytes": 48693248,
+      "peak_cpu_c": 56,
+      "peak_vrm_c": 58.5
+    }
+  ],
+  "owner_reported_thermal_test": {
+    "date": "2026-10-16",
+    "power_limits_w": {
+      "PL1": 125,
+      "PL2": 125
+    },
+    "fan_curve": "quiet, CPU sensor",
+    "workload": "three real HU200 trainers with two-worker limits, 15 minutes",
+    "max_vrm_c": 69,
+    "max_cpu_c": 59,
+    "stress_ng_8_threads_reaches_vrm_stop": true,
+    "provenance": "owner note; not independently repeated or a controlled causal measurement"
+  },
+  "interpretation": "Existing export child uses 0.99946 CPU core equivalents. Physical reads zero in its process, writes 60,891,136 bytes. Host NVMe io_milliseconds56 over30.016s (~0.19% busy); this observed export is CPU-bound. Full sorted-validator phase and concurrent throughput remain unmeasured; do not claim a measured threefold speedup."
+}

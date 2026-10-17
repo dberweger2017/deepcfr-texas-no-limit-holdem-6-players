@@ -1,0 +1,25 @@
+{
+  "status": "owner-approved",
+  "scope": "PR301 common5B recovery only",
+  "owner_reply": "aproved, you can continue",
+  "approved_on": "2026-10-16",
+  "approved_proposal_commit": "404d0b58",
+  "approved_proposal_sha256": "cf8a0d52671f1a5ed17c384397906fe9d386cecbfd497f1223959fc968680345",
+  "original_clock_sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+  "original_deadline_epoch": 1792376957.996109,
+  "extension_seconds": 3600,
+  "amended_deadline_epoch": 1792380557.996109,
+  "seeds": [
+    2026101302,
+    2026101421,
+    2026101422
+  ],
+  "common_parent_nodes": 5000000000,
+  "recovery_targets": [
+    10000000000,
+    20000000000
+  ],
+  "approximate_repeated_physical_nodes": 15000000000,
+  "evaluation_max_seconds": 86400,
+  "later_automatic_retries": false
+}

@@ -1,0 +1,15 @@
+{
+  "seed": 2026101422,
+  "source": "/Users/dberweger/Local/Research-Cloud/PR-278-hu200-v055-confirmation/hu200-v055-seed-2026101422-final-average-20261014.zip",
+  "remote": "/home/dberweger/hu200-capacity-20261015/inputs/archives/hu200-v055-seed-2026101422-final-average-20261014.zip",
+  "bytes": 3162066289,
+  "resumed_from_bytes": 1149030400,
+  "status": "transport-complete; remote SHA256 pending",
+  "observed_utc": "2026-10-16T06:35:13.285502+00:00",
+  "event": "background-command-exit-0",
+  "remote_size_verified": 3162066289,
+  "remote_mtime_ns": 1792132493076168242,
+  "verification_scope": "Transfer exit and exact remote byte size only; whole-archive/member SHA and restoration pending under campaign controller",
+  "training_failure_receipt_present": false,
+  "twin_gate_receipt_present": false
+}

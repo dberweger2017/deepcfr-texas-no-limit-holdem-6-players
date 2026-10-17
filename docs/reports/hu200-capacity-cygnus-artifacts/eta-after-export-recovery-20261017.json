@@ -1,0 +1,38 @@
+{
+  "status": "conditional-forecast-after-owner-approved-export-recovery",
+  "observed_utc": "2026-10-17T15:45:35.442900+00:00",
+  "restart_admission_utc": "2026-10-17T15:45:19.082291+00:00",
+  "restart_madrid": "2026-10-17T17:45:19.082291+02:00",
+  "downtime_credited_seconds_once": 4809.848438024521,
+  "stopped_interval_start_utc": "2026-10-17T14:25:09.233853+00:00",
+  "prior_deadline_epoch": 1792385089.2587068,
+  "effective_training_deadline_epoch": 1792389899.1071448,
+  "effective_training_deadline_utc": "2026-10-19T06:04:59.107145+00:00",
+  "effective_training_deadline_madrid": "2026-10-19T08:04:59.107145+02:00",
+  "remaining_export_full_audit_and_storage_hours": [
+    5,
+    6
+  ],
+  "expected_completion_madrid": [
+    "2026-10-17T22:45:19.082291+02:00",
+    "2026-10-17T23:45:19.082291+02:00"
+  ],
+  "contingency": "October18 morning Europe/Madrid",
+  "full_report_archive_target": "October19 evening Europe/Madrid",
+  "upload_contingency": "October20 Europe/Madrid",
+  "costs_unmeasured": [
+    "Full fixed cache/evaluation/replay/reproduction quote",
+    "Full model archival/upload/final unpacked retention timing"
+  ],
+  "basis": [
+    "No training repeats; all3 native20B endpoints already saved",
+    "Only1302 unchanged native export, every-row verification and final storage",
+    "Prior fullcap stage projection5.294h; existing20B audits2.31\u20133.07h; complete-output reservation retained",
+    "All inactive>=100MB ownedresearch relocated70.431GB before launch; only active20Bcheckpoint plus small evidence onNVMe",
+    "Original clocks remain byte-identical; no extra credit for repeated export runtime"
+  ],
+  "evaluation_max_seconds": 86400,
+  "evaluation_cache_clock_started": false,
+  "future_automatic_retry_or_credit": false,
+  "final_hands_started": false
+}

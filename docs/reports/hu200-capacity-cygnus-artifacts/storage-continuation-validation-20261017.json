@@ -1,0 +1,133 @@
+{
+  "status": "69-tests-passed-under-real-watchdog",
+  "source": "2f138ecdb2e2ed8470363d2156c3fa226f2c672a",
+  "initial_attempt": {
+    "status": "68pass1fixturefailure",
+    "reason": "Existing process-overlap fixture depended on host free space and could not admit its simulated outputs. Original logs/results retained; no scientific work ran.",
+    "guard_path": "guards/storage-continuation-tests-20261017"
+  },
+  "final_attempt": {
+    "status": "69passed",
+    "guard_path": "guards/storage-continuation-tests-r2-20261017",
+    "elapsed_seconds": 7.070221588997811,
+    "fixture_change": "Simulated ample disk only inside metadata-only integration fixture; actual outer watchdog retained real NVMe/swap/temperature/RSS limits."
+  },
+  "coverage": [
+    "Same default20GB/23GB output reservations",
+    "Read-only metadata reservations",
+    "Single remaining native seed and own-audit dependencies",
+    "Single stopped-interval credit and sealed-ledger tampering rejection",
+    "Existing-export every-row validation without native export and without byte changes",
+    "Truncated-export rejection/no success receipt",
+    "Independent HDD readback and source preservation on hash/error/stop",
+    "Existing global stop propagation, CPU/RSS/swap/disk guards and serial/parallel export bytes"
+  ],
+  "source_pins": [
+    {
+      "path": "continuation-20261017/admission.json",
+      "bytes": 5482,
+      "sha256": "2438b63ad5e303cd0e1f7c6a70782100fe4636759d88166945510f984a7f5522"
+    },
+    {
+      "path": "continuation-20261017/deadline.json",
+      "bytes": 551,
+      "sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120"
+    },
+    {
+      "path": "continuation-20261017/launch.json",
+      "bytes": 1158,
+      "sha256": "3c246e2845b9ba7f9e4535eb7e6ac5736f6ae4ffa6053636dfdc50ce6582767f"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/resources.jsonl",
+      "bytes": 15544,
+      "sha256": "b344656b960c087315a4e07a355e1cb561f70491d1a974d56f51351cb19b704c"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/plan.json",
+      "bytes": 872,
+      "sha256": "4bc783f2d7dc847757bb9f49496b0b0015c1c48bce1ec10c3b85e2808bcba705"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/result.json",
+      "bytes": 186,
+      "sha256": "0ef71b592cabbf331adab2f284d2aef69d051fc01e38fd59ed6a44b64b99d7d9"
+    },
+    {
+      "path": "guards/storage-continuation-tests-20261017/continuation-tests.log",
+      "bytes": 8156,
+      "sha256": "ebfe1317eefb59436917b1f81c94aa93f3eb893ec0bfdb05561e57818e87019a"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/resources.jsonl",
+      "bytes": 31070,
+      "sha256": "13cfe365fa9910dd375adc639f2c0242c5ce0c83cd44593cc3c996d463406dee"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/plan.json",
+      "bytes": 983,
+      "sha256": "b11ea80563b865e88eee28d9961ce1b741cbf5b1affa79be91834303d17ad271"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/result.json",
+      "bytes": 145,
+      "sha256": "93cd3a8c0ed1f537c553eb1f25fde031eac855484067be7db789bc8f7dfe18c8"
+    },
+    {
+      "path": "guards/storage-continuation-tests-r2-20261017/continuation-tests.log",
+      "bytes": 99,
+      "sha256": "1a995d98432d3a99c8d6f091ead0009633ee1d7e3750bd5b86788f6cc26bb125"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/resources.jsonl",
+      "bytes": 260024,
+      "sha256": "b81ac36d21202f7ed0826ea7312d6f22820a0e1047a190c1aa666afe57e212b9"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/plan.json",
+      "bytes": 610,
+      "sha256": "6b3ae9727c8c461fc223dec984658d51eeed3e063c31dc3e06c6f13e9e89a491"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/result.json",
+      "bytes": 144,
+      "sha256": "489915b00eeda77f763beaba968d2b2f04de0bde87428a31204fcae0f31cefdf"
+    },
+    {
+      "path": "guards/continuation-readmission-20261017/readmission.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guards/continuation-20261017/train-2026101302-20000000000.plan.json",
+      "bytes": 1429,
+      "sha256": "4054ebb50d2d104c1f5061ba54564b90a84d0a5e79a437d304b6aa2891189fb5"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101422-20000000000.plan.json",
+      "bytes": 560,
+      "sha256": "38f2887bdf5c9cf9c42301d87dfe5209c0e771665331ee28d7bbe4dbcc821646"
+    },
+    {
+      "path": "guards/continuation-20261017/audit-2026101421-20000000000.plan.json",
+      "bytes": 560,
+      "sha256": "bed4d6618db9fb5e34523fda68c38e1abc2a9099f451aeeb55a4355761228697"
+    },
+    {
+      "path": "training-clock.json",
+      "bytes": 174,
+      "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a"
+    },
+    {
+      "path": "training-deadline-amendment-20261016.json",
+      "bytes": 358,
+      "sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134"
+    },
+    {
+      "path": "training-failed.json",
+      "bytes": 223,
+      "sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe"
+    }
+  ],
+  "trainer_export_auditor_unchanged": true
+}

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-17T20:23:54.467291+00:00",
+  "scientific_failures": [],
+  "engineering_notes": [
+    "Local root-reservation module import required absent scipy; no model work or package installation. Executed the exact AST-extracted reserve function with standard-library exclusive JSON writer; live scan passed against6refs."
+  ],
+  "existing_event_task": {
+    "id": "scheduled-task:command:mcp:b16c302b-de9e-4aa8-a4bf-87f4cf987be3:schedule-task:hu200-capacity-pr301-current-campaign-events-20261016",
+    "enabled": true,
+    "type": "webhook",
+    "bound_thread": "feca1fa3-b5be-4857-94be-e2061da40655",
+    "new_schedule_created": false
+  },
+  "scientific_code_changed": false,
+  "automatic_retry": false
+}

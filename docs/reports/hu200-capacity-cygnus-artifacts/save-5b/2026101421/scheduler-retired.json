@@ -1,0 +1,17 @@
+{
+  "removed": [
+    {
+      "bytes": 5068770519,
+      "mtime_ns": 1792162094643890677,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/5000000000/checkpoint.current.gz",
+      "sha256": "d0134d327a12486001f537767760f437568b8019dd13064678841cec6d4cb9d9"
+    },
+    {
+      "bytes": 5748822572,
+      "mtime_ns": 1792143885114666729,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/2000000000/checkpoint.gz",
+      "sha256": "257bc7591da22e09f4d66c64334868975d9a66e3e25f7a3e80c1becda02380e3"
+    }
+  ],
+  "status": "verified"
+}

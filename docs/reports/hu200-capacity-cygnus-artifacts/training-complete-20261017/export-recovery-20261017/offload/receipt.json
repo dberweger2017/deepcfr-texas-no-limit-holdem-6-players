@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/after-export-recovery-20261017/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+      "sha256": "b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93",
+      "source": {
+        "bytes": 14414526873,
+        "mtime_ns": 1792244831588882138,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+        "sha256": "b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93"
+      },
+      "verified_utc": "2026-10-17T20:09:05.278714+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/after-export-recovery-20261017/results-export-recovery-20261017/2026101302/20000000000/checkpoint.current.gz",
+      "sha256": "a4cbbc9767f86dbb6803ea47745fc2c9cf090ba19eb343dd305116c3715bdb8f",
+      "source": {
+        "bytes": 7726436423,
+        "mtime_ns": 1792259407545948934,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000/checkpoint.current.gz",
+        "sha256": "a4cbbc9767f86dbb6803ea47745fc2c9cf090ba19eb343dd305116c3715bdb8f"
+      },
+      "verified_utc": "2026-10-17T20:11:32.966778+00:00"
+    }
+  ],
+  "status": "verified",
+  "utc": "2026-10-17T20:11:33.694769+00:00"
+}

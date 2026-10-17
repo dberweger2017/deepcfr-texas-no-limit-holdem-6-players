@@ -1,0 +1,404 @@
+{
+  "pins": [
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/evaluation-clock.json",
+      "bytes": 194,
+      "sha256": "04dcd040e9a5d43c6b1e20f7fe8d47b375a112c8b6c7482601468497a17ba710"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/restore-twin.json",
+      "bytes": 492,
+      "sha256": "868ee0d909871de54ef715db74aaf3cdb8b5114461522f1da3cd5f0f83248afc"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+      "bytes": 2049,
+      "sha256": "99f694ab42b67a5f9db67a42c701c59a7a0c92c375c62f80def095a94924f7ea"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/roots.json",
+      "bytes": 2204,
+      "sha256": "016b41ee3f994891750964ed8344cba6d232185fc2952a49f7ecb42d624c82cf"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/pr-prelaunch-readback.json",
+      "bytes": 326,
+      "sha256": "d1d8a361af456c353b46619fc81cae6d6a55109ac950be6579561489b1b5775c"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/plan.json",
+      "bytes": 665,
+      "sha256": "b6cf03adeccb33abf4fd14aaeb84cada4d9be8fb6ca6ddde3e128982a8ce26a2"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/result.json",
+      "bytes": 145,
+      "sha256": "ab1767e470af83b1f787ec64f82a87698801ef92ac50f65576970136e27fbbe0"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/checks.log",
+      "bytes": 99,
+      "sha256": "f0fc542787cceb01530540dbedab7cdd820047cd5a173c8845a74ea5a59ab5bd"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/plan.json",
+      "bytes": 613,
+      "sha256": "49b6f0844a39f265f99ed1fa7c8e4f4bfa371fa0168549dc7bbd91d5b20b0d27"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/result.json",
+      "bytes": 145,
+      "sha256": "2a6e902e7564f2b9d79163d243773dfca23a6c43abf6b80003b0313d7b87e46f"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-20261017/cache-large.plan.json",
+      "bytes": 793,
+      "sha256": "85bb25dfe13143779a190686408b7e611938fb76cfb587b942968ef1e771e833"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/checks.log",
+      "bytes": 99,
+      "sha256": "f0fc542787cceb01530540dbedab7cdd820047cd5a173c8845a74ea5a59ab5bd"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/plan.json",
+      "bytes": 665,
+      "sha256": "b6cf03adeccb33abf4fd14aaeb84cada4d9be8fb6ca6ddde3e128982a8ce26a2"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/resources.jsonl",
+      "bytes": 11634,
+      "sha256": "3022bbdea25e38dd9f7f818059698506b09d1900b56d24cb9f21167e765375c9"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-checks-20261017/result.json",
+      "bytes": 145,
+      "sha256": "ab1767e470af83b1f787ec64f82a87698801ef92ac50f65576970136e27fbbe0"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/plan.json",
+      "bytes": 613,
+      "sha256": "49b6f0844a39f265f99ed1fa7c8e4f4bfa371fa0168549dc7bbd91d5b20b0d27"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/resources.jsonl",
+      "bytes": 112446,
+      "sha256": "ee3416083dd7074603aea625d954aa3d93268fb8b2bba7f443a1016e7bc857a4"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/restore.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/dberweger/hu200-capacity-20261015/guards/evaluation-first-pilot-restore-20261017/result.json",
+      "bytes": 145,
+      "sha256": "2a6e902e7564f2b9d79163d243773dfca23a6c43abf6b80003b0313d7b87e46f"
+    }
+  ],
+  "last_resource": {
+    "utc": "2026-10-17T20:23:02.633041+00:00",
+    "monotonic": 93707.729314027,
+    "package_c": 63.0,
+    "clock_khz": [
+      800000,
+      800000,
+      800000,
+      800000,
+      800000,
+      800000,
+      4899231,
+      800000,
+      800000,
+      800000,
+      800000,
+      4899261,
+      800000,
+      4800687,
+      800000,
+      4899229
+    ],
+    "throttle_counts": {
+      "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+      "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+    },
+    "cpu_clocks_khz": {
+      "cpu11": 800000,
+      "cpu9": 800000,
+      "cpu7": 800000,
+      "cpu5": 800000,
+      "cpu3": 800000,
+      "cpu14": 800000,
+      "cpu1": 4899231,
+      "cpu12": 800000,
+      "cpu10": 800000,
+      "cpu8": 800000,
+      "cpu6": 800000,
+      "cpu4": 4899261,
+      "cpu15": 800000,
+      "cpu2": 4800687,
+      "cpu13": 800000,
+      "cpu0": 4899229
+    },
+    "device_temperatures_c": {
+      "iwlwifi_1/temp1_input": 33.0,
+      "nct6687/Thermistor 0": 16.0,
+      "nct6687/Thermistor 15": 68.0,
+      "nct6687/Thermistor 1": 13.5,
+      "nct6687/PCH CHIP": 35.0,
+      "nct6687/PECI 0.0": 62.0,
+      "nct6687/Thermistor 16": 38.5,
+      "nct6687/Diode 0 (curr)": 34.0,
+      "acpitz/temp1_input": 27.8,
+      "coretemp/Core 4": 55.0,
+      "coretemp/Core 1": 54.0,
+      "coretemp/Core 5": 45.0,
+      "coretemp/Core 2": 46.0,
+      "coretemp/Core 6": 42.0,
+      "coretemp/Package id 0": 63.0,
+      "coretemp/Core 3": 45.0,
+      "coretemp/Core 7": 46.0,
+      "coretemp/Core 0": 62.0,
+      "pch_cometlake/temp1_input": 35.0,
+      "nvme/Composite": 38.85
+    },
+    "available_bytes": 121657450496,
+    "swap_used_bytes": 135061504,
+    "vrm_c": 68.0,
+    "fan1_rpm": 900,
+    "free_disk_bytes": 105335169024,
+    "fan_rpm": {
+      "fan3": 1355,
+      "fan7": 0,
+      "fan4": 0,
+      "fan10": 0,
+      "fan8": 0,
+      "fan1": 900,
+      "fan5": 0,
+      "fan9": 0,
+      "fan2": 1345,
+      "fan6": 0
+    },
+    "job_rss_bytes": {
+      "cache-large": 224743424
+    },
+    "family_rss_bytes": 224743424,
+    "active_jobs": {
+      "cache-large": {
+        "kind": "pilot-cache-large",
+        "cpus": [
+          0,
+          1
+        ]
+      }
+    },
+    "clean_stop_requested": false,
+    "vrm_hot_seconds": 0
+  },
+  "last_utilization": {
+    "utc": "2026-10-17T20:22:58.059580+00:00",
+    "monotonic": 93703.15584956,
+    "hz": 100,
+    "jobs": {
+      "cache-large": [
+        {
+          "pid": 116915,
+          "start": "9368021",
+          "ticks": 12,
+          "argv": [
+            "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+            "-m",
+            "scripts.pilot_hu200_capacity",
+            "stage",
+            "--base",
+            "/home/dberweger/hu200-capacity-20261015",
+            "--config",
+            "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+            "--name",
+            "cache-large",
+            "--stop",
+            "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/cache-large.stop"
+          ],
+          "io": {
+            "rchar": 7220277,
+            "wchar": 0,
+            "syscr": 546,
+            "syscw": 0,
+            "read_bytes": 0,
+            "write_bytes": 0,
+            "cancelled_write_bytes": 0
+          },
+          "threads": [
+            {
+              "tid": 116915,
+              "ticks": 10
+            },
+            {
+              "tid": 116916,
+              "ticks": 1
+            }
+          ]
+        },
+        {
+          "pid": 116917,
+          "start": "9368031",
+          "ticks": 2295,
+          "argv": [
+            "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+            "-m",
+            "scripts.evaluate_hu200_capacity",
+            "cache",
+            "--config",
+            "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+            "--index",
+            "0"
+          ],
+          "io": {
+            "rchar": 10258261304,
+            "wchar": 3389,
+            "syscr": 16950,
+            "syscw": 2,
+            "read_bytes": 0,
+            "write_bytes": 0,
+            "cancelled_write_bytes": 0
+          },
+          "threads": [
+            {
+              "tid": 116917,
+              "ticks": 2280
+            },
+            {
+              "tid": 116918,
+              "ticks": 6
+            },
+            {
+              "tid": 116921,
+              "ticks": 7
+            }
+          ]
+        }
+      ]
+    },
+    "phases": {
+      "cache-large": "pilot-cache-large"
+    },
+    "disks": {
+      "nvme0n1": {
+        "read_sectors": 2033815823,
+        "written_sectors": 791865954,
+        "busy_ms": 765500
+      }
+    }
+  },
+  "summary": {
+    "observed_utc": "2026-10-17T20:23:02.633041+00:00",
+    "source": "2d2ec4a17d20d586b8563dc656ed339b7fba218f",
+    "source_status": "",
+    "closed_guards": {
+      "evaluation-first-pilot-checks-20261017": {
+        "samples": 3,
+        "cpu_max_c": 58.0,
+        "vrm_max_c": 64.0,
+        "rss_max_bytes": 117633024,
+        "free_min_bytes": 108997001216,
+        "stop_samples": 0
+      },
+      "evaluation-first-pilot-restore-20261017": {
+        "samples": 29,
+        "cpu_max_c": 62.0,
+        "vrm_max_c": 65.5,
+        "rss_max_bytes": 60841984,
+        "free_min_bytes": 105664401408,
+        "stop_samples": 0
+      }
+    },
+    "current_failed": false,
+    "current_complete": false,
+    "free_nvme_bytes": 105328631808,
+    "processes": [
+      {
+        "pid": 116915,
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+          "-m",
+          "scripts.pilot_hu200_capacity",
+          "stage",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015",
+          "--config",
+          "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+          "--name",
+          "cache-large",
+          "--stop",
+          "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/cache-large.stop"
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "2",
+          "MKL_NUM_THREADS": "2",
+          "OPENBLAS_NUM_THREADS": "2",
+          "RAYON_NUM_THREADS": "2",
+          "MKL_CBWR": "AVX2,STRICT"
+        },
+        "affinity": [
+          0,
+          1
+        ]
+      },
+      {
+        "pid": 116917,
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-evaluation-first-pilot-20261017/.venv/bin/python",
+          "-m",
+          "scripts.evaluate_hu200_capacity",
+          "cache",
+          "--config",
+          "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/config-2026101302-20B.json",
+          "--index",
+          "0"
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "2",
+          "MKL_NUM_THREADS": "2",
+          "OPENBLAS_NUM_THREADS": "2",
+          "RAYON_NUM_THREADS": "2",
+          "MKL_CBWR": "AVX2,STRICT"
+        },
+        "affinity": [
+          0,
+          1
+        ]
+      }
+    ],
+    "final_hands_started": false
+  }
+}

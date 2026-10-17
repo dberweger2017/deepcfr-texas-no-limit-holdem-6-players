@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-17T16:41:19.890372+00:00",
+  "resource_utc": "2026-10-17T16:41:19.107472+00:00",
+  "resources": {
+    "package_c": 70.0,
+    "vrm_c": 85.5,
+    "free_disk_bytes": 119058980864,
+    "available_bytes": 125366112256,
+    "family_rss_bytes": 47149056,
+    "swap_used_bytes": 135061504,
+    "fan1_rpm": 930,
+    "clean_stop_requested": false,
+    "vrm_hot_seconds": 0
+  },
+  "phase": {
+    "export-audit-1302": "native-export"
+  },
+  "files": {
+    "saved-bytes.json": 2688,
+    "native-record.json": 2802,
+    "checkpoint.current.export-scratch-80456-0/current.gz": 3125719917,
+    "checkpoint.average.export-scratch-80456-1/average.tmp": 3574460987
+  },
+  "new_attempt_failed": false,
+  "new_attempt_complete": false,
+  "source": "57c63314071f0337afb38d0ce230297066c7ac52",
+  "source_status": "",
+  "trace_state": "Unsealed live cuts; full final row audit still pending.",
+  "training_status": "All3 native20B saves remain;1421/1422 full audits already pass.",
+  "final_hands_started": false
+}

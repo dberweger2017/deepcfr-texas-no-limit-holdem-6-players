@@ -1,0 +1,88 @@
+{
+  "status": "passed-after-test-harness-setup-corrections",
+  "tests": "36 distinct checks pass:21 existing safety/identity/retention/audit checks plus15 scheduler checks. Final15 scheduler checks include a real process queue overlapping a ready audit with another seed trainer fixture, exact serial/parallel qualified export bytes, and administrative handoff only after all children exit0.",
+  "non_scientific_failures": [
+    {
+      "attempt": "local tooling",
+      "failure": "pytest not installed; no tests/model work ran on coordinator"
+    },
+    {
+      "attempt": "first remote",
+      "result": "8 passed,25 fixture setup errors; missing owned planning parent for pytest basetemp"
+    },
+    {
+      "attempt": "later remote",
+      "result": "34 passed,1 fixture failure; isolated older checkout lacked committed admission.json; copied exact pinned metadata"
+    }
+  ],
+  "raw_logs": [
+    {
+      "path": "planning/scheduler-tests-first.log",
+      "bytes": 19884,
+      "sha256": "45486811dfcf60484fffba9c43dfc3027028dc0202364fd6bf7df5f231262a19"
+    },
+    {
+      "path": "planning/scheduler-tests-second.log",
+      "bytes": 99,
+      "sha256": "f57bcfdc83e2f5fa9f55287c7bf5e153face5f0be61e0195b3b86d555d308258"
+    },
+    {
+      "path": "planning/scheduler-handoff-tests.log",
+      "bytes": 99,
+      "sha256": "4a04503c94cf1d91e2c270709b40fa1f7df0fd7e309f68ae4298843874446162"
+    },
+    {
+      "path": "planning/scheduler-tests-final.log",
+      "bytes": 2378,
+      "sha256": "12ce6f5ac00f1d500471a6ecaff3cf9dd42c114c4e426a91e65334604a1ee763"
+    },
+    {
+      "path": "planning/scheduler-tests-complete.log",
+      "bytes": 99,
+      "sha256": "99e3e4974aed2b94e1957a2385352802dc99add127d48a9e9c2006ac336d4fd8"
+    },
+    {
+      "path": "planning/scheduler-local-test-attempt.txt",
+      "bytes": 150,
+      "sha256": "7de678d38792739bfdc8a0844ab19a4ef190f33e28fd5b7652582df33fed0b06"
+    },
+    {
+      "path": "planning/scheduler-integration-tests.log",
+      "bytes": 99,
+      "sha256": "de00d4be5663462eac7bb05dd0af19cf6106144360fea99b8e207897d91916d9"
+    },
+    {
+      "path": "planning/scheduler-pinned-tests.log",
+      "bytes": 99,
+      "sha256": "61ec7b7cd3912e2c96e948664da826b21f0e1db4a2507f70153199c9c1671a68"
+    },
+    {
+      "path": "planning/scheduler-boundary-final.log",
+      "bytes": 99,
+      "sha256": "de00d4be5663462eac7bb05dd0af19cf6106144360fea99b8e207897d91916d9"
+    },
+    {
+      "path": "planning/scheduler-deployment-final.log",
+      "bytes": 99,
+      "sha256": "ad185056f08af08136acf43e0fc4f6c285d79e458cd73be3eb624f162702ce38"
+    },
+    {
+      "path": "planning/scheduler-hardware-collection.log",
+      "bytes": 1575,
+      "sha256": "23862caac28704ff08cd2bfe6f5f693bb4da952656efb25a2267eedc40fdbf8c"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "scripts/schedule_hu200_capacity.py",
+      "sha256": "64368265aa247db428483b07cea77cc4d4f3844ba874df6d92908550259c3e7d"
+    },
+    {
+      "path": "tests/test_hu200_capacity_schedule.py",
+      "sha256": "c5136c15de9b8564aaf4f6c5c20282763f4bba437e427881449deb0b1bd829cd"
+    }
+  ],
+  "deployment_checks": "Pinned clean source36 tests pass. Final15 scheduling tests pass after limiting handoff process scans to the completion window and ensuring initialization failures notify the existing campaign observer. Live original admission/clock equal committed pins; binary hash unchanged.",
+  "validated_live_source": "94b84b3255f16daa529eae8250ca9a391249b2ac",
+  "later_collection_only_change": "The feature branch explicitly limits the real CPU/disk integration fixture to cygnus-x1. This leaves the tested/live scheduler and its source hashes unchanged. Updated test syntax and collection verified; no scientific workload repeated."
+}

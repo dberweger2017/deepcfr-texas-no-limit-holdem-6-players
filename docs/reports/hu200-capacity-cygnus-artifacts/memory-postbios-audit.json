@@ -1,0 +1,140 @@
+{
+  "audit": {
+    "all_nodes_verified": 69084815,
+    "average_sha256": "008a5b91ccfb896e06b5dc00c3003c558c3480376ee379c393f8c242482bb0a2",
+    "checkpoint_sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0",
+    "counts": {
+      "entries": 69084815,
+      "positive_mass": 44406556,
+      "zero_mass": 24678259
+    },
+    "current_sha256": "04e38607a81248a0ca6dcd52880a2124c0239fa4aeb4bf08948fb7b6e4bf0a5d",
+    "maximum_tv": 1.0000000000000002,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.24529749711897772
+  },
+  "files": {
+    "average": {
+      "bytes": 1773893363,
+      "mtime_ns": 1792111289602385510,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/memory-postbios/checkpoint.average.gz",
+      "sha256": "008a5b91ccfb896e06b5dc00c3003c558c3480376ee379c393f8c242482bb0a2"
+    },
+    "checkpoint": {
+      "bytes": 2727516688,
+      "mtime_ns": 1792095500297822713,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/memory/memory-500m.gz",
+      "sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0"
+    },
+    "current": {
+      "bytes": 1710965335,
+      "mtime_ns": 1792111289602385510,
+      "path": "/home/dberweger/hu200-capacity-20261015/results/memory-postbios/checkpoint.current.gz",
+      "sha256": "04e38607a81248a0ca6dcd52880a2124c0239fa4aeb4bf08948fb7b6e4bf0a5d"
+    }
+  },
+  "native": {
+    "audit_status": "unaudited",
+    "binary_sha256": "d7049a7a024f142d1a82f75d3c673e427a80c516afd9c00b7769265dfad16436",
+    "checkpoint_bytes": 2727516688,
+    "checkpoint_sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0",
+    "completed_nodes": 500000140,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        6609768,
+        23060728,
+        67477357,
+        179372056
+      ],
+      "entries": 69084815,
+      "positive_average_mass_keys": 44406556,
+      "traverser_visits": 99029647,
+      "traverser_visits_by_street": [
+        2253111,
+        8017303,
+        24287657,
+        64471576
+      ],
+      "visits_histogram": {
+        "0": 32087560,
+        "1": 23510900,
+        "10-99": 1346995,
+        "100+": 34677,
+        "2-9": 12104683
+      },
+      "zero_average_mass_keys": 24678259
+    },
+    "elapsed_seconds_including_writes": 376.265626709,
+    "entries_per_completed_node": 0.13816959131251444,
+    "frozen_table": {
+      "discarded_traverser_visits_since_previous_save": 0,
+      "discarded_updates_since_previous_save": 0,
+      "interval_start_iteration": 321139,
+      "missing_opponent_by_street": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_opponent_share_by_street": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "missing_traverser_by_street": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_traverser_share_by_street": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "opponent_decisions_by_street": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "state": null,
+      "streets": [
+        "preflop",
+        "flop",
+        "turn",
+        "river"
+      ],
+      "traverser_decisions_by_street": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "iteration": 321139,
+    "new_entries": 0,
+    "nodes_per_second_including_writes": 0.0,
+    "nodes_since_previous_save": 0,
+    "overshoot_nodes": 0,
+    "path": "/home/dberweger/hu200-capacity-20261015/results/memory/memory-500m.gz",
+    "process_rss_bytes_after_save": 7528763392,
+    "recent_nodes_per_second_including_writes": 0.0,
+    "requested_nodes": 500000141,
+    "status": "incomplete-target",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1792095500.304264,
+    "write_seconds": 376.265623993,
+    "write_started": 1792095124.0386395
+  },
+  "status": "verified"
+}

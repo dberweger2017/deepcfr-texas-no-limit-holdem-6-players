@@ -1,0 +1,90 @@
+{
+  "entries": 301153962,
+  "file": {
+    "bytes": 14414526873,
+    "mtime_ns": 1792244831588882138,
+    "path": "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.gz",
+    "sha256": "b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93"
+  },
+  "full_gzip_eof_crc_read": true,
+  "header": {
+    "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "max_entries": 301153962,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026101302
+    },
+    "format": "holdem-hu200-native-reopening-blueprint-v1",
+    "frozen_table": {
+      "discarded_traverser_visits": 23587795,
+      "discarded_updates": 45761906,
+      "entries": 301153962,
+      "since_iteration": 12277287,
+      "version": 1
+    },
+    "identity": {
+      "action_menu": "hu200-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "equity-histogram-k50-v1",
+      "card_tables": {
+        "flop": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111",
+        "river": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+        "turn": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+      },
+      "game": "hu200-native-reopening-200bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    },
+    "iteration": 16367262,
+    "kind": "training",
+    "native_state": {
+      "completed_nodes": 20000000759,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        237547067,
+        865412558,
+        2769154436,
+        7476860986
+      ],
+      "traverser_visits_by_street": [
+        72244620,
+        268563573,
+        905375549,
+        2518357423
+      ],
+      "version": 1
+    },
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        20000,
+        20000
+      ]
+    }
+  },
+  "serialized_rows_sha256": "758dfd9aa17a238857c3dda20ce261ca9ec8a1e50af36f3e0bcda3e4fdf8755b",
+  "sorted_keys_sha256": "dc54a099bc3155daffff9d7f2cb687347fcd1d6ae94e6331400505274951e66c"
+}

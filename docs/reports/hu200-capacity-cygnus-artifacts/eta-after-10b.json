@@ -1,0 +1,31 @@
+{
+  "status": "requoted-after-all-three-rebuilt-10B-audits",
+  "observed_utc": "2026-10-17T05:53:58.749474+00:00",
+  "training_effective_deadline_epoch": 1792380557.996109,
+  "evaluation_limit_seconds": 86400,
+  "report_archive_target": "2026-10-19 evening Europe/Madrid",
+  "upload_contingency": "2026-10-20 Europe/Madrid",
+  "training_audit_forecast": "October17 evening\u2013October18 morning Madrid; October18 evening contingency within prior forecast",
+  "measured_10b_audit_seconds": {
+    "2026101302": 13868.278749178,
+    "2026101421": 15052.675362158,
+    "2026101422": 15721.702577564001
+  },
+  "measured_10b_to_20b_native_seconds": {
+    "2026101421": 11094.564036171,
+    "2026101422": 11486.691905549
+  },
+  "remaining_work": "Two20B audits already active;1302 native10B\u219220B then own final audit. Original output reservations currently hold1302 until verified retirement frees space.",
+  "remaining_full_cap_audit_worker_hours_upper_linear": 15.23140675904963,
+  "native_1302_allowance_hours": 4,
+  "additional_audit_delay_allowance_hours": 4,
+  "assumptions": [
+    "Current audit throughput and scheduler disk-reservation admission, no further failure/retry/extension.",
+    "Unchanged259GB training and258.4GB evaluation plans,50GB free floor and all guards.",
+    "Evaluation time/cost quote still awaits all3 audited20B outputs;24h starts at first cache build.",
+    "Upload and final unpacked retention-copy throughput unmeasured;archive target is conditional."
+  ],
+  "fixed_evaluation_final_hands": 2949120,
+  "global_replay_reproduction_barrier_before_any_final_outcome": true,
+  "scientific_retry_count_after_approved_launch": 0
+}

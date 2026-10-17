@@ -1,0 +1,70 @@
+{
+  "at": 1792268369.224879,
+  "roots": [
+    202610160301,
+    202610160302,
+    202610160303,
+    202610160304,
+    202610160305,
+    202610160311,
+    202610160312,
+    202610160313,
+    202610160314,
+    202610160315,
+    202610160321,
+    202610160322,
+    202610160323,
+    202610160324,
+    202610160325
+  ],
+  "pr": 301,
+  "source_refs": {
+    "main": "59b4a97de04b79d6c00cda34b25639995eea8d1d",
+    "pr334": "baf61ed89fd70ce6aa9726f2d6ebce4974436cc4",
+    "pr333": "16dbe015436cfea8f582803b0befaca3a2b4ad38",
+    "pr331": "7bcbce9dcb2d65a3a6ac8e7721e83fb9a36f677e",
+    "pr319": "848445bbab9a96babead3e3ecfc73bdadfbdf7d9",
+    "pr317": "d6de91ff0ff3029b8b0462002707b55d77ea9e81"
+  },
+  "open_prs": [
+    {
+      "headRefName": "feature/three-player-search-cost-pilot",
+      "headRefOid": "baf61ed89fd70ce6aa9726f2d6ebce4974436cc4",
+      "number": 334,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/334"
+    },
+    {
+      "headRefName": "perf/nplayer-parallel-save",
+      "headRefOid": "16dbe015436cfea8f582803b0befaca3a2b4ad38",
+      "number": 333,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/333"
+    },
+    {
+      "headRefName": "perf/nplayer-compact-table",
+      "headRefOid": "7bcbce9dcb2d65a3a6ac8e7721e83fb9a36f677e",
+      "number": 331,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/331"
+    },
+    {
+      "headRefName": "feature/v055-release-package",
+      "headRefOid": "848445bbab9a96babead3e3ecfc73bdadfbdf7d9",
+      "number": 319,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/319"
+    },
+    {
+      "headRefName": "feature/hu200-river-search",
+      "headRefOid": "d6de91ff0ff3029b8b0462002707b55d77ea9e81",
+      "number": 317,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/317"
+    },
+    {
+      "headRefName": "feature/hu200-capacity-cygnus",
+      "headRefOid": "bef5a371c4c75da99afa3c5cb57efe5e2dfed77e",
+      "number": 301,
+      "url": "https://github.com/dberweger2017/CFR-NLHE-6max/pull/301"
+    }
+  ],
+  "matches": {},
+  "fresh": true,
+  "scope": "exact numerical root scan of all tracked configs, reports, plans and scripts; main and current open heads"
+}

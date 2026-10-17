@@ -1,0 +1,17 @@
+{
+  "status": "withdrawn-after-new-terminal-continuation-storage-failure",
+  "observed_utc": "2026-10-17T14:27:31.592969+00:00",
+  "failure_utc": "2026-10-17T14:25:09.233853+00:00",
+  "finish_eta": null,
+  "supersedes": "eta-after-storage-restart-20261017.json and October17 14:09 status forecast",
+  "training_effective_deadline_epoch": 1792385089.2587068,
+  "training_effective_deadline_utc": "2026-10-19T04:44:49.258707+00:00",
+  "evaluation_max_seconds": 86400,
+  "evaluation_cache_clock_started": false,
+  "limits_extended": false,
+  "automatic_retry": false,
+  "reason": "All native20B checkpoints saved;1302 export was terminated by physical prospective-floor guard before final audit. An additional failed scientific attempt is not authorized for automatic retry. Full model archival cannot admit the declared41GB staging above the50GB floor at66.600GB free.",
+  "failure_metadata_archive": "Uploaded and whole/every-member cloud readback verified; model/final retention closeout incomplete.",
+  "final_hands": 0,
+  "outcomes_read": false
+}

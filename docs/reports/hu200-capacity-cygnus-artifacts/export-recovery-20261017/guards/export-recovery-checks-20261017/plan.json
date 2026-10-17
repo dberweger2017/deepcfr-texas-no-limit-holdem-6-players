@@ -1,0 +1,33 @@
+{
+  "max_seconds": 240,
+  "aggregate_rss_gib": 8,
+  "swap_baseline_bytes": 1048576,
+  "clean_save_grace_seconds": 30,
+  "jobs": [
+    {
+      "name": "export-recovery-checks",
+      "cpus": [
+        6,
+        7
+      ],
+      "rss_gib": 4,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/export-recovery-checks-20261017.stop",
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_hu200_capacity_export_recovery.py",
+        "tests/test_hu200_capacity_continuation.py",
+        "tests/test_hu200_capacity_recovery.py",
+        "tests/test_hu200_capacity_schedule.py",
+        "tests/test_hu200_capacity_guard.py",
+        "tests/test_hu200_capacity_sorted_audit.py",
+        "tests/test_hu200_capacity_identity.py",
+        "tests/test_hu_export_capacity.py",
+        "--basetemp",
+        "/home/dberweger/hu200-capacity-20261015/planning/export-recovery-checks-20261017-fixtures"
+      ]
+    }
+  ]
+}

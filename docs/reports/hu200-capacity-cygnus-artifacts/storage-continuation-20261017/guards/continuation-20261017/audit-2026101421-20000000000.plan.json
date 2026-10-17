@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/home/dberweger/hu200-capacity-20261015/repo-continuation-20261017/.venv/bin/python",
+    "-m",
+    "scripts.continue_hu200_capacity",
+    "audit-existing",
+    "--base",
+    "/home/dberweger/hu200-capacity-20261015",
+    "--seed",
+    "2026101421"
+  ],
+  "cpus": [
+    6
+  ],
+  "kind": "audit",
+  "name": "audit-2026101421-20000000000",
+  "original_deadline": 1792385089.2587068,
+  "reserve_bytes": 67108864,
+  "rss_gib": 0.5,
+  "stop_file": "/home/dberweger/hu200-capacity-20261015/continuation-20261017/audits/2026101421/audit.stop"
+}

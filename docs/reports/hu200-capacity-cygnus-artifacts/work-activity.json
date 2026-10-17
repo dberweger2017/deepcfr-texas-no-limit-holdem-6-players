@@ -1,0 +1,163 @@
+{
+  "status": "coordinator-handback-declared;first-cost-pilot-running",
+  "timezone": "UTC;Madrid=UTC+02:00 on these dates",
+  "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
+  "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
+  "events": [
+    {
+      "utc": "2026-10-17T05:55:57.054574+00:00",
+      "coordinator": "10B milestone update complete; subsequent handback",
+      "jobs": "Guarded training/audits continued",
+      "time_basis": "PR description readback; completion evidenced by this time, exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T09:21:54.514129+00:00",
+      "coordinator": "Resumed by this time to investigate terminal storage event",
+      "jobs": "Scientific workers stopped after09:21:22failure",
+      "time_basis": "Owned-root failure collection timestamp"
+    },
+    {
+      "utc": "2026-10-17T09:31:05.523694+00:00",
+      "coordinator": "Failure report update complete; subsequent handback",
+      "jobs": "Stopped; no retry",
+      "time_basis": "PR description readback; exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T09:38:43.528589+00:00",
+      "coordinator": "Resumed by this time for owner-authorized storage relocation",
+      "jobs": "No scientific worker; storage only",
+      "time_basis": "Storage preflight timestamp"
+    },
+    {
+      "utc": "2026-10-17T09:58:23.552233+00:00",
+      "coordinator": "Storage relocation/report complete; subsequent handback",
+      "jobs": "Storage job finished; science still stopped",
+      "time_basis": "PR description readback; exact prior turn-end unavailable"
+    },
+    {
+      "utc": "2026-10-17T10:21:14+00:00",
+      "coordinator": "Resumed for owner-requested activity logging; owner then approved scientific continuation and downtime adjustment",
+      "jobs": "Preparing guarded restart; no launch yet",
+      "time_basis": "Current turn first clock observation"
+    },
+    {
+      "utc": "2026-10-17T10:36:53.532651+00:00",
+      "coordinator": "Owner-approved continuation admitted",
+      "jobs": "1302 training;1421/1422 retained-export validation launched immediately after admission",
+      "time_basis": "Immutable restart ledger and startup process proof",
+      "downtime_credit_seconds": 4531.262597799301,
+      "new_deadline_epoch": 1792385089.2587068
+    },
+    {
+      "utc": "2026-10-17T10:38:28.706942+00:00",
+      "coordinator": "Verified live source/commands/affinities and finalized startup report",
+      "jobs": "All3 guarded jobs alive, no new failure",
+      "time_basis": "Fresh owned-root startup snapshot"
+    },
+    {
+      "utc": "2026-10-17T10:45:59.534189+00:00",
+      "coordinator": "Handback declared after restart verification, reporting and PR update preparation",
+      "jobs": "1302 trainer and1421/1422 validators continue under supervisor36848;terminal observer36870 active",
+      "time_basis": "Current declared handoff marker; final PR readback/bookkeeping follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:08:13.122985+00:00",
+      "coordinator": "Returned for owner-requested status report",
+      "jobs": "Guarded continuation running; no scientific restart",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:10:11.329695+00:00",
+      "coordinator": "Handback declared after live status verification and report preparation",
+      "jobs": "1302 native export then full-row audit continues under supervisor36848;1421/1422 audit and HDD relocation complete;observer36870 active",
+      "time_basis": "Declared handback; publication and exact PR readback follow",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:25:47.924001+00:00",
+      "coordinator": "Returned for new training_failed event; verified against current attempt and committed receipts",
+      "jobs": "Scientific workers and observer already stopped",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:28:52.064703+00:00",
+      "coordinator": "Bounded failure-evidence archive built with full local readback; separate Drive upload and cloud readback then passed",
+      "jobs": "Storage metadata archive only; scientific attempt remains failed",
+      "time_basis": "Archive and cloud readback receipts",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T14:32:12.717306+00:00",
+      "coordinator": "Handback declared after failure investigation, partial evidence archival and report preparation",
+      "jobs": "All owned scientific jobs and terminal observer absent; archive job complete; no retry/evaluation scheduled",
+      "time_basis": "Declared handback; publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T15:17:55.424150+00:00",
+      "coordinator": "Returned with explicit owner approval for export recovery, downtime correction and broad inactive storage relocation",
+      "jobs": "Storage preparation then guarded relocation; no scientific restart yet",
+      "time_basis": "PR return marker",
+      "clock_credit": "pending exact closed interval at admission only"
+    },
+    {
+      "utc": "2026-10-17T15:45:19.082291+00:00",
+      "coordinator": "Owner-approved export-only recovery admitted after full inactive relocation,74checks and fresh hash/resource admission",
+      "jobs": "1302 exporter/full auditor under same qualified global guard; supervisor79721/worker79744/observer79742",
+      "time_basis": "New immutable closed downtime ledger and live process proof",
+      "downtime_credit_seconds": 4809.848438024521,
+      "new_deadline_epoch": 1792389899.1071448
+    },
+    {
+      "utc": "2026-10-17T15:49:55.658092+00:00",
+      "coordinator": "Handback declared after70.431GB relocation,74guardedchecks, fresh readmission, exact closed downtime credit and export restart verification/report",
+      "jobs": "1302 export/audit79744 and supervisor79721/eventobserver79742 continue under original guards; no training repeat",
+      "time_basis": "Current live health observation; publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T16:40:15.130227+00:00",
+      "coordinator": "Returned for owner-requested live status",
+      "jobs": "1302 native export/audit continues; no new attempt or clock credit",
+      "time_basis": "PR return marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T16:41:19.919817+00:00",
+      "coordinator": "Handback declared after live status/report verification",
+      "jobs": "1302 native export/audit,supervisor79721 and existing eventobserver79742 continue; no new failure",
+      "time_basis": "Current status observation; final publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T18:45:50.109271+00:00",
+      "coordinator": "Returned by this time for owner preliminary-results question; PR marker18:46:08UTC followed metadata check",
+      "jobs": "1302 sorted final validation; no new failure",
+      "time_basis": "First current metadata observation and subsequent PR marker",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T18:47:36.547612+00:00",
+      "coordinator": "Handback declared after deriving two-seed matched training diagnostics from already verified receipts",
+      "jobs": "1302 final validation/supervisor/observer continue; no evaluation hands or outcome read",
+      "time_basis": "Current declaration; report publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T20:12:00.609551+00:00",
+      "coordinator": "Returned and marked PR301 for training_complete event; verified owned attempt and deduplicated receipts",
+      "jobs": "Training supervisor/worker/observer exited; evaluation preparation active",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T20:23:54.467291+00:00",
+      "coordinator": "Handback declared after verified all-three completion, fresh roots, guarded restoration/checks and first cost-pilot launch",
+      "jobs": "Immutable2d2ec4a1 cache supervisor and first large cache continue; terminal callback uses existing event task",
+      "clock_credit": false,
+      "time_basis": "Current declaration; final publication/push/readback follows"
+    }
+  ]
+}

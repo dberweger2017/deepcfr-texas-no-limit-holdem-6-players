@@ -1,0 +1,20 @@
+{
+  "max_seconds": 900,
+  "original_campaign_deadline_epoch": 1792376957.996109,
+  "swap_baseline_bytes": 1048576,
+  "aggregate_rss_gib": 2,
+  "jobs": [
+    {
+      "name": "post-power-loss-byte-readback",
+      "cpus": [
+        6
+      ],
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/power-loss-byte-readback-20261016.stop",
+      "command": [
+        "/usr/bin/python3",
+        "/home/dberweger/hu200-capacity-20261015/planning/power-loss-byte-readback-20261016.py"
+      ]
+    }
+  ]
+}

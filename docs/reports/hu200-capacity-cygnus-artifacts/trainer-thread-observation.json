@@ -1,0 +1,96 @@
+{
+  "observed_utc": "2026-10-16T09:11:49.446216+00:00",
+  "elapsed_seconds": 30.001819977005653,
+  "traversal_observation": {
+    "train-2026101302-2000000000": {
+      "pid": 66611,
+      "cpus": [
+        0,
+        1
+      ],
+      "threads": {
+        "66611": {
+          "ticks": 14065,
+          "name": "trainer-first",
+          "core_equivalents": 0.2956487308702688
+        },
+        "66671": {
+          "ticks": 5085,
+          "name": "trainer-first",
+          "core_equivalents": 0.44663957087503975
+        },
+        "66672": {
+          "ticks": 4609,
+          "name": "trainer-first",
+          "core_equivalents": 0.4016423006749425
+        }
+      },
+      "environment": {
+        "OMP_NUM_THREADS": "2",
+        "RAYON_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      },
+      "total_core_equivalents": 1.1439306024202511
+    },
+    "train-2026101421-2000000000": {
+      "pid": 66612,
+      "cpus": [
+        2,
+        3
+      ],
+      "threads": {
+        "66612": {
+          "ticks": 14058,
+          "name": "trainer-first",
+          "core_equivalents": 0.2943154784198956
+        },
+        "66673": {
+          "ticks": 5086,
+          "name": "trainer-first",
+          "core_equivalents": 0.4469728839876331
+        },
+        "66674": {
+          "ticks": 4595,
+          "name": "trainer-first",
+          "core_equivalents": 0.4006423613371625
+        }
+      },
+      "environment": {
+        "OMP_NUM_THREADS": "2",
+        "RAYON_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      },
+      "total_core_equivalents": 1.1419307237446912
+    },
+    "train-2026101422-2000000000": {
+      "pid": 66613,
+      "cpus": [
+        4,
+        5
+      ],
+      "threads": {
+        "66613": {
+          "ticks": 14058,
+          "name": "trainer-first",
+          "core_equivalents": 0.2956487308702688
+        },
+        "66675": {
+          "ticks": 5084,
+          "name": "trainer-first",
+          "core_equivalents": 0.44663957087503975
+        },
+        "66676": {
+          "ticks": 4599,
+          "name": "trainer-first",
+          "core_equivalents": 0.40497543180087564
+        }
+      },
+      "environment": {
+        "OMP_NUM_THREADS": "2",
+        "RAYON_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      },
+      "total_core_equivalents": 1.1472637335461842
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "name": "inactive-model-relocation",
+      "cpus": [
+        7
+      ],
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/offload-inactive-models-20261017.stop",
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+        "/home/dberweger/hu200-capacity-20261015/planning/offload_inactive_models_20261017.py"
+      ]
+    }
+  ],
+  "max_seconds": 7200,
+  "aggregate_rss_gib": 1,
+  "swap_baseline_bytes": 1048576,
+  "clean_save_grace_seconds": 30
+}

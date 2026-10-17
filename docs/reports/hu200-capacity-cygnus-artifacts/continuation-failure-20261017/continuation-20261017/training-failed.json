@@ -1,0 +1,7 @@
+{
+  "attempt": "continuation-20261017",
+  "automatic_retry": false,
+  "error": "RuntimeError('Existing259GB plan/output reservations exhausted')",
+  "status": "failed",
+  "utc": "2026-10-17T14:25:09.233853+00:00"
+}

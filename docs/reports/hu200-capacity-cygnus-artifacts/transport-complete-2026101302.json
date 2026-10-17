@@ -1,0 +1,12 @@
+{
+  "seed": 2026101302,
+  "source": "/Users/dberweger/Local/Research-Cloud/PR-265-hu200-k50-frozen/hu200-k50-frozen-averages-M4-20261013.zip",
+  "remote": "/home/dberweger/hu200-capacity-20261015/inputs/archives/hu200-k50-frozen-averages-M4-20261013.zip",
+  "bytes": 5921067848,
+  "resumed_from_bytes": 1623195648,
+  "status": "transport-complete; remote SHA256 pending",
+  "observed_utc": "2026-10-16T08:19:12.012974+00:00",
+  "remote_size_verified": 5921067848,
+  "remote_mtime_ns": 1792138722926963973,
+  "verification_scope": "Transport completion and exact owned bb128 archive size only; whole SHA/member restoration pending"
+}

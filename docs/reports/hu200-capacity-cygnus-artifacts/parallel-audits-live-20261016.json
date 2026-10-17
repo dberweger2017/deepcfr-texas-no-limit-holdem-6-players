@@ -1,0 +1,43 @@
+{
+  "observed_utc": "2026-10-16T08:19:12.012974+00:00",
+  "archives": {
+    "hu200-k50-frozen-averages-M4-20261013.zip": {
+      "bytes": 5921067848,
+      "mtime_ns": 1792138722926963973
+    },
+    "hu200-v055-seed-2026101421-final-average-20261014.zip": {
+      "bytes": 3162672661,
+      "mtime_ns": 1792134458087893668
+    },
+    "hu200-v055-seed-2026101422-final-average-20261014.zip": {
+      "bytes": 3162066289,
+      "mtime_ns": 1792132493076168242
+    }
+  },
+  "live_samples": [
+    {
+      "path": "guards/scheduler/resources.jsonl",
+      "utc": "2026-10-16T08:19:10.789784+00:00",
+      "package_c": 51.0,
+      "vrm_c": 60.5,
+      "family_rss_bytes": 93704192,
+      "swap_used_bytes": 1048576,
+      "free_disk_bytes": 280355577856,
+      "clean_stop_requested": false,
+      "active_jobs": {
+        "prefix-audit-2026101421": {
+          "kind": "audit",
+          "cpus": [
+            6
+          ]
+        },
+        "prefix-audit-2026101422": {
+          "kind": "audit",
+          "cpus": [
+            7
+          ]
+        }
+      }
+    }
+  ]
+}

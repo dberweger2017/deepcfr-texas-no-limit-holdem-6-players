@@ -1,0 +1,34 @@
+{
+  "status": "requoted-after-all-three-5b-audits",
+  "observed_utc": "2026-10-16T16:39:49.431304+00:00",
+  "basis": "Three real ordinary save audits of197.91\u2013200.36M entries, with measured triple overlap; no matched serial ordinary-audit control.",
+  "audit_hours_measured": [
+    3.505352497239443,
+    3.093150215250001,
+    3.3825613692827776
+  ],
+  "full_cap_audit_hours_per_worker_conservative": 5.293601801452194,
+  "remaining_full_cap_audit_projections": 6,
+  "remaining_audit_worker_hours_upper_projection": 31.761610808713165,
+  "remaining_audit_wall_hours_at_two_to_three_workers_idealized": [
+    10.587203602904388,
+    15.880805404356582
+  ],
+  "remaining_training_and_save_allowance_hours": [
+    9,
+    12
+  ],
+  "training_audit_forecast_madrid": "Saturday October17 evening through Sunday October18 morning (unchanged conservative range)",
+  "fixed_evaluation_max_hours": 24,
+  "complete_report_archive_target_madrid": "Monday October19 evening",
+  "upload_contingency_madrid": "Tuesday October20",
+  "original_training_deadline_epoch": 1792376957.996109,
+  "limits_unchanged": true,
+  "assumptions": [
+    "Linear row extrapolation from slowest measured5B ordinary audit; later wider rows, frozen growth and cache/disk state may change costs.",
+    "Two remaining saves per seed; all six projected at full cap for planning, not a guaranteed runtime bound.",
+    "CPU/RSS/disk reservations and temperature launch holds can lower concurrency; no guaranteed threefold speedup.",
+    "Native2B\u21925B stages took3791\u20133953seconds including1187\u20131274seconds writing; loader/scheduler overhead adds269\u2013309seconds.",
+    "Evaluation cost admission, upload bandwidth and final unpacked retention-copy timing remain unmeasured. Forecast dates do not change scientific deadlines."
+  ]
+}

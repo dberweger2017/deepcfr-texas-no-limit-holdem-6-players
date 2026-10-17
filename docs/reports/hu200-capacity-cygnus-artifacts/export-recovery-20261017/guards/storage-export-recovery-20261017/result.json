@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "exit_codes": [
+    1
+  ],
+  "stop_reason": null,
+  "hard_stop_reason": "A workload failed; stopping all owned work",
+  "elapsed_seconds": 1.020439419997274
+}

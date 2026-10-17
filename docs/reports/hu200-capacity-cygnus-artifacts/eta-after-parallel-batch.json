@@ -1,0 +1,29 @@
+{
+  "status": "requoted-after-first-parallel-batch",
+  "observed_utc": "2026-10-16T09:09:39.509964+00:00",
+  "baseline_seconds": 4008.8918179149987,
+  "parallel_seconds": 4470.523228038997,
+  "row_normalized_speedup": 1.7943348982350247,
+  "full_cap_audit_hours_per_worker_conservative": 5.414830973576511,
+  "all_twelve_full_cap_audit_worker_hours_upper_estimate": 64.97797168291814,
+  "two_to_three_worker_audit_wall_hours_idealized": [
+    21.659323894306045,
+    32.48898584145907
+  ],
+  "training_and_save_allowance_hours": [
+    9,
+    12
+  ],
+  "training_audit_forecast_madrid": "Saturday October17 evening through Sunday October18 morning",
+  "fixed_evaluation_allowance_hours": 24,
+  "complete_report_archive_target_madrid": "Monday October19 evening",
+  "upload_contingency_madrid": "Tuesday October20",
+  "original_training_deadline_epoch": 1792376957.996109,
+  "limits_unchanged": true,
+  "assumptions": [
+    "Linear row extrapolation from normalized prefixes includes extra identity checks, conservative for later ordinary audits.",
+    "Actual table counts, disk reservations and measured third-worker scaling may change the forecast; no measured threefold speedup claimed.",
+    "Evaluation cost admission is still pending;24h is its ceiling, not measured completion time.",
+    "Archive transfer throughput is not yet measured; closeout date remains provisional."
+  ]
+}

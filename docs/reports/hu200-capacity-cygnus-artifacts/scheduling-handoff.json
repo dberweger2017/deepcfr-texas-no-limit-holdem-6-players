@@ -1,0 +1,38 @@
+{
+  "administrative_action": "Stop and retire only idle old controller; all scientific children exited0; no retry",
+  "at_utc": "2026-10-16T07:52:59.385983+00:00",
+  "completed_audit": {
+    "bytes": 4052,
+    "mtime_ns": 1792137179235548434,
+    "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/twin500m/audit.json",
+    "sha256": "9517d228904e72586902a895366a36c92bbbc0c6d96d7678ef8233e55cc85459"
+  },
+  "completed_guard_elapsed_seconds": 4008.8918179149987,
+  "completed_guard_plan": {
+    "bytes": 639,
+    "mtime_ns": 1792133169401906556,
+    "path": "/home/dberweger/hu200-capacity-20261015/guards/twin500m-audit-2026101302/plan.json",
+    "sha256": "05aed4dbdd6c91a13f057dc3d9a718cb9e43d0aa4ebf311bf83e03de50d2a8d4"
+  },
+  "new_source": "94b84b3255f16daa529eae8250ca9a391249b2ac",
+  "old_completed_children": [
+    63691
+  ],
+  "old_controller": {
+    "exit_status": 0,
+    "pgid": 61703,
+    "pid": 61705,
+    "ppid": 61704,
+    "start": "1463898",
+    "state": "S",
+    "ticks": 11247
+  },
+  "original_clock": {
+    "bytes": 174,
+    "mtime_ns": 1792117758247674814,
+    "path": "/home/dberweger/hu200-capacity-20261015/training-clock.json",
+    "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a"
+  },
+  "original_deadline": 1792376957.996109,
+  "status": "successful-audit-boundary"
+}

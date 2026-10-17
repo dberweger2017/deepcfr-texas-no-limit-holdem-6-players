@@ -1,0 +1,243 @@
+{
+  "active_1302_20b_retained": true,
+  "all_source_unlinks_follow_full_readback": true,
+  "files": [
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101421/20000000000/checkpoint.gz",
+      "sha256": "bb8ea06e4be3ada1e82dd524f54beaa5846d0c4814c215ace76ca145d901c098",
+      "source": {
+        "bytes": 14407546362,
+        "mtime_ns": 1792213357031826272,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.gz",
+        "sha256": "bb8ea06e4be3ada1e82dd524f54beaa5846d0c4814c215ace76ca145d901c098"
+      },
+      "verified_utc": "2026-10-17T15:25:56.175537+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101422/20000000000/checkpoint.gz",
+      "sha256": "0d4b990deb63fcddd2dc9e96ec03ea06882229d666a4d541b4d5d43c5f8bdcb0",
+      "source": {
+        "bytes": 14406200971,
+        "mtime_ns": 1792214503373318003,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.gz",
+        "sha256": "0d4b990deb63fcddd2dc9e96ec03ea06882229d666a4d541b4d5d43c5f8bdcb0"
+      },
+      "verified_utc": "2026-10-17T15:30:15.916930+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+      "sha256": "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975",
+      "source": {
+        "bytes": 11782090307,
+        "mtime_ns": 1792187303472139155,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101302/10000000000/checkpoint.gz",
+        "sha256": "e13c397a0ca26cc5b1a3b7b1361832659ad8724768e2d444667c4fab8e9af975"
+      },
+      "verified_utc": "2026-10-17T15:33:46.041742+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz",
+      "sha256": "c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be",
+      "source": {
+        "bytes": 8827265135,
+        "mtime_ns": 1792222827483485221,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz",
+        "sha256": "c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be"
+      },
+      "verified_utc": "2026-10-17T15:36:18.497313+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101422/20000000000/checkpoint.average.gz",
+      "sha256": "388410f517f663378c1c97cd5cca11f8bed47f4e2777b131d7a2bb69d7f0451f",
+      "source": {
+        "bytes": 8824845328,
+        "mtime_ns": 1792225250328292269,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.average.gz",
+        "sha256": "388410f517f663378c1c97cd5cca11f8bed47f4e2777b131d7a2bb69d7f0451f"
+      },
+      "verified_utc": "2026-10-17T15:40:23.158357+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/memory/memory-500m.gz",
+      "sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0",
+      "source": {
+        "bytes": 2727516688,
+        "mtime_ns": 1792095500297822713,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/memory/memory-500m.gz",
+        "sha256": "155358322ed0001938e3f3035c4f4c9d1f9d98c6ff27efb4db8e0f1485b90dc0"
+      },
+      "verified_utc": "2026-10-17T15:41:04.603302+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/memory-postbios/checkpoint.average.gz",
+      "sha256": "008a5b91ccfb896e06b5dc00c3003c558c3480376ee379c393f8c242482bb0a2",
+      "source": {
+        "bytes": 1773893363,
+        "mtime_ns": 1792111289602385510,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/memory-postbios/checkpoint.average.gz",
+        "sha256": "008a5b91ccfb896e06b5dc00c3003c558c3480376ee379c393f8c242482bb0a2"
+      },
+      "verified_utc": "2026-10-17T15:41:30.946864+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/memory-postbios/checkpoint.current.gz",
+      "sha256": "04e38607a81248a0ca6dcd52880a2124c0239fa4aeb4bf08948fb7b6e4bf0a5d",
+      "source": {
+        "bytes": 1710965335,
+        "mtime_ns": 1792111289602385510,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/memory-postbios/checkpoint.current.gz",
+        "sha256": "04e38607a81248a0ca6dcd52880a2124c0239fa4aeb4bf08948fb7b6e4bf0a5d"
+      },
+      "verified_utc": "2026-10-17T15:41:56.011143+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-continuation-20261017/2026101302/20000000000/checkpoint.average.export-scratch-67630-1/average.tmp",
+      "sha256": "d72675e8970b25fd36ad15ea0d7db4b3cf646d59e5e66e7ea53522f26b6d1df5",
+      "source": {
+        "bytes": 1667129458,
+        "mtime_ns": 1792247108657316155,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.average.export-scratch-67630-1/average.tmp",
+        "sha256": "d72675e8970b25fd36ad15ea0d7db4b3cf646d59e5e66e7ea53522f26b6d1df5"
+      },
+      "verified_utc": "2026-10-17T15:42:23.304567+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-continuation-20261017/2026101302/20000000000/checkpoint.current.export-scratch-67630-0/current.gz",
+      "sha256": "673d303fee4339f44c96db1005c6b83ddfbb8085b9f8b04f9a543a17e1496a45",
+      "source": {
+        "bytes": 1457681899,
+        "mtime_ns": 1792247108665316238,
+        "path": "/home/dberweger/hu200-capacity-20261015/results-continuation-20261017/2026101302/20000000000/checkpoint.current.export-scratch-67630-0/current.gz",
+        "sha256": "673d303fee4339f44c96db1005c6b83ddfbb8085b9f8b04f9a543a17e1496a45"
+      },
+      "verified_utc": "2026-10-17T15:42:43.693839+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/memory/memory-500m.average.export-scratch-77606-1/average.tmp",
+      "sha256": "0ba0663f1e097ceabdb30082ec8b485681f9fa0a9fc23a1f296ea4d6db1e4b93",
+      "source": {
+        "bytes": 397238272,
+        "mtime_ns": 1792096282914171997,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/memory/memory-500m.average.export-scratch-77606-1/average.tmp",
+        "sha256": "0ba0663f1e097ceabdb30082ec8b485681f9fa0a9fc23a1f296ea4d6db1e4b93"
+      },
+      "verified_utc": "2026-10-17T15:42:50.024860+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/memory/memory-500m.current.export-scratch-77606-0/current.gz",
+      "sha256": "f5daf4bf6f25fe8c43d935f0b2ff8e492e55c00befd61b0b556eb38bb88e38e9",
+      "source": {
+        "bytes": 383107072,
+        "mtime_ns": 1792096282922172162,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/memory/memory-500m.current.export-scratch-77606-0/current.gz",
+        "sha256": "f5daf4bf6f25fe8c43d935f0b2ff8e492e55c00befd61b0b556eb38bb88e38e9"
+      },
+      "verified_utc": "2026-10-17T15:42:56.144962+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101421/gate-resumed20m/checkpoint.gz",
+      "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc",
+      "source": {
+        "bytes": 270417591,
+        "mtime_ns": 1792119808346550409,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/gate-resumed20m/checkpoint.gz",
+        "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc"
+      },
+      "verified_utc": "2026-10-17T15:43:03.087507+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101421/gate-fresh20m/checkpoint.gz",
+      "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc",
+      "source": {
+        "bytes": 270417591,
+        "mtime_ns": 1792117814736296704,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/gate-fresh20m/checkpoint.gz",
+        "sha256": "f9a2a9f0bed865f81a3abc81ca8cb9bfbc1da0555a9fa932859b525930a278cc"
+      },
+      "verified_utc": "2026-10-17T15:43:10.228950+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101302/gate-resumed20m/checkpoint.gz",
+      "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95",
+      "source": {
+        "bytes": 270143670,
+        "mtime_ns": 1792119808234549853,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/gate-resumed20m/checkpoint.gz",
+        "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95"
+      },
+      "verified_utc": "2026-10-17T15:43:14.940366+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101302/gate-fresh20m/checkpoint.gz",
+      "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95",
+      "source": {
+        "bytes": 270143670,
+        "mtime_ns": 1792117814880298279,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/gate-fresh20m/checkpoint.gz",
+        "sha256": "9e851773dd424782c19db7b601472aa76826b7627fe236bdde2f231e0fc87d95"
+      },
+      "verified_utc": "2026-10-17T15:43:21.264068+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101422/gate-resumed20m/checkpoint.gz",
+      "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381",
+      "source": {
+        "bytes": 270126707,
+        "mtime_ns": 1792119806746542510,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/gate-resumed20m/checkpoint.gz",
+        "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381"
+      },
+      "verified_utc": "2026-10-17T15:43:26.555297+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101422/gate-fresh20m/checkpoint.gz",
+      "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381",
+      "source": {
+        "bytes": 270126707,
+        "mtime_ns": 1792117815992310440,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/gate-fresh20m/checkpoint.gz",
+        "sha256": "aef9ffc76538f64fccc16293158f55fbc916759718d291dbd60f297a74d38381"
+      },
+      "verified_utc": "2026-10-17T15:43:34.929045+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101302/gate-prefix10m/checkpoint.gz",
+      "sha256": "eb9fb0e70e4c01d65a365584c22cabb6721cd87b80f88f95f646989bbb328fa9",
+      "source": {
+        "bytes": 148448601,
+        "mtime_ns": 1792119067293022044,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101302/gate-prefix10m/checkpoint.gz",
+        "sha256": "eb9fb0e70e4c01d65a365584c22cabb6721cd87b80f88f95f646989bbb328fa9"
+      },
+      "verified_utc": "2026-10-17T15:43:40.746492+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101422/gate-prefix10m/checkpoint.gz",
+      "sha256": "59e2b13221812855281c3a4053fea66b44fc49883891969382d562c94c0ad7b5",
+      "source": {
+        "bytes": 147996924,
+        "mtime_ns": 1792119065653005966,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101422/gate-prefix10m/checkpoint.gz",
+        "sha256": "59e2b13221812855281c3a4053fea66b44fc49883891969382d562c94c0ad7b5"
+      },
+      "verified_utc": "2026-10-17T15:43:45.091206+00:00"
+    },
+    {
+      "destination": "/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results/2026101421/gate-prefix10m/checkpoint.gz",
+      "sha256": "0bb153da4cd6dfcc8eb4d24976563c3391c7c33d05967332791d16448a753ed9",
+      "source": {
+        "bytes": 147978928,
+        "mtime_ns": 1792119065505004518,
+        "path": "/home/dberweger/hu200-capacity-20261015/results/2026101421/gate-prefix10m/checkpoint.gz",
+        "sha256": "0bb153da4cd6dfcc8eb4d24976563c3391c7c33d05967332791d16448a753ed9"
+      },
+      "verified_utc": "2026-10-17T15:43:48.181522+00:00"
+    }
+  ],
+  "free_after_bytes": 128380596224,
+  "free_before_bytes": 60635779072,
+  "relocated_bytes": 70431280579,
+  "scientific_compute_on_hdd": false,
+  "status": "verified",
+  "utc": "2026-10-17T15:43:48.192625+00:00"
+}

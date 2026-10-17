@@ -1,0 +1,30 @@
+{
+  "budget_bytes_per_entry": 130,
+  "measurements": [
+    {
+      "action_slots": 215953499,
+      "entries": 69084815,
+      "mature_bytes_per_entry": 100.01307696922979,
+      "peak_rss_bytes": 7487889408,
+      "regret_free_slots": 100690818,
+      "seed": 2026101302
+    },
+    {
+      "action_slots": 216263139,
+      "entries": 69180237,
+      "mature_bytes_per_entry": 100.0018770100484,
+      "peak_rss_bytes": 7494729728,
+      "regret_free_slots": 100931857,
+      "seed": 2026101421
+    },
+    {
+      "action_slots": 215891947,
+      "entries": 69055433,
+      "mature_bytes_per_entry": 100.0266756708339,
+      "peak_rss_bytes": 7486042112,
+      "regret_free_slots": 100671790,
+      "seed": 2026101422
+    }
+  ],
+  "status": "passed"
+}

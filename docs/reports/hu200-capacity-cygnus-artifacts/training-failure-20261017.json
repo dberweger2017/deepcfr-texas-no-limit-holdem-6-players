@@ -1,0 +1,686 @@
+{
+  "status": "verified-terminal-training-failure-no-retry",
+  "event": "training_failed",
+  "observed_utc": "2026-10-17T09:28:09.776383+00:00",
+  "failure": {
+    "automatic_retry": false,
+    "error": "RuntimeError('Existing259GB plan/output reservations exhausted')",
+    "source": "approved scheduling controller",
+    "status": "failed",
+    "utc": "2026-10-17T09:21:22.269998+00:00"
+  },
+  "deduplication": "New terminal failure. Last committed7fb3057e had no failure and all10B audits verified. No scientific attempt repeated.",
+  "source_receipts": {
+    "training-failed.json": {
+      "bytes": 223,
+      "sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/training-failed.json"
+    },
+    "training-clock.json": {
+      "bytes": 174,
+      "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/training-clock.json"
+    },
+    "training-deadline-amendment-20261016.json": {
+      "bytes": 358,
+      "sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/training-deadline-amendment-20261016.json"
+    },
+    "guards/recovery-20261016/result.json": {
+      "bytes": 142,
+      "sha256": "a93c415edf24f6724691bbeeb14c181b07092491393be4a1408417fd02cd8ef8",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/guards/recovery-20261016/result.json"
+    },
+    "results-recovery-20261016/2026101421/20000000000/native-record.json": {
+      "bytes": 2803,
+      "sha256": "bc458dbcfa7089ec395b0b0bcd8511c04a32b0d2798415be675a3be74798b0ce",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101421/20000000000/native-record.json"
+    },
+    "results-recovery-20261016/2026101421/20000000000/saved-bytes.json": {
+      "bytes": 2684,
+      "sha256": "527b0d3594726e46a48a14af02a841df5ec03007e3be01c2d8bf4599623cc95a",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101421/20000000000/saved-bytes.json"
+    },
+    "results-recovery-20261016/2026101421/20000000000/audit.stop": {
+      "bytes": 49,
+      "sha256": "702f67a6d871fb1fe40d364d57977df3277b0cf2604c697a34e76978f35b2656",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101421/20000000000/audit.stop"
+    },
+    "results-recovery-20261016/2026101422/20000000000/native-record.json": {
+      "bytes": 2801,
+      "sha256": "5172daaeaeff4e9705c643fa83d3a88b47ef41d86c2e477f87b1d8076587bc29",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101422/20000000000/native-record.json"
+    },
+    "results-recovery-20261016/2026101422/20000000000/saved-bytes.json": {
+      "bytes": 2684,
+      "sha256": "d5b10688f25aaeb607fcb7552bf83532b25564a0e437bdde65a5ae385ef1778e",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101422/20000000000/saved-bytes.json"
+    },
+    "results-recovery-20261016/2026101422/20000000000/audit.stop": {
+      "bytes": 49,
+      "sha256": "702f67a6d871fb1fe40d364d57977df3277b0cf2604c697a34e76978f35b2656",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/results-recovery-20261016/2026101422/20000000000/audit.stop"
+    },
+    "guards/recovery-20261016/train-2026101422-20000000000.plan.json": {
+      "bytes": 1413,
+      "sha256": "f3d1d7d6da7f4fbcd13141f6a88e372422a00262a5e4d24ebacd2c89a7dc785e",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/guards/recovery-20261016/train-2026101422-20000000000.plan.json"
+    },
+    "guards/recovery-20261016/audit-2026101422-20000000000.plan.json": {
+      "bytes": 579,
+      "sha256": "954d45b9980323810ee66cb8d2fead344a9329dff7fdd22b5843fb1d04dd30bf",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/guards/recovery-20261016/audit-2026101422-20000000000.plan.json"
+    },
+    "guards/recovery-20261016/train-2026101421-20000000000.plan.json": {
+      "bytes": 1413,
+      "sha256": "832e2e1791edd6244e62a010e8ad3aff9f1f75e801e795a1cf64f65017d4ab8b",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/guards/recovery-20261016/train-2026101421-20000000000.plan.json"
+    },
+    "guards/recovery-20261016/audit-2026101421-20000000000.plan.json": {
+      "bytes": 579,
+      "sha256": "f387700be93497b296d0c4b94625735896a3a69be214e1a6381dd523f8d7087f",
+      "committed_copy": "docs/reports/hu200-capacity-cygnus-artifacts/failure-20261017/guards/recovery-20261016/audit-2026101421-20000000000.plan.json"
+    }
+  },
+  "assessment": {
+    "trigger": "Prospective free-space floor failed while owned logical budget remained within259GB.",
+    "estimated_remaining_audit_output_reservations": {
+      "2026101421": 6446925221,
+      "2026101422": 6450696226
+    },
+    "estimated_free_after_reservations_at_last_trace": 49869097529,
+    "free_floor_bytes": 50000000000,
+    "estimated_owned_plus_reservations_growth_and_floor": 248518332222,
+    "original_budget_bytes": 259000000000,
+    "reservation_scope": "Conservative metadata reconstruction. Controller before_bytes snapshots were in memory; inferred initial audit native-record/telemetry bytes differ only by small metadata amounts. The floor shortfall is about131MB, well beyond that uncertainty.",
+    "owned_logical_growth_since_0553": 30299131491,
+    "free_disk_decrease_since_0553": 121400684544,
+    "decrease_unexplained_by_owned_logical_growth": 91101553053,
+    "unattributed_scope": "Difference combines filesystem accounting and activity outside owned-root logical bytes. Other roots/processes were not inspected or modified; no attribution to a particular PR.",
+    "last_verified_scientific_milestone": "All3 rebuilt10B full audits and all prior gates remain verified.",
+    "twenty_B": "1421/1422 native save and independent checkpoint-byte readback pass; exports exist, but final every-row validation was interrupted. Neither terminal model admitted.",
+    "seed1302": "20B never started; fully audited10B recovery retained.",
+    "evaluation": "Not started; all3 audited20B admission absent. No final hands or outcomes.",
+    "preservation": "All model/export/partial/scratch/source files retained. No deletion, retry, trainer/controller edit, budget/deadline extension, HDD use or unrelated-root action."
+  },
+  "live_stop_verification": {
+    "observed_utc": "2026-10-17T09:28:09.776383+00:00",
+    "training_complete": false,
+    "milestone_20b": false,
+    "last_resource": {
+      "utc": "2026-10-17T09:21:20.880189+00:00",
+      "monotonic": 54005.976463375,
+      "package_c": 59.0,
+      "clock_khz": [
+        800000,
+        4798208,
+        800000,
+        800000,
+        800000,
+        800000,
+        4800888,
+        800000,
+        800000,
+        800000,
+        4863871,
+        800000,
+        4800167,
+        4863803,
+        800000,
+        4863798
+      ],
+      "throttle_counts": {
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+      },
+      "cpu_clocks_khz": {
+        "cpu11": 800000,
+        "cpu9": 4798208,
+        "cpu7": 800000,
+        "cpu5": 800000,
+        "cpu3": 800000,
+        "cpu14": 800000,
+        "cpu1": 4800888,
+        "cpu12": 800000,
+        "cpu10": 800000,
+        "cpu8": 800000,
+        "cpu6": 4863871,
+        "cpu4": 800000,
+        "cpu15": 4800167,
+        "cpu2": 4863803,
+        "cpu13": 800000,
+        "cpu0": 4863798
+      },
+      "device_temperatures_c": {
+        "iwlwifi_1/temp1_input": 32.0,
+        "nct6687/Thermistor 0": 16.0,
+        "nct6687/Thermistor 15": 68.0,
+        "nct6687/Thermistor 1": 13.5,
+        "nct6687/PCH CHIP": 35.0,
+        "nct6687/PECI 0.0": 61.0,
+        "nct6687/Thermistor 16": 38.5,
+        "nct6687/Diode 0 (curr)": 34.0,
+        "acpitz/temp1_input": 27.8,
+        "coretemp/Core 4": 44.0,
+        "coretemp/Core 1": 42.0,
+        "coretemp/Core 5": 43.0,
+        "coretemp/Core 2": 54.0,
+        "coretemp/Core 6": 60.0,
+        "coretemp/Package id 0": 59.0,
+        "coretemp/Core 3": 43.0,
+        "coretemp/Core 7": 46.0,
+        "coretemp/Core 0": 59.0,
+        "pch_cometlake/temp1_input": 34.0,
+        "nvme/Composite": 40.85
+      },
+      "available_bytes": 132387434496,
+      "swap_used_bytes": 93900800,
+      "vrm_c": 68.0,
+      "fan1_rpm": 835,
+      "free_disk_bytes": 62766718976,
+      "fan_rpm": {
+        "fan3": 1282,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 835,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 1260,
+        "fan6": 0
+      },
+      "job_rss_bytes": {
+        "audit-2026101421-20000000000": 43749376,
+        "audit-2026101422-20000000000": 43130880
+      },
+      "family_rss_bytes": 86880256,
+      "active_jobs": {
+        "audit-2026101421-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            6
+          ]
+        },
+        "audit-2026101422-20000000000": {
+          "kind": "audit",
+          "cpus": [
+            0
+          ]
+        }
+      },
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    },
+    "resource_samples": 33035,
+    "resource_peaks": {
+      "cpu_c": 72.0,
+      "vrm_c": 84.5,
+      "rss_bytes": 75335819264,
+      "swap_bytes": 110624768
+    },
+    "resource_minima": {
+      "available_bytes": 55035375616,
+      "free_disk_bytes": 62766718976
+    },
+    "trace_stop_samples": 0,
+    "hourly_free_disk": {
+      "2026-10-16T19": 220637818880,
+      "2026-10-16T20": 220573351936,
+      "2026-10-16T21": 184060940288,
+      "2026-10-16T22": 170269175808,
+      "2026-10-16T23": 157264949248,
+      "2026-10-17T00": 157159276544,
+      "2026-10-17T01": 179866177536,
+      "2026-10-17T02": 195590000640,
+      "2026-10-17T03": 188650287104,
+      "2026-10-17T04": 171393093632,
+      "2026-10-17T05": 178513428480,
+      "2026-10-17T06": 163821707264,
+      "2026-10-17T07": 98909675520,
+      "2026-10-17T08": 69503807488,
+      "2026-10-17T09": 62766718976
+    },
+    "last_utilization": {
+      "utc": "2026-10-17T09:21:16.731369+00:00",
+      "monotonic": 54001.827641719,
+      "hz": 100,
+      "jobs": {
+        "audit-2026101421-20000000000": [
+          {
+            "pid": 13218,
+            "start": "3972515",
+            "ticks": 645353,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+              "-m",
+              "scripts.run_hu200_capacity_training",
+              "audit",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000"
+            ],
+            "io": {
+              "rchar": 127867189402,
+              "wchar": 16553075241,
+              "syscr": 9575989,
+              "syscw": 732573,
+              "read_bytes": 5960978432,
+              "write_bytes": 16555540480,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 13218,
+                "ticks": 645353
+              }
+            ]
+          }
+        ],
+        "audit-2026101422-20000000000": [
+          {
+            "pid": 13297,
+            "start": "4135426",
+            "ticks": 402970,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-recovery-20261016/.venv/bin/python",
+              "-m",
+              "scripts.run_hu200_capacity_training",
+              "audit",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000"
+            ],
+            "io": {
+              "rchar": 118430318195,
+              "wchar": 16549304236,
+              "syscr": 7275231,
+              "syscw": 732425,
+              "read_bytes": 1628241920,
+              "write_bytes": 16552235008,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 13297,
+                "ticks": 402970
+              }
+            ]
+          }
+        ]
+      },
+      "phases": {
+        "audit-2026101421-20000000000": "sorted-validation-and-final-hashes",
+        "audit-2026101422-20000000000": "sorted-validation-and-final-hashes"
+      },
+      "disks": {
+        "nvme0n1": {
+          "read_sectors": 730610143,
+          "written_sectors": 474542722,
+          "busy_ms": 340160
+        }
+      }
+    },
+    "owned_process_checks": {
+      "4325": {
+        "present": false
+      },
+      "4337": {
+        "present": false
+      },
+      "4338": {
+        "present": false
+      },
+      "4339": {
+        "present": false
+      },
+      "4367": {
+        "present": false
+      },
+      "10979": {
+        "present": false
+      },
+      "10985": {
+        "present": false
+      },
+      "12841": {
+        "present": false
+      },
+      "12842": {
+        "present": false
+      },
+      "12845": {
+        "present": false
+      },
+      "12880": {
+        "present": false
+      },
+      "12883": {
+        "present": false
+      },
+      "13218": {
+        "present": false
+      },
+      "13295": {
+        "present": false
+      },
+      "13297": {
+        "present": false
+      }
+    },
+    "top_level_owned_bytes": {
+      "results-recovery-20261016": 97359723145,
+      "repo-scheduling": 266486302,
+      "guards": 377738483,
+      "training-clock.json": 174,
+      "memory-plan.json": 578,
+      "callback-sent-events.json": 1582,
+      "cleanup": 9795,
+      "milestone-5000000000.json": 8395,
+      "parallel-audit-batch.json": 1253,
+      "repo-scheduler-checks": 266003206,
+      "repo-evaluation": 265813033,
+      "prefix-memory-admission.json": 752,
+      "campaign-events.bundle": 2060,
+      "campaign.log": 0,
+      "repo": 270161348,
+      "event-observer.log": 348,
+      "campaign-3f6eb6cb.bundle": 10372,
+      "training-deadline-amendment-20261016.json": 358,
+      "inputs": 9489305419,
+      "scheduling-source-final.bundle": 1651,
+      "recovery-approval.json": 801,
+      "training-failed.json": 223,
+      "repo-checks": 265124953,
+      "evaluation-smoke.bundle": 4052,
+      "transport-copy-retirements.jsonl": 1741,
+      "milestone-10000000000.json": 8495,
+      "twins-restored.json": 6411,
+      "campaign-events-v2.bundle": 2848,
+      "memory-resource-summary.json": 1247,
+      "postbios-memory-plan.json": 627,
+      "repo-postbios": 265205923,
+      "scheduling-handoff.json": 1340,
+      "guard-tests-plan.json": 528,
+      "evaluation.bundle": 8749,
+      "retirements.jsonl": 28554,
+      "twin-gates.json": 17100,
+      "recovery-admission-20261016.json": 7358,
+      "prefix500m-resource-summary.json": 637,
+      "transport-copy-retirements.json": 1842,
+      "milestone-2000000000.json": 8353,
+      "parallel-audit-batch-delivery.json": 179,
+      "resume-gates.json": 17537,
+      "memory-supervisor.log": 0,
+      "postbios-source.bundle": 7291,
+      "scheduling-recovery-20261016.log": 13955,
+      "event-observer-launch.json": 227,
+      "repo-recovery-20261016": 266858114,
+      "event-observer-recovery-20261016.log": 294,
+      "scheduling-source-f2f157ac.bundle": 51663,
+      "scheduling.log": 25015,
+      "owner-interruption-restart.json": 691,
+      "postbios-memory-supervisor.log": 125,
+      "event-observer-launch-v2.json": 265,
+      "checks.bundle": 14617,
+      "evaluation-checks.bundle": 4097,
+      "memory-launch.json": 163,
+      "postbios-memory-launch.json": 253,
+      "source.bundle": 945557,
+      "results": 56261090853,
+      "repo-campaign": 265232725,
+      "planning": 740369,
+      "event-observer-v2.log": 772,
+      "admission.json": 5742
+    },
+    "owned_bytes": 165620710775,
+    "free_disk_bytes": 58236669952,
+    "source_head": "c48e64ceccde0b99287b7f40e3c9076bb60fea8a",
+    "source_status": "",
+    "closed_trace_pins": [
+      {
+        "path": "guards/recovery-20261016/resources.jsonl",
+        "bytes": 136670158,
+        "mtime_ns": 1792228880878524897,
+        "sha256": "919bda679bcd1957a9a6b31fae8e58869f8195d765b6ff84bf325c4abb7d15a8"
+      },
+      {
+        "path": "guards/recovery-20261016/utilization.jsonl",
+        "bytes": 25552057,
+        "mtime_ns": 1792228876726480944,
+        "sha256": "0f32d92f0c229a222f47ebda73a09c011668b8b5fa9ebc1715a24be6fe29b097"
+      },
+      {
+        "path": "scheduling-recovery-20261016.log",
+        "bytes": 13955,
+        "mtime_ns": 1792228882270539622,
+        "sha256": "45abbbd24e708457f55f7a93294c238189eba7d2268601de7e4cffa2656edcd8"
+      },
+      {
+        "path": "event-observer-recovery-20261016.log",
+        "bytes": 294,
+        "mtime_ns": 1792228897126696374,
+        "sha256": "276bf911e760201bcc9856e376298714d9e7d27e872af07416dcb63072dd5dfb"
+      }
+    ],
+    "save_files": {
+      "results-recovery-20261016/2026101302/10000000000": [
+        {
+          "name": "saved-bytes.json",
+          "bytes": 2489,
+          "mtime_ns": 1792202678663579777
+        },
+        {
+          "name": "telemetry.jsonl",
+          "bytes": 2028,
+          "mtime_ns": 1792187383772948318
+        },
+        {
+          "name": "audit.json",
+          "bytes": 4439,
+          "mtime_ns": 1792216191234677675
+        },
+        {
+          "name": "checkpoint.gz",
+          "bytes": 11782090307,
+          "mtime_ns": 1792187303472139155
+        },
+        {
+          "name": "scheduler-retired.json",
+          "bytes": 889,
+          "mtime_ns": 1792216242479299321
+        },
+        {
+          "name": "native-record.json",
+          "bytes": 2612,
+          "mtime_ns": 1792187384568956345
+        }
+      ],
+      "results-recovery-20261016/2026101421/10000000000": [
+        {
+          "name": "saved-bytes.json",
+          "bytes": 2489,
+          "mtime_ns": 1792187631183449335
+        },
+        {
+          "name": "telemetry.jsonl",
+          "bytes": 2026,
+          "mtime_ns": 1792187256203663593
+        },
+        {
+          "name": "audit.json",
+          "bytes": 4439,
+          "mtime_ns": 1792202309695932270
+        },
+        {
+          "name": "checkpoint.gz",
+          "bytes": 11828967860,
+          "mtime_ns": 1792187176182859968
+        },
+        {
+          "name": "scheduler-retired.json",
+          "bytes": 889,
+          "mtime_ns": 1792202359160421407
+        },
+        {
+          "name": "native-record.json",
+          "bytes": 2610,
+          "mtime_ns": 1792187257131672924
+        }
+      ],
+      "results-recovery-20261016/2026101421/20000000000": [
+        {
+          "name": "saved-bytes.json",
+          "bytes": 2684,
+          "mtime_ns": 1792215010058582375
+        },
+        {
+          "name": "checkpoint.average.gz",
+          "bytes": 8827265135,
+          "mtime_ns": 1792222827483485221
+        },
+        {
+          "name": "telemetry.jsonl",
+          "bytes": 2173,
+          "mtime_ns": 1792213454644313192
+        },
+        {
+          "name": "checkpoint.gz",
+          "bytes": 14407546362,
+          "mtime_ns": 1792213357031826272
+        },
+        {
+          "name": "checkpoint.current.gz",
+          "bytes": 7725806960,
+          "mtime_ns": 1792222827483485221
+        },
+        {
+          "name": "audit.stop",
+          "bytes": 49,
+          "mtime_ns": 1792228881266529003
+        },
+        {
+          "name": "native-record.json",
+          "bytes": 2803,
+          "mtime_ns": 1792213455232316202
+        }
+      ],
+      "results-recovery-20261016/2026101422/10000000000": [
+        {
+          "name": "saved-bytes.json",
+          "bytes": 2489,
+          "mtime_ns": 1792187746776620927
+        },
+        {
+          "name": "telemetry.jsonl",
+          "bytes": 2029,
+          "mtime_ns": 1792187345932566827
+        },
+        {
+          "name": "audit.json",
+          "bytes": 4442,
+          "mtime_ns": 1792203068143428286
+        },
+        {
+          "name": "checkpoint.gz",
+          "bytes": 11832491674,
+          "mtime_ns": 1792187257043672040
+        },
+        {
+          "name": "scheduler-retired.json",
+          "bytes": 889,
+          "mtime_ns": 1792203111519856829
+        },
+        {
+          "name": "native-record.json",
+          "bytes": 2613,
+          "mtime_ns": 1792187347160579198
+        }
+      ],
+      "results-recovery-20261016/2026101422/20000000000": [
+        {
+          "name": "saved-bytes.json",
+          "bytes": 2684,
+          "mtime_ns": 1792216635931653174
+        },
+        {
+          "name": "checkpoint.average.gz",
+          "bytes": 8824845328,
+          "mtime_ns": 1792225250328292269
+        },
+        {
+          "name": "telemetry.jsonl",
+          "bytes": 2171,
+          "mtime_ns": 1792214598862403637
+        },
+        {
+          "name": "checkpoint.gz",
+          "bytes": 14406200971,
+          "mtime_ns": 1792214503373318003
+        },
+        {
+          "name": "checkpoint.current.gz",
+          "bytes": 7724455762,
+          "mtime_ns": 1792225250328292269
+        },
+        {
+          "name": "audit.stop",
+          "bytes": 49,
+          "mtime_ns": 1792228881266529003
+        },
+        {
+          "name": "native-record.json",
+          "bytes": 2801,
+          "mtime_ns": 1792214599706412984
+        }
+      ]
+    },
+    "audit_log_tails": {
+      "audit-2026101421-20000000000.log": "{\"command\":\"export\",\"options\":{\"average\":\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz\",\"current\":\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.current.gz\",\"zero_mass\":\"uniform\"},\"positionals\":[\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.gz\"]}\nexported 301153954 entries in 7817.43 s\n",
+      "audit-2026101422-20000000000.log": "{\"command\":\"export\",\"options\":{\"average\":\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.average.gz\",\"current\":\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.current.gz\",\"zero_mass\":\"uniform\"},\"positionals\":[\"/home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101422/20000000000/checkpoint.gz\"]}\nexported 301153964 entries in 8614.40 s\n"
+    }
+  },
+  "archive_status": {
+    "status": "pending-space-admission",
+    "free_disk_bytes_at_collection": 58236669952,
+    "headroom_above_50GB_floor": 8236669952,
+    "declared_one_seed_archive_staging_bytes": 41000000000,
+    "current_staging_admitted": false,
+    "cloud_archive_uploaded": false,
+    "unpacked_copy_complete": false,
+    "originals_retained": true,
+    "event_task": "Retained until complete closeout; own metadata observer exited after delivering terminal event; no new task."
+  },
+  "eta_status": "Prior completion target withdrawn; no reliable finish ETA without an authorized recovery/storage resolution. Effective training deadline/evaluation24h unchanged.",
+  "metadata_lookup_incidents": [
+    "A read-only rg command used an unmatched scripts/cygnus* shell glob; that search did not run. The relevant scheduler/guard implementations were then read directly. No scientific job was affected."
+  ]
+}

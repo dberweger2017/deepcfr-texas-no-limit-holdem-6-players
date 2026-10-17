@@ -1,0 +1,45 @@
+{
+  "cache": "/home/dberweger/hu200-capacity-20261015/evaluation-cache-20261017",
+  "final_admission": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/final-admission-20B.json",
+  "kind": "20B",
+  "output": "/home/dberweger/hu200-capacity-20261015/evaluation/2026101302/20B",
+  "receipts": "/home/dberweger/hu200-capacity-20261015/evaluation-first-pilot-20261017/receipts",
+  "seed": 2026101302,
+  "source": "2d2ec4a17d20d586b8563dc656ed339b7fba218f",
+  "specs": [
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 8835220792,
+      "card_buckets": "/home/dberweger/cygnus-qualification-20261014/tables",
+      "entries": 301153962,
+      "format": "holdem-hu200-stored-cfr-average-research-v1",
+      "iteration": 16367262,
+      "missing_key_fallback": "uniform",
+      "name": "large-20B-2026101302",
+      "path": "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000/checkpoint.average.gz",
+      "sha256": "f69c6f3eed4fab078cddbeccb2d2196a2d64206a17c3942ff067f6b9d748b799",
+      "source_checkpoint_sha256": "b27092a197083f031bf3e83e12f1715cd28cc8ddac01a172972e342e63ef1d93",
+      "translation": {
+        "max_events": 128,
+        "max_states": 512
+      }
+    },
+    {
+      "abstraction": "hu200-native-reopening-ordered-history-equity-k50-v1",
+      "bytes": 3164563975,
+      "card_buckets": "/home/dberweger/cygnus-qualification-20261014/tables",
+      "entries": 85373907,
+      "format": "holdem-hu200-stored-cfr-average-research-v1",
+      "iteration": 16670844,
+      "missing_key_fallback": "uniform",
+      "name": "twin-2026101302",
+      "path": "/home/dberweger/hu200-capacity-20261015/inputs/seed-2026101302/final.average.gz",
+      "sha256": "9128f71c602f18a9cb7219b18cd43ff4e3f2b7ed6a30f9babe7ed033840ac7b6",
+      "source_checkpoint_sha256": "c5929bda17457911347e47cd77a83dd8b34618a5542731bed96ece1fb4288b6f",
+      "translation": {
+        "max_events": 128,
+        "max_states": 512
+      }
+    }
+  ]
+}

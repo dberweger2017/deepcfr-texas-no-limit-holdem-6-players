@@ -1,0 +1,45 @@
+{
+  "status": "preserved-engineering-setup-failures;no-scientific-retry",
+  "attempts": [
+    {
+      "phase": "storage plan construction",
+      "error": "AttributeError: 'list' object has no attribute 'get'",
+      "effect": "Empty storage-proof directory created; no plan/model transfer.",
+      "correction": "Ignore non-dictionary JSON metadata during input-pin discovery."
+    },
+    {
+      "phase": "premature guard launch after failed plan command",
+      "error": "FileNotFoundError: planning/storage-export-recovery-20261017.guard.json",
+      "effect": "Exited before guard/workload initialization; no bytes moved.",
+      "raw_log": "storage-export-recovery-20261017.log",
+      "correction": "Prepare and verify the plan before launching in a separate checked step."
+    },
+    {
+      "phase": "first actual guarded storage helper",
+      "error": "ModuleNotFoundError: No module named 'scripts'",
+      "effect": "Guard exits failed after1.020s; no file copied or removed.",
+      "raw_guard": "guards/storage-export-recovery-20261017",
+      "correction": "Fresh r3 helper imports only the pinned2f source using an explicit source path; fresh stop and guard root. Existing failed logs/stops preserved."
+    },
+    {
+      "phase": "metadata display",
+      "error": "ValueError: HDD path is not under the owned NVMe root",
+      "effect": "Read-only display failed; no file mutation.",
+      "correction": "Display HDD paths relative to their own owned destination."
+    },
+    {
+      "phase": "optional local orchestration-test invocation",
+      "error": "No module named pytest",
+      "effect": "No tests or model computation ran; no package installed.",
+      "correction": "Use the existing qualified bb128 virtualenv in a guarded test run."
+    },
+    {
+      "phase": "optional configuration search",
+      "error": "rg: pyproject.toml: No such file or directory",
+      "effect": "Read-only configuration search; no implementation or scientific effect."
+    }
+  ],
+  "trainer_exporter_auditor_changes": false,
+  "scientific_attempt_repeated": false,
+  "partial_and_original_files_retained": true
+}
