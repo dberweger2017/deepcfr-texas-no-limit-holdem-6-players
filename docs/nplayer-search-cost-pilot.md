@@ -45,12 +45,121 @@ K50, and the native N-player arena exposes no search player. Therefore this
 baseline is not a three-way search benchmark. Do not substitute an old model,
 uniform continuations or a heads-up adapter and label it a current-model test.
 
-The next engineering task is an observation-only adapter for the current
-three-player policy, with exact key/menu/probability parity, hidden-card
-invariance, correct public-range sampling and continuation-policy tests. An
-independent review is required for changed regret/sampling math before a larger
-study depends on it. Learned leaf values need separate training/held-out
-validation before they are an eligible comparison arm.
+The old local CFR pilot also requires six seated players with exactly three
+unfolded players at its flop root. Supporting the current three-seat model
+therefore requires model integration, belief reconstruction and a bounded
+solver; removing a format guard is insufficient.
+
+## Implementation plan for v0.6
+
+Owner-approved plan addition, October 17, 2026. The immediate target is the
+existing three-player 20 BB Phase 2 full-average model. Keep interfaces suitable
+for more players, but qualify three-player behavior first. PR334 contains the
+completed baseline, observation extractor and this plan; the search code below
+is pending implementation. Adding the plan starts no new compute campaign.
+
+Use the current native N-player rules, policy loader and exact action menu.
+The legacy Python search remains a correctness reference; it must not become a
+second implementation of the N-tagged model format or its keys. Keep model
+weights and K50 tables resident and shared across decisions. Preserve historical
+heads-up behavior and keep search opt-in.
+
+### 1. Current-model integration and baseline control
+
+- Define a search interface accepting only the acting seat's observation,
+  explicit configuration and a separate search RNG. Use
+  `native/hu20-trainer/src/multi_policy.rs`, `multi_holdem.rs` and `nplayer.rs`
+  for existing probabilities, keys, menu and rules.
+- Verify the pinned model, table hashes, three-player/stack/blind identity and
+  full-average scope before play. Continue to count existing missing-key
+  blueprint fallbacks explicitly.
+- **Acceptance:** search disabled reproduces the existing blueprint's seeded
+  actions and outcomes; menus, key identities and probabilities agree exactly.
+  Search work cannot advance the deal stream or blueprint action RNG.
+
+### 2. Public history, beliefs and sampled worlds
+
+- Reconstruct the betting-round root and current public state from the legal
+  observation. Retain all public action amounts and board-reveal boundaries.
+- Weight candidate holdings by their public action likelihoods under the
+  declared policy model. Include folded players' latent holdings in card
+  removal. Sample compatible joint holdings and undealt cards without reading
+  the real hidden deal.
+- Define public ranges for every player, including the searcher; the actual
+  private hand must not silently alter other players' search information sets.
+  Document approximations, zero-likelihood handling and any importance weights.
+- **Acceptance:** sampled worlds reproduce all visible state and legal bounds;
+  exact small-support enumeration validates the joint sampling law. Changing
+  real opponent cards or future cards while holding the observation and search
+  seed fixed leaves search inputs and outputs unchanged.
+
+### 3. Bounded rollouts and sampled CFR
+
+- Add action rollouts with fixed blueprint continuation as the first control.
+  Then add sampled CFR, reusing the reviewed N-player traversal where applicable
+  and checking additional root-conditioning/continuation mathematics explicitly.
+- Configure solver cycles, range/world samples, node limits and precise
+  street-boundary horizons separately. Work counts determine the task;
+  wall/memory limits are fail-safes. Publish updates only after a complete cycle.
+- At depth limits, support blueprint/fold/call/raise continuation styles as
+  choices at each player's information set. Continuation choices must not see
+  other holdings, other players' private choices or a board card revealed after
+  the cutoff. Learned continuation values need separate training and held-out
+  validation before becoming a comparison arm.
+- Initially search only the first decision for the searcher in each betting
+  round. Record an explicit blueprint fallback for later decisions until
+  repeated-search consistency, including preserving earlier searcher policies,
+  is implemented and validated.
+- **Acceptance:** legal actions and chip accounting hold throughout; interrupted
+  work cannot expose partial-cycle regrets. Unsupported situations have counted,
+  seeded fallbacks; information leaks, invalid math or reconstruction mismatches
+  fail the run rather than being hidden as ordinary fallbacks.
+
+### 4. Correctness qualification and independent review
+
+- Compare expected sampled regret updates with exact enumeration in small
+  imperfect-information games, including root conditioning and continuation
+  choices. Verify information-set sharing across indistinguishable worlds.
+- Exercise short all-ins, closed raising, folds, side pots, street transitions,
+  observation immutability and deterministic reproduction. Retain existing
+  engine/key/loader regressions and verify new native traces independently in
+  the pinned engine.
+- **Acceptance:** focused tests, native library tests, repository checks and
+  independent review clear information access and regret/sampling math before
+  the timed solver grid or dependent larger research. No convergence,
+  exploitability or playing-strength guarantee follows from these checks.
+
+### 5. Small cost calibration
+
+- Audit all 43 retained observations against declared eligibility before
+  timing; preserve the originals and publish exclusion reasons and stratum
+  counts. An insufficient eligible stratum is a coverage gap, not a zero-cost
+  result. Any added cost-only cases require a declared selection rule.
+- Start with 12 eligible decisions at the smallest complete work setting.
+  Then freeze a feasible horizon/iteration/sampling grid and solver RNG repeats
+  for the fixed eligible observation set, without selecting on winnings.
+- **Acceptance:** report loading, belief construction, solving and verification
+  separately, plus CPU time, median/tail latency, sampled memory, completed
+  cycles/nodes, target visits, continuation coverage, action changes and failures.
+  Keep the model resident to avoid charging every decision a fresh load.
+
+### 6. Paired arena integration and measured quote
+
+- Add the opt-in search player to the native three-player arena. Compare it
+  with the unchanged blueprint on matched deals and six seat permutations,
+  separating deal, action and search RNG streams. Record activation, unsupported
+  decisions, misses and fallbacks per street/seat, then replay and reproduce.
+- **Acceptance:** quote approximately 1,000 hands per eligible configuration
+  from measured search frequency/cost and complete verification/storage work;
+  use complete blocks, such as 996 hands. Exploratory screening remains separate
+  from a fresh, predeclared strength confirmation.
+
+Recommended implementation split: one follow-up PR for model/public-belief
+integration and its reference tests, then one for the bounded solver and arena
+integration. Each needs the relevant independent review before dependent runs.
+This work targets v0.6; further HU200 diagnosis is not a prerequisite. Existing
+campaigns and their resource reservations remain unchanged. Any larger shared
+run needs a fresh combined resource admission and a measured task quote.
 
 ## Task-sized follow-up
 
@@ -61,7 +170,7 @@ validation before they are an eligible comparison arm.
    setting. Freeze a grid of solver iterations, sampled holdings and precise
    street-boundary horizons from these cost measurements, without examining
    winnings. Depth and solve iterations are separate parameters.
-3. Reuse the same 32–64 decision observations across eligible configurations
+3. Reuse the same eligible observations from the retained 43-case set across configurations
    and independent solver RNG seeds. Measure loading, range construction,
    solving, replay and storage separately; report median/tail latency, CPU time,
    memory, target-information-set visits, action changes and failures.
