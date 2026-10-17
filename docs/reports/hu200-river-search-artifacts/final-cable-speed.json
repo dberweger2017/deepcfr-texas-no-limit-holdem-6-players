@@ -1,0 +1,14 @@
+{
+  "peer": "192.168.77.1",
+  "direction": "M4 to bb128-lan",
+  "bytes": 1073741824,
+  "seconds": 9.158447208996222,
+  "MB_per_second": 117.24059761411056,
+  "MiB_per_second": 111.80934678469711,
+  "Mbit_per_second": 937.9247809128844,
+  "sha256_match": true,
+  "sha256": "5ecd9e66c419557039f9629f6d953a96d6addbdc61a280992d8d963a0c879a01",
+  "source_unchanged": true,
+  "payload_file_created": false,
+  "scope": "1GiB source prefix through SSH plus both endpoint hashes; no receiver disk writes"
+}

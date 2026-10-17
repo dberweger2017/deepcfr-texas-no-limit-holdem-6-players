@@ -1,15 +1,34 @@
-## PR317 — HU200 river search, calibration complete; finals pending
+## PR317 — HU200 river search, final execution declared
 
 Latest: evidence-retention source `5b6b2f6c` passes the same24 parity and amended
 10 s gate at p95 **9.834 s**, with two/three-worker parity/memory measurements.
 The owner-approved fixed calibration, source `d0849fca`, completes **352 blocks /
 1,152 primary hands**, all replayed and reproduced, in **604.32 s from the
 original clock**, including launch repair. **202 searched decisions, 67 changed
-actions, zero fallbacks/timeouts/missing EVs.** The M4 is released **October17
-at08:49:03Madrid**. Final hands remain zero; [final-count/venue/storage proposal](docs/hu200-river-search-final-proposal.md)
-recommends131,072direct +2,048per script (M4 **73.4 h**, conditional/unmeasured
-cygnus trainer proxy **448.6 h**, after#301), pending owner choice and admission.
-All old failures and roots remain protected; no Slumbot play.
+actions, zero fallbacks/timeouts/missing EVs.** The M4 was released **October17
+at08:49:03Madrid** after calibration, then reacquired for the owner-approved
+finals: **131,072 direct +2,048 paired blocks per script**, up to three searches.
+[Final protocol](docs/hu200-river-final-protocol.md) and
+[execution declaration](docs/reports/hu200-river-search-artifacts/final-execution-declaration.json)
+fix counts, fresh roots, analysis, source and resource limits before any final
+hand. Frozen evaluation source is `5c5fb990`; search stays `d0849fca`.
+All 96 focused M4 checks and 448 existing paired-rotation prefix audits pass.
+The 352-block copied-evidence qualification verifies every file before retiring
+only those new copies; calibration originals remain unchanged. Including
+qualified transport, the forecast is **100.37 h**, upper cost **115.16 h**,
+fixed safety cap **132 h**. These replace the compute-only ETA, not the counts.
+
+The owner specifically authorizes completed final-block cable transfers to
+`bb128:/research/PR-317-HU200-river-search/final-20261017/blocks/PANEL/INDEX/`
+and exact verified M4-block retirement. Each destination retains the complete
+`transfer-manifest.json` and durable `arrival-receipt.json`. Full transfer and
+retirement receipts remain in the M4 run's `receipts.sqlite`; only manifest
+members are removed after matching arrival size/SHA256 checks. Restore an exact
+block with `rsync -a bb128-lan:/research/PR-317-HU200-river-search/final-20261017/blocks/PANEL/INDEX/ FRESH_RESTORE_ROOT/`,
+then verify every member against its transfer manifest. Final ZIP/Drive
+coverage remains pending; the seven earlier accepted archives do not cover
+these new qualification/final files. Original inputs, previous research and
+unverified files stay protected. No Slumbot play.
 
 **Earlier cost-gate record:** [Draft PR317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), scientific
 source `11fa4fa424ec577cf8492338fd61c60ed7f3c97c`.

@@ -1,12 +1,19 @@
 # HU200 river search: amended cost gate passes; strength pending
 
 [PR #317](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317), October 17, 2026.
-**Draft; final strength study not declared or run.** The owner-approved disjoint
+**Draft; final strength execution declared, results pending.** The owner-approved disjoint
 128 direct plus seven by 32 calibration completed under its hard two-hour cap.
 This is a cost/engineering readout, not a final strength result or a release
 recommendation. The original latency failure remains below; the owner-amended
-10-second gate passes. The owner chooses final counts/venue before final hands
-and decides merge.
+10-second gate passes. The owner approved 131,072 direct duplicate blocks plus
+2,048 paired blocks per script on the M4 with up to three concurrent searches.
+The [final protocol](../hu200-river-final-protocol.md) and
+[execution declaration](hu200-river-search-artifacts/final-execution-declaration.json)
+are committed before the first final hand. Including qualified block storage,
+the forecast is 100.37 h, upper cost 115.16 h, with a fixed 132 h execution
+safety cap. All 96 admission checks and 448 existing calibration paired-prefix
+audits pass. The owner decides merge; final research and range diagnostics
+remain pending.
 
 ## Finding
 

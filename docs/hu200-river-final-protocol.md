@@ -57,12 +57,18 @@ and all current samples unchanged. Before dispatching a block, reserve 512 MiB
 per active block plus 256 MiB for journal growth above the disk floor. Admit at
 most three and reduce dispatch concurrency only from available disk capacity,
 without reading outcomes or changing any solve. Only that bounded set can stay
-local while transfers are pending. A 96-hour execution safety deadline includes
-loading, primary play, replay/reproduction, transfer, verification and primary
-readout; this is a fail-safe cap, not an additional sampling allowance. Restart
-retains the original absolute deadline. A missed deadline is recorded; never
-extend a completed outcome. Expected cost remains the calibrated 73.4 h, upper
-block-cost projection87.4 h, with transport overhead qualified before launch.
+local while transfers are pending. The execution declaration fixes the safety
+deadline before the first hand, including loading, primary play,
+replay/reproduction, transfer, verification and primary readout. Take the larger
+of calibrated compute and final-count-weighted serial storage cost (each with
+25% headroom), then add 10% pipeline coordination allowance. Apply the same rule
+to the upper cost estimates. Set the safety cap to at least 96 hours, or the
+upper estimate rounded up to 12 hours plus another 12 hours, whichever is larger.
+This is a fail-safe cap, not an additional sampling allowance. Restart retains
+the original absolute deadline. A missed deadline is recorded; never extend a
+completed outcome. The earlier compute-only quotes remain 73.4 h and an upper
+block-cost projection of 87.4 h; qualified transport costs enter the committed
+execution declaration before launch.
 
 The owner explicitly authorizes transferring each completed block to the
 existing PR317 research cache, verifying **every file's size and SHA256 on
