@@ -1,6 +1,6 @@
 //! N-player external sampling. The legacy HU traversal is intentionally separate.
 use crate::cfr::{fsum, regret_match, Key, KeyHasher, MAX_ACTIONS};
-use crate::store::{Store, View};
+use crate::store::{Allocation, Store, View};
 use rand::{Rng, SeedableRng};
 use std::collections::HashMap;
 use std::hash::BuildHasherDefault;
@@ -75,9 +75,6 @@ impl Entry {
     }
     pub fn check(&self, d: Decision) {
         self.stored().check(d)
-    }
-    pub fn policy(&self, average: bool) -> [f64; MAX_ACTIONS] {
-        self.stored().policy(average)
     }
 }
 
@@ -171,8 +168,12 @@ impl Table {
     pub fn values(&self) -> impl Iterator<Item = Stored<'_>> + '_ {
         self.iter().map(|(_, v)| v)
     }
-    pub fn allocation_size(&self) -> usize {
-        self.0.allocation_size()
+    pub fn allocation(&self) -> Allocation {
+        self.0.allocation()
+    }
+    /// Bytes of stored regrets and stored averages.
+    pub fn payload_bytes(&self) -> (usize, usize) {
+        self.0.payload_bytes()
     }
     pub fn index_capacity(&self) -> usize {
         self.0.index_capacity()

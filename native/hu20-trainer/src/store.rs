@@ -26,9 +26,21 @@ static ZEROS: [f64; MAX_ACTIONS] = [0.0; MAX_ACTIONS];
 const NONE: u32 = u32::MAX;
 
 /// Fixed-size chunks, so growth never copies or doubles existing items.
-#[derive(Clone)]
 struct Segments<T, const SHIFT: u32> {
     chunks: Vec<Vec<T>>,
+}
+
+/// Copies keep every chunk's full capacity, so a copy also grows without moving items.
+impl<T: Copy, const SHIFT: u32> Clone for Segments<T, SHIFT> {
+    fn clone(&self) -> Self {
+        let mut chunks = Vec::with_capacity(self.chunks.capacity());
+        for chunk in &self.chunks {
+            let mut copy = Vec::with_capacity(Self::CHUNK);
+            copy.extend_from_slice(chunk);
+            chunks.push(copy);
+        }
+        Segments { chunks }
+    }
 }
 
 impl<T: Copy, const SHIFT: u32> Segments<T, SHIFT> {
@@ -76,6 +88,23 @@ struct Entry {
     meta: u32,
     code: u16,
     len: u8,
+}
+
+/// Bytes of one entry's fixed fields.
+pub const ENTRY_BYTES: usize = std::mem::size_of::<Entry>();
+
+/// Heap bytes the table owns, by part; `values` and `entries` include unused chunk capacity.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub struct Allocation {
+    pub index: usize,
+    pub entries: usize,
+    pub values: usize,
+}
+
+impl Allocation {
+    pub fn total(self) -> usize {
+        self.index + self.entries + self.values
+    }
 }
 
 /// A stored entry, or one to store; `average` is `None` where none is kept.
@@ -217,9 +246,17 @@ impl Shard {
         self.index.len()
     }
 
-    /// Heap bytes the shard owns.
-    pub fn allocation_size(&self) -> usize {
-        self.index.allocation_size() + self.entries.allocation_size() + self.values.allocation_size()
+    pub fn allocation(&self) -> Allocation {
+        Allocation { index: self.index.allocation_size(), entries: self.entries.allocation_size(), values: self.values.allocation_size() }
+    }
+
+    /// Bytes of stored regrets and stored averages.
+    pub fn payload_bytes(&self) -> (usize, usize) {
+        self.index.iter().fold((0, 0), |(regrets, average), &i| {
+            let e = self.entry(i);
+            let bytes = e.len as usize * 8;
+            (regrets + if e.regrets == NONE { 0 } else { bytes }, average + if e.average == NONE { 0 } else { bytes })
+        })
     }
 
     /// Entry positions in key order.
@@ -305,8 +342,16 @@ impl Store {
     }
 
     /// Heap bytes the shards own.
-    pub fn allocation_size(&self) -> usize {
-        self.0.iter().map(Shard::allocation_size).sum()
+    pub fn allocation(&self) -> Allocation {
+        self.0.iter().map(Shard::allocation).fold(Allocation::default(), |a, b| Allocation {
+            index: a.index + b.index,
+            entries: a.entries + b.entries,
+            values: a.values + b.values,
+        })
+    }
+
+    pub fn payload_bytes(&self) -> (usize, usize) {
+        self.0.iter().map(Shard::payload_bytes).fold((0, 0), |a, b| (a.0 + b.0, a.1 + b.1))
     }
 
     /// Entries the hash indexes hold before they grow.
