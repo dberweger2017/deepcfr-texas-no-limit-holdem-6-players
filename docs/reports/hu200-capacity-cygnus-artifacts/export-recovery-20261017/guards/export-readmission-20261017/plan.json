@@ -1,0 +1,24 @@
+{
+  "max_seconds": 240,
+  "aggregate_rss_gib": 0.5,
+  "swap_baseline_bytes": 1048576,
+  "clean_save_grace_seconds": 30,
+  "jobs": [
+    {
+      "name": "export-readmission",
+      "cpus": [
+        7
+      ],
+      "rss_gib": 0.5,
+      "stop_file": "/home/dberweger/hu200-capacity-20261015/planning/export-readmission-20261017.stop",
+      "command": [
+        "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+        "-m",
+        "scripts.resume_hu200_capacity_export",
+        "prepare",
+        "--base",
+        "/home/dberweger/hu200-capacity-20261015"
+      ]
+    }
+  ]
+}

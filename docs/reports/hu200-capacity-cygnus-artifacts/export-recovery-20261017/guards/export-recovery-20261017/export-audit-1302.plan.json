@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+    "-m",
+    "scripts.run_hu200_capacity_training",
+    "audit",
+    "--base",
+    "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000"
+  ],
+  "cpus": [
+    6
+  ],
+  "kind": "audit",
+  "name": "export-audit-1302",
+  "original_deadline": 1792389899.1071448,
+  "reserve_bytes": 23000000000,
+  "rss_gib": 0.5,
+  "stop_file": "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000/audit.stop"
+}

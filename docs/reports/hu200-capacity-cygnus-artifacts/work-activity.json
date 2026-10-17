@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-handback-declared;science-stopped-after-new-failure",
+  "status": "coordinator-handback-declared;export-recovery-continues",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -94,6 +94,28 @@
       "coordinator": "Handback declared after failure investigation, partial evidence archival and report preparation",
       "jobs": "All owned scientific jobs and terminal observer absent; archive job complete; no retry/evaluation scheduled",
       "time_basis": "Declared handback; publication/readback follows",
+      "clock_credit": false
+    },
+    {
+      "utc": "2026-10-17T15:17:55.424150+00:00",
+      "coordinator": "Returned with explicit owner approval for export recovery, downtime correction and broad inactive storage relocation",
+      "jobs": "Storage preparation then guarded relocation; no scientific restart yet",
+      "time_basis": "PR return marker",
+      "clock_credit": "pending exact closed interval at admission only"
+    },
+    {
+      "utc": "2026-10-17T15:45:19.082291+00:00",
+      "coordinator": "Owner-approved export-only recovery admitted after full inactive relocation,74checks and fresh hash/resource admission",
+      "jobs": "1302 exporter/full auditor under same qualified global guard; supervisor79721/worker79744/observer79742",
+      "time_basis": "New immutable closed downtime ledger and live process proof",
+      "downtime_credit_seconds": 4809.848438024521,
+      "new_deadline_epoch": 1792389899.1071448
+    },
+    {
+      "utc": "2026-10-17T15:49:55.658092+00:00",
+      "coordinator": "Handback declared after70.431GB relocation,74guardedchecks, fresh readmission, exact closed downtime credit and export restart verification/report",
+      "jobs": "1302 export/audit79744 and supervisor79721/eventobserver79742 continue under original guards; no training repeat",
+      "time_basis": "Current live health observation; publication/readback follows",
       "clock_credit": false
     }
   ]

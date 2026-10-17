@@ -1,0 +1,10 @@
+{
+  "approval_sha256": "b03a968aef4cdfc5511322fee34e07e38bed1b9f22b3ef7fb70f2d9b118257ea",
+  "deadline_epoch": 1792389899.1071448,
+  "extension_seconds": 4809.848438024521,
+  "prior_ledger_sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120",
+  "resumed_epoch": 1792251919.0822911,
+  "status": "owner-approved-export-stop-credit",
+  "stopped_epoch": 1792247109.233853,
+  "utc": "2026-10-17T15:45:19.082353+00:00"
+}

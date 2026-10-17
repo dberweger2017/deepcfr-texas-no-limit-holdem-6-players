@@ -1,11 +1,81 @@
 # HU200 capacity experiment on cygnus-x1
 
-**Stopped October17,14:25UTC /16:25Madrid by a new disk-reservation failure.** All three native20B saves remain;1421/1422 final audits pass, but1302 policy export was interrupted before its final audit. All recorded owned jobs/observer are absent. No automatic retry or evaluation.
+**Owner-approved export recovery running from October17,17:45:19Madrid.** All three native20B saves remain;1421/1422 audits pass.1302's unchanged export/full audit runs from its verified20B checkpoint in a fresh output root.70.431GB inactive files have been verified onHDD before restart; no training repeat.
 
-**Finish ETA withdrawn.** Current deadline remainsOctober19 06:44:49Madrid; no new credit. Small failure evidence is cloud-archived and fully read back. Full model archives/final retention remain incomplete.
+**ETA:** last export/audit/storage tonight22:45–23:45Madrid, Sunday18morning contingency. Full report/archive Monday19evening, Tuesday20upload contingency, conditional on the fixed evaluation quote. Actual downtime1h20m9.848s credited once; fixed deadline nowOctober19 08:04:59Madrid. No final hands/outcomes.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Owner-approved export recovery running — October 17, 15:45 UTC
+
+The owner explicitly authorized returning, correcting timing for the stopped
+interval and moving inactive files to the2TB drive to prevent a repeat disk stop.
+[Approval](hu200-capacity-cygnus-artifacts/export-recovery-approval-20261017.json),
+[protocol](../hu200-capacity-export-recovery.md),
+[startup/source/process/storage proof](hu200-capacity-cygnus-artifacts/export-recovery-startup-20261017.json).
+Fresh immutable source **57c63314** in `repo-export-recovery-20261017` launches
+only1302's unchanged native export/every-row audit. No training or completed
+1421/1422 audits are repeated. The original1302 20B checkpoint stays at its
+verified path; fresh exports/proof go to
+`results-export-recovery-20261017/2026101302/20000000000/`. Supervisor79721,
+worker79744 (CPU6, one thread,512MiB), event observer79742. The original
+qualified binary, sorted auditor and all scientific code remain byte-identical.
+
+All **21 inactive files /70,431,280,579 bytes** from the three owned results
+trees moved to
+`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/`,
+retaining original relative paths. This includes1421/1422 final checkpoints and
+averages,1302's10B recovery, old gate/memory models and interrupted export
+partials. These former NVMe paths may now be absent: restore only needed files
+using the location receipt and verify SHA256 before use. Every move checks known
+pinned hashes where available, source identity/mtime, fsync and independent full
+HDD readback, with durable journal before source unlink. No unique bytes lost,
+no shared source/Git/dependencies or PR292 path touched. Larger inactive research
+files are now offNVMe; active compute remainsNVMe. Completed storage guard
+passes **1,337.454s**, CPU/VRM maxima59/63.5°C, RSS56.65MB, minimum available
+132.152GB/free60.187GB, no stop; maximum sample gap1.038s.
+[Exact locations/hashes/removal receipt](hu200-capacity-cygnus-artifacts/export-recovery-20261017/storage-export-recovery-20261017/receipt.json).
+
+**74 guarded checks pass** in7.33s (outer guard8.081s), covering export-only DAG,
+closed-interval/tamper rejection, additional physical buffer, existing stop
+propagation/storage failure preservation and serial/parallel native export byte
+identity. Guarded readmission passes27.255s with fresh1302 checkpoint, unchanged
+binary and#163 hashes, adopted audit/clock/failure pins and all HDD locations.
+The admission requires full23GB output plus50GB floor plus20GB extra physical
+headroom (>=93GB free), as well as all original logical/RSS/swap/thermal guards.
+At15:45:35UTC CPU58°C/VRM63.5°C, available132.295GB, helperRSS44.225MB,
+NVMe free128.184GB: **55.184GB beyond full output plus floor**. FanRPMs remain
+logged. No DIMM temperature is identified. External filesystem growth cannot
+be controlled by thisPR; the protective floor remains enforced.
+
+Two storage setup errors plus a premature launch failure occurred before any
+model transfer. Their stopped guards/logs/source plans are retained, along with
+read-only display/dependency lookup failures; no scientific attempt repeated.
+[Engineering failure record](hu200-capacity-cygnus-artifacts/export-recovery-setup-failures-20261017.json).
+The corrected r3 storage helper passes. No trainer, exporter or auditor changes.
+
+The exact stopped interval **14:25:09.233853→15:45:19.082291UTC** is
+**4,809.848438s (1h20m9.848s)**, credited once. The new separate immutable
+ledger sets deadline **October19 06:04:59.107145UTC /08:04:59.107145Madrid**,
+epoch1792389899.1071448. Original clock, October16 hour ledger and first
+October17 ledger remain byte-identical. Repeated export runtime gets no further
+credit; no future automatic retry/extension. Evaluation24h remains unstarted.
+[New ledger](hu200-capacity-cygnus-artifacts/export-recovery-20261017/export-recovery-20261017/deadline.json).
+
+[Re-quoted ETA](hu200-capacity-cygnus-artifacts/eta-after-export-recovery-20261017.json):
+remaining export/audit/storage5–6h, expected **tonight22:45–23:45Madrid**, Sunday18
+morning contingency. Full report/archive target **Monday19 evening**, **Tuesday20
+upload contingency**, conditional on the still-unmeasured complete fixed
+cache/evaluation/upload costs. No final hands or playing outcomes. Completion
+requires1302 full audit and verified checkpoint/current offload; then fixed
+evaluation proceeds through the global replay/reproduction barrier.
+
+The same webhook-only event task remains enabled in this thread; its prompt now
+preserves the owner's explicit HDD storage authority, while forbidding new
+scientific retries. No task or recurring schedule is created. Current dedupe and
+terminal receipts live under `export-recovery-20261017/`; earlier failures remain
+historical. Final model archives, unpacked retention and full closeout are pending.
 
 ## New continuation storage failure — October 17, 14:25 UTC
 

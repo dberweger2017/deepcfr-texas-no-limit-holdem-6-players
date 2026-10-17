@@ -1,0 +1,427 @@
+{
+  "summary": {
+    "observed_utc": "2026-10-17T15:45:35.442900+00:00",
+    "live_trace_cuts": {
+      "resources.jsonl": 43436,
+      "utilization.jsonl": 1746
+    },
+    "resources.jsonl": {
+      "utc": "2026-10-17T15:45:34.450705+00:00",
+      "monotonic": 77059.546980064,
+      "package_c": 58.0,
+      "clock_khz": [
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        800000,
+        4982502,
+        4801722,
+        800000,
+        4982456,
+        800000,
+        4800136
+      ],
+      "throttle_counts": {
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu11/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu9/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu7/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu5/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu3/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu14/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu1/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu12/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu10/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu8/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu6/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu4/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu15/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu2/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu13/thermal_throttle/package_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/core_throttle_count": 0,
+        "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": 0
+      },
+      "cpu_clocks_khz": {
+        "cpu11": 800000,
+        "cpu9": 800000,
+        "cpu7": 800000,
+        "cpu5": 800000,
+        "cpu3": 800000,
+        "cpu14": 800000,
+        "cpu1": 800000,
+        "cpu12": 800000,
+        "cpu10": 800000,
+        "cpu8": 800000,
+        "cpu6": 4982502,
+        "cpu4": 4801722,
+        "cpu15": 800000,
+        "cpu2": 4982456,
+        "cpu13": 800000,
+        "cpu0": 4800136
+      },
+      "device_temperatures_c": {
+        "iwlwifi_1/temp1_input": 31.0,
+        "nct6687/Thermistor 0": 16.0,
+        "nct6687/Thermistor 15": 63.5,
+        "nct6687/Thermistor 1": 13.5,
+        "nct6687/PCH CHIP": 35.0,
+        "nct6687/PECI 0.0": 59.5,
+        "nct6687/Thermistor 16": 35.0,
+        "nct6687/Diode 0 (curr)": 33.5,
+        "acpitz/temp1_input": 27.8,
+        "coretemp/Core 4": 40.0,
+        "coretemp/Core 1": 38.0,
+        "coretemp/Core 5": 41.0,
+        "coretemp/Core 2": 52.0,
+        "coretemp/Core 6": 58.0,
+        "coretemp/Package id 0": 58.0,
+        "coretemp/Core 3": 39.0,
+        "coretemp/Core 7": 42.0,
+        "coretemp/Core 0": 39.0,
+        "pch_cometlake/temp1_input": 34.0,
+        "nvme/Composite": 37.85
+      },
+      "available_bytes": 132295217152,
+      "swap_used_bytes": 135061504,
+      "vrm_c": 63.5,
+      "fan1_rpm": 791,
+      "free_disk_bytes": 128183754752,
+      "fan_rpm": {
+        "fan3": 1203,
+        "fan7": 0,
+        "fan4": 0,
+        "fan10": 0,
+        "fan8": 0,
+        "fan1": 791,
+        "fan5": 0,
+        "fan9": 0,
+        "fan2": 1179,
+        "fan6": 0
+      },
+      "job_rss_bytes": {
+        "export-audit-1302": 44224512
+      },
+      "family_rss_bytes": 44224512,
+      "active_jobs": {
+        "export-audit-1302": {
+          "kind": "audit",
+          "cpus": [
+            6
+          ]
+        }
+      },
+      "clean_stop_requested": false,
+      "vrm_hot_seconds": 0
+    },
+    "utilization.jsonl": {
+      "utc": "2026-10-17T15:45:30.030986+00:00",
+      "monotonic": 77055.127255339,
+      "hz": 100,
+      "jobs": {
+        "export-audit-1302": [
+          {
+            "pid": 79744,
+            "start": "7704477",
+            "ticks": 1033,
+            "argv": [
+              "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+              "-m",
+              "scripts.run_hu200_capacity_training",
+              "audit",
+              "--base",
+              "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000"
+            ],
+            "io": {
+              "rchar": 6223133834,
+              "wchar": 0,
+              "syscr": 6424,
+              "syscw": 0,
+              "read_bytes": 0,
+              "write_bytes": 0,
+              "cancelled_write_bytes": 0
+            },
+            "threads": [
+              {
+                "tid": 79744,
+                "ticks": 1033
+              }
+            ]
+          }
+        ]
+      },
+      "phases": {
+        "export-audit-1302": "checkpoint-verification"
+      },
+      "disks": {
+        "nvme0n1": {
+          "read_sectors": 1719374311,
+          "written_sectors": 698333426,
+          "busy_ms": 664864
+        }
+      }
+    },
+    "processes": {
+      "79721": {
+        "name": "supervisor",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+          "-m",
+          "scripts.resume_hu200_capacity_export",
+          "run",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015"
+        ],
+        "affinity": "7",
+        "thread_environment": {}
+      },
+      "79742": {
+        "name": "observer",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+          "-m",
+          "scripts.resume_hu200_capacity_export",
+          "observe",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015"
+        ],
+        "affinity": "7",
+        "thread_environment": {}
+      },
+      "79744": {
+        "name": "export-audit-1302",
+        "argv": [
+          "/home/dberweger/hu200-capacity-20261015/repo-export-recovery-20261017/.venv/bin/python",
+          "-m",
+          "scripts.run_hu200_capacity_training",
+          "audit",
+          "--base",
+          "/home/dberweger/hu200-capacity-20261015/results-export-recovery-20261017/2026101302/20000000000"
+        ],
+        "affinity": "6",
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "RAYON_NUM_THREADS": "1"
+        }
+      }
+    },
+    "source": "57c63314071f0337afb38d0ce230297066c7ac52",
+    "source_status": "",
+    "new_failed": false,
+    "new_complete": false,
+    "checked_ledger": {
+      "approval_sha256": "b03a968aef4cdfc5511322fee34e07e38bed1b9f22b3ef7fb70f2d9b118257ea",
+      "deadline_epoch": 1792389899.1071448,
+      "extension_seconds": 4809.848438024521,
+      "prior_ledger_sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120",
+      "resumed_epoch": 1792251919.0822911,
+      "status": "owner-approved-export-stop-credit",
+      "stopped_epoch": 1792247109.233853,
+      "utc": "2026-10-17T15:45:19.082353+00:00"
+    },
+    "tests_log_tail": "........................................................................ [ 97%]\n..                                                                       [100%]\n74 passed in 7.33s\n",
+    "hdd_free_bytes": 1552808976384
+  },
+  "pins": [
+    {
+      "path": "export-recovery-20261017/admission.json",
+      "bytes": 5048,
+      "sha256": "3a8aee1ebe81b3599d14882039bf8072228fb59d2f6fbace34ff14cd80cd27c5"
+    },
+    {
+      "path": "export-recovery-20261017/deadline.json",
+      "bytes": 438,
+      "sha256": "702c705c703871d63d11c674573037221fdd44dc1ca16e931bca8ba2d30b6228"
+    },
+    {
+      "path": "export-recovery-20261017/launch.json",
+      "bytes": 1030,
+      "sha256": "1386ee9507db7f6525caacffb6b76f59fd95dae6e702a72a8bf477b91bf42aac"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017/resources.jsonl",
+      "bytes": 7790,
+      "sha256": "5f482874661826ecaa75de2ebd94478f4e5816d9837e0f4649cbc3ae0cc5746a"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017/plan.json",
+      "bytes": 575,
+      "sha256": "3964f64378052f12412ae59201e2bdae1c3bf49f8ffb9832aa6ea476eb105804"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017/result.json",
+      "bytes": 185,
+      "sha256": "4f355863fefc0f596123506bfde42cbd1a45c132909a88e03714fab7d0f835e5"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017/storage-export-recovery.log",
+      "bytes": 250,
+      "sha256": "b1d5b2dd01dfd455ec9fa3db83d8ca8722f69451573c2c704aec46dc436cdede"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017-r3/resources.jsonl",
+      "bytes": 5159293,
+      "sha256": "f95f64ac447c1d68725b03cee68d8c67022c67599516cde7895d8e96cf686a9d"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017-r3/plan.json",
+      "bytes": 584,
+      "sha256": "1b2a6e9e8de734ef6f2c758ff97f36d9935cb06b026e4ac6c3ee35007e3010b4"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017-r3/result.json",
+      "bytes": 146,
+      "sha256": "a30d45e89fa076ed9cc5245c3e3a86df0db70596a3122a0d8dfc70d90d385070"
+    },
+    {
+      "path": "guards/storage-export-recovery-20261017-r3/storage-export-recovery-r3.log",
+      "bytes": 85,
+      "sha256": "376d9b0ed5917d8cc686fc0e008c6cccda22bc48e650d9afbb1b0bff5631f98c"
+    },
+    {
+      "path": "guards/export-recovery-checks-20261017/resources.jsonl",
+      "bytes": 34973,
+      "sha256": "4be388b845ec481053a14db3af9e70cbae2da6f0302ef8e07c8631d7e13f6767"
+    },
+    {
+      "path": "guards/export-recovery-checks-20261017/plan.json",
+      "bytes": 1054,
+      "sha256": "20f33da1fd625d99a1a19d6b764e386317b0776cc9507871f7eaf55a18f18edf"
+    },
+    {
+      "path": "guards/export-recovery-checks-20261017/export-recovery-checks.log",
+      "bytes": 179,
+      "sha256": "4bedf63be91063891645f267cc686157198984c59660920dd4fc0484a7c83e3b"
+    },
+    {
+      "path": "guards/export-recovery-checks-20261017/result.json",
+      "bytes": 145,
+      "sha256": "5b48ba99793f8a07042c8b5024f13f0dd5ab8f72922f5a7521054d5676262c2d"
+    },
+    {
+      "path": "guards/export-readmission-20261017/resources.jsonl",
+      "bytes": 108850,
+      "sha256": "1515436b6855478a57e7df58c56a6a12dfb69fab4cdd2f867c73c2c2f511adf1"
+    },
+    {
+      "path": "guards/export-readmission-20261017/plan.json",
+      "bytes": 621,
+      "sha256": "1c9b2ca707a42abe35b6728b33ff3b0ef9493355dbd781bad62c29e21cc48853"
+    },
+    {
+      "path": "guards/export-readmission-20261017/export-readmission.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guards/export-readmission-20261017/result.json",
+      "bytes": 146,
+      "sha256": "e554270c2c72c358a66247dd4a6e752e4b47b5c7dec865899b4354b3552daa41"
+    },
+    {
+      "path": "storage-export-recovery-20261017/plan.json",
+      "bytes": 4958,
+      "sha256": "16c9016da6b221d42d0d0e042f81c2fe869c32de454b45e0f68557819f257b7f"
+    },
+    {
+      "path": "storage-export-recovery-20261017/receipt.json",
+      "bytes": 13517,
+      "sha256": "fb1069fd4ce68b4d180c76d302dc608c734da72da93d421b3016be6fdaab0b7a"
+    },
+    {
+      "path": "storage-export-recovery-20261017/journal.jsonl",
+      "bytes": 24777,
+      "sha256": "d819225176c627bac95b23794083184272ed166d8b820c210b2ab57061d8779c"
+    },
+    {
+      "path": "training-clock.json",
+      "bytes": 174,
+      "sha256": "0b0141baba6c6041617463ee6f50efe0f262432caca5be7d169d990c0874fe7a"
+    },
+    {
+      "path": "training-deadline-amendment-20261016.json",
+      "bytes": 358,
+      "sha256": "b7bf856475cbab6ab09b433b0e52c7f1758a41bb85fe6e5ba341a10ab4a60134"
+    },
+    {
+      "path": "continuation-20261017/deadline.json",
+      "bytes": 551,
+      "sha256": "c9973591bb59a28919b488a1ab3179eff91708cd1a49e97283e04c09821fe120"
+    },
+    {
+      "path": "training-failed.json",
+      "bytes": 223,
+      "sha256": "cdb3827480bdff73c57b768d224773173dba45f87d128916f74c9396213551fe"
+    },
+    {
+      "path": "continuation-20261017/training-failed.json",
+      "bytes": 215,
+      "sha256": "fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b"
+    },
+    {
+      "path": "guards/export-recovery-20261017/export-audit-1302.plan.json",
+      "bytes": 590,
+      "sha256": "32b921574d4509d02cb7c66af6af0ec697991bd75f8bfd7397ebaf2bd1be54f6"
+    }
+  ],
+  "verification": {
+    "status": "owner-approved export-only recovery running",
+    "no_training_or_completed_seed_audits_repeated": true,
+    "all_prior_clock_and_failure_bytes_retained": true,
+    "broad_storage_readback_and_source_removals_complete": true,
+    "fresh_full_23GB_output_plus_50GB_floor_plus_20GB_physical_buffer_admitted": true,
+    "source_frozen_while_running": true,
+    "final_hands_started": false,
+    "remaining_final_audit_not_yet_admitted": true
+  },
+  "closed_resource_summaries": {
+    "storage": {
+      "samples": 1326,
+      "cpu_max_c": 59.0,
+      "vrm_max_c": 63.5,
+      "family_rss_max_bytes": 56647680,
+      "available_min_bytes": 132152180736,
+      "free_disk_min_bytes": 60187152384,
+      "swap_max_bytes": 135061504,
+      "stop_samples": 0,
+      "max_sample_gap_seconds": 1.0378801360056968
+    },
+    "checks": {
+      "samples": 9,
+      "cpu_max_c": 56.0,
+      "vrm_max_c": 62.5,
+      "family_rss_max_bytes": 89776128,
+      "stop_samples": 0,
+      "max_sample_gap_seconds": 1.0094740350032225
+    },
+    "readmission": {
+      "samples": 28,
+      "cpu_max_c": 57.0,
+      "vrm_max_c": 63.0,
+      "family_rss_max_bytes": 46493696,
+      "stop_samples": 0,
+      "max_sample_gap_seconds": 1.010767665997264
+    }
+  }
+}

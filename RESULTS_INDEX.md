@@ -4122,7 +4122,50 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (new continuation failure; originals retained, October 17, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (owner-approved export recovery running, October 17, 2026)
+
+October17,15:45:19UTC export-only restart under new owner approval: no training
+or completed1421/1422 audit repeat. [Source/process/closed trace pins](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-startup-20261017.json)
+verify clean immutable57c63314071f0337afb38d0ce230297066c7ac52,
+74checksPASS/guardedfreshreadmission, supervisor79721/worker79744(CPU6,1thread)/
+observer79742. Newoutput`results-export-recovery-20261017/2026101302/20000000000/`
+keeps native checkpoint at its original verified NVMe path until final audit.
+[Closed downtime ledger](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-20261017/export-recovery-20261017/deadline.json)
+credits4,809.848438s once,14:25:09.233853→15:45:19.082291UTC; all earlier clocks
+unchanged. CurrentdeadlineOct19 06:04:59UTC /08:04:59Madrid; eval24h notstarted.
+[ETA](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-export-recovery-20261017.json)
+nowtonight22:45–23:45Madrid finalexport/audit, fullMon19evening/Tue20uploadcontingency.
+
+**Additional inactive-file storage COMPLETE:**21files/**70,431,280,579 bytes**,
+sourceSHA/fsync/independent full destinationreadback/identity/journalbeforeunlink.
+[Exact every-file NVMeoriginal/HDDlocation/size/mtime/SHA and removal receipt](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-20261017/storage-export-recovery-20261017/receipt.json).
+HDDroot`/mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/`
+mirrors each original owned-root relative path. Includes1421/1422 20B recovery and
+average files,1302 10B recovery, gate/memory models, all old1302exportpartialbytes.
+These NVMe originals are now absent; old audit receipts retain their originalpaths.
+All original bytes remain recoverable onHDD; no partial promoted to admittedmodel.
+Restoration, only after fresh admission and for an inactive absent NVMe destination:
+`rsync -a --ignore-existing /mnt/data2tb/research/PR-301-hu200-capacity-cygnus/inactive-before-export-recovery-20261017/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz /home/dberweger/hu200-capacity-20261015/results-recovery-20261016/2026101421/20000000000/checkpoint.average.gz`
+then `sha256sum` that destination; expectedSHA
+`c6a4a09ed3402fbb77ce5f89e5e1fac6010e690aa0ce292a2267a812089383be`.
+Use each receipt row's exact hash/bytes/mtime for other files; retain HDD copy.
+Active compute/caches stayNVMe. Stage only needed averages/twins, keeping full
+prospective output reservations and50GBfloor; re-admit actual cache/evaluation
+cost before final hands. Source/Git/shared dependencies/otherPRs untouched.
+
+Raw storage metadata and journal atowned`storage-export-recovery-20261017/`;
+closed guards`guards/{storage-export-recovery-20261017,storage-export-recovery-20261017-r3,export-recovery-checks-20261017,export-readmission-20261017}/`
+are pinned instartupreceipt; exactplan/result/relocation copies under
+`export-recovery-20261017/`. Currentguard`guards/export-recovery-20261017/`
+resources/utilization remain unsealed live cuts; controller/observer logs ownedroot.
+[Setup failures retained](docs/reports/hu200-capacity-cygnus-artifacts/export-recovery-setup-failures-20261017.json).
+Earlier failuremetadata Driveacceptance remains valid; no new modelbundle/cloud
+acceptance/finalunpackedcopy claimed. Final archival must include these rawtraces,
+all 21 relocated files using originalmemberhierarchy, helper/plans/sourcebundles,
+ignored local preparation/launch/collection/publication/handoff/readback metadata,
+existingeventtask scope update receipt, and old/new failure logs/partials. Private
+webhook/signeddownload URLfiles excluded. Existingeventtask only, no new schedule;
+completecloseout pending. No final hands/outcomes or merge/release/defaultchange.
 
 October17,14:25UTC NEW continuation `training_failed` event, failureSHA
 `fe8b88f140d523772d3b43f31b44a979e202716159816294bcfb744896cfe50b`,
