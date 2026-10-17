@@ -1,0 +1,41 @@
+{
+  "confirmation_perhand_counts": {
+    "confirmation-a": 10000,
+    "confirmation-b": 10000,
+    "confirmation-c": 10000,
+    "confirmation-pooled": 30000
+  },
+  "distinct_public_action_hands": 70000,
+  "journal_chains_verified": 11,
+  "math_sources_match_integrity_pins": true,
+  "four_column_chart_estimates_match_eight_column_analyzer": true,
+  "six_charts_visually_inspected": true,
+  "charts": {
+    "aivat-cumulative.png": {
+      "bytes": 290423,
+      "sha256": "a89223d6d67b756a1dbab61ba532b6d63fc026ed55072f133956bf5088353b53"
+    },
+    "aivat-luck.png": {
+      "bytes": 26344,
+      "sha256": "e367f72b0d9c00bcb17766f6b6c64d51b67c968ac9d7102ae3bc49f671099df1"
+    },
+    "aivat-worth.png": {
+      "bytes": 31724,
+      "sha256": "8a243009dbebd77f57859c25fc28ff7f238dada9de20b8a84281180999b93b5c"
+    },
+    "aivat-weights.png": {
+      "bytes": 33347,
+      "sha256": "b1bba0d77a4dda5ca62c325ac82c4b99b0e9f2f9b96913d12d8fb65ef7078ded"
+    },
+    "aivat-seats.png": {
+      "bytes": 40672,
+      "sha256": "44bfd4dec4d5c24934c84b2282a51c2405898fca7fadab97b012aca8bb6f4973"
+    },
+    "aivat-intervals.png": {
+      "bytes": 46154,
+      "sha256": "4aa46d2c4d95c369971da4fd1db272d51cae5ca81bf04bd9a4ef806b2de00cc2"
+    }
+  },
+  "profile_public_table_analyzer_reconciliation": "passed; preserved abandoned-prefix differences",
+  "no_model_or_own_action_compute": true
+}

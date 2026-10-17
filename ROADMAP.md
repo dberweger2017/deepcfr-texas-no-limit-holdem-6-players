@@ -93,6 +93,8 @@ Open tasks for contributors, grouped by the compute they need. Comment on or ope
 
 ## Current position
 
+- **v0.5.5 confirmation diagnosis (October 17):** card-only AIVAT on all 30,000 hands gives pooled plain **−21.12 [−36.39, −5.84] BB/100**, worth 1.53 raw hands per hand; raw protocol v2 qualification stands. Across the confirmation and four earlier runs, the largest recurring flop-fold path is BB call of a 2 BB open followed by check-fold to a half-pot bet. These are descriptive targets, with no evaluated fix or policy change. [Report](docs/reports/v055-confirmation-diagnostics.md).
+
 - **v0.5.5 confirmation passes (October 17):** under [protocol version 2](docs/hu200-v055-acceptance-protocol-v2.md), #306's three-seed blend played 3 × 10,000 fresh hands on new accounts: pooled raw **−19.67 [−38.57, −0.76] BB/100**, so the lower bound clears −50 and v0.5.5 qualifies. The upper bound below 0 means it loses to Slumbot by a small, detectable margin. All journals verify, sessions reconcile, 0 abandoned. Most of the loss comes from flop folds and the big blind. Release awaits the owner's go. [Report](docs/reports/hu200-v055-blend-confirmation.md).
 
 One short entry per active line of work; details live in the linked reports. Storage and cleanup receipts belong in [docs/artifacts](docs/artifacts/) and [RESULTS_INDEX.md](RESULTS_INDEX.md), not here.
@@ -111,4 +113,4 @@ One short entry per active line of work; details live in the linked reports. Sto
 
 - **HU200 frozen three-seed blend ([#297](https://github.com/dberweger2017/CFR-NLHE-6max/pull/297)), capacity stop, owner-authorized merge:** all three raw 20B checkpoints verify and reproduce their released averages exactly. The unchanged sequence-form rule yields 156,208,331 union keys; the first disk gate requires 74.47 GB free versus 63.33 GB available, an 11.14 GB shortfall. No full blend, cache or evaluation ran; the normalized-export stop remains preserved. Evidence archives, resource traces, failures and cleanup receipts are accepted and indexed. M4 released October 16 at 01:19 Madrid. No strength, release or default change; continuation needs a new owner decision. [Report](docs/reports/hu200-v055-blend.md).
 
-*Updated October 16, 2026.* Earlier entries, including storage receipts, are in [roadmap history](docs/roadmap-history.md#superseded-current-position-through-october-16-2026).
+*Updated October 17, 2026.* Earlier entries, including storage receipts, are in [roadmap history](docs/roadmap-history.md#superseded-current-position-through-october-16-2026).
