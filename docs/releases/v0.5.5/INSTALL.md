@@ -3,19 +3,18 @@
 To play, use Python 3.11, Git and a Rust toolchain for the pinned engine's source
 build, on a 16 GB machine. The blend was built and tested on a base
 16 GB MacBook Pro M4; #306 measured 12.75 GB peak family RSS for its research
-pipeline. Two fresh CLI starts took **22m41s and 22m16s**, with peak process RSS
-of **9,412,120,576 bytes** (9.41 GB /8.77 GiB) on the packaging test machine.
-Startup validates 156,208,331 rows; speed varies by CPU and storage. Use a
-**16 GB machine with about 12 GB RAM available** before starting. Memory used
-by validation is released when the process exits.
+pipeline. First start verifies the bundle and builds a binary play cache by
+streaming all 156,208,331 rows with `scripts/build_streaming_average_cache.py`.
+Every start verifies the canonical model SHA256, header, K50 tables and all cache
+files, then maps the cache read-only. Later starts skip JSON row parsing.
+Startup time varies by CPU and storage; use a **16 GB machine**.
 
-Allow **15 GB of free disk**, plus the Python environment and session journals:
+Allow **25 GB of free disk**, plus the Python environment and session journals:
 about **7.67 GB of downloads** (6.28 GB model parts and 1.38 GB card tables),
-plus the **6.28 GB reassembled model**. The default runtime makes no play cache.
-Keep both the immutable assets and the reassembled file. Reassembly uses a
+plus the **6.28 GB reassembled model** and **9.33 GB binary cache** (about 8.69 GiB).
+Keep the immutable assets, reassembled file and cache. Reassembly uses a
 temporary file with an exclusive final link; it does not require a second whole
-model copy. Independent cache workflows are optional and require about 9.4 GB
-additional disk; they are not needed by the table app.
+model copy. The cache is derived locally; it is not a release download.
 
 ```sh
 git clone https://github.com/dberweger2017/CFR-NLHE-6max.git
@@ -40,9 +39,17 @@ the reassembled whole hash, pinned K50 tables, translation and publication bindi
 ```
 
 The first start reassembles `models/v055-model/HU200-v055-three-seed-blend.average.gz`.
-Later starts verify and reuse it. To assemble ahead of time, add
+It builds the cache next to the bundle in `models/v055-cache/`, under a directory
+bound to the model SHA256 and schema. Later starts verify and reuse both.
+To assemble ahead of time, add
 `--assemble models/v055-model` to the verifier command, using a fresh output directory.
 Never put the assembled file inside the asset directory.
+
+A corrupt, incomplete or mismatched cache stops startup with an explicit error;
+it is never silently used or replaced. Preserve and move `models/v055-cache/`
+to a different local path, then restart to rebuild from the verified model.
+An interrupted streaming build retains its `.streaming-partial` directory for
+diagnosis. Keep the bundle, reassembled file and cache outside synced folders.
 
 Open the printed local URL and enter the token stored in
 `results/hu200-play/access.token`. Choose human play with restricted or free

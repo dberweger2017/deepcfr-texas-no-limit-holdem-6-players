@@ -53,9 +53,12 @@ The HU20 default remains v0.4.2; existing HU100 releases remain available.
 The blend was **built and tested on a base 16 GB MacBook Pro M4**, with #306's
 measured simultaneous process-family peak RSS of **12,748,324,864 bytes**
 (12.75 GB /11.87 GiB). That is the research pipeline peak, not a runtime-load measurement.
-Two fresh CLI starts took 22m41s and 22m16s, with a 9.41 GB peak process RSS;
-startup validates all 156 million entries. Allow about 12 GB available RAM on a
-16 GB machine. Load time varies by CPU and storage.
+First start builds a low-memory binary play cache from the verified model.
+Every start verifies its model binding and file hashes and maps it read-only;
+later starts avoid parsing the 156 million JSON rows. Corrupt or mismatched
+caches stop startup and are preserved for diagnosis. Allow 25 GB free disk,
+including the 9.33 GB derived cache, and a 16 GB machine.
+Load time varies by CPU and storage.
 See [INSTALL.md](INSTALL.md) for disk/RAM requirements and the verifier commands.
 
 The release contains six ordered model parts of at most 1 GiB, three K50 tables,

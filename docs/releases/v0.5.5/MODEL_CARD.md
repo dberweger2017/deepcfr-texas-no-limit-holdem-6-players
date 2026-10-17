@@ -61,9 +61,11 @@ HU100, multiway, search, exploitability or professional-strength performance.
 
 The blend was **built and tested on a base 16 GB MacBook Pro M4**, with #306's
 measured peak simultaneous family RSS **12,748,324,864 bytes** (12.75 GB /11.87 GiB).
-Two fresh CLI loads during packaging took 22m41s and 22m16s, with peak process
-RSS 9,412,120,576 bytes (9.41 GB /8.77 GiB). A 16 GB machine with about 12 GB
-RAM available is recommended; load time varies by CPU and storage.
+The runtime builds a binary cache by streaming the verified model on first
+start, then verifies and maps that cache read-only on every start. A 16 GB
+machine is recommended; load time varies by CPU and storage. Allow 25 GB free
+disk including the 9.33 GB derived cache. Cache corruption or model mismatch
+stops startup rather than falling back to unverified data.
 No model is trained, re-exported or selected for packaging. Six ordered <=1 GiB
 parts reassemble to the pinned whole hash. The standalone verifier pins the
 model, tables, translation and publication source/approval. The three public

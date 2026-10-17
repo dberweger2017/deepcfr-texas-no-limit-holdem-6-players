@@ -5,7 +5,7 @@ from pathlib import Path
 from time import monotonic
 from uuid import uuid4
 
-from scripts.smoke_hu100_release import Runtime, prefix, put, request
+from scripts.smoke_hu100_release import Runtime, browser_receipt, prefix, put, request
 from src.policies.hu200_bundle import INFERENCE, MODELS, verify_bundle
 
 
@@ -57,9 +57,9 @@ def exercise(runtime):
     return result
 
 
-def run(bundle, data, out, source):
+def run(bundle, data, out, source, *, browser_done=None):
     runtime = Runtime(bundle, data, out, source, flag='--hu200-release', stack_bb=200,
-                      port=8779, load_timeout=3600)
+                      port=8779, load_timeout=4 * 3600)
     try:
         runtime.start()
         state = runtime.call('/api/sessions', {'playMode': 'free', 'visibility': 'developer'})
@@ -77,6 +77,10 @@ def run(bundle, data, out, source):
         finish(runtime, response)
         result = exercise(runtime)
         result.update(restart_session=state['sessionId'], restart_and_idempotency_verified=True)
+        if browser_done is not None:
+            put(out / 'browser-ready.json', {'source': source, 'port': runtime.port,
+                                           'automated_hands_completed': result['hands'] + 1})
+            result['browser'] = browser_receipt(browser_done, seconds=3 * 3600)
         runtime.stop(); result['starts'] = runtime.starts
         put(out / 'smoke-summary.json', result)
         return result
@@ -135,8 +139,10 @@ def main():
     parser.add_argument('--data', required=True, type=Path)
     parser.add_argument('--out', required=True, type=Path)
     parser.add_argument('--source', required=True)
+    parser.add_argument('--browser-done', type=Path)
     args = parser.parse_args(); args.out.mkdir(parents=True, exist_ok=True)
-    action = run if args.stage == 'play' else lambda b, d, o, s: audit(b, d, o)
+    action = (lambda b, d, o, s: run(b, d, o, s, browser_done=args.browser_done)
+              if args.stage == 'play' else audit(b, d, o))
     print(json.dumps(action(args.bundle, args.data, args.out, args.source)))
 
 

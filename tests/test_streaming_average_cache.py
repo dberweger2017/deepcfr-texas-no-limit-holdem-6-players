@@ -53,3 +53,16 @@ def test_existing_cache_and_synced_paths_are_refused(tmp_path, monkeypatch):
         build(path, sha, HU200_SCHEMA, root, n, slots)
     with pytest.raises(ValueError, match='outside synced'):
         build(path, sha, HU200_SCHEMA, tmp_path/'CloudStorage'/'bad', n, slots)
+
+
+def test_build_works_without_research_dependencies(tmp_path, monkeypatch):
+    import builtins
+    path, sha, _ = average(tmp_path)
+    n, slots = dimensions(path)
+    original = builtins.__import__
+    def runtime_only(name, *args, **kwargs):
+        if name.startswith(('scipy', 'scripts.evaluate_hu100_direct')):
+            raise AssertionError('Play cache imported research dependencies')
+        return original(name, *args, **kwargs)
+    monkeypatch.setattr(builtins, '__import__', runtime_only)
+    build(path, sha, HU200_SCHEMA, tmp_path/'runtime-only', n, slots)

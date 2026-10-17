@@ -18,6 +18,12 @@ Required evidence before review completion:
 - HU200 human restricted/free sizing and spectator play at 200 BB, two fresh CLI
   loads with elapsed time and peak RSS, pending-decision restart, corrupt-input
   refusal and independent replay of every retained journal.
+- The HU200 loader must build its first play cache with the streaming builder,
+  then verify and map it read-only on every start. Repeat the real runtime smoke
+  on this path: measure cache-building first start and cached second start with
+  separate process peak RSS, rerun hands/restart/refusals and journal replay,
+  and refuse corrupt/mismatched caches. Publish the measured timings, RAM and
+  additional cache disk space in the shipped install guide and release notes.
 - Byte-identical old manifests, unchanged old trace hashes and the HU20 v0.4.2 default.
 - Public release notes, model card and install guide, with the qualification,
   failed first protocol, limitations, measured requirements and internal panel.

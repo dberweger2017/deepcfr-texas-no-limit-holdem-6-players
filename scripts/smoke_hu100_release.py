@@ -71,13 +71,27 @@ class Runtime:
 
     def stop(self):
         if self.process is not None:
+            if self.process.returncode is not None:
+                self.process = None
+                return
             self.process.terminate()
-            try:
-                self.process.wait(10)
-            except subprocess.TimeoutExpired:
-                self.process.kill(); self.process.wait(5)
-            if self.starts:
+            deadline = monotonic() + 10
+            usage = None
+            while True:
+                try:
+                    pid, status, usage = os.wait4(self.process.pid, os.WNOHANG)
+                except ChildProcessError:
+                    break
+                if pid:
+                    self.process.returncode = os.waitstatus_to_exitcode(status)
+                    break
+                if monotonic() > deadline:
+                    self.process.kill()
+                sleep(.05)
+            if self.starts and self.starts[-1]['pid'] == self.process.pid:
                 import resource
+                if usage is not None:
+                    self.starts[-1]['peak_rss_bytes'] = usage.ru_maxrss * (1 if sys.platform == 'darwin' else 1024)
                 maximum = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
                 self.starts[-1]['max_cli_child_rss_bytes_so_far'] = maximum * (1 if sys.platform == 'darwin' else 1024)
                 put(self.out / "cli-starts.json", self.starts)
