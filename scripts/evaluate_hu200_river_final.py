@@ -101,15 +101,33 @@ def summarize(value):
         for r in rows]}
 
 
+def verify_common_prefix(search,plain):
+    """Same deal/RNG cannot diverge before our river action."""
+    first=None
+    for left,right in zip(search['decisions'],plain['decisions']):
+        if any(left[k]!=right[k] for k in ('seat','role','street','observation_sha256')):
+            raise ValueError('Paired public common prefix differs before action')
+        if left['action']!=right['action']:
+            if left['role']!=0 or left['street']!='river':
+                raise ValueError('Paired first action difference is outside hero river')
+            first=left['index'];break
+    if first is None and (len(search['decisions'])!=len(plain['decisions'])
+            or search['net_chips']!=plain['net_chips']):
+        raise ValueError('Identical paired paths settle differently')
+    return first
+
+
 def verify_block(directory,panel,index,root):
     value=json.loads((directory/'block.json').read_text());item=block_at(panel,root,index)
     if value['panel']!=panel or value['block']!=index or value['root']!=root:
         raise ValueError('Foreign final block')
-    returns={'search':[],'plain':[]};hands=0
+    returns={'search':[],'plain':[]};hands=0;paired={}
     for rotation in (0,1):
         for arm in (('search',) if panel=='direct' else ('search','plain')):
             hand=verify_hand(directory/f'{rotation}-{arm}',item,root,rotation,arm)
-            returns[arm].append(hand['target_chips']);hands+=1
+            returns[arm].append(hand['target_chips']);hands+=1;paired[rotation,arm]=hand
+    if panel!='direct':
+        for rotation in (0,1):verify_common_prefix(paired[rotation,'search'],paired[rotation,'plain'])
     score=block_value(returns['search'])-(block_value(returns['plain']) if panel!='direct' else 0)
     if value['score_bb100']!=score or value['hands']!=hands or not value['all_hands_verified']:
         raise ValueError('Final block score/accounting differs')

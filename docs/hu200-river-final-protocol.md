@@ -188,3 +188,9 @@ completed results awaiting a storage slot) and three submitted storage futures.
 There is one storage writer and at most three active searches. Completed
 storage bytes are already reflected in free-disk admission; the per-search
 reservation is conservative for completed-but-not-yet-submitted results.
+
+Each paired panel block checks its common prefix immediately before transfer:
+observations/roles must match up to the first differing action, that difference
+must be our river action, and identical action paths must settle identically.
+This audit blocks a pre-river/RNG/role wiring error before further final play;
+it does not use gains to tune or extend the study.
