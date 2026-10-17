@@ -1,3 +1,63 @@
+## PR319 — HU200 v0.5.5 release packaging verification
+
+[Packaging PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/319),
+[readiness and compact receipts](docs/releases/v0.5.5/READINESS.md).
+Verified-cache runtime: 30 independently replayed hands, first/reused startup,
+refusal and restart checks. Two full prepared-part reconstructions reproduce
+all three seed averages and the exact `59a6dd35…` raw / `ce3ecc2c…` average blend.
+Scientific source/model remains #306's audited blend. Tested runtime source
+`db0102c1`, integrated reconstruction `df9269c4`, fresh 49-asset review bundles
+`ea5301bb`; later changes only record evidence. This is packaging evidence,
+not a release publication record. Owner review/merge and all publication gates,
+including reconstruction from actual public downloads, remain required.
+
+Archives in `gdrive:PR-319-HU200-v055-release-package/`:
+
+| Archive | Bytes | Local ZIP SHA256 | Accepted Drive MD5 |
+|---|---:|---|---|
+| [hu200-v055-release-evidence-20261017.zip](https://drive.google.com/file/d/1bjhMpDlFOWDKWW_5-PjmgHLXUenNHHii/view) | 3,736,393,894 | `dc3e1a20d998a25848a49b681a0f4e60fc8118636e8b053d151f228ac5dc246e` | `165689dfb51c4a5204d94239581e6838` |
+| [hu200-v055-release-supplement-20261017.zip](https://drive.google.com/file/d/1JatAzvdHLNJo1gT32V2g5hSLCwJhpF1p/view) | 11,649,759 | `d5703208a622f900f29b6a591dc69fdc0d283cd2cd46785715a6410fbe91e16e` | `beb2c4c21279fd3a5297cc094c0a3664` |
+
+Main embedded `ARCHIVE-MANIFEST.json`: SHA256
+`2eec44706d11fc75ffdd1f88cbd88918c2ef8c12703b115f9235a73c001c792d`.
+Supplement embedded `postseal-20261017-2131/SUPPLEMENT-MANIFEST.json`: SHA256
+`94b32e3f02633b78034bb8e7353478a63c76936888794223050e17c5688fafeb`.
+Every member's bytes/SHA256 read back locally; the unchanged deployed cache tool
+accepts Drive size/MD5 and local CRC coverage for **6,874 main / 104 supplemental
+members**, including manifests. Drive MD5 acceptance is not a remote SHA256 audit.
+Immutable local-verification receipts are also uploaded:
+[main](https://drive.google.com/file/d/1iuCg85iyXVlwhQikQyLOkdrw3ErOeT9M/view)
+(588 bytes, MD5 `b3b4f8a0751c70b500be50f3b358e66d`) and
+[supplement](https://drive.google.com/file/d/1kGPpSr1aI-OFyTI6ZCCmbiGgcrrKHviP/view)
+(549 bytes, MD5 `a9b5dc24b9cdebd3295eb7b17df19a61`).
+Their pre-upload local status remains unchanged; separate cloud-acceptance records
+and `.drive-receipt.json` record accepted uploads.
+
+All uncompressed evidence remains at
+`/research/PR-319-HU200-v055-release-package/`, with `KEEP` and all originals retained.
+Main members include journals, independent audits, refusal/failure evidence,
+source/tool snapshots, input/retrieval provenance and unique partials. The
+supplement adds fresh review-bundle proof, byte-identical shipped-doc snapshots,
+later administrative notes, closed guard/upload logs and the retained receipt-path
+failure plus its receipt-only repair. No deployed tool or archive bytes changed.
+The 22 identical model copies were freshly SHA256-checked before exclusion; their
+accepted canonical archives, member paths, bytes/hashes and commands are in main
+member `canonical-model-restoration.json` and `indexed-model-exclusions.json`.
+These include average `ce3ecc2c…` / raw `59a6dd35…` blend pins and all six seed pins.
+Derived play/native build caches have inventories and regeneration provenance;
+local app tokens are excluded. Release assets are separate. This is intentionally
+not complete-folder coverage or permission to evict/delete.
+
+**Retrieve from cache:** copy named uncompressed members from that cache root to
+a fresh ignored working directory and verify their indexed SHA256 before use.
+**Drive fallback:** `rclone copy gdrive:PR-319-HU200-v055-release-package/ DEST`,
+verify the ZIP/manifest pins above, then extract into a fresh directory and verify
+required member hashes. For an excluded model, use its exact canonical archive
+and member from `canonical-model-restoration.json` (also indexed under #306 and
+its input proofs), verify those archive/manifest pins, extract and check the model
+SHA256. Never overwrite active inputs. Full failures, guards and plumbing notes
+remain in the PR and archived evidence.
+
 ## PR318 — v0.5.5 confirmation (protocol version 2): the blend qualifies
 
 The three confirmation accounts' journals, summaries and launchers, plus the pooled analysis, behind [the report](docs/reports/hu200-v055-blend-confirmation.md).

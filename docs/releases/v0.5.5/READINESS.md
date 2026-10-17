@@ -9,7 +9,8 @@ if every declared check passes.
 The fixed model is 6,282,968,150 bytes, SHA256
 `ce3ecc2cb8ebffa1fb3e0a7f11c79d0900b74008b55d85093e1915ff4dde6485`,
 with 156,208,331 entries, PR163 K50 tables and HU200 translation at 512 states /
-128 events. No retraining, re-export or selection is part of packaging.
+128 events. The release uses the original audited average. Re-exports are
+verification outputs only; there is no retraining, model replacement or selection.
 
 Completed checks:
 
@@ -50,14 +51,20 @@ Completed checks:
   [source coverage](verification/source-coverage.json).
 - Public documentation includes protocol-v2 qualification, the failed first
   protocol, AIVAT context, internal results, weaknesses and measured requirements.
+- Main and supplemental evidence archives pass whole-archive and every-member
+  SHA256 readback. The deployed cache tool accepts their Drive size/MD5 and all
+  6,874 main / 104 supplemental members' local CRC coverage. Canonical model
+  restoration references, cache inventories and retained failures are explicit;
+  all originals remain. [Archive pins and restoration](../../../RESULTS_INDEX.md#pr319--hu200-v055-release-packaging-verification).
 
-Still required before the packaging PR is ready:
+Owner review and publication:
 
-- Finish evidence archival and record its accepted restoration receipt.
-- Confirm final code and shipped-document source equivalence to the tested
-  sources and verified review bundles, run the staged repository artifact guard
-  and confirm green CI on the final PR commit. Publication always builds fresh
-  approved bundles from the owner's merge commit.
+Final runtime code matches the verified-cache source `db0102c1`; native readers
+and reconstruction code match `df9269c4`; all six shipped documents match the
+verified `ea5301bb` review bundles byte for byte. The staged repository artifact
+guard and green CI on the final PR commit are required before review hand-off.
+The owner reviews and merges this PR. Publication always builds fresh approved
+bundles from that merge commit; review bundles do not substitute for this step.
 
 The separate research pre-release is `hu200-frozen-20b-seeds`, never Latest.
 Publication requires the owner's packaging merge, publication-approved bundles,
