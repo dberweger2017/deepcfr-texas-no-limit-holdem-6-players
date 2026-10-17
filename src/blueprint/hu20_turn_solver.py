@@ -15,6 +15,7 @@ import numpy as np
 
 from src.blueprint.abstraction import Choice
 from src.blueprint.hu20_turn_tree import line_key
+from src.blueprint.river_evidence import COMPACT_RETENTION_RULE, sample_key, seal_evidence
 from src.game.types import Action, ActionKind
 
 
@@ -221,10 +222,10 @@ class ExternalTurnSolver:
     def __init__(self, executable, evidence_dir, *, expected_sha256=None,
                  resource_check=lambda: None, allocation_budget=None, profile_retention=None,
                  hang_attention_seconds=None, compact_profiles=False):
-        if profile_retention not in (None,PROFILE_RETENTION_RULE):
+        if profile_retention not in (None, PROFILE_RETENTION_RULE, COMPACT_RETENTION_RULE):
             raise ValueError("Unknown profile retention rule")
-        if compact_profiles and profile_retention is not None:
-            raise ValueError("Compact profiles require complete evidence retention")
+        if compact_profiles and profile_retention not in (None, COMPACT_RETENTION_RULE):
+            raise ValueError("Compact profiles require their complete-body retention rule")
         self.executable = Path(executable).expanduser().resolve()
         self.evidence_dir = Path(evidence_dir).expanduser().resolve()
         self.expected_sha256 = expected_sha256 or (
@@ -289,6 +290,8 @@ class ExternalTurnSolver:
                 if self.profile_retention:
                     # The final request bytes are frozen before process launch.
                     record["request_sha256"] = file_hash(out / "request.json")
+                    if self.profile_retention == COMPACT_RETENTION_RULE:
+                        record["retention_sample_key"] = sample_key(request)
                 try:
                     process = subprocess.Popen([str(self.executable), str(out / "request.json"),
                         str(out / "response.jsonl")], stdout=stdout, stderr=stderr, env=env)
@@ -347,32 +350,36 @@ class ExternalTurnSolver:
             record["seconds"] = monotonic() - started
             files = {p.name: {"bytes": p.stat().st_size, "sha256": file_hash(p)}
                      for p in out.iterdir() if p.is_file() and p.name != "manifest.json"}
-            if self.profile_retention:
-                request_hash=files["request.json"]["sha256"]
-                if record.get("request_sha256",request_hash)!=request_hash:
-                    raise ValueError("Request changed after sample selection")
-                selected=sampled_profile(request_hash)
-                profile=files.get("profile.jsonl")
-                record["profile_retention"]={"rule":self.profile_retention,
-                    "request_sha256":request_hash,"sample_selected":selected,
-                    "profile_sha256":profile["sha256"] if profile else None,
-                    "profile_bytes":profile["bytes"] if profile else 0,
-                    "profile_generated":profile is not None,
-                    "body_retained":selected and profile is not None}
-            self.records.append(record)
-            receipt=out / "receipt.json"
-            with receipt.open("w") as stream:
-                stream.write(json.dumps(record, sort_keys=True) + "\n")
+            receipt = out / "receipt.json"
+            if self.profile_retention == COMPACT_RETENTION_RULE:
+                files = seal_evidence(out, request, record, files)
+            else:
                 if self.profile_retention:
-                    stream.flush();os.fsync(stream.fileno())
-            if self.profile_retention:
-                directory=os.open(out,os.O_RDONLY)
-                try:os.fsync(directory)
-                finally:os.close(directory)
-                # Live matrices have already been parsed into memory. Persist
-                # the body hash in the receipt before removing only this dump.
-                if profile is not None and not selected:
-                    (out / "profile.jsonl").unlink()
-                    files.pop("profile.jsonl")
+                    request_hash=files["request.json"]["sha256"]
+                    if record.get("request_sha256",request_hash)!=request_hash:
+                        raise ValueError("Request changed after sample selection")
+                    selected=sampled_profile(request_hash)
+                    profile=files.get("profile.jsonl")
+                    record["profile_retention"]={"rule":self.profile_retention,
+                        "request_sha256":request_hash,"sample_selected":selected,
+                        "profile_sha256":profile["sha256"] if profile else None,
+                        "profile_bytes":profile["bytes"] if profile else 0,
+                        "profile_generated":profile is not None,
+                        "body_retained":selected and profile is not None}
+                receipt=out / "receipt.json"
+                with receipt.open("w") as stream:
+                    stream.write(json.dumps(record, sort_keys=True) + "\n")
+                    if self.profile_retention:
+                        stream.flush();os.fsync(stream.fileno())
+                if self.profile_retention:
+                    directory=os.open(out,os.O_RDONLY)
+                    try:os.fsync(directory)
+                    finally:os.close(directory)
+                    # Live matrices have already been parsed into memory. Persist
+                    # the body hash in the receipt before removing only this dump.
+                    if profile is not None and not selected:
+                        (out / "profile.jsonl").unlink()
+                        files.pop("profile.jsonl")
+            self.records.append(record)
             files["receipt.json"]={"bytes":receipt.stat().st_size,"sha256":file_hash(receipt)}
             (out / "manifest.json").write_text(json.dumps(files, sort_keys=True) + "\n")

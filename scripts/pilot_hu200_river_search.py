@@ -24,6 +24,7 @@ from src.blueprint.hu200_river_search import HU200RiverSearchPlayer, HU200RiverS
 from src.blueprint.hu20_turn_search import TurnSearchConfig
 from src.blueprint.hu20_turn_solver import ExternalTurnSolver
 from src.blueprint.river_ledger import FamilyPeak
+from src.blueprint.river_evidence import COMPACT_RETENTION_RULE
 from src.blueprint.search import DECK
 from src.game.observation import ActionTaken, replay
 from src.game.types import Street
@@ -107,10 +108,10 @@ def pin_earlier_blueprint(policy, view):
                                   cause="earlier-blueprint-river-action")
 
 
-def measure_spot(index, spot, base, binary, out, *, compact_profiles=False, cancel_check=None):
+def measure_spot(index, spot, base, binary, out, *, compact_profiles=False, cancel_check=None, profile_retention=None):
     view = SlumbotAdapter().observation(spot["decision"]["public"], spot["decision"]["hand_id"])
     solver = ExternalTurnSolver(binary, out / str(index) / "native",
-        compact_profiles=compact_profiles, **({"resource_check": cancel_check} if cancel_check else {}))
+        compact_profiles=compact_profiles, profile_retention=profile_retention, **({"resource_check": cancel_check} if cancel_check else {}))
     policy = HU200RiverSearchPolicy(base, solver, CONFIG, ledger=out / str(index) / "ledger")
     if cancel_check is not None:
         original_check = policy._check
@@ -141,7 +142,7 @@ def measure_spot(index, spot, base, binary, out, *, compact_profiles=False, canc
 
 
 def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
-        latency_target_seconds=3):
+        latency_target_seconds=3, profile_retention=None):
     plan = json.loads(plan_path.read_text())
     declaration = json.loads((Path(__file__).resolve().parents[1] /
         "docs/reports/hu200-river-search-artifacts/cost-declaration.json").read_text())
@@ -160,10 +161,11 @@ def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
     put(out / "inputs.json", dict(plan_sha256=file_hash(plan_path),
         model_bytes=model.stat().st_size, model_sha256=MODEL_SHA256,
         binary_sha256=file_hash(binary), blueprint=base.description,
-        load_and_validation_seconds=monotonic() - started))
+        load_and_validation_seconds=monotonic() - started, profile_retention=profile_retention,
+        source_tree=subprocess.check_output(["git","rev-parse","HEAD:src"],text=True).strip()))
     rows = []
     for index, spot in enumerate(plan["sample"]):
-        row = measure_spot(index, spot, base, binary, out, compact_profiles=compact_profiles)
+        row = measure_spot(index, spot, base, binary, out, compact_profiles=compact_profiles, profile_retention=profile_retention)
         rows.append(row)
         print(json.dumps(dict(index=index, seconds=row["complete_seconds"], fallback=row["fallback"])), flush=True)
     times = [r["complete_seconds"] for r in rows]
@@ -191,6 +193,7 @@ def run(plan_path, model, cache, tables, binary, out, *, compact_profiles=False,
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("freeze", "run"))
+    parser.add_argument("--sample-native-bodies", action="store_true")
     parser.add_argument("--archive", type=Path)
     parser.add_argument("--blend", type=Path)
     parser.add_argument("--plan", type=Path)
@@ -221,11 +224,17 @@ def main():
                         or parity.get("plan_sha256") != declaration["full_plan_sha256"]
                         or file_hash(args.binary) != declaration["external_binary_sha256"]):
                     raise ValueError("Amended cost gate lacks matching exact-parity admission")
+                if args.sample_native_bodies and parity.get("profile_retention") != COMPACT_RETENTION_RULE:
+                    raise ValueError("Retention cost lacks matching retention parity")
                 inputs = json.loads((args.parity.parent / "inputs.json").read_text())
+                if args.sample_native_bodies and inputs.get("source_tree") != subprocess.check_output(
+                        ["git","rev-parse","HEAD:src"],text=True).strip():
+                    raise ValueError("Retention parity and cost source differ")
                 if inputs["binary_sha256"] != file_hash(args.binary):
                     raise ValueError("Parity and cost executable identities differ")
             run(args.plan, args.model, args.cache, args.tables, args.binary, args.out,
-                compact_profiles=args.compact_profiles, latency_target_seconds=args.latency_target_seconds)
+                compact_profiles=args.compact_profiles, latency_target_seconds=args.latency_target_seconds,
+                profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None)
 
 
 if __name__ == "__main__":

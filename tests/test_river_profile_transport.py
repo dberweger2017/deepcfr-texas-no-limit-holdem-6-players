@@ -73,3 +73,17 @@ def test_compact_transport_keeps_identity_bounds_normalization_and_lock_checks(t
     path.write_text(json.dumps(header) + "\n" + json.dumps(metadata) + "\n")
     with pytest.raises(SolveFailure):
         parse_profiles(request, path, compact=True)
+
+
+def test_owned_matrices_survive_removal_of_successful_native_scratch(tmp_path, monkeypatch):
+    from src.blueprint import river_evidence as evidence
+    request, old, path, _, _ = fixture(tmp_path)
+    expected = parse_profiles(request, old)[()]
+    actual = parse_profiles(request, path, compact=True)[()]
+    (tmp_path / "request.json").write_text(json.dumps(request))
+    pins = {p.name: evidence.file_pin(p) for p in tmp_path.iterdir() if p.is_file()}
+    monkeypatch.setattr(evidence, "selected_body", lambda _: False)
+    evidence.seal_evidence(tmp_path, request, {"status": "completed"}, pins)
+    assert not path.exists() and not (tmp_path / "profile.f64").exists()
+    assert np.array_equal(actual.probabilities.view(np.uint64), expected.probabilities.view(np.uint64))
+    assert np.array_equal(actual.action_values_chips, expected.action_values_chips, equal_nan=True)

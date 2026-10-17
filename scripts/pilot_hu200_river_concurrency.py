@@ -19,6 +19,7 @@ from src.blueprint.abstraction import HU200_EQUITY_SCHEMA
 from src.blueprint.action_translation import TranslationOptions
 from src.blueprint.average import AveragePolicy
 from src.blueprint.river_ledger import DecisionLedger, FamilyPeak
+from src.blueprint.river_evidence import COMPACT_RETENTION_RULE
 from src.policies.files import file_hash
 
 
@@ -59,7 +60,8 @@ def worker_body(args, indices, barrier, stop):
         if stop.is_set():
             raise PilotStopped('No further spot after pilot failure')
         row = measure_spot(index,plan['sample'][index],base,args.binary,args.out,
-                           compact_profiles=True,cancel_check=cancel_check)
+                           compact_profiles=True,cancel_check=cancel_check,
+                           profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None)
         baseline = json.loads((args.sequential/str(index)/'decision.json').read_text())
         for key in ('search_action','blueprint_action','fallback','changed_action'):
             if row[key] != baseline[key]:
@@ -98,6 +100,8 @@ def run(args):
         if (inputs['plan_sha256'] != file_hash(args.plan)
                 or inputs['binary_sha256'] != file_hash(args.binary)):
             raise ValueError('Concurrent admission inputs differ: '+name)
+        if args.sample_native_bodies and inputs.get('profile_retention') != COMPACT_RETENTION_RULE:
+            raise ValueError('Retention concurrency evidence differs: '+name)
         input_pins[name] = dict(inputs_sha256=file_hash(folder/'inputs.json'),
                                summary_sha256=file_hash(folder/'summary.json'))
     if (parity['status'] != 'exact-parity' or parity['decisions'] != 24
@@ -123,7 +127,7 @@ def run(args):
     projected_available = min(projected_available,current_available-reserve)
     admitted = projected_rss <= capacity and projected_available >= 3_000_000_000
     put(args.out/'inputs.json',dict(plan_sha256=file_hash(args.plan),binary_sha256=file_hash(args.binary),
-        evidence=input_pins,source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()))
+        evidence=input_pins,profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None,source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()))
     put(args.out/'admission.json',dict(admitted=admitted,workers=args.workers,
         projected_family_rss_bytes=projected_rss,capacity_bytes=capacity,
         projected_host_available_bytes=projected_available,
@@ -175,6 +179,7 @@ def main():
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--predecessor',type=Path)
     parser.add_argument('--workers',type=int,choices=(2,3),required=True)
+    parser.add_argument("--sample-native-bodies",action="store_true")
     args = parser.parse_args()
     if subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string'],text=True).strip() != 'Apple M4':
         raise ValueError('Concurrency pilot requires the authorized M4')

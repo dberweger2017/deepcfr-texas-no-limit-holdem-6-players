@@ -1,0 +1,129 @@
+# HU200 river evidence I/O and fixed calibration
+
+Owner-approved October 17, 2026, in PR317. This prospective declaration precedes
+all calibration hands. The owner chooses the final counts and venue after the
+readout. No final strength hands, Slumbot play, training or default change.
+
+## Unchanged search and ordered admission
+
+Keep the audited blend/model/cache/K50 inputs, translation 512/128, river-only
+ordinary joint-range solver, 50 iterations, 6 threads, full ranges/menu, prior
+hero/opponent locks, 2 GiB allocation limit, 300,000 public-node limit and 120-second
+work watchdog unchanged. All earlier gates and failures remain recorded.
+
+1. Test retention, failure preservation and owned-array lifetime on M4.
+2. Prove complete output parity on the original fixed 24 against source 214695a3:
+   all final and ancestor scientific requests and compact native body hashes,
+   every normalized final profile probability/EV/mask, played policy/support,
+   same-seed actions and fresh replay. Request decompression must recover its
+   exact original bytes and SHA256. Do not omit a mismatching spot.
+3. Rerun the same 24 cost gate once: p95 ≤10 s and at least 3 GB host available and
+   physical-minus-family headroom, with the usual M4 locks/guards unchanged.
+   Any miss remains a finding; no search weakening or sample change.
+4. If qualified, measure two then at most three unchanged concurrent searches
+   on the same 24. Use the existing aggregate memory/headroom admission and
+   report contention, setup and throughput. Choose the fastest admitted
+   measured worker count before calibration outcomes, without changing search.
+5. Commit the calibration execution declaration before hands. Run exactly the
+   fixed counts below, on M4, with a hard two-hour budget including load,
+   playing, independent replay, fresh-player ledger reproduction and readout.
+   The clock starts immediately before first calibration input/model loading.
+   Preparation/retention/parity/cost/concurrency gates precede that clock.
+
+No existing research originals are removed. Only newly generated successful
+native scratch covered by the retention rule below can be removed. All research
+that remains is preserved uncompressed on bb128 with manifest-bearing ZIPs;
+Drive upload obeys the shared-uplink policy. Machine commands/paths stay in
+ignored archival control records, not this contributor-facing protocol.
+
+## Predeclared retention rule
+
+`hu200-scientific-request-lowest-1pct-v1`: serialize the scientific request as
+sorted, compact JSON (`allow_nan=False`), excluding only `mode`, `dump_path`,
+`seconds`, `profile_format`. Hash UTF-8 bytes prefixed by
+`hu200-river-native-body-v1\0`. Keep full native bodies exactly when the unsigned
+SHA256 is below `floor(2^256/100)`, or when the native call fails. The rule is
+fixed before solves and never reads wins/losses, terminal cards, EVs or quality
+outputs. It is stable across directories, timing, process IDs and replay.
+
+Every decision keeps its complete played policy/support/fallback ledger,
+telemetry and checksums. Every native call records its scientific sample key,
+request checksum, all generated compact header/numeric body sizes/SHA256s,
+retention decision, response and failure information. All failed/partial native
+bodies remain. Successful full requests are losslessly gzip-compressed with
+fixed gzip metadata; their original size/SHA256 remains and decompression must
+reproduce every byte. Selected successful bodies retain both `profile.jsonl`
+and `profile.f64`; other successful bodies are temporary parser input. A durable
+receipt precedes removal. No parsed strategy, normalization or solver input is
+changed by retention. Persistence failures are recorded as plumbing failures.
+
+## Fixed calibration, separate from finals
+
+| Panel | Independent blocks | Root |
+|---|---:|---:|
+| Direct search versus plain blend, duplicate seat rotations |128|20261017317100|
+| random, both arms on common deals |32|20261017317101|
+| check_call, both arms on common deals |32|20261017317102|
+| tight_aggressive, both arms on common deals |32|20261017317103|
+| loose_aggressive, both arms on common deals |32|20261017317104|
+| pot_pressure, both arms on common deals |32|20261017317105|
+| half_pot_pressure, both arms on common deals |32|20261017317106|
+| matched_pot_pressure, both arms on common deals |32|20261017317107|
+
+These roots and prospective final roots 20261017317900–20261017317907 are
+checked against main and all other open PR heads before use. Calibration roots
+and actual deal seeds are excluded from finals. Each direct block has two
+hands, each scripted block four (two arms times two rotations). Both arms use
+the same deal and logical-role action streams; policies receive only their own
+immutable observation. Search uses the frozen blend before the river and a
+fresh, internally consistent policy per hand. No turn search. All earlier hero
+river matrices come from the policy actually played, never a counterfactual
+blueprint replacement. Script implementations remain pinned repository code.
+
+Every completed hand must independently replay legal actions/events/settlement,
+then reproduce with fresh player/RNG state and the complete checked decision
+ledger. Reproduction must invoke zero native solves. Full hand/decision streams
+and native failures are retained with checksums. Replay/reproduction precede
+any calibration statistical readout; no partial collection qualifies as a
+completed 128+7×32 study. Numerical/information/accounting failures stop the run.
+Plumbing repairs append provenance and continue recorded state; they do not
+license rerunning, tuning or extending a completed research outcome.
+
+## Variance-only planning readout and two venue quotes
+
+Do not use mean effects or winning/losing hands to change the solver. Calibration
+never enters the final test. Report verified counts, block SD/variance and its
+uncertainty, river decisions per hand, fallback/timeout/changed-action counts,
+per-panel/block timings and evidence bytes. Keep realized gain means and effect
+intervals out of this engineering readout; all raw data remain archived.
+
+Direct score is the average search return across its two rotations, scaled to
+BB/100. Panel score is the paired search-minus-plain block return on common
+deals. Plan for a +10 BB/100 direct effect at two-sided alpha .05 and about 80% power.
+Report plug-in and normal-model one-sided 95% upper-SD sizing; the latter is
+conservative only under that variance model, not a heavy-tail guarantee. Use
+`ceil(((z(.975)+z(.8))*SD/10)^2)`, round up to a power of two with minimum 4096,
+and propose the resulting counts, never start them. If measured direct variance
+is zero or fewer than 20 blocks are nonzero, retain at least #306's historical
+SD 879.355850 as a planning floor and disclose the sparse-tail limitation.
+Suggest at least 256 paired blocks per script and at least direct/64, rounded
+up to a power of two; report the implied per-opponent nominal and seven-way
+adjusted precision rather than claiming the direct power target for the panel.
+
+Quote final load, primary, complete replay/reproduction and evidence overhead,
+with 25% headroom and assumptions exposed:
+
+- M4: measured calibration cost and admitted throughput for up to three searches;
+  do not divide by three without a measured admissible result.
+- cygnus-x1: available only after PR301's compute finishes, within its eight
+  busy-thread/thermal limits. Six fixed native threads permit one active native
+  search plus runtime headroom, not two six-thread solves. Do not use PR301's
+  current workload for a benchmark or assume a training rate is a measured
+  search rate. If #301 is still active, label any hardware-proxy quote as
+  conditional/unmeasured and require a post-301 fixed-spot build/parity/cost
+  qualification before final hands on that venue.
+
+The owner chooses counts and venue before final hands. A later final protocol
+must commit all roots/counts, intervals, stopping/adverse-result rules and the
+range-model diagnosis before playing. The PR remains draft while that planned
+research and storage closeout are unfinished. Owner decides merge.
