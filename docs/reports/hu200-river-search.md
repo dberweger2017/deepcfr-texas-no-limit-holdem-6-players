@@ -53,6 +53,18 @@ closeout. The throttled October26–27 extrapolation is superseded; revised ETA
 requires sustained timing at restored concurrency. The final research remains
 in progress.
 
+**October17 at16:05Madrid:** 7,214 final blocks are closed (4.96%), with30.6GB
+free and three-search admission, no worker failure or guard breach. Throughput
+nevertheless falls to370/463blocks per hour over the latest30/60minutes.
+Completed blocks wait on the storage writer; the remote receiver is observed
+waiting for a filesystem journal commit while syncing an owned telemetry file.
+A shared-HDD sample shows substantial concurrent file reads. This is a new
+storage-plumbing finding; the underlying cause and mitigation are not yet
+established. The prior completion/review windows are at risk, and current pace
+would miss the unchanged safety cap if sustained. No search, count, source,
+verification or durability requirement changed; outcomes remain unread. Updated
+M4-release/review ETA is pending storage-throughput recovery.
+
 Final preparation retained two plumbing failures before any final hand: the
 pipeline overlap fixture initially observed only transfer-start timing, and an
 admission helper initially imported from the owner checkout instead of the
