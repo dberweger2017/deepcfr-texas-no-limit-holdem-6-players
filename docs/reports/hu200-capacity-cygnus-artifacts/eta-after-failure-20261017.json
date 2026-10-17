@@ -1,0 +1,13 @@
+{
+  "status": "withdrawn-after-terminal-storage-guard-failure",
+  "observed_utc": "2026-10-17T09:28:09.776383+00:00",
+  "supersedes": "eta-after-10b.json and all previous completion forecasts",
+  "prior_target": "October19eveningMadrid/October20uploadcontingency",
+  "finish_eta": null,
+  "reason": "Two final20B audits interrupted;1302 continuation not started. No further automatic retry authorized. Current free-space headroom cannot admit declared41GB archive staging.",
+  "training_effective_deadline_epoch": 1792380557.996109,
+  "evaluation_max_seconds": 86400,
+  "limits_extended": false,
+  "final_hands": 0,
+  "outcomes_read": false
+}

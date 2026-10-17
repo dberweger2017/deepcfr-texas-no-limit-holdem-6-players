@@ -1,11 +1,62 @@
 # HU200 capacity experiment on cygnus-x1
 
-**All three rebuilt 10B saves pass every-row audits.** Seeds 1421/1422 exactly reproduce their pre-shutdown compressed checkpoint hashes; 1302 reproduces its recorded node/iteration identity. Two final 20B audits are active; 1302's continuation awaits the original disk reservation gate. No failure or guard stop. No final evaluation hands yet.
+**Campaign stopped by the prospective disk-space guard on October 17 at 09:21:22 UTC /11:21 Madrid.** All three rebuilt 10B saves remain fully audited. Two native 20B saves exist, but their final audits were interrupted; the third 20B continuation never started. All owned workers/controllers are absent. No retry or evaluation was launched.
 
-October 17, 07:53 Madrid snapshot: CPU 59°C/VRM 63°C, 132.52 GB available, 179.64 GB free NVMe, 75 MiB swap (74 MiB growth over the 1 MiB baseline). Training/audits expected Saturday evening–Sunday morning, Sunday evening contingency. Report/archive target Monday 19 evening, Tuesday 20 upload contingency.
+**The previous completion ETA is withdrawn.** The fixed training deadline remains October 19, 03:29:18 UTC; evaluation's 24-hour limit is unchanged. Current disk headroom also prevents the declared one-seed archive staging, so archival closeout remains pending. All originals and partials are retained.
 
 [Protocol](../hu200-capacity-cygnus-protocol.md) fixes three paired seeds,
 301,153,954-entry capacity, guards and final sample sizes. Owner decides merge.
+
+## Terminal storage-guard failure — October 17, 09:21 UTC
+
+[Failure assessment, exact source receipts and closed trace pins](hu200-capacity-cygnus-artifacts/training-failure-20261017.json)
+verify this new event against the earlier committed 10B milestone. The controller
+recorded `Existing259GB plan/output reservations exhausted`, wrote both active
+audit stop files, terminated its owned groups, and exited. Fresh checks find all
+15 recorded owned worker/controller PIDs absent, including the event observer.
+No controller, trainer, audit or evaluation was restarted.
+
+The failing predicate was prospective physical free space: the last sample has
+62.767 GB free, while approximately 12.898 GB of active output reservations remain.
+The resulting **49.869 GB** is below the **50 GB** floor. Owned files plus
+remaining reservations, 20 GB growth allowance and the floor still total about
+248.518 GB, within the 259 GB logical plan. This was preventive reservation
+exhaustion, rather than actual filesystem exhaustion or a heat stop.
+
+Since the 05:53 UTC snapshot, owned logical files grew 30.299 GB while free space
+fell 121.401 GB by the 09:28 collection. Approximately 91.102 GB of that decrease
+is not explained by owned logical growth. This includes filesystem-accounting
+differences and other activity; no particular outside root or PR is blamed.
+Only the owned root was inventoried. PR292 and all unrelated work are untouched.
+
+The last trace sample at 09:21:20 UTC reads CPU/VRM **59/68°C**, fan1/2/3
+835/1260/1282 RPM, available RAM 132.387 GB, swap 89.55 MiB. Across the recovery,
+peaks are CPU 72°C/VRM 84.5°C, RSS 75.336 GB, swap 105.5 MiB (104.5 MiB above
+the original baseline). No thermal threshold or swap-growth limit was reached.
+The trace's clean-stop field is false before the exception; explicit audit stop
+files and absent processes establish the subsequent terminal stop.
+
+All three 10B byte/every-row audits and exact recovery checks remain valid.
+Seeds 1421/1422 saved 20B and pass independent checkpoint SHA/EOF/CRC readback;
+their current/average exports exist, but full final validation was interrupted
+and no `audit.json` was published. Neither is admitted for evaluation. Seed 1302
+retains its audited 10B recovery and has no 20B output directory. No final hands
+were played, no outcomes read, and the global replay/reproduction barrier was
+never reached. The original clock, one-hour amendment and clean c48e64ce source
+remain unchanged.
+
+At collection, free space is 58.237 GB: only 8.237 GB above the floor, insufficient
+for the declared 41 GB single-seed archive staging. No archive write or cleanup
+was attempted; originals, interrupted audits, failed-attempt trees and restored
+inputs remain. Closed resource/utilization/controller/observer traces are SHA256
+pinned for later archival. No new HDD use, cloud acceptance or final retention
+copy is claimed. The existing event task remains until complete closeout; the
+terminal observer has exited and no new work is scheduled.
+
+[ETA withdrawal](hu200-capacity-cygnus-artifacts/eta-after-failure-20261017.json)
+supersedes the Monday/Tuesday forecast. Continuation requires an owner-approved
+recovery decision and renewed storage admission. No further scientific retry,
+code change, deadline extension or reduced evaluation is inferred from this event.
 
 ## All three rebuilt10B saves audited — October17,05:53UTC
 

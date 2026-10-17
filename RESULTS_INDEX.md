@@ -4122,7 +4122,7 @@ Current merged-owner status, current native accepted upload/no-pending/no-confli
 - Reference member: `research/releases/v0.5.0/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz`, 1,173,264,021 bytes, SHA256 `47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`; verified bundled source `b9c9bd161422e87371a2641ae4c60304c66eed79` with `--require-publication`. [Pinned GitHub release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.5.0) remains an alternative retrieval path. Timing-only checkpoint members: `research/timing/1/checkpoint.gz`, `research/timing/4/checkpoint.gz`, `research/timing/8/checkpoint.gz`, all full hashes/retrieval commands in index.
 - No failed-hand reruns, outcome extensions or stage resource stops. [Final safety summary including archive/upload wait](docs/reports/hu100-roots-per-seat-artifacts/resource-summary-final-upload.json) retains all observed margins; the archive’s own live guard/upload-wait streams were excluded while mutable, with closed raw originals retained locally and compact receipts/summary in Git. All B local originals remain; no cleanup inside synced folders or eviction. Earlier C/A cleanup receipts/restoration links are indexed above, based on current accepted merged archives and unchanged original path/size/mtime/dependencies, without repeated remote downloads/hash audits. PR246 roots/uploads remain unchanged.
 
-## PR301 — HU200 capacity on cygnus-x1 (rebuilt10B audited; final20B audits active, October 17, 2026)
+## PR301 — HU200 capacity on cygnus-x1 (terminal storage-guard failure; retained, October 17, 2026)
 
 [PR301](https://github.com/dberweger2017/CFR-NLHE-6max/pull/301), base main
 `f949b930`, [protocol](docs/hu200-capacity-cygnus-protocol.md),
@@ -4286,3 +4286,23 @@ Ignored coordinator `planning/{collect_status_20261017_10b.py,status-20261017-10
 are metadata evidence for final archival, excluding private endpoint files.
 No final hands/outcomes, new cloud archive acceptance or final unpacked retention
 copy yet. Existing bounded event task remains until complete closeout.
+
+PR301 October17,09:21UTC: [terminal storage-guard assessment/source receipts](docs/reports/hu200-capacity-cygnus-artifacts/training-failure-20261017.json)
+records the new `training_failed` event and byte-identical failure/stop/header/plan
+copies under `failure-20261017/`. All15 recorded owned PIDs are absent. Last
+free62.767GB minus remaining reserved12.898GB leaves49.869GB below50GB floor;
+logical owned+reservations+growth+floor still248.518GB within259GB. No heat stop.
+Owned growth30.299GB versus free-space drop121.401GB since05:53 is disclosed
+without attributing other roots. PR292 and unrelated files/processes untouched.
+All3 verified10B checkpoints remain;1421/1422 native20B saves and byte-readback
+receipts exist but final audits interrupted,1302 never started20B. Preserve both
+20B exports/stop files and all old partial/scratch/model/source/dependency bytes.
+Closed recovery resource/utilization/controller/observer trace sizes/hashes are
+pinned in the assessment; no new archive uploaded/accepted or HDD copy performed.
+Current free58.237GB does not admit declared41GB archive staging above50GB floor.
+[ETA withdrawn](docs/reports/hu200-capacity-cygnus-artifacts/eta-after-failure-20261017.json);
+no reliable completion ETA/retry/evaluation admission. Original limits unchanged.
+Ignored `planning/{collect_training_failure_20261017.py,training-failure-20261017-collected.json,publish_failure_20261017.py}`
+require later archival along with current coordinator metadata; private endpoint
+files excluded. Event task retained until full closeout, terminal observer exited,
+no new task. No final hands/outcomes; owner decides any recovery and merge.
