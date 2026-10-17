@@ -22,7 +22,7 @@ from src.policies.hu100_bundle import RELEASES, verify_model
 ROOTS={'v0.5.0':20261015530500,'v0.5.1':20261015530501,'v0.5.2':20261015530502,'v0.5.3':20261017530503}
 
 
-def check(release, model, cache, out, card_tables=None, *, build_cache=False):
+def check(release, model, cache, out, card_tables=None, *, build_cache=False, audit_existing=False):
     pin=RELEASES[release]['model'];verify_model(model,release)
     spec=dict(name='released-on',path=str(model.resolve()),sha256=pin['sha256'],bytes=pin['bytes'],
         format=pin['format'],abstraction=pin['schema'],entries=pin['entries'],iteration=pin['iteration'],
@@ -32,9 +32,19 @@ def check(release, model, cache, out, card_tables=None, *, build_cache=False):
         spec['card_buckets'] = str(card_tables.resolve())
     specs=[spec,dict(spec,name='released-control-on')]
     source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-    registry,done=direct.execute(specs,64,ROOTS[release],'compatibility',out/'play',source,
-        opponent='pot_pressure',cache=cache,cache_read_only=not build_cache)
-    del registry;gc.collect()
+    if audit_existing:
+        inputs = json.loads((out/'play/inputs.json').read_text())
+        expected_plan = json.loads(canonical(asdict(direct.make_plan(
+            specs, 64, ROOTS[release], 'compatibility', opponent='pot_pressure'))))
+        if (inputs['source'] != source or inputs['models'] != specs or inputs['plan'] != expected_plan):
+            raise ValueError('Retained trace source, model or plan differs')
+        if (out/'trace-hashes.json').exists():
+            raise ValueError('Preserve finalized trace receipt')
+        done = json.loads((out/'play/complete.json').read_text())
+    else:
+        registry,done=direct.execute(specs,64,ROOTS[release],'compatibility',out/'play',source,
+            opponent='pot_pressure',cache=cache,cache_read_only=not build_cache)
+        del registry;gc.collect()
     audit=direct.audit(out/'play',out/'replay.json')
     digests={};translated=0
     for name in ('hands','decisions'):
@@ -62,7 +72,8 @@ def main():
     parser.add_argument('--cache',type=Path,required=True);parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--card-tables',type=Path)
     parser.add_argument('--build-cache',action='store_true',help='Permit initial verified cache construction')
-    args=parser.parse_args();print(json.dumps(check(args.release,args.model,args.cache,args.out,args.card_tables,build_cache=args.build_cache),sort_keys=True))
+    parser.add_argument('--audit-existing',action='store_true',help='Audit and hash completed original hands without replaying the primary match')
+    args=parser.parse_args();print(json.dumps(check(args.release,args.model,args.cache,args.out,args.card_tables,build_cache=args.build_cache,audit_existing=args.audit_existing),sort_keys=True))
 
 
 if __name__=='__main__':main()
