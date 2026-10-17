@@ -1,0 +1,452 @@
+run,position,pot,spot,size,folder,hands,chips,mean_chips_per_hand,half_width_95,adds_bb_per_100,adds_half_width_95
+confirmation-a,BB (OOP),3bet+,cbet,<0.4,slumbot,4,3500,875.0,245.0,0.35,0.35329509215698746
+confirmation-a,BB (OOP),3bet+,cbet,~pot,slumbot,7,10900,1557.142857142857,702.608473238593,1.09,0.9268200467425725
+confirmation-a,BB (OOP),3bet+,cbet,~½,player,3,-5400,-1800.0,0.0,-0.54,0.611006408990268
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,6,-1800,-300.0,0.0,-0.18,0.1439939812723583
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,<0.4,player,2,-600,-300.0,0.0,-0.06,0.08315159915987355
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,2,1200,600.0,0.0,0.12,0.1663031983197471
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,~pot,player,12,-7200,-600.0,0.0,-0.72,0.40715420777746003
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,12,7800,650.0,66.07158652139773,0.78,0.4475687978835029
+confirmation-a,BB (OOP),3bet+,non-aggressor bet,~½,player,15,-9000,-600.0,0.0,-0.9,0.455143873950424
+confirmation-a,BB (OOP),3bet+,raise,1.2–2.5×,player,4,-2500,-625.0,147.0,-0.25,0.2502005796016534
+confirmation-a,BB (OOP),3bet+,raise,<0.4,slumbot,4,4800,1200.0,0.0,0.48,0.4703294276494416
+confirmation-a,BB (OOP),3bet+,raise,>2.5×,player,1,-400,-400.0,,-0.04,0.0784
+confirmation-a,BB (OOP),3bet+,raise,all-in,player,3,-10600,-3533.3333333333335,1441.780997393309,-1.06,1.250302316806756
+confirmation-a,BB (OOP),3bet+,raise,~pot,player,3,-5700,-1900.0,0.0,-0.57,0.6449512094897274
+confirmation-a,BB (OOP),3bet+,raise,~pot,slumbot,3,7200,2400.0,2959.5350986261337,0.72,1.0905407554832314
+confirmation-a,BB (OOP),3bet+,raise,~½,player,10,-7300,-730.0,362.6441414573429,-0.73,0.5682483011405972
+confirmation-a,BB (OOP),3bet+,raise,~⅔–¾,player,14,-9800,-700.0,0.0,-0.98,0.5130215705496065
+confirmation-a,BB (OOP),limped,limped bet,~pot,slumbot,95,9500,100.0,0.0,0.95,0.1901370842604911
+confirmation-a,BB (OOP),limped,limped bet,~½,slumbot,136,13600,100.0,0.0,1.36,0.22702504641816532
+confirmation-a,BB (OOP),limped,raise,<0.4,slumbot,1,200,200.0,,0.02,0.0392
+confirmation-a,BB (OOP),limped,raise,~pot,slumbot,2,600,300.0,196.0,0.06,0.0876503581426126
+confirmation-a,BB (OOP),single-raised,cbet,<0.4,slumbot,194,42700,220.10309278350516,5.65423480400534,4.27,0.6050219948873179
+confirmation-a,BB (OOP),single-raised,cbet,~pot,slumbot,180,42400,235.55555555555554,7.01255099371189,4.24,0.6266253993600263
+confirmation-a,BB (OOP),single-raised,cbet,~½,player,768,-153600,-200.0,0.0,-15.36,1.04384566207875
+confirmation-a,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,7,2100,300.0,0.0,0.21,0.15552349436573876
+confirmation-a,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,11,3300,300.0,0.0,0.33,0.19491999475794072
+confirmation-a,BB (OOP),single-raised,raise,1.2–2.5×,player,1,-1800,-1800.0,,-0.18,0.3528
+confirmation-a,BB (OOP),single-raised,raise,<0.4,slumbot,7,4000,571.4285714285714,55.99999999999999,0.4,0.2984502666377861
+confirmation-a,BB (OOP),single-raised,raise,~pot,player,8,-3600,-450.0,222.2431101294256,-0.36,0.2997542962624769
+confirmation-a,BB (OOP),single-raised,raise,~pot,slumbot,3,2100,700.0,196.0,0.21,0.2424157896786192
+confirmation-a,BB (OOP),single-raised,raise,~½,player,32,-9900,-309.375,18.375,-0.99,0.3473412578127423
+confirmation-a,BTN (IP),3bet+,cbet,<0.4,slumbot,58,22500,387.9310344827586,35.45098395807893,2.25,0.6123345861247236
+confirmation-a,BTN (IP),3bet+,cbet,all-in,player,1,-8100,-8100.0,,-0.81,1.5876000000000001
+confirmation-a,BTN (IP),3bet+,cbet,~pot,player,16,-11100,-693.75,70.37089242009085,-1.11,0.5543190087128007
+confirmation-a,BTN (IP),3bet+,cbet,~pot,slumbot,46,28800,626.0869565217391,188.0197713128512,2.88,1.192233637086515
+confirmation-a,BTN (IP),3bet+,cbet,~½,player,69,-48000,-695.6521739130435,33.23028364853617,-4.8,1.1514570677788614
+confirmation-a,BTN (IP),3bet+,non-aggressor bet,<0.4,slumbot,1,1800,1800.0,,0.18,0.3528
+confirmation-a,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,1,1800,1800.0,,0.18,0.3528
+confirmation-a,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,1,-500,-500.0,,-0.05,0.098
+confirmation-a,BTN (IP),3bet+,raise,1.2–2.5×,player,1,-1900,-1900.0,,-0.19,0.3724
+confirmation-a,BTN (IP),3bet+,raise,<0.4,slumbot,7,12200,1742.857142857143,671.9999999999999,1.22,1.0030094810408852
+confirmation-a,BTN (IP),3bet+,raise,~pot,slumbot,2,2200,1100.0,1372.0,0.22,0.3613984885728692
+confirmation-a,BTN (IP),3bet+,raise,~½,player,3,-5400,-1800.0,0.0,-0.54,0.611006408990268
+confirmation-a,BTN (IP),3bet+,raise,~⅔–¾,player,1,-700,-700.0,,-0.07,0.1372
+confirmation-a,BTN (IP),limped,limped bet,~½,player,7,-700,-100.0,0.0,-0.07,0.051841164788579586
+confirmation-a,BTN (IP),limped,raise,~pot,player,4,-2400,-600.0,784.0,-0.24,0.35926110176015963
+confirmation-a,BTN (IP),limped,raise,~½,player,11,-2200,-200.0,0.0,-0.22,0.1299466631719605
+confirmation-a,BTN (IP),single-raised,cbet,~½,player,117,-35100,-300.0,0.0,-3.51,0.6323192019394271
+confirmation-a,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,65,13000,200.0,0.0,1.3,0.315027449326853
+confirmation-a,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,44,8800,200.0,0.0,0.88,0.2594636749833464
+confirmation-a,BTN (IP),single-raised,non-aggressor bet,~½,player,68,-15200,-223.52941176470588,10.157139576545202,-1.52,0.36653811773835404
+confirmation-a,BTN (IP),single-raised,raise,<0.4,slumbot,29,13000,448.2758620689655,57.23489784659451,1.3,0.4998480513190391
+confirmation-a,BTN (IP),single-raised,raise,~pot,player,15,-7000,-466.6666666666667,100.60969690398193,-0.7,0.3828518501377725
+confirmation-a,BTN (IP),single-raised,raise,~pot,slumbot,16,8200,512.5,171.5,0.82,0.48145353936496993
+confirmation-a,BTN (IP),single-raised,raise,~½,player,30,-11400,-380.0,62.61853862324116,-1.14,0.44727203231488677
+confirmation-a,BTN (IP),single-raised,raise,~⅔–¾,player,7,-2800,-400.0,0.0,-0.28,0.20736465915431834
+confirmation-b,BB (OOP),3bet+,cbet,<0.4,slumbot,5,8700,1740.0,869.0561316738981,0.87,0.8557894524091106
+confirmation-b,BB (OOP),3bet+,cbet,~pot,player,4,-7200,-1800.0,0.0,-0.72,0.7054941414741625
+confirmation-b,BB (OOP),3bet+,cbet,~pot,slumbot,2,2000,1000.0,980.0,0.2,0.30989391253088916
+confirmation-b,BB (OOP),3bet+,cbet,~½,player,1,-1800,-1800.0,,-0.18,0.3528
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,6,-1800,-300.0,0.0,-0.18,0.1439939812723583
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,<0.4,player,4,-1200,-300.0,0.0,-0.12,0.1175823569123604
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,2,1200,600.0,0.0,0.12,0.1663031983197471
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,~pot,player,12,-7200,-600.0,0.0,-0.72,0.40715420777746003
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,19,13200,694.7368421052631,64.42208461505714,1.32,0.6048602030242362
+confirmation-b,BB (OOP),3bet+,non-aggressor bet,~½,player,22,-13200,-600.0,0.0,-1.32,0.551013358447977
+confirmation-b,BB (OOP),3bet+,raise,1.2–2.5×,player,5,-2600,-520.0,144.02999687565085,-0.26,0.23678470703098284
+confirmation-b,BB (OOP),3bet+,raise,<0.4,slumbot,2,3900,1950.0,1469.9999999999998,0.39,0.5790913433495568
+confirmation-b,BB (OOP),3bet+,raise,>2.5×,player,1,-400,-400.0,,-0.04,0.0784
+confirmation-b,BB (OOP),3bet+,raise,~pot,player,5,-7000,-1400.0,619.8064213930023,-0.7,0.6731759637626842
+confirmation-b,BB (OOP),3bet+,raise,~pot,slumbot,2,4500,2250.0,882.0,0.45,0.6359898866441127
+confirmation-b,BB (OOP),3bet+,raise,~½,player,9,-4100,-455.55555555555554,108.88888888888887,-0.41,0.2832541014576828
+confirmation-b,BB (OOP),3bet+,raise,~⅔–¾,player,21,-15100,-719.047619047619,25.730224337235082,-1.51,0.6473429246313016
+confirmation-b,BB (OOP),limped,limped bet,~pot,slumbot,100,10000,100.0,0.0,1.0,0.19502728928115787
+confirmation-b,BB (OOP),limped,limped bet,~½,slumbot,123,12300,100.0,0.0,1.23,0.21604432844021876
+confirmation-b,BB (OOP),limped,raise,<0.4,slumbot,7,2000,285.7142857142857,116.57329597010343,0.2,0.16627362476300675
+confirmation-b,BB (OOP),limped,raise,~pot,slumbot,1,900,900.0,,0.09,0.1764
+confirmation-b,BB (OOP),single-raised,cbet,<0.4,slumbot,170,36600,215.2941176470588,5.426648821705986,3.66,0.553221611760759
+confirmation-b,BB (OOP),single-raised,cbet,~pot,slumbot,217,51800,238.70967741935485,6.4958341106554816,5.18,0.6960880684769045
+confirmation-b,BB (OOP),single-raised,cbet,~½,player,753,-150600,-200.0,0.0,-15.06,1.0344409387826754
+confirmation-b,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,3,900,300.0,0.0,0.09,0.10183440149837801
+confirmation-b,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,18,5400,300.0,0.0,0.54,0.24925511379944748
+confirmation-b,BB (OOP),single-raised,raise,<0.4,slumbot,5,3600,720.0,534.6167225218455,0.36,0.39585750363018
+confirmation-b,BB (OOP),single-raised,raise,~pot,player,10,-3600,-360.0,78.39999999999999,-0.36,0.23510589176376293
+confirmation-b,BB (OOP),single-raised,raise,~pot,slumbot,4,2200,550.0,98.0,0.22,0.21822467517878377
+confirmation-b,BB (OOP),single-raised,raise,~½,player,46,-14400,-313.04347826086956,17.875350803595627,-1.44,0.4230935908787372
+confirmation-b,BTN (IP),3bet+,cbet,<0.4,slumbot,55,21300,387.27272727272725,36.34210271506131,2.13,0.5953224885577045
+confirmation-b,BTN (IP),3bet+,cbet,~pot,player,24,-16800,-700.0,57.79724681271968,-1.68,0.6849631408086326
+confirmation-b,BTN (IP),3bet+,cbet,~pot,slumbot,50,24900,498.0,108.36976700168732,2.49,0.8728050116966815
+confirmation-b,BTN (IP),3bet+,cbet,~½,player,52,-41700,-801.9230769230769,111.54780581860254,-4.17,1.2681108668776042
+confirmation-b,BTN (IP),3bet+,non-aggressor bet,<0.4,slumbot,1,1800,1800.0,,0.18,0.3528
+confirmation-b,BTN (IP),3bet+,non-aggressor bet,~pot,player,1,-900,-900.0,,-0.09,0.1764
+confirmation-b,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,2,3600,1800.0,0.0,0.36,0.49890959495924136
+confirmation-b,BTN (IP),3bet+,raise,<0.4,slumbot,6,8800,1466.6666666666667,460.1248139846888,0.88,0.747726805747663
+confirmation-b,BTN (IP),3bet+,raise,all-in,player,1,-8100,-8100.0,,-0.81,1.5876000000000001
+confirmation-b,BTN (IP),3bet+,raise,~pot,player,1,-1800,-1800.0,,-0.18,0.3528
+confirmation-b,BTN (IP),3bet+,raise,~pot,slumbot,2,3600,1800.0,0.0,0.36,0.49890959495924136
+confirmation-b,BTN (IP),3bet+,raise,~½,player,1,-2700,-2700.0,,-0.27,0.5292
+confirmation-b,BTN (IP),limped,limped bet,~½,player,8,-800,-100.0,0.0,-0.08,0.055417763297059226
+confirmation-b,BTN (IP),limped,raise,~pot,player,5,-1000,-200.0,0.0,-0.1,0.08763633043801677
+confirmation-b,BTN (IP),limped,raise,~½,player,10,-2000,-200.0,0.0,-0.2,0.12390548356261596
+confirmation-b,BTN (IP),single-raised,cbet,~½,player,121,-36300,-300.0,0.0,-3.63,0.6429070967484376
+confirmation-b,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,73,14600,200.0,0.0,1.46,0.3337169178242605
+confirmation-b,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,51,10200,200.0,0.0,1.02,0.27924318722533087
+confirmation-b,BTN (IP),single-raised,non-aggressor bet,~½,player,66,-15400,-233.33333333333334,11.460224785611846,-1.54,0.3778611438721966
+confirmation-b,BTN (IP),single-raised,raise,<0.4,slumbot,31,13300,429.03225806451616,35.42902506219217,1.33,0.4798162583116312
+confirmation-b,BTN (IP),single-raised,raise,~pot,player,13,-6100,-469.2307692307692,141.03170150147932,-0.61,0.3753103513760112
+confirmation-b,BTN (IP),single-raised,raise,~pot,slumbot,13,7500,576.9230769230769,169.2380418017752,0.75,0.45903030497134745
+confirmation-b,BTN (IP),single-raised,raise,~½,player,22,-8100,-368.1818181818182,76.71283793559088,-0.81,0.37618764511668085
+confirmation-b,BTN (IP),single-raised,raise,~⅔–¾,player,4,-1600,-400.0,0.0,-0.16,0.1567764758831472
+confirmation-c,BB (OOP),3bet+,cbet,<0.4,slumbot,2,1500,750.0,490.0,0.15,0.21912589535653149
+confirmation-c,BB (OOP),3bet+,cbet,~pot,player,3,-5400,-1800.0,0.0,-0.54,0.611006408990268
+confirmation-c,BB (OOP),3bet+,cbet,~pot,slumbot,3,3800,1266.6666666666667,770.2686400067043,0.38,0.4695470314435751
+confirmation-c,BB (OOP),3bet+,cbet,~½,player,3,-5400,-1800.0,0.0,-0.54,0.611006408990268
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,6,-1800,-300.0,0.0,-0.18,0.1439939812723583
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,<0.4,player,3,-900,-300.0,0.0,-0.09,0.10183440149837801
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,1,600,600.0,,0.06,0.1176
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,~pot,player,10,-6000,-600.0,0.0,-0.6,0.3717164506878478
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,12,8400,700.0,83.5746808113993,0.84,0.48462185520078827
+confirmation-c,BB (OOP),3bet+,non-aggressor bet,~½,player,21,-12600,-600.0,0.0,-1.26,0.5383716671493763
+confirmation-c,BB (OOP),3bet+,raise,1.2–2.5×,player,12,-6400,-533.3333333333334,84.72748948686888,-0.64,0.3747789401625963
+confirmation-c,BB (OOP),3bet+,raise,<0.4,slumbot,2,2400,1200.0,0.0,0.24,0.3326063966394942
+confirmation-c,BB (OOP),3bet+,raise,all-in,player,2,-8500,-4250.0,2253.9999999999995,-0.85,1.2203522812569478
+confirmation-c,BB (OOP),3bet+,raise,~pot,player,2,-3800,-1900.0,0.0,-0.38,0.5266267946791993
+confirmation-c,BB (OOP),3bet+,raise,~pot,slumbot,2,3000,1500.0,588.0,0.3,0.4239932577627418
+confirmation-c,BB (OOP),3bet+,raise,~½,player,7,-2800,-400.0,0.0,-0.28,0.20736465915431834
+confirmation-c,BB (OOP),3bet+,raise,~⅔–¾,player,13,-9100,-700.0,0.0,-0.91,0.4943847072148094
+confirmation-c,BB (OOP),limped,limped bet,~pot,slumbot,97,9700,100.0,0.0,0.97,0.19210870472584823
+confirmation-c,BB (OOP),limped,limped bet,~½,slumbot,128,12800,100.0,0.0,1.28,0.22033594134572068
+confirmation-c,BB (OOP),limped,raise,<0.4,slumbot,2,400,200.0,0.0,0.04,0.0554343994399157
+confirmation-c,BB (OOP),limped,raise,~pot,slumbot,2,600,300.0,196.0,0.06,0.0876503581426126
+confirmation-c,BB (OOP),single-raised,cbet,<0.4,slumbot,165,35700,216.36363636363637,5.662022989515644,3.57,0.548216356316859
+confirmation-c,BB (OOP),single-raised,cbet,~pot,slumbot,184,43000,233.69565217391303,6.84838967085007,4.3,0.62830543398242
+confirmation-c,BB (OOP),single-raised,cbet,~½,player,812,-162400,-200.0,0.0,-16.24,1.0707702360795464
+confirmation-c,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,2,600,300.0,0.0,0.06,0.08315159915987355
+confirmation-c,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,14,4200,300.0,0.0,0.42,0.21986638737840278
+confirmation-c,BB (OOP),single-raised,raise,<0.4,slumbot,6,3600,600.0,0.0,0.36,0.2879879625447166
+confirmation-c,BB (OOP),single-raised,raise,~pot,player,12,-3600,-300.0,0.0,-0.36,0.20357710388873002
+confirmation-c,BB (OOP),single-raised,raise,~pot,slumbot,9,7250,805.5555555555555,309.2329418831037,0.725,0.5413293818461778
+confirmation-c,BB (OOP),single-raised,raise,~½,player,42,-13200,-314.2857142857143,19.55604828154819,-1.32,0.40657630285716906
+confirmation-c,BTN (IP),3bet+,cbet,<0.4,slumbot,40,14100,352.5,35.775937336535186,1.41,0.4584333186132542
+confirmation-c,BTN (IP),3bet+,cbet,~pot,player,21,-15300,-728.5714285714286,65.0661202162846,-1.53,0.667199367022733
+confirmation-c,BTN (IP),3bet+,cbet,~pot,slumbot,45,21000,466.6666666666667,44.04772434759848,2.1,0.6428374432139433
+confirmation-c,BTN (IP),3bet+,cbet,~½,player,67,-48300,-720.8955223880597,35.50115096672116,-4.83,1.176658294599679
+confirmation-c,BTN (IP),3bet+,non-aggressor bet,<0.4,player,1,-500,-500.0,,-0.05,0.098
+confirmation-c,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,2,3600,1800.0,0.0,0.36,0.49890959495924136
+confirmation-c,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,1,-500,-500.0,,-0.05,0.098
+confirmation-c,BTN (IP),3bet+,raise,<0.4,slumbot,8,11100,1387.5,604.6091712834002,1.11,0.8921714820926221
+confirmation-c,BTN (IP),3bet+,raise,>2.5×,player,1,-1100,-1100.0,,-0.11,0.21559999999999999
+confirmation-c,BTN (IP),3bet+,raise,all-in,player,1,-5400,-5400.0,,-0.54,1.0584
+confirmation-c,BTN (IP),3bet+,raise,~pot,player,1,-1800,-1800.0,,-0.18,0.3528
+confirmation-c,BTN (IP),3bet+,raise,~pot,slumbot,2,800,400.0,0.0,0.08,0.1108687988798314
+confirmation-c,BTN (IP),3bet+,raise,~½,player,1,-1800,-1800.0,,-0.18,0.3528
+confirmation-c,BTN (IP),3bet+,raise,~½,slumbot,1,1800,1800.0,,0.18,0.3528
+confirmation-c,BTN (IP),limped,limped bet,~½,player,6,-600,-100.0,0.0,-0.06,0.04799799375745276
+confirmation-c,BTN (IP),limped,raise,~pot,player,9,-2100,-233.33333333333334,32.666666666666664,-0.21,0.13991846290474377
+confirmation-c,BTN (IP),limped,raise,~½,player,8,-1600,-200.0,0.0,-0.16,0.11083552659411845
+confirmation-c,BTN (IP),single-raised,cbet,~½,player,133,-39900,-300.0,0.0,-3.99,0.6736238054635011
+confirmation-c,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,70,14000,200.0,0.0,1.4,0.32683715922897333
+confirmation-c,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,50,10000,200.0,0.0,1.0,0.2765058508396429
+confirmation-c,BTN (IP),single-raised,non-aggressor bet,~½,player,61,-14300,-234.4262295081967,12.02237455422447,-1.43,0.36510217908979614
+confirmation-c,BTN (IP),single-raised,raise,<0.4,slumbot,31,15300,493.5483870967742,104.00597117253481,1.53,0.6243640147368279
+confirmation-c,BTN (IP),single-raised,raise,all-in,player,1,-8100,-8100.0,,-0.81,1.5876000000000001
+confirmation-c,BTN (IP),single-raised,raise,~pot,player,14,-6500,-464.2857142857143,115.51223711398252,-0.65,0.37425940123120616
+confirmation-c,BTN (IP),single-raised,raise,~pot,slumbot,14,7000,500.0,196.0,0.7,0.4518908077514002
+confirmation-c,BTN (IP),single-raised,raise,~½,player,29,-11700,-403.44827586206895,73.10566034389053,-1.17,0.47352945672960944
+confirmation-c,BTN (IP),single-raised,raise,~⅔–¾,player,11,-4400,-400.0,0.0,-0.44,0.259893326343921
+confirmation-pooled,BB (OOP),3bet+,cbet,<0.4,slumbot,11,13700,1245.4545454545455,476.71545647931424,0.45666666666666667,0.3171496232701756
+confirmation-pooled,BB (OOP),3bet+,cbet,~pot,player,7,-12600,-1800.0,0.0,-0.42,0.3111092375526475
+confirmation-pooled,BB (OOP),3bet+,cbet,~pot,slumbot,12,16700,1391.6666666666667,463.1037473483462,0.5566666666666666,0.36141632174081656
+confirmation-pooled,BB (OOP),3bet+,cbet,~½,player,7,-12600,-1800.0,0.0,-0.42,0.3111092375526475
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,18,-5400,-300.0,0.0,-0.18,0.08313219254525436
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,<0.4,player,9,-2700,-300.0,0.0,-0.09,0.058792159215886736
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,5,3000,600.0,0.0,0.1,0.08764802073740535
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,~pot,player,34,-20400,-600.0,0.0,-0.68,0.22844756017138437
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,43,29400,683.7209302325581,40.696372072185376,0.98,0.2983372327006479
+confirmation-pooled,BB (OOP),3bet+,non-aggressor bet,~½,player,58,-34800,-600.0,0.0,-1.16,0.29825455005283813
+confirmation-pooled,BB (OOP),3bet+,raise,1.2–2.5×,player,21,-11500,-547.6190476190476,64.3255608430877,-0.38333333333333336,0.16968837048791344
+confirmation-pooled,BB (OOP),3bet+,raise,<0.4,slumbot,8,11100,1387.5,367.49999999999994,0.37,0.2722642474252067
+confirmation-pooled,BB (OOP),3bet+,raise,>2.5×,player,2,-800,-400.0,0.0,-0.02666666666666667,0.03695749843577659
+confirmation-pooled,BB (OOP),3bet+,raise,all-in,player,5,-19100,-3820.0,1118.0593186410101,-0.6366666666666667,0.5823853363957083
+confirmation-pooled,BB (OOP),3bet+,raise,~pot,player,10,-16500,-1650.0,334.73372502134686,-0.55,0.3569013539983883
+confirmation-pooled,BB (OOP),3bet+,raise,~pot,slumbot,7,14700,2100.0,1182.9792897595457,0.49,0.4439030330204531
+confirmation-pooled,BB (OOP),3bet+,raise,~½,player,26,-14200,-546.1538461538462,151.13064374669335,-0.47333333333333333,0.22264834878366466
+confirmation-pooled,BB (OOP),3bet+,raise,~⅔–¾,player,48,-34000,-708.3333333333334,11.425884098097962,-1.1333333333333333,0.3208809320255772
+confirmation-pooled,BB (OOP),limped,limped bet,~pot,slumbot,292,29200,100.0,0.0,0.9733333333333334,0.1110988493514596
+confirmation-pooled,BB (OOP),limped,limped bet,~½,slumbot,387,38700,100.0,0.0,1.29,0.12769624110494826
+confirmation-pooled,BB (OOP),limped,raise,<0.4,slumbot,10,2600,260.0,83.66749003578921,0.08666666666666667,0.05987195502808596
+confirmation-pooled,BB (OOP),limped,raise,~pot,slumbot,5,2100,420.0,251.00247010736766,0.07,0.07186349881448745
+confirmation-pooled,BB (OOP),single-raised,cbet,<0.4,slumbot,529,115000,217.3913043478261,3.233092054028442,3.8333333333333335,0.32875075492677597
+confirmation-pooled,BB (OOP),single-raised,cbet,~pot,slumbot,581,137200,236.14457831325302,3.9098720405934415,4.573333333333333,0.37595710283394157
+confirmation-pooled,BB (OOP),single-raised,cbet,~½,player,2333,-466600,-200.0,0.0,-15.553333333333333,0.6061077368670866
+confirmation-pooled,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,12,3600,300.0,0.0,0.12,0.06788394242863813
+confirmation-pooled,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,43,12900,300.0,0.0,0.43,0.12843579250774775
+confirmation-pooled,BB (OOP),single-raised,raise,1.2–2.5×,player,1,-1800,-1800.0,,-0.06,0.1176
+confirmation-pooled,BB (OOP),single-raised,raise,<0.4,slumbot,18,11200,622.2222222222222,141.33366218566584,0.37333333333333335,0.19110534799042583
+confirmation-pooled,BB (OOP),single-raised,raise,~pot,player,30,-10800,-360.0,65.5133153088639,-0.36,0.1439747729494356
+confirmation-pooled,BB (OOP),single-raised,raise,~pot,slumbot,16,11550,721.875,181.8000704757839,0.385,0.21067745994229564
+confirmation-pooled,BB (OOP),single-raised,raise,~½,player,120,-37500,-312.5,10.771012296082153,-1.25,0.22729548780084882
+confirmation-pooled,BTN (IP),3bet+,cbet,<0.4,slumbot,153,57900,378.4313725490196,20.957202928837077,1.93,0.3231132529178281
+confirmation-pooled,BTN (IP),3bet+,cbet,all-in,player,1,-8100,-8100.0,,-0.27,0.5292
+confirmation-pooled,BTN (IP),3bet+,cbet,~pot,player,61,-43200,-708.1967213114754,36.45150883901363,-1.44,0.36841774250945963
+confirmation-pooled,BTN (IP),3bet+,cbet,~pot,slumbot,141,74700,529.7872340425532,74.07432920499966,2.49,0.5371109315586121
+confirmation-pooled,BTN (IP),3bet+,cbet,~½,player,188,-138000,-734.0425531914893,35.82034317746847,-4.6,0.6926841597569361
+confirmation-pooled,BTN (IP),3bet+,non-aggressor bet,<0.4,player,1,-500,-500.0,,-0.016666666666666666,0.03266666666666666
+confirmation-pooled,BTN (IP),3bet+,non-aggressor bet,<0.4,slumbot,2,3600,1800.0,0.0,0.12,0.16630874296099463
+confirmation-pooled,BTN (IP),3bet+,non-aggressor bet,~pot,player,1,-900,-900.0,,-0.03,0.0588
+confirmation-pooled,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,5,9000,1800.0,0.0,0.3,0.26294406221221606
+confirmation-pooled,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,2,-1000,-500.0,0.0,-0.03333333333333333,0.04619687304472073
+confirmation-pooled,BTN (IP),3bet+,raise,1.2–2.5×,player,1,-1900,-1900.0,,-0.06333333333333334,0.12413333333333335
+confirmation-pooled,BTN (IP),3bet+,raise,<0.4,slumbot,21,32100,1528.5714285714287,337.08713018051185,1.07,0.5121804222345736
+confirmation-pooled,BTN (IP),3bet+,raise,>2.5×,player,1,-1100,-1100.0,,-0.03666666666666667,0.07186666666666666
+confirmation-pooled,BTN (IP),3bet+,raise,all-in,player,2,-13500,-6750.0,2645.9999999999995,-0.45,0.636009459678937
+confirmation-pooled,BTN (IP),3bet+,raise,~pot,player,2,-3600,-1800.0,0.0,-0.12,0.16630874296099463
+confirmation-pooled,BTN (IP),3bet+,raise,~pot,slumbot,6,6600,1100.0,613.5770530259423,0.22,0.20864655919733932
+confirmation-pooled,BTN (IP),3bet+,raise,~½,player,5,-9900,-1980.0,352.8,-0.33,0.2939811827705884
+confirmation-pooled,BTN (IP),3bet+,raise,~½,slumbot,1,1800,1800.0,,0.06,0.1176
+confirmation-pooled,BTN (IP),3bet+,raise,~⅔–¾,player,1,-700,-700.0,,-0.023333333333333334,0.045733333333333334
+confirmation-pooled,BTN (IP),limped,limped bet,~½,player,21,-2100,-100.0,0.0,-0.07,0.02992951271222169
+confirmation-pooled,BTN (IP),limped,raise,~pot,player,18,-5500,-305.55555555555554,173.19838051305697,-0.18333333333333332,0.13179090953299952
+confirmation-pooled,BTN (IP),limped,raise,~½,player,29,-5800,-200.0,0.0,-0.19333333333333333,0.07033330718079794
+confirmation-pooled,BTN (IP),single-raised,cbet,~½,player,371,-111300,-300.0,0.0,-3.71,0.3751873042873963
+confirmation-pooled,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,208,41600,200.0,0.0,1.3866666666666667,0.18779884651068426
+confirmation-pooled,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,145,29000,200.0,0.0,0.9666666666666667,0.15696541123188879
+confirmation-pooled,BTN (IP),single-raised,non-aggressor bet,~½,player,195,-44900,-230.25641025641025,6.464218905367812,-1.4966666666666666,0.21354263486134661
+confirmation-pooled,BTN (IP),single-raised,raise,<0.4,slumbot,91,41600,457.14285714285717,41.56296839592117,1.3866666666666667,0.3108869311144502
+confirmation-pooled,BTN (IP),single-raised,raise,all-in,player,1,-8100,-8100.0,,-0.27,0.5292
+confirmation-pooled,BTN (IP),single-raised,raise,~pot,player,42,-19600,-466.6666666666667,66.68520067571133,-0.6533333333333333,0.21793897197082943
+confirmation-pooled,BTN (IP),single-raised,raise,~pot,slumbot,43,22700,527.9069767441861,101.74336123696683,0.7566666666666667,0.2680529196692718
+confirmation-pooled,BTN (IP),single-raised,raise,~½,player,81,-31200,-385.18518518518516,40.31994131987804,-1.04,0.25073059853642665
+confirmation-pooled,BTN (IP),single-raised,raise,~⅔–¾,player,22,-8800,-400.0,0.0,-0.29333333333333333,0.12253328791287726
+2026101302,BB (OOP),3bet+,cbet,<0.4,slumbot,2,1500,750.0,490.0,0.15,0.21912589535653149
+2026101302,BB (OOP),3bet+,cbet,~pot,player,1,-1800,-1800.0,,-0.18,0.3528
+2026101302,BB (OOP),3bet+,cbet,~pot,slumbot,5,4200,840.0,170.8688385867944,0.42,0.37592186142945994
+2026101302,BB (OOP),3bet+,cbet,~½,player,1,-1800,-1800.0,,-0.18,0.3528
+2026101302,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,5,-1500,-300.0,0.0,-0.15,0.13145449565702516
+2026101302,BB (OOP),3bet+,non-aggressor bet,<0.4,player,3,-900,-300.0,0.0,-0.09,0.10183440149837801
+2026101302,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,1,900,900.0,,0.09,0.1764
+2026101302,BB (OOP),3bet+,non-aggressor bet,~pot,player,18,-10800,-600.0,0.0,-1.08,0.49851022759889496
+2026101302,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,14,10200,728.5714285714286,80.70458951776392,1.02,0.5449494076716592
+2026101302,BB (OOP),3bet+,non-aggressor bet,~½,player,15,-9000,-600.0,0.0,-0.9,0.455143873950424
+2026101302,BB (OOP),3bet+,raise,1.2–2.5×,player,11,-6200,-563.6363636363636,92.58598862277272,-0.62,0.3788700610345384
+2026101302,BB (OOP),3bet+,raise,<0.4,slumbot,1,1200,1200.0,,0.12,0.2352
+2026101302,BB (OOP),3bet+,raise,~pot,player,3,-5700,-1900.0,0.0,-0.57,0.6449512094897274
+2026101302,BB (OOP),3bet+,raise,~pot,slumbot,2,1800,900.0,588.0,0.18,0.2629510744278377
+2026101302,BB (OOP),3bet+,raise,~½,player,11,-7200,-654.5454545454545,334.67839255960484,-0.72,0.5514399151802537
+2026101302,BB (OOP),3bet+,raise,~⅔–¾,player,14,-10000,-714.2857142857143,28.0,-1.0,0.524852614575466
+2026101302,BB (OOP),limped,limped bet,~pot,slumbot,98,9800,100.0,0.0,0.98,0.19308666702312258
+2026101302,BB (OOP),limped,limped bet,~½,slumbot,141,14100,100.0,0.0,1.41,0.23110203876044003
+2026101302,BB (OOP),limped,raise,<0.4,slumbot,3,600,200.0,0.0,0.06,0.06788960099891866
+2026101302,BB (OOP),limped,raise,~pot,slumbot,1,200,200.0,,0.02,0.0392
+2026101302,BB (OOP),single-raised,cbet,<0.4,slumbot,180,38200,212.22222222222223,4.7984053722914695,3.82,0.5597127043824757
+2026101302,BB (OOP),single-raised,cbet,~pot,slumbot,221,52600,238.00904977375566,6.41434601641994,5.26,0.7002605881192567
+2026101302,BB (OOP),single-raised,cbet,~½,player,688,-137600,-200.0,0.0,-13.76,0.9922554331765924
+2026101302,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,3,900,300.0,0.0,0.09,0.10183440149837801
+2026101302,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,12,3600,300.0,0.0,0.36,0.20357710388873002
+2026101302,BB (OOP),single-raised,raise,<0.4,slumbot,14,10150,725.0,211.7249667338775,1.015,0.6032581046269331
+2026101302,BB (OOP),single-raised,raise,~pot,player,8,-2700,-337.5,73.5,-0.27,0.19495547055558596
+2026101302,BB (OOP),single-raised,raise,~pot,slumbot,3,1400,466.6666666666667,130.66666666666666,0.14,0.16161052645241283
+2026101302,BB (OOP),single-raised,raise,~½,player,55,-16800,-305.45454545454544,10.69090909090909,-1.68,0.4466175248883028
+2026101302,BTN (IP),3bet+,cbet,<0.4,slumbot,51,19200,376.47058823529414,36.23978581786277,1.92,0.5565827979888542
+2026101302,BTN (IP),3bet+,cbet,~pot,player,10,-6900,-690.0,89.81848362113448,-0.69,0.43588450414541624
+2026101302,BTN (IP),3bet+,cbet,~pot,slumbot,65,36900,567.6923076923077,135.90886565384028,3.69,1.2522225222174033
+2026101302,BTN (IP),3bet+,cbet,~½,player,57,-42000,-736.8421052631579,39.135958768095364,-4.2,1.1095539863408452
+2026101302,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,1,1800,1800.0,,0.18,0.3528
+2026101302,BTN (IP),3bet+,non-aggressor bet,~½,player,1,-900,-900.0,,-0.09,0.1764
+2026101302,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,1,-500,-500.0,,-0.05,0.098
+2026101302,BTN (IP),3bet+,raise,1.2–2.5×,player,1,-700,-700.0,,-0.07,0.1372
+2026101302,BTN (IP),3bet+,raise,<0.4,slumbot,6,8800,1466.6666666666667,460.1248139846888,0.88,0.747726805747663
+2026101302,BTN (IP),3bet+,raise,all-in,player,2,-11100,-5550.0,5193.999999999999,-1.11,1.7046957720460045
+2026101302,BTN (IP),3bet+,raise,~pot,slumbot,1,5400,5400.0,,0.54,1.0584
+2026101302,BTN (IP),3bet+,raise,~½,player,1,-3000,-3000.0,,-0.3,0.588
+2026101302,BTN (IP),limped,limped bet,~½,player,3,-300,-100.0,0.0,-0.03,0.03394480049945933
+2026101302,BTN (IP),limped,raise,~pot,player,7,-1500,-214.28571428571428,27.999999999999996,-0.15,0.1125606653780042
+2026101302,BTN (IP),limped,raise,~½,player,18,-3600,-200.0,0.0,-0.36,0.1661700758662983
+2026101302,BTN (IP),single-raised,cbet,~½,player,127,-38100,-300.0,0.0,-3.81,0.6584540463822207
+2026101302,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,57,11400,200.0,0.0,1.14,0.29512359352912765
+2026101302,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,48,9600,200.0,0.0,0.96,0.27094652488255794
+2026101302,BTN (IP),single-raised,non-aggressor bet,~½,player,82,-18700,-228.0487804878049,9.783396014778312,-1.87,0.4109213994618114
+2026101302,BTN (IP),single-raised,raise,<0.4,slumbot,31,12800,412.9032258064516,17.58238326221241,1.28,0.45310140404134086
+2026101302,BTN (IP),single-raised,raise,~pot,player,20,-10600,-530.0,161.5631797552635,-1.06,0.5609019690871949
+2026101302,BTN (IP),single-raised,raise,~pot,slumbot,18,9200,511.1111111111111,109.65482251898591,0.92,0.46597330405078874
+2026101302,BTN (IP),single-raised,raise,~½,player,37,-14700,-397.2972972972973,64.6617540725353,-1.47,0.5284415139817934
+2026101302,BTN (IP),single-raised,raise,~⅔–¾,player,9,-3600,-400.0,0.0,-0.36,0.23510589176376293
+2026101421,BB (OOP),3bet+,cbet,<0.4,slumbot,2,5500,2750.0,3429.9999999999995,0.55,0.903496221432173
+2026101421,BB (OOP),3bet+,cbet,~pot,player,2,-3600,-1800.0,0.0,-0.36,0.49890959495924136
+2026101421,BB (OOP),3bet+,cbet,~pot,slumbot,13,15300,1176.923076923077,342.48185716210884,1.53,0.9348371151699049
+2026101421,BB (OOP),3bet+,cbet,~½,player,3,-5400,-1800.0,0.0,-0.54,0.611006408990268
+2026101421,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,2,-600,-300.0,0.0,-0.06,0.08315159915987355
+2026101421,BB (OOP),3bet+,non-aggressor bet,<0.4,player,6,-1800,-300.0,0.0,-0.18,0.1439939812723583
+2026101421,BB (OOP),3bet+,non-aggressor bet,~pot,player,17,-10200,-600.0,0.0,-1.02,0.4844891256852838
+2026101421,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,24,17700,737.5,61.09000843374294,1.77,0.721749262095732
+2026101421,BB (OOP),3bet+,non-aggressor bet,~½,player,12,-7200,-600.0,0.0,-0.72,0.40715420777746003
+2026101421,BB (OOP),3bet+,raise,1.2–2.5×,player,7,-4000,-571.4285714285714,118.79393923933998,-0.4,0.3060766941377102
+2026101421,BB (OOP),3bet+,raise,<0.4,slumbot,7,15600,2228.5714285714284,950.3515139147198,1.56,1.30924663868199
+2026101421,BB (OOP),3bet+,raise,all-in,player,3,-19100,-6366.666666666667,2610.8821838179097,-1.91,2.2538017898996383
+2026101421,BB (OOP),3bet+,raise,~pot,player,4,-5100,-1275.0,1010.1608782763269,-0.51,0.6100724045700492
+2026101421,BB (OOP),3bet+,raise,~pot,slumbot,5,10500,2100.0,720.1499843782544,1.05,0.9749192327321453
+2026101421,BB (OOP),3bet+,raise,~½,player,9,-5500,-611.1111111111111,310.66746145185255,-0.55,0.44554950682982875
+2026101421,BB (OOP),3bet+,raise,~⅔–¾,player,13,-9100,-700.0,0.0,-0.91,0.4943847072148094
+2026101421,BB (OOP),limped,limped bet,~pot,slumbot,85,8500,100.0,0.0,0.85,0.17994244170909993
+2026101421,BB (OOP),limped,limped bet,~½,slumbot,129,12900,100.0,0.0,1.29,0.22118375068968543
+2026101421,BB (OOP),limped,raise,<0.4,slumbot,5,2500,500.0,231.91032749750494,0.25,0.2424012084016568
+2026101421,BB (OOP),limped,raise,~pot,slumbot,1,900,900.0,,0.09,0.1764
+2026101421,BB (OOP),single-raised,cbet,<0.4,slumbot,187,40300,215.50802139037432,5.202181917118672,4.03,0.5803873368726098
+2026101421,BB (OOP),single-raised,cbet,~pot,slumbot,216,50600,234.25925925925927,6.343707095100234,5.06,0.6813692005240201
+2026101421,BB (OOP),single-raised,cbet,~½,player,812,-162400,-200.0,0.0,-16.24,1.0707702360795464
+2026101421,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,2,600,300.0,0.0,0.06,0.08315159915987355
+2026101421,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,12,3600,300.0,0.0,0.36,0.20357710388873002
+2026101421,BB (OOP),single-raised,raise,<0.4,slumbot,8,7950,993.75,388.6773243964716,0.795,0.622811071384464
+2026101421,BB (OOP),single-raised,raise,~pot,player,13,-4200,-323.0769230769231,45.23076923076923,-0.42,0.23506764953090759
+2026101421,BB (OOP),single-raised,raise,~pot,slumbot,7,4200,600.0,165.65023392678924,0.42,0.3290534634283302
+2026101421,BB (OOP),single-raised,raise,~½,player,49,-15300,-312.2448979591837,16.792855623746664,-1.53,0.4350618895522499
+2026101421,BTN (IP),3bet+,cbet,<0.4,slumbot,54,21300,394.44444444444446,37.512063437393095,2.13,0.6011026841893937
+2026101421,BTN (IP),3bet+,cbet,all-in,player,1,-5400,-5400.0,,-0.54,1.0584
+2026101421,BTN (IP),3bet+,cbet,all-in,slumbot,1,5400,5400.0,,0.54,1.0584
+2026101421,BTN (IP),3bet+,cbet,~pot,player,17,-11100,-652.9411764705883,56.03934603917385,-1.11,0.5352782909374103
+2026101421,BTN (IP),3bet+,cbet,~pot,slumbot,56,27900,498.2142857142857,97.42444625078824,2.79,0.9074250173762105
+2026101421,BTN (IP),3bet+,cbet,~½,player,77,-52500,-681.8181818181819,30.0388613023656,-5.25,1.190578035076139
+2026101421,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,1,1800,1800.0,,0.18,0.3528
+2026101421,BTN (IP),3bet+,raise,<0.4,slumbot,11,15200,1381.8181818181818,677.3253182753907,1.52,1.144886786241911
+2026101421,BTN (IP),3bet+,raise,~pot,slumbot,3,5200,1733.3333333333333,1829.3333333333335,0.52,0.7395908751480512
+2026101421,BTN (IP),3bet+,raise,~½,player,1,-1800,-1800.0,,-0.18,0.3528
+2026101421,BTN (IP),limped,limped bet,~½,player,12,-1200,-100.0,0.0,-0.12,0.06785903462957667
+2026101421,BTN (IP),limped,raise,~pot,player,6,-1200,-200.0,0.0,-0.12,0.09599598751490553
+2026101421,BTN (IP),limped,raise,~½,player,17,-3400,-200.0,0.0,-0.34,0.16149637522842794
+2026101421,BTN (IP),single-raised,cbet,~½,player,120,-36000,-300.0,0.0,-3.6,0.640277347645683
+2026101421,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,67,13400,200.0,0.0,1.34,0.319805112271495
+2026101421,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,42,8400,200.0,0.0,0.84,0.25352365595425774
+2026101421,BTN (IP),single-raised,non-aggressor bet,~½,player,69,-16000,-231.8840579710145,11.076761216178724,-1.6,0.3838190225929538
+2026101421,BTN (IP),single-raised,raise,<0.4,slumbot,22,11900,540.9090909090909,143.983278796542,1.19,0.5852735476138945
+2026101421,BTN (IP),single-raised,raise,~pot,player,12,-5200,-433.3333333333333,126.13348709068725,-0.52,0.32782872098556326
+2026101421,BTN (IP),single-raised,raise,~pot,slumbot,13,8800,676.9230769230769,296.2145392353959,0.88,0.6045323584666443
+2026101421,BTN (IP),single-raised,raise,~½,player,37,-13800,-372.97297297297297,52.972972972972975,-1.38,0.48414642978395206
+2026101421,BTN (IP),single-raised,raise,~⅔–¾,player,7,-2800,-400.0,0.0,-0.28,0.20736465915431834
+2026101422,BB (OOP),3bet+,cbet,<0.4,slumbot,2,2000,1000.0,980.0,0.2,0.30989391253088916
+2026101422,BB (OOP),3bet+,cbet,~pot,slumbot,5,7800,1560.0,926.8126887348919,0.78,0.7994200549763746
+2026101422,BB (OOP),3bet+,cbet,~½,player,1,-1800,-1800.0,,-0.18,0.3528
+2026101422,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,12,-3600,-300.0,0.0,-0.36,0.20357710388873002
+2026101422,BB (OOP),3bet+,non-aggressor bet,<0.4,player,4,-1200,-300.0,0.0,-0.12,0.1175823569123604
+2026101422,BB (OOP),3bet+,non-aggressor bet,~pot,player,7,-4200,-600.0,0.0,-0.42,0.3110469887314775
+2026101422,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,16,11100,693.75,70.37089242009085,1.11,0.5543190087128007
+2026101422,BB (OOP),3bet+,non-aggressor bet,~½,player,16,-9600,-600.0,0.0,-0.96,0.47004703229065975
+2026101422,BB (OOP),3bet+,raise,1.2–2.5×,player,13,-7700,-592.3076923076923,78.34199037311538,-0.77,0.42961802650828107
+2026101422,BB (OOP),3bet+,raise,>2.5×,player,1,-400,-400.0,,-0.04,0.0784
+2026101422,BB (OOP),3bet+,raise,all-in,player,1,-4200,-4200.0,,-0.42,0.8231999999999999
+2026101422,BB (OOP),3bet+,raise,all-in,slumbot,1,12150,12150.0,,1.215,2.3813999999999997
+2026101422,BB (OOP),3bet+,raise,~pot,player,3,-5700,-1900.0,0.0,-0.57,0.6449512094897274
+2026101422,BB (OOP),3bet+,raise,~pot,slumbot,4,4200,1050.0,562.9671393607268,0.42,0.4554112143035252
+2026101422,BB (OOP),3bet+,raise,~½,player,13,-8500,-653.8461538461538,286.46153846153845,-0.85,0.5841873089011675
+2026101422,BB (OOP),3bet+,raise,~⅔–¾,player,11,-7700,-700.0,0.0,-0.77,0.45481332110186173
+2026101422,BB (OOP),limped,limped bet,~pot,slumbot,90,9000,100.0,0.0,0.9,0.18511255242610256
+2026101422,BB (OOP),limped,limped bet,~½,slumbot,117,11700,100.0,0.0,1.17,0.2107730673131424
+2026101422,BB (OOP),limped,raise,<0.4,slumbot,1,200,200.0,,0.02,0.0392
+2026101422,BB (OOP),limped,raise,~pot,slumbot,4,2100,525.0,292.6357234970923,0.21,0.22938666126877735
+2026101422,BB (OOP),single-raised,cbet,<0.4,slumbot,199,42600,214.07035175879398,4.843368029080877,4.26,0.5938328398869271
+2026101422,BB (OOP),single-raised,cbet,~pot,slumbot,215,50200,233.48837209302326,6.323317543680483,5.02,0.6775249946295965
+2026101422,BB (OOP),single-raised,cbet,~½,player,759,-151800,-200.0,0.0,-15.18,1.0382170479624517
+2026101422,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,1,300,300.0,,0.03,0.0588
+2026101422,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,14,4200,300.0,0.0,0.42,0.21986638737840278
+2026101422,BB (OOP),single-raised,raise,<0.4,slumbot,11,7400,672.7272727272727,260.4138092845994,0.74,0.5154172285400903
+2026101422,BB (OOP),single-raised,raise,~pot,player,13,-4200,-323.0769230769231,45.23076923076923,-0.42,0.23506764953090759
+2026101422,BB (OOP),single-raised,raise,~pot,slumbot,8,4950,618.75,215.93184688692864,0.495,0.3790674351722142
+2026101422,BB (OOP),single-raised,raise,~½,player,41,-13200,-321.9512195121951,24.211176813382608,-1.32,0.41499380911305195
+2026101422,BTN (IP),3bet+,cbet,<0.4,slumbot,50,19800,396.0,39.183996733360416,1.98,0.5808242374552576
+2026101422,BTN (IP),3bet+,cbet,all-in,player,1,-8100,-8100.0,,-0.81,1.5876000000000001
+2026101422,BTN (IP),3bet+,cbet,~pot,player,14,-12000,-857.1428571428571,161.40917903552784,-1.2,0.6648633949416927
+2026101422,BTN (IP),3bet+,cbet,~pot,slumbot,53,36600,690.566037735849,242.0890269478053,3.66,1.6066353643634892
+2026101422,BTN (IP),3bet+,cbet,~½,player,51,-36600,-717.6470588235294,40.59924829276665,-3.66,1.0227513423774293
+2026101422,BTN (IP),3bet+,non-aggressor bet,<0.4,slumbot,1,1800,1800.0,,0.18,0.3528
+2026101422,BTN (IP),3bet+,non-aggressor bet,~pot,player,1,-900,-900.0,,-0.09,0.1764
+2026101422,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,2,3600,1800.0,0.0,0.36,0.49890959495924136
+2026101422,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,1,-500,-500.0,,-0.05,0.098
+2026101422,BTN (IP),3bet+,raise,1.2–2.5×,player,2,-1400,-700.0,0.0,-0.14,0.19402039803970494
+2026101422,BTN (IP),3bet+,raise,<0.4,slumbot,11,16200,1472.7272727272727,476.5156176709191,1.62,1.0795453266571213
+2026101422,BTN (IP),3bet+,raise,all-in,player,2,-16850,-8425.0,7300.999999999999,-1.685,2.5532795786957405
+2026101422,BTN (IP),3bet+,raise,all-in,slumbot,1,5400,5400.0,,0.54,1.0584
+2026101422,BTN (IP),3bet+,raise,~pot,player,1,-600,-600.0,,-0.06,0.1176
+2026101422,BTN (IP),3bet+,raise,~pot,slumbot,1,400,400.0,,0.04,0.0784
+2026101422,BTN (IP),3bet+,raise,~½,player,1,-2700,-2700.0,,-0.27,0.5292
+2026101422,BTN (IP),3bet+,raise,~½,slumbot,1,1800,1800.0,,0.18,0.3528
+2026101422,BTN (IP),limped,limped bet,~½,player,16,-1600,-100.0,0.0,-0.16,0.07834117204844329
+2026101422,BTN (IP),limped,raise,~pot,player,4,-800,-200.0,0.0,-0.08,0.0783882379415736
+2026101422,BTN (IP),limped,raise,~½,player,9,-1800,-200.0,0.0,-0.18,0.11755294588188146
+2026101422,BTN (IP),single-raised,cbet,~½,player,129,-38700,-300.0,0.0,-3.87,0.6635512520690562
+2026101422,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,75,15000,200.0,0.0,1.5,0.33822341655768123
+2026101422,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,54,10800,200.0,0.0,1.08,0.28729554408129077
+2026101422,BTN (IP),single-raised,non-aggressor bet,~½,player,74,-17600,-237.83783783783784,11.125533687194052,-1.76,0.40782400373911604
+2026101422,BTN (IP),single-raised,raise,<0.4,slumbot,30,14100,470.0,63.14519666664255,1.41,0.5371569465831437
+2026101422,BTN (IP),single-raised,raise,~pot,player,16,-8100,-506.25,193.92179480398795,-0.81,0.4975499052505401
+2026101422,BTN (IP),single-raised,raise,~pot,slumbot,16,7400,462.5,99.41889491775025,0.74,0.3937077273326702
+2026101422,BTN (IP),single-raised,raise,~½,player,36,-13200,-366.6666666666667,52.9620409140148,-1.32,0.46971146728843033
+2026101422,BTN (IP),single-raised,raise,~⅔–¾,player,10,-4000,-400.0,0.0,-0.4,0.24781096712523193
+exploratory,BB (OOP),3bet+,cbet,<0.4,slumbot,2,1500,750.0,490.0,0.15,0.21912589535653149
+exploratory,BB (OOP),3bet+,cbet,~pot,slumbot,7,10200,1457.142857142857,706.5031257302876,1.02,0.8833410830946946
+exploratory,BB (OOP),3bet+,cbet,~½,player,2,-3600,-1800.0,0.0,-0.36,0.49890959495924136
+exploratory,BB (OOP),3bet+,non-aggressor bet,1.2–2.5×,player,5,-1500,-300.0,0.0,-0.15,0.13145449565702516
+exploratory,BB (OOP),3bet+,non-aggressor bet,<0.4,player,5,-1500,-300.0,0.0,-0.15,0.13145449565702516
+exploratory,BB (OOP),3bet+,non-aggressor bet,<0.4,slumbot,2,1200,600.0,0.0,0.12,0.1663031983197471
+exploratory,BB (OOP),3bet+,non-aggressor bet,all-in,slumbot,1,8100,8100.0,,0.81,1.5876000000000001
+exploratory,BB (OOP),3bet+,non-aggressor bet,~pot,player,21,-12600,-600.0,0.0,-1.26,0.5383716671493763
+exploratory,BB (OOP),3bet+,non-aggressor bet,~pot,slumbot,18,12600,700.0,67.22744537586347,1.26,0.5933668308926615
+exploratory,BB (OOP),3bet+,non-aggressor bet,~½,player,17,-10200,-600.0,0.0,-1.02,0.4844891256852838
+exploratory,BB (OOP),3bet+,raise,1.2–2.5×,player,7,-4300,-614.2857142857143,108.44353369380767,-0.43,0.3261164270753635
+exploratory,BB (OOP),3bet+,raise,<0.4,player,1,-900,-900.0,,-0.09,0.1764
+exploratory,BB (OOP),3bet+,raise,<0.4,slumbot,2,3000,1500.0,588.0,0.3,0.4239932577627418
+exploratory,BB (OOP),3bet+,raise,>2.5×,player,2,-800,-400.0,0.0,-0.08,0.1108687988798314
+exploratory,BB (OOP),3bet+,raise,all-in,player,2,-14000,-7000.0,7447.999999999999,-1.4,2.207703902712545
+exploratory,BB (OOP),3bet+,raise,all-in,slumbot,2,10800,5400.0,0.0,1.08,1.496728784877724
+exploratory,BB (OOP),3bet+,raise,~pot,player,1,-3000,-3000.0,,-0.3,0.588
+exploratory,BB (OOP),3bet+,raise,~pot,slumbot,4,6000,1500.0,1399.7199719943987,0.6,0.762082475438149
+exploratory,BB (OOP),3bet+,raise,~½,player,10,-6800,-680.0,365.8666666666667,-0.68,0.5458574176907782
+exploratory,BB (OOP),3bet+,raise,~⅔–¾,player,8,-5600,-700.0,0.0,-0.56,0.3879243430794146
+exploratory,BB (OOP),limped,limped bet,~pot,slumbot,94,9400,100.0,0.0,0.94,0.18914326247946062
+exploratory,BB (OOP),limped,limped bet,~½,slumbot,138,13800,100.0,0.0,1.38,0.22866507050147983
+exploratory,BB (OOP),single-raised,cbet,<0.4,slumbot,198,43600,220.2020202020202,5.606816040689047,4.36,0.6114093344081526
+exploratory,BB (OOP),single-raised,cbet,~pot,slumbot,195,45000,230.76923076923077,6.494759957957385,4.5,0.6380864168962874
+exploratory,BB (OOP),single-raised,cbet,~½,player,740,-148000,-200.0,0.0,-14.8,1.0261932083433827
+exploratory,BB (OOP),single-raised,non-aggressor bet,<0.4,slumbot,2,600,300.0,0.0,0.06,0.08315159915987355
+exploratory,BB (OOP),single-raised,non-aggressor bet,~pot,slumbot,5,1500,300.0,0.0,0.15,0.13145449565702516
+exploratory,BB (OOP),single-raised,raise,<0.4,slumbot,10,7400,740.0,268.105584508127,0.74,0.5242858776966582
+exploratory,BB (OOP),single-raised,raise,~pot,player,14,-4800,-342.85714285714283,57.06676252088763,-0.48,0.26280638549248675
+exploratory,BB (OOP),single-raised,raise,~pot,slumbot,5,2600,520.0,96.01999791710058,0.26,0.23186592454411334
+exploratory,BB (OOP),single-raised,raise,~½,player,35,-11700,-334.2857142857143,32.08342067724296,-1.17,0.4024798161103704
+exploratory,BTN (IP),3bet+,cbet,<0.4,slumbot,39,17100,438.46153846153845,47.55178461942368,1.71,0.5660836005470223
+exploratory,BTN (IP),3bet+,cbet,all-in,player,1,-8100,-8100.0,,-0.81,1.5876000000000001
+exploratory,BTN (IP),3bet+,cbet,~pot,player,28,-22200,-792.8571428571429,91.804139340228,-2.22,0.8591115603478469
+exploratory,BTN (IP),3bet+,cbet,~pot,slumbot,49,28500,581.6326530612245,146.9081345603435,2.85,1.0683662485515462
+exploratory,BTN (IP),3bet+,cbet,~½,player,44,-29100,-661.3636363636364,36.16976596575236,-2.91,0.8723056955142747
+exploratory,BTN (IP),3bet+,non-aggressor bet,1.2–2.5×,player,1,-500,-500.0,,-0.05,0.098
+exploratory,BTN (IP),3bet+,non-aggressor bet,~pot,slumbot,2,3600,1800.0,0.0,0.36,0.49890959495924136
+exploratory,BTN (IP),3bet+,non-aggressor bet,~⅔–¾,player,1,-500,-500.0,,-0.05,0.098
+exploratory,BTN (IP),3bet+,raise,1.2–2.5×,player,2,-1700,-850.0,294.0,-0.17,0.23923724881824363
+exploratory,BTN (IP),3bet+,raise,<0.4,slumbot,6,8200,1366.6666666666667,445.9927254015599,0.82,0.699984891766151
+exploratory,BTN (IP),3bet+,raise,all-in,player,1,-5400,-5400.0,,-0.54,1.0584
+exploratory,BTN (IP),3bet+,raise,~½,player,1,-2700,-2700.0,,-0.27,0.5292
+exploratory,BTN (IP),limped,limped bet,~½,player,10,-1000,-100.0,0.0,-0.1,0.06195274178130798
+exploratory,BTN (IP),limped,raise,~pot,player,5,-1000,-200.0,0.0,-0.1,0.08763633043801677
+exploratory,BTN (IP),limped,raise,~½,player,9,-1800,-200.0,0.0,-0.18,0.11755294588188146
+exploratory,BTN (IP),single-raised,cbet,~½,player,116,-34800,-300.0,0.0,-3.48,0.629643036784635
+exploratory,BTN (IP),single-raised,non-aggressor bet,<0.4,slumbot,58,11600,200.0,0.0,1.16,0.297686170336482
+exploratory,BTN (IP),single-raised,non-aggressor bet,~pot,slumbot,39,7800,200.0,0.0,0.78,0.24433830476762677
+exploratory,BTN (IP),single-raised,non-aggressor bet,~½,player,56,-13900,-248.21428571428572,13.205887116943508,-1.39,0.3703848308938902
+exploratory,BTN (IP),single-raised,raise,1.2–2.5×,player,1,-1400,-1400.0,,-0.14,0.2744
+exploratory,BTN (IP),single-raised,raise,<0.4,slumbot,27,11800,437.037037037037,59.31717967130125,1.18,0.47148714259093305
+exploratory,BTN (IP),single-raised,raise,all-in,player,2,-10800,-5400.0,0.0,-1.08,1.496728784877724
+exploratory,BTN (IP),single-raised,raise,all-in,slumbot,1,5400,5400.0,,0.54,1.0584
+exploratory,BTN (IP),single-raised,raise,~pot,player,13,-5400,-415.38461538461536,119.19354257557737,-0.54,0.328986203565155
+exploratory,BTN (IP),single-raised,raise,~pot,slumbot,15,6600,440.0,41.90656273186814,0.66,0.3392523678928595
+exploratory,BTN (IP),single-raised,raise,~½,player,35,-14400,-411.42857142857144,72.66049982827064,-1.44,0.5381982270104164
+exploratory,BTN (IP),single-raised,raise,~⅔–¾,player,10,-4000,-400.0,0.0,-0.4,0.24781096712523193

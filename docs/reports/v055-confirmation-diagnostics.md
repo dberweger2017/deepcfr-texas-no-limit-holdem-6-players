@@ -10,4 +10,6 @@ Protocol version 2 uses raw BB/100. Its qualification verdict stands; AIVAT is i
 
 ## Reproduction and receipts
 
-Pending completed runs, integrity receipts, tables, charts and research archive.
+The [public-action appendix](v055-confirmation-diagnostics/public-tables.md) and [CSV tables](v055-confirmation-diagnostics/tables/) have run on all 70,000 distinct hands (the 30,000-hand confirmation pool is also reported). They reproduce #318’s **−12.925 BB/100** from flop folds and **−32.793 BB/100** in the big blind.
+
+Card-only AIVAT is still running. Its results, six charts, comparison, integrity receipts and final research archive are pending. The corrected launcher passed a two-hand smoke check; the initial launcher failure and traceback are preserved in the research evidence and recorded in the PR.

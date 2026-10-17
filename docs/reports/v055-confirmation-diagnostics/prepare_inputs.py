@@ -43,6 +43,9 @@ def main():
         target = ROOT / 'exploratory' / part / 'journal.jsonl'
         target.parent.mkdir(parents=True, exist_ok=True)
         source.rename(target)
+    prefix_receipt = json.loads((ROOT / 'exploratory/prefix/PREFIX.json').read_text())
+    assert sha((ROOT / 'exploratory/prefix/journal.jsonl').read_bytes()) == prefix_receipt['prefix_sha256']
+    receipts['exploratory_prefix'] = prefix_receipt
     runs = {}
     for letter in 'abc':
         runs[f'confirmation-{letter}'] = [str(p.parent) for p in sorted((ROOT / 'pr318').glob(f'account-{letter}-*/journal.jsonl'))]
