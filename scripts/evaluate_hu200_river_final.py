@@ -194,6 +194,35 @@ def barrier(out,journal):
     return result
 
 
+def execute_pipeline(jobs,pool,storage,produce,ship,capacity,check_now,progress):
+    searches={};transfers={};exhausted=False
+    try:
+        while searches or transfers or not exhausted:
+            check_now()
+            slots=capacity()
+            while not exhausted and len(searches)<slots and len(transfers)<3:
+                try:job=next(jobs)
+                except StopIteration:exhausted=True;break
+                searches[pool.submit(produce,job)]=job
+            if not searches and not transfers:
+                if exhausted:break
+                raise OSError('Fresh dispatch reserve unavailable; originals retained')
+            candidates=set(transfers)
+            if len(transfers)<3:candidates.update(searches)
+            ready,_=wait(candidates,timeout=5,return_when=FIRST_COMPLETED)
+            for future in ready & set(transfers):
+                job=transfers.pop(future);receipt=future.result();progress(job,receipt)
+            for future in list(searches):
+                if not future.done():continue
+                if future.exception() is not None:future.result()
+                if len(transfers)>=3:break
+                job=searches.pop(future);summary=future.result()
+                transfers[storage.submit(ship,*job,summary)]=job
+    except BaseException:
+        for future in searches:future.cancel()
+        raise
+
+
 RUNTIME_DECLARATION_SHA=None
 
 
@@ -270,36 +299,21 @@ def main():
             raise error
         with ThreadPoolExecutor(max_workers=1) as storage,ProcessPoolExecutor(
                 max_workers=3,mp_context=context,initializer=initialize,initargs=(runtime,stop)) as pool:
-            searches={};transfers={}
+            def capacity():
+                free=shutil.disk_usage(args.out).free
+                return min(3,max(0,(free-16*GIB-256*1024**2)//(512*1024**2)))
+            def deadline_check():
+                if time.time()>=args.deadline:raise FinalStopped('Fixed final safety deadline')
+            def progress(job,receipt):
+                nonlocal done
+                panel,index=job;done+=1
+                print(json.dumps(dict(status='verified-transferred-retired',panel=panel,block=index,
+                    completed_blocks=done,total_blocks=sum(COUNTS.values()),elapsed_seconds=time.time()-started)),flush=True)
             try:
-                while searches or transfers or not exhausted:
-                    if time.time()>=args.deadline:raise FinalStopped('Fixed final safety deadline')
-                    free=shutil.disk_usage(args.out).free
-                    slots=min(3,max(0,(free-16*GIB-256*1024**2)//(512*1024**2)))
-                    while not exhausted and len(searches)<slots and len(transfers)<3:
-                        try:job=next(jobs)
-                        except StopIteration:exhausted=True;break
-                        searches[pool.submit(block,job)]=job
-                    if not searches and not transfers:
-                        if exhausted:break
-                        raise OSError('Fresh dispatch reserve unavailable; originals retained')
-                    candidates=set(transfers)
-                    if len(transfers)<3:candidates.update(searches)
-                    ready,_=wait(candidates,timeout=5,return_when=FIRST_COMPLETED)
-                    for future in ready & set(transfers):
-                        panel,index=transfers.pop(future);future.result();done+=1
-                        print(json.dumps(dict(status='verified-transferred-retired',panel=panel,block=index,
-                            completed_blocks=done,total_blocks=sum(COUNTS.values()),elapsed_seconds=time.time()-started)),flush=True)
-                    for future in list(searches):
-                        if not future.done():continue
-                        if future.exception() is not None:future.result()
-                        if len(transfers)>=3:break
-                        panel,index=searches.pop(future);summary=future.result()
-                        transfers[storage.submit(ship,panel,index,summary)]=(panel,index)
+                execute_pipeline(jobs,pool,storage,block,ship,capacity,deadline_check,progress)
             except BaseException as exc:
                 stop.set()
                 durable(args.out/'failures'/f'controller-{time.time_ns()}.json',dict(error=repr(exc),completed_blocks=done,at=time.time()))
-                for future in searches:future.cancel()
                 raise
     barrier(args.out,journal)
     from scripts.report_hu200_river_final import report

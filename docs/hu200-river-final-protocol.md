@@ -182,3 +182,9 @@ read-only copies of all352 calibration blocks, with prospective final-count
 weights for timing projections. No outcomes enter timing analysis, and no new
 research hand is played. Earlier qualification files remain preserved. This
 engineering refinement precedes final hands and changes no search or retention.
+
+The bound is at most six unretired local blocks: three search futures (including
+completed results awaiting a storage slot) and three submitted storage futures.
+There is one storage writer and at most three active searches. Completed
+storage bytes are already reflected in free-disk admission; the per-search
+reservation is conservative for completed-but-not-yet-submitted results.
