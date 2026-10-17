@@ -39,17 +39,27 @@ def test_success_seals_all_body_hashes_and_lossless_request_before_removing_scra
     assert gzip.decompress((tmp_path / "request.json.gz").read_bytes()) == original
     assert evidence.read_request(tmp_path) == request
     assert "request.json" not in kept and not (tmp_path / "request.json").exists()
-    assert (tmp_path / "profile.f64").exists() == sampled
-    assert (tmp_path / "profile.jsonl").exists() == sampled
+    assert not (tmp_path / "profile.f64").exists()
+    assert not (tmp_path / "profile.jsonl").exists()
+    assert (tmp_path / "profile.f64.gz").exists() == sampled
+    assert (tmp_path / "profile.jsonl.gz").exists()
+    if sampled:
+        assert gzip.decompress((tmp_path / "profile.f64.gz").read_bytes()) == bytes(range(128))
     assert kept["request.json.gz"] == evidence.file_pin(tmp_path / "request.json.gz")
 
 
 def test_every_failure_keeps_both_native_bodies_and_original_request(tmp_path, monkeypatch):
     request, record, files = prepared(tmp_path, status="failure")
+    (tmp_path / "profile.jsonl").write_bytes(b"{truncated")
+    files["profile.jsonl"] = evidence.file_pin(tmp_path / "profile.jsonl")
     monkeypatch.setattr(evidence, "selected_body", lambda _: False)
     kept = evidence.seal_evidence(tmp_path, request, record, files)
-    assert kept == files
-    assert all((tmp_path / name).is_file() for name in files)
+    for name,pin in files.items():
+        body = gzip.decompress((tmp_path / (name + ".gz")).read_bytes())
+        assert len(body) == pin['bytes']
+        from hashlib import sha256
+        assert sha256(body).hexdigest() == pin['sha256']
+        assert name + '.gz' in kept
     assert record["profile_retention"]["failure_kept"]
     assert record["profile_retention"]["body_retained"]
 

@@ -1,0 +1,12 @@
+{
+  "source": "98a44160",
+  "retention_parity": {"decisions":24,"status":"exact-parity","native_solves_reused":1},
+  "completed_sequential_cost": {"p95_seconds":9.883815981302174,"peak_family_rss_bytes":2978234368,"minimum_host_available_bytes":6062145536,"fallbacks":0,"missing_actual_ev":0},
+  "completed_two_search_measurement": {"decisions":24,"outputs_match":true,"peak_family_rss_bytes":4765188096,"minimum_host_available_bytes":5962514432,"decisions_per_second":0.31139633078125784,"p95_seconds":11.020975381150668},
+  "three_search_attempt": {"memory_admitted":true,"completed_decisions":0,"stop_reason":"free_disk","observed_disk_free_bytes":16832167936,"unchanged_floor_bytes":17179869184,"partial_files_retained":true},
+  "no_native_mapping_diagnosis": {"owned_policy_arrays":true,"live_mappings_after_parse":0,"native_solves":0,"originals_unchanged":true},
+  "repair": "Losslessly compress retained complete/failed native bodies as final research files, keeping original and compressed checksums; add fresh temporary-disk admission above the same floor. No parser, strategy or solver change. Reuse completed verified native outputs for parity; measure the updated I/O cost before concurrency/calibration.",
+  "previous_completed_measurements_retained":true,
+  "calibration_hands":0,
+  "final_hands":0
+}

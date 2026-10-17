@@ -145,3 +145,26 @@ receipt remains. Compare header semantics excluding only runtime RSS, keep
 compressed headers for audit, and reuse the completed hash-verified native
 work for spot 0 rather than invoking that solve again. The remaining 23 spots,
 then the single new cost gate, use the corrected evidence/checker plumbing.
+
+## Storage admission clarification before calibration
+
+The first two-search measurement completes with identical outputs and memory
+headroom. The first three-search attempt stops on the unchanged free-disk guard,
+before any decision completes; retain its partial native files and receipt.
+A no-native diagnostic confirms parsed matrices own their data and the parser's
+mapping is already released. No parser or solver change follows that diagnosis.
+
+Keep all selected and failed native bytes losslessly gzip-compressed as final
+research files, retaining their original size/SHA256 and compressed file pins;
+this changes storage representation only. A durable receipt precedes removal
+of the newly generated raw scratch. Failed/truncated bodies are compressed as
+opaque bytes, never discarded or parsed to decide retention. Headers remain
+compressed for every completed call. Existing originals are untouched.
+Revalidate from completed hash-verified native outputs where possible, then
+measure the changed I/O cost. Concurrent admission additionally reserves the
+observed full per-worker temporary body/request size, the measured retained
+fixed 24 payload and 512 MiB above the unchanged 16 GiB free-disk floor, checked
+fresh before launch. A resource-stop continuation never replays a completed
+research result; the stopped three-search attempt completed zero decisions.
+Queue calibration direct blocks first, then scripts in table order, with
+ascending block indices and no outcome-dependent scheduling.

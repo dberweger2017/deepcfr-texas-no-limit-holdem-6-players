@@ -7,6 +7,7 @@ import json
 import multiprocessing as mp
 from pathlib import Path
 import subprocess
+import shutil
 from time import monotonic
 
 import numpy as np
@@ -125,10 +126,23 @@ def run(args):
         projected_available = previous['minimum_host_available_bytes']-reserve
     current_available = psutil.virtual_memory().available
     projected_available = min(projected_available,current_available-reserve)
-    admitted = projected_rss <= capacity and projected_available >= 3_000_000_000
+    memory_admitted = projected_rss <= capacity and projected_available >= 3_000_000_000
+    receipts = [json.loads(p.read_text()) for p in args.sequential.glob('*/native/*/receipt.json')]
+    if args.sample_native_bodies:
+        scratch = max(sum(pin['bytes'] for pin in r['profile_retention']['generated_files'].values())
+            +r['profile_retention']['request_uncompressed']['bytes'] for r in receipts)
+    else:
+        scratch = max(sum(p.stat().st_size for p in Path(r['path']).iterdir() if p.is_file()) for r in receipts)
+    retained = sum(p.stat().st_size for p in args.sequential.rglob('*') if p.is_file())
+    required_disk = 16*1024**3 + retained + args.workers*scratch + 512*1024**2
+    disk_free = shutil.disk_usage(args.out).free
+    admitted = memory_admitted and disk_free >= required_disk
     put(args.out/'inputs.json',dict(plan_sha256=file_hash(args.plan),binary_sha256=file_hash(args.binary),
         evidence=input_pins,profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None,source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()))
     put(args.out/'admission.json',dict(admitted=admitted,workers=args.workers,
+        memory_admitted=memory_admitted,disk_admitted=disk_free >= required_disk,
+        disk_free_bytes=disk_free,required_disk_free_bytes=required_disk,
+        per_worker_transient_disk_bytes=scratch,retained_fixed24_bytes=retained,
         projected_family_rss_bytes=projected_rss,capacity_bytes=capacity,
         projected_host_available_bytes=projected_available,
         fresh_host_available_bytes=current_available,

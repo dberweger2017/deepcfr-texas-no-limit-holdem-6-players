@@ -47,7 +47,9 @@ class ReusedCompletedSolver:
     """
     def __init__(self, binary, original, baseline):
         self.expected_sha256 = file_hash(binary)
-        self.original = sorted((original/'native').iterdir())
+        proof = original/'reused-native-evidence.json'
+        self.original = (json.loads(proof.read_text()) if proof.exists() else
+            [json.loads(p.read_text()) for p in (original/'native').glob('*/receipt.json')])
         self.baseline = baseline
         self.records = []
         if len(self.original) != len(baseline):
@@ -55,8 +57,12 @@ class ReusedCompletedSolver:
 
     def solve(self, request, deadline, **kwargs):
         index = len(self.records)
-        source = self.original[index]
-        record = json.loads((source/'receipt.json').read_text())
+        matched = [r for r in self.original if scientific_request(read_request(r['path'])) == request]
+        if not matched:
+            raise ValueError('No completed evidence matches the current request')
+        record = matched[0]
+        self.original.remove(record)
+        source = Path(record['path'])
         baseline = Path(self.baseline[index]['path'])
         previous = json.loads((baseline/'manifest.json').read_text())
         if (record['status'] != 'completed' or record['executable_sha256'] != self.expected_sha256
@@ -98,8 +104,10 @@ def run(args):
         folder = args.out/str(index)
         old = json.loads((args.baseline/str(index)/'decision.json').read_text())
         view = SlumbotAdapter().observation(spot['decision']['public'],spot['decision']['hand_id'])
-        solver = (ReusedCompletedSolver(args.binary,args.reuse_completed_spot,old['native_records'])
-            if index == 0 and args.reuse_completed_spot else
+        reusable = (args.reuse_completed_root/str(index) if args.reuse_completed_root else
+                    args.reuse_completed_spot if index == 0 else None)
+        solver = (ReusedCompletedSolver(args.binary,reusable,old['native_records'])
+            if reusable else
             ExternalTurnSolver(args.binary,folder/'native',compact_profiles=True,
                 profile_retention=COMPACT_RETENTION_RULE if args.sample_native_bodies else None))
         policy = HU200RiverSearchPolicy(base,solver,CONFIG,ledger=folder/'ledger')
@@ -206,6 +214,7 @@ def main():
     parser.add_argument("--sample-native-bodies",action="store_true")
     parser.add_argument("--baseline-compact",action="store_true")
     parser.add_argument("--reuse-completed-spot",type=Path)
+    parser.add_argument("--reuse-completed-root",type=Path)
     args = parser.parse_args()
     if subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string'],text=True).strip() != 'Apple M4':
         raise ValueError('Scientific validation requires the authorized M4')
