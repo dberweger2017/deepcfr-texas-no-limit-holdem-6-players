@@ -1,0 +1,36 @@
+{
+  "active_inputs_retained": true,
+  "at": 1792232647.484123,
+  "disk_free_after_bytes": 31506960384,
+  "disk_free_before_bytes": 24987885568,
+  "drive_id": "15Qv-9-hp-DH3P3Yr5cGBb6TYWe5hPkEq",
+  "drive_url": "https://drive.google.com/file/d/15Qv-9-hp-DH3P3Yr5cGBb6TYWe5hPkEq/view",
+  "end_of_pr_cleanup_unchanged": true,
+  "final_research_complete": false,
+  "hardlinked_raw_evidence_retained": true,
+  "live_sqlite_copied": false,
+  "manifest_sha256": "037962620668f3266b608afe662a18bf642a2a64ab33573ae3fcfc3b0bb23b93",
+  "pr": 317,
+  "remote_verified": {
+    "at": 1792232622.1320333,
+    "bytes": 6510687952,
+    "end_of_pr_cleanup_unchanged": true,
+    "final_research_complete": false,
+    "path": "/research/PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip",
+    "pr": 317,
+    "sha256": "d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8",
+    "status": "in-progress-remote-archive-verified",
+    "uncompressed_evidence_retained": true
+  },
+  "removed_files": [
+    {
+      "bytes": 6510687952,
+      "mtime_ns": 1792184204994224707,
+      "path": "/Users/dberweger/Local/hu200-river-search/results/hu200-river-search-preservation/hu200-river-search-cost-gate-M4-20261016.zip",
+      "sha256": "d76736d9050babc6a40a7b419793641bc035d2ab7045663763b0a7c963a211e8"
+    }
+  ],
+  "restore_command": "rsync bb128-lan:/research/PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip FRESH_RESTORE_ROOT/",
+  "retired_bytes": 6510687952,
+  "status": "in-progress-verified-archive-duplicate-retired"
+}

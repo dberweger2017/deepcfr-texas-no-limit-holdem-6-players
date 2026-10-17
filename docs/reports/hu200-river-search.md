@@ -37,6 +37,22 @@ reliable until sufficient scratch headroom restores admitted concurrency;
 about2GB of additional safe headroom is recommended. Counts, roots, source,
 guards and the deadline remain fixed. No interim effect readout occurred.
 
+**Headroom restored later October17:** the owner freed disk space, restoring
+admission for all three original workers without restart. The owner additionally
+authorized verified early offload of inactive PR317 files, with the study marked
+in progress and end-of-PR cleanup unchanged. A singly-linked local duplicate of
+the already archived cost-gate ZIP was retired after matching size/SHA256 at
+both endpoints, freeing6.51GB. Free M4 disk was31.51GB afterward. The broader raw
+evidence selection encountered shared hardlinks and was retained; no raw file,
+active input, guard, source or live final journal changed. The
+[receipt](hu200-river-search-artifacts/early-offload-receipt.json) records the
+exact removed path and restoration from the existing bb128/Drive archive.
+Control files and the retained-hardlink finding remain under the cache's
+`in-progress-offload-20261017/`; its explicit in-progress marker is not a final
+closeout. The throttled October26–27 extrapolation is superseded; revised ETA
+requires sustained timing at restored concurrency. The final research remains
+in progress.
+
 Final preparation retained two plumbing failures before any final hand: the
 pipeline overlap fixture initially observed only transfer-start timing, and an
 admission helper initially imported from the owner checkout instead of the

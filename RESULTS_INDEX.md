@@ -22,6 +22,19 @@ rate the direct match alone projects to October26–27, beyond the unchanged
 October22 21:52Madrid safety cap. Restoring about2GB safe scratch headroom is
 recommended; a full completion/review ETA is pending. No effects were inspected.
 [Live resource finding](docs/reports/hu200-river-search.md).
+**Headroom restored October17:** the owner freed space and the dispatcher again
+admits three searches. The owner then explicitly authorized early offload of
+inactive PR317 files while this PR remains open, marked **in progress**, with
+end-of-PR cleanup unchanged. After matching current local/remote size and SHA256,
+the inactive M4 copy of `hu200-river-search-cost-gate-M4-20261016.zip` was removed,
+freeing **6,510,687,952 bytes**; free M4 disk was31.51GB afterward. Raw evidence,
+active inputs and the live final run stay local. The archive remains at
+`bb128:/research/PR-317-HU200-river-search/hu200-river-search-cost-gate-M4-20261016.zip`
+and on [Drive](https://drive.google.com/file/d/15Qv-9-hp-DH3P3Yr5cGBb6TYWe5hPkEq/view).
+[Exact removed path, hash and restoration command](docs/reports/hu200-river-search-artifacts/early-offload-receipt.json).
+Uncompressed control/receipts are in the cache's `in-progress-offload-20261017/`;
+`IN_PROGRESS-20261017.json` marks the continuing study. New administrative-file
+Drive coverage remains pending final closeout; this is no final-review claim.
 All 96 focused M4 checks and 448 existing paired-rotation prefix audits pass.
 The 352-block copied-evidence qualification verifies every file before retiring
 only those new copies; calibration originals remain unchanged. Including
