@@ -27,6 +27,10 @@ engine replay. Peak RSS is sampled, not a guaranteed maximum.
 The process used CPU 0, nice 19, idle I/O priority, one thread, and a 16 GiB
 address-space ceiling. It completed without reaching the [declared guards](../nplayer-search-cost-pilot.md).
 Existing bb128/M4 jobs, affinity, locks and protocols were unchanged.
+Across 35 guard samples, CPU package temperature peaked at 61 C and Thermistor
+15 at 65 C; available RAM stayed above 128.17 GB and free disk above 87.91 GB.
+Swap use remained unchanged at 135,061,504 bytes. This short observation does
+not establish the safety or throughput of a sustained parallel search workload.
 
 ## Fixed search inputs
 
