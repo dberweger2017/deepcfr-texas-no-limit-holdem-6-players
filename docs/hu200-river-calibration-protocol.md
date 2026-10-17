@@ -168,3 +168,26 @@ fresh before launch. A resource-stop continuation never replays a completed
 research result; the stopped three-search attempt completed zero decisions.
 Queue calibration direct blocks first, then scripts in table order, with
 ascending block indices and no outcome-dependent scheduling.
+
+## Execution declaration, committed before calibration
+
+The [execution declaration](reports/hu200-river-search-artifacts/calibration-execution-declaration.json)
+pins source `5b6b2f6c`, unchanged solver/configuration, fresh checked roots and
+all three qualifying gate hashes. The fixed 24 pass exact parity. Sequential
+p50/p95/max are 4.640/9.834/11.511 seconds; peak family RSS is 2.898 GB and minimum
+host available is 6.222 GB. All 24 complete, with zero fallbacks or missing EVs.
+The original 3-second failure remains unchanged.
+
+Three workers are selected prospectively from measured throughput: 0.4194
+versus 0.3187 decisions/s with two. Three-worker peak family RSS is 6.279 GB;
+minimum host available is 6.074 GB. Concurrent p95 is 11.510 seconds, so this is
+an offline throughput choice; the sequential interactive cost gate remains
+9.834 seconds. Full output parity holds at both concurrent worker counts.
+
+Calibration remains exactly 128 direct plus 32 blocks for each of seven scripts,
+1,152 primary hands, hard 7,200 seconds including load and verification. Storage
+admission reserves the fixed-24 observed bytes per decision for 1,152 decisions,
+three maximum observed native scratch sets and 512 MiB failure margin above the
+unchanged 16 GiB disk floor. This is a prospective estimate (1.64 searched
+decisions per search-arm hand), not a decision cap or a guarantee about unseen
+failures; the usual guard remains binding. No final hands are authorized.

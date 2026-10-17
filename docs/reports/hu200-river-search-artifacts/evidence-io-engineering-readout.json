@@ -1,0 +1,57 @@
+{
+  "choices": [
+    {
+      "decisions_per_second": 0.18307545924035984,
+      "mean_decision_seconds": 5.462228548541286,
+      "summary_path": "cost-01/summary.json",
+      "summary_sha256": "50719c44886ac31dd6819cb436a8c45392a78456d76b499ccefd5d8d5701d182",
+      "workers": 1
+    },
+    {
+      "decisions_per_second": 0.31868490918540954,
+      "mean_decision_seconds": 5.938807727583328,
+      "summary_path": "concurrency-2/summary.json",
+      "summary_sha256": "2d867bc0afa64d2eb3d02007dcf2b55ccadd7ad5d65a30d3ae3f7d967909d47b",
+      "workers": 2
+    },
+    {
+      "decisions_per_second": 0.41935657273838123,
+      "mean_decision_seconds": 6.522483390708051,
+      "summary_path": "concurrency-3/summary.json",
+      "summary_sha256": "de736db7904d6eea2128506e434a3076982719dd371243f4558c1d28882a85f3",
+      "workers": 3
+    }
+  ],
+  "chosen_concurrent_mean_seconds": 6.522483390708051,
+  "cost": {
+    "all_search_work_completed": true,
+    "decisions": 24,
+    "fallback_decisions": 0,
+    "host_memory_definition": "psutil.virtual_memory().available; available includes reclaimable memory",
+    "latency_target_met": true,
+    "latency_target_seconds": 10,
+    "memory_target_met": true,
+    "minimum_host_available_bytes": 6221905920,
+    "no_automatic_budget_weakening": true,
+    "no_strength_hands": true,
+    "peak_family_rss_bytes": 2898165760,
+    "physical_memory_bytes": 17179869184,
+    "physical_minus_family_bytes": 14281703424,
+    "seconds": {
+      "max": 11.511391332998755,
+      "p50": 4.639594479500374,
+      "p95": 9.833949639248743
+    },
+    "status": "complete",
+    "successful_decisions_missing_ev": 0,
+    "telemetry_target_met": true
+  },
+  "cost_evidence_bytes": 54319419,
+  "native_calls": 35,
+  "no_calibration_hands": true,
+  "request_and_header_compression": "lossless; original hashes retained",
+  "sampled_complete_native_bodies": 1,
+  "selected_workers": 3,
+  "sequential_mean_seconds": 5.462228548541286,
+  "status": "qualified-engineering"
+}
