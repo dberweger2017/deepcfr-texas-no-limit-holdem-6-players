@@ -180,6 +180,10 @@ def test_one_guard_broadcasts_to_trainers_and_audits_before_termination(monkeypa
                     reason='Qualified bb128 CPU reservations and50GB disk floor')
 def test_real_queue_overlaps_only_independent_jobs_and_pins_cpu_limits(monkeypatch,tmp_path):
     import sys
+    from types import SimpleNamespace
+    # This process-overlap fixture writes only small metadata. Resource-budget
+    # behavior has separate tests; host disk pressure must not disable its jobs.
+    monkeypatch.setattr(schedule.shutil,'disk_usage',lambda p:SimpleNamespace(free=200_000_000_000))
     q=schedule.Queue.__new__(schedule.Queue)
     q.base,q.root=tmp_path,tmp_path/'guard'
     q.root.mkdir()
