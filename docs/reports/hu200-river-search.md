@@ -24,6 +24,19 @@ at05:02. Provisional M4-release window, including range diagnostics: October21
 08:15–October23 17:00. The [PR ETA](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082)
 states the allowances. These are forecasts, not completed research.
 
+**October17 at11:42Madrid status supersedes those ETAs:** 1,512 of145,408
+final blocks are verified/transferred/retired, all from the direct match. The
+fixed disk admission now permits one search instead of three: free disk fell
+from19.520GB to about18.1GB against a16GiB floor plus dispatch reserves. The
+live final evidence/journal root is only about11MB; transfers and retirement
+work, with no guard breach or stop. Peak sampled family RSS is11.51GB. The
+last-hour rate is about568 closed direct blocks/hour, projecting the direct
+match alone around October26–27 if unchanged. That exceeds the unchanged
+October22 at21:52Madrid safety deadline. No full completion/review ETA is
+reliable until sufficient scratch headroom restores admitted concurrency;
+about2GB of additional safe headroom is recommended. Counts, roots, source,
+guards and the deadline remain fixed. No interim effect readout occurred.
+
 Final preparation retained two plumbing failures before any final hand: the
 pipeline overlap fixture initially observed only transfer-start timing, and an
 admission helper initially imported from the owner checkout instead of the

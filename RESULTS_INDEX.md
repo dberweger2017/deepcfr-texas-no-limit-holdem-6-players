@@ -16,8 +16,12 @@ Declaration commit `fc5ddce1` precedes launch **October17 at09:52:03Madrid**.
 [Launch receipt](docs/reports/hu200-river-search-artifacts/final-launch-receipt.json)
 records the first 21 verified/transferred/retired blocks, without effect readout.
 [ETA posted on the PR](https://github.com/dberweger2017/CFR-NLHE-6max/pull/317#issuecomment-6231418082):
-M4 release October21 20:15–October22 17:00Madrid; final-review readiness
-October22 08:15–October23 17:00Madrid, provisional including diagnostics/archive.
+The initial M4-release/review windows are **superseded**: October17 at11:42Madrid,
+1,512 blocks are closed, but disk admission now permits one search. At the recent
+rate the direct match alone projects to October26–27, beyond the unchanged
+October22 21:52Madrid safety cap. Restoring about2GB safe scratch headroom is
+recommended; a full completion/review ETA is pending. No effects were inspected.
+[Live resource finding](docs/reports/hu200-river-search.md).
 All 96 focused M4 checks and 448 existing paired-rotation prefix audits pass.
 The 352-block copied-evidence qualification verifies every file before retiring
 only those new copies; calibration originals remain unchanged. Including
