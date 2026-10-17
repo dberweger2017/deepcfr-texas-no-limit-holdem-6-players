@@ -4,7 +4,7 @@ use crate::cfr::{AverageRule, Node};
 use crate::game::Game;
 use crate::key::MenuVersion;
 use crate::trainer::{FrozenTable, Trainer};
-use flate2::read::GzDecoder;
+use flate2::read::MultiGzDecoder as GzDecoder;
 use serde_json::{json, Value};
 use std::io::{BufRead, BufReader};
 use std::path::Path;

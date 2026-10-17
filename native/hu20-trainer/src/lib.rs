@@ -19,6 +19,7 @@ mod multi_tests;
 pub mod key;
 pub mod parity;
 pub mod store;
+pub mod gz;
 pub mod streams;
 pub mod trainer;
 

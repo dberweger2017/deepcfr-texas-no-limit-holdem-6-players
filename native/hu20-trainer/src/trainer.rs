@@ -13,12 +13,12 @@ use crate::cfr::{AverageRule, Discounts, Key, Node, Options, Sampler, Table, Tra
 use crate::store::{Shard, Store, SHARDS};
 use crate::streams::{engine_deck, python_seed, Mt};
 use crate::game::{Game, Hand};
-use flate2::write::GzEncoder;
-use flate2::Compression;
 use rayon::prelude::*;
 use serde_json::{json, Value};
-use std::io::Write;
 use std::path::Path;
+
+/// Checkpoint rows per parallel formatting piece.
+const SAVE_PIECE: usize = 16_384;
 
 /// Two workers for the production setting's two traversals: the global pool would wake every
 /// idle worker on each ~0.3 ms iteration.
@@ -56,6 +56,10 @@ pub struct Trainer {
     pub menu: MenuVersion,
     /// Per-task delta maps, emptied and reused every iteration.
     scratch: Vec<Table>,
+    /// Per-shard merged deltas, drained and reused every iteration.
+    merged: Vec<Table>,
+    /// Process-local; content is the same either way.
+    pub gzip: crate::gz::Gzip,
     pub iteration: u64,
     pub seed: u64,
     pub roots_per_seat: usize,
@@ -76,7 +80,7 @@ pub struct Trainer {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { game: Game::Hu20, table: Store::new(), cards: Cards::V1, menu: MenuVersion::V1, scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
+        Trainer { game: Game::Hu20, table: Store::new(), cards: Cards::V1, menu: MenuVersion::V1, scratch: Vec::new(), merged: Vec::new(), gzip: Default::default(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
                   frozen_table: None, missing_traverser_by_street: [0; 4], missing_opponent_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
@@ -147,37 +151,48 @@ impl Trainer {
                 self.missing_opponent_by_street[i] += missing_opponent[i];
             }
         }
-        // Group each task's deltas by shard, keeping task order inside every shard.
-        let group = |(deltas, _, _, _, _, _): &TraversalResult| {
-                let mut by_shard: Vec<Vec<(Key, Node)>> = vec![Vec::new(); SHARDS];
-                for (key, delta) in deltas {
-                    by_shard[Store::shard(key)].push((*key, *delta));
+        // Python's addition order per key: +0.0, then each task's delta in task order.
+        let mut merged = std::mem::take(&mut self.merged);
+        merged.resize_with(SHARDS, Table::default);
+        let add_task = |merged: &mut Table, key: &Key, delta: &Node| {
+            let target = merged.entry(*key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+            assert!(target.code == delta.code, "an abstract infoset changed its action labels");
+            for i in 0..delta.len as usize {
+                target.regrets[i] += delta.regrets[i];
+                target.average[i] += delta.average[i];
+            }
+            target.visits += delta.visits;
+        };
+        if tasks.len() > 2 {
+            let grouped: Vec<Vec<Vec<(&Key, &Node)>>> = results.par_iter().map(|result| {
+                let mut by_shard: Vec<Vec<(&Key, &Node)>> = vec![Vec::new(); SHARDS];
+                for (key, delta) in &result.0 {
+                    by_shard[Store::shard(key)].push((key, delta));
                 }
                 by_shard
-        };
-        let grouped: Vec<Vec<Vec<(Key, Node)>>> =
-            if tasks.len() > 2 { results.par_iter().map(group).collect() } else { results.iter().map(group).collect() };
+            }).collect();
+            merged.par_iter_mut().enumerate().for_each(|(shard, target)| {
+                for task in &grouped {
+                    for &(key, delta) in &task[shard] {
+                        add_task(target, key, delta);
+                    }
+                }
+            });
+        } else {
+            for result in &results {
+                for (key, delta) in &result.0 {
+                    add_task(&mut merged[Store::shard(key)], key, delta);
+                }
+            }
+        }
         if let Some([alpha, beta, _]) = options.dcfr {
             self.discounts.extend([alpha, beta], iteration);
         }
         let discounts = &self.discounts;
         let frozen = self.frozen_table.is_some();
-        // Per shard: merge tasks in order, then apply. Each key sees Python's addition order.
-        let apply = |(shard, table): (usize, &mut Shard)| {
-            let mut merged = Table::default();
-            for task in &grouped {
-                for (key, delta) in &task[shard] {
-                    let target = merged.entry(*key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
-                    assert!(target.code == delta.code, "an abstract infoset changed its action labels");
-                    for i in 0..delta.len as usize {
-                        target.regrets[i] += delta.regrets[i];
-                        target.average[i] += delta.average[i];
-                    }
-                    target.visits += delta.visits;
-                }
-            }
+        let apply = |((table, merged), _): ((&mut Shard, &mut Table), usize)| {
             let (mut discarded_visits, mut discarded_updates) = (0u64, 0u64);
-            for (key, delta) in merged {
+            for (key, delta) in merged.drain() {
                 // Filter only by membership, never visits: existing opponent-only keys still learn their average.
                 if frozen && !table.contains(&key) {
                     discarded_visits += delta.visits;
@@ -218,10 +233,11 @@ impl Trainer {
         // Two traversals per iteration (the production setting) are cheaper to apply serially.
         let sum = |a: (u64, u64), b: (u64, u64)| (a.0 + b.0, a.1 + b.1);
         let discarded = if tasks.len() > 2 {
-            self.table.0.par_iter_mut().enumerate().map(apply).reduce(|| (0, 0), sum)
+            self.table.0.par_iter_mut().zip(merged.par_iter_mut()).zip(0..SHARDS).map(apply).reduce(|| (0, 0), sum)
         } else {
-            self.table.0.iter_mut().enumerate().map(apply).fold((0, 0), sum)
+            self.table.0.iter_mut().zip(merged.iter_mut()).zip(0..SHARDS).map(apply).fold((0, 0), sum)
         };
+        self.merged = merged;
         if let Some(state) = &mut self.frozen_table {
             state.discarded_traverser_visits += discarded.0;
             state.discarded_updates += discarded.1;
@@ -285,19 +301,21 @@ impl Trainer {
             header["training_options"] = json!(label);
         }
         let temporary = path.with_extension("tmp");
-        {
-            let file = std::fs::File::create(&temporary)?;
-            let mut out = GzEncoder::new(std::io::BufWriter::new(file), Compression::default());
-            writeln!(out, "{}", serde_json::to_string(&header).unwrap())?;
-            for (key, node) in self.table.sorted() {
+        let head = serde_json::to_string(&header).unwrap() + "\n";
+        let orders: Vec<Vec<u32>> = self.table.0.par_iter().map(|shard| shard.order()).collect();
+        let pieces: Vec<(usize, std::ops::Range<usize>)> = orders.iter().enumerate()
+            .flat_map(|(s, order)| (0..order.len()).step_by(SAVE_PIECE).map(move |i| (s, i..(i + SAVE_PIECE).min(order.len()))))
+            .collect();
+        crate::gz::write_ordered(&temporary, self.gzip, head.as_bytes(), &pieces, |(s, range), out| {
+            for &i in &orders[*s][range.clone()] {
+                let (key, node) = self.table.0[*s].row(i);
                 let node = &self.caught_up(&node);
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
                 let n = node.len as usize;
-                let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);
-                writeln!(out, "{}", serde_json::to_string(&row).unwrap())?;
+                serde_json::to_writer(&mut *out, &(hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits)).unwrap();
+                out.push(b'\n');
             }
-            out.finish()?.flush()?;
-        }
+        })?;
         std::fs::rename(temporary, path)
     }
 }

@@ -1,6 +1,6 @@
 //! Versioned N-player checkpoint. Legacy HU readers/writers remain untouched.
 use crate::multi_cfr::{Counts, Entry, Table, Trainer};
-use flate2::{read::GzDecoder, write::GzEncoder, Compression};
+use flate2::{read::MultiGzDecoder as GzDecoder, write::GzEncoder, Compression};
 use serde_json::{json, Value};
 use std::io::{BufRead, BufReader, Write};
 use std::path::Path;
