@@ -1,5 +1,5 @@
 {
-  "status": "coordinator-active;scientific-jobs-running",
+  "status": "coordinator-handback-declared;guarded-jobs-continue",
   "timezone": "UTC;Madrid=UTC+02:00 on these dates",
   "historical_precision": "Older coordinator handbacks are evidenced by completion/readback timestamps, not invented exact idle boundaries.",
   "owner_requirement": "Mark each coordinator stop and return in the PR, with reason and background scientific/storage job state; do not silently reset clocks.",
@@ -53,6 +53,13 @@
       "coordinator": "Verified live source/commands/affinities and finalized startup report",
       "jobs": "All3 guarded jobs alive, no new failure",
       "time_basis": "Fresh owned-root startup snapshot"
+    },
+    {
+      "utc": "2026-10-17T10:45:59.534189+00:00",
+      "coordinator": "Handback declared after restart verification, reporting and PR update preparation",
+      "jobs": "1302 trainer and1421/1422 validators continue under supervisor36848;terminal observer36870 active",
+      "time_basis": "Current declared handoff marker; final PR readback/bookkeeping follows",
+      "clock_credit": false
     }
   ]
 }
