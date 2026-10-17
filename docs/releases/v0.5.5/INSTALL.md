@@ -1,6 +1,7 @@
 # Install and run v0.5.5
 
-Use Python 3.11 and a 16 GB machine. The blend was built and tested on a base
+To play, use Python 3.11, Git and a Rust toolchain for the pinned engine's source
+build, on a 16 GB machine. The blend was built and tested on a base
 16 GB MacBook Pro M4; #306 measured 12.75 GB peak family RSS for its research
 pipeline. Two fresh CLI starts took **22m41s and 22m16s**, with peak process RSS
 of **9,412,120,576 bytes** (9.41 GB /8.77 GiB) on the packaging test machine.
